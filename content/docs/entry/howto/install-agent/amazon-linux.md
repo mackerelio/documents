@@ -1,0 +1,87 @@
+---
+Title: Installing mackerel-agent in Amazon Linux
+Date: 2016-05-23T15:21:56+09:00
+URL: https://mackerel.io/docs/entry/howto/install-agent/amazon-linux
+EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/6653812171397671378
+---
+
+The content described on this page is also available from the [New Host registration screen in Mackerel](https://mackerel.io/my/instruction-agent).
+
+<h2 id="v2">When using Amazon Linux 2 LTS</h2>
+
+Execute the following command:
+
+```
+curl -fsSL https://mackerel.io/file/script/amznlinux/setup-all-yum-v2.sh | MACKEREL_APIKEY='<YOUR_API_KEY>' sh
+```
+
+You can check the API key from the [Organization page’s API Keys tab](https://mackerel.io/my?tab=apikeys). Keep in mind that this key is used to identify your organization, so we strongly advise not sharing it with others.
+
+<h2 id="v1">When using Amazon Linux</h2>
+
+Execute the following command:
+
+```
+curl -fsSL https://mackerel.io/file/script/amznlinux/setup-all-yum.sh | MACKEREL_APIKEY='<YOUR_API_KEY>' sh
+```
+
+You can check the API key from the [Organization page’s API Keys tab](https://mackerel.io/my?tab=apikeys). Keep in mind that this key is used to identify your organization, so we strongly advise not sharing it with others.
+
+<h2 id="config">Edit the configuration file</h2>
+
+Edit the file `/etc/mackerel-agent/mackerel-agent.conf` and configure the API key. 
+
+```
+apikey = "<YOUR_API_KEY>"
+```
+
+You can check the API key from the [Organization page’s API Keys tab](https://mackerel.io/my?tab=apikeys). Keep in mind that this key is used to identify your organization, so we strongly advise not sharing it with others. 
+
+For more details, check out the [mackerel-agent specifications](https://mackerel.io/docs/entry/spec/agent) help page. 
+
+By using the configuration file, the following can be implemented:
+
+- [Service and role configuration](https://mackerel.io/docs/entry/spec/agent#setting-services-and-roles)
+- [Posting user-defined custom metrics](https://mackerel.io/docs/entry/advanced/custom-metrics)
+- [Adding monitors for script checks](https://mackerel.io/docs/entry/custom-checks)
+
+<h2 id="start-agent">Starting the agent</h2>
+<h3>When using Amazon Linux 2 LTS</h3>
+
+The agent will start by running the following command:
+
+```
+sudo systemctl start mackerel-agent
+```
+
+The log is output to Journal. You can check the mackerel-agent log with the following command.
+
+```
+sudo journalctl -u mackerel-agent.service
+```
+
+When the agent begins to run properly, it will be registered as a host in Mackerel. Please confirm this in [dashboards](https://mackerel.io/my/dashboard) etc.
+
+<h3>When using Amazon Linux</h3>
+
+The agent will start by running the following command:
+
+```
+sudo /sbin/service mackerel-agent start
+```
+
+The agent’s log is output to `/var/log/mackerel-agent.log`.
+
+When the agent begins to run properly, it will be registered as a host in Mackerel. Please confirm this in [dashboards](https://mackerel.io/my/dashboard) etc.
+
+
+<h2 id="uninstall">Uninstall the agent</h2>
+
+To uninstall mackerel-agent, run the following command.
+
+
+```
+sudo yum erase mackerel-agent
+```
+
+By doing so, a file with the host ID documented will remain (at `/var/lib/mackerel-agent/id` under default settings), so please make sure to delete it.
