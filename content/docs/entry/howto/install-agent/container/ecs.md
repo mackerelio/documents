@@ -50,7 +50,7 @@ Add mackerel-container-agent with the following configuration from the "Add Cont
 | Container name| mackerel-container-agent |
 | Image|  mackerel/mackerel-container-agent:latest |
 | Memory limit|  Hard limit: 128 |
-| Mount point<br>(Source volume: Container path)| Check both cgroup: /host/sys/fs/cgroup and <br>docker_sock: /var/run.docker.sock<br> as read only |
+| Mount point<br>(Source volume: Container path)| Check both cgroup: /host/sys/fs/cgroup and <br>docker_sock: /var/run/docker.sock<br> as read only |
 | Environment variable (key:value) | MACKEREL_CONTAINER_PLATFORM: ecs<br>MACKEREL_APIKEY: Mackerel API key |
 
 When using roles and plugins, refer to the Agent configurations [here](https://mackerel.io/docs/entry/howto/container-agent).

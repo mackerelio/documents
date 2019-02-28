@@ -119,7 +119,7 @@ kubeletで認証が有効な場合には、mackerel-container-agentがこれら�
 
 kubeletの認証については[Kubernetesのドキュメント](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet-authentication-authorization/)を御覧ください。
 
-mackerel-container-agentが参照するリソースに対するClusterRoleを作成してServiceAccountに紐付ける例です。
+以下はRBACの設定例です。
 
 ```
 ---

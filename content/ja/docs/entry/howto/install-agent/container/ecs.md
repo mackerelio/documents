@@ -50,7 +50,7 @@ mackerel-container-agentで利用するボリュームを追加します。
 | コンテナ名| mackerel-container-agent |
 | イメージ|  mackerel/mackerel-container-agent:latest |
 | メモリ制限|  ハード制限: 128 |
-| マウントポイント<br>(ソースボリューム: コンテナパス)| cgroup: /host/sys/fs/cgroup<br>docker_sock: /var/run.docker.sock<br>どちらも読み取り専用にチェックしてください |
+| マウントポイント<br>(ソースボリューム: コンテナパス)| cgroup: /host/sys/fs/cgroup<br>docker_sock: /var/run/docker.sock<br>どちらも読み取り専用にチェックしてください |
 | 環境変数(キー: 値) | MACKEREL_CONTAINER_PLATFORM: ecs<br>MACKEREL_APIKEY: Mackerel APIキー |
 
 ロールやプラグインを利用する場合は[こちら](https://mackerel.io/ja/docs/entry/howto/container-agent)の「エージェント設定」も参照してください。
