@@ -1,6 +1,6 @@
 # Mackerel Documents
 
-Source markdown files of Mackerel documentations hosted on https://mackerel.io
+Source markdown files of Mackerel documentation hosted on https://mackerel.io
 
 ## LICENSE
 
