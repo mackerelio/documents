@@ -76,6 +76,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
     <li><a href="https://mackerel.io/ja/docs/entry/howto/host-retirement"><strong>登録されたホストを Mackerel の管理対象から外す</strong><span>監視が不要になったホストを、Mackerel の管理対象から外します</span></a></li>
     <li><a href="https://mackerel.io/ja/docs/entry/howto/graphboard"><strong>グラフボードを利用する</strong><span>サービス画面でグラフボードを利用します</span></a></li>
     <li><a href="https://mackerel.io/ja/docs/entry/howto/mkr/wrap"><strong>バッチジョブを監視する</strong><span>mkr wrapでcronなどのバッチジョブを監視できます</span></a></li>
+    <li><a href="https://mackerel.io/ja/docs/entry/howto/anomaly-detection-for-roles"><strong>ロール内異常検知を利用する</strong><span>ロール内のホストを機械学習で監視します</span></a></li>
 </ul>
 </section>
 

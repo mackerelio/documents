@@ -72,9 +72,10 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackere
     <li><a href="https://mackerel.io/docs/entry/howto/mackerel-agent-plugins"><strong>Using the official plugin pack to visualize middleware metrics</strong><span>how to use the official plugin pack, which supports various kinds of middleware</span></a></li>
     <li><a href="https://mackerel.io/docs/entry/howto/dashboard"><strong>Using Custom Dashboards</strong><span>how to use user-customized dashboards</span></a></li>
     <li><a href="https://mackerel.io/docs/entry/howto/auto-scaling"><strong>Using Mackerel in Auto Scaling environments</strong><span>how to best use Mackerel in Auto Scaling environments</span></a></li>
-    <li><a href="https://mackerel.io/docs/entry/howto/metadata"><strong>Using metadata</strong><span>How to register and utilize metadata</span></a></li>
+    <li><a href="https://mackerel.io/docs/entry/howto/metadata"><strong>Using metadata</strong><span>how to register and utilize metadata</span></a></li>
     <li><a href="https://mackerel.io/docs/entry/howto/host-retirement"><strong>Removing registered hosts from Mackerel’s managed targets</strong><span>how to remove hosts that no longer need to be monitored</span></a></li>
-    <li><a href="https://mackerel.io/ja/docs/entry/howto/graphboard"><strong>Using GraphBoards</strong><span>How to use GraphBoards in the service screen</span></a></li>
+    <li><a href="https://mackerel.io/docs/entry/howto/graphboard"><strong>Using GraphBoards</strong><span>how to use GraphBoards in the service screen</span></a></li>
+    <li><a href="https://mackerel.io/docs/entry/howto/anomaly-detection-for-roles"><strong>Using Anomaly Detection for roles</strong><span>how to monitor hosts in a role using machine learning</span></a></li>
 </ul>
 </section>
 
@@ -118,7 +119,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackere
 <h4><span>Advanced</span></h4>
 <ul>
     <li><a href="https://mackerel.io/docs/entry/advanced/custom-metrics"><strong>Posting user-defined custom metrics</strong><span>posting middleware metrics of MySQL and such from mackerel-agent</span></a></li>
-    <li><a href="https://mackerel.io/ja/docs/entry/advanced/go-mackerel-plugin"><strong>Using go-mackerel-plugin to create a custom metric plugin</strong><span>An
+    <li><a href="https://mackerel.io/docs/entry/advanced/go-mackerel-plugin"><strong>Using go-mackerel-plugin to create a custom metric plugin</strong><span>An
  introduction on how to create plugins using the official library</span></a></li>
     <li><a href="https://mackerel.io/docs/entry/advanced/hubot"><strong>Getting notifications in chat tools with Hubot</strong><span>receive alert notification Webhooks from Mackerel and broadcast notifications to chat tools such as IRC, Slack, and HipChat via Hubot</span></a></li>
     <li><a href="https://mackerel.io/docs/entry/advanced/fluentd"><strong>Posting Service Metrics with fluentd</strong><span>Posting the number of requests, error rate, and more for each status code via fluentd</span></a></li>

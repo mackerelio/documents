@@ -11,3 +11,4 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 
 - [式による監視](https://mackerel.io/ja/docs/entry/expression-monitoring)
 - [式によりカスタマイズしたグラフ](https://mackerel.io/ja/docs/entry/advanced/advanced-graph)
+- [ロール内異常検知](https://mackerel.io/ja/docs/entry/howto/anomaly-detection-for-roles)
