@@ -89,6 +89,7 @@ mackerel-container-agentでは各コンテナオーケストレーションプ�
 | MACKEREL_ROLES | タスク、Podのサービス、ロールを設定できます。 |
 | MACKEREL_AGENT_CONFIG | エージェントの設定ファイルを設定できます。こちらの詳細は後述します。 |
 | MACKEREL_IGNORE_CONTAINER | 監視を除外するコンテナの名前を正規表現で設定します。 |
+| MACKEREL_HOST_STATUS_ON_START | 設定すると、エージェント起動時にホストのステータスを指定した値に変更します。 有効な値は "standby", "working", "maintenance", "poweroff" のいずれかです。|
 
 ### 設定ファイルによる設定
 

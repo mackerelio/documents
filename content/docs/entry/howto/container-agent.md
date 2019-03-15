@@ -88,6 +88,7 @@ If not using the plugin, the agent can be used with just environment variable co
 | MACKEREL_ROLES | Sets tasks, pod services, and roles. |
 | MACKEREL_AGENT_CONFIG | Sets the agent configuration file. Details for this will be described later. |
 | MACKEREL_IGNORE_CONTAINER | Sets the name of the container to be excluded from monitoring with regular expressions. |
+| MACKEREL_HOST_STATUS_ON_START | When set, the host status changes to the specified value upon startup of the agent. Valid values are "standby", "working", "maintenance", and "poweroff".|
 
 ### Using the configuration file
 
