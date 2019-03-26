@@ -14,7 +14,7 @@ AWSインテグレーションは現在は以下のAWSクラウド製品に対�
 
 [EC2](https://mackerel.io/ja/docs/entry/integrations/aws/ec2)・[ELB (CLB)](https://mackerel.io/ja/docs/entry/integrations/aws/elb)・[ALB](https://mackerel.io/ja/docs/entry/integrations/aws/alb)・[NLB](https://mackerel.io/ja/docs/entry/integrations/aws/nlb)・[RDS](https://mackerel.io/ja/docs/entry/integrations/aws/rds)・[ElastiCache](https://mackerel.io/ja/docs/entry/integrations/aws/elasticache)・[Redshift](https://mackerel.io/ja/docs/entry/integrations/aws/redshift)・[Lambda](https://mackerel.io/ja/docs/entry/integrations/aws/lambda)・[SQS](https://mackerel.io/ja/docs/entry/integrations/aws/sqs)・[DynamoDB](https://mackerel.io/ja/docs/entry/integrations/aws/dynamodb)・[CloudFront](https://mackerel.io/ja/docs/entry/integrations/aws/cloudfront)
 ・[API Gateway](https://mackerel.io/ja/docs/entry/integrations/aws/apigateway)
-・[Kinesis](https://mackerel.io/ja/docs/entry/integrations/aws/kinesis)・[S3](https://mackerel.io/ja/docs/entry/integrations/aws/s3)・[ES](https://mackerel.io/ja/docs/entry/integrations/aws/es)
+・[Kinesis](https://mackerel.io/ja/docs/entry/integrations/aws/kinesis)・[S3](https://mackerel.io/ja/docs/entry/integrations/aws/s3)・[ES](https://mackerel.io/ja/docs/entry/integrations/aws/es)・[ECS](https://mackerel.io/ja/docs/entry/integrations/aws/ecs)
 
 <h2 id="setting">連携方法</h2>
 AWSインテグレーションの連携方法には2つの方法があります。
@@ -59,7 +59,8 @@ FullAccess権限を付与しないようにご注意ください。また、ひ�
 - `AmazonKinesisReadOnlyAccess`
 - `AmazonS3ReadOnlyAccess`
 - `AmazonESReadOnlyAccess`
-- `CloudWatchReadOnlyAccess`（CloudFrontのみ、API Gatewayのみ、Kinesisのみ、S3のみ、またはESのみを設定する場合）
+- `ecs:Describe* / ecs:List*`
+- `CloudWatchReadOnlyAccess`（CloudFrontのみ、API Gatewayのみ、Kinesisのみ、S3のみ、ESのみ、またはECSのみを設定する場合）
 
 また、AWSインテグレーションでは後述するようにタグによって絞り込みを行うことが出来ますが、ElastiCacheやSQSでタグによる絞り込みを行う場合は追加のポリシーを付与する必要があります。
 詳しくは<a href="#tag">タグで絞り込む</a> の項目を参照してください。
@@ -106,7 +107,8 @@ FullAccess権限を付与しないようにご注意ください。また、ひ�
 - `AmazonKinesisReadOnlyAccess`
 - `AmazonS3ReadOnlyAccess`
 - `AmazonESReadOnlyAccess`
-- `CloudWatchReadOnlyAccess`（CloudFrontのみ、API Gatewayのみ、Kinesisのみ、S3のみ、またはESのみを設定する場合）
+- `ecs:Describe* / ecs:List*`
+- `CloudWatchReadOnlyAccess`（CloudFrontのみ、API Gatewayのみ、Kinesisのみ、S3のみ、ESのみ、またはECSのみを設定する場合）
 
 また、AWSインテグレーションでは後述するようにタグによって絞り込みを行うことが出来ますが、ElastiCacheやSQSでタグによる絞り込みを行う場合は追加のポリシーを付与する必要があります。
 詳しくは<a href="#tag">タグで絞り込む</a> の項目を参照してください。
