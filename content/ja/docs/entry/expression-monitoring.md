@@ -33,7 +33,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 
 <h2 id="future-predictions">監視例：将来予測によるファイルシステム容量が不足するまでの日数の監視</h2>
 
-Mackerelでは `linearRegression()`, `timeLeftForecast()`といった線形回帰の関数を利用することができます。
+Mackerelでは `linearRegression()`, `timeLeftForecast()`といった線形回帰の関数を利用できます。
 式による監視の一例として、これらの関数を用いた将来予測機能による、ファイルシステムの空き容量が枯渇するまでの残り日数を監視してみましょう。
 
 線形回帰した値が閾値になるまでの秒数を取得する`timeLeftForecast()`を使います。
