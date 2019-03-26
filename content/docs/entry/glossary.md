@@ -7,11 +7,11 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackere
 
 The following is an explanation of terminology used within Mackerel.
 
-##Service
+## Service
 
 In Mackerel, services are one of the two levels in to which hosts can be sorted. An example of a service could be something like "Hatena Bookmark", or "in-house system", etc. Typically, hosts are assigned to multiple “roles” which then function cooperatively within a service. By grouping hosts that are related or perform similar functions into roles and services, monitoring and managing hosts can be optimized.
 
-##Role
+## Role
 
 A role is a function of further categorizing and sorting hosts within a service based on the function they perform (application, database, etc.) Hosts within a role are overlaid in one graph making it easier to pick up on trends in graphs and manage your hosts in terms of function or role rather than one at a time.
 
@@ -33,7 +33,7 @@ Multiple users may belong to a single organization as a team. Additionally, a si
 
 - → [How to invite others to an organization](https://mackerel.io/docs/entry/howto/invite-others)
 
-##Metrics
+## Metrics
 
 Metrics are data that indicate the current state of a variety of parameters within a host. They are collected and sent to Mackerel in one-minute intervals by the mackerel-agent. Standard metrics such as CPU usage, memory usage, and IO are collected and sent to Mackerel by default where they can be viewed in graphs and managed on the web.
 

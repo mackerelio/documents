@@ -7,7 +7,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 
 本機能ではhttpまたはhttpsに対しての監視を行います。
 
-##URL外形監視を設定する
+## URL外形監視を設定する
 画面左側メニューのMonitorsより監視ルールを追加のボタンをクリックします。
 External Httpのタブをクリックすると、以下の項目が表示されますので、
 各項目に値・名称を記述して作成ボタンをクリックします
@@ -25,7 +25,7 @@ External Httpのタブをクリックすると、以下の項目が表示され�
 [https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20160125/20160125155134.png:image=https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20160125/20160125155134.png]
 
 
-##URL外形監視の仕様について
+## URL外形監視の仕様について
 * チェック間隔は1分毎の固定となります。
 * 次の条件でエラーと認識し、アラート通知が実行されます
     * ステータスコードが、4xxまたは5xx系の場合
@@ -38,17 +38,17 @@ External Httpのタブをクリックすると、以下の項目が表示され�
     * 3xx系はリダイレクトのフォローは行いません
 * Basic認証を利用しているURLを監視したい場合は、Authorizationヘッダを適切に指定するか、"https://user:password@example.com/..." のようにURLに認証情報を含める形にしてください
 
-##URL外形監視の監視元IPアドレスについて
+## URL外形監視の監視元IPアドレスについて
 Mackerelからの通知のリクエスト元IPアドレスレンジと同じとなります。  
 詳細は[Webhook通知や外形監視など、Mackerelからの通知元IPアドレスは？](https://mackerel.io/ja/docs/entry/faq/spec/source-ip-addresses)をご覧下さい。
 
-##利用可能なプランについて
+## 利用可能なプランについて
 本機能はTrialプランまたは有料プランでのみご利用いただけます。
 
 監視先20個までは追加の料金なしでご利用いただくことが可能です。  
 20個を超えると20個単位でホスト1台分としてカウントします。  
 
-##アラートサンプル
+## アラートサンプル
 監視設定を追加するとサイドメニューにあるMonitorsの一覧に以下のように表示されます。
 [https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20150907/20150907153553.png:image=https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20150907/20150907153553.png]
 

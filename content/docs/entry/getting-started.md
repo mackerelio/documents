@@ -5,11 +5,11 @@ URL: https://mackerel.io/docs/entry/getting-started
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/8454420450072239698
 ---
 
-##What's with the name Mackerel?
+## What's with the name Mackerel?
 
 The name Mackerel comes from a play on words based on the Japanese pronunciation of the word "server," which when spoken in Japanese sounds like "saabaa" which sounds kind of like "saba," the Japanese word for mackerel. Sounds tasty! 
 
-##What is Mackerel?
+## What is Mackerel?
 
 Mackerel is a collaborative monitoring, alert resolution, metrics visualization, and server management platform used by providers of quality web and mobile applications.
 
