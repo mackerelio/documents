@@ -5,7 +5,7 @@ URL: https://mackerel.io/ja/docs/entry/faq/organization/create-new-organization
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/8599973812319466291
 ---
 
-新しくオーガニゼーションを追加作成するには、左サイドバーの上部のオーガニゼーション切り替えメニュー内にある「作成」リンクから作成することができます。
+新しくオーガニゼーションを追加作成するには、左サイドバーの上部のオーガニゼーション切り替えメニュー内にある「作成」リンクから作成できます。
 
 ---
 

@@ -5,7 +5,7 @@ URL: https://mackerel.io/ja/docs/entry/howto/check/process
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/6653458415126986617
 ---
 
-公式チェックプラグイン集の `check-procs` を使ってプロセス監視をおこなうことができます。公式チェックプラグイン集のインストールは、[チェック監視に公式チェックプラグイン集を使う](https://mackerel.io/ja/docs/entry/howto/mackerel-check-plugins) をごらんください。
+公式チェックプラグイン集の `check-procs` を使ってプロセス監視をおこなえます。公式チェックプラグイン集のインストールは、[チェック監視に公式チェックプラグイン集を使う](https://mackerel.io/ja/docs/entry/howto/mackerel-check-plugins) をごらんください。
 
 ## 例. cronのプロセス監視をおこなう
 

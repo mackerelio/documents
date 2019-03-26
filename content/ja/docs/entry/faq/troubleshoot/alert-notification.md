@@ -7,7 +7,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 
 * ホストのステータスを確認してください。アラート通知を受け取るには、各ホストの状態を"Working"とする必要があります。
 * 新規登録されたホストのステータスのデフォルト値の設定は[オーガニゼーショントップ]→[設定]タブ より行えます。もしくは https://mackerel.io/my?tab=setting リンクより直接設定も可能です。
-  * 初期状態を”working”にすることにより、ホスト登録直後からアラート通知を受け取ることができます。
+  * 初期状態を”working”にすることにより、ホスト登録直後からアラート通知を受け取れます。
 * ホストの状態と通知の関係などについて、詳しくは「[監視・通知を設定する](https://mackerel.io/ja/docs/entry/howto/alerts)」をご参照ください。
 
 ---

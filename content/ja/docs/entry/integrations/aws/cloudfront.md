@@ -20,4 +20,4 @@ AWSインテグレーションのCloudFront対応で取得できるメトリッ�
 |ErrorRate|4xxErrorRate<br>5xxErrorRate|cloudfront.error_rate.4xx_error_rate<br>cloudfront.error_rate.5xx_error_rate|float|Average|
 
 <h2 id="notes">注意事項</h2>
-CloudFrontはグローバルなサービスである為、どのリージョンを選択していてもCloudFrontと連携することができます。
+CloudFrontはグローバルなサービスである為、どのリージョンを選択していてもCloudFrontと連携できます。

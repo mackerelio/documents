@@ -5,7 +5,7 @@ URL: https://mackerel.io/ja/docs/entry/howto/alerts/webhook
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/6653458415122476525
 ---
 
-Webhookを利用することでアラートの内容のJSONをPOSTで受け取ることができます。通知を受け取った後の処理を自動化したい場合などに重宝するでしょう。
+Webhookを利用することでアラートの内容のJSONをPOSTで受け取れます。通知を受け取った後の処理を自動化したい場合などに重宝するでしょう。
 
 ## Webhookへの通知を追加する
 

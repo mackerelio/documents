@@ -88,7 +88,7 @@ mkr update --status maintenance <hostIds>...
 mkr hosts --service My-Service --role proxy
 ```
 
-これらを組み合わせて、指定したサービスとロールのホストのステータスをまとめて変更することができます。
+これらを組み合わせて、指定したサービスとロールのホストのステータスをまとめて変更できます。
 
 ```cdl
 mkr update --st working $(mkr hosts -s My-Service -r proxy | jq -r '.[].id')
@@ -96,8 +96,8 @@ mkr update --st working $(mkr hosts -s My-Service -r proxy | jq -r '.[].id')
 
 ### メトリック取得
 
-mkrでは metrics メトリックを取得することができます。
-例えば hostId を指定することで特定のホストのメトリックを、あるいはサービス名を指定することで特定のサービスのメトリックを取得することができます。
+mkrでは metrics メトリックを取得できます。
+例えば hostId を指定することで特定のホストのメトリックを、あるいはサービス名を指定することで特定のサービスのメトリックを取得できます。
 
 ```cdl
 mkr metrics --host <hostId> --name <name> --from <epoch seconds> --to <epoch seconds>  
@@ -136,7 +136,7 @@ mkr metrics --host <hostId> --name <name> --from <epoch seconds> --to <epoch sec
 
 ### 監視ルール
 
-mkrではmonitorsサブコマンドで監視ルールを操作することができます。サブコマンドは、pull/diff/pushの3種類あります。サブコマンドを指定しない場合、監視ルール一覧が表示されます。
+mkrではmonitorsサブコマンドで監視ルールを操作できます。サブコマンドは、pull/diff/pushの3種類あります。サブコマンドを指定しない場合、監視ルール一覧が表示されます。
 
 - `pull`
   - Mackerelから監視ルール一覧を取得し、ローカルファイルに保存します。
@@ -274,7 +274,7 @@ Summary: 1 modify, 1 append, 1 remove
 
 ### ダッシュボードを生成する
 
-mkrではdashboardsサブコマンドでカスタムダッシュボードを定義ファイルから自動生成することができます。
+mkrではdashboardsサブコマンドでカスタムダッシュボードを定義ファイルから自動生成できます。
 
 定義ファイルはYAML形式です。
 

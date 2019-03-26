@@ -328,7 +328,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 | `offset` | *number* | 現在時刻からの差（秒）  |
 
 （現在時刻 + `offset` - `period`）から（現在時刻 + `offset`）までの期間が表示されます。
-`offset` に負の値を指定することで、過去の指定期間のグラフを表示することができます。
+`offset` に負の値を指定することで、過去の指定期間のグラフを表示できます。
 
 #### 絶対
 | KEY     | TYPE     | DESCRIPTION             |

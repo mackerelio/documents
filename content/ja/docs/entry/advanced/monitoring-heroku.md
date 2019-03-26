@@ -50,7 +50,7 @@ $mackerel_agent -conf $mackerel_agent_conf -v &
 
 ## サービスメトリックを投稿する
 
-Herokuでは[Log Drains](https://devcenter.heroku.com/articles/log-drains)を使うことでアクセスログを含む各種ログを取得することができます。
+Herokuでは[Log Drains](https://devcenter.heroku.com/articles/log-drains)を使うことでアクセスログを含む各種ログを取得できます。
 
 [https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20151022/20151022145204_original.png:image]
 

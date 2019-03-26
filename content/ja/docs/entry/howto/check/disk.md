@@ -5,7 +5,7 @@ URL: https://mackerel.io/ja/docs/entry/howto/check/disk
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/8599973812293108124
 ---
 
-公式チェックプラグイン集の `check-disk` を使ってディスク監視をおこなうことができます。公式チェックプラグイン集のインストールは、[チェック監視に公式チェックプラグイン集を使う](https://mackerel.io/ja/docs/entry/howto/mackerel-check-plugins) をごらんください。
+公式チェックプラグイン集の `check-disk` を使ってディスク監視をおこなえます。公式チェックプラグイン集のインストールは、[チェック監視に公式チェックプラグイン集を使う](https://mackerel.io/ja/docs/entry/howto/mackerel-check-plugins) をごらんください。
 
 ## `check-disk` の使い方
 

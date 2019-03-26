@@ -9,7 +9,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 
 こちらのページでは2018年11月のリニューアル前のカスタムダッシュボード（レガシーカスタムダッシュボード）について説明します。リニューアル後の新しいカスタムダッシュボード機能については[カスタムダッシュボードを利用する](https://mackerel.io/ja/docs/entry/howto/dashboard)をご覧ください。
 
-本機能では標準でご利用いただけるメインダッシュボードに追加する形で、ユーザー自身で独自にカスタマイズしたダッシュボードを作成することができます。
+本機能では標準でご利用いただけるメインダッシュボードに追加する形で、ユーザー自身で独自にカスタマイズしたダッシュボードを作成できます。
 
 レガシーカスタムダッシュボードの作成はMarkdown形式で編集をしていただきます。
 
@@ -71,6 +71,6 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 
 ## Markdown 記法について
 
-- [Markdown](http://daringfireball.net/projects/markdown/) 記法を利用することができます。
+- [Markdown](http://daringfireball.net/projects/markdown/) 記法を利用できます。
 - 表組み・コードのシンタックスハイライトなど、一部[GitHub Flavored Markdown](https://help.github.com/categories/writing-on-github/)やその他の拡張記法にも対応しています。
 - HTML を記述することは出来ません。

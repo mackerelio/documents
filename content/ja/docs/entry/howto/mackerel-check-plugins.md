@@ -5,7 +5,7 @@ URL: https://mackerel.io/ja/docs/entry/howto/mackerel-check-plugins
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/6653458415126984680
 ---
 
-チェック監視に対応した公式プラグイン集を利用して、プロセス監視やログ監視などのチェック監視を簡単に実現することができます。
+チェック監視に対応した公式プラグイン集を利用して、プロセス監視やログ監視などのチェック監視を簡単に実現できます。
 
 [:contents]
 

@@ -5,7 +5,7 @@ URL: https://mackerel.io/ja/docs/entry/faq/organization/ip-restriction
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/17391345971636432490
 ---
 
-オーガニゼーションに対するアクセス（Web UIへのアクセス / API によるアクセス）を、IPアドレスレンジ指定により制限することができます。
+オーガニゼーションに対するアクセス（Web UIへのアクセス / API によるアクセス）を、IPアドレスレンジ指定により制限できます。
 
 [オーガニゼーション設定タブ](https://mackerel.io/my?tab=setting)内、「IP制限」から設定可能です。
 

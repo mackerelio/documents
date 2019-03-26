@@ -33,7 +33,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 }
 ```
 
-<i>`<report>`</i> : 以下のキーをもつオブジェクトです。1回のAPIリクエストでは最大100件の <i>`<report>`</i> を送信することができます。
+<i>`<report>`</i> : 以下のキーをもつオブジェクトです。1回のAPIリクエストでは最大100件の <i>`<report>`</i> を送信できます。
 
 | KEY          | TYPE     | DESCRIPTION                      |
 | ------------ | -------- | -------------------------------- |

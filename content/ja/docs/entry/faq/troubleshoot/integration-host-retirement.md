@@ -5,7 +5,7 @@ URL: https://mackerel.io/ja/docs/entry/faq/troubleshoot/integration-host-retirem
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/17391345971638042008
 ---
 
-[AWSインテグレーション](https://mackerel.io/ja/docs/entry/integrations/aws)や[Azureインテグレーション](https://mackerel.io/ja/docs/entry/integrations/azure)を利用することにより、エージェントソフトウェア（mackerel-agent）をインストールすることなく、Mackerelでモニタリングをおこなうことができます。
+[AWSインテグレーション](https://mackerel.io/ja/docs/entry/integrations/aws)や[Azureインテグレーション](https://mackerel.io/ja/docs/entry/integrations/azure)を利用することにより、エージェントソフトウェア（mackerel-agent）をインストールすることなく、Mackerelでモニタリングできます。
 
 ただし、Mackerelのインテグレーション機能は「ホストの登録（連携）」のために利用することはできますが、連携の解除（[ホストの退役](https://mackerel.io/ja/docs/entry/howto/host-retirement)）は自動ではおこなわれません。実体となる仮想サーバーが削除された場合でも、Mackerelに連携済みのホスト情報は登録されたままとなります。また、インテグレーション設定を削除した際にも、ホスト情報は登録されたままとなります。
 

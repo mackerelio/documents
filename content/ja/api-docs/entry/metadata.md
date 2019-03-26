@@ -22,13 +22,13 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 
 <h2 id="metadata">メタデータ</h2>
 
-このAPIを用いると、ホスト・サービス・ロールに任意のJSONデータを登録することができます。管理用IDや、その他運用上の管理データなど、様々な情報を登録してご利用いただけます。
+このAPIを用いると、ホスト・サービス・ロールに任意のJSONデータを登録できます。管理用IDや、その他運用上の管理データなど、様々な情報を登録してご利用いただけます。
 
 ネームスペースとは、メタデータの種類を特定する識別子です。例えば`project`や`environment`など、一貫した識別子を用いることを推奨します。メタデータの取得・登録・更新・削除のエンドポイントは一貫して以下のURLとなっています。
 
 <code>/api/v0/hosts/<em>&lt;hostId&gt;</em>/metadata/<em>&lt;namespace&gt;</em></code>
 
-このエンドポイントにJSON (オブジェクト・配列・文字列・数字・真偽値・null) を登録し、取得することができます。
+このエンドポイントにJSON (オブジェクト・配列・文字列・数字・真偽値・null) を登録し、取得できます。
 ```json
 {
   "type": 12345,
@@ -38,7 +38,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 }
 ```
 
-ネームスペースにはアルファベットと数字、`_`、`-`を用いることができます (`[-a-zA-Z0-9_]+`)。ただし`mackerel`から始まるネームスペースは、Mackerelのシステムが利用します。
+ネームスペースにはアルファベットと数字、`_`、`-`を使用できます (`[-a-zA-Z0-9_]+`)。ただし`mackerel`から始まるネームスペースは、Mackerelのシステムが利用します。
 
 <h2 id="hostget">ホストメタデータの取得</h2>
 

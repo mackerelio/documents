@@ -5,9 +5,9 @@ URL: https://mackerel.io/ja/docs/entry/howto/alerts/pagerduty
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/8454420450075241072
 ---
 
-[PagerDuty](http://www.pagerduty.com/)はMackerelのような監視ツールからのアラートを集約し、PagerDuty上に登録した任意の通知ルールに従って様々な通知を送ることが出来るインシデント管理サービスです。通知の例として、音声、SMS、email、プッシュ型のアラート通知を送る事ができます。
+[PagerDuty](http://www.pagerduty.com/)はMackerelのような監視ツールからのアラートを集約し、PagerDuty上に登録した任意の通知ルールに従って様々な通知を送ることが出来るインシデント管理サービスです。通知の例として、音声、SMS、email、プッシュ型のアラート通知ができます。
 
-PagerDutyと連携を行う事で、Mackerelで発生したアラートをPagerDuty上のインシデントとして管理することができます。
+PagerDutyと連携を行う事で、Mackerelで発生したアラートをPagerDuty上のインシデントとして管理できます。
 
 <p><span itemscope itemtype="http://schema.org/Photograph"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20141125/20141125162901.png" alt="f:id:mackerelio:20141125162901p:plain" title="f:id:mackerelio:20141125162901p:plain" class="hatena-fotolife" itemprop="image"></span></p>
 
@@ -48,5 +48,5 @@ PagerDuty連携では、アラート通知をPagerDutyへ送信する監視の�
 
 <h2 id="api-version">API Versionについて</h2>
 
-PagerDutyのチャンネル設定画面では利用するEvents APIのバージョンを選ぶことができますが、新規に作成する設定ではAPI v2を利用することを推奨しています。
+PagerDutyのチャンネル設定画面では利用するEvents APIのバージョンを選べますが、新規に作成する設定ではAPI v2を利用することを推奨しています。
 2017年11月時点では通知される内容に大きな違いはありませんが、今後Events API v2経由の場合のみに利用できる通知パラメータを追加する可能性があります。

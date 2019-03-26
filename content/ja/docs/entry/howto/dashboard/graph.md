@@ -6,7 +6,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 ---
 
 # グラフウィジェットを利用する
-グラフウィジェットを利用すると、カスタムダッシュボードにグラフを表示することができます。
+グラフウィジェットを利用すると、カスタムダッシュボードにグラフを表示できます。
 
 [f:id:mackerelio:20181102153824p:plain]
 

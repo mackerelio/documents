@@ -5,7 +5,7 @@ URL: https://mackerel.io/ja/docs/entry/integrations/azure
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/10328749687246501097
 ---
 
-Azureインテグレーションを用いるとAzureクラウド製品をMackerelのホストとして管理し、メトリックを監視することができます。本機能はTrialプランとStandardプランのみの提供となります。
+Azureインテグレーションを用いるとAzureクラウド製品をMackerelのホストとして管理し、メトリックを監視できます。本機能はTrialプランとStandardプランのみの提供となります。
 
 Azureのクラウド製品1台が、Mackerelで1ホストとして登録され、Mackerelの課金対象のホスト数としてカウントされます。 また、5分ごとに取得対象となるメトリックの数だけAzureのAPIをコールして値を取得します。そのため[Azure Monitor API利用の料金](https://azure.microsoft.com/ja-jp/pricing/details/monitor/)が発生する場合がありますのでご注意ください。
 
@@ -104,7 +104,7 @@ Mackerel と連携するためのアプリケーションを登録してくだ�
 
 ![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20170621/20170621114144.png)
 
-このアプリケーションの画面で次に「キー」を選択してください。ここではキーを作成することができます。キーの説明や有効期限を設定し保存するとキーの値が表示されます。こちらをコピーしMackerel側の `シークレットキー` の欄に入力してください。(権限設定がされていない間はMackerelの画面で「無効」と表示されます。「権限設定」の項目に進み、閲覧権限を付与してください）
+このアプリケーションの画面で次に「キー」を選択してください。ここではキーを作成できます。キーの説明や有効期限を設定し保存するとキーの値が表示されます。こちらをコピーしMackerel側の `シークレットキー` の欄に入力してください。(権限設定がされていない間はMackerelの画面で「無効」と表示されます。「権限設定」の項目に進み、閲覧権限を付与してください）
 
 **注意** こちらのキーの有効期限が切れますとその時点からMackerelのAzureインテグレーションでもメトリック取得が不可能となりますので、その際はキーを新たに作り直してください。「期限なし」を選んだ場合は有効期限がすぐに切れることはありません。
 

@@ -11,7 +11,7 @@ Mackerel では macOS 向けの mackerel-agent の [Homebrew](https://brew.sh/) 
 
 <h2 id="install-command">mackerel-agent のインストール</h2>
 
-Homebrew の予め導入された環境で、以下のコマンドを実行してエージェントをインストールすることができます。
+Homebrew の予め導入された環境で、以下のコマンドを実行してエージェントをインストールできます。
 
 ```
 brew install mackerelio/mackerel-agent/mackerel-agent

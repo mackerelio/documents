@@ -5,12 +5,12 @@ URL: https://mackerel.io/ja/docs/entry/howto/alerts/twilio
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/10328749687188878378
 ---
 
-[Twilio](http://twilio.kddi-web.com) は、API 経由で電話や SMS の発信を行うことができるサービスです。
+[Twilio](http://twilio.kddi-web.com) は、API 経由で電話や SMS の発信を行えるサービスです。
 
 Mackerel では、Twilio で作成したアクセストークンや電話番号を登録することで、 Mackerel のアラート発生時に SMS や電話で通知を受信できるようになります。
-[Twilio for KDDI Web Communications](http://twilio.kddi-web.com) と [Twilio](https://www.twilio.com/) のどちらのアカウントも使用することができます。
+[Twilio for KDDI Web Communications](http://twilio.kddi-web.com) と [Twilio](https://www.twilio.com/) のどちらのアカウントも使用できます。
 
-ひとつの通知チャンネルに対して、 Twilio を用いた以下の3種類の通知のうちいずれかを設定することができます。複数の種類の通知が必要な場合は、同じ AccountSid や AuthToken を用いて複数の通知チャンネルを追加してください。
+ひとつの通知チャンネルに対して、 Twilio を用いた以下の3種類の通知のうちいずれかを設定できます。複数の種類の通知が必要な場合は、同じ AccountSid や AuthToken を用いて複数の通知チャンネルを追加してください。
 
 ####  SMS
 
@@ -50,7 +50,7 @@ Twilio の番号によっては、電話および SMS に対応していない�
 
 ### Status Callback URL (オプション)
 
-通知で SMS 送信や電話の発信を行った際に、 Twilio から HTTP でコールバックされるエンドポイントです。 SMS の送信の成否や電話が着信したかなどを受け取ることができます。
+通知で SMS 送信や電話の発信を行った際に、 Twilio から HTTP でコールバックされるエンドポイントです。 SMS の送信の成否や電話が着信したかなどを受け取れます。
 詳細は [Twilio のドキュメント](https://jp.twilio.com/docs/) をご覧下さい。
 
 ## 通知の種類による設定項目
@@ -59,7 +59,7 @@ Twilio の番号によっては、電話および SMS に対応していない�
 
 ### Notification level
 
-固定メッセージの場合と TwiML エンドポイントを指定する場合のどちらの場合でも、通知の閾値を設定することができます。
+固定メッセージの場合と TwiML エンドポイントを指定する場合のどちらの場合でも、通知の閾値を設定できます。
 デフォルトでは Warning と Critical の両方で電話が発信されるようになっていますが、 Critical でのみ発信されるように変更することもできます。
 また、架電による通知の場合はアラートのステータスが `ok` に戻った際に電話の発信は行われません。
 
