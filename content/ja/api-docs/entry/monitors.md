@@ -269,20 +269,22 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 
 #### 入力(サービスメトリック監視)
 
-| KEY             | TYPE     | DESCRIPTION                      |
-| ------------    | -------- | -------------------------------- |
-| `type`          | *string*   | 定数文字列 `"service"`               |
-| `name`          | *string*   | 監視一覧などで参照できる任意の名称。   |
-| `memo`          | *string*   | [optional] 監視設定のメモ。 |
-| `service`       | *string*   | 監視対象となるサービス名。 |
-| `duration`      | *number*   | 指定されたポイント数の平均値を監視する。有効範囲：直近1~10ポイント |
-| `metric`        | *string*   | 監視対象のホストメトリック名。 |
-| `operator`      | *string*   | 指定した数値より大きいか小さいかというアラート条件を指定。`">"` または `"<"`。左辺が観測値で右辺が設定値となります。|
-| `warning`       | *number*   | warningのAlert発生の閾値。 |
-| `critical`      | *number*   | criticalのAlert発生の閾値。 |
-| `maxCheckAttempts`     | *number* | [optional] 何回連続で Warning/Critical になったらアラートを発生させるか。デフォルトは1 (1~10)です。 |
-| `notificationInterval` | *number* | [optional] 通知の再送設定をするときの再送間隔 (分)。このフィールドを省略すると通知は再送されません。 |
-| `isMute`        | *boolean*       | [optional] 監視がミュート状態か否か |
+| KEY                       | TYPE      | DESCRIPTION                                                                                                          |
+| ------------------------- | --------- | -------------------------------------------------------------------------------------------------------------------- |
+| `type`                    | *string*  | 定数文字列 `"service"`                                                                                               |
+| `name`                    | *string*  | 監視一覧などで参照できる任意の名称。                                                                                 |
+| `memo`                    | *string*  | [optional] 監視設定のメモ。                                                                                          |
+| `service`                 | *string*  | 監視対象となるサービス名。                                                                                           |
+| `duration`                | *number*  | 指定されたポイント数の平均値を監視する。有効範囲：直近1~10ポイント                                                   |
+| `metric`                  | *string*  | 監視対象のホストメトリック名。                                                                                       |
+| `operator`                | *string*  | 指定した数値より大きいか小さいかというアラート条件を指定。`">"` または `"<"`。左辺が観測値で右辺が設定値となります。 |
+| `warning`                 | *number*  | warningのAlert発生の閾値。                                                                                           |
+| `critical`                | *number*  | criticalのAlert発生の閾値。                                                                                          |
+| `maxCheckAttempts`        | *number*  | [optional] 何回連続で Warning/Critical になったらアラートを発生させるか。デフォルトは1 (1~10)です。                  |
+| `missingDurationWarning`  | *number*  | [optional] 途切れ監視のwarningのAlert発生閾値 (分)。                                                                 |
+| `missingDurationCritical` | *number*  | [optional] 途切れ監視のcriticalのAlert発生閾値 (分)。                                                                |
+| `notificationInterval`    | *number*  | [optional] 通知の再送設定をするときの再送間隔 (分)。このフィールドを省略すると通知は再送されません。                 |
+| `isMute`                  | *boolean* | [optional] 監視がミュート状態か否か                                                                                  |
 
 ##### 入力例
 
@@ -298,6 +300,8 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
   "warning": 50.0,
   "critical": 100.0,
   "maxCheckAttempts": 3,
+  "missingDurationWarning": 360,
+  "missingDurationCritical": 720,
   "notificationInterval": 60
 }
 ```
@@ -319,6 +323,8 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
   "warning": 50.0,
   "critical": 100.0,
   "maxCheckAttempts": 3,
+  "missingDurationWarning": 360,
+  "missingDurationCritical": 720,
   "notificationInterval": 60
 }
 ```
@@ -350,6 +356,10 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
     <tr>
       <td>400</td>
       <td><code>maxCheckAttempts</code>が1~10の範囲を越えたとき</td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td><code>missingDurationWarning</code>または<code>missingDurationCritical</code>が10分の倍数ではないとき、あるいは一週間を超える時</td>
     </tr>
     <tr>
       <td>400</td>
