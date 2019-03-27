@@ -284,6 +284,8 @@ This function disables notifications in monitoring. Alerts occur in response to 
 | `warning`       | *number*   | the threshold that generates a warning alert |
 | `critical`      | *number*   | the threshold that generates a critical alert |
 | `maxCheckAttempts`          | *number*   | [optional] number of consecutive Warning/Critical instances before an alert is made. Default setting is 1 (1-10) |
+| `missingDurationWarning`    | *number*   | [optional] the threshold (in minutes) to generate a warning alert for interruption monitoring                                                                |
+| `missingDurationCritical`   | *number*   | [optional] the threshold (in minutes) to generate a critical alert for interruption monitoring                                                                |
 | `notificationInterval`      | *number*   | [optional] the time interval (in minutes) for re-sending notifications. If this field is omitted, notifications will not be re-sent. |
 | `isMute` | *boolean* | [optional] Whether monitoring is muted or not [*3](#muted-monitoring) | 
 
@@ -301,6 +303,8 @@ This function disables notifications in monitoring. Alerts occur in response to 
   "warning": 50.0,
   "critical": 100.0,
   "maxCheckAttempts": 3,
+  "missingDurationWarning": 360,
+  "missingDurationCritical": 720,
   "notificationInterval": 60
 }
 ```
@@ -322,6 +326,8 @@ This function disables notifications in monitoring. Alerts occur in response to 
   "warning": 50.0,
   "critical": 100.0,
   "maxCheckAttempts": 3,
+  "missingDurationWarning": 360,
+  "missingDurationCritical": 720,
   "notificationInterval": 60
 }
 ```
@@ -353,6 +359,10 @@ This function disables notifications in monitoring. Alerts occur in response to 
     <tr>
       <td>400</td>
       <td>when the <code>maxCheckAttempts</code> is not in the range of 1~10</td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td>when the <code>missingDurationWarning</code> or <code>missingDurationCritical</code> is not a multiple of 10 minutes, or is more than a week</td>
     </tr>
     <tr>
       <td>400</td>
