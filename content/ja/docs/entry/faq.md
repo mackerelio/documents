@@ -11,7 +11,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 - [サポートしている環境は？](https://mackerel.io/ja/docs/entry/faq/spec/environment)
 - [インスタンスを再作成しても同じホストとして認識させたい](https://mackerel.io/ja/docs/entry/faq/spec/host-inheriting)
 - [Mackerelサーバーとmackerel-agent間の通信はどのようになっていますか？](https://mackerel.io/ja/docs/entry/faq/spec/connection-with-agent)
-- [mackerel-agentが使用する経路を制御できますか？](https://mackerel.io/ja/docs/entry/faq/spec/connection-path)
+- [mackerel-agentが使用する経路は制御できますか？](https://mackerel.io/ja/docs/entry/faq/spec/connection-path)
 - [MackerelがホストされているIPアドレスとポート番号を教えて下さい](https://mackerel.io/ja/docs/entry/faq/spec/serve-ip-addresses)
 - [Webhook通知や外形監視など、Mackerelからの通知元IPアドレスは？](https://mackerel.io/ja/docs/entry/faq/spec/source-ip-addresses)
 

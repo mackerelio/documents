@@ -96,7 +96,7 @@ mkr update --st working $(mkr hosts -s My-Service -r proxy | jq -r '.[].id')
 
 ### メトリック取得
 
-mkrでは metrics メトリックを取得できます。
+mkrでは metrics サブコマンドでメトリックを取得できます。
 例えば hostId を指定することで特定のホストのメトリックを、あるいはサービス名を指定することで特定のサービスのメトリックを取得できます。
 
 ```cdl

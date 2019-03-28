@@ -23,7 +23,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 
 <h2 id="simplify">簡略表示</h2>
 
-サービス詳細画面のロールグラフでホスト数が多いもの（30ホスト以上）は簡略表示されます。積み上げ表示の場合はsumを、折れ線グラフの場合はmax, min, avgを表示するようになっています。簡略表示されたグラフの詳細が見たい場合はグラフ下の「全てを表示」をクリックすると見られます。
+サービス詳細画面のロールグラフでホスト数が多いもの（30ホスト以上）は簡略表示されます。積み上げ表示の場合はsumを、折れ線グラフの場合はmax, min, avgを表示するようになっています。簡略表示されたグラフの詳細が見たい場合はグラフ下の「全てを表示」をクリックすると確認できます。
 
 <p><span itemscope itemtype="http://schema.org/Photograph"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20160229/20160229152333.png" alt="f:id:mackerelio:20160229152333p:plain" title="f:id:mackerelio:20160229152333p:plain" class="hatena-fotolife" itemprop="image"></span></p>
 
