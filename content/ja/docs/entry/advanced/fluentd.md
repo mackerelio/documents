@@ -5,9 +5,9 @@ URL: https://mackerel.io/ja/docs/entry/advanced/fluentd
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/12921228815732107307
 ---
 
-サービスメトリックは、特定のサーバとは直接紐付かないメトリックを可視化、監視するための仕組みです。例えば、あるウェブサービス全体のレスポンスタイムや、ステータスコードの分布を可視化し、レスポンスが遅くなったり、エラー率が上昇していないか確認することができます。
+サービスメトリックは、特定のサーバとは直接紐付かないメトリックを可視化、監視するための仕組みです。例えば、あるウェブサービス全体のレスポンスタイムや、ステータスコードの分布を可視化し、レスポンスが遅くなったり、エラー率が上昇していないか確認できます。
 
-このサービスメトリックは[fluent-plugin-mackerel][]を利用することで[fluentd][]経由で投稿することができます。
+このサービスメトリックは[fluent-plugin-mackerel][]を利用することで[fluentd][]経由で投稿できます。
 
 また具体的なサービスメトリックへの投稿例を2つ紹介しています。
 
@@ -143,7 +143,7 @@ gem install fluent-plugin-datacounter
 </match>
 ```
 
-これにより冒頭で示したようなグラフが描画されるようになります。またグラフの右上のギアマークからグラフの設定を行うことができます。例えば、重ね合わせグラフから積み重ねグラフに変えることができます。
+これにより冒頭で示したようなグラフが描画されるようになります。またグラフの右上のギアマークからグラフの設定もできます。例えば、重ね合わせグラフから積み重ねグラフに変更できます。
 <p><span itemscope itemtype="http://schema.org/Photograph"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20140917/20140917011221.png" alt="f:id:mackerelio:20140917011221p:plain" title="f:id:mackerelio:20140917011221p:plain" class="hatena-fotolife" itemprop="image"></span></p>
 
 <h3 id="example-elb">AWSのCloudWatchのメトリックからELB関連のメトリックをサービスメトリックに投稿する</h3>

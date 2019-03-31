@@ -11,7 +11,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 - [サポートしている環境は？](https://mackerel.io/ja/docs/entry/faq/spec/environment)
 - [インスタンスを再作成しても同じホストとして認識させたい](https://mackerel.io/ja/docs/entry/faq/spec/host-inheriting)
 - [Mackerelサーバーとmackerel-agent間の通信はどのようになっていますか？](https://mackerel.io/ja/docs/entry/faq/spec/connection-with-agent)
-- [mackerel-agentが使用する経路を制御することはできますか？](https://mackerel.io/ja/docs/entry/faq/spec/connection-path)
+- [mackerel-agentが使用する経路は制御できますか？](https://mackerel.io/ja/docs/entry/faq/spec/connection-path)
 - [MackerelがホストされているIPアドレスとポート番号を教えて下さい](https://mackerel.io/ja/docs/entry/faq/spec/serve-ip-addresses)
 - [Webhook通知や外形監視など、Mackerelからの通知元IPアドレスは？](https://mackerel.io/ja/docs/entry/faq/spec/source-ip-addresses)
 
@@ -45,7 +45,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 - [表示価格は税込みですか？](https://mackerel.io/ja/docs/entry/faq/contracts/tax)
 - [ホスト数の計算方法について](https://mackerel.io/ja/docs/entry/faq/contracts/calculate-host-number)
 - [移動平均台数が小数の場合、利用料金はどうなりますか？](https://mackerel.io/ja/docs/entry/faq/contracts/how-treat-decimal)
-- [ホスト登録を行わずに Standard プランを利用することはできますか？](https://mackerel.io/ja/docs/entry/faq/contracts/about-zero-host)
+- [ホスト登録を行わずに Standard プランを利用できますか？](https://mackerel.io/ja/docs/entry/faq/contracts/about-zero-host)
 - [支払いのタイミングを教えて下さい](https://mackerel.io/ja/docs/entry/faq/contracts/payment)
 - [プラン上限超過時のホスト台数換算について](https://mackerel.io/ja/docs/entry/faq/contracts/limit-exceeded-conversion)
 - [mackerel-agent と AWS / Azure インテグレーションを併用した場合の課金体系はどうなりますか？](https://mackerel.io/ja/docs/entry/faq/contracts/combined-integration)

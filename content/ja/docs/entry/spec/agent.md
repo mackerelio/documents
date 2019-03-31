@@ -90,7 +90,7 @@ command = ["perl", "/path/to/packages.pl"]
 `apikey` 以外の設定項目はオプショナル項目です。そのため、デフォルト値のままでよい場合は明示的な指定は必要ありません。
 
 <h4 id="config-file-apikey">apikey</h4>
-エージェントが Mackerel サービスとの通信の際に用いる API キーを指定します。APIキーは、[APIキー設定タブ](https://mackerel.io/my?tab=apikeys)から新たなAPIキーを発行したり、発行済のAPIキーを失効させることができます。
+エージェントが Mackerel サービスとの通信の際に用いる API キーを指定します。APIキーは、[APIキー設定タブ](https://mackerel.io/my?tab=apikeys)から新たなAPIキーを発行したり、発行済のAPIキーを失効させられます。
 
 
 <h4 id="config-file-pidfile">pidfile</h4>
@@ -104,17 +104,17 @@ mackerel-agent のルートディレクトリを指定できます。このデ�
 <h4 id="config-file-cloudplatform">cloud_platform</h4>
 AWS EC2やAzure VM、GCP上でmackerel-agentを実行する場合、mackerel-agentは自身が実行されているIaaS環境を自動的に検出します。これらのIaaS環境にあることを識別できた場合、mackerel-agentはIaaSのメタ情報を収集するほか、AWSインテグレーションやAzureインテグレーションとの連携に必要な識別子(`custom_identifier`)をホストに対して適用します。
 
-通常、この検出は自動的に行われますが、設定ファイルに `cloud_platform` オプションを指定することで明示的にプラットフォームを指定することができます。有効な値は、 `"auto"`(デフォルト) `"ec2"` `"gce"` `"azurevm"` `"none"` の5種類です。
+通常、この検出は自動的に行われますが、設定ファイルに `cloud_platform` オプションを指定することで明示的にプラットフォームを指定できます。有効な値は、 `"auto"`(デフォルト) `"ec2"` `"gce"` `"azurevm"` `"none"` の5種類です。
 
 Dockerコンテナを利用する場合など、一つのIaaSインスタンス上で複数のmackerel-agentを起動して別々のホストとして認識させたい場合は、インスタンス本体に対応するmackerel-agent以外の設定ファイルではこのオプションを `"none"` にする必要があります。
 
 
 <h4 id="config-file-verbose">verbose</h4>
-`verbose = true` とすることで、DEBUGログの出力を有効にすることができます。
+`verbose = true` とすることで、DEBUGログの出力を有効にできます。
 
 
 <h4 id="config-file-silent">silent</h4>
-`silent = true` とすることで、WARNレベル以下のログ出力を抑制することができます。
+`silent = true` とすることで、WARNレベル以下のログ出力を抑制できます。
 
 
 <h4 id="config-file-displayname">display_name</h4>
@@ -135,7 +135,7 @@ roles = [ "My-Service:app", "Another-Service:db" ]
 
 
 <h4 id="config-file-proxy">proxy</h4>
-このオプションを指定することで、エージェントが通信に利用する HTTP Proxy を設定することができます。このオプションを利用することにより、監視対象サーバーが直接のインターネット通信をおこなえないようなネットワーク環境でも、プロキシサーバーを経由してのサーバー監視をおこなうことが可能です。
+このオプションを指定することで、エージェントが通信に利用する HTTP Proxy を設定できます。このオプションを利用することにより、監視対象サーバーが直接のインターネット通信をおこなえないようなネットワーク環境でも、プロキシサーバーを経由してのサーバー監視をおこなうことが可能です。
 
 **例: 経由させたいプロキシサーバーが localhost:8080 で提供されている場合**
 
@@ -144,13 +144,13 @@ roles = [ "My-Service:app", "Another-Service:db" ]
 http_proxy = "http://localhost:8080"
 ```
 
-また、環境変数 `HTTP_PROXY` にも対応しています。例えば、次のように指定することで、HTTP Proxy経由のアクセスにすることができます。
+また、環境変数 `HTTP_PROXY` にも対応しています。例えば、次のように指定することで、HTTP Proxy経由でのアクセスにできます。
 
 ```sh
 % HTTP_PROXY=http://localhost:8080 mackerel-agent
 ```
 
-yum/rpmの場合 `/etc/sysconfig/mackerel-agent` 、apt/debの場合は `/etc/default/mackerel-agent` ファイルに環境変数の設定を追記することでmackerel-agentに適用させることができます。例えば次のように指定します。
+yum/rpmの場合 `/etc/sysconfig/mackerel-agent` 、apt/debの場合は `/etc/default/mackerel-agent` ファイルに環境変数の設定を追記することでmackerel-agentに適用させられます。例えば次のように指定します。
 
 ```
 HTTP_PROXY="http://localhost:8080/"
@@ -186,7 +186,7 @@ mackerel-agent 設定項目を他の設定ファイルに記述し、それを `
 
 
 <h4 id="config-file-hoststatus">host_status</h4>
-エージェント起動時の、そのホストのステータスを設定できます。エージェントの起動時、終了時で別々のステータスを指定することができます。
+エージェント起動時の、そのホストのステータスを設定できます。エージェントの起動時、終了時で別々のステータスを指定できます。
 
 例えば以下のように指定することで、エージェントが起動したときに、ホストのステータスが `working` に設定され、エージェントが正常終了した際に `poweroff` に設定されます。
 
@@ -276,7 +276,7 @@ use_mountpoint = true
 mackerel-agent retire [-conf <config-file>] [-force] [options]
 ```
 
-ホストを退役させます。実行時に確認プロンプトが表示されます。 `-force` オプションをつけることで、確認プロンプトを出さずに退役処理を行うことができます。
+ホストを退役させます。実行時に確認プロンプトが表示されます。 `-force` オプションをつけることで、確認プロンプトを出さずに退役処理を行えます。
 
 ### configtest
 
@@ -284,11 +284,11 @@ mackerel-agent retire [-conf <config-file>] [-force] [options]
 mackerel-agent configtest
 ```
 
-設定ファイル（ `mackerel-agent.conf` ）のシンタックスチェックをおこなうことができます。
+設定ファイル（ `mackerel-agent.conf` ）のシンタックスチェックをおこなえます。
 
 ## initスクリプト用設定ファイル
 
-yum/rpmの場合 `/etc/sysconfig/mackerel-agent` 、apt/debの場合は `/etc/default/mackerel-agent` ファイルに環境変数の設定を追記することでmackerel-agentに適用させることができます。以下の様な変数が設定可能です。
+yum/rpmの場合 `/etc/sysconfig/mackerel-agent` 、apt/debの場合は `/etc/default/mackerel-agent` ファイルに環境変数の設定を追記することでmackerel-agentに適用させられます。以下の様な変数が設定可能です。
 
 ### OTHER_OPTS
 

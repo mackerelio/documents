@@ -34,18 +34,18 @@ env = { SAMPLE_KEY = "VALUE" } # optional
 2行目以降の各設定項目の説明は以下の通りです。 `command` のみが必須の項目で、他の項目は全て optional です。
 
 - command: エージェントが定期的に実行し、その標準出力を計測結果として使用するコマンドです。コマンドは<a href="#post-metric">後述する仕様</a>に沿って動作する必要があります。
-    - `command` には文字列を渡すことも可能です。上記の例の場合、`command = "ruby /path/to/vmstat-metrics.rb"` のように指定することができます。
+    - `command` には文字列を渡すことも可能です。上記の例の場合、`command = "ruby /path/to/vmstat-metrics.rb"` のように指定できます。
         - 文字列を渡した場合、シェル経由での実行になり、エスケープが必要になります。
         - 配列を渡した場合、シェル経由での実行にならず、エスケープも不要になります。
-- user: `command` で指定したコマンドの実行ユーザーを指定することができます。指定しない場合は mackerel-agent の実行ユーザーがコマンドの実行ユーザーとなります。
+- user: `command` で指定したコマンドの実行ユーザーを指定できます。指定しない場合は mackerel-agent の実行ユーザーがコマンドの実行ユーザーとなります。
 - custom_identifier: 実行結果のメトリックを、 agent が動作しているホストではなく指定した識別子のホストのメトリックとして送信します。
     - AWS / Azure インテグレーションの連携ホストにメトリックを追加する場合などに有用です。詳細は[AWSインテグレーションのドキュメント](https://mackerel.io/ja/docs/entry/integrations/aws#plugin-custom-identifier)をご覧下さい。
-- include_pattern / exclude_pattern: 実行結果のメトリックのうち特定のものだけを Mackerel に投稿するために正規表現を記述することができます。
+- include_pattern / exclude_pattern: 実行結果のメトリックのうち特定のものだけを Mackerel に投稿するために正規表現を記述できます。
     - include_pattern が指定されていた場合、メトリック名が指定された正規表現にマッチするメトリックのみを投稿します。
     - exclude_pattern が指定されていた場合、メトリック名が指定された正規表現にマッチしないメトリックのみを投稿します。
     - include_pattern と exclude_pattern の両方にマッチするメトリック名の場合、そのメトリックは投稿されません。
 - timeout_seconds: プラグインの処理におけるタイムアウト時間を秒で指定します。デフォルト値は30秒です。各プラグイン実行の多重起動の制御はされませんので、プラグインの実行間隔を超えないような設定をすることを推奨します。
-- env: commandに渡す環境変数を指定することができます。TOMLの[Table][]もしくは[Inline Table][]で指定します。
+- env: commandに渡す環境変数を指定できます。TOMLの[Table][]もしくは[Inline Table][]で指定します。
 
 **注意: PowerShell スクリプトを利用する場合**
 

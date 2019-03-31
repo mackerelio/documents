@@ -24,7 +24,7 @@ AWSインテグレーションのNLB対応で取得できるメトリックは�
 |TCP Reset Packets|TCP_Client_Reset_Count<br>TCP_Target_Reset_Count<br>TCP_ELB_Reset_Count|nlb.tcp_reset.client_count<br>nlb.tcp_reset.target_count<br>nlb.tcp_reset.elb_count|integer|Sum|
 
 ### ターゲットグループごとのグラフ
-Application Load BalancerとNetwork Load Balancerではロードバランサーごとに複数のターゲットグループを持つことができます。NLBではそのターゲットグループごとに以下のメトリックを取得することができます。メトリック名の `TARGET_GROUP_NAME` にターゲットグループの名前が入ります。
+Application Load BalancerとNetwork Load Balancerではロードバランサーごとに複数のターゲットグループを持つことができます。NLBではそのターゲットグループごとに以下のメトリックを取得できます。メトリック名の `TARGET_GROUP_NAME` にターゲットグループの名前が入ります。
 
 |グラフ名|メトリック|Mackerel上のメトリック名|単位|Statistics|
 |:---|:---|:---|:---|:---|

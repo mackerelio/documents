@@ -1,5 +1,5 @@
 ---
-Title: FAQ・ホスト登録を行わずに Standard プランを利用することはできますか？
+Title: FAQ・ホスト登録を行わずに Standard プランを利用できますか？
 Date: 2017-11-20T15:26:11+09:00
 URL: https://mackerel.io/ja/docs/entry/faq/contracts/about-zero-host
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/8599973812319471916

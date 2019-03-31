@@ -7,7 +7,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 
 [Slack](https://slack.com/)はリアルタイムコミュニケーションを加速させるチャットサービスです。
 
-通知のSlackチャンネルを利用すると、Mackerelからのアラート通知をSlackのチャットへ直接送れます。Slackを利用されている方は、普段のコミュニケーションの中でMackerelからのアラート通知を見られます。
+通知のSlackチャンネルを利用すると、Mackerelからのアラート通知をSlackのチャットへ直接送れます。Slackを利用されている方は、普段のコミュニケーションの中でMackerelからのアラート通知を閲覧できます。
 
 
 <p><span itemscope itemtype="http://schema.org/Photograph"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20150409/20150409174311.png" alt="f:id:mackerelio:20150409174311p:plain" title="f:id:mackerelio:20150409174311p:plain" class="hatena-fotolife cboxElement" itemprop="image"></span></p>

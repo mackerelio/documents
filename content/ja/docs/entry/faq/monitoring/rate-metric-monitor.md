@@ -5,7 +5,7 @@ URL: https://mackerel.io/ja/docs/entry/faq/monitoring/rate-metric-monitor
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/17391345971636460640
 ---
 
-ホストメトリック監視ルールを作成する際、その監視対象として以下の4種類の項目を選択することができます。
+ホストメトリック監視ルールを作成する際、その監視対象として以下の4種類の項目を選択できます。
 
 - CPU %
 - Memory %

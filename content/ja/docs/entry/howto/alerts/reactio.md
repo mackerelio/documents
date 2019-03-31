@@ -8,7 +8,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 [Reactio](https://reactio.jp)はアラート情報を集約し、任意の一斉通知ルール設定による柔軟な連絡機能やグループチャット機能による情報共有などを提供するアラート管理サービスです。通知の例として、音声、SMS、Email通知をする事が出来ます。
 
 
-Reactioとの連携ではアラート発生時のアクションとして、以下の三つから選ぶことができます。
+Reactioとの連携ではアラート発生時のアクションとして、以下の三つから選べます。
 
 1.  インシデントのみを作成する
 2.  インシデントを作成し、一斉通知を行う
@@ -16,7 +16,7 @@ Reactioとの連携ではアラート発生時のアクションとして、以�
 
 
 アラート発生時に作成されたインシデントに紐づくアラートログは、チャットメッセージとして以後投稿されます。
-この様にReactioの通知機能を損なうことなく、Mackerelで発生したアラート通知をReactioへ集約することができます。
+この様にReactioの通知機能を損なうことなく、Mackerelで発生したアラート通知をReactioへ集約できます。
 
 ![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20151022/20151022151145.png)
 

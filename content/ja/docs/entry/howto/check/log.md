@@ -5,7 +5,7 @@ URL: https://mackerel.io/ja/docs/entry/howto/check/log
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/6653458415126986600
 ---
 
-公式チェックプラグイン集の `check-log` を使ってログ監視をおこなうことができます。公式チェックプラグイン集のインストールは、[チェック監視に公式チェックプラグイン集を使う](https://mackerel.io/ja/docs/entry/howto/mackerel-check-plugins) をごらんください。
+公式チェックプラグイン集の `check-log` を使ってログ監視をおこなえます。公式チェックプラグイン集のインストールは、[チェック監視に公式チェックプラグイン集を使う](https://mackerel.io/ja/docs/entry/howto/mackerel-check-plugins) をごらんください。
 
 ## `check-log` の使い方
 

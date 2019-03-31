@@ -6,7 +6,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 ---
 
 # 数値ウィジェットを利用する
-数値ウィジェットを利用すると、任意のメトリックの最新の値を数字としてカスタムダッシュボードに表示することができます。
+数値ウィジェットを利用すると、任意のメトリックの最新の値を数字としてカスタムダッシュボードに表示できます。
 
 [f:id:mackerelio:20181102153850p:plain]
 

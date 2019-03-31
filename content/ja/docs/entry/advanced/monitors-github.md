@@ -5,9 +5,9 @@ URL: https://mackerel.io/ja/docs/entry/advanced/monitors-github
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/8454420450105423570
 ---
 
-mkr を使うことで監視ルールをローカルファイルに保存したり(`pull`)、ローカルファイルとMackerelの設定の差分を確認したり(`diff`)、ローカルファイルの内容をMackerelの設定に反映させる(`push`)することができます
+mkr を使うことで監視ルールをローカルファイルに保存したり(`pull`)、ローカルファイルとMackerelの設定の差分を確認したり(`diff`)、ローカルファイルの内容をMackerelの設定に反映させる(`push`)ことができます。
 
-各コマンドの詳細は`cli`の[ヘルプ](./cli)を参照してください
+各コマンドの詳細は`cli`の[ヘルプ](./cli)を参照してください。
 
 ここでは mkr を利用して[GitHub](https://github.com/)で監視ルールを管理する方法を紹介します。
 

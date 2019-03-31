@@ -5,7 +5,7 @@ URL: https://mackerel.io/ja/docs/entry/howto/mackerel-agent-plugins
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/8454420450066401130
 ---
 
-各種ミドルウェアに対応した公式プラグイン集を利用して簡単にミドルウェアのメトリックを収集することができます。動作確認環境は、`mackerel-agent`と同一ですので、[Mackerelの概説の動作環境](https://mackerel.io/ja/docs/entry/overview#support-environments)をご参照ください。
+各種ミドルウェアに対応した公式プラグイン集を利用して簡単にミドルウェアのメトリックを収集できます。動作確認環境は、`mackerel-agent`と同一ですので、[Mackerelの概説の動作環境](https://mackerel.io/ja/docs/entry/overview#support-environments)をご参照ください。
 
 AWS ELB・AWS RDSなど、`mackerel-agent`をインストールできないAWSクラウド環境は[AWSインテグレーション](https://mackerel.io/ja/docs/entry/integrations/aws)をご利用ください。サービスメトリックとして投稿するためには、[fluentd](http://www.fluentd.org/)をご利用ください。詳しくは「[AWSのCloudWatchのメトリックからELB関連のメトリックをサービスメトリックに投稿する](https://mackerel.io/ja/docs/entry/advanced/fluentd#example-elb)」をご参照ください。
 

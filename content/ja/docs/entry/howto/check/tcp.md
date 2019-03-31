@@ -5,7 +5,7 @@ URL: https://mackerel.io/ja/docs/entry/howto/check/tcp
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/6653586347146220004
 ---
 
-公式チェックプラグイン集の `check-tcp` を使ってTCPサーバーの監視をおこなうことができます。公式チェックプラグイン集のインストールは、[チェック監視に公式チェックプラグイン集を使う](https://mackerel.io/ja/docs/entry/howto/mackerel-check-plugins) をごらんください。
+公式チェックプラグイン集の `check-tcp` を使ってTCPサーバーの監視をおこなえます。公式チェックプラグイン集のインストールは、[チェック監視に公式チェックプラグイン集を使う](https://mackerel.io/ja/docs/entry/howto/mackerel-check-plugins) をごらんください。
 
 ## HTTPサーバーの確認を行う
 

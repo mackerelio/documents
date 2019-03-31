@@ -6,7 +6,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 ---
 
 <h2 id="metadata">ホストメタデータ</h2>
-各ホストに任意のJSONデータを登録することができます。運用上の管理データやパッケージのバージョンなど、様々な情報を登録してご利用いただけます。
+各ホストに任意のJSONデータを登録できます。運用上の管理データやパッケージのバージョンなど、様々な情報を登録してご利用いただけます。
 
 mackerel-agentに設定を追加してメタデータを投稿する方法と、APIから投稿する方法があります。
 APIから投稿したり取得する方法は、以下のAPIドキュメントを参照してください。
@@ -27,7 +27,7 @@ env = { SAMPLE_KEY = "VALUE" }
 - 項目名: `plugin.metadata.`で始まっている必要があります。上のサンプルで`packages`に該当する部分はユーザーが任意に決めることができ、[ホストメタデータAPI](https://mackerel.io/ja/api-docs/entry/metadata)のネームスペース (namespace) に該当します。
 - `command`: mackerel-agentから実行されるコマンドを指定します。このコマンドは標準出力にJSONを出力する必要があります。
 - `execution_interval`: コマンドを実行する間隔を分で指定します。この設定は省略可能で、省略した場合は10分間隔で実行します。最小実行間隔は10分です。
-- `env`: commandに渡す環境変数を指定することができます。TOMLの[Table][]もしくは[Inline Table][]で指定します。
+- `env`: commandに渡す環境変数を指定できます。TOMLの[Table][]もしくは[Inline Table][]で指定します。
 
 
 packages.plのサンプルです。
@@ -58,7 +58,7 @@ sub parse_package {
 }
 ```
 
-投稿したJSONデータは、APIを用いて取り出す事ができます。上記のサンプルでは`<namespace>`のところが`packages`となります。
+投稿したJSONデータは、APIを用いて取り出せます。上記のサンプルでは`<namespace>`のところが`packages`となります。
 ```sh
 curl -XGET https://api.mackerelio.com/api/v0/hosts/<hostId>/metadata/<namespace> -H 'X-Api-Key:<APIKEY>'
 ```

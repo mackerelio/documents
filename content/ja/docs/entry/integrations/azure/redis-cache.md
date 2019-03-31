@@ -25,4 +25,4 @@ AzureインテグレーションのRedis Cache対応で取得できるメトリ�
 |Commands|totalcommandsprocessed<br>getcommands<br>setcommands|azure.redis_cache.command.processed<br>azure.redis_cache.command.get<br>azure.redis_cache.command.set|Integer|Total|
 |Evicted/Expired Keys|evictedkeys<br>expiredkeys|azure.redis_cache.keys.evicted<br>azure.redis_cache.keys.expired|Integer|Total|
 
-MackerelはRedis Cacheのシャードごとのメトリックにも対応しています。上記のグラフのPer Shardなグラフが作られ、シャードごとのメトリックの様子を一括でみることができます。
+MackerelはRedis Cacheのシャードごとのメトリックにも対応しています。上記のグラフのPer Shardなグラフが作られ、シャードごとのメトリックの様子を一括でみられます。

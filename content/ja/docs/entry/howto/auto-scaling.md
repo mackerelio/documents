@@ -81,7 +81,7 @@ Windowsでmackerel-agentを利用している場合は、システム環境変�
 MACKEREL_AUTO_RETIREMENT=1
 ```
 
-GUIを利用するか、またはコマンドプロンプトやPowerShellで以下のコマンドを実行することで設定することができます。
+GUIを利用するか、またはコマンドプロンプトやPowerShellで以下のコマンドを実行することで設定できます。
 
 ```
 setx MACKEREL_AUTO_RETIREMENT 1 -m

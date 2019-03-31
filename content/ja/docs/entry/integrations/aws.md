@@ -5,7 +5,7 @@ URL: https://mackerel.io/ja/docs/entry/integrations/aws
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/6653812171392306672
 ---
 
-AWSインテグレーションを用いると、AWSクラウド製品をMackerelのホストとして管理し、メトリックを監視することができます。本機能はTrialプランとStandardプランのみの提供となります。
+AWSインテグレーションを用いると、AWSクラウド製品をMackerelのホストとして管理し、メトリックを監視できます。本機能はTrialプランとStandardプランのみの提供となります。
 
 AWSのクラウド製品1台が、Mackerelで1ホストとして登録され、Mackerelの課金対象のホスト数としてカウントされます。
 また、5分ごとに取得対象となるメトリックの数だけAWSのAPIをコールして値を取得します。そのため、[Amazon CloudWatch API利用の料金](https://aws.amazon.com/jp/cloudwatch/pricing/)が発生する場合がありますのでご注意ください。
@@ -121,7 +121,7 @@ FullAccess権限を付与しないようにご注意ください。また、ひ�
 詳しくは[監視・通知を設定する](https://mackerel.io/ja/docs/entry/howto/alerts)をご覧ください。
 
 <h2 id="tag">タグで絞り込む</h2>
-ホストとして登録してメトリックを取得するAWSクラウド製品を、AWSで付与しているタグで絞り込むことができます。
+ホストとして登録してメトリックを取得するAWSクラウド製品を、AWSで付与しているタグで絞り込めます。
 
 <h3>1. タグを取得するための権限を付与する</h3>
 AWSのタグで絞り込むには、AWSインテグレーションの設定のために付与したポリシー以外に、以下のアクションに対する権限が追加で必要になります。
@@ -163,9 +163,9 @@ Mackerelの設定画面でタグを指定します。連携ホスト数を確認
 
 <h3 id="plugin-custom-identifier">プラグインにより取得したカスタムメトリックの連携ホストへの集約に関して</h3>
 
-mackerel-agent の plugin 設定には、`custom_identifier` を指定することができます。`custom_identifier` とは、ホストの識別子としてユーザー独自の identifier を付与するための仕組みです。これを利用して、別のマシンにインストールした mackerel-agent から投稿されたメトリックを、AWSインテグレーション連携ホストのメトリックとして集約することができます。`custom_identifier` は、カスタムメトリックを投稿するためのプラグイン設定に指定します。
+mackerel-agent の plugin 設定には、`custom_identifier` を指定できます。`custom_identifier` とは、ホストの識別子としてユーザー独自の identifier を付与するための仕組みです。これを利用して、別のマシンにインストールした mackerel-agent から投稿されたメトリックを、AWSインテグレーション連携ホストのメトリックとして集約できます。`custom_identifier` は、カスタムメトリックを投稿するためのプラグイン設定に指定します。
 
-例として、Amazon RDS と [mackerel-plugin-mysql](https://github.com/mackerelio/mackerel-agent-plugins/tree/master/mackerel-plugin-mysql) プラグインを利用している場合、mackerel-agent.conf のプラグイン設定に、以下のように `custom_identifier` の記述を追加することで、プラグインで取得したメトリックをRDSホストのカスタムメトリックとして集約することができます。
+例として、Amazon RDS と [mackerel-plugin-mysql](https://github.com/mackerelio/mackerel-agent-plugins/tree/master/mackerel-plugin-mysql) プラグインを利用している場合、mackerel-agent.conf のプラグイン設定に、以下のように `custom_identifier` の記述を追加することで、プラグインで取得したメトリックをRDSホストのカスタムメトリックとして集約できます。
 
 ```
 [plugin.metrics.mysql]

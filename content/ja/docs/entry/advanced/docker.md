@@ -14,7 +14,7 @@ Dockerのリソースの統計情報はAPI( https://docs.docker.com/engine/refer
 
 ## mackerel-plugin-dockerを利用する
 
-Mackerelではmackerel-plugin-dockerを利用することで、各コンテナのリソース消費の統計情報を取得しカスタムメトリックグラフとして可視化することができます。
+Mackerelではmackerel-plugin-dockerを利用することで、各コンテナのリソース消費の統計情報を取得しカスタムメトリックグラフとして可視化できます。
 mackerel-plugin-dockerは公式プラグイン集に含まれていますので、まずは公式プラグイン集をインストールします。具体的な手順は[ミドルウェアのメトリック可視化に公式プラグイン集を使う](https://mackerel.io/ja/docs/entry/howto/mackerel-agent-plugins)を参照してください。
 
 公式プラグイン集がインストールできたら、以下の設定を`/etc/mackerel-agent/mackerel-agent.conf`に追記します。
@@ -52,7 +52,7 @@ mackerel-agentのDockerイメージを以下で提供しています。
 
 https://hub.docker.com/r/mackerel/mackerel-agent/
 
-これを利用することで、mackerel-agentを1つのコンテナとして起動することができ、下図のようにホストや他のコンテナを監視することができます。
+これを利用することで、mackerel-agentを1つのコンテナとして起動することができ、下図のようにホストや他のコンテナを監視できます。
 
 [https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20150917/20150917161407.png:image=https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20150917/20150917161407.png]
 
@@ -125,4 +125,4 @@ docker run -h `hostname` \
   mackerel/mackerel-agent
 ```
 
-これでmemcachedコンテナを監視するmackerel-agentコンテナを起動することができます。
+これでmemcachedコンテナを監視するmackerel-agentコンテナを起動できます。

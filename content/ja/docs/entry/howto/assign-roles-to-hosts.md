@@ -11,4 +11,4 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 
 ## エージェントから
 
-エージェントの設定ファイルを編集して、エージェントの起動時に自動でサービスおよびロールを割り当てることができます。詳しくは[エージェントのヘルプ](https://mackerel.io/ja/docs/entry/spec/agent#setting-services-and-roles)をご覧ください。
+エージェントの設定ファイルを編集して、エージェントの起動時に自動でサービスおよびロールを割り当てられます。詳しくは[エージェントのヘルプ](https://mackerel.io/ja/docs/entry/spec/agent#setting-services-and-roles)をご覧ください。

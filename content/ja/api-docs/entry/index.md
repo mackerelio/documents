@@ -23,7 +23,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
     <li><b><code>X-Api-Key</code> ヘッダ（必須）: 対象とするホストやサービスが所属するオーガニゼーションのAPIキーです。</b>
       <ul>
         <li>APIキーは<a href="https://mackerel.io/my?tab=apikeys">ダッシュボードのAPIキータブ</a>で確認できます。</li>
-        <li>APIキーの権限は Read権限と Write権限を設定することができます。
+        <li>APIキーの権限は Read権限と Write権限を設定できます。
           <ul>
             <li>Read権限のみを持つAPIキーでは、Write権限が必要なAPIを使用できません。</li>
           </ul>
