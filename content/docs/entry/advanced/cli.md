@@ -21,32 +21,31 @@ When you use yum or apt to install mkr, you firstly have to register the Mackere
 
 #### use yum
 
-```cdl
+```
 % yum install mkr
 ```
 
 #### use apt
 
-```cdl
+```
 % apt-get install mkr
 ```
 
 #### use brew
 
-```cdl
-% brew tap mackerelio/mackerel-agent
-% brew install mkr
+```
+% brew install mackerelio/mackerel-agent/mkr
 ```
 #### build with go
 
-```cdl
+```
 % go get github.com/mackerelio/mkr
 ```
 
 ### Setup
 
 To use mkr, first we will assign the API key to the environment variable.
-```cdl
+```
 export MACKEREL_APIKEY=<API key>
 ```
 
@@ -58,7 +57,7 @@ For a more in-depth tutorial, refer to https://github.com/mackerelio/mkr
 ### Hosts
 
 For example, specify a hostId to get that host's information. 
-```cdl
+```
 mkr status <hostId>
 ```
 
@@ -78,18 +77,18 @@ $ mkr status 2eQGEaLxibb
 
 Also, it's possible to change one or more host's statuses by specifying hostId's...
 
-```cdl
+```
 mkr update --status maintenance <hostIds>...
 ```
 
 ...or get a list of hosts.
-```cdl
+```
 mkr hosts --service My-Service --role proxy
 ```
 
 By putting these together, it's possible to change the status of all hosts in the designated services and roles.
 
-```cdl
+```
 mkr update --st working $(mkr hosts -s My-Service -r proxy | jq -r '.[].id')
 ```
 
@@ -98,7 +97,7 @@ mkr update --st working $(mkr hosts -s My-Service -r proxy | jq -r '.[].id')
 With mkr, each of the metric can be fetched by the `metrics` command.
 For example, specify a hostId to get that host's metric, or specify a service name to get that service's metric. 
 
-```cdl
+```
 mkr metrics --host <hostId> --name <name> --from <epoch seconds> --to <epoch seconds>  
 ```
 
@@ -159,7 +158,7 @@ When doing a `push`, the following monitoring rule identification logic will car
 #### Execution example
 
 - `diff` when there is no difference between the local file and Mackerel
-```cdl
+```
 % ./mkr monitors diff
 Summary: 0 modify, 0 append, 0 remove
 ```
@@ -280,12 +279,12 @@ The definition file is in YAML format.
 #### Execution example
 
 By specifying the definition file with parameters as shown below and executing it, a custom dashboard will automatically be generated inside the organization of the corresponding  API key configured in mkr. 
-```cdl
+```
 % mkr dashboards generate config.yml
 ```
 
 Additionally, by specifying the `--print` option, outputting the dashboard’s markdown to standard output can be done without registering or updating in Mackerel. 
-```cdl
+```
 % mkr dashboards generate config.yml --print
 ```
 #### Definition file (YAML) specifications 
