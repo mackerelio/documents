@@ -133,12 +133,21 @@ $ export GITHUB_TOKEN=<github_access_token>
 $ git config --global github.token <github_access_token>
 ```
 
-
-
 ## Using mkr plugin install from a server provisioning tool
 Even if the Github access token is configured, you may be subject to restrictions of the Github API Rate Limit if using `mkr plugin install` from a large number of servers all at once with a server provisioning tool such as Chef or Ansible.
 
 If a tag for Github Releases is explicitly specified in `mkr plugin install`, then the Github API will not be accessed and thus you will not be subject to the Rate Limit restrictions. Therefore, we recommend that you explicitly specify the release tag when using `mkr plugin install` from a server provisioning tool.
+
+## Important points when using mkr plugin install in Windows environments
+
+Currently, because the mkr.exe included in the mackerel-agent installer (msi file) is a 32-bit version (386 build), similar to the mackerel-agent.exe, the plugin obtained by `mkr plugin install` will also be a 386 build. 
+
+The plugin installation path will be under the mackerel-agent installation directory `plugins\bin`. Therefore, Windows administrative authority is required to run mkr.exe for deployment. In addition, please describe the following in the mackerel-agent.conf when using the installed plugin.
+
+```
+[plugin.metrics.sample]
+command = ["plugins/bin/mackerel-plugin-sample"]
+```
 
 ## Creating a plugin that can be installed with mkr plugin install
 If you want to create a plugin that can be installed with `mkr plugin install`, refer to the following documents.

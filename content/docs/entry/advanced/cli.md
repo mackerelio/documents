@@ -5,7 +5,7 @@ URL: https://mackerel.io/docs/entry/advanced/cli
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/8454420450098145424
 ---
 
-With the mkr CLI tool, it is possible to perform operations such as changing all host statuses at one time as well as creating built-in protocols within scripts for automation. 
+With the mkr CLI tool, it's possible to perform operations such as changing all the host statuses at once or creating built-in protocols within scripts for automation. 
 
 mkr is now available on GitHub.
 https://github.com/mackerelio/mkr
@@ -19,32 +19,37 @@ When you use yum or apt to install mkr, you firstly have to register the Mackere
 - Redhat OS systems・RPM package (yum): [Installing mackerel-agent in CentOS / RedHat](https://mackerel.io/docs/entry/howto/install-agent/rpm).
 - Debian OS systems・deb package (apt): [Installing mackerel-agent in Ubuntu / Debian](https://mackerel.io/docs/entry/howto/install-agent/deb).
 
-#### use yum
+#### Using yum
 
 ```
 % yum install mkr
 ```
 
-#### use apt
+#### Using apt
 
 ```
 % apt-get install mkr
 ```
 
-#### use brew
+#### Using brew
 
 ```
 % brew install mackerelio/mackerel-agent/mkr
 ```
-#### build with go
+#### Build with go
 
 ```
 % go get github.com/mackerelio/mkr
 ```
 
+#### For Windows
+
+You can use mkr.exe as it is included in the mackerel-agent installer (msi file). mkr.exe is installed in the same folder as mackerel-agent.exe. However, since %PATH% is not configured, either specify with a full path or add this folder to the %PATH% at the time of use.
+
 ### Setup
 
-To use mkr, first we will assign the API key to the environment variable.
+mkr automatically reads the API key from mackerel-agent.conf in the mackerel-agent configuration file. If there is no configuration file or if you want to configure a different API key, specify it with an environment variable. 
+
 ```
 export MACKEREL_APIKEY=<API key>
 ```
