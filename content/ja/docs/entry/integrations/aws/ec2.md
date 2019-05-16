@@ -6,14 +6,16 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 ---
 
 MackerelはAWSインテグレーションにて<a href="https://aws.amazon.com/ec2/" target="_blank">Amazon Elastic Compute Cloud (Amazon EC2)</a>のメトリック取得や監視に対応しています。
-AWSインテグレーションで連携をおこなった場合、課金対象として 1インスタンス = 1ホスト と換算します。
-AWSインテグレーションとmackerel-agentの併用も可能です。その場合、システムメトリックとカスタムメトリックは1ホストとして統合されます（重複課金はされません）。
+AWSインテグレーションで連携をおこなった場合、課金対象として 1インスタンス = 1スタンダードホスト と換算します。
+AWSインテグレーションとmackerel-agentの併用も可能です。その場合、システムメトリックとカスタムメトリックはひとつのホストに統合されます（重複課金はされません）。
 
 AWSインテグレーションの設定方法や対応AWSサービス一覧についてはこちらのページをご確認ください。<br>
 <a href="https://mackerel.io/ja/docs/entry/integrations/aws">AWSインテグレーション</a>
 
 ## 取得メトリック
 AWSインテグレーションのEC2対応で取得できるメトリックは以下の通りです。 `メトリック` の説明に関しては<a href="https://docs.aws.amazon.com/ja_jp/AWSEC2/latest/UserGuide/viewing_metrics_with_cloudwatch.html" target="_blank">AWSのヘルプ</a>をご確認ください。
+
+最大で15個のメトリックが取得されます。
 
 |グラフ名|メトリック|Mackerel上のメトリック名|単位|Statistics|
 |:---|:---|:---|:---|:---|

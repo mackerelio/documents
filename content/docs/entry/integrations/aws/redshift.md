@@ -5,7 +5,8 @@ URL: https://mackerel.io/docs/entry/integrations/aws/redshift
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/10328749687205767320
 ---
 
-Mackerel supports obtaining and monitoring <a href="https://aws.amazon.com/redshift/" target="_blank">Amazon Redshift</a> metrics in AWS Integration. When integrating with AWS Integration, billable targets are determined using the conversion 1 Table = 1 Host.
+Mackerel supports obtaining and monitoring <a href="https://aws.amazon.com/redshift/" target="_blank">Amazon Redshift</a> metrics in AWS Integration. When integrating with AWS Integration, billable targets are determined using the conversion 1 Table = 1 Micro Host.
+In addition to this, depending on the number of metrics retrieved, you may be charged for exceeding the maximum number of metrics per micro host.
 
 Please refer to the following page for AWS Integration configuration methods and a list of supported AWS services.  <br>
 <a href="https://mackerel.io/docs/entry/integrations/aws">AWS Integration</a>
@@ -13,6 +14,8 @@ Please refer to the following page for AWS Integration configuration methods and
 ## Obtaining metrics
 
 The metrics obtainable with AWS Integration’s Redshift support are as follows. For `Metric` explanations, refer to the <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/metrics-listing.html" target="_blank">AWS help page</a>.
+
+The maximum number of metrics obtainable is `24 + 2 × (number of queues) + 1 × (number of service classes) + 10 × (number of nodes)`.
 
 ### Metrics per Cluster
 The `WLM_ID` of the metric name contains the workload management (WLM) queue ID. (Example: 1, Default etc.)<br>

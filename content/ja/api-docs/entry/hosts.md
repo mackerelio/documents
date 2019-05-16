@@ -38,15 +38,15 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 
 以下のキーをもつオブジェクトです。
 
-| KEY     | TYPE   | DESCRIPTION |
-| -------- | ------ | ----------- |
-| `name`   | *string* | ホスト名。 |
-| `meta`   | *object* | ホストの情報。[*1](#meta) |
-| `interfaces` | *array[hash[string]]* | [optional] ネットワークインターフェースの情報。[*2](#interfaces) |
-| `roleFullnames`  | *array[string]* | [optional] このホストが所属しているロールの詳細な名前の配列。[*3](#roleFullnames) |
-| `checks`         | *array[hash[string]]* | [optional] このホストを監視するチェック監視項目の配列。[*4](#checks) |
-| `displayName`    | *string*        | [optional] このホストの管理名。 |
-| `customIdentifier`    | *string*        | [optional] このホストの、ユーザー独自の識別子。 |
+| KEY | TYPE | DESCRIPTION |
+| --- | --- | --- |
+| `name` | *string* | ホスト名 |
+| `displayName` | *string* | [optional] ホストの管理名 |
+| `customIdentifier` | *string* | [optional] ホストに対するユーザー独自の識別子 |
+| `meta` | *object* | ホストのメタ情報[*1](#meta) |
+| `interfaces` | *array[object]* | [optional] ホストのネットワークインターフェース情報[*2](#interfaces) |
+| `roleFullnames` | *array[string]* | [optional] ホストが所属しているロールの名前の配列[*3](#roleFullnames) |
+| `checks` | *array[hash[string]]* | [optional] ホストを監視するチェック監視項目の配列[*4](#checks) |
 
 ### 応答
 
@@ -103,10 +103,13 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 | KEY     | TYPE   | DESCRIPTION |
 | -------- | ------ | ----------- |
 | `name` | *string* | インターフェースの名前。 e.g. "eth0" |
-| `ipAddress` | *string* | インターフェースの IP アドレス。 |
-| `macAddress` | *string* | インターフェースの MAC アドレス。 |
-| `ipv4Addresses` | *array[string]* | インターフェースの IPv4 アドレス。 |
-| `ipv6Addresses` | *array[string]* | インターフェースの IPv6 アドレス。 |
+| `macAddress` | *string* | [optional] インターフェースの MAC アドレス。 |
+| `ipv4Addresses` | *array[string]* | [optional] インターフェースの IPv4 アドレス。 |
+| `ipv6Addresses` | *array[string]* | [optional] インターフェースの IPv6 アドレス。 |
+| `ipAddress` | *string* | [optional] インターフェースの IPv4 アドレス。 |
+| `ipv6Address` | *string* | [optional] インターフェースの IPv6 アドレス。 |
+
+ただし `ipAddress` と `ipv4Addresses`、または `ipv6Address` と `ipv6Addresses` が同時に指定された場合は、それぞれ `ipv4Addresses` `ipv6Addresses` が優先されます。
 
 <h4 id="roleFullnames">*3 roleFullnames</h4>
 ロールの詳細な名前は `<service name>:<role name>` というフォーマットの文字列です。
@@ -155,17 +158,21 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 
 <i>`<host>`</i> は[ホスト情報の登録](#create)の内容を持つobjectで、以下のキーが追加されています。`roleFullnames` は存在しません。
 
-| KEY     | TYPE   | DESCRIPTION |
-| -------- | ------ | ----------- |
-| `createdAt` | *number* | ホストの登録時刻（epoch 秒） |
-| `id` | *string* | |
-| `status` | *string* | ホストのステータス。`"working"`, `"standby"` などです。 |
-| `memo` | *string* | このホストに関するメモ。Web UI から編集できます。 |
-| `roles` | *hash[array[string]]* | ホストのロール。キーはサービス名、値はそのサービスにおけるロール名の配列です。 |
-| `interfaces` | *array[hash[string]]* | ホストのネットワークインターフェース情報。 |
-| `isRetired`  | *boolean* | ホストが退役しているかどうか。 |
-| `displayName`| *string* | このホストの管理名。 |
-| `meta` | *hash[string]* | cpu, memory などのメタ情報。 |
+| KEY | TYPE | DESCRIPTION |
+| --- | --- | --- |
+| `createdAt` | *number* | ホストの登録時刻（epoch秒） |
+| `id` | *string* | ホストID |
+| `name` | *string* | ホスト名 |
+| `displayName` | *string* | [optional] ホストの管理名 |
+| `customIdentifier` | *string* | [optional] ホストに対するユーザー独自の識別子 |
+| `meta` | *object* | ホストのメタ情報 |
+| `interfaces` | *array[object]* | ホストのネットワークインターフェース情報 |
+| `type` | *string* | ホストの種別（`"agent"`, `"container-agent"`, `"cloud"` など） |
+| `status` | *string* | ホストのステータス（`"working"`, `"standby"` など） |
+| `memo` | *string* | ホストに関するメモ。メモは管理画面から編集できます。 |
+| `isRetired` | *boolean* | ホストが退役しているかどうか |
+| `retiredAt` | *number* | [optional] ホストの退役時刻（epoch秒） |
+| `roles` | *hash[array[string]]* | ホストが所属しているロールの一覧。キーはサービス名、値はそのサービスにおけるロール名の配列です。 |
 
 ----------------------------------------------
 

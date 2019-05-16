@@ -9,7 +9,7 @@ Kubernetesにおけるmackerel-container-agentのセットアップ手順です�
 
 ## 課金に関する注意事項
 
-1つのPodに対して1つのホストがMackerelに登録されます。有料プランの場合は課金が発生しますのでご注意ください。詳しくは[FAQ・ホスト数の計算方法について](https://mackerel.io/ja/docs/entry/faq/contracts/calculate-host-number)をご覧ください
+1つのPodに対して1マイクロホストがMackerelに登録されます。有料プランの場合は課金が発生しますのでご注意ください。詳しくは[FAQ・ホスト数の計算方法について](https://mackerel.io/ja/docs/entry/faq/contracts/calculate-host-number)をご覧ください
 
 ## 動作条件
 

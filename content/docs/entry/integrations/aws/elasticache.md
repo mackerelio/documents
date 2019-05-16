@@ -5,7 +5,8 @@ URL: https://mackerel.io/docs/entry/integrations/aws/elasticache
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/10328749687205749311
 ---
 
-Mackerel supports obtaining and monitoring <a href="https://aws.amazon.com/elasticache/" target="_blank">Amazon ElastiCache</a> metrics in AWS Integration. When integrating with AWS Integration, billable targets are determined using the conversion 1 Node = 1 Host.
+Mackerel supports obtaining and monitoring <a href="https://aws.amazon.com/elasticache/" target="_blank">Amazon ElastiCache</a> metrics in AWS Integration. When integrating with AWS Integration, billable targets are determined using the conversion 1 Node = 1 Micro Host.
+In addition to this, depending on the number of metrics retrieved, you may be charged for exceeding the maximum number of metrics per micro host.
 
 Please refer to the following page for AWS Integration configuration methods and a list of supported AWS services.  <br>
 <a href="https://mackerel.io/docs/entry/integrations/aws">AWS Integration</a>
@@ -13,6 +14,8 @@ Please refer to the following page for AWS Integration configuration methods and
 ## Obtaining metrics
 
 The metrics obtainable with AWS Integration’s ElastiCache support are as follows. For `Metric` explanations, refer to the AWS help pages (<a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheMetrics.HostLevel.html" target="_blank">host level metrics</a>, <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/CacheMetrics.Memcached.html" target="_blank">Memcached</a>, and <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheMetrics.Redis.html" target="_blank">Redis</a>).
+
+The maximum number of metrics obtainable is 39 with Memcached, and 22 with Redis.
 
 ### Host level metrics
 |Graph name|Metric|Metric name in Mackerel|Unit|Statistics|

@@ -11,7 +11,7 @@ If using **a network mode other than awsvpc** with ECS, refer [here](https://mac
 
 ## Point to note regarding billing
 
-For every one task, a host will be registered in Mackerel. Please note that charges will occur if using a paid plan. For more details, refer to [FAQ · Calculating the number of hosts](https://mackerel.io/docs/entry/faq/contracts/calculate-host-number).
+For every one task, a micro host will be registered in Mackerel. Please note that charges will occur if using a paid plan. For more details, refer to [FAQ · Calculating the number of hosts](https://mackerel.io/docs/entry/faq/contracts/calculate-host-number).
 
 ## Adding the container in the task definition
 

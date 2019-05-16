@@ -5,7 +5,8 @@ URL: https://mackerel.io/docs/entry/integrations/azure/redis-cache
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/8599973812303841204
 ---
 
-Mackerel supports obtaining and monitoring <a href="https://azure.microsoft.com/en-us/services/cache/" target="_blank">Redis Cache</a> metrics in Azure Integration.
+Mackerel supports obtaining and monitoring <a href="https://azure.microsoft.com/en-us/services/cache/" target="_blank">Redis Cache</a> metrics in Azure Integration. When integrating with Azure Integration, billable targets are determined using the conversion 1 Cache = 1 Micro Host.
+In addition to this, depending on the number of metrics retrieved, you may be charged for exceeding the maximum number of metrics per micro host.
 
 Please refer to the following page for Azure Integration configuration methods and a list of supported Azure services. 
 
@@ -14,6 +15,8 @@ Please refer to the following page for Azure Integration configuration methods a
 ## Obtaining metrics
 
 The metrics obtainable with Redis Cache SQL Database support are as follows. For `Metric` explanations, refer to the <a href="https://docs.microsoft.com/en-us/azure/redis-cache/cache-how-to-monitor#available-metrics-and-reporting-intervals" target="_blank">Azure help page</a>.
+
+The maximum number of metrics obtainable is `15 + 15 × (number of Shards)`.
 
 |Graph name|Metric|Metric name in Mackerel|Unit|Aggregation Type|
 |:---|:---|:---|:---|:---|

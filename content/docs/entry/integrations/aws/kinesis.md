@@ -5,13 +5,16 @@ URL: https://mackerel.io/docs/entry/integrations/aws/kinesis
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/10257846132669015144
 ---
 
-Mackerel supports obtaining and monitoring the metrics of <a href="https://aws.amazon.com/kinesis/data-streams/" target="_blank">Amazon Kinesis Data Streams</a> with AWS Integration. When integrating with AWS Integration, billable targets are determined using the conversion 1 stream = 1 Host.
+Mackerel supports obtaining and monitoring the metrics of <a href="https://aws.amazon.com/kinesis/data-streams/" target="_blank">Amazon Kinesis Data Streams</a> with AWS Integration. When integrating with AWS Integration, billable targets are determined using the conversion 1 stream = 1 Micro Host.
+In addition to this, depending on the number of metrics retrieved, you may be charged for exceeding the maximum number of metrics per micro host.
 
 Please refer to the following page for AWS Integration configuration methods and a list of supported AWS services.<br>
 <a href="https://mackerel.io/docs/entry/integrations/aws">AWS Integration</a>
 
 ## Obtaining metrics
 The metrics obtainable with AWS Integration's support for Kinesis Data Streams are as follows. For `Metric` explanations, refer to the <a href="https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html" target="_blank">AWS help page</a>.
+
+The maximum number of metrics obtainable is 31.
 
 |Graph name|Metric|Metric name in Mackerel|Unit|Statistics|
 |:--|:--|:--|:--|:--|

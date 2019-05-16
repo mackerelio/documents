@@ -7,7 +7,9 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackere
 
 Using Azure integration, you can manage Azure cloud products as a host of Mackerel and monitor its metrics. This function is only offered in the Trial plan and Standard plan.
 
-Each Azure cloud product will be registered as one host in Mackerel and therefore be counted as a billable host. Additionally, the API of Azure will be called every 5 minutes for each targeted metric to be obtained. Please take note, for this reason, an [Azure Monitor API usage fee](https://azure.microsoft.com/en-us/pricing/details/monitor/) may occur.
+Each Azure cloud product will be registered as one host in Mackerel and therefore be counted as a billable host.
+Virtual Machines will count as standard hosts and all other products will count as micro hosts. 
+Additionally, the API of Azure will be called every 5 minutes for each targeted metric to be obtained. Please take note, for this reason, an [Azure Monitor API usage fee](https://azure.microsoft.com/en-us/pricing/details/monitor/) may occur.
 
 Currently, the following Azure cloud products are supported. For information on obtaining metrics, please refer to each individual document.
 

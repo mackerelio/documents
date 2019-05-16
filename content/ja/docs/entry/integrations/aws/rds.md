@@ -8,14 +8,18 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 MackerelはAWSインテグレーションにて<a href="https://aws.amazon.com/rds/" target="_blank">Amazon Relational Database Service (RDS)</a>のメトリック取得や監視に対応しています。
 AWSインテグレーションで連携をおこなった場合、以下の対応で換算されます。
 
-- Aurora Serverlessの場合: Aurora Serverless 1クラスター = 1ホスト
-- それ以外の場合: RDS 1インスタンス = 1ホスト
+- Aurora Serverlessの場合: Aurora Serverless 1クラスター = 1マイクロホスト
+- それ以外の場合: RDS 1インスタンス = 1マイクロホスト
+
+またそれに加えて、取得されるメトリックの数に応じて、1マイクロホストあたりのメトリック数上限の超過による請求が行われる場合があります。
 
 AWSインテグレーションの設定方法や対応AWSサービス一覧についてはこちらのページをご確認ください。<br>
 <a href="https://mackerel.io/ja/docs/entry/integrations/aws">AWSインテグレーション</a>
 
 ## 取得メトリック
 AWSインテグレーションのRDS対応で取得できるメトリックは以下の通りです。 `メトリック` の説明に関してはAWSのヘルプ(<a href="https://docs.aws.amazon.com/ja_jp/AmazonRDS/latest/AuroraUserGuide/Aurora.Monitoring.html" target="_blank">Aurora</a>、<a href="https://docs.aws.amazon.com/ja_jp/AmazonRDS/latest/UserGuide/MonitoringOverview.html" target="_blank">Aurora以外</a>)をご確認ください。
+
+Auroraでは最大で49個、Aurora Serverlessでは最大で50個、それ以外では最大で19個のメトリックが取得されます。
 
 |グラフ名|メトリック|Mackerel上のメトリック名|単位|Statistics|
 |:---|:---|:---|:---|:---|

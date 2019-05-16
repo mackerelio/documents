@@ -8,6 +8,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 AWSインテグレーションを用いると、AWSクラウド製品をMackerelのホストとして管理し、メトリックを監視できます。本機能はTrialプランとStandardプランのみの提供となります。
 
 AWSのクラウド製品1台が、Mackerelで1ホストとして登録され、Mackerelの課金対象のホスト数としてカウントされます。
+ホストの種類は、EC2についてはスタンダードホスト、その他の製品についてはマイクロホストとなります。
 また、5分ごとに取得対象となるメトリックの数だけAWSのAPIをコールして値を取得します。そのため、[Amazon CloudWatch API利用の料金](https://aws.amazon.com/jp/cloudwatch/pricing/)が発生する場合がありますのでご注意ください。
 
 AWSインテグレーションは現在は以下のAWSクラウド製品に対応しています。取得メトリックなどについてはそれぞれのドキュメントを参照ください。

@@ -5,13 +5,15 @@ URL: https://mackerel.io/docs/entry/integrations/aws/cloudfront
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/10257846132650121985
 ---
 
-Mackerel supports obtaining and monitoring <a href="https://aws.amazon.com/jp/cloudfront/" target="_blank">Amazon CloudFront</a> metrics in AWS Integration. When integrating with AWS Integration, billable targets are determined using the conversion 1 Distribution = 1 Host.
+Mackerel supports obtaining and monitoring <a href="https://aws.amazon.com/jp/cloudfront/" target="_blank">Amazon CloudFront</a> metrics in AWS Integration. When integrating with AWS Integration, billable targets are determined using the conversion 1 Distribution = 1 Micro Host.
 
 Please refer to the following page for AWS Integration configuration methods and a list of supported AWS services. <br>
 <a href="https://mackerel.io/docs/entry/integrations/aws">AWS Integration</a>
 
 ## Obtaining metrics
 The metrics obtainable with AWS Integration's CloudFront support are as follows. For `Metric` explanations, refer to the <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/monitoring-using-cloudwatch.html" target="_blank">AWS help page</a>.
+
+The maximum number of metrics obtainable is 5. 
 
 |Graph name|Metric|Metric name in Mackerel|Unit|Statistics|
 |:--|:--|:--|:--|:--|

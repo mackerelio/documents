@@ -6,13 +6,15 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 CustomPath: integrations/aws/ecs
 ---
 
-MackerelはAWSインテグレーションにて<a href="https://aws.amazon.com/jp/ecs/" target="_blank">Amazon Elastic Container Service</a>のメトリック取得や監視に対応しています。AWSインテグレーションで連携を行なった場合、課金対象として1クラスター = 1ホストと換算します。
+MackerelはAWSインテグレーションにて<a href="https://aws.amazon.com/jp/ecs/" target="_blank">Amazon Elastic Container Service</a>のメトリック取得や監視に対応しています。AWSインテグレーションで連携を行なった場合、課金対象として1クラスター = 1マイクロホストと換算します。またそれに加えて、取得されるメトリックの数に応じて、1マイクロホストあたりのメトリック数上限の超過による請求が行われる場合があります。
 
 AWSインテグレーションの設定方法や対応AWSサービス一覧についてはこちらのページをご確認ください。<br>
 <a href="https://mackerel.io/ja/docs/entry/integrations/aws">AWSインテグレーション</a>
 
 ## 取得メトリック
 AWSインテグレーションのECS対応で取得できるメトリックは以下の通りです。`メトリック`の説明に関しては<a href="https://docs.aws.amazon.com/ja_jp/AmazonECS/latest/developerguide/cloudwatch-metrics.html" target="_blank">AWSのヘルプ</a>をご確認ください。
+
+最大で `12 + 7 × (サービス数)` 個のメトリックが取得されます。
 
 |グラフ名|メトリック|Mackerel上のメトリック名|単位|Statistics|
 |:--|:--|:--|:--|:--|

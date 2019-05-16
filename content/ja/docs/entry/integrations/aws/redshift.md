@@ -6,13 +6,15 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 ---
 
 MackerelはAWSインテグレーションにて<a href="https://aws.amazon.com/redshift/" target="_blank">Amazon Redshift</a>のメトリック取得や監視に対応しています。
-AWSインテグレーションで連携をおこなった場合、課金対象として 1テーブル = 1ホスト と換算します。
+AWSインテグレーションで連携をおこなった場合、課金対象として 1テーブル = 1マイクロホスト と換算します。またそれに加えて、取得されるメトリックの数に応じて、1マイクロホストあたりのメトリック数上限の超過による請求が行われます。
 
 AWSインテグレーションの設定方法や対応AWSサービス一覧についてはこちらのページをご確認ください。<br>
 <a href="https://mackerel.io/ja/docs/entry/integrations/aws">AWSインテグレーション</a>
 
 ## 取得メトリック
 AWSインテグレーションのRedshift対応で取得できるメトリックは以下の通りです。 `メトリック` の説明に関しては<a href="https://docs.aws.amazon.com/ja_jp/redshift/latest/mgmt/metrics-listing.html" target="_blank">AWSのヘルプ</a>をご確認ください。
+
+最大で `24 + 2 × (キュー数) + 1 × (サービスクラス数) + 10 × (ノード数)` 個のメトリックが取得されます。
 
 ### クラスターごとのメトリック
 メトリック名の `WLM_ID` にワークロード管理(WLM)キューのIDが入ります。 (例: 1, Default など)<br>

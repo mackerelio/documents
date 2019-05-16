@@ -5,7 +5,8 @@ URL: https://mackerel.io/docs/entry/integrations/aws/alb
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/10328749687205720315
 ---
 
-Mackerel supports obtaining and monitoring each Load Balancer metric of <a href="https://aws.amazon.com/elasticloadbalancing/" target="_blank">Elastic Load Balancing</a> in AWS Integration. This page contains details regarding the Application Load Balancer (ALB). When integrating with AWS Integration, billable targets are determined using the conversion 1 ALB = 1 Host.
+Mackerel supports obtaining and monitoring each Load Balancer metric of <a href="https://aws.amazon.com/elasticloadbalancing/" target="_blank">Elastic Load Balancing</a> in AWS Integration. This page contains details regarding the Application Load Balancer (ALB). When integrating with AWS Integration, billable targets are determined using the conversion 1 ALB = 1 Micro Host.
+In addition to this, depending on the number of metrics retrieved, you may be charged for exceeding the maximum number of metrics per micro host.
 
 Please refer to the following page for AWS Integration configuration methods and a list of supported AWS services. <br>
 <a href="https://mackerel.io/docs/entry/integrations/aws">AWS Integration</a>
@@ -15,6 +16,8 @@ In addition, you can take a look at the help pages for other supported Load Bala
 ## Obtaining metrics
 
 The metrics obtainable with AWS Integration’s ALB support are as follows. For `Metric` explanations, refer to the <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-cloudwatch-metrics.html" target="_blank">AWS help page</a>.
+
+The maximum number of metrics obtainable is `15 + 10 × (number of target groups)`.
 
 ### Graph per Load Balancer
 |Graph name|Metric|Metric name in Mackerel|Unit|Statistics|

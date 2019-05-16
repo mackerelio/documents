@@ -5,13 +5,15 @@ URL: https://mackerel.io/ja/docs/entry/integrations/azure/redis-cache
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/8599973812275094045
 ---
 
-MackerelはAzureインテグレーションにて<a href="https://azure.microsoft.com/ja-jp/services/cache/" target="_blank">Redis Cache</a>のメトリック取得や監視に対応しています。
+MackerelはAzureインテグレーションにて<a href="https://azure.microsoft.com/ja-jp/services/cache/" target="_blank">Redis Cache</a>のメトリック取得や監視に対応しています。Azureインテグレーションで連携をおこなった場合、課金対象として 1キャッシュ = 1マイクロホスト と換算します。またそれに加えて、取得されるメトリックの数に応じて、1マイクロホストあたりのメトリック数上限の超過による請求が行われる場合があります。
 
 Azureインテグレーションの設定方法や対応Azureサービス一覧についてはこちらのページをご確認ください。<br>
 <a href="https://mackerel.io/ja/docs/entry/integrations/azure">Azureインテグレーション</a>
 
 ## 取得メトリック
 AzureインテグレーションのRedis Cache対応で取得できるメトリックは以下の通りです。 `メトリック` の説明に関しては<a href="https://docs.microsoft.com/ja-jp/azure/redis-cache/cache-how-to-monitor#available-metrics-and-reporting-intervals" target="_blank">Azureのドキュメント</a>をご確認ください。
+
+最大で `15 + 15 × (シャード数)` 個のメトリックが取得されます。
 
 |グラフ名|メトリック|Mackerel上のメトリック名|単位|Aggregation Type|
 |:---|:---|:---|:---|:---|

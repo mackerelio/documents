@@ -5,13 +5,15 @@ URL: https://mackerel.io/ja/docs/entry/integrations/aws/apigateway
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/10257846132664955420
 ---
 
-MackerelはAWSインテグレーションにて<a href="https://aws.amazon.com/jp/api-gateway/" target="_blank">Amazon API Gateway</a>のメトリック取得や監視に対応しています。AWSインテグレーションで連携を行なった場合、課金対象として1API = 1ホストと換算します。
+MackerelはAWSインテグレーションにて<a href="https://aws.amazon.com/jp/api-gateway/" target="_blank">Amazon API Gateway</a>のメトリック取得や監視に対応しています。AWSインテグレーションで連携を行なった場合、課金対象として1API = 1マイクロホストと換算します。
 
 AWSインテグレーションの設定方法や対応AWSサービス一覧についてはこちらのページをご確認ください。<br>
 <a href="https://mackerel.io/ja/docs/entry/integrations/aws">AWSインテグレーション</a>
 
 ## 取得メトリック
 AWSインテグレーションのAPI Gateway対応で取得できるメトリックは以下の通りです。`メトリック`の説明に関しては<a href="https://docs.aws.amazon.com/ja_jp/apigateway/latest/developerguide/api-gateway-metrics-and-dimensions.html" target="_blank">AWSのヘルプ</a>をご確認ください。
+
+最大で11個のメトリックが取得されます。
 
 |グラフ名|メトリック|Mackerel上のメトリック名|単位|Statistics|
 |:--|:--|:--|:--|:--|

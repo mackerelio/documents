@@ -43,7 +43,7 @@ This is the same as the source IP address range for Mackerel notification reques
 This feature can only be used with a paid subscription or in the free trial.
 
 Up to 20 external URL monitors can be made without additional charges being incurred.
-If more than 20 have been created, excess will be counted as 20 external URL monitors equals the value of one host.
+If more than 20 are created, the excess will be charged using the conversion 20 external URL monitors equals the value of one standard host.
 
 ## Sample Alert
 When a new monitor has been added it will be displayed in the list in the Monitors page.

@@ -5,7 +5,7 @@ URL: https://mackerel.io/docs/entry/integrations/aws/elb
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/10328749687205759344
 ---
 
-Mackerel supports obtaining and monitoring <a href="https://aws.amazon.com/elasticloadbalancing/" target="_blank">Classic Load Balancing</a> metrics in AWS Integration. This page contains details regarding the Classic Load Balancer (CLB, formerly Elastic Load Balancer (ELB)). When integrating with AWS Integration, billable targets are determined using the conversion 1 ELB(CLB) = 1 Host.
+Mackerel supports obtaining and monitoring <a href="https://aws.amazon.com/elasticloadbalancing/" target="_blank">Classic Load Balancing</a> metrics in AWS Integration. This page contains details regarding the Classic Load Balancer (CLB, formerly Elastic Load Balancer (ELB)). When integrating with AWS Integration, billable targets are determined using the conversion 1 ELB(CLB) = 1 Micro Host.
 
 Please refer to the following page for AWS Integration configuration methods and a list of supported AWS services.  <br>
 <a href="https://mackerel.io/docs/entry/integrations/aws">AWS Integration</a>
@@ -15,6 +15,8 @@ In addition, you can take a look at the help pages for other supported Load Bala
 ## Obtaining metrics
 
 The metrics obtainable with AWS Integration’s ELB(CLB) support are as follows. For `Metric` explanations, refer to the <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-cloudwatch-metrics.html" target="_blank">AWS help page</a>.
+
+The maximum number of metrics obtainable is 13.
 
 |Graph name|Metric|Metric name in Mackerel|Unit|Statistics|
 |:---|:---|:---|:---|

@@ -11,7 +11,7 @@ ECSで**awsvpcネットワークモード以外**をお使いの場合は[こち
 
 ## 課金に関する注意事項
 
-1つのタスクに対して1つのホストがMackerelに登録されます。有料プランの場合は課金が発生しますのでご注意ください。詳しくは[FAQ・ホスト数の計算方法について](https://mackerel.io/ja/docs/entry/faq/contracts/calculate-host-number)をご覧ください
+1つのタスクに対して1マイクロホストがMackerelに登録されます。有料プランの場合は課金が発生しますのでご注意ください。詳しくは[FAQ・ホスト数の計算方法について](https://mackerel.io/ja/docs/entry/faq/contracts/calculate-host-number)をご覧ください
 
 ## タスク定義にコンテナを追加する
 

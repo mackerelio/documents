@@ -6,13 +6,15 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 ---
 
 MackerelはAWSインテグレーションにて<a href="https://aws.amazon.com/lambda/" target="_blank">AWS Lambda</a>のメトリック取得や監視に対応しています。
-AWSインテグレーションで連携をおこなった場合、課金対象として 1function = 1ホスト と換算します。
+AWSインテグレーションで連携をおこなった場合、課金対象として 1function = 1マイクロホスト と換算します。またそれに加えて、取得されるメトリックの数に応じて、1マイクロホストあたりのメトリック数上限の超過による請求が行われる場合があります。
 
 AWSインテグレーションの設定方法や対応AWSサービス一覧についてはこちらのページをご確認ください。<br>
 <a href="https://mackerel.io/ja/docs/entry/integrations/aws">AWSインテグレーション</a>
 
 ## 取得メトリック
 AWSインテグレーションのLambda対応で取得できるメトリックは以下の通りです。 `メトリック` の説明に関しては<a href="https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/monitoring-functions-metrics.html" target="_blank">AWSのヘルプ</a>をご確認ください。
+
+最大で `10 + 10 × (Alias数) + 10 × (Version数)` 個のメトリックが取得されます。
 
 |グラフ名|メトリック|Mackerel上のメトリック名|単位|Statistics|
 |:---|:---|:---|:---|:---|

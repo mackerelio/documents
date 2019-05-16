@@ -5,13 +5,15 @@ URL: https://mackerel.io/docs/entry/integrations/aws/apigateway
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/10257846132664956018
 ---
 
-Mackerel supports obtaining and monitoring <a href="https://aws.amazon.com/api-gateway/" target="_blank">Amazon API Gateway</a> metrics in AWS Integration. When integrating with AWS Integration, billable targets are determined using the conversion 1 API = 1 Host.
+Mackerel supports obtaining and monitoring <a href="https://aws.amazon.com/api-gateway/" target="_blank">Amazon API Gateway</a> metrics in AWS Integration. When integrating with AWS Integration, billable targets are determined using the conversion 1 API = 1 Micro Host.
 
 Please refer to the following page for AWS Integration configuration methods and a list of supported AWS services.<br>
 <a href="https://mackerel.io/docs/entry/integrations/aws">AWS Integration</a>
 
 ## Obtaining metrics
 The metrics obtainable with AWS Integration's API Gateway support are as follows. For `Metric` explanations, refer to the <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-metrics-and-dimensions.html" target="_blank">AWS help page</a>.
+
+The maximum number of metrics obtainable is 11.
 
 |Graph name|Metric|Metric name in Mackerel|Unit|Statistics|
 |:--|:--|:--|:--|:--|

@@ -5,7 +5,7 @@ URL: https://mackerel.io/docs/entry/integrations/azure/virtual-machine
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/8599973812320734054
 ---
 
-Mackerel supports obtaining and monitoring <a href="https://azure.microsoft.com/ja-jp/services/virtual-machines/" target="_blank">Virtual Machine</a> metrics in Azure Integration.
+Mackerel supports obtaining and monitoring <a href="https://azure.microsoft.com/ja-jp/services/virtual-machines/" target="_blank">Virtual Machine</a> metrics in Azure Integration. When integrating with Azure Integration, billable targets are determined using the conversion 1 Instance = 1 Standard Host.
 
 Please refer to the following page for Azure Integration configuration methods and a list of supported Azure services. <br>
 <a href="https://mackerel.io/ja/docs/entry/integrations/azure">Azure Integration</a>
@@ -13,6 +13,8 @@ Please refer to the following page for Azure Integration configuration methods a
 ## Obtaining metrics
 
 The metrics obtainable with Virtual Machine Azure Integration support are as follows. For `metric` explanations, refer to the <a href="https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-supported-metrics#a-namemicrosoftcomputevirtualmachinesamicrosoftcomputevirtualmachines" target="_blank">Azure help page</a>.
+
+The maximum number of metrics obtainable is 7.
 
 |Graph name|Metric|Metric name in Mackerel|Unit|Aggregation Type|
 |:---|:---|:---|:---|:---|

@@ -15,7 +15,7 @@ The number of hosts will be calculated as follows.
       * Hosts with metric posts are counted as active hosts even if the host status is `poweroff`.
   * Normally this number will equal the number of mackerel-agents being run.
   * Hosts with a “retired” status / hosts with no metric posts will not be counted as active hosts.
-* When using a paid plan, even if the the number of active hosts is zero, the minimum usage fee (one host’s worth) will be charged once.
+* If have a paid plan and use service metrics or external monitoring, you will be charged for one standard host even if there are no active standard hosts registered.
 
 
 ---

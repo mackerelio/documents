@@ -5,7 +5,7 @@ URL: https://mackerel.io/docs/entry/integrations/aws/ec2
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/10328749687205738372
 ---
 
-Mackerel supports obtaining and monitoring <a href="https://aws.amazon.com/ec2/" target="_blank">Amazon Elastic Compute Cloud (Amazon EC2)</a> metrics in AWS Integration. When integrating with AWS Integration, billable targets are determined using the conversion 1 Instance = 1 Host. AWS integration and mackerel-agent can also be used together. In such a case, system metrics and custom metrics will be integrated as one host (no duplicate charges will be made).
+Mackerel supports obtaining and monitoring <a href="https://aws.amazon.com/ec2/" target="_blank">Amazon Elastic Compute Cloud (Amazon EC2)</a> metrics in AWS Integration. When integrating with AWS Integration, billable targets are determined using the conversion 1 Instance = 1 Standard Host. AWS integration and mackerel-agent can also be used together. In such a case, system metrics and custom metrics will be integrated as one host (no duplicate charges will be made).
 
 Please refer to the following page for AWS Integration configuration methods and a list of supported AWS services.  <br>
 <a href="https://mackerel.io/docs/entry/integrations/aws">AWS Integration</a>
@@ -13,6 +13,8 @@ Please refer to the following page for AWS Integration configuration methods and
 ## Obtaining metrics
 
 The metrics obtainable with AWS Integration’s EC2 support are as follows. For `Metric` explanations, refer to the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/viewing_metrics_with_cloudwatch.html" target="_blank">AWS help page</a>.
+
+The maximum number of metrics obtainable is 15.
 
 |Graph name|Metric|Metric name in Mackerel|Unit|Statistics|
 |:---|:---|:---|:---|:---|

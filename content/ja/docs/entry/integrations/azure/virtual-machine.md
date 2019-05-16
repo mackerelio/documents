@@ -5,13 +5,15 @@ URL: https://mackerel.io/ja/docs/entry/integrations/azure/virtual-machine
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/8599973812278972185
 ---
 
-MackerelはAzureインテグレーションにて<a href="https://azure.microsoft.com/ja-jp/services/virtual-machines/" target="_blank">Virtual Machine</a>のメトリック取得や監視に対応しています。
+MackerelはAzureインテグレーションにて<a href="https://azure.microsoft.com/ja-jp/services/virtual-machines/" target="_blank">Virtual Machine</a>のメトリック取得や監視に対応しています。Azureインテグレーションで連携をおこなった場合、課金対象として 1インスタンス = 1スタンダードホスト と換算します。
 
 Azureインテグレーションの設定方法や対応Azureサービス一覧についてはこちらのページをご確認ください。<br>
 <a href="https://mackerel.io/ja/docs/entry/integrations/azure">Azureインテグレーション</a>
 
 ## 取得メトリック
 AzureインテグレーションのVirtual Machine対応で取得できるメトリックは以下の通りです。 `メトリック` の説明に関しては<a href="https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-supported-metrics#a-namemicrosoftcomputevirtualmachinesamicrosoftcomputevirtualmachines" target="_blank">Azureのドキュメント</a>をご確認ください。
+
+最大で7個のメトリックが取得されます。
 
 |グラフ名|メトリック|Mackerel上のメトリック名|単位|Aggregation Type|
 |:---|:---|:---|:---|:---|

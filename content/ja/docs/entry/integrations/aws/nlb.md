@@ -6,7 +6,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 ---
 
 MackerelはAWSインテグレーションにて<a href="https://aws.amazon.com/elasticloadbalancing/" target="_blank">Elastic Load Balancing</a>の各ロードバランサのメトリック取得や監視に対応しています。このページではそのうちNetwork Load Balancer(以下NLB)についての詳細です。
-AWSインテグレーションで連携をおこなった場合、課金対象として 1NLB = 1ホスト と換算します。
+AWSインテグレーションで連携をおこなった場合、課金対象として 1NLB = 1マイクロホスト と換算します。またそれに加えて、取得されるメトリックの数に応じて、1マイクロホストあたりのメトリック数上限の超過による請求が行われる場合があります。
 
 AWSインテグレーションの設定方法や対応AWSサービス一覧についてはこちらのページをご確認ください。<br>
 <a href="https://mackerel.io/ja/docs/entry/integrations/aws">AWSインテグレーション</a>
@@ -15,6 +15,8 @@ AWSインテグレーションの設定方法や対応AWSサービス一覧に�
 
 ## 取得メトリック
 AWSインテグレーションのNLB対応で取得できるメトリックは以下の通りです。 `メトリック` の説明に関しては<a href="https://docs.aws.amazon.com/ja_jp/elasticloadbalancing/latest/network/load-balancer-cloudwatch-metrics.html" target="_blank">AWSのヘルプ</a>をご確認ください。
+
+最大で `6 + 2 × (ターゲットグループ数)` 個のメトリックが取得されます。
 
 ### ロードバランサーごとのグラフ
 |グラフ名|メトリック|Mackerel上のメトリック名|単位|Statistics|

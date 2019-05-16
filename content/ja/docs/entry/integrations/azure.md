@@ -7,7 +7,9 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 
 Azureインテグレーションを用いるとAzureクラウド製品をMackerelのホストとして管理し、メトリックを監視できます。本機能はTrialプランとStandardプランのみの提供となります。
 
-Azureのクラウド製品1台が、Mackerelで1ホストとして登録され、Mackerelの課金対象のホスト数としてカウントされます。 また、5分ごとに取得対象となるメトリックの数だけAzureのAPIをコールして値を取得します。そのため[Azure Monitor API利用の料金](https://azure.microsoft.com/ja-jp/pricing/details/monitor/)が発生する場合がありますのでご注意ください。
+Azureのクラウド製品1台が、Mackerelで1ホストとして登録され、Mackerelの課金対象のホスト数としてカウントされます。
+ホストの種類は、Virtual Machineについてはスタンダードホスト、その他の製品についてはマイクロホストとなります。
+また、5分ごとに取得対象となるメトリックの数だけAzureのAPIをコールして値を取得します。そのため[Azure Monitor API利用の料金](https://azure.microsoft.com/ja-jp/pricing/details/monitor/)が発生する場合がありますのでご注意ください。
 
 Azureインテグレーションは現在は以下のAzureクラウド製品に対応しています。取得メトリックなどについてはそれぞれのドキュメントを参照ください。
 

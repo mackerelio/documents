@@ -6,7 +6,8 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackere
 CustomPath: integrations/aws/ses
 ---
 
-Mackerel supports obtaining and monitoring <a href="https://aws.amazon.com/jp/ses/" target="_blank">Amazon Simple Email Service</a> metrics in AWS Integration. When integrating with AWS Integration, billable targets are determined using the conversion 1 Region = 1 Host.
+Mackerel supports obtaining and monitoring <a href="https://aws.amazon.com/jp/ses/" target="_blank">Amazon Simple Email Service</a> metrics in AWS Integration. When integrating with AWS Integration, billable targets are determined using the conversion 1 Region = 1 Micro Host.
+In addition to this, depending on the number of metrics retrieved, you may be charged for exceeding the maximum number of metrics per micro host.
 
 Please refer to the following page for AWS Integration configuration methods and a list of supported AWS services.<br>
 <a href="https://mackerel.io/docs/entry/integrations/aws">AWS Integration</a>
@@ -15,6 +16,7 @@ Please refer to the following page for AWS Integration configuration methods and
 ## Obtaining metrics
 The metrics obtainable with AWS Integration's support for SES are as follows. For `Metric` explanations, refer to the AWS help page.<br><a href="https://docs.aws.amazon.com/us_en/ses/latest/DeveloperGuide/monitor-sending-activity.html" target="_blank">Monitoring Your Amazon SES Sending Activity</a><br><a href="https://docs.aws.amazon.com/us_en/ses/latest/DeveloperGuide/receiving-email-metrics.html" target="_blank">Viewing Metrics for Amazon SES Email Receiving</a>
 
+The maximum number of metrics obtainable is `10 + 2 × (number of rules)`.
 
 |Graph name|Metric|Metric name in Mackerel|Unit|Statistics|
 |:--|:--|:--|:--|:--|

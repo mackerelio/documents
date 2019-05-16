@@ -6,13 +6,16 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackere
 CustomPath: integrations/aws/ecs
 ---
 
-Mackerel supports obtaining and monitoring <a href="https://aws.amazon.com/jp/ecs/" target="_blank">Amazon Elastic Container Service</a> metrics in AWS Integration. When integrating with AWS Integration, billable targets are determined using the conversion 1 Cluster = 1 Host.
+Mackerel supports obtaining and monitoring <a href="https://aws.amazon.com/jp/ecs/" target="_blank">Amazon Elastic Container Service</a> metrics in AWS Integration. When integrating with AWS Integration, billable targets are determined using the conversion 1 Cluster = 1 Micro Host.
+In addition to this, depending on the number of metrics retrieved, you may be charged for exceeding the maximum number of metrics per micro host.
 
 Please refer to the following page for AWS Integration configuration methods and a list of supported AWS services.<br>
 <a href="https://mackerel.io/docs/entry/integrations/aws">AWS Integration</a>
 
 ## Obtaining metrics
 The metrics obtainable with AWS Integration's support for ECS are as follows. For `Metric` explanations, refer to the <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cloudwatch-metrics.html" target="_blank">AWS help page</a>.
+
+The maximum number of metrics obtainable is `12 + 7 × (number of Services)`.
 
 |Graph name|Metric|Metric name in Mackerel|Unit|Statistics|
 |:--|:--|:--|:--|:--|

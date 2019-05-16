@@ -6,13 +6,15 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 CustomPath: integrations/aws/ses
 ---
 
-MackerelはAWSインテグレーションにて<a href="https://aws.amazon.com/jp/ses/" target="_blank">Amazon Simple Email Service</a>のメトリック取得や監視に対応しています。AWSインテグレーションで連携を行なった場合、課金対象として1リージョン = 1ホストと換算します。
+MackerelはAWSインテグレーションにて<a href="https://aws.amazon.com/jp/ses/" target="_blank">Amazon Simple Email Service</a>のメトリック取得や監視に対応しています。AWSインテグレーションで連携を行なった場合、課金対象として1リージョン = 1マイクロホストと換算します。またそれに加えて、取得されるメトリックの数に応じて、1マイクロホストあたりのメトリック数上限の超過による請求が行われる場合があります。
 
 AWSインテグレーションの設定方法や対応AWSサービス一覧についてはこちらのページをご確認ください。<br>
 <a href="https://mackerel.io/ja/docs/entry/integrations/aws">AWSインテグレーション</a>
 
 ## 取得メトリック
 AWSインテグレーションのSES対応で取得できるメトリックは以下の通りです。`メトリック`の説明に関してはAWSのヘルプをご確認ください。<br><a href="https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/monitor-sending-activity.html" target="_blank">Amazon SES 送信アクティビティのモニタリング</a><br><a href="https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/receiving-email-metrics.html" target="_blank">Amazon SES によるメール受信のメトリクスの表示</a>
+
+最大で `10 + 2 × (ルール数)` のメトリックが取得されます。
 
 |グラフ名|メトリック|Mackerel上のメトリック名|単位|Statistics|
 |:--|:--|:--|:--|:--|

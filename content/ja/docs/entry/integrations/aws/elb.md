@@ -6,7 +6,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 ---
 
 MackerelはAWSインテグレーションにて<a href="https://aws.amazon.com/elasticloadbalancing/" target="_blank">Elastic Load Balancing</a>の各ロードバランサのメトリック取得や監視に対応しています。このページではそのうちClassic Load Balancer(以下CLB。旧名はElastic Load Balancer(ELB))についての詳細です。
-AWSインテグレーションで連携をおこなった場合、課金対象として 1ELB(CLB) = 1ホスト と換算します。
+AWSインテグレーションで連携をおこなった場合、課金対象として 1ELB(CLB) = 1マイクロホスト と換算します。
 
 AWSインテグレーションの設定方法や対応AWSサービス一覧についてはこちらのページをご確認ください。<br>
 <a href="https://mackerel.io/ja/docs/entry/integrations/aws">AWSインテグレーション</a>
@@ -15,6 +15,8 @@ AWSインテグレーションの設定方法や対応AWSサービス一覧に�
 
 ## 取得メトリック
 AWSインテグレーションのELB(CLB)対応で取得できるメトリックは以下の通りです。 `メトリック` の説明に関しては<a href="https://docs.aws.amazon.com/ja_jp/elasticloadbalancing/latest/classic/elb-cloudwatch-metrics.html" target="_blank">AWSのヘルプ</a>をご確認ください。
+
+最大で13個のメトリックが取得されます。
 
 |グラフ名|メトリック|Mackerel上のメトリック名|単位|Statistics|
 |:---|:---|:---|:---|

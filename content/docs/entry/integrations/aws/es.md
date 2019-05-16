@@ -5,7 +5,8 @@ URL: https://mackerel.io/docs/entry/integrations/aws/es
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/98012380832143057
 ---
 
-Mackerel supports obtaining and monitoring <a href="https://aws.amazon.com/jp/elasticsearch-service/" target="_blank">Amazon Elasticsearch Service (ES)</a> metrics in AWS Integration. When integrating with AWS Integration, billable targets are determined using the conversion 1 Domain = 1 Host.
+Mackerel supports obtaining and monitoring <a href="https://aws.amazon.com/jp/elasticsearch-service/" target="_blank">Amazon Elasticsearch Service (ES)</a> metrics in AWS Integration. When integrating with AWS Integration, billable targets are determined using the conversion 1 Domain = 1 Micro Host.
+In addition to this, depending on the number of metrics retrieved, you may be charged for exceeding the maximum number of metrics per micro host.
 
 Please refer to the following page for AWS Integration configuration methods and a list of supported AWS services.<br>
 <a href="https://mackerel.io/docs/entry/integrations/aws">AWS Integration</a>
@@ -13,6 +14,8 @@ Please refer to the following page for AWS Integration configuration methods and
 ## Obtaining metrics
 The metrics obtainable with AWS Integration's support for ES are as follows. For `Metric` explanations, refer to the <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains.html
 " target="_blank">AWS help page</a>.
+
+The maximum number of metrics obtainable is 72.
 
 |Graph name|Metric|Metric name in Mackerel|Unit|Statistics|
 |:--|:--|:--|:--|:--|

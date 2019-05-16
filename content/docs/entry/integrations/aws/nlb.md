@@ -5,7 +5,8 @@ URL: https://mackerel.io/docs/entry/integrations/aws/nlb
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/8599973812310631927
 ---
 
-Mackerel supports obtaining and monitoring each Load Balancer metric of <a href="https://aws.amazon.com/elasticloadbalancing/" target="_blank">Elastic Load Balancing</a> in AWS Integration. This page contains details about the Network Load Balancer (NLB). When integrating with AWS Integration, billable targets are determined using the conversion 1 NLB = 1 Host.
+Mackerel supports obtaining and monitoring each Load Balancer metric of <a href="https://aws.amazon.com/elasticloadbalancing/" target="_blank">Elastic Load Balancing</a> in AWS Integration. This page contains details about the Network Load Balancer (NLB). When integrating with AWS Integration, billable targets are determined using the conversion 1 NLB = 1 Micro Host.
+In addition to this, depending on the number of metrics retrieved, you may be charged for exceeding the maximum number of metrics per micro host.
 
 Please refer to the following page for AWS Integration configuration methods and a list of supported AWS services. <br>
 <a href="https://mackerel.io/docs/entry/integrations/aws">AWS Integration</a>
@@ -14,6 +15,8 @@ In addition, refer to our other help pages regarding Elastic Load Balancing; [AL
 
 ## Obtaining metrics
 The metrics obtainable with AWS Integration’s NLB support are as follows. For `Metric` explanations, refer to the <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-cloudwatch-metrics.html" target="_blank">AWS help page</a>.
+
+The maximum number of metrics obtainable is `6 + 2 × (number of target groups)`.
 
 ### Graph per Load Balancer
 |Graph name|Metric|Metric name in Mackerel|Unit|Statistics|

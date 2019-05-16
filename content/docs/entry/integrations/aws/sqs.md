@@ -5,13 +5,15 @@ URL: https://mackerel.io/docs/entry/integrations/aws/sqs
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/8599973812311196822
 ---
 
-Mackerel supports obtaining and monitoring <a href="https://aws.amazon.com/sqs/" target="_blank">Amazon Simple Queue Service (SQS)</a> metrics in AWS Integration.
+Mackerel supports obtaining and monitoring <a href="https://aws.amazon.com/sqs/" target="_blank">Amazon Simple Queue Service (SQS)</a> metrics in AWS Integration. When integrating with AWS Integration, billable targets are determined using the conversion 1 Queue = 1 Micro Host.
 
 Please refer to the following page for AWS Integration configuration methods and a list of supported AWS services. <br>
 <a href="https://mackerel.io/docs/entry/integrations/aws">AWS Integration</a>
 
 ## Obtaining metrics
 The metrics obtainable with AWS Integration’s SQS support are as follows. For `Metric` explanations, refer to the <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-available-cloudwatch-metrics.html" target="_blank">AWS help page</a>.
+
+The maximum number of metrics obtainable is 11.
 
 |Graph name|Metric|Metric name in Mackerel|Unit|Statistics|
 |:---|:---|:---|:---|:---|

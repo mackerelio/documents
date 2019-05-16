@@ -7,7 +7,9 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackere
 
 Using AWS integration, you can manage AWS cloud products as a host of Mackerel and monitor its metrics. This function is only offered in the Trial plan and Standard plan.
 
-Each AWS cloud product will be registered as one host in Mackerel and therefore be counted as a billable host. Additionally, the API of AWS will be called every 5 minutes for each targeted metric to be obtained. Please take note, for this reason, an [Amazon CloudWatch API usage fee](https://aws.amazon.com/jp/cloudwatch/pricing/) may occur.
+Each AWS cloud product will be registered as one host in Mackerel and therefore be counted as a billable host.
+The types of hosts consist of standard hosts for EC2 and micro hosts for other products.
+Additionally, the API of AWS will be called every 5 minutes for each targeted metric to be obtained. Please take note, for this reason, an [Amazon CloudWatch API usage fee](https://aws.amazon.com/jp/cloudwatch/pricing/) may occur.
 
 Currently, the following AWS cloud products are supported. For information on obtaining metrics, please refer to each individual document.
 
