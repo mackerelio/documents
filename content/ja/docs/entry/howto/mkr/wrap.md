@@ -75,7 +75,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 
 このオプションの挙動は一時領域に結果を保存し、次回実行時にそれを読み出す形となるため、永続的なディスク領域がある環境で利用してください。
 
-### `-I, --notifictation-interval` - 通知再送間隔を指定する
+### `-I, --notification-interval` - 通知再送間隔を指定する
 
 デフォルトではアラート発生時もしくはアラート状態変更時にのみしか通知がおこなわれませんが、このオプションを使うことで発生中のアラートの通知を定期的に送信できます。
 
