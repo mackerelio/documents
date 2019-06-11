@@ -45,6 +45,7 @@ The setup process for mackerel-container-agent varies for each container orchest
 
 - [ECS(default, bridge, host, none network mode)](https://mackerel.io/docs/entry/howto/install-agent/container/ecs)
 - [Fargate, ECS(awsvpc network mode)](https://mackerel.io/docs/entry/howto/install-agent/container/ecsawsvpc)
+- [ECS(Regardless of statup type and network mode)](https://mackerel.io/docs/entry/howto/install-agent/container/ecsv3)
 - [Kubernetes](https://mackerel.io/docs/entry/howto/install-agent/container/kubernetes)
 
 ## Obtaining metrics
@@ -240,6 +241,7 @@ http probe configuration items (`readinessProbe.http`)
 - **host**: Specifies the host of the request contact. The default value is `localhost`.
 - **port**: Specifies the port of the request contact. The default value is `80`.
 - **headers**: Specifies the request header.
+- **proxy**: Specifies the HTTP Proxy URL.
 
 Configuration example
 ```
@@ -257,6 +259,7 @@ readinessProbe:
     headers:
       - name: X-Custom-Header
         value: test
+    proxy: "https://proxy.example.com:8080"
   initialDelaySeconds: 10
   timeoutSeconds: 5
   periodSeconds: 10

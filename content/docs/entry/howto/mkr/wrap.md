@@ -75,7 +75,7 @@ If there are previously reported alerts when a succeeding batch job of the same 
 
 This option saves the result in a temporary area and reads it at the next execution, so be sure to use it in an environment with persistent disk space.
 
-### `-I, --notifictation-interval` - Specify the notification retransmission interval
+### `-I, --notification-interval` - Specify the notification retransmission interval
 
 By default, notifications are only sent when an alert occurs or when the status of an alert changes, but you can have notifications sent at fixed intervals for open alerts using this option.
 

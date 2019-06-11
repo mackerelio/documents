@@ -156,7 +156,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 }
 ```
 
-<i>`<host>`</i> は[ホスト情報の登録](#create)の内容を持つobjectで、以下のキーが追加されています。`roleFullnames` は存在しません。
+<i>`<host>`</i> は以下のキーを持つオブジェクトです。
 
 | KEY | TYPE | DESCRIPTION |
 | --- | --- | --- |

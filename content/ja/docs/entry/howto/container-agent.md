@@ -46,6 +46,7 @@ mackerel-container-agentのセットアップ手順です。
 
 - [ECS(default, bridge, host, noneネットワークモード)](https://mackerel.io/ja/docs/entry/howto/install-agent/container/ecs)
 - [Fargate, ECS(awsvpcネットワークモード)](https://mackerel.io/ja/docs/entry/howto/install-agent/container/ecsawsvpc)
+- [ECS(起動タイプ、ネットワークモード問わず)](https://mackerel.io/ja/docs/entry/howto/install-agent/container/ecsv3)
 - [Kubernetes](https://mackerel.io/ja/docs/entry/howto/install-agent/container/kubernetes)
 
 ## 取得メトリック
@@ -241,6 +242,7 @@ http probeの設定項目 (`readinessProbe.http`)
 - **host**: リクエスト先のホストを指定します。デフォルト値は`localhost`です。
 - **port**: リクエスト先のポートを指定します。デフォルト値は`80`です。
 - **headers**: リクエストヘッダを指定します。
+- **proxy**: HTTPプロキシのURLを指定します。
 
 設定例
 ```
@@ -258,6 +260,7 @@ readinessProbe:
     headers:
       - name: X-Custom-Header
         value: test
+    proxy: "https://proxy.example.com:8080"
   initialDelaySeconds: 10
   timeoutSeconds: 5
   periodSeconds: 10

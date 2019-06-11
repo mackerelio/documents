@@ -35,19 +35,19 @@ Registering an agent-running host to Mackerel.
 
 ### Input
 
-By designating a host’s service and role in the `rollFullnames` input to the API, the host will be assigned to that role. If service and role names that don’t yet exist are entered, they will be created.
+By designating the role to which a host belongs in the input, the host will be assigned to that role. If a service or role name that does not yet exist is entered, it will be created.
 
-Objects that hold the following keys:
+This object holds the following keys:
 
-| KEY     | TYPE   | DESCRIPTION |
-| -------- | ------ | ----------- |
-| `name`   | *string* | host name |
-| `meta`   | *object* |host information [*1](#meta) |
-| `interfaces` | *array[hash[string]]* | [optional] network interface information [*2](#interfaces) |
-| `roleFullnames`  | *array[string]* | [optional] array of full names of the roles to which this host belongs [*3](#roleFullnames) |
-| `checks`         | *array[hash[string]]* | [optional] array of check monitorings that monitor this host [*4](#checks) |
-| `displayName`    | *string* | [optional] this host’s management name |
-| `customIdentifier`    | *string*        | [optional] user-specific identifier for this host |
+| KEY | TYPE | DESCRIPTION |
+| --- | --- | --- |
+| `name` | *string* | name of the host |
+| `displayName` | *string* | [optional] host management name |
+| `customIdentifier` | *string* | [optional] a user-specific identifier for the host |
+| `meta` | *object* | host metadata [*1](#meta) |
+| `interfaces` | *array[object]* | [optional] host network interface information[*2](#interfaces) |
+| `roleFullnames` | *array[string]* | [optional] an array of the full name of the role to which the host belongs[*3](#roleFullnames) |
+| `checks` | *array[hash[string]]* | [optional] an array of the check monitoring item that monitors the host[*4](#checks) |
 
 ### Response
 
@@ -104,10 +104,13 @@ One element of `interfaces` is an object that holds the following keys.
 | KEY     | TYPE   | DESCRIPTION |
 | -------- | ------ | ----------- |
 | `name` | *string* | interface name, e.g. "eth0" |
-| `ipAddress` | *string* | interface IP address |
-| `macAddress` | *string* | interface MAC address |
-| `ipv4Addresses` | *array[string]* | interface IPv4 addresses |
-| `ipv6Addresses` | *array[string]* | interface IPv6 addresses |
+| `macAddress` | *string* | [optional] interface MAC address |
+| `ipv4Addresses` | *array[string]* | [optiona] interface IPv4 addresses |
+| `ipv6Addresses` | *array[string]* | [optiona] interface IPv6 addresses |
+| `ipAddress` | *string* | [optional] interface IPv4 address |
+| `ipv6Address` | *string* | [optional] interface IPv6 address |
+
+However, if `ipAddress` and `ipv4Addresses` or `ipv6Address` and `ipv6Addresses` are specified at the same time, then `ipv4Addresses` and `ipv6Addresses` will take precedence.
 
 <h4 id="roleFullnames">*3 roleFullnames</h4>
 The full names of roles are in this character string format: `<service name>:<role name>`
@@ -154,19 +157,23 @@ One element of `checks` is an object that holds the following keys.
 }
 ```
 
-<i>`<host>`</i> is an object that holds the contents of [Registering host information](#create) with the addition of the below key. `roleFullnames` does not exist.
+<i>`<host>`</i> is an object that holds the following keys:
 
-  | KEY     | TYPE   | DESCRIPTION |
-  | -------- | ------ | ----------- |
-  | `createdAt` | number | host registration timestamp (Unix time) |
-  | `id` | string | |
-  | `status` | string | the status of the host. (e.g. `"working"`, `"standby"`) |
-  | `memo` | string | the memo regarding this host; can be edited in the web UI. |
-  | `roles` | hash[array[string]] | the host’s role. the array of “key is the service name”, “variable is the name of the role in that service.” |
-  | `interfaces` | *array[hash[string]]* | host network interface information |
-  | `isRetired`  | *boolean* | whether or not the host is retiring  |
-  | `displayName`| *string* | this host’s management name |
-  | `meta` | *hash[string]* | the meta information of cpu, memory, etc. |
+| KEY | TYPE | DESCRIPTION |
+| --- | --- | --- |
+| `createdAt` | *number* | the host's registration timestamp（in epoch seconds） |
+| `id` | *string* | the host's ID |
+| `name` | *string* | the name of the host |
+| `displayName` | *string* | [optional] the host's management name |
+| `customIdentifier` | *string* | [optional] a user-specific identifier for the host |
+| `meta` | *object* | host metadata |
+| `interfaces` | *array[object]* | host network interface information |
+| `type` | *string* | classification of the host（`"agent"`, `"container-agent"`, `"cloud"` etc.） |
+| `status` | *string* | status of the host（`"working"`, `"standby"` etc.） |
+| `memo` | *string* | notes related to the host; can be edited from the management screen |
+| `isRetired` | *boolean* | whether or not the host is retired |
+| `retiredAt` | *number* | [optional] the host's retirement timestamp（in epoch seconds） |
+| `roles` | *hash[array[string]]* | List of the roles to which the host belongs. The keys are service names, and the values are arrays of role names. |
 
 ----------------------------------------------
 

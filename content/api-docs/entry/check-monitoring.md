@@ -37,7 +37,7 @@ If a new monitoring timestamp has already been posted with the same name/host, p
 
 | KEY          | TYPE     | DESCRIPTION                      |
 | ------------ | -------- | -------------------------------- |
-| `source`     | *source* | refer to the                     |
+| `source`     | *source* | refer to the note below          |
 | `name`       | *string* | monitor name                     |
 | `status`     | *string* | monitor report status. `"OK"`, `"CRITICAL"`, `"WARNING"`, or `"UNKNOWN"`  |
 | `message`    | *string* | auxiliary text attached to a monitor report status, under 1024 characters |
@@ -50,7 +50,7 @@ If a new monitoring timestamp has already been posted with the same name/host, p
 
 | KEY          | TYPE     | DESCRIPTION                      |
 | ------------ | -------- | -------------------------------- |
-| `type`       | *string* | fixed number character string `"host"`                     |
+| `type`       | *string* | fixed character string `"host"`                     |
 | `hostId`     | *string* | host ID (given by the server when the host was registered) |
 
 ### Response

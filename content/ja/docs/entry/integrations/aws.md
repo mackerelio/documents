@@ -15,7 +15,7 @@ AWSインテグレーションは現在は以下のAWSクラウド製品に対�
 
 [EC2](https://mackerel.io/ja/docs/entry/integrations/aws/ec2)・[ELB (CLB)](https://mackerel.io/ja/docs/entry/integrations/aws/elb)・[ALB](https://mackerel.io/ja/docs/entry/integrations/aws/alb)・[NLB](https://mackerel.io/ja/docs/entry/integrations/aws/nlb)・[RDS](https://mackerel.io/ja/docs/entry/integrations/aws/rds)・[ElastiCache](https://mackerel.io/ja/docs/entry/integrations/aws/elasticache)・[Redshift](https://mackerel.io/ja/docs/entry/integrations/aws/redshift)・[Lambda](https://mackerel.io/ja/docs/entry/integrations/aws/lambda)・[SQS](https://mackerel.io/ja/docs/entry/integrations/aws/sqs)・[DynamoDB](https://mackerel.io/ja/docs/entry/integrations/aws/dynamodb)・[CloudFront](https://mackerel.io/ja/docs/entry/integrations/aws/cloudfront)
 ・[API Gateway](https://mackerel.io/ja/docs/entry/integrations/aws/apigateway)
-・[Kinesis](https://mackerel.io/ja/docs/entry/integrations/aws/kinesis)・[S3](https://mackerel.io/ja/docs/entry/integrations/aws/s3)・[ES](https://mackerel.io/ja/docs/entry/integrations/aws/es)・[ECS](https://mackerel.io/ja/docs/entry/integrations/aws/ecs)・[SES](https://mackerel.io/ja/docs/entry/integrations/aws/ses)
+・[Kinesis](https://mackerel.io/ja/docs/entry/integrations/aws/kinesis)・[S3](https://mackerel.io/ja/docs/entry/integrations/aws/s3)・[ES](https://mackerel.io/ja/docs/entry/integrations/aws/es)・[ECS](https://mackerel.io/ja/docs/entry/integrations/aws/ecs)・[SES](https://mackerel.io/ja/docs/entry/integrations/aws/ses)・[Step Functions](https://mackerel.io/ja/docs/entry/integrations/aws/states)・[EFS](https://mackerel.io/ja/docs/entry/integrations/aws/efs)
 
 <h2 id="setting">連携方法</h2>
 AWSインテグレーションの連携方法には2つの方法があります。
@@ -28,23 +28,13 @@ AWSインテグレーションの連携方法には2つの方法があります�
 <h3>IAMロールを設定する方法</h3>
 <h4>1. IAM Management Consoleにてロールを作成する</h4>
 <a href="https://console.aws.amazon.com/iam" target="_blank">IAM Management Console</a>にて新しいロールを作成します。
-`MackerelAWSIntegrationRole` のようにMackerelのAWSインテグレーションで使用していることが分かりやすい名前を付けることを推奨します。
+ロールのタイプを選択する画面では「別のAWSアカウント」 (`Another AWS account`) を選択します。
 
-![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20161006/20161006162239.png)
+![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20190528/20190528124822.png)
 
-Mackerelの AWSアカウントによるアクセスを許可します。ロールのタイプを選択する画面では `Another AWS account` を選択します。
+[MackerelのAWSインテグレーション設定のページ](https://mackerel.io/my?tab=awsIntegration)から作成ボタンを押して、External IDを取得してください。許可するAccount IDには `217452466226` を入力してください。また、`Require external ID` のオプションを選択した上で、External IDにはMackerelの設定作成ページで取得したExternal IDを指定して下さい。このアカウントはMackerelのシステムがユーザーのロールにアクセスする際に利用するアカウントです。この設定により、作成されたロールにはMackerelのアカウントしかアクセスできない状態になります。`Require MFA` はチェックせずに次の設定ページに移動してください。
 
-![](https://cdn-ak2.f.st-hatena.com/images/fotolife/m/mackerelio/20170912/20170912165003.png)
-
-許可するAccount IDには `217452466226` を入力してください。また、`Require external ID` のオプションを選択した上でExternal IDに `Mackerel-AWS-Integration` と入力して下さい。このアカウントはMackerelのシステムがユーザーのロールにアクセスする際に利用するアカウントです。この設定により、作成されたロールにはMackerelのアカウントしかアクセスできない状態になります。`Require MFA` はチェックせずにロールを作成して下さい。
-
-![](https://cdn-ak2.f.st-hatena.com/images/fotolife/m/mackerelio/20170912/20170912164943.png)
-
-
-![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20161006/20161006162242.png)
-
-<h4>2. ポリシーを付与する</h4>
-作成したロールに、以下のポリシーを付与します。
+ロールには以下のポリシーを付与します。
 FullAccess権限を付与しないようにご注意ください。また、ひとつのIAMロールに対してアタッチ可能なポリシーの上限は10個に制限されており、これはAWSの仕様です。必要に応じて、AWSに対して上限緩和申請をおこなってください。
 
 - `AmazonRedshiftReadOnlyAccess`
@@ -62,18 +52,22 @@ FullAccess権限を付与しないようにご注意ください。また、ひ�
 - `AmazonESReadOnlyAccess`
 - `ecs:Describe* / ecs:List*`
 - `AmazonSESReadOnlyAccess / ses:Describe*`
-- `CloudWatchReadOnlyAccess`（CloudFrontのみ、API Gatewayのみ、Kinesisのみ、S3のみ、ESのみ、ECSのみ、またはSESのみを設定する場合）
+- `AWSStepFunctionsReadOnlyAccess`
+- `AmazonElasticFileSystemReadOnlyAccess`
+- `CloudWatchReadOnlyAccess`（CloudFrontのみ、API Gatewayのみ、Kinesisのみ、S3のみ、ESのみ、ECSのみ、SESのみ、Step Functionsのみ、またはEFSのみを設定する場合）
 
 また、AWSインテグレーションでは後述するようにタグによって絞り込みを行うことが出来ますが、ElastiCacheやSQSでタグによる絞り込みを行う場合は追加のポリシーを付与する必要があります。
 詳しくは<a href="#tag">タグで絞り込む</a> の項目を参照してください。
 
 ![](https://cdn-ak2.f.st-hatena.com/images/fotolife/m/mackerelio/20170912/20170912165028.png)
 
-<h4>3. ロールARNをMackerelに登録する</h4>
-ロールARNを、[Mackerelに登録](https://mackerel.io/my?tab=awsIntegration)します。
-登録するオーガニゼーションを間違えないようにご注意ください。
+ロール名を指定してロールを作成します。
+`MackerelAWSIntegrationRole` のようにMackerelのAWSインテグレーションで使用していることが分かりやすい名前を付けることを推奨します。
 
-<h4>4. ホストを確認する</h4>
+<h4>2. ロールARNをMackerelに登録する</h4>
+ロールARNを、先程External IDを取得したMackerelの画面で登録します。
+
+<h4>3. ホストを確認する</h4>
 しばらくすると、ご利用のAWSクラウド製品がMackerelにホストとして登録され、メトリックが投稿されます。
 監視ルールを作成し、アラートを通知することもできます。
 詳しくは[監視・通知を設定する](https://mackerel.io/ja/docs/entry/howto/alerts)をご覧ください。
@@ -111,7 +105,9 @@ FullAccess権限を付与しないようにご注意ください。また、ひ�
 - `AmazonESReadOnlyAccess`
 - `ecs:Describe* / ecs:List*`
 - `AmazonSESReadOnlyAccess / ses:Describe*`
-- `CloudWatchReadOnlyAccess`（CloudFrontのみ、API Gatewayのみ、Kinesisのみ、S3のみ、ESのみ、ECSのみ、またはSESのみを設定する場合）
+- `AWSStepFunctionsReadOnlyAccess`
+- `AmazonElasticFileSystemReadOnlyAccess`
+- `CloudWatchReadOnlyAccess`（CloudFrontのみ、API Gatewayのみ、Kinesisのみ、S3のみ、ESのみ、ECSのみ、SESのみ、Step Functionsのみ、またはEFSのみを設定する場合）
 
 また、AWSインテグレーションでは後述するようにタグによって絞り込みを行うことが出来ますが、ElastiCacheやSQSでタグによる絞り込みを行う場合は追加のポリシーを付与する必要があります。
 詳しくは<a href="#tag">タグで絞り込む</a> の項目を参照してください。
@@ -131,6 +127,7 @@ AWSのタグで絞り込むには、AWSインテグレーションの設定の�
 
 - `elasticache:ListTagsForResource`
 - `sqs:ListQueueTags`
+- `states:ListTagsForResource`
 
 また、Access Key IDとSecret Access Keyを用いた設定を行っている場合は、以下のアクションに対する権限も必要になります。IAMロールによる設定の場合は不要です。
 

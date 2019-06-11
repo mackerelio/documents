@@ -13,7 +13,7 @@ Additionally, the API of AWS will be called every 5 minutes for each targeted me
 
 Currently, the following AWS cloud products are supported. For information on obtaining metrics, please refer to each individual document.
 
-[EC2](https://mackerel.io/docs/entry/integrations/aws/ec2)・[ELB (CLB)](https://mackerel.io/docs/entry/integrations/aws/elb)・[ALB](https://mackerel.io/docs/entry/integrations/aws/alb)・[NLB](https://mackerel.io/docs/entry/integrations/aws/nlb)・[RDS](https://mackerel.io/docs/entry/integrations/aws/rds)・[ElastiCache](https://mackerel.io/docs/entry/integrations/aws/elasticache)・[Redshift](https://mackerel.io/docs/entry/integrations/aws/redshift)・[Lambda](https://mackerel.io/docs/entry/integrations/aws/lambda)・[SQS](https://mackerel.io/docs/entry/integrations/aws/sqs)・[DynamoDB](https://mackerel.io/docs/entry/integrations/aws/dynamodb)・[CloudFront](https://mackerel.io/docs/entry/integrations/aws/cloudfront)・[API Gateway](https://mackerel.io/docs/entry/integrations/aws/apigateway)・[Kinesis](https://mackerel.io/docs/entry/integrations/aws/kinesis)・[S3](https://mackerel.io/docs/entry/integrations/aws/s3)・[ES](https://mackerel.io/docs/entry/integrations/aws/es)・[ECS](https://mackerel.io/docs/entry/integrations/aws/ecs)・[SES](https://mackerel.io/ja/docs/entry/integrations/aws/ses)
+[EC2](https://mackerel.io/docs/entry/integrations/aws/ec2)・[ELB (CLB)](https://mackerel.io/docs/entry/integrations/aws/elb)・[ALB](https://mackerel.io/docs/entry/integrations/aws/alb)・[NLB](https://mackerel.io/docs/entry/integrations/aws/nlb)・[RDS](https://mackerel.io/docs/entry/integrations/aws/rds)・[ElastiCache](https://mackerel.io/docs/entry/integrations/aws/elasticache)・[Redshift](https://mackerel.io/docs/entry/integrations/aws/redshift)・[Lambda](https://mackerel.io/docs/entry/integrations/aws/lambda)・[SQS](https://mackerel.io/docs/entry/integrations/aws/sqs)・[DynamoDB](https://mackerel.io/docs/entry/integrations/aws/dynamodb)・[CloudFront](https://mackerel.io/docs/entry/integrations/aws/cloudfront)・[API Gateway](https://mackerel.io/docs/entry/integrations/aws/apigateway)・[Kinesis](https://mackerel.io/docs/entry/integrations/aws/kinesis)・[S3](https://mackerel.io/docs/entry/integrations/aws/s3)・[ES](https://mackerel.io/docs/entry/integrations/aws/es)・[ECS](https://mackerel.io/docs/entry/integrations/aws/ecs)・[SES](https://mackerel.io/ja/docs/entry/integrations/aws/ses)・[Step Functions](https://mackerel.io/docs/entry/integrations/aws/states)・[EFS](https://mackerel.io/docs/entry/integrations/aws/efs)
 
 
 <h2 id="setting">Integration method</h2>
@@ -26,23 +26,14 @@ From a security standpoint, we strongly recommend configuring with the IAM role.
 
 <h3>How to configure an IAM role</h3>
 <h4>1. Creating a role with the IAM Management Console</h4>
-Create a new role with the <a href="https://console.aws.amazon.com/iam" target="_blank">IAM Management Console</a>. We recommend assigning an easy-to-understand name like `MackerelAWSIntegrationRole`  for use in Mackerel’s AWS integration.
+Create a new role with the <a href="https://console.aws.amazon.com/iam" target="_blank">IAM Management Console</a>.
+Select `Another AWS account` from the role types.
 
-![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20161006/20161006162239.png)
+![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20190528/20190528124827.png)
 
-Allow access from the Mackerel AWS account. Select `Another AWS account` from the role types.
+Click the 'Create' button in the [Mackerel AWS Integration Settings page](https://mackerel.io/my?tab=awsIntegration) to get an External ID. Enter `217452466226` as the authorized Account ID. Select the `Require external ID` option and specify the External ID obtained from Mackerel's configuration page. The Mackerel system uses the account to access the user’s role. With this configuration, only the Mackerel account can access the created role. Create the role without checking `Require MFA`.
 
-![](https://cdn-ak2.f.st-hatena.com/images/fotolife/m/mackerelio/20170912/20170912165003.png)
-
-Enter `217452466226` for the Account ID, choose `Require external ID` and enter `Mackerel-AWS-Integration` for the External ID. Mackerel system uses the account to access the user’s role. With this configuration, only the Mackerel account can access the created role. Create the role without checking `Require MFA`.
-
-![](https://cdn-ak2.f.st-hatena.com/images/fotolife/m/mackerelio/20170912/20170912164943.png)
-
-
-![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20161006/20161006162242.png)
-
-<h4>2. Granting policies</h4>
-Grant the policies listed below for the newly created user. Be careful not to grant FullAccess permission. Also, the maximum number of policies that can be attached to one IAM role is limited to 10. This is a specification of AWS. If necessary, please apply to AWS for an upper limit extension.
+Grant the policies listed below for the role. Be careful not to grant FullAccess permission. Also, the maximum number of policies that can be attached to one IAM role is limited to 10. This is a specification of AWS. If necessary, please apply to AWS for an upper limit extension.
 
 - `AmazonEC2ReadOnlyAccess`
 - `AmazonElastiCacheReadOnlyAccess`
@@ -58,18 +49,23 @@ Grant the policies listed below for the newly created user. Be careful not to gr
 - `AmazonS3ReadOnlyAccess`
 - `AmazonESReadOnlyAccess`
 - `ecs:Describe* / ecs:List*`
-- `AmazonSESReadOnlyAccess / es:Describe*`
-- `CloudWatchReadOnlyAccess`（When only configuring CloudFront, API Gateway, Kinesis, S3, ES, ECS, or SES）
+- `AmazonSESReadOnlyAccess / ses:Describe*`
+- `AWSStepFunctionsReadOnlyAccess`
+- `AmazonElasticFileSystemReadOnlyAccess`
+- `CloudWatchReadOnlyAccess`（When only configuring CloudFront, API Gateway, Kinesis, S3, ES, ECS, SES, Step Functions or EFS）
 
 Additionally, in AWS Integration you can filter using tags as is mentioned further down, but if you filter using tags with ElastiCache or SQS, additional policies need to be added.
 For more details, refer to <a href="#tag">Filter by tag</a>.
 
 ![](https://cdn-ak.f.st-hatena.com/images/fotolife/a/andyyk/20171025/20171025153435.png)
 
-<h4>3. Register an ARN role in Mackerel</h4>
-Register an ARN role [in Mackerel](https://mackerel.io/my?tab=awsIntegration). Be careful not to mistake the organization to be registered.
+Fillin the name and create a role.
+We recommend assigning an easy-to-understand name like `MackerelAWSIntegrationRole`  for use in Mackerel’s AWS integration.
 
-<h4>4. Confirm the host</h4>
+<h4>2. Register an ARN role in Mackerel</h4>
+Register an ARN role from the same Mackerel screen where we just acquired the External ID.
+
+<h4>3. Confirm the host</h4>
 After a short while, your AWS cloud product will be registered as a host in Mackerel and begin posting metrics. By creating monitoring rules, you can also be notified of alerts. For more information, see [Setting up monitoring and alerts](https://mackerel.io/docs/entry/howto/alerts).
 
 <h3>Configure the Access Key ID and Secret Access Key</h3>
@@ -101,8 +97,10 @@ Grant the policies listed below for the newly created user. Be careful not to gr
 - `AmazonS3ReadOnlyAccess`
 - `AmazonESReadOnlyAccess`
 - `ecs:Describe* / ecs:List*`
-- `AmazonSESReadOnlyAccess / es:Describe*`
-- `CloudWatchReadOnlyAccess`（When only configuring CloudFront, API Gateway, Kinesis, S3, ES, ECS or SES）
+- `AmazonSESReadOnlyAccess / ses:Describe*`
+- `AWSStepFunctionsReadOnlyAccess`
+- `AmazonElasticFileSystemReadOnlyAccess`
+- `CloudWatchReadOnlyAccess`（When only configuring CloudFront, API Gateway, Kinesis, S3, ES, ECS, SES, Step Functions or EFS）
 
 Additionally, in AWS Integration you can filter using tags as is mentioned further down, but if you filter using tags with ElastiCache or SQS, additional policies need to be added.
 
@@ -122,6 +120,7 @@ In order to filter using an AWS tag, authority for the following actions is requ
 
 - `elasticache:ListTagsForResource`
 - `sqs:ListQueueTags`
+- `states:ListTagsForResource`
 
 Additionally, authority for the following action is needed to configure using the Access Key and Secret Access Key. It is not needed for configuration via the IAM role.
 

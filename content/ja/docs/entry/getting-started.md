@@ -40,6 +40,6 @@ Mackerelでは、mackerel-agentと呼ばれるプログラムをお使いのサ�
 - ユーザーを管理する
   - → [他のユーザを招待する](https://mackerel.io/ja/docs/entry/howto/invite-others)
 - いろいろなノウハウ/Tipsを見る
-  - → [はてなブックマークのMackerelタグページ](http://b.hatena.ne.jp/search/tag?safe=off&q=mackerel)
+  - → [はてなブックマークのMackerelタグページ](https://b.hatena.ne.jp/search/tag?q=mackerel)
   - → [QiitaのMackerelタグページ](https://qiita.com/tags/mackerel)
   - → [Twitterの#mackerelio検索](https://twitter.com/search?q=%23mackerelio)

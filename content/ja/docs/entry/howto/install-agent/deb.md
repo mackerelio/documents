@@ -9,22 +9,12 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 
 このページに記載の内容は、[Mackerel Web画面・新規ホスト登録画面](https://mackerel.io/my/instruction-agent)からも利用可能です。
 
-<h2 id="v2">Ubuntu 16.04 以降 / Debian 8 以降をご利用の場合</h2>
+<h2 id="v2">aptコマンドを使用する</h2>
 
 以下のコマンドを実行してください:
 
 ```
 wget -q -O - https://mackerel.io/file/script/setup-all-apt-v2.sh | MACKEREL_APIKEY='<YOUR_API_KEY>' sh
-```
-
-APIキーは[オーガニゼーションページ内・APIキータブ](https://mackerel.io/my?tab=apikeys)から確認できます。このAPIキーでオーガニゼーションを識別しますので、APIキーは外部に漏らさないようご注意ください。
-
-<h2 id="v1">Ubuntu 14.04 をご利用の場合</h2>
-
-以下のコマンドを実行してください:
-
-```
-wget -q -O - https://mackerel.io/file/script/setup-all-apt.sh | MACKEREL_APIKEY='<YOUR_API_KEY>' sh
 ```
 
 APIキーは[オーガニゼーションページ内・APIキータブ](https://mackerel.io/my?tab=apikeys)から確認できます。このAPIキーでオーガニゼーションを識別しますので、APIキーは外部に漏らさないようご注意ください。
@@ -62,7 +52,6 @@ APIキーは[オーガニゼーションページ内・APIキータブ](https://
 - [チェック監視項目を追加する](https://mackerel.io/ja/docs/entry/custom-checks)
 
 <h2 id="start-agent">エージェントを起動する</h2>
-<h3>Ubuntu 16.04 以降 / Debian 8 以降をご利用の場合</h3>
 
 以下のコマンドを実行することで、エージェントが起動します。
 
@@ -75,19 +64,6 @@ sudo systemctl start mackerel-agent
 ```
 sudo journalctl -u mackerel-agent.service
 ```
-
-エージェントが正しく動きはじめると、Mackerelにホストとして登録されます。[ダッシュボード](https://mackerel.io/my/dashboard)などでご確認ください。
-
-
-<h3>Ubuntu 14.04 をご利用の場合</h3>
-
-以下のコマンドを実行することで、エージェントが起動します。
-
-```
-sudo /etc/init.d/mackerel-agent start
-```
-
-`/var/log/mackerel-agent.log` にエージェントのログが出力されます。
 
 エージェントが正しく動きはじめると、Mackerelにホストとして登録されます。[ダッシュボード](https://mackerel.io/my/dashboard)などでご確認ください。
 
