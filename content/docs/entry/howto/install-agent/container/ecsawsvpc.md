@@ -1,13 +1,18 @@
 ---
-Title: Setting up mackerel-container-agent for Fargate, ECS(awsvpc network mode)
+Title: Setting up mackerel-container-agent for AWS Fargate, Amazon ECS(awsvpc network mode)
 Date: 2019-02-07T17:47:13+09:00
 URL: https://mackerel.io/docs/entry/howto/install-agent/container/ecsawsvpc
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/98012380860620427
 ---
 
-This document details the setup process of mackerel-container-agent for Fargate, ECS (awsvpc network mode).
+This document details the setup process of mackerel-container-agent for AWS Fargate, Amazon ECS(awsvpc network mode).
 
 If using **a network mode other than awsvpc** with ECS, refer [here](https://mackerel.io/docs/entry/howto/install-agent/container/ecs).
+
+## Notes
+
+This setup process is deprecated for mackerel-container-agent v0.1.0 or later.
+Please see [Setting up mackerel-container-agent on Amazon ECS](https://mackerel.io/docs/entry/howto/install-agent/container/ecs).
 
 ## Point to note regarding billing
 

@@ -7,67 +7,49 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackere
 
 This document details the setup process for mackerel-container-agent on Amazon ECS.
 
+## Operation conditions
+
+The following conditions must be met in order to run mackerel-container-agent.
+
+- When using an EC2 launch type
+   - Amazon ECS Container Agent version 1.26.1 or later
+- When using a Fargate launch type
+   - AWS Fargate platform version 1.3.0 or later
+
+If you encounter a problem with the operation of mackerel-container-agent, please make sure that your environment meets these requirements.
+
 ## Point to note regarding billing
 
 For every one task, a micro host will be registered in Mackerel. Please note that charges will occur if using a paid plan. For more details, refer to [FAQ · Calculating the number of hosts](https://mackerel.io/docs/entry/faq/contracts/calculate-host-number).
 
-## Supported network modes
+## Add containers to the task definitions
 
-In this process, the following ECS network modes are applicable.
-
-- default
-- bridge
-- host
-- none
-
-When using the **awsvpc network mode**, please refer to [Setting up mackerel-container-agent on Fargate, ECS (awsvpc network mode)](https://mackerel.io/docs/entry/howto/install-agent/container/ecsawsvpc).
-
-## Operation conditions
-
-The user within the mackerel-container-agent container must be the root(uid=0).
-Please take this into account when changing the user of the container.
-
-## Adding the container in the task definition
-
-Add the mackerel-container-agent container in the task definition that you would like to monitor.
-
-### Adding Volume
-
-Add volume to be used with mackerel-container-agent.
-Add the following volume with the "Add volume" option of the task definition.
-
-| Name | Source path |
-| :-- | :-- |
-| cgroup | /cgroup (For AL2: /sys/fs/cgroup) |
-| docker_sock | /var/run/docker.sock |
-
-## Adding the container
-
-Add mackerel-container-agent with the following configuration from the "Add Container" option of the task definition.
+Add the mackerel-container-agent container to the task definition that you want to monitor.
+Add the mackerel-container-agent with the following configuration from the task definition's 'Add container' option.
 
 | Item | Value |
 | :-- | :-- |
-| Container name| mackerel-container-agent |
-| Image|  mackerel/mackerel-container-agent:latest |
-| Memory limit|  Hard limit: 128 |
-| Mount point<br>(Source volume: Container path)| Check both cgroup: /host/sys/fs/cgroup and <br>docker_sock: /var/run/docker.sock<br> as read only |
-| Environment variable (key:value) | MACKEREL_CONTAINER_PLATFORM: ecs<br>MACKEREL_APIKEY: Mackerel API key |
+| container name| mackerel-container-agent |
+| image|  mackerel/mackerel-container-agent:latest |
+| memory limit|  hard limit: 128 |
+| environment variable (key: value) | MACKEREL_CONTAINER_PLATFORM: "ecs"<br>MACKEREL_APIKEY: Mackerel API key |
 
-When using roles and plugins, refer to the Agent configurations [here](https://mackerel.io/docs/entry/howto/container-agent).
+cgroupfs and docker.sock mounts are no longer required.
+Please see [Setting up mackerel-container-agent on Amazon ECS(default, bridge, host, none network mode)](https://mackerel.io/docs/entry/howto/install-agent/container/ecsbasic) for previous configurations.
 
-### CloudFormation template example (YAML)
+Refer to the 'Agent configuration' section [here](https://mackerel.io/docs/entry/howto/container-agent) when using roles and plugins.
+
+### CloudFormation template (YAML)
 
 ```
 TaskDefinition:
   Type: AWS::ECS::TaskDefinition
   Properties:
-    Volumes:
-      - Name: cgroup
-        Host:
-          SourcePath: /cgroup
-      - Name: docker_sock
-        Host:
-          SourcePath: /var/run/docker.sock
+    RequiresCompatibilities:
+      - FARGATE
+    NetworkMode: awsvpc
+    Memory: 512
+    Cpu: 256
     ContainerDefinitions:
       - Name: alpine
         Image: alpine:latest
@@ -81,13 +63,6 @@ TaskDefinition:
       - Name: mackerel-container-agent
         Image: mackerel/mackerel-container-agent:latest
         Memory: 128
-        MountPoints:
-          - SourceVolume: cgroup
-            ContainerPath: /host/sys/fs/cgroup
-            ReadOnly: true
-          - SourceVolume: docker_sock
-            ContainerPath: /var/run/docker.sock
-            ReadOnly: true
         Environment:
           - Name: MACKEREL_CONTAINER_PLATFORM
             Value: ecs
@@ -98,6 +73,11 @@ TaskDefinition:
 
 ## Start monitoring
 
-Execute the task with mackerel-container-agent added and start monitoring.
+Execute the task to which mackerel-container-agent was added and start monitoring.
 
-If this does not work, please refer to the task log.
+If this does not work, take a look at the task log.
+
+## Limitations
+
+If using the bridge Network Mode in the EC2 Launch Type, network interface metadata will only be collected from mackerel-container-agent containers.
+Note that network interface metadata from other containers included in the task will not obtained.

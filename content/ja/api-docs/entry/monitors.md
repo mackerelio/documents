@@ -125,6 +125,10 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
     </tr>
     <tr>
       <td>400</td>
+      <td><code>name</code>が空文字列のとき</td>
+    </tr>
+    <tr>
+      <td>400</td>
       <td><code>memo</code>が250文字を超えているとき</td>
     </tr>
     <tr>
@@ -188,7 +192,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 | KEY             | TYPE     | DESCRIPTION                      |
 | ------------    | -------- | -------------------------------- |
 | `type`          | *string*   | 定数文字列 `"connectivity"`               |
-| `name`          | *string*   | 監視一覧などで参照できる任意の名称。   |
+| `name`          | *string*   | [optional] 監視一覧などで参照できる任意の名称。デフォルトは`connectivity`です。   |
 | `memo`          | *string*   | [optional] 監視設定のメモ。 |
 | `scopes`        | *array[string]* | [optional] 監視対象のサービス名またはロール詳細名。[*2](#service-name)  |
 | `excludeScopes` | *array[string]* | [optional] 監視除外対象のサービス名またはロール詳細名。[*2](#service-name)  |
@@ -245,6 +249,10 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
     <tr>
       <td>400</td>
       <td>入力が受け付けられないフォーマットだったとき</td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td><code>name</code>が空文字列のとき</td>
     </tr>
     <tr>
       <td>400</td>
@@ -344,6 +352,10 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
     <tr>
       <td>400</td>
       <td>入力が受け付けられないフォーマットだったとき</td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td><code>name</code>が空文字列のとき</td>
     </tr>
     <tr>
       <td>400</td>
@@ -471,6 +483,10 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
     </tr>
     <tr>
       <td>400</td>
+      <td><code>name</code>が空文字列のとき</td>
+    </tr>
+    <tr>
+      <td>400</td>
       <td><code>memo</code>が250文字を超えているとき</td>
     </tr>
     <tr>
@@ -556,6 +572,10 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
     <tr>
       <td>400</td>
       <td>入力が受け付けられないフォーマットだったとき</td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td><code>name</code>が空文字列のとき</td>
     </tr>
     <tr>
       <td>400</td>
@@ -745,6 +765,10 @@ type = `external` の監視設定で `headers` フィールドを指定しなか
     <tr>
       <td>400</td>
       <td>typeを変更しようとしたとき</td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td><code>name</code>が空文字列のとき</td>
     </tr>
     <tr>
       <td>400</td>

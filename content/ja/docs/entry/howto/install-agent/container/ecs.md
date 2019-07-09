@@ -7,42 +7,24 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 
 Amazon ECSにおけるmackerel-container-agentのセットアップ手順です。
 
-## 課金に関する注意事項
-
-1つのタスクに対して1マイクロホストがMackerelに登録されます。有料プランの場合は課金が発生しますのでご注意ください。詳しくは[FAQ・ホスト数の計算方法について](https://mackerel.io/ja/docs/entry/faq/contracts/calculate-host-number)をご覧ください
-
-## サポートするネットワークモード
-
-こちらの手順ではつぎのECSのネットワークモードが対象となります。
-
-- default
-- bridge
-- host
-- none
-
-**awsvpcネットワークモード**を利用する場合は[Fargate, ECS(awsvpcネットワークモード)にmackerel-container-agentをセットアップする](https://mackerel.io/ja/docs/entry/howto/install-agent/container/ecsawsvpc)の手順を参考にしてください。
-
 ## 動作条件
 
-mackerel-container-agentコンテナ内のユーザはroot(uid=0)である必要があります。
-コンテナ内のユーザを変更している場合ご注意ください。
+mackerel-container-agentの動作には下記の条件が必要となります。
+
+- EC2起動タイプをご利用の場合
+  - Amazon ECS コンテナエージェント バージョン1.26.1以降
+- Fargate起動タイプをご利用の場合
+  - AWS Fargate プラットフォームバージョン 1.3.0以降
+
+mackerel-container-agentの動作に問題がある場合、ご利用環境がこちらの条件を満たしているかご確認ください。
+
+## 課金に関する注意事項
+
+1つのタスクに対して1つのホストがMackerelに登録されます。有料プランの場合は課金が発生しますのでご注意ください。詳しくは[FAQ・ホスト数の計算方法について](https://mackerel.io/ja/docs/entry/faq/contracts/calculate-host-number)をご覧ください
 
 ## タスク定義にコンテナを追加する
 
 監視したいタスク定義にmackerel-container-agentコンテナを追加します。
-
-### ボリュームの追加
-
-mackerel-container-agentで利用するボリュームを追加します。
-タスク定義の「ボリュームの追加」から、つぎのボリュームを追加してください。
-
-| 名前 | ソースパス |
-| :-- | :-- |
-| cgroup | /cgroup (AL2の場合: /sys/fs/cgroup) |
-| docker_sock | /var/run/docker.sock |
-
-## コンテナの追加
-
 タスク定義の「コンテナの追加」から、下記の設定でmackerel-container-agentを追加してください。
 
 | 項目 | 値 |
@@ -50,8 +32,10 @@ mackerel-container-agentで利用するボリュームを追加します。
 | コンテナ名| mackerel-container-agent |
 | イメージ|  mackerel/mackerel-container-agent:latest |
 | メモリ制限|  ハード制限: 128 |
-| マウントポイント<br>(ソースボリューム: コンテナパス)| cgroup: /host/sys/fs/cgroup<br>docker_sock: /var/run/docker.sock<br>どちらも読み取り専用にチェックしてください |
-| 環境変数(キー: 値) | MACKEREL_CONTAINER_PLATFORM: ecs<br>MACKEREL_APIKEY: Mackerel APIキー |
+| 環境変数(キー: 値) | MACKEREL_CONTAINER_PLATFORM: "ecs"<br>MACKEREL_APIKEY: Mackerel APIキー |
+
+cgourpfs, docker.sockのマウントは不要となりました。
+以前の設定は[Amazon ECS(default, bridge, host, noneネットワークモード)にmackerel-container-agentをセットアップする](https://mackerel.io/ja/docs/entry/howto/install-agent/container/ecsbasic)をご確認ください。
 
 ロールやプラグインを利用する場合は[こちら](https://mackerel.io/ja/docs/entry/howto/container-agent)の「エージェント設定」も参照してください。
 
@@ -61,13 +45,11 @@ mackerel-container-agentで利用するボリュームを追加します。
 TaskDefinition:
   Type: AWS::ECS::TaskDefinition
   Properties:
-    Volumes:
-      - Name: cgroup
-        Host:
-          SourcePath: /cgroup
-      - Name: docker_sock
-        Host:
-          SourcePath: /var/run/docker.sock
+    RequiresCompatibilities:
+      - FARGATE
+    NetworkMode: awsvpc
+    Memory: 512
+    Cpu: 256
     ContainerDefinitions:
       - Name: alpine
         Image: alpine:latest
@@ -81,13 +63,6 @@ TaskDefinition:
       - Name: mackerel-container-agent
         Image: mackerel/mackerel-container-agent:latest
         Memory: 128
-        MountPoints:
-          - SourceVolume: cgroup
-            ContainerPath: /host/sys/fs/cgroup
-            ReadOnly: true
-          - SourceVolume: docker_sock
-            ContainerPath: /var/run/docker.sock
-            ReadOnly: true
         Environment:
           - Name: MACKEREL_CONTAINER_PLATFORM
             Value: ecs
@@ -101,3 +76,8 @@ TaskDefinition:
 mackerel-container-agentを追加したタスクを実行して監視を開始します。
 
 動作しない場合はタスクのログを参照してください。
+
+## 制限事項
+
+EC2起動タイプのbridgeネットワークモードの場合、ネットワークインターフェースメタデータはmackerel-container-agentコンテナのもののみ取得します。
+タスクに含まれる他のコンテナのネットワークインターフェースメタデータは取得しないのでご注意ください。

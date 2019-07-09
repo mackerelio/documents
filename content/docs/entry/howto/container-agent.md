@@ -34,19 +34,24 @@ With the use of mackerel-container-agent, for every task or Pod, one host will b
 
 The following container orchestration platforms are supported with mackerel-container-agent.
 
-- Amazon EC2 Container Service(ECS)
+- Amazon Elastic Container Service(ECS)
+  - EC2 Launch Type
+  - Fargate Launch Type
   - **Windows containers not supported**
-- AWS Fargate(Fargate)
 - Kubernetes
 
 ## Setup
 
 The setup process for mackerel-container-agent varies for each container orchestration platform.
 
-- [ECS(default, bridge, host, none network mode)](https://mackerel.io/docs/entry/howto/install-agent/container/ecs)
-- [Fargate, ECS(awsvpc network mode)](https://mackerel.io/docs/entry/howto/install-agent/container/ecsawsvpc)
-- [ECS(Regardless of statup type and network mode)](https://mackerel.io/docs/entry/howto/install-agent/container/ecsv3)
+- [ECS](https://mackerel.io/docs/entry/howto/install-agent/container/ecs)
 - [Kubernetes](https://mackerel.io/docs/entry/howto/install-agent/container/kubernetes)
+
+Please note that the following processes are deprecated for mackerel-container-agent v0.1.0 or later.
+
+- [(Deprecated) ECS(default, bridge, host, none network mode)](https://mackerel.io/docs/entry/howto/install-agent/container/ecsbasic)
+- [(Deprecated) Fargate, ECS(awsvpc network mode)](https://mackerel.io/docs/entry/howto/install-agent/container/ecsawsvpc)
+- [(Deprecated) ECS(Regardless of statup type and network mode)](https://mackerel.io/docs/entry/howto/install-agent/container/ecsv3)
 
 ## Obtaining metrics
 
@@ -133,7 +138,49 @@ If the same item is defined in the environment variable as the configuration fil
 
 Metric plugins and check plugins are able to be used.
 
-***Plugins are not included in the officially offered mackerel-container-agent Docker image. When using plugins, please prepare a Docker image installed with the plugin you want to use with the provided Docker image as the base image.***
+mackerel-container-agent also offers a [Docker image that bundles official plugins](https://hub.docker.com/r/mackerel/mackerel-container-agent/tags).
+
+`plugins` is an image that bundles the plugins in the `latest` image, and `vX.Y.Z-plugins` is an image that bundles plugins in the `vX.Y.Z` image.
+
+The plugins bundled in this image are as follows.
+
+- [mackerel-agent-plugins](https://github.com/mackerelio/mackerel-agent-plugins)
+  - mackerel-plugin-apache2
+  - mackerel-plugin-elasticsearch
+  - mackerel-plugin-fluentd
+  - mackerel-plugin-gostats
+  - mackerel-plugin-haproxy
+  - mackerel-plugin-jmx-jolokia
+  - mackerel-plugin-memcached
+  - mackerel-plugin-mysql
+  - mackerel-plugin-nginx
+  - mackerel-plugin-php-apc
+  - mackerel-plugin-php-fpm
+  - mackerel-plugin-php-opcache
+  - mackerel-plugin-plack
+  - mackerel-plugin-postgres
+  - mackerel-plugin-redis
+  - mackerel-plugin-sidekiq
+  - mackerel-plugin-snmp
+  - mackerel-plugin-squid
+  - mackerel-plugin-uwsgi-vassal
+- [go-check-plugins](https://github.com/mackerelio/go-check-plugins)
+  - check-cert-file
+  - check-elasticsearch
+  - check-file-age
+  - check-file-size
+  - check-http
+  - check-jmx-jolokia
+  - check-log
+  - check-memcached
+  - check-mysql
+  - check-postgresql
+  - check-redis
+  - check-ssh
+  - check-ssl-cert
+  - check-tcp
+
+If you would like to use a plugin other than the ones bundled, prepare an image with mackerel/mackerel-container-agent as the base and installed with the desired plugin.
 
 #### Usable plugin configurations
 

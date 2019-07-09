@@ -34,9 +34,10 @@ mackerel-container-agentを利用すると、1つのタスクやPodに対して1
 
 mackerel-container-agentでサポートするコンテナオーケストレーションプラットフォームはつぎのとおりです。
 
-- Amazon EC2 Container Service(ECS)
+- Amazon Elastic Container Service(ECS)
+  - EC2起動タイプ
+  - Fargate起動タイプ
   - **Windowsコンテナは対象外となります**
-- AWS Fargate(Fargate)
 - Kubernetes
 
 ## セットアップ
@@ -44,10 +45,15 @@ mackerel-container-agentでサポートするコンテナオーケストレー�
 mackerel-container-agentのセットアップ手順です。
 各コンテナオーケストレーションプラットフォームごとに手順が異なります。
 
-- [ECS(default, bridge, host, noneネットワークモード)](https://mackerel.io/ja/docs/entry/howto/install-agent/container/ecs)
-- [Fargate, ECS(awsvpcネットワークモード)](https://mackerel.io/ja/docs/entry/howto/install-agent/container/ecsawsvpc)
-- [ECS(起動タイプ、ネットワークモード問わず)](https://mackerel.io/ja/docs/entry/howto/install-agent/container/ecsv3)
+- [ECS](https://mackerel.io/ja/docs/entry/howto/install-agent/container/ecs)
 - [Kubernetes](https://mackerel.io/ja/docs/entry/howto/install-agent/container/kubernetes)
+
+mackerel-container-agent v0.1.0以降では、下記の手順は非推奨となります。
+ご注意ください。
+
+- [(非推奨) ECS(default, bridge, host, noneネットワークモード)](https://mackerel.io/ja/docs/entry/howto/install-agent/container/ecsbasic)
+- [(非推奨) Fargate, ECS(awsvpcネットワークモード)](https://mackerel.io/ja/docs/entry/howto/install-agent/container/ecsawsvpc)
+- [(非推奨) ECS(起動タイプ、ネットワークモード問わず)](https://mackerel.io/ja/docs/entry/howto/install-agent/container/ecsv3)
 
 ## 取得メトリック
 
@@ -134,7 +140,48 @@ ignoreContainer: '\Amackerel-container-agent\z'
 
 メトリックプラグイン、チェックプラグインが利用可能です。
 
-***公式で提供するmackerel-container-agentのDockerイメージではプラグインは同梱していません。プラグインを利用する場合は、提供するDockerイメージをベースイメージとし、利用したいプラグインをインストールしたDockerイメージを準備してください。***
+また、mackerel-container-agentでは[公式プラグインを同梱したDockerイメージ](https://hub.docker.com/r/mackerel/mackerel-container-agent/tags)も公開しています。
+`plugins` は `latest` に、`vX.Y.Z-plugins` は `vX.Y.Z` にプラグインを同梱したイメージとなります。
+
+こちらのイメージに同梱されているプラグインはつぎのとおりです。
+
+- [mackerel-agent-plugins](https://github.com/mackerelio/mackerel-agent-plugins)
+  - mackerel-plugin-apache2
+  - mackerel-plugin-elasticsearch
+  - mackerel-plugin-fluentd
+  - mackerel-plugin-gostats
+  - mackerel-plugin-haproxy
+  - mackerel-plugin-jmx-jolokia
+  - mackerel-plugin-memcached
+  - mackerel-plugin-mysql
+  - mackerel-plugin-nginx
+  - mackerel-plugin-php-apc
+  - mackerel-plugin-php-fpm
+  - mackerel-plugin-php-opcache
+  - mackerel-plugin-plack
+  - mackerel-plugin-postgres
+  - mackerel-plugin-redis
+  - mackerel-plugin-sidekiq
+  - mackerel-plugin-snmp
+  - mackerel-plugin-squid
+  - mackerel-plugin-uwsgi-vassal
+- [go-check-plugins](https://github.com/mackerelio/go-check-plugins)
+  - check-cert-file
+  - check-elasticsearch
+  - check-file-age
+  - check-file-size
+  - check-http
+  - check-jmx-jolokia
+  - check-log
+  - check-memcached
+  - check-mysql
+  - check-postgresql
+  - check-redis
+  - check-ssh
+  - check-ssl-cert
+  - check-tcp
+
+同梱されてるプラグイン以外を利用する場合は、[mackerel/mackerel-container-agent](https://hub.docker.com/r/mackerel/mackerel-container-agent)をベースイメージとして、利用したいプラグインをインストールしたイメージを用意してください。
 
 #### 利用可能なプラグイン設定
 

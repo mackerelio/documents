@@ -127,6 +127,10 @@ The input procedure varies depending on the monitoring target.
     </tr>
     <tr>
       <td>400</td>
+      <td>when the <code>name</code> is empty</td>
+    </tr>
+    <tr>
+      <td>400</td>
       <td>when the <code>memo</code> exceeds 250 characters</td>
     </tr>
     <tr>
@@ -191,7 +195,7 @@ This function disables notifications in monitoring. Alerts occur in response to 
 | KEY             | TYPE     | DESCRIPTION                      |
 | ------------    | -------- | -------------------------------- |
 | `type`          | *string*   | constant string `"connectivity"`               |
-| `name`          | *string*   | arbitrary name that can be seen in the list of monitors and elsewhere |
+| `name`          | *string*   | [optional] arbitrary name that can be seen in the list of monitors and elsewhere. The default value is `connectivity`. |
 | `memo`          | *string*   | [optional] notes for the monitoring configuration |
 | `scopes`        | *array[string]* | [optional] The service name or role details name of the monitoring target. [*2](#service-name)  |
 | `excludeScopes` | *array[string]* | [optional] The service name or role details name of the monitoring exception. [*2](#service-name)  |
@@ -248,6 +252,10 @@ This function disables notifications in monitoring. Alerts occur in response to 
     <tr>
       <td>400</td>
       <td>when the input is in a format that can’t be received</td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td>when the <code>name</code> is empty</td>
     </tr>
     <tr>
       <td>400</td>
@@ -347,6 +355,10 @@ This function disables notifications in monitoring. Alerts occur in response to 
     <tr>
       <td>400</td>
       <td>when the input is in a format that can’t be received</td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td>when the <code>name</code> is empty</td>
     </tr>
     <tr>
       <td>400</td>
@@ -472,6 +484,10 @@ In order to monitor response time, it's necessary to assign `responseTimeWarning
     </tr>
     <tr>
       <td>400</td>
+      <td>when the <code>name</code> is empty</td>
+    </tr>
+    <tr>
+      <td>400</td>
       <td>when the <code>memo</code> exceeds 250 characters</td>
     </tr>
     <tr>
@@ -559,6 +575,10 @@ In order to monitor response time, it's necessary to assign `responseTimeWarning
     <tr>
       <td>400</td>
       <td>when the input is in a format that can’t be received</td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td>when the <code>name</code> is empty</td>
     </tr>
     <tr>
       <td>400</td>
@@ -747,6 +767,10 @@ same errors as when [creating](#create).
     <tr>
       <td>400</td>
       <td>when trying to change the type</td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td>when the <code>name</code> is empty</td>
     </tr>
     <tr>
       <td>400</td>
