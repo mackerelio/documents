@@ -7,7 +7,11 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackere
 
 The content described on this page is also available from the [New Host registration screen in Mackerel](https://mackerel.io/my/instruction-agent).
 
-<h2 id="v2">When using Amazon Linux 2 LTS</h2>
+<h2>Install the package</h2>
+Amazon Linux and Amazon Linux 2 LTS run different commands for installation. Please check out each procedure.
+Installation can also be done directly using the `rpm` command.
+
+<h3 id="v2">When using Amazon Linux 2 LTS</h3>
 
 Execute the following command:
 
@@ -17,7 +21,7 @@ curl -fsSL https://mackerel.io/file/script/amznlinux/setup-all-yum-v2.sh | MACKE
 
 You can check the API key from the [Organization page’s API Keys tab](https://mackerel.io/my?tab=apikeys). Keep in mind that this key is used to identify your organization, so we strongly advise not sharing it with others.
 
-<h2 id="v1">When using Amazon Linux</h2>
+<h3 id="v1">When using Amazon Linux</h3>
 
 Execute the following command:
 
@@ -27,23 +31,53 @@ curl -fsSL https://mackerel.io/file/script/amznlinux/setup-all-yum.sh | MACKEREL
 
 You can check the API key from the [Organization page’s API Keys tab](https://mackerel.io/my?tab=apikeys). Keep in mind that this key is used to identify your organization, so we strongly advise not sharing it with others.
 
+<h3 id="rpm-v2">Using the rpm command with Amazon Linux 2 LTS</h2>
+
+To install mackerel-agent with `rpm` run the following command:
+
+```
+sudo rpm -ivh https://mackerel.io/file/agent/rpm/mackerel-agent-latest.amzn2.x86_64.rpm
+```
+
+To update Mackerel-agent with `rpm` run the following command:
+
+```
+sudo rpm -Uvh https://mackerel.io/file/agent/rpm/mackerel-agent-latest.amzn2.x86_64.rpm
+```
+
+<h3 id="rpm-v1">Using the rpm command with Amazon Linux</h2>
+
+To install mackerel-agent with `rpm` run the following command:
+
+```
+sudo rpm -ivh https://mackerel.io/file/agent/rpm/mackerel-agent-latest.x86_64.rpm
+```
+
+To update Mackerel-agent with `rpm` run the following command:
+
+```
+sudo rpm -Uvh https://mackerel.io/file/agent/rpm/mackerel-agent-latest.x86_64.rpm
+```
+
 <h2 id="config">Edit the configuration file</h2>
 
-Edit the file `/etc/mackerel-agent/mackerel-agent.conf` and configure the API key. 
-
-```
-apikey = "<YOUR_API_KEY>"
-```
-
-You can check the API key from the [Organization page’s API Keys tab](https://mackerel.io/my?tab=apikeys). Keep in mind that this key is used to identify your organization, so we strongly advise not sharing it with others. 
-
-For more details, check out the [mackerel-agent specifications](https://mackerel.io/docs/entry/spec/agent) help page. 
+Edit the `/etc/mackerel-agent/mackerel-agent.conf` file to configure the agent.
 
 By using the configuration file, the following can be implemented:
 
 - [Service and role configuration](https://mackerel.io/docs/entry/spec/agent#setting-services-and-roles)
 - [Posting user-defined custom metrics](https://mackerel.io/docs/entry/advanced/custom-metrics)
 - [Adding monitors for script checks](https://mackerel.io/docs/entry/custom-checks)
+
+For more details, check out the [mackerel-agent specifications](https://mackerel.io/docs/entry/spec/agent) help page.
+
+Please be sure to configure the API key if installed from rpm. This is done automatically if set up with the setup script.
+
+```
+apikey = "<YOUR_API_KEY>"
+```
+
+You can check the API key from the [Organization page’s API Keys tab](https://mackerel.io/my?tab=apikeys). Keep in mind that this key is used to identify your organization, so we strongly advise not sharing it with others.
 
 <h2 id="start-agent">Starting the agent</h2>
 <h3>When using Amazon Linux 2 LTS</h3>

@@ -56,8 +56,8 @@ Alerts will be in chronological order of when they were generated from newest to
 | `id`     | *string*        | alert's ID                                      |
 | `status` | *string*        | alert's current status: `"OK"`, `"CRITICAL"`, `"WARNING"`, or `"UNKNOWN"` |
 | `monitorId`  | *string* | ID of the monitor that generated the alert |
-| `type`  | *string* | the type of monitor: connectivity (`"connectivity"`), host metric (`"host"`), service metric (`"service"`), external monitor (`"external"`), check monitor (`"check"`) or expression monitor (`"expression"`) |
-| `hostId`  | *string* | [optional] the associated host ID. only exists when the type of monitor is either `"connectivity"`, `"host"`, or `"check"` |
+| `type`  | *string* | the type of monitor: connectivity (`"connectivity"`), host metric (`"host"`), service metric (`"service"`), external monitor (`"external"`), check monitor (`"check"`), expression monitor (`"expression"`), or anomaly detection for roles (`"anomalyDetection"`) |
+| `hostId`  | *string* | [optional] the associated host ID. only exists when the type of monitor is either `"connectivity"`, `"host"`, `"check"`, or `"anomalyDetection"` |
 | `value`  | *number* | [optional] value of the monitoring target. only exists when the type of monitor is `"host"`, or `"service"` or when there is a reponse time configuration in `"external"` |
 | `message`  | *string* | [optional] monitoring target's message. only exists when the type of monitor is either `"check"` or `"external"` |
 | `reason`  | *string* | [optional] reason that the alert was closed. does not exist if the alert is unresolved. |

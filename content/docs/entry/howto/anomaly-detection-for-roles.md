@@ -38,3 +38,6 @@ Go to the Monitors screen, located on the left side menu, and click the “Add M
 - Monitoring will not continue until the anomaly detection training has completed.
 - Multiple monitors with anomaly detection can not be specified for the same role
 - Only available for the Trial and Paid plans
+  - Every 5 hosts targeted for monitoring will count as 1 Standard host
+  - The same host will be counted multiple times if it is monitored through multiple roles
+  - A usage charge will incur starting with one monitored host

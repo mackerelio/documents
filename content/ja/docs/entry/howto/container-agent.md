@@ -95,6 +95,7 @@ mackerel-container-agentでは各コンテナオーケストレーションプ�
 | MACKEREL_APIBASE | Mackerel APIのエンドポイントを指定します (デフォルト: `https://api.mackerelio.com/`)。 |
 | MACKEREL_ROLES | タスク、Podのサービス、ロールを設定できます。 |
 | MACKEREL_AGENT_CONFIG | エージェントの設定ファイルを設定できます。こちらの詳細は後述します。 |
+| MACKEREL_AGENT_CONFIG_POLLING_DURATION_MINUTES | エージェントの設定ファイルの変更を検知するために取得する間隔を分で指定します。|
 | MACKEREL_IGNORE_CONTAINER | 監視を除外するコンテナの名前を正規表現で設定します。 |
 | MACKEREL_HOST_STATUS_ON_START | 設定すると、エージェント起動時にホストのステータスを指定した値に変更します。 有効な値は "standby", "working", "maintenance", "poweroff" のいずれかです。|
 
@@ -118,6 +119,8 @@ roles:
   - "Another-Service:db"
 ignoreContainer: '\Amackerel-container-agent\z'
 ```
+
+デフォルトでは、設定ファイルは起動時に一度だけ読み込まれます。 `MACKEREL_AGENT_CONFIG_POLLING_DURATION_MINUTES` を設定することで、定期的に設定ファイルを取得して、変更を検知して適用します。
 
 #### 設定項目
 

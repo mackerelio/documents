@@ -37,6 +37,7 @@ The input procedure varies depending on the monitoring target.
   <li><a href="#create-service-metric-monitoring">Service metric monitoring</a></li>
   <li><a href="#create-external-monitoring">External monitoring</a></li>
   <li><a href="#create-expression-monitoring">Expression monitoring</a></li>
+  <li><a href="#create-anomaly-detection-monitoring">Monitoring with Anomaly Detection for Roles</a></li>
 </ul>
 
 <h3 id="create-host-metric-monitoring">Host metric monitoring</h3>
@@ -46,7 +47,7 @@ The input procedure varies depending on the monitoring target.
 | KEY             | TYPE     | DESCRIPTION                      |
 | ------------    | -------- | -------------------------------- |
 | `type`          | *string*   | constant string `"host"`               |
-| `name`          | *string*   | arbitrary name that can be seen in the list of monitors and elsewhere |
+| `name`          | *string*   | arbitrary name that can be referenced from the monitors list, etc. |
 | `memo`          | *string*   | [optional] notes for the monitoring configuration |
 | `duration`      | *number*   | average value of the designated interval (in minutes) will be monitored. valid interval (1 to 10 min.) |
 | `metric`        | *string*   | name of the host metric targeted by monitoring. by designating a specific constant string, comparative monitoring is possible [*1](#comparative-monitoring) | 
@@ -195,7 +196,7 @@ This function disables notifications in monitoring. Alerts occur in response to 
 | KEY             | TYPE     | DESCRIPTION                      |
 | ------------    | -------- | -------------------------------- |
 | `type`          | *string*   | constant string `"connectivity"`               |
-| `name`          | *string*   | [optional] arbitrary name that can be seen in the list of monitors and elsewhere. The default value is `connectivity`. |
+| `name`          | *string*   | [optional] arbitrary name that can be referenced from the monitors list, etc. The default value is `connectivity`. |
 | `memo`          | *string*   | [optional] notes for the monitoring configuration |
 | `scopes`        | *array[string]* | [optional] The service name or role details name of the monitoring target. [*2](#service-name)  |
 | `excludeScopes` | *array[string]* | [optional] The service name or role details name of the monitoring exception. [*2](#service-name)  |
@@ -283,7 +284,7 @@ This function disables notifications in monitoring. Alerts occur in response to 
 | KEY             | TYPE     | DESCRIPTION                      |
 | ------------    | -------- | -------------------------------- |
 | `type`          | *string*   | constant string `"service"`               |
-| `name`          | *string*   | arbitrary name that can refer to monitors list, etc. |
+| `name`          | *string*   | arbitrary name that can be referenced from the monitors list, etc. |
 | `memo`          | *string*   | [optional] notes for the monitoring configuration |
 | `service`       | *string*   | name of the service targeted by monitoring |
 | `duration`      | *number*   | monitors the average value of the designated number of points. range: most recent 1~10 points |
@@ -398,7 +399,7 @@ This function disables notifications in monitoring. Alerts occur in response to 
 | KEY                    | TYPE       | DESCRIPTION                      |
 | ---------------------- | ---------- | -------------------------------- |
 | `type`                 | *string*   | constant string `"external"`          |
-| `name`                 | *string*   | arbitrary name that can refer to monitors list, etc. |
+| `name`                 | *string*   | arbitrary name that can be referenced from the monitors list, etc. |
 | `memo`                            | *string*   | [optional] notes for the monitoring configuration |
 | `url`                  | *string*   | monitoring target URL |
 | `method`               | *string*   | [optional] request method, one of `GET`, `POST`, `PUT`, `DELETE`. If omitted, `GET` method is used. |
@@ -518,7 +519,7 @@ In order to monitor response time, it's necessary to assign `responseTimeWarning
 | KEY             | TYPE     | DESCRIPTION                      |
 | ------------    | -------- | -------------------------------- |
 | `type`          | *string*   | constant string `"expression"`               |
-| `name`          | *string*   | arbitrary name that can be seen in the list of monitors and elsewhere   |
+| `name`          | *string*   | arbitrary name that can be referenced from the monitors list, etc.   |
 | `memo`          | *string*   | [optional] notes for the monitoring configuration |
 | `expression`    | *string*   | Expression of the monitoring target. Only valid for graph sequences that become one line. |
 | `operator`      | *string*   | determines the conditions that state whether the designated variable is either big or small. the observed value is on the left of ”>”or ”<” and the designated value is on the right|
@@ -684,6 +685,103 @@ In order to monitor response time, it's necessary to assign `responseTimeWarning
 
 - each field is the same as when the [monitor was created](#create)
 - list is ordered as monitor type -> name (same as the list of monitors on mackerel.io)
+
+<h3 id="create-anomaly-detection-monitoring">Monitoring with Anomaly Detection for Roles</h3>
+
+#### Input (when monitoring with Anomaly Detection for Roles)
+
+| KEY             | TYPE     | DESCRIPTION                      |
+| ------------    | -------- | -------------------------------- |
+| `type`          | *string*   | constant string `"anomalyDetection"`               |
+| `name`          | *string*   | arbitrary name that can be referenced from the monitors list, etc. |
+| `memo`          | *string*   | [optional] notes for the monitoring configuration |
+| `scopes`        | *array[string]* | [optional] monitoring target’s service name and role details name  [*2](#service-name) | 
+| `warningSensitivity`       | *string*   | the sensitivity (`insensitive`, `normal`, or `sensitive`) that generates warning alerts. |
+| `criticalSensitivity`       | *string*   | the sensitivity (`insensitive`, `normal`, or `sensitive`) that generates critical alerts. |
+| `maxCheckAttempts`           | *number*   | [optional] number of consecutive Warning/Critical instances before an alert is made. Default setting is 3 (1-10) |
+| `trainingPeriodFrom`     | *number* | [optional] Specified training period (Uses metric data starting from the specified time) |
+| `notificationInterval` | *number* | [optional] the time interval (in minutes) for re-sending notifications. If this field is omitted, notifications will not be re-sent. |
+| `isMute`        | *boolean*       | [optional] whether monitoring is muted or not |
+
+##### Example Input
+
+```json
+{
+  "type": "anomalyDetection",
+  "name": "anomaly detection",
+  "memo": "my anomaly detection for roles",
+  "scopes": [
+    "myService: myRole"
+  ],
+  "warningSensitivity": "insensitive",
+  "maxCheckAttempts": 3
+}
+```
+
+#### Response (Monitoring with Anomaly Detection for Roles)
+
+##### Success
+
+```json
+{
+  "id"  : "2cSZzK3XfmG",
+  "type": "anomalyDetection",
+  "name": "anomaly detection",
+  "memo": "my anomaly detection for roles",
+  "scopes": [
+    "myService: myRole"
+  ],
+  "warningSensitivity": "insensitive",
+  "maxCheckAttempts": 3
+}
+```
+
+`id` will be given and returned
+
+##### Error
+
+<table class="default api-error-table">
+  <thead>
+    <tr>
+      <th class="status-code">STATUS CODE</th>
+      <th class="description">DESCRIPTION</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>400</td>
+      <td>when the input is in a format that can’t be received</td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td>when the <code>name</code> is empty</td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td>when the<code>memo</code>exceeds 250 characters</td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td>when the specified service name or role details name is not registered in <code>scope</code> or <code>excludeScopes</code></td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td>when the specified <code>warningSensitivity</code> or <code>criticalSensitivity</code> is not <code>insensitive</code> / <code>normal</code> / <code>sensitive</code></td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td>when the notification re-sending time interval is not set at 10 minutes or more</td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td>when a future vaule is specified for <code>trainingPeriodFrom</code></td>
+    </tr>
+    <tr>
+      <td>403</td>
+      <td>when the API doesn't have the required permissions</td>
+    </tr>
+  </tbody>
+</table>
 
 ----------------------------------------------
 

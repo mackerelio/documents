@@ -13,7 +13,7 @@ Additionally, the API of AWS will be called every 5 minutes for each targeted me
 
 Currently, the following AWS cloud products are supported. For information on obtaining metrics, please refer to each individual document.
 
-[EC2](https://mackerel.io/docs/entry/integrations/aws/ec2)・[ELB (CLB)](https://mackerel.io/docs/entry/integrations/aws/elb)・[ALB](https://mackerel.io/docs/entry/integrations/aws/alb)・[NLB](https://mackerel.io/docs/entry/integrations/aws/nlb)・[RDS](https://mackerel.io/docs/entry/integrations/aws/rds)・[ElastiCache](https://mackerel.io/docs/entry/integrations/aws/elasticache)・[Redshift](https://mackerel.io/docs/entry/integrations/aws/redshift)・[Lambda](https://mackerel.io/docs/entry/integrations/aws/lambda)・[SQS](https://mackerel.io/docs/entry/integrations/aws/sqs)・[DynamoDB](https://mackerel.io/docs/entry/integrations/aws/dynamodb)・[CloudFront](https://mackerel.io/docs/entry/integrations/aws/cloudfront)・[API Gateway](https://mackerel.io/docs/entry/integrations/aws/apigateway)・[Kinesis](https://mackerel.io/docs/entry/integrations/aws/kinesis)・[S3](https://mackerel.io/docs/entry/integrations/aws/s3)・[ES](https://mackerel.io/docs/entry/integrations/aws/es)・[ECS](https://mackerel.io/docs/entry/integrations/aws/ecs)・[SES](https://mackerel.io/ja/docs/entry/integrations/aws/ses)・[Step Functions](https://mackerel.io/docs/entry/integrations/aws/states)・[EFS](https://mackerel.io/docs/entry/integrations/aws/efs)
+[EC2](https://mackerel.io/docs/entry/integrations/aws/ec2)・[ELB (CLB)](https://mackerel.io/docs/entry/integrations/aws/elb)・[ALB](https://mackerel.io/docs/entry/integrations/aws/alb)・[NLB](https://mackerel.io/docs/entry/integrations/aws/nlb)・[RDS](https://mackerel.io/docs/entry/integrations/aws/rds)・[ElastiCache](https://mackerel.io/docs/entry/integrations/aws/elasticache)・[Redshift](https://mackerel.io/docs/entry/integrations/aws/redshift)・[Lambda](https://mackerel.io/docs/entry/integrations/aws/lambda)・[SQS](https://mackerel.io/docs/entry/integrations/aws/sqs)・[DynamoDB](https://mackerel.io/docs/entry/integrations/aws/dynamodb)・[CloudFront](https://mackerel.io/docs/entry/integrations/aws/cloudfront)・[API Gateway](https://mackerel.io/docs/entry/integrations/aws/apigateway)・[Kinesis](https://mackerel.io/docs/entry/integrations/aws/kinesis)・[S3](https://mackerel.io/docs/entry/integrations/aws/s3)・[ES](https://mackerel.io/docs/entry/integrations/aws/es)・[ECS](https://mackerel.io/docs/entry/integrations/aws/ecs)・[SES](https://mackerel.io/ja/docs/entry/integrations/aws/ses)・[Step Functions](https://mackerel.io/docs/entry/integrations/aws/states)・[EFS](https://mackerel.io/docs/entry/integrations/aws/efs)・[Kinesis Data Firehose](https://mackerel.io/docs/entry/integrations/aws/firehose)
 
 
 <h2 id="setting">Integration method</h2>
@@ -52,7 +52,8 @@ Grant the policies listed below for the role. Be careful not to grant FullAccess
 - `AmazonSESReadOnlyAccess / ses:Describe*`
 - `AWSStepFunctionsReadOnlyAccess`
 - `AmazonElasticFileSystemReadOnlyAccess`
-- `CloudWatchReadOnlyAccess`（When only configuring CloudFront, API Gateway, Kinesis, S3, ES, ECS, SES, Step Functions or EFS）
+- `AmazonKinesisFirehoseReadOnlyAccess`
+- `CloudWatchReadOnlyAccess`（When only configuring CloudFront, API Gateway, Kinesis, S3, ES, ECS, SES, Step Functions, EFS or Firehose）
 
 Additionally, in AWS Integration you can filter using tags as is mentioned further down, but if you filter using tags with ElastiCache or SQS, additional policies need to be added.
 For more details, refer to <a href="#tag">Filter by tag</a>.
@@ -100,7 +101,8 @@ Grant the policies listed below for the newly created user. Be careful not to gr
 - `AmazonSESReadOnlyAccess / ses:Describe*`
 - `AWSStepFunctionsReadOnlyAccess`
 - `AmazonElasticFileSystemReadOnlyAccess`
-- `CloudWatchReadOnlyAccess`（When only configuring CloudFront, API Gateway, Kinesis, S3, ES, ECS, SES, Step Functions or EFS）
+- `AmazonKinesisFirehoseReadOnlyAccess`
+- `CloudWatchReadOnlyAccess`（When only configuring CloudFront, API Gateway, Kinesis, S3, ES, ECS, SES, Step Functions, EFS or Firehose）
 
 Additionally, in AWS Integration you can filter using tags as is mentioned further down, but if you filter using tags with ElastiCache or SQS, additional policies need to be added.
 
@@ -152,11 +154,16 @@ By configuring the integration above, AWS cloud products complying with the targ
 
 Even if a host is not retired, host information will remain and hosts without metric posts will not be subject to billing.
 
-<h3 id="plugin-custom-identifier">Regarding the aggregation of custom metrics obtained with the plugin in integrated hosts</h3>
+<h3 id="plugin-custom-identifier">Regarding the aggregation of monitoring content with plugins in integrated hosts</h3>
 
-In mackerel-agent’s plugin configuration, a `custom_identifier` can be specified. `custom_identifier` is a mechanism to grant an identifier that is unique to the user to be used as a host identifier. By using this, metrics that have been posted from mackerel-agent installed on another machine can be aggregated as metrics of a host integrated with AWS Integration. Specify the `custom_identifier` in the plugin configuration of the plugin to be sending the custom metrics.
+`custom_identifier` can be specified in the settings of mackerel-agent's custom metrics and check monitoring plugins. `custom_identifier` is a mechanism that allows the user to assign a distinct identifier to a host. Using this, it is possible to aggregate metrics and check monitors that have been posted from mackerel-agent installed on another machine as a part of the AWS integration host. `custom_identifier` is specified in the configuration of compatible plugins.
 
-For example, if using Amazon RDS and the [mackerel-plugin-mysql](https://github.com/mackerelio/mackerel-agent-plugins/tree/master/mackerel-plugin-mysql) plugin, by adding the `custom_identifier` description as shown below in the plugin configuration of mackerel-agent.conf, metrics obtained by the plugin can be aggregated as custom metrics of an RDS host.
+For example, the endpoint in the case of Amazon RDS, and the DNS Name in the case of ELB, will be the `custom_identifier`string.
+
+#### Example uses
+Here are two example uses. In either case, the agent needs to be restarted after adding to the mackerel-agent configuration file.
+
+The first example is of MySQL monitoring using the [mackerel-plugin-mysql](https://github.com/mackerelio/mackerel-agent-plugins/tree/master/mackerel-plugin-mysql) plugin for Amazon RDS. Metrics retrieved by the plugin can be aggregated as custom metrics for the RDS host by adding the plugin configuration which includes the `custom_identifier` as shown below to the mackerel-agent.conf.
 
 ```
 [plugin.metrics.mysql]
@@ -164,6 +171,10 @@ command = ["mackerel-plugin-mysql", "-host", "<RDS endpoint>", "-username", "use
 custom_identifier = "<RDS endpoint>"
 ```
 
-The endpoint (for Amazon RDS) and the DNS Name (for ELB) each become a `custom_identifier` string.
+The second example is of Elasticsearch monitoring using the Amazon Elasticsearch Service and the [check-elasticsearch](https://github.com/mackerelio/go-check-plugins/tree/master/check-elasticsearch) plugin. Elasticsearch Service Cluster Health Checks can be aggregated as check monitoring for ElasticsearchService hosts by adding the plugin configuration which includes the `custom_identifier` as shown below to the mackerel-agent.conf.
 
-After making the addition to the conf file, you’ll need to restart the agent.
+```
+[plugin.checks.elasticsearch]
+command = ["check-elasticsearch", "-s", "https", "-H", "<Elasticsearch Service endpoint>", "-p", "443"]
+custom_identifier = "<Elasticsearch Service domain ARN>"
+```

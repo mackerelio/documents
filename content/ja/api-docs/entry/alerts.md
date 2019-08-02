@@ -57,8 +57,8 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 | `id`     | *string*        | アラートのid。                                      |
 | `status` | *string*        | アラートの現在のステータス `"OK"`、 `"CRITICAL"`、 `"WARNING"`、 `"UNKNOWN"` のいずれかになります。 |
 | `monitorId`  | *string* | アラートを発生させた監視設定のid。 |
-| `type`  | *string* | 監視設定の種別。疎通 (`"connectivity"`)、ホストメトリック (`"host"`)、サービスメトリック (`"service"`)、外形監視 (`"external"`)、チェック監視 (`"check"`)、式監視 (`"expression"`) のいずれかになります。 |
-| `hostId`  | *string* | [optional] 関連するホストのid。監視設定の種別が `"connectivity"`、`"host"`、`"check"`の時のみ存在します。 |
+| `type`  | *string* | 監視設定の種別。疎通 (`"connectivity"`)、ホストメトリック (`"host"`)、サービスメトリック (`"service"`)、外形監視 (`"external"`)、チェック監視 (`"check"`)、式監視 (`"expression"`)、ロール内異常検知 (`"anomalyDetection"`) のいずれかになります。 |
+| `hostId`  | *string* | [optional] 関連するホストのid。監視設定の種別が `"connectivity"`、`"host"`、`"check"`、`"anomalyDetection"`の時のみ存在します。 |
 | `value`  | *number* | [optional] 監視対象の値。監視設定の種別が `"host"`、`"service"` の時または `"external"`で応答時間の設定があるときのみ存在します。 |
 | `message`  | *string* | [optional] 監視対象のメッセージ。監視設定の種別が `"check"` の時または `"external"` の時のみ存在します。 |
 | `reason`  | *string* | [optional]  アラートを閉じた理由。アラートが解決していない時は存在しません。 |

@@ -36,6 +36,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
   <li><a href="#create-service-metric-monitoring">サービスメトリック監視</a></li>
   <li><a href="#create-external-monitoring">外形監視</a></li>
   <li><a href="#create-expression-monitoring">式による監視</a></li>
+  <li><a href="#create-anomaly-detection-monitoring">ロール内異常検知による監視</a></li>
 </ul>
 
 <h3 id="create-host-metric-monitoring">ホストメトリック監視</h3>
@@ -592,6 +593,103 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
     <tr>
       <td>403</td>
       <td>APIキーに書き込み権限がないとき / <a href="https://mackerel.io/ja/docs/entry/faq/organization/ip-restriction" target="_blank">許可されたIPアドレス範囲</a>外からのアクセスの場合</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="create-anomaly-detection-monitoring">ロール内異常検知による監視</h3>
+
+#### 入力(ロール内異常検知による監視)
+
+| KEY             | TYPE     | DESCRIPTION                      |
+| ------------    | -------- | -------------------------------- |
+| `type`          | *string*   | 定数文字列 `"anomalyDetection"`               |
+| `name`          | *string*   | 監視一覧などで参照できる任意の名称。  |
+| `memo`          | *string*   | [optional] 監視設定のメモ。 |
+| `scopes`        | *array[string]* | 監視対象のサービス名とロール詳細名。[*2](#service-name)  |
+| `warningSensitivity`       | *string*   | warningのAlert発生の閾値。`insensitive`、`normal`、`sensitive`のいずれか。 |
+| `criticalSensitivity`       | *string*   | criticalのAlert発生の閾値。`insensitive`、`normal`、`sensitive`のいずれか。 |
+| `maxCheckAttempts`     | *number* | [optional] 何回連続で Warning/Critical になったらアラートを発生させるか。デフォルトは3 (1~10)です。 |
+| `trainingPeriodFrom`     | *number* | [optional] 再学習させる際に起点となる時刻(epoch秒)。 |
+| `notificationInterval` | *number* | [optional] 通知の再送設定をするときの再送間隔 (分)。このフィールドを省略すると通知は再送されません。 |
+| `isMute`        | *boolean*       | [optional] 監視がミュート状態か否か |
+
+##### 入力例
+
+```json
+{
+  "type": "anomalyDetection",
+  "name": "anomaly detection",
+  "memo": "my anomaly detection for roles",
+  "scopes": [
+    "myService: myRole"
+  ],
+  "warningSensitivity": "insensitive",
+  "maxCheckAttempts": 3
+}
+```
+
+#### 応答(ロール内異常検知による監視)
+
+##### 成功時
+
+```json
+{
+  "id"  : "2cSZzK3XfmG",
+  "type": "anomalyDetection",
+  "name": "anomaly detection",
+  "memo": "my anomaly detection for roles",
+  "scopes": [
+    "myService: myRole"
+  ],
+  "warningSensitivity": "insensitive",
+  "maxCheckAttempts": 3
+}
+```
+
+`id` が付与されて返却されます。
+
+##### 失敗時
+
+<table class="default api-error-table">
+  <thead>
+    <tr>
+      <th class="status-code">STATUS CODE</th>
+      <th class="description">DESCRIPTION</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>400</td>
+      <td>入力が受け付けられないフォーマットだったとき</td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td><code>name</code>が空文字列のとき</td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td><code>memo</code>が250文字を超えているとき</td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td><code>scopes</code>に指定されているサービス名やロール詳細名が未登録のとき</td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td><code>warningSensitivity</code>または<code>criticalSensitivity</code>に <code>insensitive</code> / <code>normal</code> / <code>sensitive</code> 以外の値が指定されたとき</td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td>再送間隔が10分以上でないとき</td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td><code>trainingPeriodFrom</code>が未来の値のとき</td>
+    </tr>
+    <tr>
+      <td>403</td>
+      <td>APIキーに書き込み権限がないとき</td>
     </tr>
   </tbody>
 </table>
