@@ -15,7 +15,7 @@ AWSインテグレーションは現在は以下のAWSクラウド製品に対�
 
 [EC2](https://mackerel.io/ja/docs/entry/integrations/aws/ec2)・[ELB (CLB)](https://mackerel.io/ja/docs/entry/integrations/aws/elb)・[ALB](https://mackerel.io/ja/docs/entry/integrations/aws/alb)・[NLB](https://mackerel.io/ja/docs/entry/integrations/aws/nlb)・[RDS](https://mackerel.io/ja/docs/entry/integrations/aws/rds)・[ElastiCache](https://mackerel.io/ja/docs/entry/integrations/aws/elasticache)・[Redshift](https://mackerel.io/ja/docs/entry/integrations/aws/redshift)・[Lambda](https://mackerel.io/ja/docs/entry/integrations/aws/lambda)・[SQS](https://mackerel.io/ja/docs/entry/integrations/aws/sqs)・[DynamoDB](https://mackerel.io/ja/docs/entry/integrations/aws/dynamodb)・[CloudFront](https://mackerel.io/ja/docs/entry/integrations/aws/cloudfront)
 ・[API Gateway](https://mackerel.io/ja/docs/entry/integrations/aws/apigateway)
-・[Kinesis](https://mackerel.io/ja/docs/entry/integrations/aws/kinesis)・[S3](https://mackerel.io/ja/docs/entry/integrations/aws/s3)・[ES](https://mackerel.io/ja/docs/entry/integrations/aws/es)・[ECS](https://mackerel.io/ja/docs/entry/integrations/aws/ecs)・[SES](https://mackerel.io/ja/docs/entry/integrations/aws/ses)・[Step Functions](https://mackerel.io/ja/docs/entry/integrations/aws/states)・[EFS](https://mackerel.io/ja/docs/entry/integrations/aws/efs)
+・[Kinesis](https://mackerel.io/ja/docs/entry/integrations/aws/kinesis)・[S3](https://mackerel.io/ja/docs/entry/integrations/aws/s3)・[ES](https://mackerel.io/ja/docs/entry/integrations/aws/es)・[ECS](https://mackerel.io/ja/docs/entry/integrations/aws/ecs)・[SES](https://mackerel.io/ja/docs/entry/integrations/aws/ses)・[Step Functions](https://mackerel.io/ja/docs/entry/integrations/aws/states)・[EFS](https://mackerel.io/ja/docs/entry/integrations/aws/efs)・[Kinesis Data Firehose](https://mackerel.io/ja/docs/entry/integrations/aws/firehose)
 
 <h2 id="setting">連携方法</h2>
 AWSインテグレーションの連携方法には2つの方法があります。
@@ -54,7 +54,8 @@ FullAccess権限を付与しないようにご注意ください。また、ひ�
 - `AmazonSESReadOnlyAccess / ses:Describe*`
 - `AWSStepFunctionsReadOnlyAccess`
 - `AmazonElasticFileSystemReadOnlyAccess`
-- `CloudWatchReadOnlyAccess`（CloudFrontのみ、API Gatewayのみ、Kinesisのみ、S3のみ、ESのみ、ECSのみ、SESのみ、Step Functionsのみ、またはEFSのみを設定する場合）
+- `AmazonKinesisFirehoseReadOnlyAccess`
+- `CloudWatchReadOnlyAccess`（CloudFrontのみ、API Gatewayのみ、Kinesisのみ、S3のみ、ESのみ、ECSのみ、SESのみ、Step Functionsのみ、EFSのみ、またはFirehoseのみを設定する場合）
 
 また、AWSインテグレーションでは後述するようにタグによって絞り込みを行うことが出来ますが、ElastiCacheやSQSでタグによる絞り込みを行う場合は追加のポリシーを付与する必要があります。
 詳しくは<a href="#tag">タグで絞り込む</a> の項目を参照してください。
@@ -107,7 +108,8 @@ FullAccess権限を付与しないようにご注意ください。また、ひ�
 - `AmazonSESReadOnlyAccess / ses:Describe*`
 - `AWSStepFunctionsReadOnlyAccess`
 - `AmazonElasticFileSystemReadOnlyAccess`
-- `CloudWatchReadOnlyAccess`（CloudFrontのみ、API Gatewayのみ、Kinesisのみ、S3のみ、ESのみ、ECSのみ、SESのみ、Step Functionsのみ、またはEFSのみを設定する場合）
+- `AmazonKinesisFirehoseReadOnlyAccess`
+- `CloudWatchReadOnlyAccess`（CloudFrontのみ、API Gatewayのみ、Kinesisのみ、S3のみ、ESのみ、ECSのみ、SESのみ、Step Functionsのみ、EFSのみ、またはFirehoseのみを設定する場合）
 
 また、AWSインテグレーションでは後述するようにタグによって絞り込みを行うことが出来ますが、ElastiCacheやSQSでタグによる絞り込みを行う場合は追加のポリシーを付与する必要があります。
 詳しくは<a href="#tag">タグで絞り込む</a> の項目を参照してください。
@@ -161,11 +163,16 @@ Mackerelの設定画面でタグを指定します。連携ホスト数を確認
 
 仮に退役作業をしない場合でも、ホスト情報が残り続けるだけで、メトリック投稿のないホストは課金対象にはなりません。
 
-<h3 id="plugin-custom-identifier">プラグインにより取得したカスタムメトリックの連携ホストへの集約に関して</h3>
+<h3 id="plugin-custom-identifier">プラグインによる監視内容の連携ホストへの集約に関して</h3>
 
-mackerel-agent の plugin 設定には、`custom_identifier` を指定できます。`custom_identifier` とは、ホストの識別子としてユーザー独自の identifier を付与するための仕組みです。これを利用して、別のマシンにインストールした mackerel-agent から投稿されたメトリックを、AWSインテグレーション連携ホストのメトリックとして集約できます。`custom_identifier` は、カスタムメトリックを投稿するためのプラグイン設定に指定します。
+mackerel-agent のカスタムメトリックとチェック監視の plugin 設定には、`custom_identifier` を指定できます。`custom_identifier` とは、ホストの識別子としてユーザー独自の identifier を付与するための仕組みです。これを利用して、別のマシンにインストールした mackerel-agent から投稿されたメトリックやチェック監視を、AWSインテグレーション連携ホストの物として集約できます。`custom_identifier` は、対応するプラグイン設定に指定します。
 
-例として、Amazon RDS と [mackerel-plugin-mysql](https://github.com/mackerelio/mackerel-agent-plugins/tree/master/mackerel-plugin-mysql) プラグインを利用している場合、mackerel-agent.conf のプラグイン設定に、以下のように `custom_identifier` の記述を追加することで、プラグインで取得したメトリックをRDSホストのカスタムメトリックとして集約できます。
+例えば Amazon RDS の場合はそのエンドポイントが、ELB の場合は DNS Name が、それぞれ `custom_identifier` 文字列となります。
+
+#### 利用例
+以下にふたつの利用例を紹介します。いずれの場合も、mackerel-agent の設定ファイルへの追記後はエージェントの再起動が必要です。
+
+ひとつめの例は、Amazon RDS に対する [mackerel-plugin-mysql](https://github.com/mackerelio/mackerel-agent-plugins/tree/master/mackerel-plugin-mysql) プラグインを用いた MySQL 監視です。mackerel-agent.conf の設定に以下のように `custom_identifier` を含むプラグイン設定を追加することで、プラグインで取得したメトリックをRDSホストのカスタムメトリックとして集約できます。
 
 ```
 [plugin.metrics.mysql]
@@ -173,6 +180,11 @@ command = ["mackerel-plugin-mysql", "-host", "RDSのエンドポイント", "-us
 custom_identifier = "RDSのエンドポイント"
 ```
 
-Amazon RDS の場合はそのエンドポイントが、ELB の場合は DNS Name が、それぞれ `custom_identifier` 文字列となります。
+ふたつめの例は、 Amazon Elasticsearch Service と [check-elasticsearch](https://github.com/mackerelio/go-check-plugins/tree/master/check-elasticsearch) プラグインを用いた Elasticsearch 監視です。mackerel-agent.conf の設定に以下のように `custom_identifier` を含むプラグイン設定を追加することで、 Elasticsearch Service クラスターのヘルスチェックを Elasticsearch Service ホストのチェック監視として集約できます。
 
-conf ファイルへの追記後は、エージェントの再起動が必要です。
+```
+[plugin.checks.elasticsearch]
+command = ["check-elasticsearch", "-s", "https", "-H", "Elasticsearch Service のエンドポイント", "-p", "443"]
+custom_identifier = "Elasticsearch Service の ARN"
+```
+

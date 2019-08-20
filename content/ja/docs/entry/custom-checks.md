@@ -23,6 +23,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 ```config
 [plugin.checks.ssh]
 command = ["ruby", "/path/to/check-ssh.rb"]
+custom_identifier = "SOME_IDENTIFIER" # optional
 notification_interval = 60
 max_check_attempts = 1
 check_interval = 5
@@ -35,6 +36,9 @@ memo = "This check monitor is ..."
 
 - 項目名: 設定ファイル用のキーで、"plugin.checks." で始まっている必要があり、含まれるドットの数はちょうど2である必要があります。2つめのドット以降は監視設定の名前として利用されます。
 - command: エージェントが定期的に実行し、その終了ステータス/標準出力を監視結果として使用するコマンドです。コマンドは後述する仕様に沿って動作する必要があります。
+- custom_identifier: 監視の実行結果を、 agent が動作しているホストではなく指定した識別子のホストの監視として送信します。
+    - チェック結果が OK でなかった場合、ここで指定したホストのアラートとして発報されます。
+    - AWS / Azure インテグレーションの連携ホストに監視を追加する場合などに有用です。詳細は[AWSインテグレーションのドキュメント](https://mackerel.io/ja/docs/entry/integrations/aws#plugin-custom-identifier)をご覧下さい。
 - notification_interval: アラートの再送間隔を分で指定します。省略した場合、アラートは再送通知されません。10分未満は指定できません。10分未満を指定した場合は、10分間隔で通知を再送します。
 - max_check_attempts: 最大試行回数を指定します。ここで指定した回数以上、OK以外のチェック結果が続いた場合にアラートを発報します。たとえば3が設定されている場合、OK以外の状態が3回続いた場合にアラートとなります。**`prevent_alert_auto_close` と併用した場合、指定した数値に関わらず `1` として扱われます。**
 - check_interval: チェック監視の実行間隔を分で指定します。デフォルト値は1分です。設定可能な範囲は1分から60分で、1分未満の場合は1分、60分以上を指定した場合は60分間隔で監視が実行されます。
