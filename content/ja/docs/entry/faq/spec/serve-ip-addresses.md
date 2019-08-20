@@ -18,6 +18,10 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 * ポート番号は443です。
 * mackerel-agentからのリクエスト先も上記のIPアドレスとポート番号に対しての通信となります。
 
+# 履歴
+* 2014年5月8日作成
+* 2017年8月7日改定
+
 ---
 
 [< FAQに戻る](https://mackerel.io/ja/docs/entry/faq)

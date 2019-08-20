@@ -18,6 +18,10 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackere
 * The port number is 433.
 * mackerel-agent also makes requests with the above-mentioned IP address and port number.
 
+# Records
+* Established on May 8, 2014
+* Amended on Aug 7, 2017
+
 ---
 
 [< Return to FAQ](https://mackerel.io/docs/entry/faq)

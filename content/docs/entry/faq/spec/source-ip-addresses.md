@@ -18,6 +18,10 @@ Below is origin IP address range of notification requests from Mackerel. In the 
   * `52.68.245.9/32`
   * `13.112.142.176/32`
 
+# Records
+* Established on May 8, 2014
+* Amended on Aug 21, 2017
+
 ---
 
 [< Return to FAQ](https://mackerel.io/docs/entry/faq)

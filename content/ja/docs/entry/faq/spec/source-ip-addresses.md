@@ -16,6 +16,10 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
   * `52.68.245.9/32`
   * `13.112.142.176/32`
 
+# 履歴
+* 2014年5月8日作成
+* 2017年8月21日改定
+
 ---
 
 [< FAQに戻る](https://mackerel.io/ja/docs/entry/faq)
