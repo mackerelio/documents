@@ -91,11 +91,12 @@ If not using the plugin, the agent can be used with just environment variable co
 | :-- | :-- |
 | MACKEREL_APIKEY | Specifies the API key used by the agent to communicate with the Mackerel service. |
 | MACKEREL_APIBASE | Specifies the Mackerel API endpoint(Default: `https://api.mackerelio.com/`). |
-| MACKEREL_ROLES | Sets tasks, pod services, and roles. |
+| MACKEREL_ROLES | Sets services and roles for tasks and pods. |
 | MACKEREL_AGENT_CONFIG | Sets the agent configuration file. Details for this will be described later. |
-| MACKEREL_AGENT_CONFIG_POLLING_DURATION_MINUTES | Specifies time interval of retrieval in minutes for detecting changes in the agent configuration file.|
+| MACKEREL_AGENT_CONFIG_POLLING_DURATION_MINUTES | Specifies time interval of retrieval in minutes for detecting changes in the agent configuration file. |
 | MACKEREL_IGNORE_CONTAINER | Sets the name of the container to be excluded from monitoring with regular expressions. |
-| MACKEREL_HOST_STATUS_ON_START | When set, the host status changes to the specified value upon startup of the agent. Valid values are "standby", "working", "maintenance", and "poweroff".|
+| MACKEREL_HOST_STATUS_ON_START | When set, the host status changes to the specified value upon startup of the agent. Valid values are "standby", "working", "maintenance", and "poweroff". |
+| HTTP_PROXY(HTTPS_PROXY) | Sets an HTTP Proxy that the agent uses to communicate outside of the container. Note that this is a different setting from the http probe proxy (described later). |
 
 
 By default, the configuration file is read once at startup. With `MACKEREL_AGENT_CONFIG_POLLING_DURATION_MINUTES` configured, the configuration file is periodically retrieved to detect and apply changes.
@@ -127,7 +128,7 @@ ignoreContainer: '\Amackerel-container-agent\z'
 | :-- | :-- |
 | apikey | Specifies the API key used by the agent to communicate with the Mackerel service. |
 | apibase | The Mackerel API end point (Default: `https://api.mackerelio.com/`). |
-| roles | Sets tasks, pod services, and roles. |
+| roles | Sets services and roles for tasks and pods. |
 | ignoreContainer | Sets the name of the container to be excluded from monitoring with regular expressions. |
 | root | Specifies the mackerel-container-agent root directory (Default: `/var/tmp/mackerel-container-agent`)。 |
 | plugin.metrics | Sets a plugin to get and post arbitrary metrics. Details for this will be described later. |
@@ -168,6 +169,7 @@ The plugins bundled in this image are as follows.
   - mackerel-plugin-snmp
   - mackerel-plugin-squid
   - mackerel-plugin-uwsgi-vassal
+- [mackerel-plugin-json](https://github.com/mackerelio/mackerel-plugin-json)
 - [go-check-plugins](https://github.com/mackerelio/go-check-plugins)
   - check-cert-file
   - check-elasticsearch

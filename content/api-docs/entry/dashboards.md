@@ -35,8 +35,8 @@ Objects that hold the following keys:
 
 | KEY       | TYPE            | DESCRIPTION                                       |
 | --------- | --------------- | ------------------------------------------------- |
-| `title`   | *string*        | the name of the dashboard                              |
-| `memo`    | *string*        | notes regarding the dashboard                              |
+| `title`   | *string*        | the name of the dashboard                         |
+| `memo`    | *string*        | notes regarding the dashboard                     |
 | `urlPath` | *string*        | the dashboard's URL path \*1                      |
 | `widgets` | *array[object]* | a list of [objects that represent widgets](#widget) |
 
@@ -51,8 +51,8 @@ The dashboard that was created is returned.
 | KEY         | TYPE            | DESCRIPTION                                       |
 | ----------- | --------------- | ------------------------------------------------- |
 | `id`        | *string*        | the dashboard's ID \*1                            |
-| `title`     | *string*        | the name of the dashboard                              |
-| `memo`      | *string*        | notes regarding the dashboard                               |
+| `title`     | *string*        | the name of the dashboard                         |
+| `memo`      | *string*        | notes regarding the dashboard                     |
 | `urlPath`   | *string*        | the dashboard's URL path                          |
 | `widgets`   | *array[object]* | a list of [objects that represent widgets](#widget) |
 | `createdAt` | *number*        | the time at which created (in epoch seconds)                            |
@@ -282,6 +282,14 @@ Objects representing widgets have the following formats for the differing types.
 | `markdown` | *string* | a character string in Markdown format                    |
 | `layout`   | *object* | [object representing the layout](#layout) |
 
+### Alert Status widget
+| KEY        | TYPE     | DESCRIPTION                             |
+| ---------- | -------- | --------------------------------------- |
+| `type`     | *string* | fixed character string `"alertStatus"`                 |
+| `title`    | *string* | the title of the widget                  |
+| `roleFullname` | *string*  | the service name and role name linked by `:`<br /> However, if the relavent role or service has been deleted when the dashboard is retrieved, `roleFullname` will be set as `null`. |
+| `layout`   | *object* | [object representing the layout](#layout) |
+
 <h3 id="graph">Graphs</h3>
 #### Host graph
 | KEY      | TYPE     | DESCRIPTION                  |
@@ -384,10 +392,11 @@ Coordinates are specified using the upper left corner of the widget display area
 - each value must be a positive integer or 0
 - widgets can not protrude from the widget display area (24 width)
 - widgets can not overlap
-- widgets must be at least the minimum size and at most the maximum size, as described below for each type. 
+- widgets must be at least the minimum size and at most the maximum size, as described below for each type.
 
 | Widget   | Minimum value `width` | Minimum value `height` | Maximum value `width` | Maximum value `height` |
 | -------- | --------------------- | ---------------------- | --------------------- | ---------------------- |
 | Graph    | 6                     | 6                      | 24                    | 32                     |
 | Value    | 4                     | 4                      | 24                    | 32                     |
 | Markdown | 4                     | 2                      | 24                    | 80                     |
+| Alert Status | 4             | 3                 | 24               | 32                |

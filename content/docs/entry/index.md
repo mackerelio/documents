@@ -7,6 +7,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackere
 
 <div id="help-top-entry">
 
+
 <div class="hatena-module-search-box">
   <form class="search-form" role="search" action="https://mackerel.io/docs/search" method="get">
     <input type="text" name="q" class="search-module-input" value="" placeholder="Type to search..." required="">
@@ -35,6 +36,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackere
       <li><a href="https://mackerel.io/docs/entry/howto/mackerel-agent-plugins"><strong>Using the official plugin pack to visualize middleware metrics</strong><span>how to use the official plugin pack, which supports various kinds of middleware</span></a></li>
       <li><a href="https://mackerel.io/docs/entry/advanced/custom-metrics"><strong>Posting user-defined custom metrics</strong><span>posting middleware metrics of MySQL and such from mackerel-agent</span></a></li>
       <li><a href="https://mackerel.io/docs/entry/howto/alerts"><strong>Setting up monitoring and alerts</strong><span>how to set up the monitoring of registered hosts and receiving alert notifications</span></a></li>
+      <li><a href="https://mackerel.io/docs/entry/howto/downtimes"><strong>Configuring Downtime</strong><span>Setup periodic monitoring suspension</span></a></li>
     </ul>
   </div>
   <p id="link-faq"><a href="https://mackerel.io/docs/entry/faq">Read FAQs</a></p>

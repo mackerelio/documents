@@ -45,7 +45,7 @@ FullAccess権限を付与しないようにご注意ください。また、ひ�
 - `AmazonSQSReadOnlyAccess`
 - `AmazonDynamoDBReadOnlyAccess`
 - `CloudFrontReadOnlyAccess`
-- `apigateway:GET / apigateway:OPTIONS`
+- `apigateway:GET`
     - リソースポリシーは `arn:aws:apigateway:ap-northeast-1::/*` などのように指定します。リソースポリシーで対象を制限することはできません。
 - `AmazonKinesisReadOnlyAccess`
 - `AmazonS3ReadOnlyAccess`
@@ -99,7 +99,7 @@ FullAccess権限を付与しないようにご注意ください。また、ひ�
 - `AmazonSQSReadOnlyAccess`
 - `AmazonDynamoDBReadOnlyAccess`
 - `CloudFrontReadOnlyAccess`
-- `apigateway:GET / apigateway:OPTIONS`
+- `apigateway:GET`
     - リソースポリシーは `arn:aws:apigateway:ap-northeast-1::/*` などのように指定します。リソースポリシーで対象を制限することはできません。
 - `AmazonKinesisReadOnlyAccess`
 - `AmazonS3ReadOnlyAccess`

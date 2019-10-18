@@ -42,8 +42,6 @@ In addition to the above, metrics that can be obtained with Aurora are listed be
 |Graph name|Metric|Metric name in Mackerel|Unit|Statistics|
 |:---|:---|:---|:---|:---|
 |Storage|FreeLocalStorage|rds.aurora.storage.free|bytes|Average|
-|Volume Bytes Used|VolumeBytesUsed|rds.aurora.volume_bytes_used.used|bytes|Average|
-|Volume IOPS|VolumeReadIOPS<br>VolumeWriteIOPS|rds.aurora.volume_iops.read<br>rds.aurora.volume_iops.write|iops|Average|
 |BinLog Replica Lag|AuroraBinLogReplicaLag|rds.aurora.binlog_replica_lag.lag|float|Average|
 |Replica Lag|AuroraReplicaLag<br>AuroraReplicaLagMaximum<br>AuroraReplicaLagMinimum|rds.aurora.replica_lag.lag<br>rds.aurora.replica_lag.max_lag<br>rds.aurora.replica_lag.min_lag|float|Average|
 |Engine Uptime|EngineUptime|rds.aurora.engine_uptime.uptime|float|Average|
@@ -72,7 +70,6 @@ With Aurora Serverless clusters, in addition to the metrics that can be obtained
 Among the graphs/metrics obtainable with AWS Integration, metrics included in the following graphs are usually obtained in 5 minute intervals.
 
 * CPU Credit
-* Volume IOPS
 * gp2 Storage Burst Balance
 
 This is specified by the AWS CloudWatch API.

@@ -430,6 +430,48 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
   </div>
 
   <div class="index-row">
+    <h3><a href="entry/downtimes">Downtimes</a></h3>
+    <div class="apis">
+      <div class="api">
+        <a href="entry/downtimes#create">
+          <p>Register Downtimes</p>
+          <p class="type-post">
+            <code>POST</code>
+            <code>/api/v0/downtimes</code>
+          </p>
+        </a>
+      </div>
+      <div class="api">
+        <a href="entry/downtimes#list">
+          <p>List of downtimes</p>
+          <p class="type-get">
+            <code>GET</code>
+            <code>/api/v0/downtimes</code>
+          </p>
+        </a>
+      </div>
+      <div class="api">
+        <a href="entry/downtimes#update">
+          <p>Update downtimes</p>
+          <p class="type-put">
+            <code>PUT</code>
+            <code>/api/v0/downtimes/<em>&lt;downtimeId&gt;</em></code>
+          </p>
+        </a>
+      </div>
+      <div class="api">
+        <a href="entry/downtimes#delete">
+          <p>Delete downtimes</p>
+          <p class="type-delete">
+            <code>DELETE</code>
+            <code>/api/v0/downtimes/<em>&lt;downtimeId&gt;</em></code>
+          </p>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="index-row">
     <h3><a href="entry/channels">Notification channels</a></h3>
     <div class="apis">
       <div class="api">
@@ -522,6 +564,57 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
           <p class="type-post">
             <code>POST</code>
             <code>/api/v0/alerts/<em>&lt;alertId&gt;</em>/close</code>
+          </p>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="index-row">
+    <h3><a href="entry/alert-group-settings">Alert group settings</a></h3>
+    <div class="apis">
+      <div class="api">
+        <a href="entry/alert-group-settings#list">
+          <p>List of alert group settings</p>
+          <p class="type-get">
+            <code>GET</code>
+            <code>/api/v0/alert-group-settings</code>
+          </p>
+        </a>
+      </div>
+      <div class="api">
+        <a href="entry/alert-group-settings#create">
+          <p>Create alert group settings</p>
+          <p class="type-post">
+            <code>POST</code>
+            <code>/api/v0/alert-group-settings</code>
+          </p>
+        </a>
+      </div>
+      <div class="api">
+        <a href="entry/alert-group-settings#get">
+          <p>Get alert group settings</p>
+          <p class="type-get">
+            <code>GET</code>
+            <code>/api/v0/alert-group-settings/<em>&lt;alertGroupSettingId&gt;</em></code>
+          </p>
+        </a>
+      </div>
+      <div class="api">
+        <a href="entry/alert-group-settings#update">
+          <p>Update alert group settings</p>
+          <p class="type-put">
+            <code>PUT</code>
+            <code>/api/v0/alert-group-settings/<em>&lt;alertGroupSettingId&gt;</em></code>
+          </p>
+        </a>
+      </div>
+      <div class="api">
+        <a href="entry/alert-group-settings#delete">
+          <p>Delete alert group settings</p>
+          <p class="type-delete">
+            <code>DELETE</code>
+            <code>/api/v0/alert-group-settings/<em>&lt;alertGroupSettingId&gt;</em></code>
           </p>
         </a>
       </div>

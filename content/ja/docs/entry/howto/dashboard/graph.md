@@ -1,5 +1,5 @@
 ---
-Title: グラウウィジェットを利用する
+Title: グラフウィジェットを利用する
 Date: 2018-10-31T15:18:46+09:00
 URL: https://mackerel.io/ja/docs/entry/howto/dashboard/graph
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/10257846132662339682

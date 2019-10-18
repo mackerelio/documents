@@ -42,8 +42,6 @@ Auroraで取得できるメトリックは、上記に加えて以下のとお�
 |グラフ名|メトリック|Mackerel上のメトリック名|単位|Statistics|
 |:---|:---|:---|:---|:---|
 |Storage|FreeLocalStorage|rds.aurora.storage.free|bytes|Average|
-|Volume Bytes Used|VolumeBytesUsed|rds.aurora.volume_bytes_used.used|bytes|Average|
-|Volume IOPS|VolumeReadIOPS<br>VolumeWriteIOPS|rds.aurora.volume_iops.read<br>rds.aurora.volume_iops.write|iops|Average|
 |BinLog Replica Lag|AuroraBinLogReplicaLag|rds.aurora.binlog_replica_lag.lag|float|Average|
 |Replica Lag|AuroraReplicaLag<br>AuroraReplicaLagMaximum<br>AuroraReplicaLagMinimum|rds.aurora.replica_lag.lag<br>rds.aurora.replica_lag.max_lag<br>rds.aurora.replica_lag.min_lag|float|Average|
 |Engine Uptime|EngineUptime|rds.aurora.engine_uptime.uptime|float|Average|
@@ -72,7 +70,6 @@ Auroraで取得できるメトリックは、上記に加えて以下のとお�
 AWSインテグレーションにより取得可能な上記のグラフ・メトリックのうち、下記のグラフに含まれるメトリックについては、通常、5分間隔粒度でのメトリックが取得されます。
 
 * CPU Credit
-* Volume IOPS
 * gp2 Storage Burst Balance
 
 これは、AWS CloudWatch API の仕様です。

@@ -11,7 +11,12 @@ Please refer to the following page for AWS Integration configuration methods and
 <a href="https://mackerel.io/docs/entry/integrations/aws">AWS Integration</a>
 
 ## Obtaining metrics
-The metrics obtainable with AWS Integration's API Gateway support are as follows. For `Metric` explanations, refer to the <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-metrics-and-dimensions.html" target="_blank">AWS help page</a>.
+The metrics obtainable with AWS Integration's API Gateway support are as follows. For `Metric` explanations, refer to the AWS help pages.
+
+- <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-metrics-and-dimensions.html" target="_blank">Amazon API Gateway Dimensions and Metrics (REST)</a>
+- <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-logging.html" target="_blank">Monitor WebSocket API Execution with CloudWatch</a>
+
+### REST
 
 The maximum number of metrics obtainable is 11.
 
@@ -24,6 +29,13 @@ The maximum number of metrics obtainable is 11.
 
 - Either "Latency" or "IntegrationLatency" goes in for the # of "Metric name in Mackerel".
 
-<h2 id="notes">Precautions</h2>
+### WebSocket
 
-When filtering with tags, APIs that contain the stage attached by the specified tag will be the target.
+The maximum number of metrics obtainable is 8.
+
+|Graph name|Metric|Metric name in Mackerel|Unit|Statistics|
+|:--|:--|:--|:--|:--|
+|WebSocket Connect|ConnectCount|apigateway.websocket_connect.count|integer|Sum|
+|WebSocket Message|MessageCount|apigateway.websocket_message.count|integer|Sum|
+|WebSocket Errors|IntegrationError<br>ClientError<br>ExecutionError|apigateway.websocket_errors.integration<br>apigateway.websocket_errors.client<br>apigateway.websocket_errors.execution|integer|Sum|
+|WebSocket Latency|IntegrationLatency|apigateway.websocket_latency.minimum<br>apigateway.websocket_latency.average<br>apigateway.websocket_latency.maximum|integer|Minimum<br>Average<br>Maximum|

@@ -5,14 +5,14 @@ URL: https://mackerel.io/docs/entry/howto/anomaly-detection-for-roles
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/10257846132619083809
 ---
 
-With this feature, hosts can be monitored using anomaly detection. This is an [experimental feature](https://mackerel.io/docs/entry/advanced/experimental-features).
+With this feature, hosts can be monitored using anomaly detection.
 
 ## Anomaly detection with machine learning
 If the system administrator is familiar with server monitoring, [monitoring features](https://mackerel.io/docs/entry/howto/alerts) can be used to set a static monitor for server metrics (eg: a Warning alert occurs when loadavg5 exceeds 1). However, setting a monitor for individual metrics requires a certain amount of effort, and false alerts may occur unless periodically adjusted. Monitoring using machine learning can lower the cost of creating and maintaining monitors. Even if you’re not familiar with server monitoring, monitoring with anomaly detection is effective. With the anomaly detection feature, machine learning is used to train from past data to identify what kind of metric is normal/abnormal and automatically judge whether the newly sent metric is abnormal or not. If the metric is determined to be abnormal, an alert can be issued.
 
 With the anomaly detection feature, metrics are judged to be abnormal or not based on machine learning (specifically, Gaussian mixture distribution). Gaussian mixture distribution considers multiple distributions, therefore it’s possible to handle cases where there is multimodality in server load (eg: weekday/weekend or daytime/nighttime).
 
-In alerts for anomaly detection within the role, a graph is displayed that shows the most differential metrics of the corresponding host. This graph will be displayed in every type of notification and can be used for the initial stage response to a failure (This is an experimental feature and does not necessarily signify the root cause of the failure).
+In alerts for anomaly detection within the role, a graph is displayed that shows the most differential metrics of the corresponding host. This graph will be displayed in every type of notification and can be used for the initial stage response to a failure (This does not necessarily signify the root cause of the failure).
 
 ## Configure a monitor for anomaly detection for roles
 Go to the Monitors screen, located on the left side menu, and click the “Add Monitor” button. Open the "Anomaly Detection for roles" tab and the following items will be displayed. Fill in a value/name for each item and click “Create”.

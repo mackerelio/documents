@@ -45,6 +45,8 @@ The following widgets can be arranged in Custom Dashboards. For more details, ch
     <dd>Display the latest values of various metrics with numbers.</dd>
     <dt><a href="https://mackerel.io/docs/entry/howto/dashboard/markdown">Markdown widgets</a></dt>
     <dd>Freely write content in Markdown format.</dd>
+    <dt><a href="https://mackerel.io/docs/entry/howto/dashboard/alert-status">Alert Status widgets</a></dt>
+    <dd>Display alert statuses for all the hosts belonging to a role.</dd>
 </dl>
 
 ## Use regarding plans

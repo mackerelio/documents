@@ -35,6 +35,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
       <li><a href="https://mackerel.io/ja/docs/entry/howto/mackerel-agent-plugins"><strong>ミドルウェアのメトリック可視化に公式プラグイン集を使う</strong><span>公式プラグインで各種ミドルウェアに対応します</span></a></li>
       <li><a href="https://mackerel.io/ja/docs/entry/advanced/custom-metrics"><strong>ホストのカスタムメトリックを投稿する</strong><span>mackerel-agentからMySQLなどのミドルウェアのメトリックを投稿します</span></a></li>
       <li><a href="https://mackerel.io/ja/docs/entry/howto/alerts"><strong>監視・通知を設定する</strong><span>ホストの死活監視とメトリックの監視を設定します</span></a></li>
+      <li><a href="https://mackerel.io/ja/docs/entry/howto/downtimes"><strong>ダウンタイムを設定する</strong><span>定期的な監視の停止を設定します</span></a></li>
     </ul>
   </div>
   <p id="link-faq"><a href="https://mackerel.io/ja/docs/entry/faq">よくある質問（FAQ）をみる</a></p>

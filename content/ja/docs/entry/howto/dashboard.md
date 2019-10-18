@@ -45,6 +45,8 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
     <dd>各種メトリックの最新の値を数字で表示できます。</dd>
     <dt><a href="https://mackerel.io/ja/docs/entry/howto/dashboard/markdown">Markdownウィジェット</a></dt>
     <dd>Markdown形式で自由に内容を記述できます。</dd>
+    <dt><a href="https://mackerel.io/ja/docs/entry/howto/dashboard/alert-status">アラートステータスウィジェット</a></dt>
+    <dd>あるロールに所属している全てのホストのアラートステータスを表示できます。</dd>
 </dl>
 
 ## 利用可能なプランについて

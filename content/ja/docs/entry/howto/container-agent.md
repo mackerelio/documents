@@ -93,11 +93,12 @@ mackerel-container-agentでは各コンテナオーケストレーションプ�
 | :-- | :-- |
 | MACKEREL_APIKEY | エージェントがMackerelサービスとの通信の際に用いる API キーを指定します。 |
 | MACKEREL_APIBASE | Mackerel APIのエンドポイントを指定します (デフォルト: `https://api.mackerelio.com/`)。 |
-| MACKEREL_ROLES | タスク、Podのサービス、ロールを設定できます。 |
+| MACKEREL_ROLES | タスク、Podへサービス、ロールを設定できます。 |
 | MACKEREL_AGENT_CONFIG | エージェントの設定ファイルを設定できます。こちらの詳細は後述します。 |
 | MACKEREL_AGENT_CONFIG_POLLING_DURATION_MINUTES | エージェントの設定ファイルの変更を検知するために取得する間隔を分で指定します。|
 | MACKEREL_IGNORE_CONTAINER | 監視を除外するコンテナの名前を正規表現で設定します。 |
 | MACKEREL_HOST_STATUS_ON_START | 設定すると、エージェント起動時にホストのステータスを指定した値に変更します。 有効な値は "standby", "working", "maintenance", "poweroff" のいずれかです。|
+| HTTP_PROXY(HTTPS_PROXY) | エージェントがコンテナ外部への通信に利用する HTTP Proxy を設定します。http probe (後述)の proxy とは別の設定となるので注意してください。 |
 
 ### 設定ファイルによる設定
 
@@ -128,7 +129,7 @@ ignoreContainer: '\Amackerel-container-agent\z'
 | :-- | :-- |
 | apikey | エージェントがMackerelサービスとの通信の際に用いる API キーを指定します。 |
 | apibase | Mackerel APIのエンドポイントです (デフォルト: `https://api.mackerelio.com/`)。 |
-| roles | タスク、Podのサービス、ロールを設定できます。 |
+| roles | タスク、Podへサービス、ロールを設定できます。 |
 | ignoreContainer | 監視を除外するコンテナの名前を正規表現で設定します。 |
 | root | mackerel-container-agentのルートディレクトリを指定できます (デフォルト: `/var/tmp/mackerel-container-agent`)。 |
 | plugin.metrics | 任意のメトリックの取得、投稿するプラグインを設定できます。こちらの詳細は後述します。 |
@@ -168,6 +169,7 @@ ignoreContainer: '\Amackerel-container-agent\z'
   - mackerel-plugin-snmp
   - mackerel-plugin-squid
   - mackerel-plugin-uwsgi-vassal
+- [mackerel-plugin-json](https://github.com/mackerelio/mackerel-plugin-json)
 - [go-check-plugins](https://github.com/mackerelio/go-check-plugins)
   - check-cert-file
   - check-elasticsearch

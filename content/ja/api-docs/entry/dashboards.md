@@ -279,7 +279,15 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 | ---------- | -------- | --------------------------------------- |
 | `type`     | *string* | 固定文字列 `"markdown"`                 |
 | `title`    | *string* | ウィジェットのタイトル                  |
-| `markdown` | *string* | Mardkwon形式の文字列                    |
+| `markdown` | *string* | Markdown形式の文字列                    |
+| `layout`   | *object* | [レイアウトを表すオブジェクト](#layout) |
+
+### アラートステータスウィジェット
+| KEY        | TYPE     | DESCRIPTION                             |
+| ---------- | -------- | --------------------------------------- |
+| `type`     | *string* | 固定文字列 `"alertStatus"`                 |
+| `title`    | *string* | ウィジェットのタイトル                  |
+| `roleFullname` | *string*  | サービス名とロール名を`:`で連結したもの<br />ただし、ダッシュボード取得時に関連するロールやサービスが削除されていた場合、`roleFullname` には `null` が設定されます。 |
 | `layout`   | *object* | [レイアウトを表すオブジェクト](#layout) |
 
 <h3 id="graph">グラフ</h3>
@@ -391,3 +399,4 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 | グラフ       | 6                | 6                 | 24               | 32                |
 | 数値         | 4                | 4                 | 24               | 32                |
 | Markdown     | 4                | 2                 | 24               | 80                |
+| アラートステータス | 4             | 3                 | 24               | 32                |

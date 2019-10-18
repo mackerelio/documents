@@ -11,4 +11,3 @@ Experimental features are features that have been tentatively released and are p
 
 - [Expression monitoring](https://mackerel.io/docs/entry/expression-monitoring)
 - [Displaying customized graphs](https://mackerel.io/docs/entry/advanced/advanced-graph)
-- [Anomaly Detection for roles](https://mackerel.io/docs/entry/howto/anomaly-detection-for-roles)

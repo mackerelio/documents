@@ -11,7 +11,12 @@ AWSインテグレーションの設定方法や対応AWSサービス一覧に�
 <a href="https://mackerel.io/ja/docs/entry/integrations/aws">AWSインテグレーション</a>
 
 ## 取得メトリック
-AWSインテグレーションのAPI Gateway対応で取得できるメトリックは以下の通りです。`メトリック`の説明に関しては<a href="https://docs.aws.amazon.com/ja_jp/apigateway/latest/developerguide/api-gateway-metrics-and-dimensions.html" target="_blank">AWSのヘルプ</a>をご確認ください。
+AWSインテグレーションのAPI Gateway対応で取得できるメトリックは以下の通りです。`メトリック`の説明に関してはAWSのヘルプをご確認ください。
+
+- <a href="https://docs.aws.amazon.com/ja_jp/apigateway/latest/developerguide/api-gateway-metrics-and-dimensions.html" target="_blank">Amazon API Gatewayのディメンションおよびメトリクス (REST)</a>
+- <a href="https://docs.aws.amazon.com/ja_jp/apigateway/latest/developerguide/apigateway-websocket-api-logging.html" target="_blank">CloudWatchを使用したWebSocket API実行のモニタリング</a>
+
+### REST
 
 最大で11個のメトリックが取得されます。
 
@@ -24,6 +29,13 @@ AWSインテグレーションのAPI Gateway対応で取得できるメトリッ
 
 - "Mackerel上のメトリック名"の#には、"Latency"、"IntegrationLatency"のいずれかが入ります。
 
-<h2 id="notes">注意事項</h2>
+### WebSocket
 
-タグで絞り込みを行う場合、指定したタグが付与されたステージを含むAPIが対象となります。
+最大で8個のメトリックが取得されます。
+
+|グラフ名|メトリック|Mackerel上のメトリック名|単位|Statistics|
+|:--|:--|:--|:--|:--|
+|WebSocket Connect|ConnectCount|apigateway.websocket_connect.count|integer|Sum|
+|WebSocket Message|MessageCount|apigateway.websocket_message.count|integer|Sum|
+|WebSocket Errors|IntegrationError<br>ClientError<br>ExecutionError|apigateway.websocket_errors.integration<br>apigateway.websocket_errors.client<br>apigateway.websocket_errors.execution|integer|Sum|
+|WebSocket Latency|IntegrationLatency|apigateway.websocket_latency.minimum<br>apigateway.websocket_latency.average<br>apigateway.websocket_latency.maximum|integer|Minimum<br>Average<br>Maximum|

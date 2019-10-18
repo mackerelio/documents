@@ -430,6 +430,48 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
   </div>
 
   <div class="index-row">
+    <h3><a href="entry/downtimes">ダウンタイム</a></h3>
+    <div class="apis">
+      <div class="api">
+        <a href="entry/downtimes#create">
+          <p>ダウンタイムの登録</p>
+          <p class="type-post">
+            <code>POST</code>
+            <code>/api/v0/downtimes</code>
+          </p>
+        </a>
+      </div>
+      <div class="api">
+        <a href="entry/downtimes#list">
+          <p>ダウンタイムの一覧</p>
+          <p class="type-get">
+            <code>GET</code>
+            <code>/api/v0/downtimes</code>
+          </p>
+        </a>
+      </div>
+      <div class="api">
+        <a href="entry/downtimes#update">
+          <p>ダウンタイムの更新</p>
+          <p class="type-put">
+            <code>PUT</code>
+            <code>/api/v0/downtimes/<em>&lt;downtimeId&gt;</em></code>
+          </p>
+        </a>
+      </div>
+      <div class="api">
+        <a href="entry/downtimes#delete">
+          <p>ダウンタイムの削除</p>
+          <p class="type-delete">
+            <code>DELETE</code>
+            <code>/api/v0/downtimes/<em>&lt;downtimeId&gt;</em></code>
+          </p>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="index-row">
     <h3><a href="entry/channels">通知チャンネル</a></h3>
     <div class="apis">
       <div class="api">
@@ -522,6 +564,57 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
           <p class="type-post">
             <code>POST</code>
             <code>/api/v0/alerts/<em>&lt;alertId&gt;</em>/close</code>
+          </p>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="index-row">
+    <h3><a href="entry/alert-group-settings">アラートグループ設定</a></h3>
+    <div class="apis">
+      <div class="api">
+        <a href="entry/alert-group-settings#list">
+          <p>アラートグループ設定の一覧</p>
+          <p class="type-get">
+            <code>GET</code>
+            <code>/api/v0/alert-group-settings</code>
+          </p>
+        </a>
+      </div>
+      <div class="api">
+        <a href="entry/alert-group-settings#create">
+          <p>アラートグループ設定の作成</p>
+          <p class="type-post">
+            <code>POST</code>
+            <code>/api/v0/alert-group-settings</code>
+          </p>
+        </a>
+      </div>
+      <div class="api">
+        <a href="entry/alert-group-settings#get">
+          <p>アラートグループ設定の取得</p>
+          <p class="type-get">
+            <code>GET</code>
+            <code>/api/v0/alert-group-settings/<em>&lt;alertGroupSettingId&gt;</em></code>
+          </p>
+        </a>
+      </div>
+      <div class="api">
+        <a href="entry/alert-group-settings#update">
+          <p>アラートグループ設定の更新</p>
+          <p class="type-put">
+            <code>PUT</code>
+            <code>/api/v0/alert-group-settings/<em>&lt;alertGroupSettingId&gt;</em></code>
+          </p>
+        </a>
+      </div>
+      <div class="api">
+        <a href="entry/alert-group-settings#delete">
+          <p>アラートグループ設定の削除</p>
+          <p class="type-delete">
+            <code>DELETE</code>
+            <code>/api/v0/alert-group-settings/<em>&lt;alertGroupSettingId&gt;</em></code>
           </p>
         </a>
       </div>
