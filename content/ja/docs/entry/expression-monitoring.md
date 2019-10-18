@@ -19,7 +19,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 - 通知の再送間隔：アラートの状態が、指定された時間を超えても変化がない場合、再度通知します。
 - 監視ルール名：本監視定義の名前を記述してください
 
-監視設定で利用可能な関数はこちらを参照してください。
+監視ルールで利用可能な関数はこちらを参照してください。
 
 [https://mackerel.io/ja/docs/entry/advanced/advanced-graph#functions:embed:cite]
 

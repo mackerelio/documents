@@ -49,7 +49,7 @@ Mackerelからの通知のリクエスト元IPアドレスレンジと同じと�
 20個を超えると20個単位でスタンダードホスト1台分としてカウントします。  
 
 ## アラートサンプル
-監視設定を追加するとサイドメニューにあるMonitorsの一覧に以下のように表示されます。
+監視ルールを追加するとサイドメニューにあるMonitorsの一覧に以下のように表示されます。
 [https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20150907/20150907153553.png:image=https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20150907/20150907153553.png]
 
 アラートが発生した際には以下の様な表示となり、アラート詳細画面で詳細が確認できます。  

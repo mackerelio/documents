@@ -41,8 +41,8 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 | `serviceExcludeScopes` | *array[string]* | [optional] サービス除外スコープ。サービス名[*](#service-name-and-role-fullname)の配列 |
 | `roleScopes` | *array[string]* | [optional] ロール対象スコープ。ロール詳細名[*](#service-name-and-role-fullname)の配列 |
 | `roleExcludeScopes` | *array[string]* | [optional] ロール除外スコープ。ロール詳細名[*](#service-name-and-role-fullname)の配列 |
-| `monitorScopes` | *array[string]* | [optional] 監視設定対象スコープ。`<monitor id>`の配列 |
-| `monitorExcludeScopes` | *array[string]* | [optional] 監視設定除外スコープ。`<monitor id>`の配列 |
+| `monitorScopes` | *array[string]* | [optional] 監視ルール対象スコープ。`<monitor id>`の配列 |
+| `monitorExcludeScopes` | *array[string]* | [optional] 監視ルール除外スコープ。`<monitor id>`の配列 |
 
 `<recurrence>` は以下のキーをもつオブジェクト。
 
@@ -84,11 +84,11 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
     </tr>
     <tr>
       <td>400</td>
-      <td>スコープの対象サービス・ロール・監視設定が重複している、または存在しないとき</td>
+      <td>スコープの対象サービス・ロール・監視ルールが重複している、または存在しないとき</td>
     </tr>
     <tr>
       <td>400</td>
-      <td>スコープのサービス・ロール・監視設定が存在しないとき</td>
+      <td>スコープのサービス・ロール・監視ルールが存在しないとき</td>
     </tr>
     <tr>
       <td>403</td>
@@ -180,11 +180,11 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
     </tr>
     <tr>
       <td>400</td>
-      <td>スコープの対象サービス・ロール・監視設定が重複している、または存在しないとき</td>
+      <td>スコープの対象サービス・ロール・監視ルールが重複している、または存在しないとき</td>
     </tr>
     <tr>
       <td>400</td>
-      <td>スコープのサービス・ロール・監視設定が存在しないとき</td>
+      <td>スコープのサービス・ロール・監視ルールが存在しないとき</td>
     </tr>
     <tr>
       <td>403</td>

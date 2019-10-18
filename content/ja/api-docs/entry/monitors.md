@@ -1,19 +1,19 @@
 ---
-Title: 監視設定
+Title: 監視ルール
 Date: 2016-03-22T10:42:05+09:00
 URL: https://mackerel.io/ja/api-docs/entry/monitors
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.mackerel.io/atom/entry/10328537792368066094
 ---
 
 <ul class="internal-nav">
-  <li><a href="#create">監視設定の登録</a></li>
-  <li><a href="#list">監視設定の一覧</a></li>
-  <li><a href="#get">監視設定の取得</a></li>
-  <li><a href="#update">監視設定の更新</a></li>
-  <li><a href="#delete">監視設定の削除</a></li>
+  <li><a href="#create">監視ルールの登録</a></li>
+  <li><a href="#list">監視ルールの一覧</a></li>
+  <li><a href="#get">監視ルールの取得</a></li>
+  <li><a href="#update">監視ルールの更新</a></li>
+  <li><a href="#delete">監視ルールの削除</a></li>
 </ul>
 
-<h2 id="create">監視設定の登録</h2>
+<h2 id="create">監視ルールの登録</h2>
 
 各種メトリックに対する監視や、外形監視をMackerelに登録します。
 監視対象によって入力が異なります。
@@ -47,7 +47,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 | ------------    | -------- | -------------------------------- |
 | `type`          | *string*   | 定数文字列 `"host"`               |
 | `name`          | *string*   | 監視一覧などで参照できる任意の名称。   |
-| `memo`          | *string*   | [optional] 監視設定のメモ。 |
+| `memo`          | *string*   | [optional] 監視ルールのメモ。 |
 | `duration`      | *number*   | 指定された間隔(分)の平均値を監視します。有効範囲：1~10分。 |
 | `metric`        | *string*   | 監視対象のホストメトリック名。特定の定数文字列を指定することで、割合監視が可能です。 [*1](#comparative-monitoring) |
 | `operator`      | *string*   | 指定した数値より大きいか小さいかというアラート条件を指定。`">"` または `"<"`。左辺が観測値で右辺が設定値となります。|
@@ -194,7 +194,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 | ------------    | -------- | -------------------------------- |
 | `type`          | *string*   | 定数文字列 `"connectivity"`               |
 | `name`          | *string*   | [optional] 監視一覧などで参照できる任意の名称。デフォルトは`connectivity`です。   |
-| `memo`          | *string*   | [optional] 監視設定のメモ。 |
+| `memo`          | *string*   | [optional] 監視ルールのメモ。 |
 | `scopes`        | *array[string]* | [optional] 監視対象のサービス名またはロール詳細名。[*2](#service-name)  |
 | `excludeScopes` | *array[string]* | [optional] 監視除外対象のサービス名またはロール詳細名。[*2](#service-name)  |
 | `notificationInterval` | *number* | [optional] 通知の再送設定をするときの再送間隔 (分)。このフィールドを省略すると通知は再送されません。 |
@@ -282,7 +282,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 | ------------------------- | --------- | -------------------------------------------------------------------------------------------------------------------- |
 | `type`                    | *string*  | 定数文字列 `"service"`                                                                                               |
 | `name`                    | *string*  | 監視一覧などで参照できる任意の名称。                                                                                 |
-| `memo`                    | *string*  | [optional] 監視設定のメモ。                                                                                          |
+| `memo`                    | *string*  | [optional] 監視ルールのメモ。                                                                                          |
 | `service`                 | *string*  | 監視対象となるサービス名。                                                                                           |
 | `duration`                | *number*  | 指定されたポイント数の平均値を監視する。有効範囲：直近1~10ポイント                                                   |
 | `metric`                  | *string*  | 監視対象のホストメトリック名。                                                                                       |
@@ -397,7 +397,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 | ----------------------            | ---------- | -------------------------------- |
 | `type`                            | *string*   | 定数文字列 `"external"`          |
 | `name`                            | *string*   | 監視一覧などで参照できる任意の名称。   |
-| `memo`                            | *string*   | [optional] 監視設定のメモ。 |
+| `memo`                            | *string*   | [optional] 監視ルールのメモ。 |
 | `url`                             | *string*   | 監視対象のURL。 |
 | `method`                          | *string*   | [optional] リクエスト時のメソッド。`GET`, `POST`, `PUT`, `DELETE`のいずれかで、省略時は`GET` |
 | `service`                         | *string*   | [optional] サービス名(ここで関連づけたサービスのサービスメトリックに監視時のレスポンスタイムがグラフ化されます) |
@@ -517,7 +517,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 | ------------    | -------- | -------------------------------- |
 | `type`          | *string*   | 定数文字列 `"expression"`               |
 | `name`          | *string*   | 監視一覧などで参照できる任意の名称。   |
-| `memo`          | *string*   | [optional] 監視設定のメモ。 |
+| `memo`          | *string*   | [optional] 監視ルールのメモ。 |
 | `expression`    | *string*   | 監視対象の式。グラフの系列が1本になるもののみ有効。 |
 | `operator`      | *string*   | 指定した数値より大きいか小さいかというアラート条件を指定。`">"` または `"<"`。左辺が観測値で右辺が設定値となります。|
 | `warning`       | *number*   | warningのAlert発生の閾値。 |
@@ -605,7 +605,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 | ------------    | -------- | -------------------------------- |
 | `type`          | *string*   | 定数文字列 `"anomalyDetection"`               |
 | `name`          | *string*   | 監視一覧などで参照できる任意の名称。  |
-| `memo`          | *string*   | [optional] 監視設定のメモ。 |
+| `memo`          | *string*   | [optional] 監視ルールのメモ。 |
 | `scopes`        | *array[string]* | 監視対象のサービス名とロール詳細名。[*2](#service-name)  |
 | `warningSensitivity`       | *string*   | warningのAlert発生の閾値。`insensitive`、`normal`、`sensitive`のいずれか。 |
 | `criticalSensitivity`       | *string*   | criticalのAlert発生の閾値。`insensitive`、`normal`、`sensitive`のいずれか。 |
@@ -696,7 +696,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 
 ----------------------------------------------
 
-<h2 id="list">監視設定の一覧</h2>
+<h2 id="list">監視ルールの一覧</h2>
 
 <p class="type-get">
   <code>GET</code>
@@ -777,12 +777,12 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 }
 ```
 
-- 各項目は[監視設定の登録](#create)と同様です
+- 各項目は[監視ルールの登録](#create)と同様です
 - 並び順はモニター種別 -> 名前の順 (mackerel.ioの監視一覧画面と同様)です
 
 ----------------------------------------------
 
-<h2 id="get">監視設定の取得</h2>
+<h2 id="get">監視ルールの取得</h2>
 
 <p class="type-get">
   <code>GET</code>
@@ -820,20 +820,20 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 }
 ```
 
-- 各項目は[監視設定の登録](#create)と同様です
+- 各項目は[監視ルールの登録](#create)と同様です
 
 ----------------------------------------------
 
-<h2 id="update">監視設定の更新</h2>
+<h2 id="update">監視ルールの更新</h2>
 
 <p class="type-put">
   <code>PUT</code>
   <code>/api/v0/monitors/<em>&lt;monitorId&gt;</em></code>
 </p>
 
-リクエストとレスポンスは[監視設定の登録](#create)と同様です。不足している項目があると必須項目の場合はエラーとなります。
+リクエストとレスポンスは[監視ルールの登録](#create)と同様です。不足している項目があると必須項目の場合はエラーとなります。
 `scopes`と`excludeScopes`の更新は、指定したJsonで完全に上書きされます。たとえば、`scopes`がすでに存在している場合に項目を省略すると、`scopes`は削除されます。
-type = `external` の監視設定で `headers` フィールドを指定しなかった場合、`headers` フィールドの値は更新されません．ヘッダの設定を削除したい場合は空の配列を指定してください。
+type = `external` の監視ルールで `headers` フィールドを指定しなかった場合、`headers` フィールドの値は更新されません．ヘッダの設定を削除したい場合は空の配列を指定してください。
 
 ### APIキーに必要な権限
 
@@ -846,11 +846,11 @@ type = `external` の監視設定で `headers` フィールドを指定しなか
 
 #### 成功時
 
-更新後の監視設定を返します。[監視設定の登録](#create) と同様の形式です。
+更新後の監視ルールを返します。[監視ルールの登録](#create) と同様の形式です。
 
 #### 失敗時
 
-[監視設定の登録](#create)と同様のエラーです。
+[監視ルールの登録](#create)と同様のエラーです。
 
 <table class="default api-error-table">
   <thead>
@@ -874,7 +874,7 @@ type = `external` の監視設定で `headers` フィールドを指定しなか
     </tr>
     <tr>
       <td>404</td>
-      <td>クエリパラメータに指定された<code>&lt;monitorId&gt;</code>が存在しない監視設定だったとき</td>
+      <td>クエリパラメータに指定された<code>&lt;monitorId&gt;</code>が存在しない監視ルールだったとき</td>
     </tr>
     <tr>
       <td>403</td>
@@ -885,7 +885,7 @@ type = `external` の監視設定で `headers` フィールドを指定しなか
 
 ----------------------------------------------
 
-<h2 id="delete">監視設定の削除</h2>
+<h2 id="delete">監視ルールの削除</h2>
 
 <p class="type-delete">
   <code>DELETE</code>
@@ -903,7 +903,7 @@ type = `external` の監視設定で `headers` フィールドを指定しなか
 
 #### 成功時
 
-削除される直前の監視設定の状態が返却されます。 形式は[監視設定の登録](#create)と同様です。
+削除される直前の監視ルールの状態が返却されます。 形式は[監視ルールの登録](#create)と同様です。
 
 #### 失敗時
 
@@ -917,7 +917,7 @@ type = `external` の監視設定で `headers` フィールドを指定しなか
   <tbody>
     <tr>
       <td>404</td>
-      <td>クエリパラメータに指定された<code><em>&lt;monitorId&gt;</em></code>が存在しない監視設定だったとき</td>
+      <td>クエリパラメータに指定された<code><em>&lt;monitorId&gt;</em></code>が存在しない監視ルールだったとき</td>
     </tr>
     <tr>
       <td>403</td>

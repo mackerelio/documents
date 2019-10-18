@@ -145,7 +145,7 @@ mkrではmonitorsサブコマンドで監視ルールを操作できます。サ
 - `push`
   - ローカルファイルの監視ルールの設定をMackerelに反映します。
 
-jsonフォーマットについては、[API仕様の「監視設定の登録」](https://mackerel.io/ja/api-docs/entry/monitors#create)を参照してください
+jsonフォーマットについては、[API仕様の「監視ルールの登録」](https://mackerel.io/ja/api-docs/entry/monitors#create)を参照してください
 
 #### push時の監視ルールの同一性判定ロジック
 

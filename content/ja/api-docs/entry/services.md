@@ -134,7 +134,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
   <code>/api/v0/services/<em>&lt;serviceName&gt;</em></code>
 </p>
 
-サービスに紐付けられているロール、サービスメトリック、監視設定、グラフアノテーションも同時に削除されます。
+サービスに紐付けられているロール、サービスメトリック、監視ルール、グラフアノテーションも同時に削除されます。
 
 ### APIキーに必要な権限
 

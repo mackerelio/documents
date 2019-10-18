@@ -45,7 +45,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 | `memo`                 | *string*        | [optional] このアラートグループ設定に関するメモ                        |
 | `serviceScopes`        | *array[string]* | [optional] サービス対象スコープ。サービス名の配列                      |
 | `roleScopes`           | *array[string]* | [optional] ロール対象スコープ。ロール詳細名の配列 [*1](#role-fullname) |
-| `monitorScopes`        | *array[string]* | [optional] 監視設定対象スコープ。監視設定IDの配列                      |
+| `monitorScopes`        | *array[string]* | [optional] 監視ルール対象スコープ。監視ルールIDの配列                      |
 | `notificationInterval` | *number*        | [optional] 通知の再送設定をするときの再送間隔 (分)                     |
 
 <h4 id="role-fullname">*1 ロール詳細名</h4>
@@ -85,7 +85,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 | `memo`                 | *string*        | [optional] このアラートグループ設定に関するメモ                        |
 | `serviceScopes`        | *array[string]* | [optional] サービス対象スコープ。サービス名の配列                      |
 | `roleScopes`           | *array[string]* | [optional] ロール対象スコープ。ロール詳細名の配列 [*1](#role-fullname) |
-| `monitorScopes`        | *array[string]* | [optional] 監視設定対象スコープ。監視設定IDの配列                      |
+| `monitorScopes`        | *array[string]* | [optional] 監視ルール対象スコープ。監視ルールIDの配列                      |
 | `notificationInterval` | *number*        | [optional] 通知の再送設定をするときの再送間隔 (分)                     |
 
 ### 応答

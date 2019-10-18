@@ -100,7 +100,7 @@ mkr monitors では monitor rule の特定に`id`もしくは`name`を利用し�
 ### 監視ルールを新規追加する(Code)
 - jsonを作成後、GitHub上で変更・レビューなどを行い、masterブランチ(など)に反映する
   - ここでのjsonはidなしのものを作成
-  - jsonフォーマットについては、[API仕様の「監視設定の登録」](https://mackerel.io/ja/api-docs/entry/monitors#create)を参照してください
+  - jsonフォーマットについては、[API仕様の「監視ルールの登録」](https://mackerel.io/ja/api-docs/entry/monitors#create)を参照してください
 - Mackerelとの差分を確認する
   ```
   mkr monitors diff
@@ -179,7 +179,7 @@ mkr monitors では monitor rule の特定に`id`もしくは`name`を利用し�
 ### 監視ルールを新規追加する(Code)
 - jsonを作成後、GitHub上で変更・レビューなどを行い、masterブランチ(など)に反映する
   - ここでのjsonはidなしのものを作成
-  - jsonフォーマットについては、[API仕様の「監視設定の登録」](https://mackerel.io/ja/api-docs/entry/monitors#create)を参照してください
+  - jsonフォーマットについては、[API仕様の「監視ルールの登録」](https://mackerel.io/ja/api-docs/entry/monitors#create)を参照してください
 - Mackerelとの差分を確認する
   ```
   mkr monitors diff
