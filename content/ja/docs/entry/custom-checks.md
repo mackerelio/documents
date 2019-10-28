@@ -79,6 +79,7 @@ memo = "This check monitor is ..."
 |:-----------|:------------|
 | MACKEREL_STATUS | 直前のコマンドの実行結果(`max_check_attempts` は考慮されません)。`OK`, `WARNING`, `CRITICAL`, `UNKNOWN` のいずれかです。 |
 | MACKEREL_PREVIOUS_STATUS | 直前のコマンドの一つ前のコマンドの実行結果(`max_check_attempts` は考慮されません)。エージェント起動後初回は空文字列です。空文字列, `OK`, `WARNING`, `CRITICAL`, `UNKNOWN` のいずれかです。|
+| MACKEREL_CHECK_MESSAGE | 直前のコマンドの実行結果メッセージ（ `command` の標準出力）。 |
 
 <h2 id="example-ruby">Ruby によるプラグインのサンプル</h2>
 

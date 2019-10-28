@@ -78,6 +78,7 @@ When the condition of an alert or the message content has changed, that informat
 |:-----------|:------------|
 | MACKEREL_STATUS | The result of the previous command (`max_check_attempts` not taken into account).Either `OK`, `WARNING`, `CRITICAL`, or `UNKNOWN`. |
 | MACKEREL_PREVIOUS_STATUS | The result of the command before the previous command (`max_check_attempts` not taken into account). The initial result is an empty string after starting-up the agent. Either an empty string, `OK`, `WARNING`, `CRITICAL`, or `UNKNOWN`.|
+| MACKEREL_CHECK_MESSAGE | The result message of the previous command ( `command` stdout). |
 
 <h3 id="example-ruby">An example in Ruby</h3>
 
