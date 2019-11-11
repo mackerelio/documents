@@ -29,7 +29,7 @@ check_interval = 5
 timeout_seconds = 45
 prevent_alert_auto_close = true
 env = { HOST = "hostname", PORT = "port" }
-action = { command = "ruby /path/to/notify_something.rb", env = { NOTIFY_API_KEY = "API_KEY" } }
+action = { command = "bash -c '[ \"$MACKEREL_STATUS\" != \"OK\" ]' && ruby /path/to/notify_something.rb", env = { NOTIFY_API_KEY = "API_KEY" }, user = "someone", timeout_seconds = 45 }
 memo = "This check monitor is ..."
 ```
 
@@ -46,6 +46,8 @@ memo = "This check monitor is ..."
 - env: Environment variables can be specified to pass to command. Specify with TOML [Table](https://github.com/toml-lang/toml#table) or [Inline Table](https://github.com/toml-lang/toml#inline-table).
 - action.command: An action executed following the execution of the command configured in `command`. This is used when there is a process to be performed depending on the command result. The result of the previous/current command etc. is passed as an environment variable. The execution result is ignored.
 - action.env: Environment variables can be specified to pass to action.command. Specify with TOML [Table](https://github.com/toml-lang/toml#table) or [Inline Table](https://github.com/toml-lang/toml#inline-table).
+- action.timeout_seconds : Specify the timeout for `action.command` in seconds. The default value is 30 seconds.
+- action.user: Execute `action.command` as the user specified for this option.
 - memo: Configure notes for check monitoring. The character string specified here can be checked in alert notifications / the alert details screen / the host details page.
 
 <h2 id="plugin">Check plugin specs</h2>

@@ -30,7 +30,7 @@ check_interval = 5
 timeout_seconds = 45
 prevent_alert_auto_close = true
 env = { HOST = "hostname", PORT = "port" }
-action = { command = "ruby /path/to/notify_something.rb", env = { NOTIFY_API_KEY = "API_KEY" } }
+action = { command = "bash -c '[ \"$MACKEREL_STATUS\" != \"OK\" ]' && ruby /path/to/notify_something.rb", env = { NOTIFY_API_KEY = "API_KEY" }, user = "someone", timeout_seconds = 45 }
 memo = "This check monitor is ..."
 ```
 
@@ -47,6 +47,8 @@ memo = "This check monitor is ..."
 - env: commandに渡す環境変数を指定できます。TOMLの[Table][]もしくは[Inline Table][]で指定します。
 - action.command: `command` に設定したコマンド実行後に毎回実行されるアクションです。コマンドの実行結果に応じて行いたい処理がある場合に使用します。前回/今回のコマンドの結果などが環境変数として渡されます。実行結果は無視されます。
 - action.env: action.commandに渡す環境変数を指定できます。TOMLの[Table][]もしくは[Inline Table][]で指定します。
+- action.user: ここで指定したユーザーとして `action.command` を実行します。
+- action.timeout_seconds : `action.command` の処理におけるタイムアウト時間を秒で指定します。デフォルト値は30秒です。
 - memo: チェック監視に対してメモを設定できます。ここで指定した文字列は、アラート通知・アラート詳細画面・ホスト詳細ページで確認できます。
 
 <h2 id="plugin">チェックプラグイン仕様</h2>
