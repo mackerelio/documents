@@ -23,28 +23,21 @@ Typetalkへの通知には、TypetalkのBot APIの機能を利用します。
 
 #### トークンの取得
 
-Typetalkにログインし、通知を行いたいTopicの編集ボタンをクリックします。
+Typetalkにログインし、通知を行いたいTopicの設定ページに入ります。
 
-<p><span itemscope itemtype="http://schema.org/Photograph"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20141210/20141210105856.png" alt="f:id:mackerelio:20141210105856p:plain" title="f:id:mackerelio:20141210105856p:plain" class="hatena-fotolife" itemprop="image"></span></p>
+次にTopicの設定画面で、"ボット"のタブをクリックし、"新規追加"でMackerelの通知用botを登録します。
 
-この画面の右上にある。
+必要事項を記入します。このとき、ボットに対してメッセージを投稿可能な権限を付与してください。
 
-<p><span itemscope itemtype="http://schema.org/Photograph"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20141204/20141204180748.png" alt="f:id:mackerelio:20141204180748p:plain" title="f:id:mackerelio:20141204180748p:plain" class="hatena-fotolife" itemprop="image"></span></p>
+次の画面で、投稿用URLとTypetalk Tokenが取得できます。
 
-このマークです。
+この投稿用URLと、Tokenを以下のように組み合わせたものを、Mackerelの設定画面に登録してください。
 
-次にTopicの編集画面で、"Bots"のタブをクリックし、"Add bot"でMackerelの通知用botを登録します。
+```
+https://typetalk.com/api/v1/topics/{取得したURLに記載のID}?typetalkToken={取得したToken}
+```
 
-<p><span itemscope itemtype="http://schema.org/Photograph"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20141210/20141210110125.png" alt="f:id:mackerelio:20141210110125p:plain" title="f:id:mackerelio:20141210110125p:plain" class="hatena-fotolife" itemprop="image"></span></p>
-
-次にbotの詳細情報を入力する画面が表示されるので、任意のID, Fullnameを入力。"API Scope"の "topic.post"にチェックをつけ、登録してください。
-
-<p><span itemscope itemtype="http://schema.org/Photograph"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20141210/20141210110323.png" alt="f:id:mackerelio:20141210110323p:plain" title="f:id:mackerelio:20141210110323p:plain" class="hatena-fotolife" itemprop="image"></span></p>
-
-すると画面下部にTokenが表示されますので、"Get or post messages URL"の値をコピーし、Mackerel側に登録してください。
-
-<p><span itemscope itemtype="http://schema.org/Photograph"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20141210/20141210110442.png" alt="f:id:mackerelio:20141210110442p:plain" title="f:id:mackerelio:20141210110442p:plain" class="hatena-fotolife" itemprop="image"></span></p>
-
+※Typetalk側の詳細な設定についてご不明の場合は、Typetalkのサポートにお問い合わせください
 
 ### オプション機能:プレフィックスについて
 
