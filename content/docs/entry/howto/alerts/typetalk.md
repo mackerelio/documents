@@ -5,56 +5,48 @@ URL: https://mackerel.io/docs/entry/howto/alerts/typetalk
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/8454420450083894396
 ---
 
-[Typetalk](http://www.typetalk.com/) is a fun and easy to use messaging tool focused on team-based communication.
+[Typetalk](http://www.typetalk.com/) is a fun and easy-to-use messaging tool that focuses on team-based communication.
 
-By setting Typetalk as a notification channel, you can have alert information from hosts being monitored by Mackerel broadcasted to any chat room(s) you designate. You can also receive detailed information regarding important alerts in real-time. 
+By configuring Typetalk as a notification channel, you can have alert information from hosts that are being monitored by Mackerel broadcasted to any designated chat room(s). You can also receive detailed information regarding important alerts in real-time. 
 
-![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20170919/20170919114420.png)
+![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20150507/20150507163216.png)
 
 ##Connecting to Typetalk
 
-To configure connection to Typetalk, [add Typetalk](https://mackerel.io/my/channels?new=typetalk) as a new channel in the Channels page.
+To connect to Typetalk, [add Typetalk](https://mackerel.io/my/channels?new=typetalk) as a new channel in the Channels page.
 
 ![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20150507/20150507163750.png)
 
+Typetalk’s Bot API function is used to send notifications to Typetalk.
 
-For sending notifications to Typetalk, use Typetalk’s Bot API function.
-
-To successfully register Typetalk as a notification channel, it will be necessary to obtain Typetalk API’s URL token. The following will explain how to get the token.  
+In order to successfully register Typetalk as a notification channel, you'll need to obtain the Typetalk API URL and token. Continue reading for an explaination on how to obtain these items.  
 
 ####Obtaining the token
 
-Log into Typetalk and click the Edit button in the topic in which you would like to receive notifications.
+Log into Typetalk and go to the settings page of your selected Topic.
 
-<p><span itemscope itemtype="http://schema.org/Photograph"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20141210/20141210105856.png" alt="f:id:mackerelio:20141210105856p:plain" title="f:id:mackerelio:20141210105856p:plain" class="hatena-fotolife" itemprop="image"></span></p>
+Next, in the Topic's settings screen, click on the “Bots” tab, then click “Add bot”  to register the Mackerel notification bot.
 
-The Edit button is located in the upper right corner of this screen.
+Fill out the necessary information. At this time, give the bot permission to post messages.
 
-<p><span itemscope itemtype="http://schema.org/Photograph"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20141204/20141204180748.png" alt="f:id:mackerelio:20141204180748p:plain" title="f:id:mackerelio:20141204180748p:plain" class="hatena-fotolife" itemprop="image"></span></p>
+In the next screen, you can obtain the posting URL and Typetalk Token.
 
-The Edit button looks like this.
+Register both the posting URL and the Token as shown below in the Mackerel settings screen.
 
-Next, in the Edit Topic screen, click on the “Bots” tab, click “Add bot”  and register the Mackerel notification bot.
+```
+https://typetalk.com/api/v1/topics/{The ID listed in the URL}?typetalkToken={The Token}
+```
+※If you are unsure about any of Typetalk's detailed settings, please contact Typetalk support
 
-<p><span itemscope itemtype="http://schema.org/Photograph"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20141210/20141210110125.png" alt="f:id:mackerelio:20141210110125p:plain" title="f:id:mackerelio:20141210110125p:plain" class="hatena-fotolife" itemprop="image"></span></p>
+##Optional function: Prefix
 
-Next a screen will be displayed where you can enter the new bot’s information. Enter any ID and Full Name, make sure “topic.post” under API Scope is checked, and then click “Create”.
+With Typetalk, you can set custom prefixes to correlate with alert statuses. (If this is not configured, prefixes will not appear with alerts.)
 
-<p><span itemscope itemtype="http://schema.org/Photograph"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20141210/20141210110323.png" alt="f:id:mackerelio:20141210110323p:plain" title="f:id:mackerelio:20141210110323p:plain" class="hatena-fotolife" itemprop="image"></span></p>
-
-The token should now be displayed at the bottom portion of the screen. Copy the “Get or post messages URL” and paste it back in Mackerel to complete registration.
-
-<p><span itemscope itemtype="http://schema.org/Photograph"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20141210/20141210110442.png" alt="f:id:mackerelio:20141210110442p:plain" title="f:id:mackerelio:20141210110442p:plain" class="hatena-fotolife" itemprop="image"></span></p>
-
-##Optional features: about Prefix
-
-When using Typetalk to receive notifications, it is possible to set custom prefixes which respond to the status of alerts. (If this has not been configured, no prefix will appear with alerts.)
-
-Configure prefixes for each type of status such as happy and sad emojis, or anything that you choose.
+When setting up the channel, set a prefix for each status that is easy to understand such as a happy emoji, sad emoji, or anything of your choosing.
 
 <p><span itemscope itemtype="http://schema.org/Photograph"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20141210/20141210110603.png" alt="f:id:mackerelio:20141210110603p:plain" title="f:id:mackerelio:20141210110603p:plain" class="hatena-fotolife" itemprop="image"></span></p>
 
-For example if you have configured your Prefix settings as shown here…
+For example, if you configure your Prefix settings like shown above…
 
 <p><span itemscope itemtype="http://schema.org/Photograph"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20141210/20141210110619.png" alt="f:id:mackerelio:20141210110619p:plain" title="f:id:mackerelio:20141210110619p:plain" class="hatena-fotolife" itemprop="image"></span></p>
 
