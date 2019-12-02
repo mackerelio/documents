@@ -60,14 +60,14 @@ mackerel-container-agent v0.1.0以降では、下記の手順は非推奨とな�
 mackerel-container-agentで取得するメトリックはつぎのとおりです。
 コンテナオーケストレーションプラットフォームによって取得内容が異なる場合があります。
 
-| メトリック | 説明 |
-| :-- | :-- |
-| CPU Usage | コンテナごとのCPU使用量(1コア=100%) |
-| CPU Limit | コンテナごとのCPU Limit(1コア=100%)。<br>Kubernetesではコンテナごとの `resources.limits.cpu` の値。定義がない場合はホストのコア数。<br>ECS, FargateではタスクCPU。定義がない場合はホストのCPUコア数。 |
-| Memory Usage | コンテナごとのメモリ使用量 |
-| Memory Limit | コンテナごとのMemory Limit。<br>Kubernetesではコンテナごとの `resources.limits.memory` の値。定義がない場合はホストの搭載メモリ量。<br>ECS, Fargateではコンテナのメモリ制限。定義がない場合はタスクメモリ。コンテナ、メモリともに定義がない場合はホストの搭載メモリ量。 |
-| Interface Rx | タスク/Podのインターフェースごとの受信バイト数。<br>ECS(default, bridgeネットワークモード)ではコンテナごとのインターフェースの受信バイト数。 |
-| Interface Tx | タスク/Podのインターフェースごとの送信バイト数。<br>ECS(default, bridgeネットワークモード)ではコンテナごとのインターフェースの送信バイト数。|
+| メトリック | 説明 | メトリック名 |
+| :-- | :-- | :-- |
+| CPU Usage | コンテナごとのCPU使用量(1コア=100%) | container.cpu.&lt;container_name&gt;.usage |
+| CPU Limit | コンテナごとのCPU Limit(1コア=100%)。<br>Kubernetesではコンテナごとの `resources.limits.cpu` の値。定義がない場合はホストのコア数。<br>ECS, FargateではタスクCPU。定義がない場合はホストのCPUコア数。 | container.cpu.&lt;container_name&gt;.limit |
+| Memory Usage | コンテナごとのメモリ使用量 | container.memory.&lt;container_name&gt;.usage |
+| Memory Limit | コンテナごとのMemory Limit。<br>Kubernetesではコンテナごとの `resources.limits.memory` の値。定義がない場合はホストの搭載メモリ量。<br>ECS, Fargateではコンテナのメモリ制限。定義がない場合はタスクメモリ。コンテナ、メモリともに定義がない場合はホストの搭載メモリ量。 | container.memory.&lt;container_name&gt;.limit |
+| Interface Rx | タスク/Podのインターフェースごとの受信バイト数。<br>ECS(default, bridgeネットワークモード)ではコンテナごとのインターフェースの受信バイト数。 | interface.&lt;container_name&gt;.rxBytes.delta |
+| Interface Tx | タスク/Podのインターフェースごとの送信バイト数。<br>ECS(default, bridgeネットワークモード)ではコンテナごとのインターフェースの送信バイト数。| interface.&lt;container_name&gt;.txBytes.delta |
 
 ### ロールメトリックについて
 
@@ -347,8 +347,8 @@ readinessProbe:
 コンテナを監視するためには、以下のメトリック監視を用います。監視する必要がないコンテナによってアラートが発報されてしまう場合は、環境変数 `MACKEREL_IGNORE_CONTAINER` または設定ファイルの `ignoreContainer` で除外設定を行ってください。
 
 - CPU: `Container CPU %`
-  - コンテナごとのCPU使用率 (`container.cpu.<name>.usage / container.cpu.<name>.limit`) の**最大**を監視します。
+  - コンテナごとのCPU使用率 (`container.cpu.<container_name>.usage / container.cpu.<container_name>.limit`) の**最大**を監視します。
 - Memory: `Container Memory %`
-  - コンテナごとのMemory使用率 (`container.memory.<name>.usage / container.memory.<name>.limit`) の**最大**を監視します。
-- interface: `interface.<name>.rxBytes`, `interface.<name>.txBytes`
+  - コンテナごとのMemory使用率 (`container.memory.<container_name>.usage / container.memory.<container_name>.limit`) の**最大**を監視します。
+- interface: `interface.<container_name>.rxBytes.delta`, `interface.<container_name>.txBytes.delta`
   - ネットワークインターフェースの転送量を監視します。

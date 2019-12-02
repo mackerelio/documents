@@ -7,13 +7,18 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackere
 
 Check monitoring is a feature that monitors the check plugin execution results similarly to Nagios. The agent periodically runs the check plugin and sends the results to Mackerel. 
 
-An official plugin pack is available. For more information please refer to [Using the official check plugin pack for check monitoring](https://mackerel.io/docs/entry/howto/mackerel-check-plugins).
+As for **metric monitoring**, which monitors the thresholds of metric values ​​sent to Mackerel, they differ in the following ways.
 
-Additionally, to develop a plugin using [github.com/mackerelio/checkers](https://github.com/mackerelio/checkers) (a helper library that is used in our official plugins), please refer to [Creating check plugins using checkers](https://mackerel.io/docs/entry/advanced/checkers).
+- With metric monitoring, the host posts metric values and Mackerel compares/judges those values against thresholds.
+  - Metrics are displayed as graphs, and monitors can be configured from the web console or API
+- With check monitoring, plugins are used to make OK / NG (`CRITICAL` or `WARNING` or `UNKNOWN`) judgments within the host and post the results to Mackerel.
+    - Graphs are not displayed because metrics are not posted. Monitors can not be configured from the web console, but configurations can be added to mackerel-agent installed on the host.
 
-By registering a command which outputs monitor results in the below-mentioned Nagios plugin compatible format, that output will be transmitted to Mackerel and visualized in the  hosts details screen or the alerts screen. 
+[f:id:mackerelio:20191126110656p:plain]
 
-Check items will be counted as 1 host metric each. Limits for each plan can be viewed [here](https://mackerel.io/pricing).
+In order to use check monitoring with mackerel-agent, a program is required that performs the target monitoring process and returns the exit status according to the results. For this reason, an official check plugin pack is available. For more information please refer to [Using the official check plugin pack for check monitoring](https://mackerel.io/docs/entry/howto/mackerel-check-plugins).
+
+Check monitors will be counted as 1 host metric each. See [here](https://mackerel.io/pricing) for the limits of each plan, and [here](https://mackerel.io/docs/entry/faq/contracts/limit-exceeded-conversion) for metric limits per host and specifications when limits are exceeded.
 
 <h2 id="setting">Configuration</h2>
 
@@ -62,7 +67,10 @@ In the settings file, the assign command’s exit status will be treated as show
 | 2 | CRITICAL |
 | other than 0,1, or 2 | UNKNOWN |
 
-It’s possible to add an auxiliary message to the standard output. The maximum character limit for messages is 1024. 
+It's also possible to add an auxiliary message to the standard output. The maximum character limit for messages is 1024. This output is sent to Mackerel and visualized in the host's details and Alerts page. For this reason, please be careful not to unintentionally send confidential information such as passwords.
+
+
+About to develop a plugin using [github.com/mackerelio/checkers](https://github.com/mackerelio/checkers) (a helper library that is used in our official plugins), please refer to [Creating check plugins using checkers](https://mackerel.io/docs/entry/advanced/checkers).
 
 <h2 id="notification">Check monitoring notifications</h2>
 

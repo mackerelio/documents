@@ -8,13 +8,18 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 チェック監視は、Nagiosと同様にチェックプラグインの実行結果を監視する機能です。
 エージェントはチェックプラグインを定期的に実行し、結果をMackerelに送信します。
 
-また、公式のチェックプラグイン集を用意しています。詳しくは、[チェック監視に公式チェックプラグイン集を使う](https://mackerel.io/ja/docs/entry/howto/mackerel-check-plugins)をごらんください。
+ホストメトリック監視やサービスメトリック監視などの、Mackerel に送信されたメトリック値に対する閾値監視をおこなう**メトリック監視**とは、以下のような点で異なっています。
 
-また、公式プラグインで利用している、ユーティリティライブラリである、[github.com/mackerelio/checkers](https://github.com/mackerelio/checkers) を利用したプラグインの開発方法については、[checkersを利用してチェックプラグインを作成する](https://mackerel.io/ja/docs/entry/advanced/checkers) をご覧ください。
+- メトリック監視では、ホスト側はメトリック値を Mackerel に投稿し、その値と閾値との比較・判定は Mackerel 側でおこなわれます
+    - メトリック監視の場合、メトリックがグラフとして描画され、メトリックに対する監視ルールの設定はWebコンソールもしくは Web API からおこなうことができます
+- チェック監視は、プラグインを用いてホスト内で OK / NG (`CRITICAL` or `WARNING` or `UNKNOWN`) の判定をおこない、その判定結果を Mackerel に対して投稿します
+    - チェック監視の場合、メトリックが投稿されていないためグラフが描画されません。監視ルールの設定も、Webコンソールからはおこなうことはできず、ホストにインストールされた mackerel-agent に対して設定を追加することでおこないます
 
-後述の[Nagios][]プラグイン互換のフォーマットで監視結果を出力するコマンドを登録すると、その出力がMackerelに送信され、ホスト詳細画面やアラート画面に可視化されるようになります。
+[f:id:mackerelio:20191126110514p:plain]
 
-チェック項目は1つあたり1ホストメトリックとしてカウントされます。プランごとの上限は[こちら](https://mackerel.io/ja/pricing) をご覧ください。
+チェック監視を mackerel-agent で利用するためには、目的の監視処理をおこない、その結果に応じた終了ステータスを返却するプログラムが必要です。そのために利用できるものとして、公式のチェックプラグイン集を用意しています。詳しくは、[チェック監視に公式チェックプラグイン集を使う](https://mackerel.io/ja/docs/entry/howto/mackerel-check-plugins)をご覧ください。
+
+また、チェック監視項目は1つあたり1ホストメトリックとしてカウントされます。プランごとの上限は[こちら](https://mackerel.io/ja/pricing) を、ホストあたりのメトリック上限やその超過時の仕様については[こちら](https://mackerel.io/ja/docs/entry/faq/contracts/limit-exceeded-conversion)をご覧ください。
 
 <h2 id="setting">設定</h2>
 
@@ -63,7 +68,9 @@ memo = "This check monitor is ..."
 | 2 | CRITICAL |
 | 0,1,2以外 | UNKNOWN |
 
-標準出力には補助的なメッセージを追加できます。メッセージ長の上限は1024文字までです。
+また、標準出力には補助的なメッセージを追加できます。メッセージ長の上限は1024文字までです。その出力はMackerelに送信され、ホスト詳細画面やアラート画面に可視化されるようになります。そのため、ご利用の際にはパスワードなどの秘匿情報が意図せず送信されないようにご注意下さい。
+
+公式プラグインで利用しているユーティリティライブラリである、[github.com/mackerelio/checkers](https://github.com/mackerelio/checkers) を利用したプラグインの開発方法については、[checkersを利用してチェックプラグインを作成する](https://mackerel.io/ja/docs/entry/advanced/checkers) をご覧ください。
 
 <h2 id="notification">チェック監視のアラート通知</h2>
 

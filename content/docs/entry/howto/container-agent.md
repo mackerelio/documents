@@ -58,14 +58,14 @@ Please note that the following processes are deprecated for mackerel-container-a
 The metrics that can be obtained with mackerel-container-agent are as follows.
 Content may vary depending on the container orchestration platform.
 
-| Metric | Explanation |
-| :-- | :-- |
-| CPU Usage | The CPU usage per container (1 core=100%) |
-| CPU Limit | The CPU limit per container (1 core=100%)。<br>For Kubernetes, the value of `resources.limits.cpu`. If not defined, the number of cores of the host.<br> For ECS and Fargate, the task CPU. If not defined, the number of CPU cores of the host. |
-| Memory Usage | The memory usage per container |
-| Memory Limit | The memory limit per container.<br>For Kubernetes, the value of `resources.limits.memory`. If not defined, the amount of memory of the host.<br> For ECS and Fargate, the memory limit of the container. If not defined, the task memory. If neither container or memory are defined, the amount of memory of the host.|
-| Interface Rx | The number of bytes received per task / Pod interface. <br>For ECS(default, bridge network mode), the number of bytes received per container. |
-| Interface Tx | The number of bytes sent per task / Pod interface. <br>For ECS(default, bridge network mode), The number of bytes sent per container.|
+| Metric | Explanation | Metric Name |
+| :-- | :-- | :-- |
+| CPU Usage | The CPU usage per container (1 core=100%) | container.cpu.&lt;container_name&gt;.usage |
+| CPU Limit | The CPU limit per container (1 core=100%)。<br>For Kubernetes, the value of `resources.limits.cpu`. If not defined, the number of cores of the host.<br> For ECS and Fargate, the task CPU. If not defined, the number of CPU cores of the host. | container.cpu.&lt;container_name&gt;.limit |
+| Memory Usage | The memory usage per container | container.memory.&lt;container_name&gt;.usage |
+| Memory Limit | The memory limit per container.<br>For Kubernetes, the value of `resources.limits.memory`. If not defined, the amount of memory of the host.<br> For ECS and Fargate, the memory limit of the container. If not defined, the task memory. If neither container or memory are defined, the amount of memory of the host.| container.memory.&lt;container_name&gt;.limit |
+| Interface Rx | The number of bytes received per task / Pod interface. <br>For ECS(default, bridge network mode), the number of bytes received per container. | interface.&lt;container_name&gt;.rxBytes.delta |
+| Interface Tx | The number of bytes sent per task / Pod interface. <br>For ECS(default, bridge network mode), The number of bytes sent per container.| interface.&lt;container_name&gt;.txBytes.delta |
 
 ### Role metrics
 
@@ -347,8 +347,8 @@ readinessProbe:
 The following metric monitoring is used to monitor containers. If alerts occur for containers for which monitoring is unnecessary, please exclude them with the environment variable `MACKEREL_IGNORE_CONTAINER` or `ignoreContainer` in the configuration file.
 
 - CPU: `Container CPU %`
-  - Monitors the **maximum** CPU usage rate (`container.cpu.<name>.usage / container.cpu.<name>.limit`) of each container.
+  - Monitors the **maximum** CPU usage rate (`container.cpu.<container_name>.usage / container.cpu.<container_name>.limit`) of each container.
 - Memory: `Container Memory %`
-  - Monitors the **maximum** Memory usage rate (`container.memory.<name>.usage / container.memory.<name>.limit`) of each container.
-- interface: `interface.<name>.rxBytes`, `interface.<name>.txBytes`
+  - Monitors the **maximum** Memory usage rate (`container.memory.<container_name>.usage / container.memory.<container_name>.limit`) of each container.
+- interface: `interface.<container_name>.rxBytes.delta`, `interface.<container_name>.txBytes.delta`
   - Monitors the network interface transmission quantity.
