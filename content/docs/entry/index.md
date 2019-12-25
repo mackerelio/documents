@@ -136,7 +136,8 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackere
     <li><a href="https://mackerel.io/docs/entry/integrations/aws"><strong>AWS Integration</strong><span>you can manage AWS cloud products as a host of Mackerel and monitor its metrics.</span></a></li>
     <li><a href="https://mackerel.io/docs/entry/integrations/azure"><strong>Azure Integration</strong><span>you can manage Azure cloud products as a host of Mackerel and monitor its metrics.</span></a></li>
     <li><a href="https://mackerel.io/docs/entry/advanced/experimental-features"><strong>Using Experimental Features</strong><span>try out features in advance to the official release</span></a></li>
-    <li><a href="https://mackerel.io/docs/entry/howto/MFA"><strong>Using 2-step authentication</strong><span>Configure 2-step authentication to strengthen security.</span></a></li>
+    <li><a href="https://mackerel.io/docs/entry/howto/MFA"><strong>Using 2-Step Authentication</strong><span>Strengthen security by configuring 2-Step Authentication.</span></a></li>
+    <li><a href="https://mackerel.io/docs/entry/howto/enforcing-MFA"><strong>Mandatory 2-Step Authentication</strong><span>Strengthen security by requiring 2-Step Authentication</span></a></li>
 </ul>
 </section>
 

@@ -138,6 +138,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
     <li><a href="https://mackerel.io/ja/docs/entry/integrations/azure"><strong>Azureインテグレーション</strong><span>Azureクラウド製品をMackerelのホストとして管理、監視します</span></a></li>
     <li><a href="https://mackerel.io/ja/docs/entry/advanced/experimental-features"><strong>実験的機能を利用する</strong><span>正式リリース前の機能を先行してお試しいただけます</span></a></li>
     <li><a href="https://mackerel.io/ja/docs/entry/howto/MFA"><strong>2段階認証を利用する</strong><span>2段階認証を設定してセキュリティを強化します</span></a></li>
+    <li><a href="https://mackerel.io/ja/docs/entry/howto/enforcing-MFA"><strong>2段階認証の設定を強制する</strong><span>2段階認証を必須化してセキュリティを強化します</span></a></li>
 </ul>
 </section>
 
