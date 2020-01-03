@@ -101,7 +101,7 @@ The designated alert will be closed.
 
 ### Input
 
-```javascript
+```json
 {
   "reason": "<text>"
 }
@@ -115,7 +115,7 @@ Any text can be appended in the `reason` field. This field is a required item.
 
 A post-update alert will be returned.
 
-```javascript
+```json
 {
   "id": "<alertId>",
   "status": "OK",
