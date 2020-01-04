@@ -53,7 +53,7 @@ Objects that hold the following keys:
 
 The dashboard that was created is returned.
 
-```javascript
+```json
 {
   "id": <dashboardId>,
   "title": "My Dashboard",
@@ -110,7 +110,7 @@ The dashboard that was created is returned.
 
 #### Success
 
-```javascript
+```json
 {
   "id": <dashboardId>,
   "title": "My Dashboard",

@@ -28,7 +28,7 @@ This will get a list of the users belonging to an organization.
 
 ### Response
 
-```javascript
+```json
 {
   "users": [<user>, <user>, ...]
 }

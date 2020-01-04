@@ -30,7 +30,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
 
 ### Response
 
-```javascript
+```json
 {
   "services": [<service>, <service>, ...]
 }
@@ -203,7 +203,7 @@ Arrays will be shown in the order of Role names.
 
 #### Success
 
-```javascript
+```json
 {
   "roles": [<role>, <role>, ...]
 }
@@ -390,7 +390,7 @@ The state of the role just before being deleted will be returned.
 
 #### Success
 
-```javascript
+```json
 {
   "names": [<metricName>, <metricName>, ...]
 }

@@ -107,7 +107,7 @@ Any JSON can be specified. However, the size of the data is limited to 100KB.
 
 ### Response
 
-```javascript
+```json
 {
   "success": true
 }
@@ -168,7 +168,7 @@ Any JSON can be specified. However, the size of the data is limited to 100KB.
 
 #### Success
 
-```javascript
+```json
 {
   "success": true
 }

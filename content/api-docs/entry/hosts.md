@@ -323,7 +323,7 @@ If you want to Un-assign roles from a host, please use [Updating host roles](#up
 
 #### Success
 
-```javascript
+```json
 {
   "success": true
 }

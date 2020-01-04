@@ -27,7 +27,7 @@ If a new monitoring timestamp has already been posted with the same name/host, p
 
 ### Input
 
-```javascript
+```json
 {
   "reports": [ <report>, <report>, … ]
 }
@@ -57,7 +57,7 @@ If a new monitoring timestamp has already been posted with the same name/host, p
 
 #### Success
 
-```javascript
+```json
 {
   "success": true
 }
