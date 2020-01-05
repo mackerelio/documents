@@ -77,7 +77,7 @@ This object holds the following keys:
   </tr>
   <tr>
     <td>403</td>
-    <td>when the API doesn't have the required permissions / when accessing from outside the <a href="https://mackerel.io/docs/entry/faq/organization/ip-restriction" target="_blank">permitted IP address range</a></td>
+    <td>when the API key doesn't have the required permissions / when accessing from outside the <a href="https://mackerel.io/docs/entry/faq/organization/ip-restriction" target="_blank">permitted IP address range</a></td>
   </tr>
 </tbody>
 </table>
@@ -228,7 +228,7 @@ If you want to Un-assign roles from a host, please use [Updating host roles](#up
   </tr>
   <tr>
     <td>403</td>
-    <td>when the API doesn't have the required permissions / when accessing from outside the <a href="https://mackerel.io/docs/entry/faq/organization/ip-restriction" target="_blank">permitted IP address range</a></td>
+    <td>when the API key doesn't have the required permissions / when accessing from outside the <a href="https://mackerel.io/docs/entry/faq/organization/ip-restriction" target="_blank">permitted IP address range</a></td>
   </tr>
 </tbody>
 </table>
@@ -289,7 +289,7 @@ If you want to Un-assign roles from a host, please use [Updating host roles](#up
   </tr>
   <tr>
     <td>403</td>
-    <td>when the API doesn't have the required permissions / when accessing from outside the <a href="https://mackerel.io/docs/entry/faq/organization/ip-restriction" target="_blank">permitted IP address range</a></td>
+    <td>when the API key doesn't have the required permissions / when accessing from outside the <a href="https://mackerel.io/docs/entry/faq/organization/ip-restriction" target="_blank">permitted IP address range</a></td>
   </tr>
 </tbody>
 </table>
@@ -353,7 +353,7 @@ If you want to Un-assign roles from a host, please use [Updating host roles](#up
     </tr>
     <tr>
       <td>403</td>
-      <td>when the API doesn't have the required permissions / when accessing from outside the <a href="https://mackerel.io/docs/entry/faq/organization/ip-restriction" target="_blank">permitted IP address range</a></td>
+      <td>when the API key doesn't have the required permissions / when accessing from outside the <a href="https://mackerel.io/docs/entry/faq/organization/ip-restriction" target="_blank">permitted IP address range</a></td>
     </tr>
   </tbody>
 </table>
@@ -415,7 +415,7 @@ This will POST empty JSON.
   </tr>
   <tr>
     <td>403</td>
-    <td>when the API doesn't have the required permissions / when accessing from outside the <a href="https://mackerel.io/docs/entry/faq/organization/ip-restriction" target="_blank">permitted IP address range</a></td>
+    <td>when the API key doesn't have the required permissions / when accessing from outside the <a href="https://mackerel.io/docs/entry/faq/organization/ip-restriction" target="_blank">permitted IP address range</a></td>
   </tr>
 </tbody>
 </table>

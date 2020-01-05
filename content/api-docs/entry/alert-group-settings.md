@@ -111,7 +111,7 @@ Information for the created alert group setting is returned. The format is the s
     </tr>
     <tr>
       <td>403</td>
-      <td>when the API doesn't have the required permissions / when accessing from outside the <a href="https://mackerel.io/docs/entry/faq/organization/ip-restriction" target="_blank">permitted IP address range</a></td>	
+      <td>when the API key doesn't have the required permissions / when accessing from outside the <a href="https://mackerel.io/docs/entry/faq/organization/ip-restriction" target="_blank">permitted IP address range</a></td>	
     </tr>
   </tbody>
 </table>
@@ -155,7 +155,7 @@ Information for the alert group setting is returned. The format is the same as t
     </tr>
     <tr>
       <td>403</td>
-      <td>when the API doesn't have the required permissions / when accessing from outside the <a href="https://mackerel.io/docs/entry/faq/organization/ip-restriction" target="_blank">permitted IP address range</a></td>	
+      <td>when the API key doesn't have the required permissions / when accessing from outside the <a href="https://mackerel.io/docs/entry/faq/organization/ip-restriction" target="_blank">permitted IP address range</a></td>	
     </tr>
   </tbody>
 </table>
@@ -204,7 +204,7 @@ Information for the updated alert group setting is returned. The format is the s
     </tr>
     <tr>
       <td>403</td>
-      <td>when the API doesn't have the required permissions / when accessing from outside the <a href="https://mackerel.io/docs/entry/faq/organization/ip-restriction" target="_blank">permitted IP address range</a></td>	
+      <td>when the API key doesn't have the required permissions / when accessing from outside the <a href="https://mackerel.io/docs/entry/faq/organization/ip-restriction" target="_blank">permitted IP address range</a></td>	
     </tr>
   </tbody>
 </table>
@@ -249,7 +249,7 @@ Information for the deleted alert group setting is returned. The format is the s
     </tr>
     <tr>
       <td>403</td>
-      <td>when the API doesn't have the required permissions / when accessing from outside the <a href="https://mackerel.io/docs/entry/faq/organization/ip-restriction" target="_blank">permitted IP address range</a></td>	  
+      <td>when the API key doesn't have the required permissions / when accessing from outside the <a href="https://mackerel.io/docs/entry/faq/organization/ip-restriction" target="_blank">permitted IP address range</a></td>	  
     </tr>
   </tbody>
 </table>

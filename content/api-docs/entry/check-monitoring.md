@@ -75,7 +75,7 @@ If a new monitoring timestamp has already been posted with the same name/host, p
   <tbody>
     <tr>
       <td>403</td>
-      <td>when the API doesn't have the required permissions / when accessing from outside the <a href="https://mackerel.io/docs/entry/faq/organization/ip-restriction" target="_blank">permitted IP address range</a></td>
+      <td>when the API key doesn't have the required permissions / when accessing from outside the <a href="https://mackerel.io/docs/entry/faq/organization/ip-restriction" target="_blank">permitted IP address range</a></td>
     </tr>
     <tr>
       <td>other than 200</td>
