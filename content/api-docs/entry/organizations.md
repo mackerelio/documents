@@ -22,7 +22,7 @@ This will get the information of the organization.
 
 ### Response
 
-```javascript
+```json
 {
   "name": <name>
 }

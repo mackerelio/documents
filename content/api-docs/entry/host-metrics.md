@@ -33,7 +33,7 @@ If old values are being transmitted to the API, the values on the Mackerel inter
 
 ### Input
 
-```javascript
+```json
 [ <metricValue>, <metricValue>, … ]
 ```
 
@@ -50,7 +50,7 @@ If old values are being transmitted to the API, the values on the Mackerel inter
 
 #### Success
 
-```javascript
+```json
 {
   "sucess": true
 }
@@ -108,7 +108,7 @@ With the following parameter, the metric name and time span to be collected will
 
 #### Success
 
-```javascript
+```json
 {
   "metrics": [
     {
@@ -176,7 +176,7 @@ With the following parameter, host and metric names will be assigned.
 
 ### Response
 
-```javascript
+```json
 {
   "tsdbLatest": {
     <hostId>: {
@@ -233,7 +233,7 @@ This will transmit custom metric graph definitions to Mackerel.
 
 ### Input
 
-```javascript
+```json
 [ <graphDef>, <graphDef>, … ]
 ```
  
@@ -258,7 +258,7 @@ metric: an object that contains the following keys.
 
 ### Example Input
 
-```javascript
+```json
 [
   {
       "name" : "custom.cpu.foo",
@@ -291,7 +291,7 @@ metric: an object that contains the following keys.
 
 #### Success
 
-```javascript
+```json
 {
   "success": true
 }

@@ -18,7 +18,7 @@ Webhookを利用することでアラートの内容のJSONをPOSTで受け取�
 通知されるJSONは以下のような内容を含んでいます。
 (項目は任意のタイミングで追加される場合があります)
 
-```javascript
+```json
 {
   "orgName": "Macker...",
   "event": "alert",

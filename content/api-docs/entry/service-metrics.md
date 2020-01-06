@@ -31,7 +31,7 @@ If old values are being transmitted to the API, the values on the Mackerel inter
 
 ### Input
 
-```javascript
+```json
 [ <metricValue>, <metricValue>, … ]
 ```
 
@@ -47,7 +47,7 @@ If old values are being transmitted to the API, the values on the Mackerel inter
 
 #### Success
 
-```javascript
+```json
 {
   "success": true
 }
@@ -109,7 +109,7 @@ With the following parameter, the metric name and time span to be collected will
 
 #### Success
 
-```javascript
+```json
 {
   "metrics": [
     {

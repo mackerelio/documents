@@ -321,7 +321,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 
 #### 成功時
 
-```javascript
+```json
 {
   "success": true
 }

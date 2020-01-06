@@ -17,7 +17,7 @@ Notification settings can be added and configured [Webhook form](https://mackere
 
 The JSON that will be sent contains the following. (Items may be added at any time)
 
-```javascript
+```json
 {
   "orgName": "Macker...",
   "event": "alert",
