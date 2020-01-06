@@ -673,11 +673,11 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
   </div>
 
   <div class="index-row">
-    <h3><a href="entry/graph-annotations">Graph annotations</a></h3>
+    <h3><a href="entry/graph-annotations">Graph Annotations</a></h3>
     <div class="apis">
       <div class="api">
         <a href="entry/graph-annotations#create">
-          <p>Creating graph annotations</p>
+          <p>Creating Graph Annotations</p>
           <p class="type-post">
             <code>POST</code>
             <code>/api/v0/graph-annotations</code>
@@ -686,7 +686,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
       </div>
       <div class="api">
         <a href="entry/graph-annotations#get">
-          <p>Obtaining graph annotations</p>
+          <p>Obtaining Graph Annotations</p>
           <p class="type-get">
             <code>GET</code>
             <code>/api/v0/graph-annotations</em></code>
@@ -695,7 +695,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
       </div>
       <div class="api">
         <a href="entry/graph-annotations#update">
-          <p>Updating graph annotations</p>
+          <p>Updating Graph Annotations</p>
           <p class="type-put">
             <code>PUT</code>
             <code>/api/v0/graph-annotations/<em>&lt;annotationId&gt;</em></code>
@@ -704,7 +704,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
       </div>
       <div class="api">
         <a href="entry/graph-annotations#delete">
-          <p>Deleting graph annotations</p>
+          <p>Deleting Graph Annotations</p>
           <p class="type-delete">
             <code>DELETE</code>
             <code>/api/v0/graph-annotations/<em>&lt;annotationId&gt;</em></code>
