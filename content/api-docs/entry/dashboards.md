@@ -10,7 +10,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
   <li><a href="#get">Getting Dashboards</a></li>
   <li><a href="#update">Updating Dashboards</a></li>
   <li><a href="#delete">Deleting Dashboards</a></li>
-  <li><a href="#list">List of Dashboards</a></li>
+  <li><a href="#list">Listing Dashboards</a></li>
 </ul>
 
 This page explains Custom Dashboards following the feature's renovation as of November 2018. For details regarding the API operating this feature before its renovation, refer [here](https://mackerel.io/api-docs/entry/dashboards/legacy).
@@ -213,7 +213,7 @@ The dashboard before deletion is returned, same as [Creating Dashboards](#create
 
 ----------------------------------------------
 
-<h2 id="list">List of Dashboards</h2>
+<h2 id="list">Listing Dashboards</h2>
 <p class="type-get">
   <code>GET</code>
   <code>/api/v0/dashboards</code>
