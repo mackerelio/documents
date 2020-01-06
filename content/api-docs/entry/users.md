@@ -6,12 +6,12 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
 ---
 
 <ul class="internal-nav">
-  <li><a href="#list">List of users</a></li>
-  <li><a href="#delete">Delete users</a></li>
+  <li><a href="#list">Listing Users</a></li>
+  <li><a href="#delete">Deleting Users</a></li>
 </ul>
 
 
-<h2 id="list">List of users</h2>
+<h2 id="list">Listing Users</h2>
 
 This will get a list of the users belonging to an organization.
 
@@ -49,7 +49,7 @@ This will get a list of the users belonging to an organization.
 
 ----------------------------------------------
 
-<h2 id="delete">Delete users</h2>
+<h2 id="delete">Deleting Users</h2>
 
 This will delete users belonging to an organization.
 

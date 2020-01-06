@@ -720,7 +720,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
     <div class="apis">
       <div class="api">
         <a href="entry/users#list">
-          <p>List of users</p>
+          <p>Listing Users</p>
           <p class="type-get">
             <code>GET</code>
             <code>/api/v0/users</code>
@@ -729,7 +729,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
       </div>
       <div class="api">
         <a href="entry/users#delete">
-          <p>Delete users</p>
+          <p>Deleting Users</p>
           <p class="type-delete">
             <code>DELETE</code>
             <code>/api/v0/users/<em>&lt;userId&gt;</em></code>
