@@ -226,11 +226,11 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
   </div>
   
   <div class="index-row">
-    <h3><a href="entry/service-metrics">Service metric</a></h3>
+    <h3><a href="entry/service-metrics">Service Metrics</a></h3>
     <div class="apis">
       <div class="api">
         <a href="entry/service-metrics#post">
-          <p>Posting service metrics</p>
+          <p>Posting Service Metrics</p>
           <p class="type-post">
             <code>POST</code>
             <code>/api/v0/services/<em>&lt;serviceName&gt;</em>/tsdb</code>
@@ -239,7 +239,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
       </div>
       <div class="api">
         <a href="entry/service-metrics#get">
-        <p>Getting service metrics</p>
+        <p>Getting Service Metrics</p>
           <p class="type-get">
             <code>GET</code>
             <code>/api/v0/services/<em>&lt;serviceName&gt;</em>/metrics</code>

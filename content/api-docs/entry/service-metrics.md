@@ -7,7 +7,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
 
 <ul class="internal-nav">
   <li><a href="#post">Posting Service Metrics</a></li>
-  <li><a href="#get">Getting service metrics</a></li>
+  <li><a href="#get">Getting Service Metrics</a></li>
 </ul>
 
 
@@ -80,7 +80,7 @@ If old values are being transmitted to the API, the values on the Mackerel inter
 
 ----------------------------------------------
 
-<h2 id="get">Getting service metrics</h2>
+<h2 id="get">Getting Service Metrics</h2>
 
 This will get metric values connected to services.
 
