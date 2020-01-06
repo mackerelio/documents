@@ -41,7 +41,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
     <div class="apis">
       <div class="api">
         <a href="entry/services#list">
-          <p>List of Services</p>
+          <p>Listing Services</p>
           <p class="type-get">
             <code>GET</code>
             <code>/api/v0/services</code>
@@ -50,7 +50,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
       </div>
       <div class="api">
         <a href="entry/services#create">
-          <p>Register Services</p>
+          <p>Registering Services</p>
           <p class="type-post">
             <code>POST</code>
             <code>/api/v0/services</code>
@@ -59,7 +59,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
       </div>      
       <div class="api">
         <a href="entry/services#delete">
-          <p>Delete Services</p>
+          <p>Deleting Services</p>
           <p class="type-delete">
             <code>DELETE</code>
             <code>/api/v0/services/<em>&lt;serviceName&gt;</em></code>
@@ -68,7 +68,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
       </div>
       <div class="api">
         <a href="entry/services#rolelist">
-          <p>List of Roles</p>
+          <p>Listing Roles</p>
           <p class="type-get">
             <code>GET</code>
             <code>/api/v0/services/<em>&lt;serviceName&gt;</em>/roles</code>
@@ -77,7 +77,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
       </div>
       <div class="api">
         <a href="entry/services#rolecreate">
-          <p>Register roles</p>
+          <p>Registering Roles</p>
           <p class="type-post">
               <code>POST</code>
               <code>/api/v0/services/<em>&lt;serviceName&gt;</em>/roles</code>
@@ -86,7 +86,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
       </div>
       <div class="api">
         <a href="entry/services#roledelete">
-          <p>Delete roles</p>
+          <p>Deleting Roles</p>
           <p class="type-delete">
               <code>DELETE</code>
               <code>/api/v0/services/<em>&lt;serviceName&gt;</em>/roles/<em>&lt;roleName&gt;</em></code>
@@ -95,7 +95,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
       </div>
       <div class="api">
         <a href="entry/services#metric-names">
-          <p>List of metric names</p>
+          <p>Listing Metric Names</p>
           <p class="type-get">
             <code>GET</code>
             <code>/api/v0/services/<em>&lt;serviceName&gt;</em>/metric-names</code>
