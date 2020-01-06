@@ -434,7 +434,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
     <div class="apis">
       <div class="api">
         <a href="entry/downtimes#create">
-          <p>Register Downtimes</p>
+          <p>Registering Downtimes</p>
           <p class="type-post">
             <code>POST</code>
             <code>/api/v0/downtimes</code>
@@ -443,7 +443,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
       </div>
       <div class="api">
         <a href="entry/downtimes#list">
-          <p>List of downtimes</p>
+          <p>Listing Downtimes</p>
           <p class="type-get">
             <code>GET</code>
             <code>/api/v0/downtimes</code>
@@ -452,7 +452,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
       </div>
       <div class="api">
         <a href="entry/downtimes#update">
-          <p>Update downtimes</p>
+          <p>Updating Downtimes</p>
           <p class="type-put">
             <code>PUT</code>
             <code>/api/v0/downtimes/<em>&lt;downtimeId&gt;</em></code>
@@ -461,7 +461,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
       </div>
       <div class="api">
         <a href="entry/downtimes#delete">
-          <p>Delete downtimes</p>
+          <p>Deleting Downtimes</p>
           <p class="type-delete">
             <code>DELETE</code>
             <code>/api/v0/downtimes/<em>&lt;downtimeId&gt;</em></code>
