@@ -7,10 +7,10 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
 
 <ul class="internal-nav">
   <li><a href="#create">Register monitor configurations</a></li>
-  <li><a href="#list">List of monitor configurations</a></li>
-  <li><a href="#get">Get monitor configurations</a></li>
-  <li><a href="#update">Update monitor configurations</a></li>
-  <li><a href="#delete">Delete monitor configurations</a></li>
+  <li><a href="#list">Listing Monitor Configurations</a></li>
+  <li><a href="#get">Getting Monitor Configurations</a></li>
+  <li><a href="#update">Updating Monitor Configurations</a></li>
+  <li><a href="#delete">Deleting Monitor Configurations</a></li>
 </ul>
 
 
@@ -602,7 +602,7 @@ In order to monitor response time, it's necessary to assign `responseTimeWarning
 
 ----------------------------------------------
 
-<h2 id="list">List of monitor configurations</h2>
+<h2 id="list">Listing Monitor Configurations</h2>
 
 <p class="type-get">
   <code>GET</code>
@@ -785,7 +785,7 @@ In order to monitor response time, it's necessary to assign `responseTimeWarning
 
 ----------------------------------------------
 
-<h2 id="get">Get monitor configurations</h2>
+<h2 id="get">Getting Monitor Configurations</h2>
 
 <p class="type-get">
   <code>GET</code>
@@ -827,7 +827,7 @@ In order to monitor response time, it's necessary to assign `responseTimeWarning
 
 ----------------------------------------------
 
-<h2 id="update">Update monitor configurations</h2>
+<h2 id="update">Updating Monitor Configurations</h2>
 
 <p class="type-put">
   <code>PUT</code>
@@ -887,7 +887,7 @@ same errors as when [creating](#create).
 
 ----------------------------------------------
 
-<h2 id="delete">Delete monitor configurations</h2>
+<h2 id="delete">Deleting Monitor Configurations</h2>
 
 <p class="type-delete">
   <code>DELETE</code>

@@ -392,7 +392,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
       </div>
       <div class="api">
         <a href="entry/monitors#list">
-          <p>List of monitor configurations</p>
+          <p>Listing Monitor Configurations</p>
           <p class="type-get">
             <code>GET</code>
             <code>/api/v0/monitors</code>
@@ -401,7 +401,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
       </div>
       <div class="api">
         <a href="entry/monitors#get">
-          <p>Get monitor configurations</p>
+          <p>Getting Monitor Configurations</p>
           <p class="type-get">
             <code>GET</code>
             <code>/api/v0/monitors/<em>&lt;monitorId&gt;</em></code>
@@ -410,7 +410,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
       </div>
       <div class="api">
         <a href="entry/monitors#update">
-          <p>Update monitor configurations</p>
+          <p>Updating Monitor Configurations</p>
           <p class="type-put">
             <code>PUT</code>
             <code>/api/v0/monitors/<em>&lt;monitorId&gt;</em></code>
@@ -419,7 +419,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
       </div>
       <div class="api">
         <a href="entry/monitors#delete">
-          <p>Delete monitor configurations</p>
+          <p>Deleting Monitor Configurations</p>
           <p class="type-delete">
             <code>DELETE</code>
             <code>/api/v0/monitors/<em>&lt;monitorId&gt;</em></code>
