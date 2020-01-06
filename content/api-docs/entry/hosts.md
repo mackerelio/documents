@@ -26,7 +26,7 @@ Registering an agent-running host to Mackerel.
   <code>/api/v0/hosts</code>
 </p>
 
-### Required permissions for API key
+### Required permissions for the API key
 
 <ul class="api-key">
   <li class="label-read">Read</li>
@@ -143,7 +143,7 @@ One element of `checks` is an object that holds the following keys.
   <code>/api/v0/hosts/<em>&lt;hostId&gt;</em></code>
 </p>
 
-### Required permissions for API key
+### Required permissions for the API key
 
 <ul class="api-key">
   <li class="label-read">Read</li>
@@ -184,7 +184,7 @@ One element of `checks` is an object that holds the following keys.
   <code>/api/v0/hosts/<em>&lt;hostId&gt;</em></code>
 </p>
 
-### Required permissions for API key
+### Required permissions for the API key
 
 <ul class="api-key">
   <li class="label-read">Read</li>
@@ -242,7 +242,7 @@ If you want to Un-assign roles from a host, please use [Updating host roles](#up
   <code>/api/v0/hosts/<em>&lt;hostId&gt;</em>/status</code>
 </p>
 
-### Required permissions for API key
+### Required permissions for the API key
 
 <ul class="api-key">
   <li class="label-read">Read</li>
@@ -303,7 +303,7 @@ If you want to Un-assign roles from a host, please use [Updating host roles](#up
   <code>/api/v0/hosts/<em>&lt;hostId&gt;</em>/role-fullnames</code>
 </p>
 
-### Required permissions for API key
+### Required permissions for the API key
 
 <ul class="api-key">
   <li class="label-write">Write</li>
@@ -369,7 +369,7 @@ This will retire a registered host.
   <code>/api/v0/hosts/<em>&lt;hostId&gt;</em>/retire</code>
 </p>
 
-### Required permissions for API key
+### Required permissions for the API key
 
 <ul class="api-key">
   <li class="label-read">Read</li>
@@ -431,7 +431,7 @@ This will POST empty JSON.
 
 `/api/v0/hosts.json` returns the same contents with the same query parameters.
 
-### Required permissions for API key
+### Required permissions for the API key
 
 <ul class="api-key">
   <li class="label-read">Read</li>
@@ -468,7 +468,7 @@ The following parameter will extract hosts. If nothing has yet been assigned, al
   <code>/api/v0/hosts/<em>&lt;hostId&gt;</em>/metric-names</code>
 </p>
 
-### Required permissions for API key
+### Required permissions for the API key
 
 <ul class="api-key">
   <li class="label-read">Read</li>

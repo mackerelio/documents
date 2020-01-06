@@ -20,7 +20,7 @@ This will get a list of the users belonging to an organization.
   <code>/api/v0/users</code>
 </p>
 
-### Required permissions for API key
+### Required permissions for the API key
 
 <ul class="api-key">
   <li class="label-read">Read</li>
@@ -58,7 +58,7 @@ This will delete users belonging to an organization.
   <code>/api/v0/users/<em>&lt;userId&gt;</em></code>
 </p>
 
-### Required permissions for API key
+### Required permissions for the API key
 
 <ul class="api-key">
   <li class="label-read">Read</li>

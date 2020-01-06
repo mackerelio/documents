@@ -24,7 +24,7 @@ The input procedure varies depending on the monitoring target.
   <code>/api/v0/monitors</code>
 </p>
 
-### Required permissions for API key
+### Required permissions for the API key
 
 <ul class="api-key border-none">
   <li class="label-read">Read</li>
@@ -609,7 +609,7 @@ In order to monitor response time, it's necessary to assign `responseTimeWarning
   <code>/api/v0/monitors</code>
 </p>
 
-### Required permissions for API key
+### Required permissions for the API key
 
 <ul class="api-key">
   <li class="label-read">Read</li>
@@ -792,7 +792,7 @@ In order to monitor response time, it's necessary to assign `responseTimeWarning
   <code>/api/v0/monitors/<em>&lt;monitorId&gt;</em></code>
 </p>
 
-### Required permissions for API key
+### Required permissions for the API key
 
 <ul class="api-key">
   <li class="label-read">Read</li>
@@ -837,7 +837,7 @@ In order to monitor response time, it's necessary to assign `responseTimeWarning
 As for requests and responses, just as when [creating monitors](#create), every field must be specified. If there are any insufficient items that are required, an error will be generated.
 When `scopes` and `excludeScopes` are updated, the JSON which was designated will be completely overwritten. For example, by omitting an item in `scopes` when it has already been saved, `scopes` will be deleted. 
 
-### Required permissions for API key
+### Required permissions for the API key
 
 <ul class="api-key">
   <li class="label-read">Read</li>
@@ -894,7 +894,7 @@ same errors as when [creating](#create).
   <code>/api/v0/monitors/<em>&lt;monitorId&gt;</em></code>
 </p>
 
-### Required permissions for API key
+### Required permissions for the API key
 
 <ul class="api-key">
   <li class="label-read">Read</li>

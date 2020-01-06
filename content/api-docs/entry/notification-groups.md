@@ -20,7 +20,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
   <code>/api/v0/notification-groups</code>
 </p>
 
-### Required permissions for API key
+### Required permissions for the API key
 
 <ul class="api-key border-none">
   <li class="label-read">Read</li>
@@ -113,7 +113,7 @@ The input is returned along with an ID.
   <code>/api/v0/notification-groups</code>
 </p>
 
-### Required permissions for API key
+### Required permissions for the API key
 
 <ul class="api-key border-none">
   <li class="label-read">Read</li>
@@ -136,7 +136,7 @@ The input is returned along with an ID.
   <code>/api/v0/notification-groups/<em>&lt;notificationGroupId&gt</em></code>
 </p>
 
-### Required permissions for API key
+### Required permissions for the API key
 
 <ul class="api-key border-none">
   <li class="label-read">Read</li>
@@ -192,7 +192,7 @@ The organization’s default notification group can not be deleted
   <code>/api/v0/notification-groups/<em>&lt;notificationGroupId&gt</em></code>
 </p>
 
-### Required permissions for API key
+### Required permissions for the API key
 
 <ul class="api-key border-none">
   <li class="label-read">Read</li>

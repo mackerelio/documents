@@ -18,7 +18,7 @@ Implementation described in [Adding a monitoring check item by script](https://m
 If a new monitoring timestamp has already been posted with the same name/host, posting will be ignored.
 
 
-### Required permissions for API key
+### Required permissions for the API key
 
 <ul class="api-key">
   <li class="label-read">Read</li>

@@ -24,7 +24,7 @@ This will transmit metrics collected by the agent to Mackerel. Recorded values c
 
 If old values are being transmitted to the API, the values on the Mackerel interface will be overwritten. If posting with a timestamp older than 24 hours, those metrics will not be recorded (a status code 200 response will be returned). Additionally, an alert will not occur for an old value, even if a threshold is surpassed, since alerts occur based on the latest values from the Mackerel interface.
 
-### Required permissions for API key
+### Required permissions for the API key
 
 <ul class="api-key">
   <li class="label-read">Read</li>
@@ -88,7 +88,7 @@ This will get metric values that have been posted by the agent.
   <code>/api/v0/hosts/<em>&lt;hostId&gt;</em>/metrics</code>
 </p>
 
-### Required permissions for API key
+### Required permissions for the API key
 
 <ul class="api-key">
   <li class="label-read">Read</li>
@@ -159,7 +159,7 @@ This will get the latest metrics posted by the agent from each host.
   <code>/api/v0/tsdb/latest</code>
 </p>
 
-### Required permissions for API key
+### Required permissions for the API key
 
 <ul class="api-key">
   <li class="label-read">Read</li>
@@ -224,7 +224,7 @@ This will transmit custom metric graph definitions to Mackerel.
   <code>/api/v0/graph-defs/create</code>
 </p>
 
-### Required permissions for API key
+### Required permissions for the API key
 
 <ul class="api-key">
   <li class="label-read">Read</li>

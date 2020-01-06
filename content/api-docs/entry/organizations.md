@@ -14,7 +14,7 @@ This will get the information of the organization.
   <code>/api/v0/org</code>
 </p>
 
-### Required permissions for API key
+### Required permissions for the API key
 
 <ul class="api-key">
   <li class="label-read">Read</li>

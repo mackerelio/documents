@@ -26,7 +26,7 @@ This section covers creating dashboards.
 
 It's not possible to specify a URL path that is already being used to create a new dashboard.
 
-### Required permissions for API key
+### Required permissions for the API key
 
 <ul class="api-key">
   <li class="label-read">Read</li>
@@ -100,7 +100,7 @@ The dashboard that was created is returned.
   <code>/api/v0/dashboards/<em>&lt;dashboardId&gt;</em></code>
 </p>
 
-### Required permissions for API key
+### Required permissions for the API key
 
 <ul class="api-key">
   <li class="label-read">Read</li>
@@ -150,7 +150,7 @@ The dashboard that was created is returned.
   <code>/api/v0/dashboards/<em>&lt;dashboardId&gt;</em></code>
 </p>
 
-### Required permissions for API key
+### Required permissions for the API key
 
 <ul class="api-key">
   <li class="label-read">Read</li>
@@ -209,7 +209,7 @@ This will delete the dashboard corresponding to the designated ID.
   <code>/api/v0/dashboards/<em>&lt;dashboardId&gt;</em></code>
 </p>
 
-### Required permissions for API key
+### Required permissions for the API key
 
 <ul class="api-key">
   <li class="label-read">Read</li>

@@ -22,7 +22,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
   <code>/api/v0/services</code>
 </p>
 
-### Required permissions for API key
+### Required permissions for the API key
 
 <ul class="api-key">
   <li class="label-read">Read</li>
@@ -55,7 +55,7 @@ Arrays will be shown in the order of Role names.
   <code>/api/v0/services</code>
 </p>
 
-### Required permissions for API key
+### Required permissions for the API key
 
  <ul class="api-key">
   <li class="label-read">Read</li>
@@ -135,7 +135,7 @@ The created service will be returned. The format will be the same as <i>`<servic
 
 Roles, service metrics, monitoring configurations, and graph annotations associated with the service will also be deleted.
 
-### Required permissions for API key
+### Required permissions for the API key
 
 <ul class="api-key">
   <li class="label-read">Read</li>
@@ -193,7 +193,7 @@ Arrays will be shown in the order of Role names.
   <code>/api/v0/services/<em>&lt;serviceName&gt;</em>/roles</code>
 </p>
 
-### Required permissions for API key
+### Required permissions for the API key
 
 <ul class="api-key">
   <li class="label-read">Read</li>
@@ -245,7 +245,7 @@ Arrays will be shown in the order of Role names.
   <code>/api/v0/services/<em>&lt;serviceName&gt;</em>/roles</code>
 </p>
 
-### Required permissions for API key
+### Required permissions for the API key
  
 <ul class="api-key">
   <li class="label-read">Read</li>
@@ -326,7 +326,7 @@ The created role will be returned. The format will be the same as <i>`<role>`</i
   <code>/api/v0/services/<em>&lt;serviceName&gt;</em>/roles/<em>&lt;roleName&gt;</em></code>
 </p>
 
-### Required permissions for API key
+### Required permissions for the API key
 
 <ul class="api-key">
   <li class="label-read">Read</li>
@@ -380,7 +380,7 @@ The state of the role just before being deleted will be returned.
   <code>/api/v0/services/<em>&lt;serviceName&gt;</em>/metric-names</code>
 </p>
 
-### Required permissions for API key
+### Required permissions for the API key
 
 <ul class="api-key">
   <li class="label-read">Read</li>

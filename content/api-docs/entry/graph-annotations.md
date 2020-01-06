@@ -19,7 +19,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
   <code>/api/v0/graph-annotations</code>
 </p>
 
-### Required permissions for API key
+### Required permissions for the API key
 
 <ul class="api-key">
   <li class="label-read">Read</li>
@@ -94,7 +94,7 @@ Specify the service and interval and obtain the graph annotations list. Annotati
   <code>/api/v0/graph-annotations</code>
 </p>
 
-### Required permissions for API key
+### Required permissions for the API key
 
 <ul class="api-key border-none">
   <li class="label-read">Read</li>
@@ -162,7 +162,7 @@ Specify the service and interval and obtain the graph annotations list. Annotati
   <code>/api/v0/graph-annotations/<em>&lt;annotationId&gt</em></code>
 </p>
 
-### Required permissions for API key
+### Required permissions for the API key
 
 <ul class="api-key">
   <li class="label-read">Read</li>
@@ -221,7 +221,7 @@ The same as [Creating graph annotations](#create), the input is returned with an
   <code>/api/v0/graph-annotations/<em>&lt;annotationId&gt</em></code>
 </p>
 
-### Required permissions for API key
+### Required permissions for the API key
 
 <ul class="api-key">
   <li class="label-read">Read</li>
