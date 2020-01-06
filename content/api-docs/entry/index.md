@@ -269,7 +269,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
     <div class="apis">
       <div class="api">
         <a href="entry/metadata#get">
-          <p>Get host metadata</p>
+          <p>Getting Host Metadata</p>
           <p class="type-get">
             <code>GET</code>
             <code>/api/v0/hosts/<em>&lt;hostId&gt;</em>/metadata/<em>&lt;namespace&gt</em></code>
@@ -278,7 +278,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
       </div>
       <div class="api">
         <a href="entry/metadata#hostput">
-          <p>Create / Update host metadata</p>
+          <p>Registering/Updating Host Metadata</p>
           <p class="type-put">
             <code>PUT</code>
             <code>/api/v0/hosts/<em>&lt;hostId&gt;</em>/metadata/<em>&lt;namespace&gt</em></code>
@@ -287,7 +287,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
       </div>
       <div class="api">
         <a href="entry/metadata#hostdelete">
-          <p>Delete host metadata</p>
+          <p>Deleting Host Metadata</p>
           <p class="type-delete">
             <code>DELETE</code>
             <code>/api/v0/hosts/<em>&lt;hostId&gt;</em>/metadata/<em>&lt;namespace&gt</em></code>
@@ -296,7 +296,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
       </div>
       <div class="api">
         <a href="entry/metadata#hostlist">
-          <p>List host metadata</p>
+          <p>Listing Host Metadata</p>
           <p class="type-get">
             <code>GET</code>
             <code>/api/v0/hosts/<em>&lt;hostId&gt;</em>/metadata</code>
@@ -305,7 +305,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
       </div>
       <div class="api">
         <a href="entry/metadata#serviceget">
-          <p>Get service metadata</p>
+          <p>Getting Service Metadata</p>
           <p class="type-get">
             <code>GET</code>
             <code>/api/v0/services/<em>&lt;serviceName&gt;</em>/metadata/<em>&lt;namespace&gt</em></code>
@@ -314,7 +314,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
       </div>
       <div class="api">
         <a href="entry/metadata#serviceput">
-          <p>Register / Update service metadata</p>
+          <p>Registering/Updating Service Metadata</p>
           <p class="type-put">
             <code>PUT</code>
             <code>/api/v0/services/<em>&lt;serviceName&gt;</em>/metadata/<em>&lt;namespace&gt</em></code>
@@ -323,7 +323,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
       </div>
       <div class="api">
         <a href="entry/metadata#servicedelete">
-          <p>Delete service metadata</p>
+          <p>Deleting Service Metadata</p>
           <p class="type-delete">
             <code>DELETE</code>
             <code>/api/v0/services/<em>&lt;serviceName&gt;</em>/metadata/<em>&lt;namespace&gt</em></code>
@@ -332,7 +332,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
       </div>
       <div class="api">
         <a href="entry/metadata#servicelist">
-          <p>List of service metadata</p>
+          <p>Listing Service Metadata</p>
           <p class="type-get">
             <code>GET</code>
             <code>/api/v0/services/<em>&lt;serviceName&gt;</em>/metadata</code>
@@ -341,7 +341,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
       </div>
       <div class="api">
         <a href="entry/metadata#roleget">
-          <p>Get role metadata</p>
+          <p>Getting Role Metadata</p>
           <p class="type-get">
             <code>GET</code>
             <code>/api/v0/services/<em>&lt;serviceName&gt;</em>/roles/<em>&lt;roleName&gt;</em>/metadata/<em>&lt;namespace&gt</em></code>
@@ -350,7 +350,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
       </div>
       <div class="api">
         <a href="entry/metadata#roleput">
-          <p>Register / Update role metadata</p>
+          <p>Registering/Updating Role Metadata</p>
           <p class="type-put">
             <code>PUT</code>
             <code>/api/v0/services/<em>&lt;serviceName&gt;</em>/roles/<em>&lt;roleName&gt;</em>/metadata/<em>&lt;namespace&gt</em></code>
@@ -359,7 +359,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
       </div>
       <div class="api">
         <a href="entry/metadata#roledelete">
-          <p>Delete role metadata</p>
+          <p>Deleting Role Metadata</p>
           <p class="type-delete">
             <code>DELETE</code>
             <code>/api/v0/services/<em>&lt;serviceName&gt;</em>/roles/<em>&lt;roleName&gt;</em>/metadata/<em>&lt;namespace&gt</em></code>
@@ -368,7 +368,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
       </div>
       <div class="api">
         <a href="entry/metadata#rolelist">
-          <p>List of role metadata</p>
+          <p>Listing Role Metadata</p>
           <p class="type-get">
             <code>GET</code>
             <code>/api/v0/services/<em>&lt;serviceName&gt;</em>/roles/<em>&lt;roleName&gt;</em>/metadata</code>
