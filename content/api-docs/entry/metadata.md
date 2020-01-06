@@ -141,7 +141,7 @@ Any JSON can be specified. However, the size of the data is limited to 100KB.
     </tr>
     <tr>
       <td>403</td>
-      <td>when the API doesn't have the required permissions / when accessing from outside the <a href="https://mackerel.io/docs/entry/faq/organization/ip-restriction" target="_blank">permitted IP address range</a></td>
+      <td>when the API key doesn't have the required permissions / when accessing from outside the <a href="https://mackerel.io/docs/entry/faq/organization/ip-restriction" target="_blank">permitted IP address range</a></td>
     </tr>
     <tr>
       <td>413</td>
@@ -198,7 +198,7 @@ Any JSON can be specified. However, the size of the data is limited to 100KB.
     </tr>
     <tr>
       <td>403</td>
-      <td>when the API doesn't have the required permissions / when accessing from outside the <a href="https://mackerel.io/docs/entry/faq/organization/ip-restriction" target="_blank">permitted IP address range</a></td>
+      <td>when the API key doesn't have the required permissions / when accessing from outside the <a href="https://mackerel.io/docs/entry/faq/organization/ip-restriction" target="_blank">permitted IP address range</a></td>
     </tr>
   </tbody>
 </table>
@@ -358,7 +358,7 @@ Any JSON can be specified. However, the size of the data is limited to 100KB.
     </tr>
     <tr>
       <td>403</td>
-      <td>when the API doesn't have the required permissions / when accessing from outside the <a href="https://mackerel.io/docs/entry/faq/organization/ip-restriction" target="_blank">permitted IP address range</a></td>
+      <td>when the API key doesn't have the required permissions / when accessing from outside the <a href="https://mackerel.io/docs/entry/faq/organization/ip-restriction" target="_blank">permitted IP address range</a></td>
     </tr>
     <tr>
       <td>413</td>
@@ -411,7 +411,7 @@ Any JSON can be specified. However, the size of the data is limited to 100KB.
     </tr>
     <tr>
       <td>403</td>
-      <td>when the API doesn't have the required permissions / when accessing from outside the <a href="https://mackerel.io/docs/entry/faq/organization/ip-restriction" target="_blank">permitted IP address range</a></td>
+      <td>when the API key doesn't have the required permissions / when accessing from outside the <a href="https://mackerel.io/docs/entry/faq/organization/ip-restriction" target="_blank">permitted IP address range</a></td>
     </tr>
   </tbody>
 </table>
@@ -567,7 +567,7 @@ Any JSON can be specified. However, the size of the data is limited to 100KB.
     </tr>
     <tr>
       <td>403</td>
-      <td>when the API doesn't have the required permissions / when accessing from outside the <a href="https://mackerel.io/docs/entry/faq/organization/ip-restriction" target="_blank">permitted IP address range</a></td>
+      <td>when the API key doesn't have the required permissions / when accessing from outside the <a href="https://mackerel.io/docs/entry/faq/organization/ip-restriction" target="_blank">permitted IP address range</a></td>
     </tr>
     <tr>
       <td>413</td>
@@ -620,7 +620,7 @@ Any JSON can be specified. However, the size of the data is limited to 100KB.
     </tr>
     <tr>
       <td>403</td>
-      <td>when the API doesn't have the required permissions / when accessing from outside the <a href="https://mackerel.io/docs/entry/faq/organization/ip-restriction" target="_blank">permitted IP address range</a></td>
+      <td>when the API key doesn't have the required permissions / when accessing from outside the <a href="https://mackerel.io/docs/entry/faq/organization/ip-restriction" target="_blank">permitted IP address range</a></td>
     </tr>
   </tbody>
 </table>

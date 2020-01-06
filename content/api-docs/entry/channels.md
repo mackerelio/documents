@@ -142,7 +142,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
     </tr>
     <tr>
       <td>403</td>
-      <td>when the API doesn't have the required permissions / when accessing from outside the <a href="https://mackerel.io/ja/docs/entry/faq/organization/ip-restriction" target="_blank">permitted IP address range</a></td>
+      <td>when the API key doesn't have the required permissions / when accessing from outside the <a href="https://mackerel.io/ja/docs/entry/faq/organization/ip-restriction" target="_blank">permitted IP address range</a></td>
     </tr>
   </tbody>
 </table>
@@ -201,7 +201,7 @@ The object contains the following keys
     </tr>
     <tr>
       <td>403</td>
-      <td>when the API doesn't have the required permissions / when accessing from outside the <a href="https://mackerel.io/ja/docs/entry/faq/organization/ip-restriction" target="_blank">permitted IP address range</a></td>
+      <td>when the API key doesn't have the required permissions / when accessing from outside the <a href="https://mackerel.io/ja/docs/entry/faq/organization/ip-restriction" target="_blank">permitted IP address range</a></td>
     </tr>
   </tbody>
 </table>
@@ -250,7 +250,7 @@ The object contains the following keys
     </tr>
     <tr>
       <td>403</td>
-      <td>when the API doesn't have the required permissions / when accessing from outside the <a href="https://mackerel.io/ja/docs/entry/faq/organization/ip-restriction" target="_blank">permitted IP address range</a></td>
+      <td>when the API key doesn't have the required permissions / when accessing from outside the <a href="https://mackerel.io/ja/docs/entry/faq/organization/ip-restriction" target="_blank">permitted IP address range</a></td>
     </tr>
   </tbody>
 </table>
@@ -297,7 +297,7 @@ The format is the same as the channel list API `<channel>`
     </tr>
     <tr>
       <td>403</td>
-      <td>when the API doesn't have the required permissions / when accessing from outside the <a href="https://mackerel.io/ja/docs/entry/faq/organization/ip-restriction" target="_blank">permitted IP address range</a></td>
+      <td>when the API key doesn't have the required permissions / when accessing from outside the <a href="https://mackerel.io/ja/docs/entry/faq/organization/ip-restriction" target="_blank">permitted IP address range</a></td>
     </tr>
   </tbody>
 </table>

@@ -80,7 +80,7 @@ The input is returned along with an ID.
     </tr>
     <tr>
       <td>403</td>
-      <td>When the API doesn't have the required permissions / when accessing from outside the <a href="https://mackerel.io/docs/entry/faq/organization/ip-restriction" target="_blank">permitted IP address range</a></td>
+      <td>when the API key doesn't have the required permissions / when accessing from outside the <a href="https://mackerel.io/docs/entry/faq/organization/ip-restriction" target="_blank">permitted IP address range</a></td>
     </tr>
   </tbody>
 </table>
@@ -209,7 +209,7 @@ The same as [Creating graph annotations](#create), the input is returned with an
     </tr>
     <tr>
       <td>403</td>
-      <td>When the API doesn't have the required permissions / when accessing from outside the <a href="https://mackerel.io/docs/entry/faq/organization/ip-restriction" target="_blank">permitted IP address range</a></td>
+      <td>when the API key doesn't have the required permissions / when accessing from outside the <a href="https://mackerel.io/docs/entry/faq/organization/ip-restriction" target="_blank">permitted IP address range</a></td>
     </tr>
   </tbody>
 </table>
@@ -250,7 +250,7 @@ The graph annotation before deletion will be returned.
     </tr>
     <tr>
       <td>403</td>
-      <td>When the API doesn't have the required permissions / when accessing from outside the <a href="https://mackerel.io/docs/entry/faq/organization/ip-restriction" target="_blank">permitted IP address range</a></td>
+      <td>when the API key doesn't have the required permissions / when accessing from outside the <a href="https://mackerel.io/docs/entry/faq/organization/ip-restriction" target="_blank">permitted IP address range</a></td>
     </tr>
   </tbody>
 </table>
