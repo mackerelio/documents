@@ -250,11 +250,11 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
   </div>
   
   <div class="index-row">
-    <h3><a href="entry/check-monitoring">Check monitoring</a></h3>
+    <h3><a href="entry/check-monitoring">Check Monitoring</a></h3>
     <div class="apis">  
       <div class="api">
         <a href="entry/check-monitoring#post">
-          <p>Posting monitoring check reports</p>
+          <p>Posting Monitoring Check Reports</p>
           <p class="type-post">
             <code>POST</code>
             <code>/api/v0/monitoring/checks/report</code>

@@ -5,7 +5,7 @@ URL: https://mackerel.io/api-docs/entry/check-monitoring
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel.io/atom/entry/10328537792368374608
 ---
 
-<h2 id="post">Posting monitoring check reports</h2>
+<h2 id="post">Posting Monitoring Check Reports</h2>
 
 This will transmit a monitoring check’s report to Mackerel. Monitoring reports are restricted to hosts.
 
