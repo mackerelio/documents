@@ -5,7 +5,7 @@ URL: https://mackerel.io/api-docs/entry/organizations
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel.io/atom/entry/10328537792368377880
 ---
 
-<h2 id="get">Get the information of the organization</h2>
+<h2 id="get">Getting Organization Information</h2>
 
 This will get the information of the organization.
 

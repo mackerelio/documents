@@ -778,7 +778,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
     <div class="apis">
       <div class="api">
         <a href="entry/organizations#get">
-          <p>Get organization information</p>
+          <p>Getting Organization Information</p>
           <p class="type-get">
             <code>GET</code>
             <code>/api/v0/org</code>
