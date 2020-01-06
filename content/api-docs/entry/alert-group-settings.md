@@ -7,21 +7,21 @@ CustomPath: alert-group-settings
 ---
 
 <ul class="internal-nav">
-  <li><a href="#list">List of alert group settings</a></li>
-  <li><a href="#create">Create alert group settings</a></li>
-  <li><a href="#get">Get alert group settings</a></li>
-  <li><a href="#update">Update alert group settings</a></li>
-  <li><a href="#delete">Delete alert group settings</a></li>
+  <li><a href="#list">Listing alert group settings</a></li>
+  <li><a href="#create">Creating alert group settings</a></li>
+  <li><a href="#get">Getting alert group settings</a></li>
+  <li><a href="#update">Updating alert group settings</a></li>
+  <li><a href="#delete">Deleting alert group settings</a></li>
 </ul>
 
-<h2 id="list">List of alert group settings</h2>
+<h2 id="list">Listing alert group settings</h2>
 
 <p class="type-get">
   <code>GET</code>
   <code>/api/v0/alert-group-settings</code>
 </p>
 
-### Required permissions for API key
+### Required permissions for the API key
 
 <ul class="api-key">
   <li class="label-read">Read</li>
@@ -44,34 +44,34 @@ CustomPath: alert-group-settings
 | `id`                   | *string*        | the alert group setting ID                                                 |
 | `name`                 | *string*        | the name of alert group setting                                             |
 | `memo`                 | *string*        | [optional] notes related to the alert group setting                        |
-| `serviceScopes`        | *array[string]* | [optional] scope for the target service. an array of the service name                     |
-| `roleScopes`           | *array[string]* | [optional] scope for the target role. an array of the role fullname [*1](#role-fullname) |
-| `monitorScopes`        | *array[string]* | [optional] scope for the target monitor. an array of the monitor ID                      |
-| `notificationInterval` | *number*        | [optional] the time interval (in minutes) for  re-sending notifications                    |
+| `serviceScopes`        | *array[string]* | [optional] scope for the target service. an array of service names                     |
+| `roleScopes`           | *array[string]* | [optional] scope for the target role. an array of role fullnames [*1](#role-fullname) |
+| `monitorScopes`        | *array[string]* | [optional] scope for the target monitor. an array of monitor IDs                      |
+| `notificationInterval` | *number*        | [optional] the time interval (in minutes) for  resending notifications                    |
 
 <h4 id="role-fullname">*1 role fullname</h4>
 
-A role's full name is an array in the format of `<service name>:<role name>`.
+A role's fullname is an array in the format of `<service name>:<role name>`.
 
 <table class="eg-table">
   <tbody>
   <tr>
     <th>e.g.</th>
-    <td>if a Hatena-Bookmark service db-master role <code>Hatena-Bookmark:db-master</code></td>
+    <td>if you have <code>Hatena-Bookmark</code> as the service and <code>db-master</code> as the role, its role fullname is <code>Hatena-Bookmark:db-master</code></td>
     </tr>
   </tbody>
 </table>
 
-available strings are `/^[A-Za-z0-9][A-Za-z0-9_-]+$/`
+available strings for the role fullname must match the following regular expression: `/^[A-Za-z0-9][A-Za-z0-9_-]+$/`
 
-<h2 id="create">Create alert group settings</h2>
+<h2 id="create">Creating alert group settings</h2>
 
 <p class="type-post">
   <code>POST</code>
   <code>/api/v0/alert-group-settings</code>
 </p>
 
-### Required permissions for API key
+### Required permissions for the API key
 
 <ul class="api-key">
   <li class="label-read">Read</li>
@@ -82,18 +82,18 @@ available strings are `/^[A-Za-z0-9][A-Za-z0-9_-]+$/`
 
 | KEY                    | TYPE            | DESCRIPTION                                                            |
 | --------               | ------          | -----------                                                            |
-| `name`                 | *string*        | the name of alert group setting                                             |
+| `name`                 | *string*        | the name of the alert group setting                                             |
 | `memo`                 | *string*        | [optional] notes related to the alert group setting                        |
-| `serviceScopes`        | *array[string]* | [optional] scope for the target service. an array of the service name                      |
-| `roleScopes`           | *array[string]* | [optional] scope for the target role. an array of the role's fullname [*1](#role-fullname) |
-| `monitorScopes`        | *array[string]* | [optional] scope for the target monitor. an array of the monitor ID                      |
-| `notificationInterval` | *number*        | [optional] the time interval (in minutes) for  re-sending notifications                    |
+| `serviceScopes`        | *array[string]* | [optional] scope for the target service. an array of service names                      |
+| `roleScopes`           | *array[string]* | [optional] scope for the target role. an array of the role's fullnames [*1](#role-fullname) |
+| `monitorScopes`        | *array[string]* | [optional] scope for the target monitor. an array of monitor IDs                      |
+| `notificationInterval` | *number*        | [optional] the time interval (in minutes) for  resending notifications                    |
 
 ### Response
 
 #### Success
 
-Information for the created alert group setting is returned. The format is the same as that which can be obtained with [List of alert group settings](#list).
+The created alert group setting is returned. The response format is the same as that which can be obtained with [Listing alert group settings](#list).
 
 #### Error
 
@@ -107,7 +107,7 @@ Information for the created alert group setting is returned. The format is the s
   <tbody>
     <tr>
       <td>400</td>
-      <td>when the input is in a format that can’t be received</td>
+      <td>when the input is in a format that can't be received</td>
     </tr>
     <tr>
       <td>403</td>
@@ -116,14 +116,14 @@ Information for the created alert group setting is returned. The format is the s
   </tbody>
 </table>
 
-<h2 id="get">Get alert group settings</h2>
+<h2 id="get">Getting alert group settings</h2>
 
 <p class="type-get">
   <code>GET</code>
   <code>/api/v0/alert-group-settings/<em>&lt;alertGroupSettingId&gt;</em></code>
 </p>
 
-### Required permissions for API key
+### Required permissions for the API key
 
 <ul class="api-key">
   <li class="label-read">Read</li>
@@ -133,7 +133,7 @@ Information for the created alert group setting is returned. The format is the s
 
 #### Success
 
-Information for the alert group setting is returned. The format is the same as that which can be obtained with [List of alert group settings](#list).
+The alert group setting is returned. The response format is the same as that which can be obtained with [Listing alert group settings](#list).
 
 #### Error
 
@@ -147,7 +147,7 @@ Information for the alert group setting is returned. The format is the same as t
   <tbody>
     <tr>
       <td>400</td>
-      <td>when the input is in a format that can’t be received</td>
+      <td>when the input is in a format that can't be received</td>
     </tr>
     <tr>
       <td>404</td>
@@ -160,14 +160,14 @@ Information for the alert group setting is returned. The format is the same as t
   </tbody>
 </table>
 
-<h2 id="update">Update alert group settings</h2>
+<h2 id="update">Updating alert group settings</h2>
 
 <p class="type-put">
   <code>PUT</code>
   <code>/api/v0/alert-group-settings/<em>&lt;alertGroupSettingId&gt;</em></code>
 </p>
 
-### Required permissions for API key
+### Required permissions for the API key
 
 <ul class="api-key">
   <li class="label-read">Read</li>
@@ -176,13 +176,13 @@ Information for the alert group setting is returned. The format is the same as t
 
 ### Input
 
-The same format as [Create alert group settings](#create).
+The same format as [Creating alert group settings](#create).
 
 ### Response
 
 #### Success
 
-Information for the updated alert group setting is returned. The format is the same as that which can be obtained with [List of alert group settings](#list).
+The updated alert group setting is returned. The response format is the same as that which can be obtained with [Listing alert group settings](#list).
 
 #### Error
 
@@ -196,7 +196,7 @@ Information for the updated alert group setting is returned. The format is the s
   <tbody>
     <tr>
       <td>400</td>
-      <td>when the input is in a format that can’t be received</td>
+      <td>when the input is in a format that can't be received</td>
     </tr>
     <tr>
       <td>404</td>
@@ -209,14 +209,14 @@ Information for the updated alert group setting is returned. The format is the s
   </tbody>
 </table>
 
-<h2 id="delete">Delete alert group settings</h2>
+<h2 id="delete">Deleting alert group settings</h2>
 
 <p class="type-delete">
   <code>DELETE</code>
   <code>/api/v0/alert-group-settings/<em>&lt;alertGroupSettingId&gt;</em></code>
 </p>
 
-### Required permissions for API key
+### Required permissions for the API key
 
 <ul class="api-key">
   <li class="label-read">Read</li>
@@ -227,7 +227,7 @@ Information for the updated alert group setting is returned. The format is the s
 
 #### Success
 
-Information for the deleted alert group setting is returned. The format is the same as that which can be obtained with [List of alert group settings](#list).
+The deleted alert group setting is returned. The response format is the same as that which can be obtained with [Listing alert group settings](#list).
 
 #### Error
 
@@ -241,7 +241,7 @@ Information for the deleted alert group setting is returned. The format is the s
   <tbody>
     <tr>
       <td>400</td>
-      <td>when the input is in a format that can’t be received</td>
+      <td>when the input is in a format that can't be received</td>
     </tr>
     <tr>
       <td>404</td>
