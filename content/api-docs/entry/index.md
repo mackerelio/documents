@@ -744,7 +744,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
     <div class="apis">
       <div class="api">
         <a href="entry/invitations#list">
-          <p>List of invitations</p>
+          <p>Listing Invitations</p>
           <p class="type-get">
             <code>GET</code>
             <code>/api/v0/invitations</code>
@@ -753,7 +753,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
       </div>
       <div class="api">
         <a href="entry/invitations#create">
-          <p>Creating an invitation</p>
+          <p>Creating Invitations</p>
           <p class="type-post">
             <code>POST</code>
             <code>/api/v0/invitations</code>
@@ -762,7 +762,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
       </div>
       <div class="api">
         <a href="entry/invitations#revoke">
-          <p>Cancelling an invitation</p>
+          <p>Cancelling Invitations</p>
           <p class="type-post">
             <code>POST</code>
             <code>/api/v0/invitations/revoke</code>
