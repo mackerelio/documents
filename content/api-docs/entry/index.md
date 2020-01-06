@@ -472,11 +472,11 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
   </div>
 
   <div class="index-row">
-    <h3><a href="entry/channels">Notification channels</a></h3>
+    <h3><a href="entry/channels">Notification Channels</a></h3>
     <div class="apis">
       <div class="api">
         <a href="entry/channels#get">
-          <p>Get notification channel list</p>
+          <p>Getting Notification Channels</p>
           <p class="type-get">
             <code>GET</code>
             <code>/api/v0/channels</code>
@@ -485,7 +485,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
       </div>
       <div class="api">
         <a href="entry/channels#create">
-          <p>Register notification channels</p>
+          <p>Registering Notification Channels</p>
           <p class="type-post">
             <code>POST</code>
             <code>/api/v0/channels</code>
@@ -494,7 +494,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
       </div>
       <div class="api">
         <a href="entry/channels#delete">
-          <p>Delete notification channels</p>
+          <p>Deleting Notification Channels</p>
           <p class="type-delete">
             <code>DELETE</code>
             <code>/api/v0/channels/<em>&lt;channelId&gt;</em></code>
