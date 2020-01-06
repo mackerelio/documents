@@ -7,14 +7,14 @@ CustomPath: alert-group-settings
 ---
 
 <ul class="internal-nav">
-  <li><a href="#list">Listing alert group settings</a></li>
-  <li><a href="#create">Creating alert group settings</a></li>
-  <li><a href="#get">Getting alert group settings</a></li>
-  <li><a href="#update">Updating alert group settings</a></li>
-  <li><a href="#delete">Deleting alert group settings</a></li>
+  <li><a href="#list">Listing Alert Group Settings</a></li>
+  <li><a href="#create">Creating Alert Group Settings</a></li>
+  <li><a href="#get">Getting Alert Group Settings</a></li>
+  <li><a href="#update">Updating Alert Group Settings</a></li>
+  <li><a href="#delete">Deleting Alert Group Settings</a></li>
 </ul>
 
-<h2 id="list">Listing alert group settings</h2>
+<h2 id="list">Listing Alert Group Settings</h2>
 
 <p class="type-get">
   <code>GET</code>
@@ -64,7 +64,7 @@ A role's fullname is an array in the format of `<service name>:<role name>`.
 
 available strings for the role fullname must match the following regular expression: `/^[A-Za-z0-9][A-Za-z0-9_-]+$/`
 
-<h2 id="create">Creating alert group settings</h2>
+<h2 id="create">Creating Alert Group Settings</h2>
 
 <p class="type-post">
   <code>POST</code>
@@ -93,7 +93,7 @@ available strings for the role fullname must match the following regular express
 
 #### Success
 
-The created alert group setting is returned. The response format is the same as that which can be obtained with [Listing alert group settings](#list).
+The created alert group setting is returned. The response format is the same as that which can be obtained with [Listing Alert Group Settings](#list).
 
 #### Error
 
@@ -116,7 +116,7 @@ The created alert group setting is returned. The response format is the same as 
   </tbody>
 </table>
 
-<h2 id="get">Getting alert group settings</h2>
+<h2 id="get">Getting Alert Group Settings</h2>
 
 <p class="type-get">
   <code>GET</code>
@@ -133,7 +133,7 @@ The created alert group setting is returned. The response format is the same as 
 
 #### Success
 
-The alert group setting is returned. The response format is the same as that which can be obtained with [Listing alert group settings](#list).
+The alert group setting is returned. The response format is the same as that which can be obtained with [Listing Alert Group Settings](#list).
 
 #### Error
 
@@ -160,7 +160,7 @@ The alert group setting is returned. The response format is the same as that whi
   </tbody>
 </table>
 
-<h2 id="update">Updating alert group settings</h2>
+<h2 id="update">Updating Alert Group Settings</h2>
 
 <p class="type-put">
   <code>PUT</code>
@@ -176,13 +176,13 @@ The alert group setting is returned. The response format is the same as that whi
 
 ### Input
 
-The same format as [Creating alert group settings](#create).
+The same format as [Creating Alert Group Settings](#create).
 
 ### Response
 
 #### Success
 
-The updated alert group setting is returned. The response format is the same as that which can be obtained with [Listing alert group settings](#list).
+The updated alert group setting is returned. The response format is the same as that which can be obtained with [Listing Alert Group Settings](#list).
 
 #### Error
 
@@ -209,7 +209,7 @@ The updated alert group setting is returned. The response format is the same as 
   </tbody>
 </table>
 
-<h2 id="delete">Deleting alert group settings</h2>
+<h2 id="delete">Deleting Alert Group Settings</h2>
 
 <p class="type-delete">
   <code>DELETE</code>
@@ -227,7 +227,7 @@ The updated alert group setting is returned. The response format is the same as 
 
 #### Success
 
-The deleted alert group setting is returned. The response format is the same as that which can be obtained with [Listing alert group settings](#list).
+The deleted alert group setting is returned. The response format is the same as that which can be obtained with [Listing Alert Group Settings](#list).
 
 #### Error
 

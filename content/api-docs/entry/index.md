@@ -571,11 +571,11 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
   </div>
 
   <div class="index-row">
-    <h3><a href="entry/alert-group-settings">Alert group settings</a></h3>
+    <h3><a href="entry/alert-group-settings">Alert Group Settings</a></h3>
     <div class="apis">
       <div class="api">
         <a href="entry/alert-group-settings#list">
-          <p>Listing alert group settings</p>
+          <p>Listing Alert Group Settings</p>
           <p class="type-get">
             <code>GET</code>
             <code>/api/v0/alert-group-settings</code>
@@ -584,7 +584,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
       </div>
       <div class="api">
         <a href="entry/alert-group-settings#create">
-          <p>Creating alert group settings</p>
+          <p>Creating Alert Group Settings</p>
           <p class="type-post">
             <code>POST</code>
             <code>/api/v0/alert-group-settings</code>
@@ -593,7 +593,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
       </div>
       <div class="api">
         <a href="entry/alert-group-settings#get">
-          <p>Getting alert group settings</p>
+          <p>Getting Alert Group Settings</p>
           <p class="type-get">
             <code>GET</code>
             <code>/api/v0/alert-group-settings/<em>&lt;alertGroupSettingId&gt;</em></code>
@@ -602,7 +602,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
       </div>
       <div class="api">
         <a href="entry/alert-group-settings#update">
-          <p>Updating alert group settings</p>
+          <p>Updating Alert Group Settings</p>
           <p class="type-put">
             <code>PUT</code>
             <code>/api/v0/alert-group-settings/<em>&lt;alertGroupSettingId&gt;</em></code>
@@ -611,7 +611,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
       </div>
       <div class="api">
         <a href="entry/alert-group-settings#delete">
-          <p>Deleting alert group settings</p>
+          <p>Deleting Alert Group Settings</p>
           <p class="type-delete">
             <code>DELETE</code>
             <code>/api/v0/alert-group-settings/<em>&lt;alertGroupSettingId&gt;</em></code>
