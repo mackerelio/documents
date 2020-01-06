@@ -110,7 +110,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
     <div class="apis">
       <div class="api">
         <a href="entry/hosts#create">
-          <p>Registering host information</p>
+          <p>Registering Host Information</p>
           <p class="type-post">
             <code>POST</code>
             <code>/api/v0/hosts</code>
@@ -119,7 +119,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
       </div>
       <div class="api">
         <a href="entry/hosts#get">
-          <p>Getting host information</p>
+          <p>Getting Host Information</p>
           <p class="type-get">
             <code>GET</code>
             <code>/api/v0/hosts/<em>&lt;hostId&gt;</em></code>
@@ -128,7 +128,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
       </div>
       <div class="api">
         <a href="entry/hosts#update-information">
-          <p>Updating host information</p>
+          <p>Updating Host Information</p>
           <p class="type-put">
             <code>PUT</code>
             <code>/api/v0/hosts/<em>&lt;hostId&gt;</em></code>
@@ -137,7 +137,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
       </div>
       <div class="api">
         <a href="entry/hosts#update-status">
-          <p>Updating host status</p>
+          <p>Updating Host Status</p>
           <p class="type-post">
             <code>POST</code>
             <code>/api/v0/hosts/<em>&lt;hostId&gt;</em>/status</code>
@@ -146,7 +146,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
       </div>
       <div class="api">
         <a href="entry/hosts#update-roles">
-          <p>Updating host roles</p>
+          <p>Updating Host Roles</p>
           <p class="type-put">
             <code>PUT</code>
             <code>/api/v0/hosts/<em>&lt;hostId&gt;</em>/role-fullnames</code>
@@ -155,7 +155,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
       </div>
       <div class="api">
         <a href="entry/hosts#retire">
-          <p>Retiring hosts</p>
+          <p>Retiring Hosts</p>
           <p class="type-post">
             <code>POST</code>
             <code>/api/v0/hosts/<em>&lt;hostId&gt;</em>/retire</code>
@@ -164,7 +164,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
       </div>
       <div class="api">
         <a href="entry/hosts#list">
-          <p>List of hosts</p>
+          <p>Listing Hosts</p>
           <p class="type-get">
             <code>GET</code>
             <code>/api/v0/hosts</code>
@@ -173,7 +173,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
       </div>
       <div class="api">
         <a href="entry/hosts#metric-names">
-          <p>List of metric names</p>
+          <p>Listing Metric Names</p>
           <p class="type-get">
             <code>GET</code>
             <code>/api/v0/hosts/<em>&lt;hostId&gt;</em>/metric-names</code>
