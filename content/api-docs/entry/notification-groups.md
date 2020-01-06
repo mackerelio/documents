@@ -6,14 +6,14 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
 ---
 
 <ul class="internal-nav">
-  <li><a href="#create">Register notification groups</a></li>
-  <li><a href="#get">Get notification group list</a></li>
-  <li><a href="#update">Update notification groups</a></li>
-  <li><a href="#delete">Delete notification groups</a></li>
+  <li><a href="#create">Registering Notification Groups</a></li>
+  <li><a href="#get">Getting Notification Groups</a></li>
+  <li><a href="#update">Updating Notification Groups</a></li>
+  <li><a href="#delete">Deleting Notification Groups</a></li>
 </ul>
 
 
-<h2 id="create">Register notification groups</h2>
+<h2 id="create">Registering Notification Groups</h2>
 
 <p class="type-post">
   <code>POST</code>
@@ -129,7 +129,7 @@ The input is returned along with an ID.
 
 `<notification-group>` is the same as the registration API response
 
-<h2 id="update">Update notification groups</h2>
+<h2 id="update">Updating Notification Groups</h2>
 
 <p class="type-put">
   <code>PUT</code>
@@ -184,7 +184,7 @@ The same object as registration API response
   </tbody>
 </table>
 
-<h2 id="delete">Delete notification groups</h2>
+<h2 id="delete">Deleting Notification Groups</h2>
 The organization’s default notification group can not be deleted
 
 <p class="type-delete">

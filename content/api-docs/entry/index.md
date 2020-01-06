@@ -505,11 +505,11 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
   </div>
 
   <div class="index-row">
-    <h3><a href="entry/notification-groups">Notification groups</a></h3>
+    <h3><a href="entry/notification-groups">Notification Groups</a></h3>
     <div class="apis">
       <div class="api">
         <a href="entry/notification-groups#create">
-          <p>Register notification groups</p>
+          <p>Registering Notification Groups</p>
           <p class="type-post">
             <code>POST</code>
             <code>/api/v0/notification-groups</code>
@@ -518,7 +518,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
       </div>
       <div class="api">
         <a href="entry/notification-groups#get">
-          <p>Get notification group list</p>
+          <p>Getting Notification Groups</p>
           <p class="type-get">
             <code>GET</code>
             <code>/api/v0/notification-groups</code>
@@ -527,7 +527,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
       </div>
       <div class="api">
         <a href="entry/notification-groups#update">
-          <p>Update notification groups</p>
+          <p>Updating Notification Groups</p>
           <p class="type-put">
             <code>PUT</code>
             <code>/api/v0/notification-groups/<em>&lt;notificationGroupId&gt;</em></code>
@@ -536,7 +536,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
       </div>
       <div class="api">
         <a href="entry/notification-groups#delete">
-          <p>Delete notification groups</p>
+          <p>Deleting Notification Groups</p>
           <p class="type-delete">
             <code>DELETE</code>
             <code>/api/v0/notification-groups/<em>&lt;notificationGroupId&gt;</em></code>
