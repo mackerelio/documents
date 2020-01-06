@@ -104,7 +104,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 
 ```json
 {
-  "reason": <text>
+  "reason": "<text>"
 }
 ```
 `reason` フィールドには任意のテキストを記述できます。このフィールドは必須項目です。
@@ -120,8 +120,8 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
   "id": "<alertId>",
   "status": "OK",
   ...
-  "reason": <reason>,
-  "opendAt": <opendAt>,
+  "reason": "<reason>",
+  "openedAt": <openedAt>,
   "closedAt": <closedAt>
 }
 ```
