@@ -6,7 +6,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
 ---
 
 <ul class="internal-nav">
-  <li><a href="#create">Register monitor configurations</a></li>
+  <li><a href="#create">Registering Monitor Configurations</a></li>
   <li><a href="#list">Listing Monitor Configurations</a></li>
   <li><a href="#get">Getting Monitor Configurations</a></li>
   <li><a href="#update">Updating Monitor Configurations</a></li>
@@ -14,7 +14,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
 </ul>
 
 
-<h2 id="create">Register monitor configurations</h2>
+<h2 id="create">Registering Monitor Configurations</h2>
 
 Monitors for various types of metrics as well as external monitors will be registered with Mackerel.
 The input procedure varies depending on the monitoring target.
@@ -848,7 +848,7 @@ When `scopes` and `excludeScopes` are updated, the JSON which was designated wil
 
 #### Success
 
-The updated monitoring configurations are returned. The same format as [Register monitor configurations](#create).
+The updated monitoring configurations are returned. The same format as [Registering Monitor Configurations](#create).
 
 #### Error
 

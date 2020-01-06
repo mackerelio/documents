@@ -383,7 +383,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
     <div class="apis">
       <div class="api">
         <a href="entry/monitors#create">
-          <p>Register monitor configurations</p>
+          <p>Registering Monitor Configurations</p>
           <p class="type-post">
             <code>POST</code>
             <code>/api/v0/monitors</code>

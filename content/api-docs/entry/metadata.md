@@ -9,7 +9,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
   <li><a href="#hostget">Getting Host Metadata</a></li>
   <li><a href="#hostput">Registering/Updating Host Metadata</a></li>
   <li><a href="#hostdelete">Deleting Host Metadata</a></li>
-  <li><a href="#hostlist">List of host metadata</a></li>
+  <li><a href="#hostlist">Listing Host Metadata</a></li>
   <li><a href="#serviceget">Getting Service Metadata</a></li>
   <li><a href="#serviceput">Registering/Updating Service Metadata</a></li>
   <li><a href="#servicedelete">Deleting Service Metadata</a></li>
