@@ -188,7 +188,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
     <div class="apis">
       <div class="api">
         <a href="entry/host-metrics#post">
-          <p>Posting metrics</p>
+          <p>Posting Metrics</p>
           <p class="type-post">
             <code>POST</code>
             <code>/api/v0/tsdb</code>
@@ -197,7 +197,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
       </div>
       <div class="api">
         <a href="entry/host-metrics#get">
-          <p>Getting host metrics</p>
+          <p>Getting Host Metrics</p>
           <p class="type-get">
             <code>GET</code>
             <code>/api/v0/hosts/<em>&lt;hostId&gt;</em>/metrics</code>
@@ -206,7 +206,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
       </div>
       <div class="api">
         <a href="entry/host-metrics#get-latest">
-        <p>Getting latest metrics</p>
+        <p>Getting Latest Metrics</p>
           <p class="type-get">
             <code>GET</code>
             <code>/api/v0/tsdb/latest</code>
@@ -215,7 +215,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
       </div>
       <div class="api">
         <a href="entry/host-metrics#post-graphdef">
-          <p>Posting graph definitions</p>
+          <p>Posting Graph Definitions</p>
           <p class="type-post">
             <code>POST</code>
             <code>/api/v0/graph-defs/create</code>

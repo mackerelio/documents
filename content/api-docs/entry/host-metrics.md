@@ -6,14 +6,14 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
 ---
 
 <ul class="internal-nav">
-  <li><a href="#post">Posting metrics</a></li>
-  <li><a href="#get">Getting host metrics</a></li>
-  <li><a href="#get-latest">Getting latest metrics</a></li>
-  <li><a href="#post-graphdef">Posting graph definitions</a></li>
+  <li><a href="#post">Posting Metrics</a></li>
+  <li><a href="#get">Getting Host Metrics</a></li>
+  <li><a href="#get-latest">Getting Latest Metrics</a></li>
+  <li><a href="#post-graphdef">Posting Graph Definitions</a></li>
 </ul>
 
 
-<h2 id="post">Posting metrics</h2>
+<h2 id="post">Posting Metrics</h2>
 
 This will transmit metrics collected by the agent to Mackerel. Recorded values can be checked using web graphs, etc.
 
@@ -79,7 +79,7 @@ If old values are being transmitted to the API, the values on the Mackerel inter
 
 ----------------------------------------------
 
-<h2 id="get">Getting host metrics</h2>
+<h2 id="get">Getting Host Metrics</h2>
 
 This will get metric values that have been posted by the agent.
 
@@ -150,7 +150,7 @@ With the following parameter, the metric name and time span to be collected will
 
 ----------------------------------------------
 
-<h2 id="get-latest">Getting latest metrics</h2>
+<h2 id="get-latest">Getting Latest Metrics</h2>
 
 This will get the latest metrics posted by the agent from each host. 
 
@@ -215,7 +215,7 @@ With the following parameter, host and metric names will be assigned.
 
 ----------------------------------------------
 
-<h2 id="post-graphdef">Posting graph definitions</h2>
+<h2 id="post-graphdef">Posting Graph Definitions</h2>
 
 This will transmit custom metric graph definitions to Mackerel.
 
