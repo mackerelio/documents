@@ -13,15 +13,18 @@ Azureインテグレーションの設定方法や対応Azureサービス一覧�
 ## 取得メトリック
 AzureインテグレーションのVirtual Machine対応で取得できるメトリックは以下の通りです。 `メトリック` の説明に関しては<a href="https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-supported-metrics#a-namemicrosoftcomputevirtualmachinesamicrosoftcomputevirtualmachines" target="_blank">Azureのドキュメント</a>をご確認ください。
 
-最大で7個のメトリックが取得されます。
+最大で11個のメトリックが取得されます。
 
 |グラフ名|メトリック|Mackerel上のメトリック名|単位|Aggregation Type|
 |:---|:---|:---|:---|:---|
 |CPU|Percentage CPU|azure.virtual_machine.cpu.percent|percentage|Average|
+|CPU Credits Remaining/Consumed|CPU Credits Remaining<br>CPU Credits Consumed|azure.virtual_machine.cpu_credits.remaining<br>azure.virtual_machine.cpu_credits.consumed|float|Average|
 |Disk IOPS|Disk Read Operations/Sec<br>Disk Write Operations/Sec|azure.virtual_machine.disk_iops.read<br>azure.virtual_machine.disk_iops.write|iops|Average|
 |Network In/Out|Network In<br>Network Out|azure.virtual_machine.network.in<br>azure.virtual_machine.network.out|bytes|Total|
+|Network In/Out Total|Network In Total<br>Network Out Total|azure.virtual_machine.network_total.in<br>azure.virtual_machine.network_total.out|bytes|Total|
 |Disk Read/Write Bytes|Disk Read Bytes<br>Disk Write Bytes|azure.virtual_machine.disk.read<br>azure.virtual_machine.disk.write|bytes|Total|
 
+- CPU Credits Remaining/Consumedメトリックについては[バーストに対応したインスタンスタイプ](https://blogs.technet.microsoft.com/jpitpro/2017/09/22/introducing-b-series-our-new-burstable-vm-size/)のみ取得します
 
 ## mackerel-agent との併用について
 

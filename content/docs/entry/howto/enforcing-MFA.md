@@ -2,6 +2,7 @@
 Title: Mandatory 2-Step Authentication
 Date: 2019-12-19T14:00:00+09:00
 URL: https://mackerel.io/docs/entry/howto/enforcing-MFA
+EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/26006613488505656
 ---
 
 ## What is mandatory 2-Step Authentication?

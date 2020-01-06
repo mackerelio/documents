@@ -2,6 +2,7 @@
 Title: 2段階認証の設定を強制する
 Date: 2019-12-19T14:00:00+09:00
 URL: https://mackerel.io/ja/docs/entry/howto/enforcing-MFA
+EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/26006613488491909
 ---
 
 ## 2段階認証の必須化とは
