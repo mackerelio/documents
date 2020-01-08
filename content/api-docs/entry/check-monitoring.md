@@ -5,7 +5,7 @@ URL: https://mackerel.io/api-docs/entry/check-monitoring
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel.io/atom/entry/10328537792368374608
 ---
 
-<h2 id="post">Posting monitoring check reports</h2>
+<h2 id="post">Posting Monitoring Check Reports</h2>
 
 This will transmit a monitoring check’s report to Mackerel. Monitoring reports are restricted to hosts.
 
@@ -14,7 +14,7 @@ This will transmit a monitoring check’s report to Mackerel. Monitoring reports
   <code>/api/v0/monitoring/checks/report</code>
 </p>
 
-Implementation described in [Adding a monitoring check item by script](https://mackerel.io/docs/entry/custom-checks) is being used. The agent will periodically transmit the list of configured monitoring checks to the [Updating host information](/api-docs/entry/hosts#update-information) API and, any monitoring checks that aren’t included in that list and do not have open alerts will be deleted from Mackerel at that time.
+Implementation described in [Adding a monitoring check item by script](https://mackerel.io/docs/entry/custom-checks) is being used. The agent will periodically transmit the list of configured monitoring checks to the [Updating Host Information](/api-docs/entry/hosts#update-information) API and, any monitoring checks that aren’t included in that list and do not have open alerts will be deleted from Mackerel at that time.
 If a new monitoring timestamp has already been posted with the same name/host, posting will be ignored.
 
 

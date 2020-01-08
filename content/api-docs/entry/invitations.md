@@ -6,13 +6,13 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
 ---
 
 <ul class="internal-nav">
-  <li><a href="#list">List of invitations</a></li>
-  <li><a href="#create">Creating an invitation</a></li>
-  <li><a href="#revoke">Cancelling an invitation</a></li>
+  <li><a href="#list">Listing Invitations</a></li>
+  <li><a href="#create">Creating Invitations</a></li>
+  <li><a href="#revoke">Cancelling Invitations</a></li>
 </ul>
 
 
-<h2 id="list">List of invitations</h2>
+<h2 id="list">Listing Invitations</h2>
 
 <p class="type-get">
   <code>GET</code>
@@ -44,7 +44,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
 | `expiresAt` | *number* | the expiration date of the invitation (in epoch seconds)                                    |
 
 
-<h2 id="create">Creating an invitation</h2>
+<h2 id="create">Creating Invitations</h2>
 
 Specify an email address and permission and invite a user to the organization.
 
@@ -110,7 +110,7 @@ The expiresAt field (in epoch seconds) is given and returned with the input. Inv
   </tbody>
 </table>
 
-<h2 id="revoke">Cancelling an invitation</h2>
+<h2 id="revoke">Cancelling Invitations</h2>
 
 Specify the email address and cancel an invitation to the organization.
 

@@ -6,18 +6,18 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
 ---
 
 <ul class="internal-nav">
-  <li><a href="#hostget">Get host metadata</a></li>
-  <li><a href="#hostput">Register/Update host metadata</a></li>
-  <li><a href="#hostdelete">Delete host metadata</a></li>
-  <li><a href="#hostlist">List of host metadata</a></li>
-  <li><a href="#serviceget">Get service metadata</a></li>
-  <li><a href="#serviceput">Register/Update service metadata</a></li>
-  <li><a href="#servicedelete">Delete service metadata</a></li>
-  <li><a href="#servicelist">List of service metadata</a></li>
-  <li><a href="#roleget">Get role metadata</a></li>
-  <li><a href="#roleput">Register/Update role metadata</a></li>
-  <li><a href="#roledelete">Delete role metadata</a></li>
-  <li><a href="#rolelist">List of role metadata</a></li>
+  <li><a href="#hostget">Getting Host Metadata</a></li>
+  <li><a href="#hostput">Registering/Updating Host Metadata</a></li>
+  <li><a href="#hostdelete">Deleting Host Metadata</a></li>
+  <li><a href="#hostlist">Listing Host Metadata</a></li>
+  <li><a href="#serviceget">Getting Service Metadata</a></li>
+  <li><a href="#serviceput">Registering/Updating Service Metadata</a></li>
+  <li><a href="#servicedelete">Deleting Service Metadata</a></li>
+  <li><a href="#servicelist">Listing Service Metadata</a></li>
+  <li><a href="#roleget">Getting Role Metadata</a></li>
+  <li><a href="#roleput">Registering/Updating Role Metadata</a></li>
+  <li><a href="#roledelete">Deleting Role Metadata</a></li>
+  <li><a href="#rolelist">Listing Role Metadata</a></li>
 </ul>
 
 <h2 id="metadata">Metadata</h2>
@@ -41,7 +41,7 @@ You can obtain and register JSON (object, array, string, number, boolean, null) 
 
 Numeric characters,` _`, and `-` can be used with letters of the alphabet (`[-a-zA-Z0-9_]+`). However, a namespace that begins with `mackerel` will be used by the Mackerel system. 
 
-<h2 id="hostget">Get host metadata</h2>
+<h2 id="hostget">Getting Host Metadata</h2>
 
 Obtain registered metadata.
 
@@ -85,7 +85,7 @@ JSON of the registered data is returned. The date and time of metadata’s last 
   </tbody>
 </table>
 
-<h2 id="hostput">Register/Update host metadata</h2>
+<h2 id="hostput">Registering/Updating Host Metadata</h2>
 
 Create and update arbitrary JSON as metadata of the host.
 
@@ -150,7 +150,7 @@ Any JSON can be specified. However, the size of the data is limited to 100KB.
   </tbody>
 </table>
 
-<h2 id="hostdelete">Delete host metadata</h2>
+<h2 id="hostdelete">Deleting Host Metadata</h2>
 
 <p class="type-delete">
   <code>DELETE</code>
@@ -203,7 +203,7 @@ Any JSON can be specified. However, the size of the data is limited to 100KB.
   </tbody>
 </table>
 
-<h2 id="hostlist">List host metadata</h2>
+<h2 id="hostlist">Listing Host Metadata</h2>
 
 <p class="type-get">
   <code>GET</code>
@@ -266,7 +266,7 @@ Any JSON can be specified. However, the size of the data is limited to 100KB.
   </tbody>
 </table>
 
-<h2 id="serviceget">Get service metadata</h2>
+<h2 id="serviceget">Getting Service Metadata</h2>
 
 Obtain registered metadata.
 
@@ -306,7 +306,7 @@ JSON of the registered data is returned. The date and time of metadata’s last 
   </tbody>
 </table>
 
-<h2 id="serviceput">Register/Update service metadata</h2>
+<h2 id="serviceput">Registering/Updating Service Metadata</h2>
 
 Create and update arbitrary JSON as metadata of the service.
 
@@ -367,7 +367,7 @@ Any JSON can be specified. However, the size of the data is limited to 100KB.
   </tbody>
 </table>
 
-<h2 id="servicedelete">Delete service metadata</h2>
+<h2 id="servicedelete">Deleting Service Metadata</h2>
 
 <p class="type-delete">
   <code>DELETE</code>
@@ -416,7 +416,7 @@ Any JSON can be specified. However, the size of the data is limited to 100KB.
   </tbody>
 </table>
 
-<h2 id="servicelist">List of service metadata</h2>
+<h2 id="servicelist">Listing Service Metadata</h2>
 
 <p class="type-get">
   <code>GET</code>
@@ -475,7 +475,7 @@ Any JSON can be specified. However, the size of the data is limited to 100KB.
   </tbody>
 </table>
 
-<h2 id="roleget">Get role metadata</h2>
+<h2 id="roleget">Getting Role Metadata</h2>
 
 Obtain registered metadata.
 
@@ -515,7 +515,7 @@ JSON of the registered data is returned. The date and time of metadata’s last 
   </tbody>
 </table>
 
-<h2 id="roleput">Register/Update role metadata</h2>
+<h2 id="roleput">Registering/Updating Role Metadata</h2>
 
 Create and update arbitrary JSON as metadata of the role.
 
@@ -576,7 +576,7 @@ Any JSON can be specified. However, the size of the data is limited to 100KB.
   </tbody>
 </table>
 
-<h2 id="roledelete">Delete role metadata</h2>
+<h2 id="roledelete">Deleting Role Metadata</h2>
 
 <p class="type-delete">
   <code>DELETE</code>
@@ -625,7 +625,7 @@ Any JSON can be specified. However, the size of the data is limited to 100KB.
   </tbody>
 </table>
 
-<h2 id="rolelist">List of role metadata</h2>
+<h2 id="rolelist">Listing Role Metadata</h2>
 
 <p class="type-get">
   <code>GET</code>
