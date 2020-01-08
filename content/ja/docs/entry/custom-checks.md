@@ -15,7 +15,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 - チェック監視は、プラグインを用いてホスト内で OK / NG (`CRITICAL` or `WARNING` or `UNKNOWN`) の判定をおこない、その判定結果を Mackerel に対して投稿します
     - チェック監視の場合、メトリックが投稿されていないためグラフが描画されません。監視ルールの設定も、Webコンソールからはおこなうことはできず、ホストにインストールされた mackerel-agent に対して設定を追加することでおこないます
 
-[f:id:mackerelio:20191126110514p:plain]
+[f:id:mackerelio:20200108154244p:plain]
 
 チェック監視を mackerel-agent で利用するためには、目的の監視処理をおこない、その結果に応じた終了ステータスを返却するプログラムが必要です。そのために利用できるものとして、公式のチェックプラグイン集を用意しています。詳しくは、[チェック監視に公式チェックプラグイン集を使う](https://mackerel.io/ja/docs/entry/howto/mackerel-check-plugins)をご覧ください。
 

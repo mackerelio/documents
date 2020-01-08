@@ -14,7 +14,7 @@ As for **metric monitoring**, which monitors the thresholds of metric values ​
 - With check monitoring, plugins are used to make OK / NG (`CRITICAL` or `WARNING` or `UNKNOWN`) judgments within the host and post the results to Mackerel.
     - Graphs are not displayed because metrics are not posted. Monitors can not be configured from the web console, but configurations can be added to mackerel-agent installed on the host.
 
-[f:id:mackerelio:20191126110656p:plain]
+[f:id:mackerelio:20200108154244p:plain]
 
 In order to use check monitoring with mackerel-agent, a program is required that performs the target monitoring process and returns the exit status according to the results. For this reason, an official check plugin pack is available. For more information please refer to [Using the official check plugin pack for check monitoring](https://mackerel.io/docs/entry/howto/mackerel-check-plugins).
 
