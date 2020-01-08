@@ -22,7 +22,7 @@ This section covers registering downtime in Mackerel.
   <code>/api/v0/downtimes</code>
 </p>
 
-### Required permissions for API key
+### Required permissions for the API key
 <ul class="api-key">
   <li class="label-read">Read</li>
   <li class="label-write">Write</li>
@@ -121,7 +121,7 @@ Usable characters are /^[A-Za-z0-9][A-Za-z0-9_-]+$/.
   <code>/api/v0/downtimes</code>
 </p>
 
-### Required permissions for API key
+### Required permissions for the API key
 <ul class="api-key">
   <li class="label-read">Read</li>
 </ul>
@@ -140,7 +140,7 @@ Usable characters are /^[A-Za-z0-9][A-Za-z0-9_-]+$/.
   <code>/api/v0/downtimes/<em>&lt;downtimeId&gt;</em></code>
 </p>
 
-### Required permissions for API key
+### Required permissions for the API key
 <ul class="api-key">
   <li class="label-read">Read</li>
   <li class="label-write">Write</li>
@@ -209,7 +209,7 @@ This will delete the downtime corresponding to the designated ID.
   <code>/api/v0/downtimes/<em>&lt;downtimeId&gt;</em></code>
 </p>
 
-### Required permissions for API key
+### Required permissions for the API key
 <ul class="api-key">
   <li class="label-read">Read</li>
   <li class="label-write">Write</li>

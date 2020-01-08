@@ -24,7 +24,7 @@ This section covers creating dashboards.
   <code>/api/v0/dashboards</code>
 </p>
 
-### Required permissions for API key
+### Required permissions for the API key
 <ul class="api-key">
   <li class="label-read">Read</li>
   <li class="label-write">Write</li>
@@ -93,7 +93,7 @@ The dashboard that was created is returned.
   <code>/api/v0/dashboards/<em>&lt;dashboardId&gt;</em></code>
 </p>
 
-### Required permissions for API key
+### Required permissions for the API key
 <ul class="api-key">
   <li class="label-read">Read</li>
 </ul>
@@ -127,7 +127,7 @@ Same as [Creating Dashboards](#create).
   <code>/api/v0/dashboards/<em>&lt;dashboardId&gt;</em></code>
 </p>
 
-### Required permissions for API key
+### Required permissions for the API key
 <ul class="api-key">
   <li class="label-read">Read</li>
   <li class="label-write">Write</li>
@@ -180,7 +180,7 @@ This will delete the dashboard corresponding to the designated ID.
   <code>/api/v0/dashboards/<em>&lt;dashboardId&gt;</em></code>
 </p>
 
-### Required permissions for API key
+### Required permissions for the API key
 <ul class="api-key">
   <li class="label-read">Read</li>
   <li class="label-write">Write</li>
@@ -219,7 +219,7 @@ The dashboard before deletion is returned, same as [Creating Dashboards](#create
   <code>/api/v0/dashboards</code>
 </p>
 
-### Required permissions for API key
+### Required permissions for the API key
 <ul class="api-key">
   <li class="label-read">Read</li>
 </ul>

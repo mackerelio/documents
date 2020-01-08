@@ -19,7 +19,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
   <code>/api/v0/invitations</code>
 </p>
 
-### Required permissions for API key
+### Required permissions for the API key
 
 <ul class="api-key">
   <li class="label-read">Read</li>
@@ -53,7 +53,7 @@ Specify an email address and permission and invite a user to the organization.
   <code>/api/v0/invitations</code>
 </p>
 
-### Required permissions for API key
+### Required permissions for the API key
 
 <ul class="api-key">
   <li class="label-read">Read</li>
@@ -119,7 +119,7 @@ Specify the email address and cancel an invitation to the organization.
   <code>/api/v0/invitations/revoke</code>
 </p>
 
-### Required permissions for API key
+### Required permissions for the API key
 
 <ul class="api-key">
   <li class="label-read">Read</li>

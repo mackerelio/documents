@@ -50,7 +50,7 @@ Obtain registered metadata.
   <code>/api/v0/hosts/<em>&lt;hostId&gt;</em>/metadata/<em>&lt;namespace&gt</em></code>
 </p>
 
-### Required permissions for API key
+### Required permissions for the API key
 
 <ul class="api-key border-none">
   <li class="label-read">Read</li>
@@ -94,7 +94,7 @@ Create and update arbitrary JSON as metadata of the host.
   <code>/api/v0/hosts/<em>&lt;hostId&gt;</em>/metadata/<em>&lt;namespace&gt</em></code>
 </p>
 
-### Required permissions for API key
+### Required permissions for the API key
 
 <ul class="api-key">
   <li class="label-read">Read</li>
@@ -157,7 +157,7 @@ Any JSON can be specified. However, the size of the data is limited to 100KB.
   <code>/api/v0/hosts/<em>&lt;hostId&gt;</em>/metadata/<em>&lt;namespace&gt</em></code>
 </p>
 
-### Required permissions for API key
+### Required permissions for the API key
 
 <ul class="api-key">
   <li class="label-read">Read</li>
@@ -210,7 +210,7 @@ Any JSON can be specified. However, the size of the data is limited to 100KB.
   <code>/api/v0/hosts/<em>&lt;hostId&gt;</em>/metadata</code>
 </p>
 
-### Required permissions for API key
+### Required permissions for the API key
 
 <ul class="api-key">
   <li class="label-read">Read</li>
@@ -275,7 +275,7 @@ Obtain registered metadata.
   <code>/api/v0/services/<em>&lt;serviceName&gt;</em>/metadata/<em>&lt;namespace&gt</em></code>
 </p>
 
-### Required permissions for API key
+### Required permissions for the API key
 
 <ul class="api-key border-none">
   <li class="label-read">Read</li>
@@ -315,7 +315,7 @@ Create and update arbitrary JSON as metadata of the service.
   <code>/api/v0/services/<em>&lt;serviceName&gt;</em>/metadata/<em>&lt;namespace&gt</em></code>
 </p>
 
-### Required permissions for API key
+### Required permissions for the API key
 
 <ul class="api-key">
   <li class="label-read">Read</li>
@@ -374,7 +374,7 @@ Any JSON can be specified. However, the size of the data is limited to 100KB.
   <code>/api/v0/services/<em>&lt;serviceName&gt;</em>/metadata/<em>&lt;namespace&gt</em></code>
 </p>
 
-### Required permissions for API key
+### Required permissions for the API key
 
 <ul class="api-key">
   <li class="label-read">Read</li>
@@ -423,7 +423,7 @@ Any JSON can be specified. However, the size of the data is limited to 100KB.
   <code>/api/v0/services/<em>&lt;serviceName&gt;</em>/metadata</code>
 </p>
 
-### Required permissions for API key
+### Required permissions for the API key
 
 <ul class="api-key">
   <li class="label-read">Read</li>
@@ -484,7 +484,7 @@ Obtain registered metadata.
   <code>/api/v0/services/<em>&lt;serviceName&gt;</em>/roles/<em>&lt;roleName&gt;</em>/metadata/<em>&lt;namespace&gt</em></code>
 </p>
 
-### Required permissions for API key
+### Required permissions for the API key
 
 <ul class="api-key border-none">
   <li class="label-read">Read</li>
@@ -524,7 +524,7 @@ Create and update arbitrary JSON as metadata of the role.
   <code>/api/v0/services/<em>&lt;serviceName&gt;</em>/roles/<em>&lt;roleName&gt;</em>/metadata/<em>&lt;namespace&gt</em></code>
 </p>
 
-### Required permissions for API key
+### Required permissions for the API key
 
 <ul class="api-key">
   <li class="label-read">Read</li>
@@ -583,7 +583,7 @@ Any JSON can be specified. However, the size of the data is limited to 100KB.
   <code>/api/v0/services/<em>&lt;serviceName&gt;</em>/roles/<em>&lt;roleName&gt;</em>/metadata/<em>&lt;namespace&gt</em></code>
 </p>
 
-### Required permissions for API key
+### Required permissions for the API key
 
 <ul class="api-key">
   <li class="label-read">Read</li>
@@ -632,7 +632,7 @@ Any JSON can be specified. However, the size of the data is limited to 100KB.
   <code>/api/v0/services/<em>&lt;serviceName&gt;</em>/roles/<em>&lt;roleName&gt;</em>/metadata</code>
 </p>
 
-### Required permissions for API key
+### Required permissions for the API key
 
 <ul class="api-key">
   <li class="label-read">Read</li>
