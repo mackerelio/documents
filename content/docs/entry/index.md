@@ -102,6 +102,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackere
     <li><a href="https://mackerel.io/docs/entry/howto/alerts/line"><strong>LINE notifications</strong><span>sending alert notifications to LINE</span></a></li>
     <li><a href="https://mackerel.io/docs/entry/howto/alerts/twilio"><strong>Twilio notifications</strong><span>sending alert notifications to Twilio</span></a></li>
     <li><a href="https://mackerel.io/docs/entry/howto/alerts/microsoft-teams"><strong>Microsoft Teams notifications</strong><span>sending alert notifications to Microsoft Teams</span></a></li>
+    <li><a href="https://mackerel.io/docs/entry/howto/alerts/eventbridge"><strong>Amazon EventBridge notifications</strong><span>sending alert notifications to Amazon EventBridge</span></a></li>
 </ul>
 </section>
 
