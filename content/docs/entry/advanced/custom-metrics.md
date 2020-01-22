@@ -113,7 +113,8 @@ The following is a description of each item.
 
 | Key | Description |
 | ---- | ---- |
-| `graphs.{graph}.label` | The label for the graph corresponding to custom metrics {graph}.* . {graph} may contain dots (`.`). |
+| `graphs.{graph}` | The name for the graph corresponding to custom metrics {graph}.* . {graph} may contain dots (`.`). Additionally, wildcard characters (`*` and `#`) can also be used. For more details, refer to the [API specs (v0) / Posting Graph Definitions help page.](https://mackerel.io/api-docs/entry/host-metrics#post-graphdef) |
+| `graphs.{graph}.label` | The label for the graph corresponding to custom metrics {graph}.* . |
 | `graphs.{graph}.unit` | The type of value displayed in the graph corresponding to custom metrics {graph}.* . Must be one of the following: "float", "integer", "percentage", "bytes", "bytes/sec", or "iops". |
 | `graphs.{graph}.metrics` | An array of metric definitions of custom metrics {graph}.* . |
 
@@ -122,7 +123,7 @@ Metric definitions contain the following items:
 
 | Key | Description |
 | ---- | ---- | 
-| `name` | Specifies that this definition corresponds to custom metric {graph}.{name} . {name} cannot contain dots (`.`). Any alphanumeric characters, hyphen (`-`), or underscore (`_`) can be used（/[-a-zA-Z0-9_]/）. Additionally, wildcard characters (`*` and `#`) can also be used. For more details, refer to the [API specs (v0) / Posting Graph Definitions help page.](https://mackerel.io/api-docs/entry/host-metrics#post-graphdef)| 
+| `name` | Specifies that this definition corresponds to custom metric {graph}.{name} . {name} cannot contain dots (`.`). Any alphanumeric characters, hyphen (`-`), or underscore (`_`) can be used（/[-a-zA-Z0-9_]/）. | 
 | `label` | The label of the series corresponding to custom metric {graph}.{name} . | 
 | `stacked` | Indicates whether or not the series of custom metrics {graph}.{name} is in stacked display mode. If false it will be displayed in line segment mode. |
 

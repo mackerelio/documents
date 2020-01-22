@@ -241,7 +241,7 @@ This will transmit custom metric graph definitions to Mackerel.
 
 | KEY           | TYPE     | DESCRIPTION                                    |
 | --------------| -------- | ---------------------------------------------- |
-| `name`        | *string* | The part of the metric name before the last `.`. Must begin with `custom.`. |
+| `name`        | *string* | The part of the metric name before the last `.`. Must begin with `custom.`. Additionally, wildcard characters (`*` and `#`) can also be used. |
 | `displayName` | *string* | [optional] The graph's display name.                                 |
 | `unit`        | *string* | [optional] The type of the graph's values. Possible values are "float", "integer", "percentage", "bytes", "bytes/sec", and "iops" |
 | `metrics`     | *array*  | `[ <metric>, <metric>, ...]` For metrics, refer to the chart below. |
@@ -251,7 +251,7 @@ metric: an object that contains the following keys.
 
 | KEY           | TYPE      | DESCRIPTION              |
 | ------------- | --------- | ------------------------ |
-| `name`        | *string*  | The custom metric name. Must begin with `<graphDef>.name` followed by a `.` and a name (which may contain `[-a-zA-Z0-9_]+` , and wildcard characters  `*` , or `#` ) |
+| `name`        | *string*  | The custom metric name. Must begin with `<graphDef>.name` followed by a `.` and a name (which may contain `[-a-zA-Z0-9_]+` , and wildcard characters  `*` , or `#` ). When using a wildcard, it must be included in the `<graphDef>.name` as well. |
 | `displayName` | *string*  | [optional] The metric display name. If omitted, everything after the last `.` in the metric name will be used. By writing `%1` or `%2` , it's possible to use the first and second phrases that match the wildcard characters in the metric name.|
 | `isStacked`   | *boolean* | Indicates whether the metrics in question are displayed in stacked format or not. If false, the graph will be displayed in line format. |
 
@@ -324,7 +324,7 @@ metric: an object that contains the following keys.
 - Custom metric names must begin with `custom.`. (mackerel-agent will automatically attach `custom.`)
 - Wildcard characters (`*` or `#`) can be used independently in the names of graph definition metrics either between two dots `.` or after the last dot.
 - A wildcard characters will match a sequence of characters excluding dots (i.e. [-a-zA-Z0-9_]+).
-- The wildcard `#` can only be used once. The whole metric name should look like this `^custom(\.([-a-zA-Z0-9_]+|[*#]))+$`.
+- Also, the wildcard `#`, which can be used for making groups in the legend (described later), can only be used once. The whole metric name should look like this `^custom(\.([-a-zA-Z0-9_]+|[*#]))+$`.
 
 If using the wildcard `#`, the graph's legend will be grouped by the portions of the metric names that matched with `#`. For example if there are two definitions `custom.docker.cpu.#.user` and `custom.docker.cpu.#.system`, and six custom metrics
 
