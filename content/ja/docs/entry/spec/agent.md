@@ -248,7 +248,6 @@ use_mountpoint = true
 - `-pidfile=/var/run/mackerel-agent.pid` PIDファイルへのパスです。
 - `-root=/var/lib/mackerel-agent` mackerel-agentの状態を記録するディレクトリへのパスです。現在はホストを識別するidファイルのみが置かれます。
 - `-role=<service>:<role>` ホストに割り当てるロールおよびサービスを指定します。
-- `-once` 一度だけメトリックの収集を実行して標準出力に表示します。投稿は行われません。
 - `-diagnostic` エージェント自身のメトリックを収集して投稿します。
 
 <h2 id="faq">FAQ</h2>
@@ -285,6 +284,14 @@ mackerel-agent configtest
 ```
 
 設定ファイル（ `mackerel-agent.conf` ）のシンタックスチェックをおこなえます。
+
+### once
+
+```
+mackerel-agent once
+```
+
+一度だけメトリックの収集を実行して標準出力に表示します。投稿は行われません。
 
 ## initスクリプト用設定ファイル
 
