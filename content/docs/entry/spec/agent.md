@@ -248,7 +248,6 @@ The following startup options can be specified. If the same items are specified 
 - `-pidfile=/var/run/mackerel-agent.pid` This is the PID file path.
 - `-root=/var/lib/mackerel-agent` This is the path of the directory where the status of the mackerel-agent is recorded. Currently only the ID file that identifies the host will be placed here.
 - `-role=<service>:<role>` This designates the roles and services a role is assigned to.
-- `-once` this will execute metric collection and display standard output just one time. Metrics will not be posted.
 - `-diagnostic` metrics for the agent itself will be collected and posted.
 
 <h2 id="faq">FAQ</h2>
@@ -286,6 +285,14 @@ mackerel-agent configtest
 
 Check the syntax of the configuration file (`mackerel-agent.conf`).
 
+
+### once
+
+```
+mackerel-agent once
+```
+
+This will execute metric collection and display standard output just one time. Metrics will not be posted.
 
 ## Settings file for init script
 
