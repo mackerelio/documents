@@ -53,11 +53,11 @@ The log file will be checked periodically and any lines that have already been c
 
 If log rotation occurs, the log is read over from the beginning. To be exact, if the file size has become smaller since the previous check, it is considered a log rotation and a read-over from the beginning occurs.  
 
-## Checking error output in Mackerel
+## Checking detected log output in Mackerel
 
-By attaching the `--return` option to the command, error script will be outputted and its contents will be transmitted to Mackerel. When using this option, please be careful so that no concealed information gets transmitted.
+By adding the `--return` option to the command, you can output the contents of detected log output in stdout which will be sent to Mackerel and visualized in the host's details and the Alerts screen. When using this option, please use caution so that sensitive information does not get transmitted unintentionally.
 
-Additionally, if error output is too long there is a chance it may be shortened.
+Furthermore, if the size of the transmitted contents is too large, the display may be trimmed down. For more details regarding specifications, refer to the [Check plugin specs](https://mackerel.io/docs/entry/custom-checks#plugin).
 
 ## Assigning a threshold and exclusion pattern for event frequency
 

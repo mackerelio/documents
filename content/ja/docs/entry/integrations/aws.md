@@ -37,6 +37,8 @@ AWSインテグレーションの連携方法には2つの方法があります�
 ロールには以下のポリシーを付与します。
 FullAccess権限を付与しないようにご注意ください。また、ひとつのIAMロールに対してアタッチ可能なポリシーの上限は10個に制限されており、これはAWSの仕様です。必要に応じて、AWSに対して上限緩和申請をおこなってください。
 
+AWSインテグレーションで使用する全ての権限を設定する場合、<a href="#iam_policy">AWSインテグレーションで使用するIAMポリシー</a> の項目を参照下さい。
+
 - `AmazonRedshiftReadOnlyAccess`
 - `AmazonEC2ReadOnlyAccess`
 - `AmazonElastiCacheReadOnlyAccess`
@@ -93,6 +95,8 @@ FullAccess権限を付与しないようにご注意ください。また、ひ�
 <h4>3. ポリシーを付与する</h4>
 作成したユーザーに、以下のポリシーを付与します。
 FullAccess権限を付与しないようにご注意ください。また、ひとつのIAMユーザーに対してアタッチ可能なポリシーの上限は10個に制限されており、これはAWSの仕様です。必要に応じて、AWSに対して上限緩和申請をおこなってください。
+
+AWSインテグレーションで使用する全ての権限を設定する場合、<a href="#iam_policy">AWSインテグレーションで使用するIAMポリシー</a> の項目を参照下さい。
 
 - `AmazonRedshiftReadOnlyAccess`
 - `AmazonEC2ReadOnlyAccess`
@@ -154,6 +158,69 @@ Mackerelの設定画面でタグを指定します。連携ホスト数を確認
 キーや値にコロン `:` やカンマ `,` などを含む場合は、クォート (`"` または `'`) で囲ってください。例えば、キーが`service:role`で値が`foo,bar`である場合は、`"service:role": "foo,bar"`のように指定します。
 
 ![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20160617/20160617104510.png)
+
+<h2 id="iam_policy">AWS インテグレーションで使用するIAMポリシー</h2>
+
+以下の権限リストはAWSインテグレーションで使用する全ての権限を指定しています。
+独自のポリシーを作成してアタッチを行うか、Inline Policiesにて指定します。
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Action": [
+                "apigateway:Get*",
+                "application-autoscaling:DescribeScalableTargets",
+                "batch:Describe*",
+                "batch:ListJobs",
+                "cloudfront:Get*",
+                "cloudfront:List*",
+                "cloudwatch:Get*",
+                "cloudwatch:List*",
+                "dynamodb:Describe*",
+                "dynamodb:List*",
+                "ec2:DescribeInstances",
+                "ecs:DescribeClusters",
+                "ecs:List*",
+                "elasticache:Describe*",
+                "elasticache:ListTagsForResource",
+                "elasticfilesystem:Describe*",
+                "elasticloadbalancing:Describe*",
+                "es:DescribeElasticsearchDomain",
+                "es:List*",
+                "firehose:DescribeDeliveryStream",
+                "firehose:List*",
+                "iam:GetUser",
+                "kinesis:Describe*",
+                "kinesis:List*",
+                "lambda:GetFunctionConfiguration",
+                "lambda:List*",
+                "rds:Describe*",
+                "rds:ListTagsForResource",
+                "redshift:Describe*",
+                "s3:ListBucket",
+                "s3:GetBucketLocation",
+                "s3:GetBucketLogging",
+                "s3:GetBucketTagging",
+                "s3:GetEncryptionConfiguration",
+                "s3:GetMetricsConfiguration",
+                "ses:DescribeActiveReceiptRuleSet",
+                "ses:GetSendQuota",
+                "ses:ListIdentities",
+                "sqs:GetQueueAttributes",
+                "sqs:List*",
+                "states:DescribeStateMachine",
+                "states:List*"
+            ],
+            "Effect": "Allow",
+            "Resource": "*"
+        }
+    ]
+}
+```
+
+
 
 <h2 id="faq">FAQ</h2>
 

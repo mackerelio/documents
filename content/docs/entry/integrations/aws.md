@@ -33,7 +33,9 @@ Select `Another AWS account` from the role types.
 
 Click the 'Create' button in the [Mackerel AWS Integration Settings page](https://mackerel.io/my?tab=awsIntegration) to get an External ID. Enter `217452466226` as the authorized Account ID. Select the `Require external ID` option and specify the External ID obtained from Mackerel's configuration page. The Mackerel system uses the account to access the user’s role. With this configuration, only the Mackerel account can access the created role. Create the role without checking `Require MFA`.
 
-Grant the policies listed below for the role. Be careful not to grant FullAccess permission. Also, the maximum number of policies that can be attached to one IAM role is limited to 10. This is a specification of AWS. If necessary, please apply to AWS for an upper limit extension.
+Grant the policies listed below for the role. Be careful not to grant FullAccess permission. Also, the maximum number of policies that can be attached to one IAM role is limited to 10. This is a specification of AWS. If necessary, you can apply to AWS for an upper limit extension.
+
+If you want to configure all the permissions used in AWS Integration, please reference this list of <a href="#iam_policy">IAM policies used in AWS Integration</a>.
 
 - `AmazonEC2ReadOnlyAccess`
 - `AmazonElastiCacheReadOnlyAccess`
@@ -44,7 +46,7 @@ Grant the policies listed below for the role. Be careful not to grant FullAccess
 - `AmazonDynamoDBReadOnlyAccess`
 - `CloudFrontReadOnlyAccess`
 - `apigateway:GET / apigateway:OPTIONS`
-    - Specify resource policy like `arn:aws:apigateway:ap-northeast-1::/*` . You can not limit integration target by resource policy.
+    - Specify a resource policy like so `arn:aws:apigateway:ap-northeast-1::/*` . You can not limit integration targets by resource policy.
 - `AmazonKinesisReadOnlyAccess`
 - `AmazonS3ReadOnlyAccess`
 - `AmazonESReadOnlyAccess`
@@ -56,12 +58,12 @@ Grant the policies listed below for the role. Be careful not to grant FullAccess
 - `batch:Describe* / batch:List*
 - `CloudWatchReadOnlyAccess`（When only configuring CloudFront, API Gateway, Kinesis, S3, ES, ECS, SES, Step Functions, EFS, Firehose or Batch）
 
-Additionally, in AWS Integration you can filter using tags as is mentioned further down, but if you filter using tags with ElastiCache or SQS, additional policies need to be added.
+Furthmore, AWS Integration lets you filter using tags (as is mentioned further down in this document). However, additional policies need to be added to use this function with ElastiCache or SQS.
 For more details, refer to <a href="#tag">Filter by tag</a>.
 
 ![](https://cdn-ak.f.st-hatena.com/images/fotolife/a/andyyk/20171025/20171025153435.png)
 
-Fillin the name and create a role.
+Fill in the name and create a role.
 We recommend assigning an easy-to-understand name like `MackerelAWSIntegrationRole`  for use in Mackerel’s AWS integration.
 
 <h4>2. Register an ARN role in Mackerel</h4>
@@ -83,7 +85,9 @@ Register the Access Key ID and Secret Access Key (displayed on the screen when c
 ![](https://cdn-ak.f.st-hatena.com/images/fotolife/a/andyyk/20160512/20160512162642.png)
 
 <h4>3. Granting policies</h4>
-Grant the policies listed below for the newly created user. Be careful not to grant FullAccess permission. Also, the maximum number of policies that can be attached to one IAM user is limited to 10. This is a specification of AWS. If necessary, please apply to AWS for an upper limit extension.
+Grant the policies listed below for the newly created user. Be careful not to grant FullAccess permission. Also, the maximum number of policies that can be attached to one IAM user is limited to 10. This is a specification of AWS. If necessary, you can apply to AWS for an upper limit extension.
+
+If you want to configure all the permissions used in AWS Integration, please reference this list of <a href="#iam_policy">IAM policies used in AWS Integration</a>.
 
 - `AmazonEC2ReadOnlyAccess`
 - `AmazonElastiCacheReadOnlyAccess`
@@ -94,7 +98,7 @@ Grant the policies listed below for the newly created user. Be careful not to gr
 - `AmazonDynamoDBReadOnlyAccess`
 - `CloudFrontReadOnlyAccess`
 - `apigateway:GET / apigateway:OPTIONS`
-    - Specify resource policy like `arn:aws:apigateway:ap-northeast-1::/*` . You can not limit integration target by resource policy.
+    - Specify a resource policy like so `arn:aws:apigateway:ap-northeast-1::/*` . You can not limit integration targets by resource policy.
 - `AmazonKinesisReadOnlyAccess`
 - `AmazonS3ReadOnlyAccess`
 - `AmazonESReadOnlyAccess`
@@ -106,7 +110,7 @@ Grant the policies listed below for the newly created user. Be careful not to gr
 - `batch:Describe* / batch:List*
 - `CloudWatchReadOnlyAccess`（When only configuring CloudFront, API Gateway, Kinesis, S3, ES, ECS, SES, Step Functions, EFS, Firehose or Batch）
 
-Additionally, in AWS Integration you can filter using tags as is mentioned further down, but if you filter using tags with ElastiCache or SQS, additional policies need to be added.
+Furthmore, AWS Integration lets you filter using tags (as is mentioned further down in this document). However, additional policies need to be added to use this function with ElastiCache or SQS.
 
 For more details, refer to <a href="#tag">Filter by tag</a>.
 
@@ -119,14 +123,14 @@ For more information, see [Setting up monitoring and alerts](https://mackerel.io
 <h2 id="tag">Filter by tag</h2>
 AWS cloud products to be registered as hosts and retrieve metrics can be filtered based on the tags appended by AWS.
 
-<h3>1. Assign permissions for tag retrieval</h3>
-In order to filter using an AWS tag, authority for the following actions is required in addition to the policies that were assigned for configuring AWS integration.
+<h3>1. Grant permissions for tag retrieval</h3>
+In order to filter using an AWS tag, permission for the following actions is required in addition to the policies that were granted to configure AWS integration.
 
 - `elasticache:ListTagsForResource`
 - `sqs:ListQueueTags`
 - `states:ListTagsForResource`
 
-Additionally, authority for the following action is needed to configure using the Access Key and Secret Access Key. It is not needed for configuration via the IAM role.
+Furthmore, permission for the following action is needed to configure using the Access Key and Secret Access Key. This is not needed for configuration via the IAM role.
 
 - `iam:GetUser` for linked users
 
@@ -136,11 +140,72 @@ To add policies, use the Inline Policies process.
 ![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20160616/20160616150059.png)
 
 <h3>2. Tag filtering settings</h3>
-You can specify tags on the Mackerel settings screen. Confirm the number of linked hosts and save your changes.
+You can specify tags from the Mackerel settings screen. Confirm the number of linked hosts and save your changes.
 
 By specifying the tag as `service:foo, service:bar`, instances tagged with a key of `service` and value of `foo` or a key of `service` and value of `bar` will be targeted. If the key or value contains characters such as a colon `:` or comma `,`, enclose it with quotation marks (`"` or `'`). For example, if the key is `service:role` and the value is `foo,bar`, specify it as `"service:role":"foo,bar"`.
 
 ![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20160622/20160622115520.png)
+
+<h2 id="iam_policy">IAM policies used in AWS Integration</h2>
+
+The following is a list of all permissions used in AWS Integration.
+Create and attach your own policies or specify them in Inline Policies.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Action": [
+                "apigateway:Get*",
+                "application-autoscaling:DescribeScalableTargets",
+                "batch:Describe*",
+                "batch:ListJobs",
+                "cloudfront:Get*",
+                "cloudfront:List*",
+                "cloudwatch:Get*",
+                "cloudwatch:List*",
+                "dynamodb:Describe*",
+                "dynamodb:List*",
+                "ec2:DescribeInstances",
+                "ecs:DescribeClusters",
+                "ecs:List*",
+                "elasticache:Describe*",
+                "elasticache:ListTagsForResource",
+                "elasticfilesystem:Describe*",
+                "elasticloadbalancing:Describe*",
+                "es:DescribeElasticsearchDomain",
+                "es:List*",
+                "firehose:DescribeDeliveryStream",
+                "firehose:List*",
+                "iam:GetUser",
+                "kinesis:Describe*",
+                "kinesis:List*",
+                "lambda:GetFunctionConfiguration",
+                "lambda:List*",
+                "rds:Describe*",
+                "rds:ListTagsForResource",
+                "redshift:Describe*",
+                "s3:ListBucket",
+                "s3:GetBucketLocation",
+                "s3:GetBucketLogging",
+                "s3:GetBucketTagging",
+                "s3:GetEncryptionConfiguration",
+                "s3:GetMetricsConfiguration",
+                "ses:DescribeActiveReceiptRuleSet",
+                "ses:GetSendQuota",
+                "ses:ListIdentities",
+                "sqs:GetQueueAttributes",
+                "sqs:List*",
+                "states:DescribeStateMachine",
+                "states:List*"
+            ],
+            "Effect": "Allow",
+            "Resource": "*"
+        }
+    ]
+}
+```
 
 <h2 id="faq">FAQ</h2>
 
