@@ -16,18 +16,19 @@ Please refer to the following page for Azure Integration configuration methods a
 
 The metrics obtainable with Redis Cache SQL Database support are as follows. For `Metric` explanations, refer to the <a href="https://docs.microsoft.com/en-us/azure/redis-cache/cache-how-to-monitor#available-metrics-and-reporting-intervals" target="_blank">Azure help page</a>.
 
-The maximum number of metrics obtainable is `15 + 15 × (number of Shards)`.
+The maximum number of metrics obtainable is `16 + 16 × (number of Shards)`.
 
 |Graph name|Metric|Metric name in Mackerel|Unit|Aggregation Type|
 |:---|:---|:---|:---|:---|
-|CPU|percentProcessorTime|azure.redis_cache.cpu.percent|Percent|Maximum|
-|Connected Clients|connectedclients|azure.redis_cache.connected_clients.count|Integer|Maximum|
-|Total Keys|totalkeys|azure.redis_cache.total_keys.count|Integer|Maximum|
-|Used Memory|used<br>used_rss|azure.redis_cache.memory.used<br>azure.redis_cache.memory.used_rss|Bytes|Maximum|
-|Server Load|serverLoad|azure.redis_cache.server.load|Percent|Maximum|
+|CPU|percentProcessorTime|azure.redis_cache.cpu.percent|percentage|Maximum|
+|Connected Clients|connectedclients|azure.redis_cache.connected_clients.count|integer|Maximum|
+|Total Keys|totalkeys|azure.redis_cache.total_keys.count|integer|Maximum|
+|Used Memory|used<br>used_rss|azure.redis_cache.memory.used<br>azure.redis_cache.memory.used_rss|bytes|Maximum|
+|Server Load|serverLoad|azure.redis_cache.server.load|percentage|Maximum|
 |Cache Read/Write|cacheRead<br>cacheWrite|azure.redis_cache.cache_io.read<br>azure.redis_cache.cache_io.write|bytes/sec|Maximum|
-|Cache Hits/Misses|cachehits<br>cachemisses|azure.redis_cache.cache.hits<br>azure.redis_cache.cache.misses|Integer|Total|
-|Commands|totalcommandsprocessed<br>getcommands<br>setcommands|azure.redis_cache.command.processed<br>azure.redis_cache.command.get<br>azure.redis_cache.command.set|Integer|Total|
-|Evicted/Expired Keys|evictedkeys<br>expiredkeys|azure.redis_cache.keys.evicted<br>azure.redis_cache.keys.expired|Integer|Total|
+|Cache Hits/Misses|cachehits<br>cachemisses|azure.redis_cache.cache.hits<br>azure.redis_cache.cache.misses|integer|Total|
+|Commands|totalcommandsprocessed<br>getcommands<br>setcommands|azure.redis_cache.command.processed<br>azure.redis_cache.command.get<br>azure.redis_cache.command.set|integer|Total|
+|Evicted/Expired Keys|evictedkeys<br>expiredkeys|azure.redis_cache.keys.evicted<br>azure.redis_cache.keys.expired|integer|Total|
+|Operations Per Second|operationsPerSecond|azure.redis_cache.operations.iops|iops|Maximum|
 
 Mackerel also supports metrics for each Shard of Redis Cache. For each of the above graphs, shard-level graphs are generated and the metrics of each shard can be seen all in one place.

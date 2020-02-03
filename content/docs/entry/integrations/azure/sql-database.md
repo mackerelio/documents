@@ -17,13 +17,13 @@ The maximum number of metrics obtainable is 12.
 
 |Graph name|Metric|Metric name in Mackerel|Unit|Aggregation Type|
 |:---|:---|:---|:---|:---|
-|CPU|cpu_percent|azure.sql_database.cpu_percent|Percent|Average|
-|Data Read|physical_data_read_percent|azure.sql_database.physical_data_read_percent|Percent|Average|
-|Log Write|log_write_percent|azure.sql_database.log_write_percent|Percent|Average|
-|DTU|dtu_used|azure.sql_database.dtu.used|Count|Average|
-|DTU Consumption|dtu_consumption_percent|azure.sql_database.dtu_consumption_percent|Percent|Average|
-|In-Memory OLTP storage|xtp_storage_percent|azure.sql_database.xtp_storage_percent|Percent|Average|
-|Connections|connection_successful<br>connection_failed<br>blocked_by_firewall|azure.sql_database.connection.successful<br>azure.sql_database.connection.failed<br>azure.sql_database.connection.blocked_by_firewall|Count|Total|
-|Deadlocks|deadlock|azure.sql_database.deadlock_count|Count|Total|
-|Workers|workers_percent|azure.sql_database.workers_percent|Percent|Average|
-|Sessions|sessions_percent|azure.sql_database.sessions_percent|Percent|Average|
+|CPU|cpu_percent|azure.sql_database.cpu_percent|percentage|Average|
+|Data Read|physical_data_read_percent|azure.sql_database.physical_data_read_percent|percentage|Average|
+|Log Write|log_write_percent|azure.sql_database.log_write_percent|percentage|Average|
+|DTU|dtu_used|azure.sql_database.dtu.used|float|Average|
+|DTU Consumption|dtu_consumption_percent|azure.sql_database.dtu_consumption_percent|percentage|Average|
+|In-Memory OLTP storage|xtp_storage_percent|azure.sql_database.xtp_storage_percent|percentage|Average|
+|Connections|connection_successful<br>connection_failed<br>blocked_by_firewall|azure.sql_database.connection.successful<br>azure.sql_database.connection.failed<br>azure.sql_database.connection.blocked_by_firewall|integer|Total|
+|Deadlocks|deadlock|azure.sql_database.deadlock_count|integer|Total|
+|Workers|workers_percent|azure.sql_database.workers_percent|percentage|Average|
+|Sessions|sessions_percent|azure.sql_database.sessions_percent|percentage|Average|
