@@ -10,6 +10,7 @@ Using AWS integration, you can manage AWS cloud products as a host of Mackerel a
 Each AWS cloud product will be registered as one host in Mackerel and therefore be counted as a billable host.
 The types of hosts consist of standard hosts for EC2 and micro hosts for other products.
 Additionally, the API of AWS will be called every 5 minutes for each targeted metric to be obtained. Please take note, for this reason, an [Amazon CloudWatch API usage fee](https://aws.amazon.com/jp/cloudwatch/pricing/) may occur.
+To limit the metrics that are retrieved, refer to the [Limit metrics retrieved](#select-metric) section below.
 
 Currently, the following AWS cloud products are supported. For information on obtaining metrics, please refer to each individual document.
 
@@ -119,6 +120,14 @@ For more details, refer to <a href="#tag">Filter by tag</a>.
 <h4>4. Verify the host</h4>
 After a short while, your AWS cloud product will be registered as a host in Mackerel and begin posting metrics. By creating monitoring rules, you can also be notified of alerts.
 For more information, see [Setting up monitoring and alerts](https://mackerel.io/docs/entry/howto/alerts).
+
+<h2 id="select-metric">Limit metrics retrieved</h2>
+
+You can reduce the number of hosts and cost of the CloudWatch API by limiting the metrics to be retrieved. The number of hosts is calculated using a moving average of the past month. For more information about that, refer to the FAQ page [Calculating the number of hosts](https://mackerel.io/docs/entry/faq/contracts/calculate-host-number).
+
+For example, you can specify to not retrieve a metric like `kinesis.latency.#.minimum` by simply unchecking the box as shown in the image below. This configuration limits the minimum for `GetRecords.Latency`,`PutRecord.Latency`, and `PutRecords.Latency` and reduces a maximum of 3 metrics.
+
+![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20200129/20200129193706.png)
 
 <h2 id="tag">Filter by tag</h2>
 AWS cloud products to be registered as hosts and retrieve metrics can be filtered based on the tags appended by AWS.

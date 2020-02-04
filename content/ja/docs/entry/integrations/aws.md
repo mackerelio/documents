@@ -10,6 +10,7 @@ AWSインテグレーションを用いると、AWSクラウド製品をMackerel
 AWSのクラウド製品1台が、Mackerelで1ホストとして登録され、Mackerelの課金対象のホスト数としてカウントされます。
 ホストの種類は、EC2についてはスタンダードホスト、その他の製品についてはマイクロホストとなります。
 また、5分ごとに取得対象となるメトリックの数だけAWSのAPIをコールして値を取得します。そのため、[Amazon CloudWatch API利用の料金](https://aws.amazon.com/jp/cloudwatch/pricing/)が発生する場合がありますのでご注意ください。
+取得するメトリックを制限したい場合は[取得するメトリックを制限する](#select-metric)の項目を参照してください。
 
 AWSインテグレーションは現在は以下のAWSクラウド製品に対応しています。取得メトリックなどについてはそれぞれのドキュメントを参照ください。
 
@@ -130,6 +131,14 @@ AWSインテグレーションで使用する全ての権限を設定する場�
 しばらくすると、ご利用のAWSクラウド製品がMackerelにホストとして登録され、メトリックが投稿されます。
 監視ルールを作成し、アラートを通知することもできます。
 詳しくは[監視・通知を設定する](https://mackerel.io/ja/docs/entry/howto/alerts)をご覧ください。
+
+<h2 id="select-metric">取得するメトリックを制限する</h2>
+
+一部のメトリックを取得しないように設定して、ホスト数を削減したりCloudWatch APIの料金を減らす事ができます。ホスト台数は過去一ヶ月分の移動平均での算出となります。詳しくは[ホスト数の計算方法について](https://mackerel.io/ja/docs/entry/faq/contracts/calculate-host-number)をご確認ください。
+
+例えばKinesisの`kinesis.latency.#.minimum`を取得しないようにする場合は以下のようにチェックボックスを外します。この設定により`GetRecords.Latency`、`PutRecord.Latency`、`PutRecords.Latency`それぞれのminimumの取得を制限し、最大で3メトリックを削減します。
+
+![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20200129/20200129193706.png)
 
 <h2 id="tag">タグで絞り込む</h2>
 ホストとして登録してメトリックを取得するAWSクラウド製品を、AWSで付与しているタグで絞り込めます。
