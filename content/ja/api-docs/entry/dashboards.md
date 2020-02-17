@@ -267,12 +267,13 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 | `layout` | *object* | [レイアウトを表すオブジェクト](#layout)                       |
 
 ### 数値ウィジェット
-| KEY      | TYPE     | DESCRIPTION                             |
-| -------- | -------- | --------------------------------------- |
-| `type`   | *string* | 固定文字列 `"value"`                    |
-| `title`  | *string* | ウィジェットのタイトル                  |
-| `metric` | *object* | [メトリックを表すオブジェクト](#metric) |
-| `layout` | *object* | [レイアウトを表すオブジェクト](#layout) |
+| KEY            | TYPE     | DESCRIPTION                                |
+| -------------- | -------- | ------------------------------------------ |
+| `type`         | *string* | 固定文字列 `"value"`                       |
+| `title`        | *string* | ウィジェットのタイトル                     |
+| `metric`       | *object* | [メトリックを表すオブジェクト](#metric)    |
+| `fractionSize` | *number* | [optional] 表示する小数点以下の桁数 (0–16) |
+| `layout`       | *object* | [レイアウトを表すオブジェクト](#layout)    |
 
 ### Markdownウィジェット
 | KEY        | TYPE     | DESCRIPTION                             |

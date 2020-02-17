@@ -47,6 +47,7 @@ mackerel-container-agentのセットアップ手順です。
 
 - [ECS](https://mackerel.io/ja/docs/entry/howto/install-agent/container/ecs)
 - [Kubernetes](https://mackerel.io/ja/docs/entry/howto/install-agent/container/kubernetes)
+- [EKS on Fargate(ベータ版機能)](https://mackerel.io/ja/docs/entry/howto/install-agent/container/eks-on-fargate)
 
 mackerel-container-agent v0.1.0以降では、下記の手順は非推奨となります。
 ご注意ください。

@@ -267,12 +267,13 @@ Objects representing widgets have the following formats for the differing types.
 | `layout` | *object* | [object representing the layout](#layout)                       |
 
 ### Value widget
-| KEY      | TYPE     | DESCRIPTION                             |
-| -------- | -------- | --------------------------------------- |
-| `type`   | *string* | fixed character string `"value"`                    |
-| `title`  | *string* | the title of the widget                  |
-| `metric` | *object* | [object representing a metric](#metric) |
-| `layout` | *object* | [object representing the layout](#layout) |
+| KEY            | TYPE     | DESCRIPTION                                               |
+| -------------- | -------- | --------------------------------------------------------- |
+| `type`         | *string* | fixed character string `"value"`                          |
+| `title`        | *string* | the title of the widget                                   |
+| `metric`       | *object* | [object representing a metric](#metric)                   |
+| `fractionSize` | *number* | [optional] decimal places displayed on the widget  (0–16) |
+| `layout`       | *object* | [object representing the layout](#layout)                 |
 
 ### Markdown widget
 | KEY        | TYPE     | DESCRIPTION                             |

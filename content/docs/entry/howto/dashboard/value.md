@@ -22,7 +22,7 @@ Next, select the type of metric to display in the widget. The following metrics 
 - Expression[^1]
 
 
-[f:id:mackerelio:20181113152627p:plain]
+[f:id:mackerelio:20200205130306p:plain]
 
 Once you’ve finished selecting, complete the process by clicking the create button.
 

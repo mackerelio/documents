@@ -26,7 +26,7 @@ env = { SAMPLE_KEY = "VALUE" }
 
 - 項目名: `plugin.metadata.`で始まっている必要があります。上のサンプルで`packages`に該当する部分はユーザーが任意に決めることができ、[ホストメタデータAPI](https://mackerel.io/ja/api-docs/entry/metadata)のネームスペース (namespace) に該当します。
 - `command`: mackerel-agentから実行されるコマンドを指定します。このコマンドは標準出力にJSONを出力する必要があります。
-- `execution_interval`: コマンドを実行する間隔を分で指定します。この設定は省略可能で、省略した場合は10分間隔で実行します。最小実行間隔は10分です。
+- `execution_interval`: コマンドを実行する間隔を分で指定します。エージェントのバージョンがv0.67.0以降であれば`"10m"`や`"1h"`のような表現でも記述できます。この設定は省略可能で、省略した場合は10分間隔で実行します。最小実行間隔は10分です。
 - `env`: commandに渡す環境変数を指定できます。TOMLの[Table][]もしくは[Inline Table][]で指定します。
 
 

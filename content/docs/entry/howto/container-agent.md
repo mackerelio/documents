@@ -46,6 +46,7 @@ The setup process for mackerel-container-agent varies for each container orchest
 
 - [ECS](https://mackerel.io/docs/entry/howto/install-agent/container/ecs)
 - [Kubernetes](https://mackerel.io/docs/entry/howto/install-agent/container/kubernetes)
+- [EKS on Fargate(BETA)](https://mackerel.io/docs/entry/howto/install-agent/container/eks-on-fargate)
 
 Please note that the following processes are deprecated for mackerel-container-agent v0.1.0 or later.
 

@@ -23,7 +23,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 
 のいずれかです。
 
-[f:id:mackerelio:20181102152039p:plain]
+[f:id:mackerelio:20200205130122p:plain]
 
 選択が完了したら作成ボタンでウィジェットを作成します。
 
