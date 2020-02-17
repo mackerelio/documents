@@ -127,7 +127,7 @@ You can reduce the number of hosts and cost of the CloudWatch API by limiting th
 
 For example, you can specify to not retrieve a metric like `kinesis.latency.#.minimum` by simply unchecking the box as shown in the image below. This configuration limits the minimum for `GetRecords.Latency`,`PutRecord.Latency`, and `PutRecords.Latency` and reduces a maximum of 3 metrics.
 
-![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20200129/20200129193706.png)
+![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20200217/20200217172630.png)
 
 <h2 id="tag">Filter by tag</h2>
 AWS cloud products to be registered as hosts and retrieve metrics can be filtered based on the tags appended by AWS.
