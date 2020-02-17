@@ -24,7 +24,7 @@ env = { SAMPLE_KEY = "VALUE" }
 
 - Item name: This must begin with `plugin.metadata.`. In the sample above, the section corresponding to packages can be decided arbitrarily by the user and corresponds to the namespace of the [Host metadata API](https://mackerel.io/api-docs/entry/metadata).
 - `command`: Specifies the command to be executed from mackerel-agent. This command must output JSON to standard output.
-- `execution_interval`: Specifies the command execution interval in minutes. This setting can be omitted. If omitted, the command will execute every 10 minutes. The minimum interval is 10 minutes.
+- `execution_interval`: Specifies the command execution interval in minutes. If the agent version is v0.67.0 or later, expressions such as `"10m"` or `"1h"` can also be written. This setting can be omitted. If omitted, the command will execute every 10 minutes. The minimum interval is 10 minutes.
 - `env`: Environment variables can be specified to pass to command. Specify with TOML [Table][] or [Inline Table][].
 
 
