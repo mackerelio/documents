@@ -32,8 +32,9 @@ In the opened up graph detail screen, graphs with more than 200 hosts are always
 ![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20160304/20160304142123.png)
 
 <h2 id="graph-annotations">Creating graph annotations</h2>
+Leave arbitrary information on graphs. You can do this by dragging over a section of the graph, specifying the period to be annotated, then entering a title and description.
 
-You can write notes on graphs about various events such as deploy, release, and batch timing. Create an graph annotation by dragging over the time section of the graph and inputting a title and description.
+Graph annotations can be created for service metric graphs and role graphs. Leaving annotations can be really useful regarding the deployment/release of applications performed on a per-service and per-role basis.
 
 ![](https://cdn-ak.f.st-hatena.com/images/fotolife/a/andyyk/20170125/20170125184543.png)
 

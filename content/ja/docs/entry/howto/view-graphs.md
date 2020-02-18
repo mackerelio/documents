@@ -32,7 +32,9 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 <p><span itemscope itemtype="http://schema.org/Photograph"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20160229/20160229153216.png" alt="f:id:mackerelio:20160229153216p:plain" title="f:id:mackerelio:20160229153216p:plain" class="hatena-fotolife" itemprop="image"></span></p>
 
 <h2 id="graph-annotations">グラフにアノテーションを作る</h2>
-デプロイやリリース、バッチのタイミングなどをグラフに書き残せます。グラフの時刻部分をドラッグして期間を作成し、タイトルと詳細を記入して作成できます。
+任意の情報をグラフに書き残すことができます。グラフの時刻部分をドラッグしてアノテーションの対象となる期間を指定し、タイトルと詳細を記入することで作成できます。
+
+グラフアノテーションは、サービスメトリックのグラフとロールグラフに対して作成することが可能です。サービス単位やロール単位でおこなわれるような、アプリケーションのデプロイやリリースなどに関する情報を書き残しておくと便利です。
 
 ![グラフのアノテーション](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20170124/20170124180330.png)
 
