@@ -195,7 +195,7 @@ Create and attach your own policies or specify them in Inline Policies.
                 "rds:Describe*",
                 "rds:ListTagsForResource",
                 "redshift:Describe*",
-                "s3:ListBucket",
+                "s3:ListAllMyBuckets",
                 "s3:GetBucketLocation",
                 "s3:GetBucketLogging",
                 "s3:GetBucketTagging",
