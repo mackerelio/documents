@@ -58,7 +58,7 @@ command = ["check-disk", "--path", "/tmp", "--path", "/var", "--warning", "10", 
 
 ```config
 [plugin.checks.disk]
-command = ["check-disk", "--include-type", "none", "--xclude-device", "/tmp", "--warning", "10%", "--critical", "5%"]
+command = ["check-disk", "--include-type", "none", "--exclude-device", "/tmp", "--warning", "10%", "--critical", "5%"]
 ```
 
 その他のオプションに関しては `check-disk --help` や [README](https://github.com/mackerelio/go-check-plugins/blob/master/check-disk/README.md) をご確認下さい。

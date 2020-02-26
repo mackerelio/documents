@@ -59,7 +59,7 @@ In the following example, all devices excluding “/tmp” type are monitored.
 
 ```config
 [plugin.checks.disk]
-command = ["check-disk", "--include-type", "none", "--xclude-device", "/tmp", "--warning", "10%", "--critical", "5%"]
+command = ["check-disk", "--include-type", "none", "--exclude-device", "/tmp", "--warning", "10%", "--critical", "5%"]
 ```
 
 
