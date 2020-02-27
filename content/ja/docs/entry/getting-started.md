@@ -9,7 +9,7 @@ Mackerelは複数のサーバーのリソース状況やサービスのパフォ
 
 Mackerelでは、mackerel-agentと呼ばれるプログラムをお使いのサーバーにインストールすることでホストを登録します。協調してはたらくホストをまとめる『サービス』、サービス内のホストの役割である『ロール』によってホストを管理し、エージェントが収集したホストの状況をウェブ上で視覚的に確認できます。
 
-またMackerelでは、ユーザはオーガニゼーション（団体、組織）（[→用語集](https://mackerel.io/ja/docs/entry/glossary#organization)）に所属し、複数人で共同で管理できます。
+またMackerelでは、ユーザーはオーガニゼーション（団体、組織）（[→用語集](https://mackerel.io/ja/docs/entry/glossary#organization)）に所属し、複数人で共同で管理できます。
 
 ## 新規登録し、あたらしくオーガニゼーションを作成する
 
@@ -23,7 +23,7 @@ Mackerelでは、mackerel-agentと呼ばれるプログラムをお使いのサ�
 
 既に同僚がMackerelを利用している場合は、同僚から招待してもらうことで既存のオーガニゼーションに所属できます。
 
-1. すでにオーガニゼーションに加入している他のユーザに招待メールを送信してもらいます。（→ [他のユーザを招待する](https://mackerel.io/ja/docs/entry/howto/invite-others)）
+1. すでにオーガニゼーションに加入している他のユーザーに招待メールを送信してもらいます。（→ [他のユーザーを招待する](https://mackerel.io/ja/docs/entry/howto/invite-others)）
 2. 招待メールに記載されているURLにアクセスするとサインインページが表示されるので、「Sign Up」をクリックします。
 3. サインアップページでメールアドレスを入力し、フォームを送信します。
 4. オーガニゼーションへの招待ページが開きます。「Join ○○」をクリックして、オーガニゼーションに参加してください。
@@ -35,10 +35,10 @@ Mackerelでは、mackerel-agentと呼ばれるプログラムをお使いのサ�
   - → ホストを登録するには、[エージェントをインストールする](https://mackerel.io/ja/docs/entry/howto/install-agent)
   - → ホストを整理するには、[サービス、ロールを作成する](https://mackerel.io/ja/docs/entry/howto/create-services-and-roles)
 - 様々なメトリックを投稿する
-  - → [ユーザ定義のメトリックを投稿する](https://mackerel.io/ja/docs/entry/advanced/custom-metrics)
+  - → [ユーザー定義ーのメトリックを投稿する](https://mackerel.io/ja/docs/entry/advanced/custom-metrics)
   - → [サービスメトリックを投稿する](https://mackerel.io/ja/docs/entry/advanced/fluentd)
 - ユーザーを管理する
-  - → [他のユーザを招待する](https://mackerel.io/ja/docs/entry/howto/invite-others)
+  - → [他のユーザーを招待する](https://mackerel.io/ja/docs/entry/howto/invite-others)
 - いろいろなノウハウ/Tipsを見る
   - → [はてなブックマークのMackerelタグページ](https://b.hatena.ne.jp/search/tag?q=mackerel)
   - → [QiitaのMackerelタグページ](https://qiita.com/tags/mackerel)

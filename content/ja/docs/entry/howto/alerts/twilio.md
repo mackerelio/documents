@@ -35,7 +35,7 @@ Twilio を用いた通知を設定する場合は、[チャンネルページの
 
 ### AccountSid / AuthToken
 
-Twilio のダッシュボードに表示される認証用のパラメータです。ここに入力した AccountSid に対応するユーザとして Twilio への API リクエストを行います。
+Twilio のダッシュボードに表示される認証用のパラメータです。ここに入力した AccountSid に対応するユーザーとして Twilio への API リクエストを行います。
 
 ### From
 

@@ -5,7 +5,7 @@ URL: https://mackerel.io/ja/docs/entry/howto/install-agent
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/12921228815722986017
 ---
 
-Mackerelにユーザ登録、オーガニゼーションを作成すると、エージェントをインストールしてホストを登録することができるようになります。「[Mackerelエージェントをインストールする][]」からお使いのOSに合わせたパッケージをダウンロードし、指示に従ってインストールします。
+Mackerelにユーザー登録、オーガニゼーションを作成すると、エージェントをインストールしてホストを登録することができるようになります。「[Mackerelエージェントをインストールする][]」からお使いのOSに合わせたパッケージをダウンロードし、指示に従ってインストールします。
 
 - [Amazon Linuxにインストールする](./install-agent/amazon-linux)
 - [CentOS / RedHat にインストールする](./install-agent/rpm)

@@ -85,7 +85,7 @@ https://portal.azure.com にアクセスし、ログインしてください。
 ![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20170621/20170621114147.png)
 
 ### Active Directory アプリケーションの作成
-Mackerelとの連携の際にユーザの権限ではなくアプリケーションの権限でメトリックの取得をするために、Azure Active Directoryでアプリケーションの作成をします。
+Mackerelとの連携の際にユーザーの権限ではなくアプリケーションの権限でメトリックの取得をするために、Azure Active Directoryでアプリケーションの作成をします。
 
 先ほどのActive Directoryの画面から「アプリの登録」を選択してください。
 
@@ -121,7 +121,7 @@ Portal画面のサイドバーの「サブスクリプション」を選択し�
 
 ![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20191225/20191225150357.png)
 
-「アクセス制御 (IAM)」を選択してください。ここではユーザやサービスプリンシパルに対する権限の設定ができます。今回は先ほど作成したActive Directoryのアプリケーションに対して権限を設定します。
+「アクセス制御 (IAM)」を選択してください。ここではユーザーやサービスプリンシパルに対する権限の設定ができます。今回は先ほど作成したActive Directoryのアプリケーションに対して権限を設定します。
 
 ![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20191225/20191225150401.png)
 

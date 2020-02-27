@@ -47,7 +47,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 <div id="first-steps" class="fragment"></div>
 <h4>初めての方へ</h4>
 <ul>
-    <li><a href="https://mackerel.io/ja/docs/entry/getting-started"><strong>Mackerelをはじめる</strong><span>はじめてMackerelを使う方に向けて、サービスの概要とユーザ登録の方法を解説します</span></a></li>
+    <li><a href="https://mackerel.io/ja/docs/entry/getting-started"><strong>Mackerelをはじめる</strong><span>はじめてMackerelを使う方に向けて、サービスの概要とユーザー登録の方法を解説します</span></a></li>
     <li><a href="https://mackerel.io/ja/docs/entry/overview"><strong>Mackerelの概説</strong><span>Mackerelおよびエージェントの概説</span></a></li>
     <li><a href="https://mackerel.io/ja/docs/entry/glossary"><strong>用語集</strong><span>Mackerelで使用されている用語とその解説</span></a></li>
     <li><a href="https://mackerel.io/ja/docs/entry/faq"><strong>FAQ</strong><span>よくある質問</span></a></li>
@@ -69,7 +69,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
     <li><a href="https://mackerel.io/ja/docs/entry/howto/view-graphs"><strong>グラフを利用する</strong><span>表示範囲の拡大・縮小・移動など</span></a></li>
     <li><a href="https://mackerel.io/ja/docs/entry/howto/create-services-and-roles"><strong>サービス、ロールを作成する</strong><span>サービスおよびロールを作成し、複数のホストを分類整理します</span></a></li>
     <li><a href="https://mackerel.io/ja/docs/entry/howto/assign-roles-to-hosts"><strong>ホストにロールを割り当てる</strong><span>作成したロールをホストに割り当てて分類整理します</span></a></li>
-    <li><a href="https://mackerel.io/ja/docs/entry/howto/invite-others"><strong>他のユーザを招待する</strong><span>他のユーザをMackerelに招待し、共同でホストを管理します</span></a></li>
+    <li><a href="https://mackerel.io/ja/docs/entry/howto/invite-others"><strong>他のユーザーを招待する</strong><span>他のユーザーをMackerelに招待し、共同でホストを管理します</span></a></li>
     <li><a href="https://mackerel.io/ja/docs/entry/howto/mackerel-agent-plugins"><strong>ミドルウェアのメトリック可視化に公式プラグイン集を使う</strong><span>公式プラグインで各種ミドルウェアに対応します</span></a></li>
     <li><a href="https://mackerel.io/ja/docs/entry/howto/dashboard"><strong>カスタムダッシュボードを利用する</strong><span>カスタムダッシュボードを利用します</span></a></li>
     <li><a href="https://mackerel.io/ja/docs/entry/howto/auto-scaling"><strong>Auto Scaling環境で使う</strong><span>自動的に台数増減する環境に対応します</span></a></li>

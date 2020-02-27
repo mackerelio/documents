@@ -226,7 +226,7 @@ use_mountpoint = true
 `plugin.metrics.{name}` セクションで、任意のメトリックを取得、投稿するための設定を記述できます。
 
 `command` で指定されたコマンドをエージェントが実行し、その結果を標準出力としてエージェントが受け取り、Mackerelサービスに投稿します。
-そのための仕組みとして、任意のユーザースクリプトの他、プラグインを利用することが可能です。詳しくは[ユーザ定義のメトリックを投稿する](https://mackerel.io/ja/docs/entry/advanced/custom-metrics)を参照してください。
+そのための仕組みとして、任意のユーザースクリプトの他、プラグインを利用することが可能です。詳しくは[ユーザー定義のメトリックを投稿する](https://mackerel.io/ja/docs/entry/advanced/custom-metrics)を参照してください。
 
 
 <h4 id="config-file-customchecks">[plugin.checks.{name}]</h4>

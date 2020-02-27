@@ -45,7 +45,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 
 <h2 id="create">招待の作成</h2>
 
-メールアドレスと権限を指定してユーザをオーガニゼーションに招待します。
+メールアドレスと権限を指定してユーザーをオーガニゼーションに招待します。
 
 <p class="type-post">
   <code>POST</code>

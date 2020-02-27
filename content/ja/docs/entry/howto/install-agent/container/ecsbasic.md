@@ -27,8 +27,8 @@ mackerel-container-agent v0.1.0以降では、こちらの手順は非推奨と�
 
 ## 動作条件
 
-mackerel-container-agentコンテナ内のユーザはroot(uid=0)である必要があります。
-コンテナ内のユーザを変更している場合ご注意ください。
+mackerel-container-agentコンテナ内のユーザーはroot(uid=0)である必要があります。
+コンテナ内のユーザーを変更している場合ご注意ください。
 
 ## タスク定義にコンテナを追加する
 

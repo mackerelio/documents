@@ -81,7 +81,7 @@ processor queue length, cpu, memory, disk, interface, filesystem の6種類の�
   * `filesystem.*.size`
   * `filesystem.*.used`
 
-<h2 id="user-defined-metric">ユーザ定義のメトリック（カスタムメトリック）</h2>
+<h2 id="user-defined-metric">ユーザー定義のメトリック（カスタムメトリック）</h2>
 
 * `custom.foo(.bar)*.*`
   * 名前の最後のドットまでが共通するメトリックがひとつのグラフにまとめられ表示されます。

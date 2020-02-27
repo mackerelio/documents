@@ -49,7 +49,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 | KEY             | TYPE            | DESCRIPTION                      |
 | ------------    | -------------   | --------------------------------------------- |
 | `emails`        | *array[string]* | 通知先に指定されているEmailアドレス           |
-| `userIds`       | *array[string]* | 通知先に指定されているユーザID                |
+| `userIds`       | *array[string]* | 通知先に指定されているユーザーID                |
 | `events`        | *array[string]*        | 通知するイベント(`"alert"`, `"alertGroup"` のいずれか) |
 
 ##### `type` が `slack` の場合
@@ -100,7 +100,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 | `type`   | *string* | 固定文字列`"email"` |
 | `name`   | *string* | チャンネルの名前 |
 | `emails`        | *array[string]* | 通知先に指定するEmailアドレス           |
-| `userIds`       | *array[string]* | 通知先に指定するユーザID                |
+| `userIds`       | *array[string]* | 通知先に指定するユーザーID                |
 | `events`        | *array[string]*        | 通知するイベント(`"alert"`, `"alertGroup"` のいずれか) |
 
 #### 応答(メール通知)

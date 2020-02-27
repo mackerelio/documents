@@ -1,16 +1,16 @@
 ---
-Title: ユーザ
+Title: ユーザー
 Date: 2016-03-22T10:48:29+09:00
 URL: https://mackerel.io/ja/api-docs/entry/users
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.mackerel.io/atom/entry/10328537792368066650
 ---
 
 <ul class="internal-nav">
-  <li><a href="#list">ユーザの一覧</a></li>
-  <li><a href="#delete">ユーザの削除</a></li>
+  <li><a href="#list">ユーザーの一覧</a></li>
+  <li><a href="#delete">ユーザーの削除</a></li>
 </ul>
 
-<h2 id="list">ユーザの一覧</h2>
+<h2 id="list">ユーザーの一覧</h2>
 
 オーガニゼーションに所属するユーザーの一覧を取得します。
 
@@ -48,7 +48,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 
 ----------------------------------------------
 
-<h2 id="delete">ユーザの削除</h2>
+<h2 id="delete">ユーザーの削除</h2>
 
 オーガニゼーションに所属するユーザーを削除します。
 

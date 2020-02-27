@@ -7,7 +7,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 
 [LINE](http://line.me/)は、無料で音声・ビデオ通話・チャットが楽しめるコミュニケーションアプリです。
 
-Mackerel では、[LINE Notify](https://notify-bot.line.me/ja/)と連携することで、Mackerel からのアラート通知を LINE のトークに直接送ることができます。LINE Notify 側で通知先を設定することにより、ユーザ個人宛のトークやグループトークでアラート通知を受け取ることが出来ます。
+Mackerel では、[LINE Notify](https://notify-bot.line.me/ja/)と連携することで、Mackerel からのアラート通知を LINE のトークに直接送ることができます。LINE Notify 側で通知先を設定することにより、ユーザー個人宛のトークやグループトークでアラート通知を受け取ることが出来ます。
 
 <span itemscope="" itemtype="http://schema.org/Photograph"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20160928/20160928141810.png" alt="f:id:mackerelio:20160928141810p:plain" title="f:id:mackerelio:20160928141810p:plain" class="hatena-fotolife" itemprop="image"></span>
 
