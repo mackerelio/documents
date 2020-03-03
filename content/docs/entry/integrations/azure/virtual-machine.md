@@ -1,18 +1,18 @@
 ---
-Title: Azure Integration - Virtual Machine
+Title: Azure Integration - Virtual Machines
 Date: 2017-11-24T17:23:53+09:00
 URL: https://mackerel.io/docs/entry/integrations/azure/virtual-machine
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/8599973812320734054
 ---
 
-Mackerel supports obtaining and monitoring <a href="https://azure.microsoft.com/ja-jp/services/virtual-machines/" target="_blank">Virtual Machine</a> metrics in Azure Integration. When integrating with Azure Integration, billable targets are determined using the conversion 1 Instance = 1 Standard Host.
+Mackerel supports obtaining and monitoring <a href="https://azure.microsoft.com/ja-jp/services/virtual-machines/" target="_blank">Virtual Machines</a> metrics in Azure Integration. When integrating with Azure Integration, billable targets are determined using the conversion 1 Instance = 1 Standard Host.
 
 Please refer to the following page for Azure Integration configuration methods and a list of supported Azure services. <br>
 <a href="https://mackerel.io/ja/docs/entry/integrations/azure">Azure Integration</a>
 
 ## Obtaining metrics
 
-The metrics obtainable with Virtual Machine Azure Integration support are as follows. For `metric` explanations, refer to the <a href="https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-supported-metrics#a-namemicrosoftcomputevirtualmachinesamicrosoftcomputevirtualmachines" target="_blank">Azure help page</a>.
+The metrics obtainable with Azure Integration’s Virtual Machines support are as follows. For `metric` explanations, refer to the <a href="https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-supported-metrics#a-namemicrosoftcomputevirtualmachinesamicrosoftcomputevirtualmachines" target="_blank">Azure help page</a>.
 
 The maximum number of metrics obtainable is 11.
 
@@ -31,4 +31,4 @@ The maximum number of metrics obtainable is 11.
 
 If mackerel-agent has already been installed on the target Virtual Machine instance, host information from Mackerel will automatically be integrated and registered as one host. It will not be counted twice as a billable host.
 
-If you prefer a more detailed style of monitoring with AWS Integration, we recommend installing mackerel-agent for Virtual Machine.
+If you prefer a more detailed style of monitoring with AWS Integration, we recommend installing mackerel-agent for Virtual Machines.

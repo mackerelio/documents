@@ -1,18 +1,18 @@
 ---
-Title: AWSインテグレーション - ES
+Title: AWSインテグレーション - Elasticsearch Service
 Date: 2019-01-18T18:00:00+09:00
 URL: https://mackerel.io/ja/docs/entry/integrations/aws/es
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/98012380832127355
 ---
 
-MackerelはAWSインテグレーションにて<a href="https://aws.amazon.com/jp/elasticsearch-service/" target="_blank">Amazon Elasticsearch Service (ES)</a>のメトリック取得や監視に対応しています。
+MackerelはAWSインテグレーションにて<a href="https://aws.amazon.com/jp/elasticsearch-service/" target="_blank">Amazon Elasticsearch Service</a>のメトリック取得や監視に対応しています。
 AWSインテグレーションで連携を行なった場合、課金対象として1ドメイン = 1マイクロホストと換算します。またそれに加えて、取得されるメトリックの数に応じて、1マイクロホストあたりのメトリック数上限の超過による請求が行われます。
 
 AWSインテグレーションの設定方法や対応AWSサービス一覧についてはこちらのページをご確認ください。<br>
 <a href="https://mackerel.io/ja/docs/entry/integrations/aws">AWSインテグレーション</a>
 
 ## 取得メトリック
-AWSインテグレーションのES対応で取得できるメトリックは以下の通りです。`メトリック`の説明に関しては<a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains.html
+AWSインテグレーションのElasticsearch Service対応で取得できるメトリックは以下の通りです。`メトリック`の説明に関しては<a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains.html
 " target="_blank">AWSのヘルプ</a>をご確認ください。
 
 最大で72個のメトリックが取得されます。

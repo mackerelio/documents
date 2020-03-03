@@ -5,7 +5,7 @@ URL: https://mackerel.io/ja/docs/entry/faq/spec/host-inheriting
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/8599973812318610518
 ---
 
-## Amazon EC2 や Azure VM の場合
+## Amazon EC2 や Azure Virtual Machines の場合
 それまで監視対象としていたインスタンスとは異なるインスタンスを、Mackerel側では同じホストとして認識させる（情報を引き継ぐ）ことはできません。
 既存のホストを[退役](https://mackerel.io/ja/docs/entry/howto/host-retirement)させ、新たなホストとして監視を開始してください。
 

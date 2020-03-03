@@ -1,11 +1,11 @@
 ---
-Title: Azure Integration - Redis Cache
+Title: Azure Integration - Cache for Redis
 Date: 2017-10-02T18:21:32+09:00
 URL: https://mackerel.io/docs/entry/integrations/azure/redis-cache
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/8599973812303841204
 ---
 
-Mackerel supports obtaining and monitoring <a href="https://azure.microsoft.com/en-us/services/cache/" target="_blank">Redis Cache</a> metrics in Azure Integration. When integrating with Azure Integration, billable targets are determined using the conversion 1 Cache = 1 Micro Host.
+Mackerel supports obtaining and monitoring <a href="https://azure.microsoft.com/en-us/services/cache/" target="_blank">Cache for Redis</a> metrics in Azure Integration. When integrating with Azure Integration, billable targets are determined using the conversion 1 Cache = 1 Micro Host.
 In addition to this, depending on the number of metrics retrieved, you may be charged for exceeding the maximum number of metrics per micro host.
 
 Please refer to the following page for Azure Integration configuration methods and a list of supported Azure services. 
@@ -14,7 +14,7 @@ Please refer to the following page for Azure Integration configuration methods a
 
 ## Obtaining metrics
 
-The metrics obtainable with Redis Cache SQL Database support are as follows. For `Metric` explanations, refer to the <a href="https://docs.microsoft.com/en-us/azure/redis-cache/cache-how-to-monitor#available-metrics-and-reporting-intervals" target="_blank">Azure help page</a>.
+The metrics obtainable with Azure Integration’s Cache for Redis support are as follows. For `Metric` explanations, refer to the <a href="https://docs.microsoft.com/en-us/azure/redis-cache/cache-how-to-monitor#available-metrics-and-reporting-intervals" target="_blank">Azure help page</a>.
 
 The maximum number of metrics obtainable is `16 + 16 × (number of Shards)`.
 
@@ -31,4 +31,4 @@ The maximum number of metrics obtainable is `16 + 16 × (number of Shards)`.
 |Evicted/Expired Keys|evictedkeys<br>expiredkeys|azure.redis_cache.keys.evicted<br>azure.redis_cache.keys.expired|integer|Total|
 |Operations Per Second|operationsPerSecond|azure.redis_cache.operations.iops|iops|Maximum|
 
-Mackerel also supports metrics for each Shard of Redis Cache. For each of the above graphs, shard-level graphs are generated and the metrics of each shard can be seen all in one place.
+Mackerel also supports metrics for each Shard of Cache for Redis. For each of the above graphs, shard-level graphs are generated and the metrics of each shard can be seen all in one place.

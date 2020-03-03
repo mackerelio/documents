@@ -102,7 +102,7 @@ mackerel-agent のルートディレクトリを指定できます。このデ�
 
 
 <h4 id="config-file-cloudplatform">cloud_platform</h4>
-AWS EC2やAzure VM、GCP上でmackerel-agentを実行する場合、mackerel-agentは自身が実行されているIaaS環境を自動的に検出します。これらのIaaS環境にあることを識別できた場合、mackerel-agentはIaaSのメタ情報を収集するほか、AWSインテグレーションやAzureインテグレーションとの連携に必要な識別子(`custom_identifier`)をホストに対して適用します。
+Amazon EC2やAzure Virtual Machine、Google Compute Engine上でmackerel-agentを実行する場合、mackerel-agentは自身が実行されているIaaS環境を自動的に検出します。これらのIaaS環境にあることを識別できた場合、mackerel-agentはIaaSのメタ情報を収集するほか、AWSインテグレーションやAzureインテグレーションとの連携に必要な識別子(`custom_identifier`)をホストに対して適用します。
 
 通常、この検出は自動的に行われますが、設定ファイルに `cloud_platform` オプションを指定することで明示的にプラットフォームを指定できます。有効な値は、 `"auto"`(デフォルト) `"ec2"` `"gce"` `"azurevm"` `"none"` の5種類です。
 

@@ -5,7 +5,7 @@ URL: https://mackerel.io/docs/entry/faq/spec/host-inheriting
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/8599973812326829060
 ---
 
-## For Amazon EC2 or Azure VMs
+## For Amazon EC2 or Azure Virtual Machines
 Instances that differ from the those that were previously monitored can not be recognized (carry over information) as the same host in Mackerel.
 Please [retire](https://mackerel.io/docs/entry/howto/host-retirement) the exiting host and start monitoring as a new host. 
 

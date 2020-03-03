@@ -103,7 +103,7 @@ Specifies the root directory of mackerel-agent. The file containing the host ID 
 
 
 <h4 id="config-file-cloudplatform">cloud_platform</h4>
-When running mackerel-agent on AWS EC2, Azure VM, or GCP, it automatically detects the IaaS environment. When one of these IaaS environments is identified, mackerel-agent collects the IaaS metadata and applies the necessary identifier (`custom_identifier`) to the host for integration with AWS integration or Azure integration.
+When running mackerel-agent on Amazon EC2, Azure Virtual Machine, or Google Compute Engine, it automatically detects the IaaS environment. When one of these IaaS environments is identified, mackerel-agent collects the IaaS metadata and applies the necessary identifier (`custom_identifier`) to the host for integration with AWS integration or Azure integration.
 
 Normally, this detection is done automatically, but you can specify the platform explicitly with the `cloud_platform` option in the configuration file. There are five valid values: `"auto"`(default) `"ec2"` `"gce"` `"azurevm"` `"none"`.
 
