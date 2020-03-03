@@ -3,7 +3,6 @@ Title: AWS Integration - EFS
 Date: 2019-06-07T16:36:03+09:00
 URL: https://mackerel.io/docs/entry/integrations/aws/efs
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/17680117127188503127
-CustomPath: integrations/aws/efs
 ---
 
 Mackerel supports obtaining and monitoring the metric of <a href="https://aws.amazon.com/en/efs/" target="_blank">Amazon Elastic File System</a> in AWS Integration. When integrating with AWS Integration, billable targets are determined using the conversion 1 state machine = 1 Micro Host. In addition to this, depending on the number of metrics retrieved, you may be charged for exceeding the maximum number of metrics per micro host.

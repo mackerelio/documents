@@ -3,7 +3,6 @@ Title: AWS Integration - SES
 Date: 2019-04-08T18:00:00+09:00
 URL: https://mackerel.io/docs/entry/integrations/aws/ses
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/17680117127020883280
-CustomPath: integrations/aws/ses
 ---
 
 Mackerel supports obtaining and monitoring <a href="https://aws.amazon.com/jp/ses/" target="_blank">Amazon Simple Email Service</a> metrics in AWS Integration. When integrating with AWS Integration, billable targets are determined using the conversion 1 Region = 1 Micro Host.

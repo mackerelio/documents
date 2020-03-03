@@ -3,7 +3,6 @@ Title: AWS Integration - ECS
 Date: 2019-03-14T18:00:00+09:00
 URL: https://mackerel.io/docs/entry/integrations/aws/ecs
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/17680117126999845154
-CustomPath: integrations/aws/ecs
 ---
 
 Mackerel supports obtaining and monitoring <a href="https://aws.amazon.com/jp/ecs/" target="_blank">Amazon Elastic Container Service</a> metrics in AWS Integration. When integrating with AWS Integration, billable targets are determined using the conversion 1 Cluster = 1 Micro Host.

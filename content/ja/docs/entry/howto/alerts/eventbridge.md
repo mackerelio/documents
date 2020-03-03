@@ -3,7 +3,6 @@ Title: Amazon EventBridgeにアラートを通知する
 Date: 2020-01-22T00:00:00+09:00
 URL: https://mackerel.io/ja/docs/entry/howto/alerts/eventbridge
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/26006613498451525
-CustomPath: howto/alerts/eventbridge
 ---
 
 Mackerelでは、アラートの内容のJSONをAmazon EventBridgeで受け取れます。通知を受け取った後の処理をAWS Lambdaなどを用いて自動化したい場合などに重宝するでしょう。

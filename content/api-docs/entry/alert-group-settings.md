@@ -3,7 +3,6 @@ Title: Alert Group Settings
 Date: 2019-09-05T16:54:26+09:00
 URL: https://mackerel.io/api-docs/entry/alert-group-settings
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel.io/atom/entry/26006613422198590
-CustomPath: alert-group-settings
 ---
 
 <ul class="internal-nav">

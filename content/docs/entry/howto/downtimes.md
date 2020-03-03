@@ -2,7 +2,7 @@
 Title: Configuring Downtime
 Date: 2019-07-16T13:00:00+09:00
 URL: https://mackerel.io/docs/entry/howto/downtimes
-EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/
+EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/26006613439795642
 ---
 
 

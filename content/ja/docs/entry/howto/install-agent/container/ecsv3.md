@@ -3,7 +3,6 @@ Title: Amazon ECSにmackerel-container-agentをセットアップする
 Date: 2019-05-16T16:07:37+09:00
 URL: https://mackerel.io/ja/docs/entry/howto/install-agent/container/ecsv3
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/17680117127134474239
-CustomPath: howto/install-agent/container/ecsv3
 ---
 
 Amazon ECSにおけるmackerel-container-agentのセットアップ手順です。

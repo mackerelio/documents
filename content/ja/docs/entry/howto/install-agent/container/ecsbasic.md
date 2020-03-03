@@ -1,6 +1,8 @@
 ---
 Title: Amazon ECS(default, bridge, host, noneネットワークモード)にmackerel-container-agentをセットアップする
-CustomPath: howto/install-agent/container/ecsbasic
+Date: 2019-06-17T11:33:18+09:00
+URL: https://mackerel.io/ja/docs/entry/howto/install-agent/container/ecsbasic
+EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/17680117127201755862
 ---
 
 Amazon ECS(default, bridge, host, noneネットワークモード)におけるmackerel-container-agentのセットアップ手順です。

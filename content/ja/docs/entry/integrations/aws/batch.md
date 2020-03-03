@@ -3,7 +3,6 @@ Title: AWSインテグレーション - Batch
 Date: 2020-01-10T10:00:00+09:00
 URL: https://mackerel.io/ja/docs/entry/integrations/aws/batch
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/26006613498446796
-CustomPath: integrations/aws/batch
 ---
 
 MackerelはAWSインテグレーションにて<a href="https://aws.amazon.com/jp/batch/" target="_blank">AWS Batch</a>のメトリック取得や監視に対応しています。AWSインテグレーションで連携を行なった場合、課金対象として1リージョン = 1マイクロホストと換算します。またそれに加えて、取得されるメトリックの数に応じて、1マイクロホストあたりのメトリック数上限の超過による請求が行われる場合があります。

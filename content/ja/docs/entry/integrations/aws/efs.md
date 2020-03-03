@@ -3,7 +3,6 @@ Title: AWSインテグレーション - EFS
 Date: 2019-06-06T18:00:00+09:00
 URL: https://mackerel.io/ja/docs/entry/integrations/aws/efs
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/17680117127188496675
-CustomPath: integrations/aws/efs
 ---
 
 MackerelはAWSインテグレーションにて<a href="https://aws.amazon.com/jp/efs/" target="_blank">Amazon Elastic File System</a>のメトリック取得や監視に対応しています。AWSインテグレーションで連携を行なった場合、課金対象として1ファイルシステム = 1マイクロホストと換算します。またそれに加えて、取得されるメトリックの数に応じて、1マイクロホストあたりのメトリック数上限の超過による請求が行われる場合があります。

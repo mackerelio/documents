@@ -3,7 +3,6 @@ Title: AWS Integration - Kinesis Data Firehose
 Date: 2019-07-16T10:00:00+09:00
 URL: https://mackerel.io/docs/entry/integrations/aws/firehose
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/26006613376612825
-CustomPath: integrations/aws/firehose
 ---
 
 Mackerel supports obtaining and monitoring the metric of <a href="https://aws.amazon.com/en/kinesis/data-firehose/" target="_blank">Amazon Kinesis Data Firehose</a> in AWS Integration. When integrating with AWS Integration, billable targets are determined using the conversion 1 delivery stream = 1 Micro Host. In addition to this, depending on the number of metrics retrieved, you may be charged for exceeding the maximum number of metrics per micro host.

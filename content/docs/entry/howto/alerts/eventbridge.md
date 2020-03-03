@@ -3,7 +3,6 @@ Title: Sending alerts to Amazon EventBridge
 Date: 2020-01-22T00:00:00+09:00
 URL: https://mackerel.io/docs/entry/howto/alerts/eventbridge
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/26006613498452685
-CustomPath: howto/alerts/eventbridge
 ---
 
 In Mackerel, JSON of alert contents can be received with Amazon EventBridge. This can be useful for tasks such as using AWS Lambda etc. to automate post-notification processing and more.

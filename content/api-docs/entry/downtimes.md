@@ -2,7 +2,7 @@
 Title: Downtime
 Date: 2019-07-08T13:00:00+09:00
 URL: https://mackerel.io/api-docs/entry/downtimes
-EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel.io/atom/entry/
+EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel.io/atom/entry/26006613439791288
 ---
 
 <ul class="internal-nav">

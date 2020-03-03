@@ -3,7 +3,6 @@ Title: アラートステータスウィジェットを利用する
 Date: 2019-09-18T14:00:00+09:00
 URL: https://mackerel.io/ja/docs/entry/howto/dashboard/alert-status
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/26006613435948768
-CustomPath: howto/dashboard/alert-status
 ---
 
 # アラートステータスウィジェットを利用する

@@ -3,7 +3,6 @@ Title: AWSインテグレーション - ECS
 Date: 2019-03-14T18:00:00+09:00
 URL: https://mackerel.io/ja/docs/entry/integrations/aws/ecs
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/17680117126999837445
-CustomPath: integrations/aws/ecs
 ---
 
 MackerelはAWSインテグレーションにて<a href="https://aws.amazon.com/jp/ecs/" target="_blank">Amazon Elastic Container Service</a>のメトリック取得や監視に対応しています。AWSインテグレーションで連携を行なった場合、課金対象として1クラスター = 1マイクロホストと換算します。またそれに加えて、取得されるメトリックの数に応じて、1マイクロホストあたりのメトリック数上限の超過による請求が行われる場合があります。
