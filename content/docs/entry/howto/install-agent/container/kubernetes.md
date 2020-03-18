@@ -11,7 +11,7 @@ This document details the setup process of mackerel-container-agent for Kubernet
 
 For every one pod, a micro host will be registered in Mackerel. Please note that charges will occur if using a paid plan. For more details, refer to [FAQ · Calculating the number of hosts](https://mackerel.io/docs/entry/faq/contracts/calculate-host-number).
 
-## Operation conditions
+## Operating conditions
 
 By default, mackerel-container-agent accesses the kubelet read-only-port.
 
@@ -30,7 +30,7 @@ Specify the mackerel-container-agent container in the Pod Template that you woul
 | resources.limits.memory | 128Mi |
 | env | See below |
 
-### Environment variable configurations
+### Environment variable configuration
 
 Definitions for environment variables are required with mackerel-container-agent.
 

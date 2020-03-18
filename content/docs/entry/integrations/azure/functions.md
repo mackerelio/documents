@@ -1,21 +1,22 @@
 ---
-Title: Azureインテグレーション - Functions
+Title: Azure Integration - Functions
 Date: 2020-03-12T14:00:00+09:00
-URL: https://mackerel.io/ja/docs/entry/integrations/azure/functions
-EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/26006613534153943
+URL: https://mackerel.io/docs/entry/integrations/azure/functions
+EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/26006613534574809
+CustomPath: integrations/azure/functions
 ---
 
-MackerelはAzureインテグレーションにて<a href="https://azure.microsoft.com/ja-jp/services/functions/" target="_blank">Functions</a>のメトリック取得や監視に対応しています。Azureインテグレーションで連携をおこなった場合、課金対象として 1function = 1マイクロホスト と換算します。またそれに加えて、取得されるメトリックの数に応じて、1マイクロホストあたりのメトリック数上限の超過による請求が行われる場合があります。
+Mackerel supports obtaining and monitoring metrics for <a href="https://azure.microsoft.com/en-us/services/functions/" target="_blank">Functions</a> in Azure Integration. When integrating with Azure Integration, billable targets are determined using the conversion 1 function = 1 Micro Host. In addition to this, depending on the number of metrics retrieved, you may be charged for exceeding the maximum number of metrics per micro host.
 
-Azureインテグレーションの設定方法や対応Azureサービス一覧についてはこちらのページをご確認ください。<br>
-<a href="https://mackerel.io/ja/docs/entry/integrations/azure">Azureインテグレーション</a>
+Please refer to the following page for Azure Integration configuration methods and a list of supported Azure services.<br>
+<a href="https://mackerel.io/docs/entry/integrations/azure">Azure Integration</a>
 
-## 取得メトリック
-AzureインテグレーションのFunctions対応で取得できるメトリックは以下の通りです。 `メトリック` の説明に関しては<a href="https://docs.microsoft.com/ja-jp/azure/app-service/web-sites-monitor" target="_blank">Azureのドキュメント</a>をご確認ください。
+## Obtaining metrics
+The metrics obtainable with Azure Integration’s Functions support are as follows. For `Metric` explanations, refer to the <a href="https://docs.microsoft.com/en-us/azure/app-service/web-sites-monitor#understand-metrics" target="_blank">Azure help page</a>.
 
-最大で 30 個のメトリックが取得されます。
+The maximum number of metrics obtainable is 30.
 
-|グラフ名|メトリック|Mackerel上のメトリック名|単位|Aggregation Type|
+|Graph name|Metric|Metric name in Mackerel|Unit|Aggregation Type|
 |:---|:---|:---|:---|:---|
 | Total App Domains                         | TotalAppDomains<br/>TotalAppDomainsUnloaded| azure.functions.total_app_domains.loaded<br/>azure.functions.total_app_domains.unloaded| integer   | Average |
 | Thread Count                              | Threads                    | azure.functions.threads.threads                         | integer   | Average |

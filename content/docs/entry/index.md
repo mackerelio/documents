@@ -35,8 +35,8 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackere
       <li><a href="https://mackerel.io/docs/entry/advanced/fluentd"><strong>Posting Service Metrics with fluentd</strong><span>Posting the number of requests, error rate, and more for each status code via fluentd</span></a></li>
       <li><a href="https://mackerel.io/docs/entry/howto/mackerel-agent-plugins"><strong>Using the official plugin pack to visualize middleware metrics</strong><span>how to use the official plugin pack, which supports various kinds of middleware</span></a></li>
       <li><a href="https://mackerel.io/docs/entry/advanced/custom-metrics"><strong>Posting user-defined custom metrics</strong><span>posting middleware metrics of MySQL and such from mackerel-agent</span></a></li>
-      <li><a href="https://mackerel.io/docs/entry/howto/alerts"><strong>Setting up monitoring and alerts</strong><span>how to set up the monitoring of registered hosts and receiving alert notifications</span></a></li>
-      <li><a href="https://mackerel.io/docs/entry/howto/downtimes"><strong>Configuring Downtime</strong><span>Setup periodic monitoring suspension</span></a></li>
+      <li><a href="https://mackerel.io/docs/entry/howto/alerts"><strong>Setting up monitoring and alerts</strong><span>how to set up the monitoring of registered hosts and receive alert notifications</span></a></li>
+      <li><a href="https://mackerel.io/docs/entry/howto/downtimes"><strong>Configuring Downtime</strong><span>how to set up periodic monitoring suspension</span></a></li>
     </ul>
   </div>
   <p id="link-faq"><a href="https://mackerel.io/docs/entry/faq">Read FAQs</a></p>
@@ -121,24 +121,24 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackere
 <div id="advanced" class="fragment"></div>
 <h4><span>Advanced</span></h4>
 <ul>
-    <li><a href="https://mackerel.io/docs/entry/advanced/custom-metrics"><strong>Posting user-defined custom metrics</strong><span>posting middleware metrics of MySQL and such from mackerel-agent</span></a></li>
-    <li><a href="https://mackerel.io/docs/entry/advanced/go-mackerel-plugin"><strong>Using go-mackerel-plugin to create a custom metric plugin</strong><span>An
+    <li><a href="https://mackerel.io/docs/entry/advanced/custom-metrics"><strong>Posting user-defined custom metrics</strong><span>posting middleware metrics for MySQL and more from mackerel-agent</span></a></li>
+    <li><a href="https://mackerel.io/docs/entry/advanced/go-mackerel-plugin"><strong>Using go-mackerel-plugin to create a custom metric plugin</strong><span>an
  introduction on how to create plugins using the official library</span></a></li>
     <li><a href="https://mackerel.io/docs/entry/advanced/hubot"><strong>Getting notifications in chat tools with Hubot</strong><span>receive alert notification Webhooks from Mackerel and broadcast notifications to chat tools such as IRC, Slack, and HipChat via Hubot</span></a></li>
-    <li><a href="https://mackerel.io/docs/entry/advanced/fluentd"><strong>Posting Service Metrics with fluentd</strong><span>Posting the number of requests, error rate, and more for each status code via fluentd</span></a></li>
-    <li><a href="https://mackerel.io/docs/entry/advanced/capistrano-2.x"><strong>Integrating Capistrano 2.x</strong><span>Eliminating the need for host list management by acquiring the host list from Mackerel</span></a></li>
-    <li><a href="https://mackerel.io/docs/entry/advanced/capistrano-3.x"><strong>Integrating Capistrano 3.x</strong><span>Obtaining the host list from Mackerel makes managing unnecessary</span></a></li>    
+    <li><a href="https://mackerel.io/docs/entry/advanced/fluentd"><strong>Posting Service Metrics with fluentd</strong><span>use fluentd to post the number of requests, error rate, and more for each status code</span></a></li>
+    <li><a href="https://mackerel.io/docs/entry/advanced/capistrano-2.x"><strong>Integrating Capistrano 2.x</strong><span>eliminate the need for host list management by obtaining the host list from Mackerel</span></a></li>
+    <li><a href="https://mackerel.io/docs/entry/advanced/capistrano-3.x"><strong>Integrating Capistrano 3.x</strong><span>eliminate the need for host list management by obtaining the host list from Mackerel</span></a></li>    
 　<li><a href="https://mackerel.io/docs/entry/advanced/cli"><strong>Using the mkr CLI tool</strong><span>automate tasks using command-line tools</span></a></li>
-    <li><a href="https://mackerel.io/docs/entry/advanced/monitors-github"><strong>Managing monitoring rules in GitHub</strong><span>this is an introduction to managing monitoring rules with GitHub</span></a></li>
-    <li><a href="https://mackerel.io/docs/entry/advanced/docker"><strong>Monitoring Docker</strong><span>Docker hosts can be monitored using the mackerel-agent Docker image</span></a></li>
-    <li><a href="https://mackerel.io/docs/entry/advanced/fluent-plugin-webhook-mackerel"><strong>Using fluent-plugin-webhook-mackerel</strong><span>fluentd can be used to handle alerts from Mackerel with more flexibility</span></a></li>
-    <li><a href="https://mackerel.io/docs/entry/advanced/monitoring-heroku"><strong>Monitoring Heroku with Mackerel</strong><span>here we will introduce and talk about how to monitor applications on Heroku using Mackerel</span></a></li>
+    <li><a href="https://mackerel.io/docs/entry/advanced/monitors-github"><strong>Managing monitoring rules in GitHub</strong><span>an introduction to managing monitoring rules with GitHub</span></a></li>
+    <li><a href="https://mackerel.io/docs/entry/advanced/docker"><strong>Monitoring Docker</strong><span>monitor Docker hosts using the mackerel-agent Docker image</span></a></li>
+    <li><a href="https://mackerel.io/docs/entry/advanced/fluent-plugin-webhook-mackerel"><strong>Using fluent-plugin-webhook-mackerel</strong><span>use fluentd to handle alerts from Mackerel with more flexibility</span></a></li>
+    <li><a href="https://mackerel.io/docs/entry/advanced/monitoring-heroku"><strong>Monitoring Heroku with Mackerel</strong><span>monitor applications on Heroku using Mackerel</span></a></li>
     <li><a href="https://mackerel.io/docs/entry/advanced/advanced-graph"><strong>Displaying customized graphs</strong><span>display flexible, function-based customized graphs</span></a></li>
-    <li><a href="https://mackerel.io/docs/entry/integrations/aws"><strong>AWS Integration</strong><span>you can manage AWS cloud products as a host of Mackerel and monitor its metrics.</span></a></li>
-    <li><a href="https://mackerel.io/docs/entry/integrations/azure"><strong>Azure Integration</strong><span>you can manage Azure cloud products as a host of Mackerel and monitor its metrics.</span></a></li>
-    <li><a href="https://mackerel.io/docs/entry/advanced/experimental-features"><strong>Using Experimental Features</strong><span>try out features in advance to the official release</span></a></li>
-    <li><a href="https://mackerel.io/docs/entry/howto/MFA"><strong>Using 2-Step Authentication</strong><span>Strengthen security by configuring 2-Step Authentication.</span></a></li>
-    <li><a href="https://mackerel.io/docs/entry/howto/enforcing-MFA"><strong>Mandatory 2-Step Authentication</strong><span>Strengthen security by requiring 2-Step Authentication</span></a></li>
+    <li><a href="https://mackerel.io/docs/entry/integrations/aws"><strong>AWS Integration</strong><span>manage AWS cloud products as Mackerel hosts and monitor metrics.</span></a></li>
+    <li><a href="https://mackerel.io/docs/entry/integrations/azure"><strong>Azure Integration</strong><span>manage Azure cloud products as Mackerel hosts and monitor metrics.</span></a></li>
+    <li><a href="https://mackerel.io/docs/entry/advanced/experimental-features"><strong>Using Experimental Features</strong><span>try out features before their official release</span></a></li>
+    <li><a href="https://mackerel.io/docs/entry/howto/MFA"><strong>Using 2-Step Authentication</strong><span>strengthen security by configuring 2-Step Authentication.</span></a></li>
+    <li><a href="https://mackerel.io/docs/entry/howto/enforcing-MFA"><strong>Mandatory 2-Step Authentication</strong><span>strengthen security by requiring 2-Step Authentication</span></a></li>
 </ul>
 </section>
 

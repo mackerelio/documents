@@ -5,7 +5,6 @@ URL: https://mackerel.io/docs/entry/howto/downtimes
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/26006613439795642
 ---
 
-
 In Mackerel, it's possible to suspend monitoring for a specified period of time.
 You can set alerts not to occur during periods when the load is known to increase, such as regular batch processing and maintenance periods.
 

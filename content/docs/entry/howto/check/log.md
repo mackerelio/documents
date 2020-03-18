@@ -5,20 +5,20 @@ URL: https://mackerel.io/docs/entry/howto/check/log
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/6653458415127142958
 ---
 
-Using `check-log` from the official check plugin pack, you can monitor logs in Mackerel. For information on installing the official check plugin pack, you can refer to [Using the official check plugin pack for check monitoring](https://mackerel.io/docs/entry/howto/mackerel-check-plugins).
+Monitor logs in Mackerel with `check-log` which is provided in the official check plugin pack. For more on how to install the official check plugin pack, refer to [Using the official check plugin pack for check monitoring](https://mackerel.io/docs/entry/howto/mackerel-check-plugins).
 
 ## Using `check-log`
 
-To use `check-log` to do log monitoring, you can, for example, append the following item in mackerel-agent.conf and then restart the mackerel-agent.
+To monitor logs using `check-log`, append the following item in mackerel-agent.conf and restart mackerel-agent.
 
 ```config
 [plugin.checks.access_log]
 command = ["check-log", "--file", "/var/log/access.log", "--pattern", "FATAL"]
 ```
 
-Assign the target file to the `--file` option, and assign the error message pattern that you want to detect as a regular expression in the `--pattern` option. In the example above, if the string “FATAL” appears in the targeted log file, an alert will be triggered.
+Specify the target file in the `--file` option, and specify the error message pattern that you want to be detected using a regular expression in the `--pattern` option. In the example above,  an alert will be triggered if the string “FATAL” appears in the targeted log file. 
 
-The initial check is done only for the diff output after adding settings. If you want all of the contents of an already existing file to be checked at the time of the initial check, specify the `--check-first` option.
+The initial check is only done for the diff output after settings are added. If you want to check all of the contents of an existing file at the time of the initial check, specify the `--check-first` option.
 
 ```config
 [plugin.checks.access_log]
@@ -34,24 +34,24 @@ command = ["check-log", "--file", "/var/log/access.log", "--pattern", "PRODUCTIO
 
 Multibyte characters can be specified in `--pattern`, but in such cases, the conf file character code (encoding) must be `UTF-8`.
 
-With the `--file` option, check targets can be specified in glob format.
+Check targets can be specified in glob format with the `--file` option.
 
 ```config
 [plugin.checks.access_log]
 command = ["check-log", "--file", "/var/log/*.log", "--pattern", "FATAL"]
 ```
 
-Additionally, you can specify the filename of the monitoring target with regular expressions using the `--file-pattern` option.
+Furthermore, you can specify the filename of the monitoring target with regular expressions using the `--file-pattern` option.
 
 ```config
 [plugin.checks.access_log]
 command = ["check-log", "--file-pattern", "/var/log/access.log.\\d{4}-\\d{2}-\\d{2}", "--pattern", "FATAL"]
 ```
 
-The log file will be checked periodically and any lines that have already been checked will be skipped. The execution interval is specified by `check_interval` ([reference](https://mackerel.io/docs/entry/custom-checks)) and the default is 1 minute.
+The log file will be checked periodically and any lines that have already been checked will be skipped. The execution interval is specified by `check_interval` ([reference](https://mackerel.io/docs/entry/custom-checks)) with the default set at 1 minute.
 
 
-If log rotation occurs, the log is read over from the beginning. To be exact, if the file size has become smaller since the previous check, it is considered a log rotation and a read-over from the beginning occurs.  
+If log rotation occurs, the log is read over from the beginning. To be exact, if the file size has decreased since the previous check, it is considered a log rotation and a read-over from the beginning occurs.  
 
 ## Checking detected log output in Mackerel
 

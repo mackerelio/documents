@@ -7,7 +7,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackere
 
 This document details the setup process for mackerel-container-agent on Amazon ECS.
 
-## Operation conditions
+## Operating conditions
 
 The following conditions must be met in order to run mackerel-container-agent.
 

@@ -5,17 +5,17 @@ URL: https://mackerel.io/docs/entry/advanced/monitors-github
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/8454420450105580325
 ---
 
-By using mkr, actions such as saving monitoring rules to local files (`pull`), diffing a local file to Mackerel’s settings (`diff`), and having the contents of a local file reflect Mackerel’s settings (`push`).
+Using mkr, you can perform actions such as saving monitoring rules to local files (`pull`), diffing a local file to Mackerel’s settings (`diff`), and having the contents of a local file reflect Mackerel’s settings (`push`).
 
-To see more information about each command, please check the `cli` [help page](./cli)
+To see more information about each command, refer to the `cli` [help page](./cli)
 
 In this document we will introduce how to manage monitoring rules in [GitHub](https://github.com/) using mkr.
 
 ## Monitoring rule management with mkr
 
-As for ways to manage monitoring rules with mkr, there are 2 main patterns, making changes in both the web UI and code, or only in code, which will be described next.
+As for how to manage monitoring rules with mkr, there are 2 main patterns- making changes with both the web UI and code, or only using code.
 
-- Make changes in both the web UI and code
+- Make changes with both the web UI and code
   - Use both `pull` and `push`
 - Make changes to monitoring rules only in code, without using the web UI
   - Use only `push`, not `pull`
@@ -196,9 +196,9 @@ If you have accidentally made changes in the web UI, it will be necessary to eit
 
 ### Syncing with rules on Mackerel
 
-If you have accidentally made changes in the web UI, you can renew those changes (?) with the following process.
+If you accidentally make changes in the web UI, you can update those changes using the following process.
 
-- Obtain the monitoring rules that were changed from Mackerel
+- Obtain the monitoring rule that was changed in Mackerel
   ```
   cd <repo-path>
   mkr monitors pull
