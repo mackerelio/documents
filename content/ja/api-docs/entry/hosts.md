@@ -42,11 +42,11 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 | --- | --- | --- |
 | `name` | *string* | ホスト名 |
 | `displayName` | *string* | [optional] ホストの管理名 |
-| `customIdentifier` | *string* | [optional] ホストに対するユーザー独自の識別子 |
-| `meta` | *object* | ホストのメタ情報[*1](#meta) |
-| `interfaces` | *array[object]* | [optional] ホストのネットワークインターフェース情報[*2](#interfaces) |
-| `roleFullnames` | *array[string]* | [optional] ホストが所属しているロールの名前の配列[*3](#roleFullnames) |
-| `checks` | *array[hash[string]]* | [optional] ホストを監視するチェック監視項目の配列[*4](#checks) |
+| `customIdentifier` | *string* | [optional] ホストに対するユーザー独自の識別子[*1](#customIdentifier) |
+| `meta` | *object* | ホストのメタ情報[*2](#meta) |
+| `interfaces` | *array[object]* | [optional] ホストのネットワークインターフェース情報[*3](#interfaces) |
+| `roleFullnames` | *array[string]* | [optional] ホストが所属しているロールの名前の配列[*4](#roleFullnames) |
+| `checks` | *array[hash[string]]* | [optional] ホストを監視するチェック監視項目の配列[*5](#checks) |
 
 ### 応答
 
@@ -81,7 +81,19 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
   </tbody>
 </table>
 
-<h4 id="meta" class="annotation">*1 meta</h4>
+<h4 id="customIdentifier" class="annotation">*1 customIdentifier</h4>
+
+<span class="table-code">customIdentifier</span> に `null` もしくは `""` （空文字）を指定した場合、HTTPリクエストメソッドにより、以下のような挙動となります。
+
+**`POST` の場合**
+
+`null` で登録されます。
+
+**`PUT` の場合**
+
+登録されている値が `null` で上書きされます。
+
+<h4 id="meta" class="annotation">*2 meta</h4>
 
 <span class="table-code">meta</span> には色々な情報が入ります。
 
@@ -96,7 +108,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 | `kernel` | *hash[string]* | カーネルの情報。`uname` コマンドで得られるものです。 |
 | `memory` | *hash[string]* | メモリの情報。|
 
-<h4 id="interfaces">*2 interfaces</h4>
+<h4 id="interfaces">*3 interfaces</h4>
 
 <span class="table-code">interfaces</span>の一つの要素は以下のキーを持つオブジェクトです。
 
@@ -111,7 +123,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 
 ただし `ipAddress` と `ipv4Addresses`、または `ipv6Address` と `ipv6Addresses` が同時に指定された場合は、それぞれ `ipv4Addresses` `ipv6Addresses` が優先されます。
 
-<h4 id="roleFullnames">*3 roleFullnames</h4>
+<h4 id="roleFullnames">*4 roleFullnames</h4>
 ロールの詳細な名前は `<service name>:<role name>` というフォーマットの文字列です。
 
 <table class="eg-table">
@@ -125,7 +137,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 
 使用できる文字列は `/^[A-Za-z0-9][A-Za-z0-9_-]+$/`。
 
-<h4 id="checks">*4 checks</h4>
+<h4 id="checks">*5 checks</h4>
 <span class="table-code">checks</span>の一つの要素は以下のキーを持つオブジェクトです。
 
 | KEY     | TYPE   | DESCRIPTION |
