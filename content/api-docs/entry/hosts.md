@@ -43,11 +43,11 @@ This object holds the following keys:
 | --- | --- | --- |
 | `name` | *string* | name of the host |
 | `displayName` | *string* | [optional] host management name |
-| `customIdentifier` | *string* | [optional] a user-specific identifier for the host |
-| `meta` | *object* | host metadata [*1](#meta) |
-| `interfaces` | *array[object]* | [optional] host network interface information[*2](#interfaces) |
-| `roleFullnames` | *array[string]* | [optional] an array of the full name of the role to which the host belongs[*3](#roleFullnames) |
-| `checks` | *array[hash[string]]* | [optional] an array of the check monitoring item that monitors the host[*4](#checks) |
+| `customIdentifier` | *string* | [optional] a user-specific identifier for the host[*1](#customIdentifier) |
+| `meta` | *object* | host metadata[*2](#meta) |
+| `interfaces` | *array[object]* | [optional] host network interface information[*3](#interfaces) |
+| `roleFullnames` | *array[string]* | [optional] an array of the full name of the role to which the host belongs[*4](#roleFullnames) |
+| `checks` | *array[hash[string]]* | [optional] an array of the check monitoring item that monitors the host[*5](#checks) |
 
 ### Response
 
@@ -82,7 +82,19 @@ This object holds the following keys:
 </tbody>
 </table>
 
-<h4 id="meta" class="annotation">*1 meta</h4>
+<h4 id="customIdentifier" class="annotation">*1 customIdentifier</h4>
+
+If `null` or `""` (an empty string) is specified  <span class="table-code">customIdentifier</span>, the following will occur depending on the HTTP request method.
+
+**For `POST`**
+
+It is registered as `null`.
+
+**For `PUT`**
+
+The registered value is overwritten with `null`.
+
+<h4 id="meta" class="annotation">*2 meta</h4>
 
 `meta` contains various information. 
 
@@ -97,7 +109,7 @@ This object holds the following keys:
 | `kernel` | *hash[string]* | kernel information; can be got with the command `uname` |
 | `memory` | *hash[string]* | memory information | 
 
-<h4 id="interfaces">*2 interfaces</h4>
+<h4 id="interfaces">*3 interfaces</h4>
 
 One element of `interfaces` is an object that holds the following keys.
 
@@ -112,7 +124,7 @@ One element of `interfaces` is an object that holds the following keys.
 
 However, if `ipAddress` and `ipv4Addresses` or `ipv6Address` and `ipv6Addresses` are specified at the same time, then `ipv4Addresses` and `ipv6Addresses` will take precedence.
 
-<h4 id="roleFullnames">*3 roleFullnames</h4>
+<h4 id="roleFullnames">*4 roleFullnames</h4>
 The full names of roles are in this character string format: `<service name>:<role name>`
 
 <table class="eg-table">
@@ -126,7 +138,7 @@ The full names of roles are in this character string format: `<service name>:<ro
 
 Usable characters include `/^[A-Za-z0-9][A-Za-z0-9_-]+$/`
 
-<h4 id="checks">*4 checks</h4>
+<h4 id="checks">*5 checks</h4>
 One element of `checks` is an object that holds the following keys.
 
 | KEY     | TYPE   | DESCRIPTION |
