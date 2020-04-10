@@ -9,7 +9,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 
 ## インストーラーをダウンロードする
 
-<https://mackerel.io/file/agent/msi/mackerel-agent-latest.msi> よりインストーラーをダウンロードし、監視対象のホストにコピーします。
+<https://mackerel.io/file/agent/msi/mackerel-agent-x64-latest.msi>(64bit)または<https://mackerel.io/file/agent/msi/mackerel-agent-latest.msi>(32bit)よりインストーラーをダウンロードし、監視対象のホストにコピーします。
 
 ## Windowsホストにエージェントをインストールする
 GUIを用いてインストールする方法か、コマンドラインからインストールする方法かを選べます。
@@ -23,7 +23,7 @@ GUIを用いてインストールする方法か、コマンドラインから�
 
 監視対象のホスト上で、管理者権限のユーザーのコマンドプロンプトから`msiexec`コマンドを用いてインストールします。
 
-    msiexec /qn /i path/to/mackerel-agent-latest.msi APIKEY="<YOUR API KEY>"
+    msiexec /qn /i path/to/mackerel-agent-x64-latest.msi APIKEY="<YOUR API KEY>"
 
 入力していただく`<YOUR API KEY>`は[Mackerel管理画面のOrganizationのページにある、APIキータブ](https://mackerel.io/my?tab=apikeys)よりご確認いただけます。
 mackerel-agentのインストール完了後、特にメッセージなどは表示されませんが、正常にインストールが完了した場合は自動的にmackerel-agentが起動します。
@@ -45,15 +45,16 @@ mackerel-agentのアップデートをしなくても基本機能（メトリッ
 ## mackerel-agentのアンインストール
 
 mackerel-agentをアンインストールするには、コントロールパネルの「プログラムと機能」から削除できます。
-アンインストールの後、デフォルトではidファイル等が残っているため、PCを再起動していただき`C:\Program Files (x86)\Mackerel`をフォルダごと削除して下さい。
+アンインストールの後、デフォルトではidファイル等が残っているため、PCを再起動していただき`C:\Program Files\Mackerel`または`C:\Program Files (x86)\Mackerel`をフォルダごと削除して下さい。
 
 
 <h1 id="kcps">KCPS版mackerel-agentをWindowsにインストールする</h1>
 
-<http://repo-kcps.mackerel.io/file/msi/mackerel-agent-latest-kcps.msi> よりインストーラーをダウンロードし、監視対象のホストにコピーします。
+<http://repo-kcps.mackerel.io/file/msi/mackerel-agent-x64-latest-kcps.msi>(64bit)または<http://repo-kcps.mackerel.io/file/msi/mackerel-agent-latest-kcps.msi>(32bit)よりインストーラーをダウンロードし、監視対象のホストにコピーします。
 
 KCPS上のホストから、下記のURLを用いて直接ダウンロードすることもできます。
 
+    http://198.18.0.16/file/msi/mackerel-agent-x64-latest-kcps.msi
     http://198.18.0.16/file/msi/mackerel-agent-latest-kcps.msi
 
 ## Windowsホストにエージェントをインストールする
@@ -66,7 +67,7 @@ GUIを用いてインストールする方法か、コマンドラインから�
 
 監視対象のホスト上で、管理者権限のユーザーのコマンドプロンプトから`msiexec`コマンドを用いてインストールします。
 
-    msiexec /qn /i path/to/mackerel-agent-latest-kcps.msi APIKEY="<YOUR API KEY>"
+    msiexec /qn /i path/to/mackerel-agent-x64-latest-kcps.msi APIKEY="<YOUR API KEY>"
 
 mackerel-agentのインストール完了後、特にメッセージなどは表示されませんが、正常にインストールが完了した場合は自動的にmackerel-agentが起動します。
 mackerel-agentが起動しているか否かの確認はWindowsサービス管理画面より確認ができます。
