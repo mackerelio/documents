@@ -9,7 +9,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackere
 
 ## Downloading the installer
 
-Download the installer from here <https://mackerel.io/file/agent/msi/mackerel-agent-latest.msi> and copy it into the host which is to be targeted for monitoring.
+Download the installer from <https://mackerel.io/file/agent/msi/mackerel-agent-x64-latest.msi>(64bit) or <https://mackerel.io/file/agent/msi/mackerel-agent-latest.msi>(32bit), and copy it into the host which is to be targeted for monitoring.
 
 ## Installing the agent on a Windows host
 There are two ways to install the agent on a Windows host; install from the command line or using the GUI.
@@ -23,7 +23,7 @@ Part way through, you will be asked to input an API key, but this can be checked
 
 On the host that will be targeted for monitoring, using the command `msiexec` from the administrator’s command prompt will install the agent.
 
-    msiexec /qn /i path/to/mackerel-agent-latest.msi APIKEY="<YOUR API KEY>"
+    msiexec /qn /i path/to/mackerel-agent-x64-latest.msi APIKEY="<YOUR API KEY>"
 
 You can check `<YOUR API KEY>` by going to the API Keys tab in the Organization page in Mackerel. After installation has been completed, a completion message will not be displayed, but if the installation was successful the mackerel-agent will start up automatically. You can check the Windows Service management screen to see if the mackerel-agent is running or not. The service name will be "mackerel-agent", and it's status should be "running".
 
@@ -45,7 +45,7 @@ mackerel-agent can be uninstalled by going to Programs and Features in the Contr
 
 <h1 id="kcps">Installing the mackerel agent KCPS version on Windows</h1>
 
-Download the installer from here <http://repo-kcps.mackerel.io/file/msi/mackerel-agent-latest-kcps.msi> and copy it into the host which is to be targeted for monitoring.
+Download the installer from <http://repo-kcps.mackerel.io/file/msi/mackerel-agent-x64-latest-kcps.msi>(64bit) or <http://repo-kcps.mackerel.io/file/msi/mackerel-agent-latest-kcps.msi>(32bit), and copy it into the host which is to be targeted for monitoring.
 
 The following URL can also be used to download the installer directly from a host on KCPS.
 
@@ -62,7 +62,7 @@ Double click on the icon of the downloaded msi file and follow the dialog.
 
 Using the command `msiexec` from the administrator’s command prompt will install the agent on a host monitoring target.
 
-    msiexec /qn /i path/to/mackerel-agent-latest-kcps.msi APIKEY="<YOUR API KEY>"
+    msiexec /qn /i path/to/mackerel-agent-x64-latest-kcps.msi APIKEY="<YOUR API KEY>"
 
 After installation, if completed successfully, the mackerel-agent will start up automatically with no further notification. You can confirm whether or not the mackerel-agent is running from the Windows Service management screen. The service name will be "mackerel-agent", and it's status should be "running".
 
