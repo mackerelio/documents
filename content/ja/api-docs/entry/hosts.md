@@ -43,7 +43,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 | `name` | *string* | ホスト名 |
 | `displayName` | *string* | [optional] ホストの管理名 |
 | `customIdentifier` | *string* | [optional] ホストに対するユーザー独自の識別子[*1](#customIdentifier) |
-| `meta` | *object* | ホストのメタ情報[*2](#meta) |
+| `meta` | *object* | ホストのメタ情報[*2](#meta)。空のオブジェクトでも登録することができます。 |
 | `interfaces` | *array[object]* | [optional] ホストのネットワークインターフェース情報[*3](#interfaces) |
 | `roleFullnames` | *array[string]* | [optional] ホストが所属しているロールの名前の配列[*4](#roleFullnames) |
 | `checks` | *array[hash[string]]* | [optional] ホストを監視するチェック監視項目の配列[*5](#checks) |
@@ -95,7 +95,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 
 <h4 id="meta" class="annotation">*2 meta</h4>
 
-<span class="table-code">meta</span> には色々な情報が入ります。
+<span class="table-code">meta</span> には色々な情報が入ります。例えば、mackerel-agent やクラウドインテグレーションにより登録されたホストの場合は以下のような情報が登録されます。
 
 | KEY     | TYPE   | DESCRIPTION |
 | -------- | ------ | ----------- |
@@ -107,6 +107,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 | `filesystem` | *hash[object]* | ファイルシステムの情報。キーはファイルシステムの名前、値は `kb_available`, `kb_used` などを持ったオブジェクトです。 |
 | `kernel` | *hash[string]* | カーネルの情報。`uname` コマンドで得られるものです。 |
 | `memory` | *hash[string]* | メモリの情報。|
+| `cloud`  | *hash[object]* | [AWSインテグレーション](https://mackerel.io/ja/docs/entry/integrations/aws)などのクラウドインテグレーションにより登録されたホストの場合に存在します。`provider` `metadata` などを持ったオブジェクトです。 |
 
 <h4 id="interfaces">*3 interfaces</h4>
 

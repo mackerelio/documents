@@ -44,7 +44,7 @@ This object holds the following keys:
 | `name` | *string* | name of the host |
 | `displayName` | *string* | [optional] host management name |
 | `customIdentifier` | *string* | [optional] a user-specific identifier for the host[*1](#customIdentifier) |
-| `meta` | *object* | host metadata[*2](#meta) |
+| `meta` | *object* | host metadata[*2](#meta). Empty objects can also be registered. |
 | `interfaces` | *array[object]* | [optional] host network interface information[*3](#interfaces) |
 | `roleFullnames` | *array[string]* | [optional] an array of the full name of the role to which the host belongs[*4](#roleFullnames) |
 | `checks` | *array[hash[string]]* | [optional] an array of the check monitoring item that monitors the host[*5](#checks) |
@@ -96,7 +96,7 @@ The registered value is overwritten with `null`.
 
 <h4 id="meta" class="annotation">*2 meta</h4>
 
-`meta` contains various information. 
+`meta` contains various information. For example, if the host is registered by mackerel-agent or Cloud Integration, the following information will be registered.
 
 | KEY     | TYPE   | DESCRIPTION |
 | -------- | ------ | ----------- |
@@ -107,7 +107,8 @@ The registered value is overwritten with `null`.
 | `cpu` | *array[object]* | each CPU’s core info. each object holds `mhz` and `model_name` |
 | `filesystem` | *hash[object]* | filesystem information. an object that holds “key is a name of filesystem”, `kb_available`, `kb_used`, etc. |
 | `kernel` | *hash[string]* | kernel information; can be got with the command `uname` |
-| `memory` | *hash[string]* | memory information | 
+| `memory` | *hash[string]* | memory information |
+| `cloud`  | *hash[object]* | Exists if the host is registered through Cloud Integration such as [AWS Integration](https://mackerel.io/docs/entry/integrations/aws). An object that contains keys like `provider` and `metadata`. |
 
 <h4 id="interfaces">*3 interfaces</h4>
 
