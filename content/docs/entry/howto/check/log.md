@@ -5,15 +5,22 @@ URL: https://mackerel.io/docs/entry/howto/check/log
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/6653458415127142958
 ---
 
-Monitor logs in Mackerel with `check-log` which is provided in the official check plugin pack. For more on how to install the official check plugin pack, refer to [Using the official check plugin pack for check monitoring](https://mackerel.io/docs/entry/howto/mackerel-check-plugins).
+Logs can be monitored in Mackerel with `check-log` from the official check plugin pack. For more on how to install the official check plugin pack, refer to [Using the official check plugin pack for check monitoring](https://mackerel.io/docs/entry/howto/mackerel-check-plugins).
 
 ## Using `check-log`
 
-To monitor logs using `check-log`, append the following item in mackerel-agent.conf and restart mackerel-agent.
+To monitor logs using `check-log`, write a command similar to the following example in mackerel-agent.conf and restart mackerel-agent.
 
 ```config
 [plugin.checks.access_log]
 command = ["check-log", "--file", "/var/log/access.log", "--pattern", "FATAL"]
+```
+
+For Windows Server environments, use the following example (Please note that monitoring cannot be performed for log file `C:\log\access.log` if the target is given a BOM (byte order mark)).
+
+```config
+[plugin.checks.access_log]
+command = ["check-log", "--file", "C:\\log\\access.log", "--pattern", "FATAL"]
 ```
 
 Specify the target file in the `--file` option, and specify the error message pattern that you want to be detected using a regular expression in the `--pattern` option. In the example above,  an alert will be triggered if the string “FATAL” appears in the targeted log file. 

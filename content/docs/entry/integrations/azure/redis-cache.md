@@ -8,7 +8,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackere
 Mackerel supports obtaining and monitoring <a href="https://azure.microsoft.com/en-us/services/cache/" target="_blank">Cache for Redis</a> metrics in Azure Integration. When integrating with Azure Integration, billable targets are determined using the conversion 1 Cache = 1 Micro Host.
 In addition to this, depending on the number of metrics retrieved, you may be charged for exceeding the maximum number of metrics per micro host.
 
-Please refer to the following page for Azure Integration configuration methods and a list of supported Azure services. 
+Please refer to the following page for Azure Integration configuration methods and a list of supported Azure services.
 
 <a href="https://mackerel.io/docs/entry/integrations/azure">Azure Integration</a>
 
@@ -16,7 +16,7 @@ Please refer to the following page for Azure Integration configuration methods a
 
 The metrics obtainable with Azure Integration’s Cache for Redis support are as follows. For `Metric` explanations, refer to the <a href="https://docs.microsoft.com/en-us/azure/redis-cache/cache-how-to-monitor#available-metrics-and-reporting-intervals" target="_blank">Azure help page</a>.
 
-The maximum number of metrics obtainable is `16 + 16 × (number of Shards)`.
+The maximum number of metrics obtainable is `23 + 23 × (number of Shards)`.
 
 |Graph name|Metric|Metric name in Mackerel|Unit|Aggregation Type|
 |:---|:---|:---|:---|:---|
@@ -30,5 +30,16 @@ The maximum number of metrics obtainable is `16 + 16 × (number of Shards)`.
 |Commands|totalcommandsprocessed<br>getcommands<br>setcommands|azure.redis_cache.command.processed<br>azure.redis_cache.command.get<br>azure.redis_cache.command.set|integer|Total|
 |Evicted/Expired Keys|evictedkeys<br>expiredkeys|azure.redis_cache.keys.evicted<br>azure.redis_cache.keys.expired|integer|Total|
 |Operations Per Second|operationsPerSecond|azure.redis_cache.operations.iops|iops|Maximum|
+|Errors|errors|azure.redis_cache.errors.aof<br>azure.redis_cache.errors.dataloss<br>azure.redis_cache.errors.export<br>azure.redis_cache.errors.failover<br>azure.redis_cache.errors.import<br>azure.redis_cache.errors.rdb<br>azure.redis_cache.errors.unresponsiveclients|integer|Maximum|
 
 Mackerel also supports metrics for each Shard of Cache for Redis. For each of the above graphs, shard-level graphs are generated and the metrics of each shard can be seen all in one place.
+
+As for Errors, a Per Shard graph is generated for each of the following error types.
+
+- AOF
+- Dataloss
+- Export
+- Failover
+- Import
+- RDB
+- UnresponsiveClients

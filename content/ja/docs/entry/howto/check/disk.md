@@ -18,6 +18,13 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 command = ["check-disk", "--path", "/tmp", "--warning", "10%", "--critical", "5%"]
 ```
 
+Windows Server 環境の場合は、以下のように記述します（Cドライブのディスク容量が10%以下の場合にWarning、5%以下の場合にCritical を発生させる場合）。
+
+```config
+[plugin.checks.disk]
+command = ["check-disk", "--path", "C:", "--warning", "10%", "--critical", "5%"]
+```
+
 `--warning` 、`--critical` オプションは、 "%" でなく、ディスク容量を直接指定することも可能です。
 また、`--path` オプションは複数指定することができ、その場合 OR 条件として扱われます。
 
@@ -37,9 +44,9 @@ command = ["check-disk", "--path", "/tmp", "--path", "/var", "--warning", "10", 
 - `-c`, `--critical`
   - 設定値より空いているディスク容量、ディスク割合が少なかった場合にCritical
 - `-W`, `--iwarning`
-  - 設定値より空いているinode割合が少なかった場合にWarning
+  - 設定値より空いているinode割合が少なかった場合にWarning（Linux系OSでのみ利用可能）
 - `-K`, `--icritical`
-  - 設定値より空いているinode割合が少なかった場合にCritical
+  - 設定値より空いているinode割合が少なかった場合にCritical（Linux系OSでのみ利用可能）
 
 ## 監視するパーティションを指定する
 

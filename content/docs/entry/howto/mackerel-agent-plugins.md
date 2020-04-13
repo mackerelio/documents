@@ -13,7 +13,7 @@ Check out the following README for the plugin package list.
 
 [https://github.com/mackerelio/mackerel-agent-plugins:embed:cite]
 
-##Installing the official plugin pack
+## Installing the official plugin pack (for Linux OS)
 
 For installation we recommend using either the ‘yum’ or ‘apt’ repository according to the environment which you will be using. For information on configuring the repository, please refer to [Installing mackerel-agent][]. If you would like to acquire the ‘rpm’ and ‘deb’ files directly, please check [GitHub Releases][].
 
@@ -32,7 +32,16 @@ yum install mackerel-agent-plugins
 apt-get install mackerel-agent-plugins
 ```
 
-##Using the official plugin pack
+## Installing the official plugin pack (for Windows Server)
+
+When using the official plugin pack on a Windows Server, we recommend using a plugin that comes bundled with the agent. (For details on how to install the agent, refer to [Installing Mackerel Agent][].)
+
+For a list of the bundled plugins, refer to the [GitHub Repository Bundled Plugin List][]. Plugins that are not included in this list are not officially supported and must be built independently.
+
+[Installing Mackerel Agent]: https://mackerel.io/my/instruction-agent
+[GitHub Repository Bundled Plugin List]: https://github.com/mackerelio/mackerel-agent/blob/master/wix/pluginlist.txt
+
+## Using the official plugin pack (for Linux OS)
 
 Each plugin has been installed in `/usr/bin` ,so please configure the mackerel-agent settings file to meet with the plugin which you will be using as shown below.
 
@@ -42,9 +51,22 @@ if using plugin for Apache2
 command = ["mackerel-plugin-apache2"]
 ```
 
-For more on how to use each plugin, refer below to the README of each plugin in github.
+For more on how to use each plugin, refer below to the README of each plugin in GitHub.
 
-##Plugin pack code
+## Using the official plugin pack (for Windows Server)
+
+As mentioned above, when using the official plugin pack on a Windows Server, we recommend using a plugin that comes bundled with the agent. When using a bundled plugin, each is stored in the agent's installation folder and run through pass. Add the following configuration according to the plugin of use in the mackerel-agent configuration file. Then restart mackerel-agent to apply the configuration.
+
+When using the "mackerel-plugin-mssql" plugin, the description is as follows.
+
+```
+[plugin.metrics.mssql]
+command = ["mackerel-plugin-mssql"]
+```
+
+For more on how to use each plugin, refer below to the README of each plugin in GitHub.
+
+## Plugin pack code
 
 The official plugin pack is open to the public and can be found here [https://github.com/mackerelio/mackerel-agent-plugins:title].
 We are always happy to receive Pull Requests, comments, etc. regarding plugins that support new middleware.

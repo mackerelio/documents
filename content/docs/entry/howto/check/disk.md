@@ -5,17 +5,24 @@ URL: https://mackerel.io/docs/entry/howto/check/disk
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/8599973812303796946
 ---
 
-Disk monitoring can be done using `check-disk` of the official check plugin pack. To learn how to install the official check plugin pack, please refer to [Using the official check plugin pack for check monitoring](https://mackerel.io/docs/entry/howto/mackerel-check-plugins).
+Disks can be monitored with `check-disk` from the official check plugin pack. For more on how to install the official check plugin pack, refer to [Using the official check plugin pack for check monitoring](https://mackerel.io/docs/entry/howto/mackerel-check-plugins).
 
 ## Using `check-disk` 
 
-In order to monitor disks using `check-disk`, write a command similar to the following example into the mackerel-agent.conf and restart the mackerel-agent.
+To monitor disks using `check-disk`, write a command similar to the following example into the mackerel-agent.conf and restart mackerel-agent.
 
 In the following example, Warning occurs when the `/tmp` disk capacity is 10% or less, and Critical when the disk capacity is 5% or less.
 
 ```config
 [plugin.checks.disk]
 command = ["check-disk", "--path", "/tmp", "--warning", "10%", "--critical", "5%"]
+```
+
+For Windows Server environments, use the following example (Warning occurs when the C drive disk capacity is 10% or less, and Critical when the disk capacity is 5% or less).
+
+```config
+[plugin.checks.disk]
+command = ["check-disk", "--path", "C:", "--warning", "10%", "--critical", "5%"]
 ```
 
 The options `--warning` and `--critical` can be specified by disk capacity instead of "%". Additionally, multiple `--path` options can be specified, in which case they are treated as OR conditions.
@@ -37,9 +44,9 @@ With `check-disk`, thresholds can be configured to generate alerts for the monit
 - `-c`, `--critical`
   - If the available disk space or the disk ratio is less than the configured value, a Critical alert occurs
 - `-W`, `--iwarning`
-  - If the inode ratio is less than the configured value, a Warning alert occurs
+  - If the inode ratio is less than the configured value, a Warning alert occurs (for Linux OS only)
 - `-K`, `--icritical`
-  - If the inode ratio is less than the configured value, a Critical alert occurs
+  - If the inode ratio is less than the configured value, a Critical alert occurs (for Linux OS only)
 
 
 ## Specifying partitions 

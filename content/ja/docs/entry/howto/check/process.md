@@ -20,6 +20,16 @@ command = ["check-procs", "--pattern", "crond"]
 
 ![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20151105/20151105163711.png)
 
+Windows Server の場合でも同様に記述することができますが、`--pattern` オプションに指定する監視対象プロセスについては、以下の点を注意してください。
+
+- コマンド `tasklist` で取得できるプロセス名を指定してください。
+    - `tasklist` コマンドの出力が `foobar.exe` のように拡張子を含んでいる場合は、以下のように拡張子を取り除いて指定してください。
+
+```config
+[plugin.checks.check_foobar]
+command = ["check-procs","--pattern","foobar"]
+```
+
 ## プロセスの個数を監視したい
 
 `check-procs` には以下の様なオプションがあり、プロセス数に閾値を設定可能になっています。ワーカーのプロセス数を監視させたい場合などに便利です。

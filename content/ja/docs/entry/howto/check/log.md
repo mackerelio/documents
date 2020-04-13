@@ -16,6 +16,13 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 command = ["check-log", "--file", "/var/log/access.log", "--pattern", "FATAL"]
 ```
 
+Windows Server 環境の場合は、以下のように記述します（ログファイル `C:\log\access.log` を対象にログ監視する場合。対象ログファイルにBOM（バイトオーダーマーク）が付与されていると監視をおこなえませんのでご注意ください）。
+
+```config
+[plugin.checks.access_log]
+command = ["check-log", "--file", "C:\\log\\access.log", "--pattern", "FATAL"]
+```
+
 `--file` オプションに監視対象のファイルを、`--pattern` オプションに、エラー文言を検出したいパターンを正規表現で指定します。この場合、ログファイルに "FATAL" という文字列が出現した場合にアラートが発生します。
 
 初回のチェックは、設定追加後に出力された差分に対してのみおこなわれます。初回チェックのタイミングで既に存在するファイルの内容全てに対してチェックをおこないたい場合は、`--check-first` オプションを指定してください。

@@ -13,7 +13,7 @@ Azureインテグレーションの設定方法や対応Azureサービス一覧�
 ## 取得メトリック
 AzureインテグレーションのCache for Redis対応で取得できるメトリックは以下の通りです。 `メトリック` の説明に関しては<a href="https://docs.microsoft.com/ja-jp/azure/redis-cache/cache-how-to-monitor#available-metrics-and-reporting-intervals" target="_blank">Azureのドキュメント</a>をご確認ください。
 
-最大で `16 + 16 × (シャード数)` 個のメトリックが取得されます。
+最大で `23 + 23 × (シャード数)` 個のメトリックが取得されます。
 
 |グラフ名|メトリック|Mackerel上のメトリック名|単位|Aggregation Type|
 |:---|:---|:---|:---|:---|
@@ -27,5 +27,15 @@ AzureインテグレーションのCache for Redis対応で取得できるメト
 |Commands|totalcommandsprocessed<br>getcommands<br>setcommands|azure.redis_cache.command.processed<br>azure.redis_cache.command.get<br>azure.redis_cache.command.set|integer|Total|
 |Evicted/Expired Keys|evictedkeys<br>expiredkeys|azure.redis_cache.keys.evicted<br>azure.redis_cache.keys.expired|integer|Total|
 |Operations Per Second|operationsPerSecond|azure.redis_cache.operations.iops|iops|Maximum|
+|Errors|errors|azure.redis_cache.errors.aof<br>azure.redis_cache.errors.dataloss<br>azure.redis_cache.errors.export<br>azure.redis_cache.errors.failover<br>azure.redis_cache.errors.import<br>azure.redis_cache.errors.rdb<br>azure.redis_cache.errors.unresponsiveclients|integer|Maximum|
 
 MackerelはCache for Redisのシャードごとのメトリックにも対応しています。上記のグラフのPer Shardなグラフが作られ、シャードごとのメトリックの様子を一括でみられます。
+Errorsについては、以下のエラー種別ごとにPer Shardなグラフが作られます。
+
+- AOF
+- Dataloss
+- Export
+- Failover
+- Import
+- RDB
+- UnresponsiveClients

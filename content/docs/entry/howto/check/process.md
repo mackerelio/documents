@@ -5,20 +5,30 @@ URL: https://mackerel.io/docs/entry/howto/check/process
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/6653458415127142653
 ---
 
-Using `check-procs` from the official check plugins pack, you can monitor processes. For information on installing the official check plugin pack, you can refer to [Using the official check plugin pack for check monitoring](https://mackerel.io/docs/entry/howto/mackerel-check-plugins).
+Processes can be monitored using `check-procs` from the official check plugins pack. For more on how to install the official check plugin pack, refer to [Using the official check plugin pack for check monitoring](https://mackerel.io/docs/entry/howto/mackerel-check-plugins).
 
 ## Example: monitoring the cron process
 
-To monitor cron, we will first append the following item in mackerel-agent.conf and then restart the mackerel-agent.
+To monitor cron, first write the following item in mackerel-agent.conf and then restart mackerel-agent.
 
 ```config
 [plugin.checks.check_cron]
 command = ["check-procs", "--pattern", "crond"]
 ```
 
-In the `--pattern` option we will assign a regular expression that will match to the target process. With this arrangement, if crond suspends operations an alert will be opened, and when the process is restored the alert will close automatically.
+In the `--pattern` option, specify a regular expression that will match the target process. With this arrangement, an alert will occur if crond suspends operations and will close automatically when the process is restored.
 
 ![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20151105/20151105163711.png)
+
+The same description can be used for Windows Servers, but note the following regarding the target process specified in the `--pattern` option.
+
+- Specify a process name that can be obtained with the command `tasklist`.
+    - If the `tasklist` command output includes an extension such as `foobar.exe`, remove the extension and specify.
+
+```config
+[plugin.checks.check_foobar]
+command = ["check-procs","--pattern","foobar"]
+```
 
 ## Monitoring the number of processes
 
