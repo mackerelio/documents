@@ -87,6 +87,15 @@ GUIを利用するか、またはコマンドプロンプトやPowerShellで以�
 setx MACKEREL_AUTO_RETIREMENT 1 -m
 ```
 
+### AWSインテグレーションを利用してEC2を登録している
+
+[AWSインテグレーション](https://mackerel.io/ja/docs/entry/integrations/aws)の[EC2連携](https://mackerel.io/ja/docs/entry/integrations/aws/ec2)を利用してホスト登録をおこなっている場合、AWSインテグレーションにより自動的に退役させることができます。
+
+[https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20200413/20200413124408.png:image]
+
+この機能を有効にすると、インスタンスの終了がおこなわれた際に、自動的に退役処理が実行されるようになります。
+この機能は、上述の mackerel-agent による自動退役と併用することができます。これは、自動退役をより確実に実行させるためにも効果的です。
+
 # Auto Scaling対応のグラフを見る
 
 [https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20150730/20150730191150_original.png:image]

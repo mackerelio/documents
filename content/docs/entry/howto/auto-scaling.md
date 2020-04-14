@@ -86,6 +86,16 @@ You can configure this using the GUI or by executing the following command in th
 setx MACKEREL_AUTO_RETIREMENT 1 -m
 ```
 
+### Registering EC2 using AWS Integration
+
+If registering an [EC2](https://mackerel.io/docs/entry/integrations/aws/ec2) host using [AWS Integration](https://mackerel.io/docs/entry/integrations/aws), it can be automatically retired through AWS Integration.
+
+[https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20200413/20200413124517.png:image]
+
+When this function is enabled, the retirement process will automatically execute when the instance terminates.
+This function can be used in conjunction with the auto retirement function of mackerel-agent described above. This is an effective way to ensure that auto retirement is performed.
+
+
 ## Viewing graphs for Auto Scaling
 
 [https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20150730/20150730191150_original.png:image]
