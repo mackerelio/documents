@@ -74,6 +74,7 @@ The JSON that will be sent contains the following. (Items may be added at any ti
     "monitorOperator": ">", 
     "status": "critical", 
     "trigger": "monitor", 
+    "id": "2bj...",
     "url": "https://mackerel.io/orgs/.../alerts/2bj...",
     "warningThreshold": 1.4665636369580741
   }
@@ -126,6 +127,7 @@ The JSON that will be sent contains the following. (Items may be added at any ti
 
 |KEY|TYPE|DESCRIPTION|
 |:--|:--|:-|
+|id|string|alert ID|
 |status|string|alert status (`ok`, `warning`, `critical`, `unknown`)|
 |isOpen|boolean|whether or not the alert is open|
 |trigger|string|what triggered the notification (`monitoring`, `manual`, `monitorDelete`, `hostRetire`)|

@@ -53,6 +53,7 @@ Webhookを利用することでアラートの内容のJSONをPOSTで受け取�
     "monitorOperator": ">", 
     "status": "critical", 
     "trigger": "monitor", 
+    "id": "2bj...",
     "url": "https://mackerel.io/orgs/.../alerts/2bj...",
     "warningThreshold": 1.4665636369580741
   }
@@ -105,6 +106,7 @@ Webhookを利用することでアラートの内容のJSONをPOSTで受け取�
 
 |KEY|TYPE|DESCRIPTION|
 |:--|:--|:-|
+|id|string|アラートのID|
 |status|string|アラートのステータス(`ok`, `warning`, `critical`, `unknown`)|
 |isOpen|boolean|アラートのオープンの状態|
 |trigger|string|通知が送信されたトリガー(`monitoring`(監視), `manual`(手動操作), `monitorDelete`(監視ルール削除), `hostRetire`(ホスト退役))|
