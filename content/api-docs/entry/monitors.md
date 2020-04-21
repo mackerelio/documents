@@ -52,8 +52,8 @@ The input procedure varies depending on the monitoring target.
 | `duration`      | *number*   | average value of the designated interval (in minutes) will be monitored. valid interval (1 to 10 min.) |
 | `metric`        | *string*   | name of the host metric targeted by monitoring. by designating a specific constant string, comparative monitoring is possible [*1](#comparative-monitoring) | 
 | `operator`      | *string*   | determines the conditions that state whether the designated variable is either big or small. the observed value is on the left of `”>”` or `”<”` and the designated value is on the right | 
-| `warning`       | *number*   | the threshold that generates a warning alert |
-| `critical`      | *number*   | the threshold that generates a critical alert |
+| `warning`       | *number*   | the threshold that generates a warning alert. comparative monitoring has a valid range of 1-100[*1](#comparative-monitoring) |
+| `critical`      | *number*   | the threshold that generates a critical alert. comparative monitoring has a valid range of 1-100[*1](#comparative-monitoring) |
 | `maxCheckAttempts`           | *number*   | [optional] number of consecutive Warning/Critical instances before an alert is made. Default setting is 1 (1-10) |
 | `notificationInterval`       | *number*   | [optional] the time interval (in minutes) for re-sending notifications. If this field is omitted, notifications will not be re-sent. |
 | `scopes`        | *array[string]* | [optional] monitoring target’s service name or role details name  [*2](#service-name) | 
@@ -136,11 +136,15 @@ The input procedure varies depending on the monitoring target.
     </tr>
     <tr>
       <td>400</td>
-      <td>when the <code>duration</code> is not in the range of 1~10</td>
+      <td>when the <code>duration</code> is outside the range of 1~10</td>
     </tr>
     <tr>
       <td>400</td>
-      <td>when the <code>maxCheckAttempts</code> is not in the range of 1~10</td>
+      <td>when <code>warning</code> or <code>critical</code> are outside the range of 0~100(%) in comparative monitoring settings <a href="#comparative-monitoring">*1</a></td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td>when the <code>maxCheckAttempts</code> is outside the range of 1~10</td>
     </tr>
     <tr>
       <td>400</td>

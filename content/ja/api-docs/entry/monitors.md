@@ -51,8 +51,8 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 | `duration`      | *number*   | 指定された間隔(分)の平均値を監視します。有効範囲：1~10分。 |
 | `metric`        | *string*   | 監視対象のホストメトリック名。特定の定数文字列を指定することで、割合監視が可能です。 [*1](#comparative-monitoring) |
 | `operator`      | *string*   | 指定した数値より大きいか小さいかというアラート条件を指定。`">"` または `"<"`。左辺が観測値で右辺が設定値となります。|
-| `warning`       | *number*   | warningのAlert発生の閾値。 |
-| `critical`      | *number*   | criticalのAlert発生の閾値。 |
+| `warning`       | *number*   | warningのAlert発生の閾値。割合監視 [*1](#comparative-monitoring) の場合は、有効範囲が0~100(%)になります。 |
+| `critical`      | *number*   | criticalのAlert発生の閾値。割合監視 [*1](#comparative-monitoring) の場合は、有効範囲が0~100(%)になります。 |
 | `maxCheckAttempts`     | *number* | [optional] 何回連続で Warning/Critical になったらアラートを発生させるか。デフォルトは1 (1~10)です。 |
 | `notificationInterval` | *number* | [optional] 通知の再送設定をするときの再送間隔 (分)。このフィールドを省略すると通知は再送されません。 |
 | `scopes`        | *array[string]* | [optional] 監視対象のサービス名またはロール詳細名。[*2](#service-name)  |
@@ -135,6 +135,10 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
     <tr>
       <td>400</td>
       <td><code>duration</code>が1~10の範囲を越えたとき</td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td>割合監視 <a href="#comparative-monitoring">*1</a> の設定で、<code>warning</code>または<code>critical</code>が0~100(%)の範囲を越えたとき</td>
     </tr>
     <tr>
       <td>400</td>
