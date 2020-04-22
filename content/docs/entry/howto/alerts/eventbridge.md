@@ -77,6 +77,13 @@ The JSON that will be sent contains the following. (Items may be added at any ti
     "id": "2bj...",
     "url": "https://mackerel.io/orgs/.../alerts/2bj...",
     "warningThreshold": 1.4665636369580741
+  },
+  "resourceInfo": {
+    "service":"ec2",
+    "region":null,
+    "accountId":null,
+    "resourceType":"instance",
+    "resourceId":"i-12345..."
   }
 }
 ```
@@ -90,6 +97,7 @@ The JSON that will be sent contains the following. (Items may be added at any ti
 |host|object|host information (output for alerts of host metrics only)|
 |service|object|service information (output for alerts of service metrics only)|
 |alert|object|alert information|
+|resourceInfo|object|AWS resource information (output for supported components only)|
 
 ### JSON items (host information)
 
@@ -145,4 +153,20 @@ The JSON that will be sent contains the following. (Items may be added at any ti
 
 ※Alert information items fluctuate depending on the type of monitoring target (host metrics, service metrics, external monitoring, expression monitoring) and each configuration item. For example, if only the URL is configured with external monitoring, information for metrics, thresholds, etc. will not be included. The type of monitoring target and the output items correspond with possible input items from the monitoring configurations screen. 
 
+### JSON items (AWS resource information)
+
+#### EC2
+
+When an alert occurs in an EC2 instance installed with mackerel-agent or AWS integration, the information that has already been acquired by Mackerel<a href="#1">*1</a> will be returned with each field corresponding to ARN format.
+
+|KEY|TYPE|DESCRIPTION|
+|:--|:--|:-|
+|service|string|[optional] service name `ec2`|
+|region|string|[optional] region name|
+|accountId|string|[optional] AWS account ID|
+|resourceType|string|[optional] resource type `instance`|
+|resourceId|string|[optional] resource ID `i-12345...`|
+
+<div id="1" style="position:relative; top:-80px;"></div>
+<a href="#1">*1</a> However, you cannot retrieve this information if `cloud_platform` is set to `none` in the mackerel-agent settings.
 

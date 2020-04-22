@@ -78,6 +78,13 @@ Mackerelでの設定が完了したら、Amazon EventBridgeでイベントバス
     "id": "2bj...",
     "url": "https://mackerel.io/orgs/.../alerts/2bj...",
     "warningThreshold": 1.4665636369580741
+  },
+  "resourceInfo": {
+    "service":"ec2",
+    "region":null,
+    "accountId":null,
+    "resourceType":"instance",
+    "resourceId":"i-12345..."
   }
 }
 ```
@@ -91,6 +98,7 @@ Mackerelでの設定が完了したら、Amazon EventBridgeでイベントバス
 |host|object|ホスト情報(ホストメトリック時のアラートのみ出力)|
 |service|object|サービス情報(サービスメトリック時のアラートのみ出力)
 |alert|object|アラート情報|
+|resourceInfo|object|AWSのリソース情報(対応しているコンポーネントの場合のみ出力)|
 
 ### JSONの各項目(ホスト情報)
 
@@ -146,3 +154,19 @@ Mackerelでの設定が完了したら、Amazon EventBridgeでイベントバス
 
 ※アラート情報の項目は、監視対象の種類（ホストメトリック, サービスメトリック, 外形監視, 式による監視)やそれぞれの設定項目によって増減します。たとえば外形監視でURLのみ設定されている場合のアラートではメトリックや閾値などの情報はアラートに含まれません。監視対象の種類と出力される項目は、監視ルール設定画面で入力可能な項目と対応します。
 
+### JSONの各項目(AWSのリソース情報)
+
+#### EC2 の場合
+
+mackerel-agentまたはAWSインテグレーションを導入しているEC2インスタンスで、アラートが発生した場合に、Mackerelですでに取得している情報<a href="#1">*1</a>を、ARN形式のフォーマットに従ったフィールドの情報を返却します。
+
+|KEY|TYPE|DESCRIPTION|
+|:--|:--|:-|
+|service|string|[optional] サービス名 `ec2`|
+|region|string|[optional] リージョン名|
+|accountId|string|[optional] AWSアカウントID|
+|resourceType|string|[optional] リソースの種別 `instance`|
+|resourceId|string|[optional] リソースID `i-12345...`|
+
+<div id="1" style="position:relative; top:-80px;"></div>
+<a href="#1">*1</a> ただし、mackerel-agentの設定で `cloud_platform` を `none` としている場合は、これらの情報を取得できません。
