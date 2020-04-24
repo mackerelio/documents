@@ -2,7 +2,8 @@
 Title: AWS Integration - WAF
 Date: 2020-03-06T10:00:00+09:00
 URL: https://mackerel.io/docs/entry/integrations/aws/waf
-EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/
+EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/26006613555445888
+CustomPath: integrations/aws/waf
 ---
 
 Mackerel supports obtaining and monitoring <a href="https://aws.amazon.com/waf/" target="_blank">AWS WAF</a> metrics in AWS Integration. When integrating with AWS Integration, billable targets are determined using the conversion 1 Web Access Control List = 1 Micro Host. In addition to this, depending on the number of metrics retrieved, you may be charged for exceeding the maximum number of metrics per micro host.
