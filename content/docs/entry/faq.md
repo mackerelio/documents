@@ -50,6 +50,9 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackere
 - [How does the billing system work when using mackerel-agent and AWS / Azure Integration together？](https://mackerel.io/docs/entry/faq/contracts/combined-integration)
 - [I want to share my monthly settlement amount with accounting personnel](https://mackerel.io/docs/entry/faq/contracts/share-with-accounting)
 
+## About support
+- [Support related questions](https://mackerel.io/docs/entry/faq/support/about-support)
+
 
 ## Other
 - [I want to change my email address linked to IDCF.](https://mackerel.io/docs/entry/faq/misc/change-idcf-related-address)

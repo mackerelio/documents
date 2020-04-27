@@ -51,6 +51,8 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 - [mackerel-agent と AWS / Azure インテグレーションを併用した場合の課金体系はどうなりますか？](https://mackerel.io/ja/docs/entry/faq/contracts/combined-integration)
 - [毎月の決済金額を経理担当者と共有したいのですが。](https://mackerel.io/ja/docs/entry/faq/contracts/share-with-accounting)
 
+## サポートについて
+- [サポートについて教えて下さい](https://mackerel.io/ja/docs/entry/faq/support/about-support)
 
 ## その他
 - [IDCF連携されたメールアドレスを変更したい](https://mackerel.io/ja/docs/entry/faq/misc/change-idcf-related-address)
