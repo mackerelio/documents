@@ -165,7 +165,7 @@ When an alert occurs in an EC2 instance installed with mackerel-agent or AWS int
 |region|string|[optional] region name|
 |accountId|string|[optional] AWS account ID|
 |resourceType|string|[optional] resource type `instance`|
-|resourceId|string|[optional] resource ID `i-12345...`|
+|resourceId|string|[optional] resource ID (EC2 instance ID) `i-12345...`|
 
 <div id="1" style="position:relative; top:-80px;"></div>
 <a href="#1">*1</a> However, you cannot retrieve this information if `cloud_platform` is set to `none` in the mackerel-agent settings.

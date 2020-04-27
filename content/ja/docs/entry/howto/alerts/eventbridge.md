@@ -166,7 +166,7 @@ mackerel-agentまたはAWSインテグレーションを導入しているEC2イ
 |region|string|[optional] リージョン名|
 |accountId|string|[optional] AWSアカウントID|
 |resourceType|string|[optional] リソースの種別 `instance`|
-|resourceId|string|[optional] リソースID `i-12345...`|
+|resourceId|string|[optional] リソースID（EC2 インスタンスID） `i-12345...`|
 
 <div id="1" style="position:relative; top:-80px;"></div>
 <a href="#1">*1</a> ただし、mackerel-agentの設定で `cloud_platform` を `none` としている場合は、これらの情報を取得できません。
