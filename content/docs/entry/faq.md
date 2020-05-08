@@ -38,6 +38,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackere
 - [Mackerel doesn't recognize duplicate servers from agent installed templates / machine images etc.](https://mackerel.io/docs/entry/faq/troubleshoot/copy-from-template)
 - [I’m using integration, but the host remains without retiring](https://mackerel.io/docs/entry/faq/troubleshoot/integration-host-retirement)
 - [External monitoring error "x509: certificate signed by unknown authority"](https://mackerel.io/docs/entry/faq/troubleshoot/external-monitor-cert-alert)
+- [FAQ・The agent is outputting the error "x509: certificate signed by unknown authority"](https://mackerel.io/docs/entry/faq/troubleshoot/update-ca-certificates)
 
 
 ## About plans, contracts, and payments 

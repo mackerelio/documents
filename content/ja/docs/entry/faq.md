@@ -40,6 +40,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 - [エージェントインストール済みのテンプレート・マシンイメージ等から複製したサーバーがMackerelに認識されない](https://mackerel.io/ja/docs/entry/faq/troubleshoot/copy-from-template)
 - [インテグレーションを利用しているが、ホストが退役されずに残っている](https://mackerel.io/ja/docs/entry/faq/troubleshoot/integration-host-retirement)
 - [外形監視で「x509: certificate signed by unknown authority」エラーが出ます](https://mackerel.io/ja/docs/entry/faq/troubleshoot/external-monitor-cert-alert)
+- [エージェントが「x509: certificate signed by unknown authority」エラーを出力しています](https://mackerel.io/ja/docs/entry/faq/troubleshoot/update-ca-certificates)
 
 ## プランやご契約、お支払いについて
 - [表示価格は税込みですか？](https://mackerel.io/ja/docs/entry/faq/contracts/tax)
