@@ -5,7 +5,7 @@ URL: https://mackerel.io/docs/entry/spec/metrics
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/8454420450083896568
 ---
 
-This article is an explanation of the metrics which will be displayed in the host details screen as well as in the service details screen.
+This article explains the metrics displayed in the host details screen as well as in the service details screen.
 
 ##System metrics
 Metrics automatically collected / posted by installing / launching mackerel-agent.
