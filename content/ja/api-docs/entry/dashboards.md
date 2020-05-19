@@ -273,6 +273,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 | `title`        | *string* | ウィジェットのタイトル                     |
 | `metric`       | *object* | [メトリックを表すオブジェクト](#metric)    |
 | `fractionSize` | *number* | [optional] 表示する小数点以下の桁数 (0–16) |
+| `suffix`       | *string* | [optional] 数値の後に表示する単位 |
 | `layout`       | *object* | [レイアウトを表すオブジェクト](#layout)    |
 
 ### Markdownウィジェット

@@ -14,6 +14,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
   <li><a href="#retire">ホストの退役</a></li>
   <li><a href="#list">ホストの一覧</a></li>
   <li><a href="#metric-names">メトリック名の一覧</a></li>
+  <li><a href="#monitored-statuses">監視ステータスの一覧</a></li>
 </ul>
 
 <h2 id="create">ホスト情報の登録</h2>
@@ -511,6 +512,67 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
     <tr>
       <td>404</td>
       <td><code><em>&lt;hostId&gt;</em></code>に対応するホストが見つからないとき</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="monitored-statuses">監視ステータスの一覧</h2>
+
+ホストに紐付いた監視ルールとそのステータス（監視ステータス）を取得します。対象は死活監視、メトリック監視、チェック監視、ロール内異常検知です。
+
+<p class="type-get">
+  <code>GET</code>
+  <code>/api/v0/hosts/<em>&lt;hostId&gt;</em>/monitored-statuses</code>
+</p>
+
+### APIキーに必要な権限
+
+<ul class="api-key">
+  <li class="label-read">Read</li>
+</ul>
+
+### 応答
+
+#### 成功時
+
+```json
+{
+  "monitoredStatuses": [<monitoredStatus>, <monitoredStatus>, ...]
+}
+```
+
+<i>`<monitoredStatus>`</i> は以下のキーを持つ、監視ステータスを表すオブジェクトです。
+
+| KEY | TYPE | DESCRIPTION |
+| --- | --- | --- |
+| `monitorId`  | *string* | 監視ルールのID |
+| `status` | *string* | アラートステータス。`"OK"`、 `"CRITICAL"`、 `"WARNING"`、 `"UNKNOWN"` のいずれかになります。 |
+| `detail` | *string* | [optional] 詳細情報[*6](#list-detail)|
+
+<h4 id="list-detail" class="annotation">*6 detail</h4>
+
+監視ステータスに付随する詳細情報です。現在はチェック監視の監視ステータスにのみ付加されます。
+
+| KEY | TYPE | DESCRIPTION |
+| --- | --- | --- |
+| `type` | *number* | 詳細情報の種類。チェック監視の場合、常に `check` です。 |
+| `message` | *string* | コマンド出力結果などの補助的なテキスト |
+| `memo` | *string* | [optional] チェック監視に設定されたメモ |
+
+
+#### 失敗時
+
+<table class="default api-error-table">
+  <thead>
+    <tr>
+      <th class="status-code">STATUS CODE</th>
+      <th class="description">DESCRIPTION</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>404</td>
+      <td>指定されたIDのホストがみつからないとき</td>
     </tr>
   </tbody>
 </table>

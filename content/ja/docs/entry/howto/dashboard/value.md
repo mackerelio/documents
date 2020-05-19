@@ -8,7 +8,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 # 数値ウィジェットを利用する
 数値ウィジェットを利用すると、任意のメトリックの最新の値を数字としてカスタムダッシュボードに表示できます。
 
-[f:id:mackerelio:20181102153850p:plain]
+[f:id:mackerelio:20200518114544p:plain]
 
 ## 数値ウィジェットを作成する
 数値ウィジェットのアイコンをドラッグ&amp;ドロップして、ウィジェットを作成する位置を決定します。
@@ -23,7 +23,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 
 のいずれかです。
 
-[f:id:mackerelio:20200205130122p:plain]
+[f:id:mackerelio:20200518114558p:plain]
 
 選択が完了したら作成ボタンでウィジェットを作成します。
 

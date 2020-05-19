@@ -8,7 +8,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackere
 # Value Widgets
 Display the latest values of arbitrary metrics in numbers on your custom dashboard with Value Widgets.
 
-[f:id:mackerelio:20181113152556p:plain]
+[f:id:mackerelio:20200518114609p:plain]
 
 ## Creating a Value Widget
 Drag &amp; drop the value widget icon to determine where to place the widget.
@@ -22,7 +22,7 @@ Next, select the type of metric to display in the widget. The following metrics 
 - Expression[^1]
 
 
-[f:id:mackerelio:20200205130306p:plain]
+[f:id:mackerelio:20200518114604p:plain]
 
 Once you’ve finished selecting, complete the process by clicking the create button.
 

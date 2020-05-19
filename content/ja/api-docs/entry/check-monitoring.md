@@ -39,8 +39,8 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 | ------------ | -------- | -------------------------------- |
 | `source`     | *source* | 下記参照。                         |
 | `name`       | *string* | 監視名。                           |
-| `status`     | *string* | 監視結果ステータス。`"OK"`、 `"CRITICAL"`、 `"WARNING"`、 `"UNKNOWN"` のいずれかです。 |
-| `message`    | *string* | 監視結果ステータスに付随する補助的なテキスト, 1024文字以下です。 |
+| `status`     | *string* | 監視結果のアラートステータス。`"OK"`、 `"CRITICAL"`、 `"WARNING"`、 `"UNKNOWN"` のいずれかです。 |
+| `message`    | *string* | 監視結果のアラートステータスに付随する補助的なテキスト, 1024文字以下です。 |
 | `occurredAt` | *number* | 監視実行時刻のエポック秒。 |
 | `notificationInterval` | *number*   | [optional] アラートの再送間隔 (分) 省略した場合は再送されない。10分未満を指定した場合は、10分間隔で再送通知されます。 |
 | `maxCheckAttempts` | *number* | [optional] 何回連続で Warning/Critical になったらアラートを発生させるか。デフォルトは1 (1~10)です。 |

@@ -273,6 +273,7 @@ Objects representing widgets have the following formats for the differing types.
 | `title`        | *string* | the title of the widget                                   |
 | `metric`       | *object* | [object representing a metric](#metric)                   |
 | `fractionSize` | *number* | [optional] decimal places displayed on the widget  (0–16) |
+| `suffix`       | *string* | [optional] the units to be displayed after the value      |
 | `layout`       | *object* | [object representing the layout](#layout)                 |
 
 ### Markdown widget
