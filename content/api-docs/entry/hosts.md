@@ -14,6 +14,8 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
   <li><a href="#retire">Retiring Hosts</a></li>
   <li><a href="#list">Listing Hosts</a></li>
   <li><a href="#metric-names">Listing Metric Names</a></li>
+  <li><a href="#monitored-statuses">Listing Monitoring Statuses</a></li>
+  
 </ul>
 
 
@@ -145,7 +147,7 @@ One element of `checks` is an object that holds the following keys.
 | KEY     | TYPE   | DESCRIPTION |
 | -------- | ------ | ----------- |
 | `name` | *string* | name of the monitor (`[a-zA-Z0-9_-]+`). |
-| `memo` | *string* | [optional] a memo about the monitor. |
+| `memo` | *string* | [optional] notes regarding the monitor. |
 
 ----------------------------------------------
 
@@ -233,7 +235,7 @@ If you want to Un-assign roles from a host, please use [Updating Host Roles](#up
 <tbody>
   <tr>
     <td>404</td>
-    <td>when the host that corresponds to the <code><em>&lt;hostId&gt;</em></code> can’t be located</td>
+    <td>when the host that corresponds to the <code><em>&lt;hostId&gt;</em></code> can’t be found</td>
   </tr>
   <tr>
     <td>400</td>
@@ -270,7 +272,7 @@ If you want to Un-assign roles from a host, please use [Updating Host Roles](#up
 }
 ```
 
-`<hostStatus>` is one of these: "standby", "working", "maintenance", or "poweroff"
+`<hostStatus>` includes: "standby", "working", "maintenance", or "poweroff"
 
 ### Response
 
@@ -294,7 +296,7 @@ If you want to Un-assign roles from a host, please use [Updating Host Roles](#up
 <tbody>
   <tr>
     <td>404</td>
-    <td>when the host that corresponds to the <code><em>&lt;hostId&gt;</em></code> can’t be located</td>
+    <td>when the host that corresponds to the <code><em>&lt;hostId&gt;</em></code> can’t be found</td>
   </tr>
   <tr>
     <td>400</td>
@@ -354,7 +356,7 @@ If you want to Un-assign roles from a host, please use [Updating Host Roles](#up
   <tbody>
     <tr>
       <td>404</td>
-      <td>when the host that corresponds to the hostId can’t be located</td>
+      <td>when the host that corresponds to the hostId can’t be found</td>
     </tr>
     <tr>
       <td>400</td>
@@ -420,7 +422,7 @@ This will POST empty JSON.
 <tbody>
   <tr>
     <td>404</td>
-    <td>when the host that corresponds to the <code><em>&lt;hostId&gt;</em></code> can’t be located</td>
+    <td>when the host that corresponds to the <code><em>&lt;hostId&gt;</em></code> can’t be found</td>
   </tr>
   <tr>
     <td>400</td>
@@ -452,7 +454,7 @@ This will POST empty JSON.
 
 ### Input (Query parameter)
 
-The following parameter will extract hosts. If nothing has yet been assigned, all hosts will be returned.
+The following parameters can be used to filter hosts. If nothing has been assigned yet, all hosts will be returned.
 
 
 | PARAM     | TYPE   | DESCRIPTION |
@@ -460,7 +462,7 @@ The following parameter will extract hosts. If nothing has yet been assigned, al
 | `service` | *string* | [optional] service name |
 | `role` | *string* | [optional] role names in the service, multiple assignments possible (result will be a unit of the hosts that belong to each role) if `service` has not been assigned it will be ignored.|
 | `name` | *string* | [optional] host name |
-| `status` | *string* | [optional] extract host status, multiple assignments possible, defaults are `working` and `standby`. |
+| `status` | *string* | [optional] filters the host status. multiple specifications are possible. defaults are `working` and `standby`. |
 | `customIdentifier`    | *string*        | [optional] user-specific identifier for the host (registered at [Registering Host Information](#create) or [Updating Host Information](#update-information) API) |
 
 ### Response
@@ -514,6 +516,67 @@ The following parameter will extract hosts. If nothing has yet been assigned, al
     <tr>
       <td>404</td>
       <td>when the Host corresponding to <code><em>&lt;hostId&gt;</em></code> can't be found</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="monitored-statuses">Listing Monitoring Statuses</h2>
+
+Retrieves the monitor associated with the host and its status (monitoring status). Supported for connectivity monitoring, metric monitoring, check monitoring, and anomaly detection for roles.
+
+<p class="type-get">
+  <code>GET</code>
+  <code>/api/v0/hosts/<em>&lt;hostId&gt;</em>/monitored-statuses</code>
+</p>
+
+### Required permissions for the API key
+
+<ul class="api-key">
+  <li class="label-read">Read</li>
+</ul>
+
+### Response
+
+#### Success
+
+```json
+{
+  "monitoredStatuses": [<monitoredStatus>, <monitoredStatus>, ...]
+}
+```
+
+<i>`<monitoredStatus>`</i> is an object that represents the monitoring status and holds the following keys:
+
+| KEY | TYPE | DESCRIPTION |
+| --- | --- | --- |
+| `monitorId`  | *string* | monitor ID |
+| `status` | *string* | alert status. either `"OK"`、
+, `"CRITICAL"`, `"WARNING"`, or `"UNKNOWN"` |
+| `detail` | *string* | [optional] detailed information[*6](#list-detail)|
+
+<h4 id="list-detail" class="annotation">*6 detail</h4>
+
+Detailed information that accompanies the monitoring status. Currently only available for monitoring statuses of check monitoring.
+
+| KEY | TYPE | DESCRIPTION |
+| --- | --- | --- |
+| `type` | *number* | the type of detailed information. check monitoring is always `check` |
+| `message` | *string* | auxillary text such as command output results |
+| `memo` | *string* | [optional] notes configured for check monitoring |
+
+#### Error
+
+<table class="default api-error-table">
+  <thead>
+    <tr>
+      <th class="status-code">STATUS CODE</th>
+      <th class="description">DESCRIPTION</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>404</td>
+      <td>when the host that corresponds to the specified ID can’t be found</td>
     </tr>
   </tbody>
 </table>

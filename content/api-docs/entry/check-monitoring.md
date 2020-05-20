@@ -5,6 +5,7 @@ URL: https://mackerel.io/api-docs/entry/check-monitoring
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel.io/atom/entry/10328537792368374608
 ---
 
+
 <h2 id="post">Posting Monitoring Check Reports</h2>
 
 This will transmit a monitoring check’s report to Mackerel. Monitoring reports are restricted to hosts.
@@ -39,8 +40,8 @@ If a new monitoring timestamp has already been posted with the same name/host, p
 | ------------ | -------- | -------------------------------- |
 | `source`     | *source* | refer to the note below          |
 | `name`       | *string* | monitor name                     |
-| `status`     | *string* | monitor report status. `"OK"`, `"CRITICAL"`, `"WARNING"`, or `"UNKNOWN"`  |
-| `message`    | *string* | auxiliary text attached to a monitor report status, under 1024 characters |
+| `status`     | *string* | alert status of the monitor report. `"OK"`, `"CRITICAL"`, `"WARNING"`, or `"UNKNOWN"`  |
+| `message`    | *string* | auxiliary text attached to the alert status of the monitor report, under 1024 characters |
 | `occurredAt` | *number* | unix timestamp of execution |
 | `notificationInterval` | *number* | [optional] Notifications will not be re-sent if the time interval (in minutes) is omitted. If the time interval is set for less than 10 minutes, the notifications will be re-sent at an interval of 10 minutes. |
 | `maxCheckAttempts` | *number* | [optional] number of consecutive Warning/Critical instances before an alert is made. Default setting is 1 (1-10) |

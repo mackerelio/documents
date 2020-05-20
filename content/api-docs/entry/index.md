@@ -180,6 +180,15 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
           </p>
         </a>
       </div>
+      <div class="api">
+        <a href="entry/hosts#monitored-statuses">
+          <p>Listing Monitoring Statuses</p>
+          <p class="type-get">
+            <code>GET</code>
+            <code>/api/v0/hosts/<em>&lt;hostId&gt;</em>/monitored-statuses</code>
+          </p>
+        </a>
+      </div>
     </div>
   </div>
 
