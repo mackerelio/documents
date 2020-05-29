@@ -28,7 +28,7 @@ AWSインテグレーションのElasticsearch Service対応で取得できる�
 |Cluster Used Space|ClusterUsedSpace|es.cluster_used_space.maximum<br>es.cluster_used_space.minimum|integer|Maximum<br>Minimum|
 |Cluster Index Writes Blocked|ClusterIndexWritesBlocked|es.cluster_index_writes_blocked.blocked|integer|Maximum|
 |JVM Memory Pressure|JVMMemoryPressure|es.jvm_memory_pressure.maximum|percentage|Maximum|
-|Automated Snapshot Failure|AutomatedSnapshotFailure|es.automated_snapshot_failure|integer|Maximum|
+|Automated Snapshot Failure|AutomatedSnapshotFailure|es.automated_snapshot_failure.failure|integer|Maximum|
 |Health Check|KibanaHealthyNodes<br>MasterReachableFromNode|es.health_check.kibana<br>es.health_check.master|integer|Minimum|
 |KMS Key|KMSKeyError<br>KMSKeyInaccessible|es.kms_key.error<br>es.kms_key.inaccessible|integer|Maximum|
 |Cluster Requests|ElasticsearchRequests<br>InvalidHostHeaderRequests|es.cluster_requests.count<br>es.cluster_requests.invalid_host_header|integer|Sum|

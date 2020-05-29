@@ -36,7 +36,7 @@ Descriptions for each configuration item on and after the second line are listed
     - It is also possible to transfer a string to `command`. As shown in the example above, you can specify command as: `command = "ruby /path/to/vmstat-metrics.rb"`
         - If a string is transferred, it will run via a shell and escaping will be necessary.
         - If an array is transferred, it will not run via a shell and escaping will be unnecessary.
-- user: The user to run command can be specified with `command`. If a user is not specified, the executing user of mackerel-agent will also be the executing user of command.
+- user: The user to run command can be specified with `command`. If a user is not specified, the executing user of mackerel-agent will also be the executing user of command. Not yet supported for Windows environments.
 - custom_identifier: Sends the resulting metrics as metrics of the specified identifier, and not as metrics of the host on which the agent is running.
     - This is useful for adding metrics to hosts integrated with AWS / Azure integration. Reference the [AWS Integration document](https://mackerel.io/docs/entry/integrations/aws#plugin-custom-identifier) for details.
 - include_pattern / exclude_pattern: Regular expressions can be written to post specific metrics of the execution result to Mackerel.

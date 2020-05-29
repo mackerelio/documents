@@ -20,6 +20,12 @@ curl -fsSL https://mackerel.io/file/script/setup-all-yum-v2.sh | MACKEREL_APIKEY
 
 APIキーは[オーガニゼーションページ内・APIキータブ](https://mackerel.io/my?tab=apikeys)から確認できます。このAPIキーでオーガニゼーションを識別しますので、APIキーは外部に漏らさないようご注意ください。
 
+アップデートの際は、`yum` コマンドからおこなうことができます。
+
+```
+sudo yum update mackerel-agent
+```
+
 <h2 id="v1">CentOS 6 / Red Hat 6 をご利用の場合</h2>
 
 以下のコマンドを実行してください:
@@ -29,6 +35,12 @@ curl -fsSL https://mackerel.io/file/script/setup-all-yum.sh | MACKEREL_APIKEY='<
 ```
 
 APIキーは[オーガニゼーションページ内・APIキータブ](https://mackerel.io/my?tab=apikeys)から確認できます。このAPIキーでオーガニゼーションを識別しますので、APIキーは外部に漏らさないようご注意ください。
+
+アップデートの際は、`yum` コマンドからおこなうことができます。
+
+```
+sudo yum update mackerel-agent
+```
 
 <h2 id="rpm">rpmコマンドを使用する</h2>
 
@@ -126,13 +138,13 @@ curl -fsSL http://198.18.0.16/file/setup-yum-kcps.sh | sh
 その後、`yum`コマンドを用いてインストールできます:
 
 ```
-sudo yum install -y mackerel-agent-kcps
+sudo yum install mackerel-agent-kcps
 ```
 
 エージェントのアップデートも`yum`コマンドから行えます:
 
 ```
-sudo yum update -y mackerel-agent-kcps
+sudo yum update mackerel-agent-kcps
 ```
 
 <h2 id="rpm">rpmコマンドを使用する</h2>

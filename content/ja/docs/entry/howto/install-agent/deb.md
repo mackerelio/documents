@@ -19,6 +19,13 @@ wget -q -O - https://mackerel.io/file/script/setup-all-apt-v2.sh | MACKEREL_APIK
 
 APIキーは[オーガニゼーションページ内・APIキータブ](https://mackerel.io/my?tab=apikeys)から確認できます。このAPIキーでオーガニゼーションを識別しますので、APIキーは外部に漏らさないようご注意ください。
 
+アップデートの際は、`apt-get` コマンドからおこなうことができます。
+
+```
+sudo apt-get update
+sudo apt-get install mackerel-agent
+```
+
 <h2 id="dpkg">dpkgコマンドを使用する</h2>
 
 まず、パッケージファイルをダウンロードします:
@@ -32,6 +39,8 @@ curl -LO https://mackerel.io/file/agent/deb/mackerel-agent_latest.all.deb
 ```
 sudo dpkg -i mackerel-agent_latest.all.deb
 ```
+
+アップデートの際は、パッケージファイルをダウンロードしなおしてから同様の手順を実行してください。
 
 <h2 id="config">設定ファイルを編集する</h2>
 

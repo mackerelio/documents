@@ -55,6 +55,25 @@ There are six types of graphs which will be displayed: loadavg, cpu, memory, dis
   * `filesystem.*.size`
   * `filesystem.*.used`
 
+The sources for each of the above metrics when using mackerel-agent are as follows.
+
+* loadavg
+  * Obtained by parsing the contents of `/proc/loadavg`
+* cpu
+  * Obtained by parsing the contents of `/proc/stat`
+* memory
+  * Obtained by parsing the contents of `/proc/meminfo`
+* disk
+  * Obtained by parsing the contents of `/proc/diskstats`
+* interface
+  * Obtained by parsing the contents of `/proc/net/dev`
+* filesystem
+  * Obtained by parsing the execution results of the `df` command
+
+You can take a look at the mackerel-agent source code published in the link below.
+
+[https://github.com/mackerelio/mackerel-agent:embed:cite]
+
 ### Windows
 
 There are six types of graphs which will be displayed: processor queue length, cpu, memory, disk, interface, and filesystem. The following are the metric values which will be graphed by each.
@@ -80,6 +99,29 @@ There are six types of graphs which will be displayed: processor queue length, c
 * filesystem(line graph)
   * `filesystem.*.size`
   * `filesystem.*.used`
+
+The sources for each of the above metrics when using mackerel-agent are as follows.
+
+* processor queue length
+  * Information is obtained with the Windows Performance Data Helper API
+* cpu
+  * Information is obtained with the Windows Performance Data Helper API
+* memory
+  * Obtained from the results of the Win32 API `GlobalMemoryStatusEx`
+* disk
+  * Information is obtained from the `Win32_PerfFormattedData_PerfDisk_LogicalDisk` class using WMI
+* interface
+  * Information is obtained with the Windows Performance Data Helper API
+* filesystem
+  * Obtained and calculated from the results of the following Win32 API functions
+      * `GetLogicalDriveStringsW`
+      * `QueryDosDeviceW`
+      * `GetVolumeInformationW`
+      * `GetDiskFreeSpaceExW`
+
+You can take a look at the mackerel-agent source code published in the link below.
+
+[https://github.com/mackerelio/mackerel-agent:embed:cite]
 
 <h2 id="user-defined-metric">User-defined metrics (Custom metrics)</h2>
 

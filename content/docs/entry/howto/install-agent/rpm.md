@@ -20,6 +20,12 @@ curl -fsSL https://mackerel.io/file/script/setup-all-yum-v2.sh | MACKEREL_APIKEY
 
 You can obtain the API key from the [API tab on your organization's page](https://mackerel.io/my?tab=apikeys). Keep in mind this key is used to identify your organization, so we strongly advise not sharing it with others.
 
+Updates can be performed using the `yum` command.
+
+```
+sudo yum update mackerel-agent
+```
+
 <h2 id="v1">When using CentOS 6 / Red Hat 6</h2>
 
 Execute the following command:
@@ -29,6 +35,12 @@ curl -fsSL https://mackerel.io/file/script/setup-all-yum.sh | MACKEREL_APIKEY='<
 ```
 
 You can obtain the API key from the [API tab on your organization's page](https://mackerel.io/my?tab=apikeys). Keep in mind this key is used to identify your organization, so we strongly advise not sharing it with others.
+
+Updates can be performed using the `yum` command.
+
+```
+sudo yum update mackerel-agent
+```
 
 <h2 id="rpm">Using <code>rpm</code></h2>
 
@@ -126,13 +138,13 @@ curl -fsSL http://198.18.0.16/file/setup-yum-kcps.sh | sh
 Once that’s done, we can use `yum` to install:
 
 ```
-sudo yum install -y mackerel-agent-kcps
+sudo yum install mackerel-agent-kcps
 ```
 
 You can also use `yum` to update Mackerel-agent:
 
 ```
-sudo yum update -y mackerel-agent-kcps
+sudo yum update mackerel-agent-kcps
 ```
 
 <h2 id="rpm">Using rpm</h2>

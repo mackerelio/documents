@@ -20,13 +20,26 @@ To install, we recommend using either the yum repository or the apt repository i
 ### If installing with the rpm package
 
 ```
-yum install mackerel-check-plugins
+sudo yum install mackerel-check-plugins
+```
+
+Updates can be performed using the following command.
+
+```
+sudo yum update mackerel-check-plugins
 ```
 
 ### If installing with the deb package
 
 ```
-apt-get install mackerel-check-plugins
+sudo apt-get install mackerel-check-plugins
+```
+
+Updates can be performed using the following command.。
+
+```
+sudo apt-get update
+sudo apt-get install mackerel-check-plugins
 ```
 
 ## Installing the official plugin pack(for Windows Server)
@@ -34,6 +47,8 @@ apt-get install mackerel-check-plugins
 When using the official plugin pack on a Windows Server, we recommend using a plugin that comes bundled with the agent. (For details on how to install the agent, refer to [Installing Mackerel Agent][].)
 
 For a list of the bundled plugins, refer to the [GitHub Repository Bundled Plugin List][]. Plugins that are not included in this list are not officially supported and must be built independently.
+
+Updating the agent will also update the bundled plugins. For more information on how to update, refer to [Installing mackerel-agent on Windows](https://mackerel.io/docs/entry/howto/install-agent/msi).
 
 [Installing Mackerel Agent]: https://mackerel.io/my/instruction-agent
 [GitHub Repository Bundled Plugin List]: https://github.com/mackerelio/mackerel-agent/blob/master/wix/pluginlist.txt

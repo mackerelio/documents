@@ -20,13 +20,26 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 ### rpmパッケージの場合
 
 ```
-yum install mackerel-check-plugins
+sudo yum install mackerel-check-plugins
+```
+
+アップデートの際は、以下のコマンドでおこなうことができます。
+
+```
+sudo yum update mackerel-check-plugins
 ```
 
 ### debパッケージの場合
 
 ```
-apt-get install mackerel-check-plugins
+sudo apt-get install mackerel-check-plugins
+```
+
+アップデートの際は、以下のコマンドからおこなうことができます。
+
+```
+sudo apt-get update
+sudo apt-get install mackerel-check-plugins
 ```
 
 ## 公式チェックプラグイン集をインストールする（Windows Serverの場合）
@@ -34,6 +47,8 @@ apt-get install mackerel-check-plugins
 Windows Server で公式チェックプラグイン集を利用する場合、エージェントに同梱されているプラグインを利用すると便利です。（エージェントのインストール方法については「[Mackerelエージェントをインストールする][]」を参照してください。）
 
 同梱されているプラグイン一覧は、[GitHubリポジトリにある同梱プラグインリスト][]を参照してください。同梱されていないプラグインについては、公式でのサポート対象外となっていることに加えて、ご自身でビルドを実施していただく必要があります。
+
+エージェントをアップデートすることで同梱のプラグインもアップデートされます。アップデート方法については[Windowsにmackerel-agentをインストールする](https://mackerel.io/ja/docs/entry/howto/install-agent/msi)を参照してください。
 
 [Mackerelエージェントをインストールする]: https://mackerel.io/my/instruction-agent
 [GitHubリポジトリにある同梱プラグインリスト]: https://github.com/mackerelio/mackerel-agent/blob/master/wix/pluginlist.txt

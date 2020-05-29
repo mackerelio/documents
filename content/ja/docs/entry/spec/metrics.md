@@ -55,6 +55,25 @@ loadavg, cpu, memory, disk, interface, filesystem の6種類のグラフが表�
   * `filesystem.*.size`
   * `filesystem.*.used`
 
+また、mackerel-agent を用いた場合の上記それぞれのメトリックの取得元は、以下の通りです。
+
+* loadavg
+  * `/proc/loadavg` の内容をパースすることで取得。
+* cpu
+  * `/proc/stat` の内容をパースすることで取得。
+* memory
+  * `/proc/meminfo` の内容をパースすることで取得。
+* disk
+  * `/proc/diskstats` の内容をパースすることで取得。
+* interface
+  * `/proc/net/dev` の内容をパースすることで取得。
+* filesystem
+  * `df` コマンドの実行結果をパースすることで取得。
+
+mackerel-agent のソースコードは以下で公開されていますので、こちらも合わせてご確認ください。
+
+[https://github.com/mackerelio/mackerel-agent:embed:cite]
+
 ### Windows
 
 processor queue length, cpu, memory, disk, interface, filesystem の6種類のグラフが表示され、それぞれ以下のメトリック名の値が描画されます。
@@ -80,6 +99,29 @@ processor queue length, cpu, memory, disk, interface, filesystem の6種類の�
 * filesystem（折れ線）
   * `filesystem.*.size`
   * `filesystem.*.used`
+
+また、mackerel-agent を用いた場合の上記それぞれのメトリックの取得元は、以下の通りです。
+
+* processor queue length
+  * Windows Performance Data Helper API によって情報を取得しています。
+* cpu
+  * Windows Performance Data Helper API によって情報を取得しています。
+* memory
+  * Win32 API である `GlobalMemoryStatusEx` を呼び出した結果から取得しています。
+* disk
+  * WMI を使用して `Win32_PerfFormattedData_PerfDisk_LogicalDisk` クラスから情報を取得しています。
+* interface
+  * Windows Performance Data Helper API によって情報を取得しています。
+* filesystem
+  * Win32 API である以下の関数を呼び出した結果から取得、計算しています。
+      * `GetLogicalDriveStringsW`
+      * `QueryDosDeviceW`
+      * `GetVolumeInformationW`
+      * `GetDiskFreeSpaceExW`
+
+mackerel-agent のソースコードは以下で公開されていますので、こちらも合わせてご確認ください。
+
+[https://github.com/mackerelio/mackerel-agent:embed:cite]
 
 <h2 id="user-defined-metric">ユーザー定義のメトリック（カスタムメトリック）</h2>
 

@@ -52,7 +52,7 @@ memo = "This check monitor is ..."
 - action.command: An action executed following the execution of the command configured in `command`. This is used when there is a process to be performed depending on the command result. The result of the previous/current command etc. is passed as an environment variable. The execution result is ignored.
 - action.env: Environment variables can be specified to pass to action.command. Specify with TOML [Table](https://github.com/toml-lang/toml#table) or [Inline Table](https://github.com/toml-lang/toml#inline-table).
 - action.timeout_seconds : Specify the timeout for `action.command` in seconds. The default value is 30 seconds.
-- action.user: Execute `action.command` as the user specified for this option.
+- action.user: Execute `action.command` as the user specified for this option. Not yet supported for Windows environments.
 - memo: Configure notes for check monitoring. The character string specified here can be checked in alert notifications / the alert details screen / the host details page.
 
 <h2 id="plugin">Check plugin specs</h2>

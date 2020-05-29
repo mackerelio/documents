@@ -21,6 +21,12 @@ curl -fsSL https://mackerel.io/file/script/amznlinux/setup-all-yum-v2.sh | MACKE
 
 You can check the API key from the [Organization page’s API Keys tab](https://mackerel.io/my?tab=apikeys). Keep in mind that this key is used to identify your organization, so we strongly advise not sharing it with others.
 
+Updates can be performed using the `yum` command.
+
+```
+sudo yum update mackerel-agent
+```
+
 <h3 id="v1">When using Amazon Linux</h3>
 
 Execute the following command:
@@ -30,6 +36,12 @@ curl -fsSL https://mackerel.io/file/script/amznlinux/setup-all-yum.sh | MACKEREL
 ```
 
 You can check the API key from the [Organization page’s API Keys tab](https://mackerel.io/my?tab=apikeys). Keep in mind that this key is used to identify your organization, so we strongly advise not sharing it with others.
+
+Updates can be performed using the `yum` command.
+
+```
+sudo yum update mackerel-agent
+```
 
 <h3 id="rpm-v2">Using the rpm command with Amazon Linux 2 LTS</h2>
 
