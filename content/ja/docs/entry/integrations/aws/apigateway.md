@@ -15,6 +15,7 @@ AWSインテグレーションのAPI Gateway対応で取得できるメトリッ
 
 - <a href="https://docs.aws.amazon.com/ja_jp/apigateway/latest/developerguide/api-gateway-metrics-and-dimensions.html" target="_blank">Amazon API Gatewayのディメンションおよびメトリクス (REST)</a>
 - <a href="https://docs.aws.amazon.com/ja_jp/apigateway/latest/developerguide/apigateway-websocket-api-logging.html" target="_blank">CloudWatchを使用したWebSocket API実行のモニタリング</a>
+- <a href="https://docs.aws.amazon.com/ja_jp/apigateway/latest/developerguide/http-api-metrics.html" target="_blank">HTTP APIのメトリクスの使用</a>
 
 ### REST
 
@@ -39,3 +40,16 @@ AWSインテグレーションのAPI Gateway対応で取得できるメトリッ
 |WebSocket Message|MessageCount|apigateway.websocket_message.count|integer|Sum|
 |WebSocket Errors|IntegrationError<br>ClientError<br>ExecutionError|apigateway.websocket_errors.integration<br>apigateway.websocket_errors.client<br>apigateway.websocket_errors.execution|integer|Sum|
 |WebSocket Latency|IntegrationLatency|apigateway.websocket_latency.minimum<br>apigateway.websocket_latency.average<br>apigateway.websocket_latency.maximum|integer|Minimum<br>Average<br>Maximum|
+
+### HTTP
+
+最大で10個のメトリックが取得されます。
+
+|グラフ名|メトリック|Mackerel上のメトリック名|単位|Statistics|
+|:--|:--|:--|:--|:--|
+|Requests|Count|apigateway.requests.count|integer|Sum|
+|Data Processed|DataProcessed|apigateway.data_processed|bytes|Sum|
+|Errors|4xx<br>5xx|apigateway.http_errors.4xx_error<br>apigateway.http_errors.5xx_error|integer|Sum|
+|Latency|Latency<br>IntegrationLatency|apigateway.latency.#.minimum<br>apigateway.latency.#.average<br>apigateway.latency.#.maximum|float|Minimum<br>Average<br>Maximum|
+
+- "Mackerel上のメトリック名"の#には、"Latency"、"IntegrationLatency"のいずれかが入ります。

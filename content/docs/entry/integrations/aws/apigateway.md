@@ -15,6 +15,7 @@ The metrics obtainable with AWS Integration's API Gateway support are as follows
 
 - <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-metrics-and-dimensions.html" target="_blank">Amazon API Gateway Dimensions and Metrics (REST)</a>
 - <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-logging.html" target="_blank">Monitor WebSocket API Execution with CloudWatch</a>
+- <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-metrics.html" target="_blank">Working with metrics for HTTP APIs</a>
 
 ### REST
 
@@ -39,3 +40,16 @@ The maximum number of metrics obtainable is 8.
 |WebSocket Message|MessageCount|apigateway.websocket_message.count|integer|Sum|
 |WebSocket Errors|IntegrationError<br>ClientError<br>ExecutionError|apigateway.websocket_errors.integration<br>apigateway.websocket_errors.client<br>apigateway.websocket_errors.execution|integer|Sum|
 |WebSocket Latency|IntegrationLatency|apigateway.websocket_latency.minimum<br>apigateway.websocket_latency.average<br>apigateway.websocket_latency.maximum|integer|Minimum<br>Average<br>Maximum|
+
+### HTTP
+
+The maximum number of metrics obtainable is 10.
+
+|Graph name|Metric|Metric name in Mackerel|Unit|Statistics|
+|:--|:--|:--|:--|:--|
+|Requests|Count|apigateway.requests.count|integer|Sum|
+|Data Processed|DataProcessed|apigateway.data_processed|bytes|Sum|
+|Errors|4xx<br>5xx|apigateway.http_errors.4xx_error<br>apigateway.http_errors.5xx_error|integer|Sum|
+|Latency|Latency<br>IntegrationLatency|apigateway.latency.#.minimum<br>apigateway.latency.#.average<br>apigateway.latency.#.maximum|float|Minimum<br>Average<br>Maximum|
+
+- Either "Latency" or "IntegrationLatency" goes in for the # of "Metric name in Mackerel".
