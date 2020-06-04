@@ -797,6 +797,75 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
     </div>
   </div>
 
+  <div class="index-row">
+    <h3><a href="entry/aws-integration">AWSインテグレーション</a></h3>
+    <div class="apis">
+      <div class="api">
+        <a href="entry/aws-integration#list">
+          <p>AWSインテグレーション設定の一覧</p>
+          <p class="type-get">
+            <code>GET</code>
+            <code>/api/v0/aws-integrations</code>
+          </p>
+        </a>
+      </div>
+      <div class="api">
+        <a href="entry/aws-integration#get">
+          <p>AWSインテグレーション設定の取得</p>
+          <p class="type-get">
+            <code>GET</code>
+            <code>/api/v0/aws-integrations/<em>&lt;awsIntegrationId&gt;</em></code>
+          </p>
+        </a>
+      </div>
+      <div class="api">
+        <a href="entry/aws-integration#create">
+          <p>AWSインテグレーション設定の登録</p>
+          <p class="type-post">
+            <code>POST</code>
+            <code>/api/v0/aws-integrations</code>
+          </p>
+        </a>
+      </div>
+      <div class="api">
+        <a href="entry/aws-integration#update">
+          <p>AWSインテグレーション設定の更新</p>
+          <p class="type-put">
+            <code>PUT</code>
+            <code>/api/v0/aws-integrations/<em>&lt;awsIntegrationId&gt;</em></code>
+          </p>
+        </a>
+      </div>
+      <div class="api">
+        <a href="entry/aws-integration#delete">
+          <p>AWSインテグレーション設定の削除</p>
+          <p class="type-delete">
+            <code>DELETE</code>
+            <code>/api/v0/aws-integrations/<em>&lt;awsIntegrationId&gt;</em></code>
+          </p>
+        </a>
+      </div>
+      <div class="api">
+        <a href="entry/aws-integration#generate-external-id">
+          <p>AWSインテグレーション外部IDの生成</p>
+          <p class="type-post">
+            <code>POST</code>
+            <code>/api/v0/aws-integrations-external-id</code>
+          </p>
+        </a>
+      </div>
+      <div class="api">
+        <a href="entry/aws-integration#excludable-metrics">
+          <p>AWSインテグレーションの除外可能なメトリック名一覧</p>
+          <p class="type-get">
+            <code>GET</code>
+            <code>/api/v0/aws-integrations-excludable-metrics</code>
+          </p>
+        </a>
+      </div>
+    </div>
+  </div>
+
 </div>
 
 <h2 id="data-types">データの種類</h2>
