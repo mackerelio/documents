@@ -158,7 +158,7 @@ AWSインテグレーション設定の情報が返却されます。
 
 <p class="type-post">
   <code>POST</code>
-  <code>/api/v0/aws_integrations</code>
+  <code>/api/v0/aws-integrations</code>
 </p>
 
 ### APIキーに必要な権限
@@ -349,7 +349,7 @@ Mackerel ではAWSのタグを指定して、登録するホストを絞り込�
 
 <p class="type-put">
   <code>PUT</code>
-  <code>/api/v0/aws_integrations/<em>&lt;awsIntegrationId&gt;</em></code>
+  <code>/api/v0/aws-integrations/<em>&lt;awsIntegrationId&gt;</em></code>
 </p>
 
 ### APIキーに必要な権限
@@ -406,7 +406,7 @@ Mackerel ではAWSのタグを指定して、登録するホストを絞り込�
 
 <p class="type-delete">
   <code>DELETE</code>
-  <code>/api/v0/aws_integrations/<em>&lt;awsIntegrationId&gt;</em></code>
+  <code>/api/v0/aws-integrations/<em>&lt;awsIntegrationId&gt;</em></code>
 </p>
 
 ### APIキーに必要な権限
