@@ -797,6 +797,75 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
     </div>
   </div>
 
+  <div class="index-row">
+    <h3><a href="entry/aws-integration">AWS Integration</a></h3>
+    <div class="apis">
+      <div class="api">
+        <a href="entry/aws-integration#list">
+          <p>List AWS Integration Settings</p>
+          <p class="type-get">
+            <code>GET</code>
+            <code>/api/v0/aws-integrations</code>
+          </p>
+        </a>
+      </div>
+      <div class="api">
+        <a href="entry/aws-integration#get">
+          <p>Get AWS Integration Settings</p>
+          <p class="type-get">
+            <code>GET</code>
+            <code>/api/v0/aws-integrations/<em>&lt;awsIntegrationId&gt;</em></code>
+          </p>
+        </a>
+      </div>
+      <div class="api">
+        <a href="entry/aws-integration#create">
+          <p>Register AWS Integration Settings</p>
+          <p class="type-post">
+            <code>POST</code>
+            <code>/api/v0/aws-integrations</code>
+          </p>
+        </a>
+      </div>
+      <div class="api">
+        <a href="entry/aws-integration#update">
+          <p>Update AWS Integration Settings</p>
+          <p class="type-put">
+            <code>PUT</code>
+            <code>/api/v0/aws-integrations/<em>&lt;awsIntegrationId&gt;</em></code>
+          </p>
+        </a>
+      </div>
+      <div class="api">
+        <a href="entry/aws-integration#delete">
+          <p>Delete AWS Integration Settings</p>
+          <p class="type-delete">
+            <code>DELETE</code>
+            <code>/api/v0/aws-integrations/<em>&lt;awsIntegrationId&gt;</em></code>
+          </p>
+        </a>
+      </div>
+      <div class="api">
+        <a href="entry/aws-integration#generate-external-id">
+          <p>Generate AWS Integration External ID</p>
+          <p class="type-post">
+            <code>POST</code>
+            <code>/api/v0/aws-integrations-external-id</code>
+          </p>
+        </a>
+      </div>
+      <div class="api">
+        <a href="entry/aws-integration#excludable-metrics">
+          <p>List Excludable Metrics for AWS Integration</p>
+          <p class="type-get">
+            <code>GET</code>
+            <code>/api/v0/aws-integrations-excludable-metrics</code>
+          </p>
+        </a>
+      </div>
+    </div>
+  </div>
+
 </div>
 
 <h2 id="data-types">Data types</h2>
