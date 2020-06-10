@@ -32,7 +32,7 @@ As of now, Mackerel and mackerel-agent have been verified to operate in the foll
   - [Mozilla Firefox](https://www.mozilla.org/en-US/firefox/new/) latest version
 - mackerel-agent
     - Linux
-        - CentOS 6/7/8, Ubuntu 16.04LTS/18.04LTS,  Debian 8/9/10, Amazon Linux, Amazon Linux 2
+        - CentOS 6/7/8, Ubuntu 16.04LTS/18.04LTS/20.04LTS,  Debian 8/9/10, Amazon Linux, Amazon Linux 2
         - Aside from the above, the agent will probably be run on most Linux systems (kernel version 2.6.23 or later), however we do not give official support for them at this time.
     - Windows
         - Windows Server 2012 and later 64-bit environments
