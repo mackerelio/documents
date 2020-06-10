@@ -14,7 +14,7 @@ Please see [Setting up mackerel-container-agent on Amazon ECS](https://mackerel.
 
 ## Important points regarding billing
 
-In Mackerel, one task is registered as one host. Please note that charges will incur for paid plans. For more details, refer to [FAQ・Calculating the number of hosts](https://mackerel.io/docs/entry/faq/contracts/calculate-host-number).
+In Mackerel, one task is registered as one host. Please note that charges will incur for paid plans. For more details, refer to [FAQ・Calculating the number of hosts](https://support.mackerel.io/hc/en-us/articles/360039702912).
 
 ## Add containers to the task definitions
 

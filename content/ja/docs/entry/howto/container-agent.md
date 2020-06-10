@@ -28,7 +28,7 @@ mackerel-container-agentにはつぎのような特徴があります。
 
 #### 課金に関する注意事項
 
-mackerel-container-agentを利用すると、1つのタスクやPodに対して1つのホストがMackerelに登録されます。有料プランの場合は課金が発生しますのでご注意ください。詳しくは[FAQ・ホスト数の計算方法について](https://mackerel.io/ja/docs/entry/faq/contracts/calculate-host-number)をご覧ください
+mackerel-container-agentを利用すると、1つのタスクやPodに対して1つのホストがMackerelに登録されます。有料プランの場合は課金が発生しますのでご注意ください。詳しくは[FAQ・ホスト数の計算方法について](https://support.mackerel.io/hc/ja/articles/360039702912-%E3%83%9B%E3%82%B9%E3%83%88%E6%95%B0%E3%81%AE%E8%A8%88%E7%AE%97%E6%96%B9%E6%B3%95%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6)をご覧ください
 
 ## サポートするコンテナオーケストレーションプラットフォーム
 

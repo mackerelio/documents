@@ -5,9 +5,9 @@ URL: https://mackerel.io/docs/entry/faq/organization/owner-authority
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/8599973812326833048
 ---
 
-* The user who created the organization is its owner. After logging in as the owner, you can transfer ownership of the organization in the members list.
-* For the most part, the only functions that are owner-only access restricted are those involved with payments and billing.
-* For details regarding user permissions in Mackerel, refer to the [User permissions Mackerel help page](https://mackerel.io/docs/entry/spec/authority).
+This page has been moved.
+
+https://support.mackerel.io/hc/en-us/articles/360039701852
 
 ---
 

@@ -5,23 +5,9 @@ URL: https://mackerel.io/ja/docs/entry/faq/spec/source-ip-addresses
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/8599973812319463896
 ---
 
-* Mackerelからの通知・外形監視リクエストのリクエスト元IPアドレスレンジは、以下の通りです。変更する際は事前に告知を行います。
-  * `52.193.111.118/32`
-  * `52.196.125.133/32`
-  * `13.113.213.40/32`
-  * `52.197.186.229/32`
-  * `52.198.79.40/32`
-  * `13.114.12.29/32`
-  * `13.113.240.89/32`
-  * `52.68.245.9/32`
-  * `13.112.142.176/32`
+こちらのページは移転しました。
 
-* mackerel-agentからのリクエスト先IPについては以下のページをご覧ください。
-  * [https://mackerel.io/ja/docs/entry/faq/spec/serve-ip-addresses:title]
-
-# 履歴
-* 2014年5月8日作成
-* 2017年8月21日改定
+https://support.mackerel.io/hc/ja/articles/360039701332-Webhook%E9%80%9A%E7%9F%A5%E3%82%84%E5%A4%96%E5%BD%A2%E7%9B%A3%E8%A6%96%E3%81%AA%E3%81%A9-Mackerel%E3%81%8B%E3%82%89%E3%81%AE%E9%80%9A%E7%9F%A5%E5%85%83IP%E3%82%A2%E3%83%89%E3%83%AC%E3%82%B9%E3%81%AF-
 
 ---
 

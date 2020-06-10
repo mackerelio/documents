@@ -125,7 +125,7 @@ For more information, see [Setting up monitoring and alerts](https://mackerel.io
 
 <h2 id="select-metric">Limit metrics retrieved</h2>
 
-You can reduce the number of hosts and cost of the CloudWatch API by limiting the metrics to be retrieved. The number of hosts is calculated using a moving average of the past month. For more information about that, refer to the FAQ page [Calculating the number of hosts](https://mackerel.io/docs/entry/faq/contracts/calculate-host-number).
+You can reduce the number of hosts and cost of the CloudWatch API by limiting the metrics to be retrieved. The number of hosts is calculated using a moving average of the past month. For more information about that, refer to the FAQ page [Calculating the number of hosts](https://support.mackerel.io/hc/en-us/articles/360039702912).
 
 For example, you can specify to not retrieve a metric like `kinesis.latency.#.minimum` by simply unchecking the box as shown in the image below. This configuration limits the minimum for `GetRecords.Latency`,`PutRecord.Latency`, and `PutRecords.Latency` and reduces a maximum of 3 metrics.
 

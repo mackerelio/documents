@@ -5,25 +5,9 @@ URL: https://mackerel.io/ja/docs/entry/faq/spec/serve-ip-addresses
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/8599973812319463182
 ---
 
-* mackerel.io / api.mackerelio.com / kcps-mackerel.io 共に以下のレンジでホストされています。変更する際は事前に告知を行います。
-  * `13.113.31.156/32`
-  * `54.92.89.142/32`
-  * `52.196.35.56/32`
-  * `52.69.239.167/32`
-  * `52.198.226.45/32`
-  * `52.198.218.152/32`
-  * `13.113.245.173/32`
-  * `52.199.207.168/32`
-  * `52.193.231.228/32`
-* ポート番号は443です。
-* mackerel-agentからのリクエスト先も上記のIPアドレスとポート番号に対しての通信となります。
+こちらのページは移転しました。
 
-* Mackerelからの通知・外形監視リクエストのリクエスト元IPについては以下のページをご覧ください。
-  * [https://mackerel.io/ja/docs/entry/faq/spec/source-ip-addresses:title]
-
-# 履歴
-* 2014年5月8日作成
-* 2017年8月7日改定
+https://support.mackerel.io/hc/ja/articles/360039633271-Mackerel%E3%81%8C%E3%83%9B%E3%82%B9%E3%83%88%E3%81%95%E3%82%8C%E3%81%A6%E3%81%84%E3%82%8BIP%E3%82%A2%E3%83%89%E3%83%AC%E3%82%B9%E3%81%A8%E3%83%9D%E3%83%BC%E3%83%88%E7%95%AA%E5%8F%B7%E3%82%92%E6%95%99%E3%81%88%E3%81%A6%E4%B8%8B%E3%81%95%E3%81%84
 
 ---
 

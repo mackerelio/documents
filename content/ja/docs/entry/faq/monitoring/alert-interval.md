@@ -5,11 +5,9 @@ URL: https://mackerel.io/ja/docs/entry/faq/monitoring/alert-interval
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/8599973812319461379
 ---
 
-* ホストの死活監視は、Mackerel管理サーバがmackerel-agentから通信を受けなくなって一定時間後にNG判断を下します。
-* ホストメトリック監視・チェック監視はサーバーに情報が送信されたタイミング（通常は毎分）でOK/NGを判断しています。
-* サービスメトリック監視はサーバーにメトリックが送信されたタイミングでOK/NGを判断しています。
-* 外形監視は毎分間隔でチェックとOK/NGを判断しています。
-* 上記チェック間隔については今後見直しが入る可能性があります。
+こちらのページは移転しました。
+
+https://support.mackerel.io/hc/ja/articles/360040107931-%E3%82%A2%E3%83%A9%E3%83%BC%E3%83%88%E3%81%AE%E3%83%81%E3%82%A7%E3%83%83%E3%82%AF%E9%96%93%E9%9A%94%E3%81%AF%E3%81%A9%E3%82%8C%E3%81%90%E3%82%89%E3%81%84%E3%81%A7%E3%81%99%E3%81%8B-
 
 ---
 

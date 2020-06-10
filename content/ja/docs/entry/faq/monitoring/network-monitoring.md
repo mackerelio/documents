@@ -5,18 +5,9 @@ URL: https://mackerel.io/ja/docs/entry/faq/monitoring/network-monitoring
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/98012380858638989
 ---
 
-mackerel-agentのインストールを公式サポートしている環境（OS）については、以下のページに掲載しているとおりです。
+こちらのページは移転しました。
 
-
-[概要 - Mackerelヘルプ](https://mackerel.io/ja/docs/entry/overview)
-
-
-mackerel-agent をインストールすることによる監視とは別に、プラグインを用いる方法を紹介します。Mackerel公式プラグインのうちのひとつに、mackerel-plugin-snmp があります。
-
-[mackerel-plugin-snmp - mackerelio/mackerel-agent-plugins](https://github.com/mackerelio/mackerel-agent-plugins/tree/master/mackerel-plugin-snmp)
-
-
-mackerel-agent をインストールしたサーバーから、このプラグインを用いてネットワーク機器等をモニタリングすることが可能です。上記READMEを参照の上、ご利用ください。
+https://support.mackerel.io/hc/ja/articles/360039701652-%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF%E6%A9%9F%E5%99%A8%E7%AD%89%E3%81%AE%E7%9B%A3%E8%A6%96%E3%81%AF%E3%81%A7%E3%81%8D%E3%81%BE%E3%81%99%E3%81%8B-
 
 ---
 

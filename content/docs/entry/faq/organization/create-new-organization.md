@@ -5,7 +5,9 @@ URL: https://mackerel.io/docs/entry/faq/organization/create-new-organization
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/8599973812326833719
 ---
 
-* To create a new organization, click the “Create” button in the “Change Organization” drop down menu in the top left-hand corner of the screen.
+This page has been moved.
+
+https://support.mackerel.io/hc/en-us/articles/360040108291
 
 ---
 

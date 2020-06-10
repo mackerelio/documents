@@ -9,7 +9,7 @@ This document details the setup process of mackerel-container-agent for Kubernet
 
 ## Point to note regarding billing
 
-For every one pod, a micro host will be registered in Mackerel. Please note that charges will occur if using a paid plan. For more details, refer to [FAQ · Calculating the number of hosts](https://mackerel.io/docs/entry/faq/contracts/calculate-host-number).
+For every one pod, a micro host will be registered in Mackerel. Please note that charges will occur if using a paid plan. For more details, refer to [FAQ · Calculating the number of hosts](https://support.mackerel.io/hc/en-us/articles/360039702912).
 
 ## Operating conditions
 

@@ -39,7 +39,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackere
       <li><a href="https://mackerel.io/docs/entry/howto/downtimes"><strong>Configuring Downtime</strong><span>how to set up periodic monitoring suspension</span></a></li>
     </ul>
   </div>
-  <p id="link-faq"><a href="https://mackerel.io/docs/entry/faq">Read FAQs</a></p>
+  <p id="link-faq"><a href="https://support.mackerel.io/hc/en-us">Read FAQs</a></p>
 </div>
 
 <div id="docs-list">
@@ -51,7 +51,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackere
     <li><a href="https://mackerel.io/docs/entry/getting-started"><strong>Getting Started with Mackerel</strong><span>an outline of services and how to register</span></a></li>
     <li><a href="https://mackerel.io/docs/entry/overview"><strong>Overview</strong><span>overview of Mackerel and mackerel-agent</span></a></li>
     <li><a href="https://mackerel.io/docs/entry/glossary"><strong>Glossary</strong><span>glossary of terminology used within Mackerel</span></a></li>
-    <li><a href="https://mackerel.io/docs/entry/faq"><strong>FAQ</strong><span>frequently asked questions</span></a></li>
+    <li><a href="https://support.mackerel.io/hc/en-us"><strong>FAQ</strong><span>frequently asked questions</span></a></li>
 </ul>
 </section>
 

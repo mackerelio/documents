@@ -5,10 +5,9 @@ URL: https://mackerel.io/ja/docs/entry/faq/organization/owner-authority
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/8599973812319464506
 ---
 
-* オーガニゼーションを作成したユーザーがオーナーとなります。
-* オーナーの変更は、オーナーアカウントでログインした後、メンバー一覧から編集ボタンを押すことで、他ユーザーへの権限移譲ができます。
-* オーナー権限が必要な作業は、支払い情報の変更や支払い履歴の確認などの、お支払いに関連することです。
-    * Mackerelにおけるユーザー権限についての詳細は、[ユーザー権限 - Mackerel ヘルプ](https://mackerel.io/ja/docs/entry/spec/authority)を参照してください。
+こちらのページは移転しました。
+
+https://support.mackerel.io/hc/ja/articles/360039701852-%E3%82%AA%E3%83%BC%E3%82%AC%E3%83%8B%E3%82%BC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AE%E3%82%AA%E3%83%BC%E3%83%8A%E3%83%BC%E6%A8%A9%E9%99%90%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6
 
 ---
 

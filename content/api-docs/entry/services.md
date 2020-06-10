@@ -119,7 +119,7 @@ The created service will be returned. The format will be the same as <i>`<servic
     </tr>
     <tr>
       <td>403</td>
-      <td>when the API key doesn't have the necessary permissions / when accessing from outside the <a href="https://mackerel.io/docs/entry/faq/organization/ip-restriction" target="_blank">authorized IP address range</a></td>
+      <td>when the API key doesn't have the necessary permissions / when accessing from outside the <a href="https://support.mackerel.io/hc/en-us/articles/360039701952" target="_blank">authorized IP address range</a></td>
     </tr>
   </tbody>
 </table>
@@ -179,7 +179,7 @@ Arrays will be shown in the order of Role names.
     </tr>
     <tr>
       <td>403</td>
-      <td>when the API key doesn't have the necessary permissions / when accessing from outside the <a href="https://mackerel.io/docs/entry/faq/organization/ip-restriction" target="_blank">authorized IP address range</a></td>
+      <td>when the API key doesn't have the necessary permissions / when accessing from outside the <a href="https://support.mackerel.io/hc/en-us/articles/360039701952" target="_blank">authorized IP address range</a></td>
     </tr>
   </tbody>
 </table>
@@ -312,7 +312,7 @@ The created role will be returned. The format will be the same as <i>`<role>`</i
     </tr>
     <tr>
       <td>403</td>
-      <td>when the API key doesn't have the necessary permissions / when accessing from outside the <a href="https://mackerel.io/docs/entry/faq/organization/ip-restriction" target="_blank">authorized IP address range</a></td>
+      <td>when the API key doesn't have the necessary permissions / when accessing from outside the <a href="https://support.mackerel.io/hc/en-us/articles/360039701952" target="_blank">authorized IP address range</a></td>
     </tr>
   </tbody>
 </table>
@@ -366,7 +366,7 @@ The state of the role just before being deleted will be returned.
     </tr>
     <tr>
       <td>403</td>
-      <td>when the API key doesn't have the necessary permissions / when accessing from outside the <a href="https://mackerel.io/docs/entry/faq/organization/ip-restriction" target="_blank">authorized IP address range</a></td>
+      <td>when the API key doesn't have the necessary permissions / when accessing from outside the <a href="https://support.mackerel.io/hc/en-us/articles/360039701952" target="_blank">authorized IP address range</a></td>
     </tr>
   </tbody>
 </table>

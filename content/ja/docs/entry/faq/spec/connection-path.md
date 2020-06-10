@@ -5,7 +5,9 @@ URL: https://mackerel.io/ja/docs/entry/faq/spec/connection-path
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/8599973812319462395
 ---
 
-mackerel-agent がHTTP Proxy経由の接続に対応しています。詳しくは[HTTP Proxy経由で接続したい](https://mackerel.io/ja/docs/entry/spec/agent#config-file-proxy)を参照してください。
+こちらのページは移転しました。
+
+https://support.mackerel.io/hc/ja/articles/360039701312-mackerel-agent%E3%81%8C%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8B%E7%B5%8C%E8%B7%AF%E3%81%AF%E5%88%B6%E5%BE%A1%E3%81%A7%E3%81%8D%E3%81%BE%E3%81%99%E3%81%8B-
 
 ---
 

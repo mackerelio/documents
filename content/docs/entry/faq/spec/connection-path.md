@@ -5,7 +5,9 @@ URL: https://mackerel.io/docs/entry/faq/spec/connection-path
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/8599973812326831203
 ---
 
-* While it's not possible to control the port, we do support connection via proxy. For more information please refer to the section ["I want to connect via HTTP Proxy."](https://mackerel.io/docs/entry/spec/agent#config-file-proxy) in the agent specs.
+This page has been moved.
+
+https://support.mackerel.io/hc/en-us/articles/360039701312
 
 ---
 

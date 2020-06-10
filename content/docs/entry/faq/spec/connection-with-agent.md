@@ -5,9 +5,9 @@ URL: https://mackerel.io/docs/entry/faq/spec/connection-with-agent
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/8599973812326830924
 ---
 
-* mackerel -agent communicates with the Mackerel server via its HTTP REST API.
-  * No direct communication is done from the Mackerel server side to the host that contains mackerel-agent.
-* Encrypted with SSL/TLS correspondence.
+This page has been moved.
+
+https://support.mackerel.io/hc/en-us/articles/360039633251
 
 ---
 

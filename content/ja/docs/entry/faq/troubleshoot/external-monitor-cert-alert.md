@@ -5,11 +5,9 @@ URL: https://mackerel.io/ja/docs/entry/faq/troubleshoot/external-monitor-cert-al
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/10257846132604455875
 ---
 
-外形監視ルールを設定することにより、「x509: certificate signed by unknown authority」というメッセージとともにアラートが発報することがあります。
+こちらのページは移転しました。
 
-一概に特定の要因を原因として断定することは難しいのですが、中間証明書の設定漏れを起因として同様のエラーが発生するケースが多いようです。
-
-「x509: certificate signed by unknown authority」というメッセージが確認できた場合、改めて中間証明書のインストールが正しくされているかどうかを確認してください。
+https://support.mackerel.io/hc/ja/articles/360039702572-%E5%A4%96%E5%BD%A2%E7%9B%A3%E8%A6%96%E3%81%A7-x509-certificate-signed-by-unknown-authority-%E3%82%A8%E3%83%A9%E3%83%BC%E3%81%8C%E5%87%BA%E3%81%BE%E3%81%99
 
 ---
 

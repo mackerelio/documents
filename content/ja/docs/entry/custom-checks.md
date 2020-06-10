@@ -19,7 +19,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 
 チェック監視を mackerel-agent で利用するためには、目的の監視処理をおこない、その結果に応じた終了ステータスを返却するプログラムが必要です。そのために利用できるものとして、公式のチェックプラグイン集を用意しています。詳しくは、[チェック監視に公式チェックプラグイン集を使う](https://mackerel.io/ja/docs/entry/howto/mackerel-check-plugins)をご覧ください。
 
-また、チェック監視項目は1つあたり1ホストメトリックとしてカウントされます。プランごとの上限は[こちら](https://mackerel.io/ja/pricing) を、ホストあたりのメトリック上限やその超過時の仕様については[こちら](https://mackerel.io/ja/docs/entry/faq/contracts/limit-exceeded-conversion)をご覧ください。
+また、チェック監視項目は1つあたり1ホストメトリックとしてカウントされます。プランごとの上限は[こちら](https://mackerel.io/ja/pricing) を、ホストあたりのメトリック上限やその超過時の仕様については[こちら](https://support.mackerel.io/hc/ja/articles/360040109431-%E3%83%97%E3%83%A9%E3%83%B3%E4%B8%8A%E9%99%90%E8%B6%85%E9%81%8E%E6%99%82%E3%81%AE%E3%83%9B%E3%82%B9%E3%83%88%E5%8F%B0%E6%95%B0%E6%8F%9B%E7%AE%97%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6)をご覧ください。
 
 <h2 id="setting">設定</h2>
 

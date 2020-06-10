@@ -137,4 +137,4 @@ For security purposes, we recommend taking the following measures when using Web
 - Set up basic authentication and include the authentication information in the URL
   - Format like this `https://user:p4ssw0rd@example.com`
 - Enforce IP restriction
-  - For infomation of the IP address range of request origins of notifications from Mackerel, check our [FAQ page](https://mackerel.io/docs/entry/faq/spec/source-ip-addresses).
+  - For infomation of the IP address range of request origins of notifications from Mackerel, check our [FAQ page](https://support.mackerel.io/hc/en-us/articles/360039701332).

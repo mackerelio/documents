@@ -88,7 +88,7 @@ The format will be the same as when getting the [list of users](#list).
     </tr>
     <tr>
       <td>403</td>
-      <td>when the API doesn’t have the required permissions / when the organization’s creator is specified as <code><em>&lt;userId&gt;</em></code> / when accessing from outside the <a href="https://mackerel.io/docs/entry/faq/organization/ip-restriction" target="_blank">permitted IP address range</a></td>
+      <td>when the API doesn’t have the required permissions / when the organization’s creator is specified as <code><em>&lt;userId&gt;</em></code> / when accessing from outside the <a href="https://support.mackerel.io/hc/en-us/articles/360039701952" target="_blank">permitted IP address range</a></td>
     </tr>
     <tr>
       <td>404</td>

@@ -105,7 +105,7 @@ The expiresAt field (in epoch seconds) is given and returned with the input. Inv
     </tr>
     <tr>
       <td>403</td>
-      <td>when the API key doesn't have the required permissions / when accessing from outside the <a href="https://mackerel.io/docs/entry/faq/organization/ip-restriction" target="_blank">permitted IP address range</a></td>
+      <td>when the API key doesn't have the required permissions / when accessing from outside the <a href="https://support.mackerel.io/hc/en-us/articles/360039701952" target="_blank">permitted IP address range</a></td>
     </tr>
   </tbody>
 </table>
@@ -166,7 +166,7 @@ Specify the email address and cancel an invitation to the organization.
     </tr>
     <tr>
       <td>403</td>
-      <td>when the API key doesn't have the required permissions / when accessing from outside the <a href="https://mackerel.io/docs/entry/faq/organization/ip-restriction" target="_blank">permitted IP address range</a></td>
+      <td>when the API key doesn't have the required permissions / when accessing from outside the <a href="https://support.mackerel.io/hc/en-us/articles/360039701952" target="_blank">permitted IP address range</a></td>
     </tr>
     <tr>
       <td>404</td>

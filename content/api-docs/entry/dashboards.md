@@ -75,7 +75,7 @@ The dashboard that was created is returned.
     </tr>
     <tr>
       <td>403</td>
-      <td>when you have reached your dashboard limit / when the API key doesn't have the required permissions / when accessing from outside the <a href="https://mackerel.io/docs/entry/faq/organization/ip-restriction" target="_blank">permitted IP address range</a></td>
+      <td>when you have reached your dashboard limit / when the API key doesn't have the required permissions / when accessing from outside the <a href="https://support.mackerel.io/hc/en-us/articles/360039701952" target="_blank">permitted IP address range</a></td>
     </tr>
     <tr>
       <td>409</td>
@@ -156,7 +156,7 @@ The updated dashboard is returned. Same format as [Creating Dashboards](#create)
     </tr>
     <tr>
       <td>403</td>
-      <td>when the API key doesn't have the required permissions / when accessing from outside the <a href="https://mackerel.io/docs/entry/faq/organization/ip-restriction" target="_blank">permitted IP address range</a></td>
+      <td>when the API key doesn't have the required permissions / when accessing from outside the <a href="https://support.mackerel.io/hc/en-us/articles/360039701952" target="_blank">permitted IP address range</a></td>
     </tr>
     <tr>
       <td>404</td>
@@ -202,7 +202,7 @@ The dashboard before deletion is returned, same as [Creating Dashboards](#create
   <tbody>
     <tr>
       <td>403</td>
-      <td>when the API key doesn't have the required permissions / when accessing from outside the <a href="https://mackerel.io/docs/entry/faq/organization/ip-restriction" target="_blank">permitted IP address range</a></td>
+      <td>when the API key doesn't have the required permissions / when accessing from outside the <a href="https://support.mackerel.io/hc/en-us/articles/360039701952" target="_blank">permitted IP address range</a></td>
     </tr>
     <tr>
       <td>404</td>

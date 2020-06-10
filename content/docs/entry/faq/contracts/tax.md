@@ -5,7 +5,9 @@ URL: https://mackerel.io/docs/entry/faq/contracts/tax
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/8599973812326835960
 ---
 
-Yes, as cited from our <a href="../pricing">Pricing page</a>, the price of 1,800 JPY includes tax.
+This page has been moved.
+
+https://support.mackerel.io/hc/en-us/articles/360040109231
 
 ---
 

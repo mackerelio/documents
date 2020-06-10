@@ -37,7 +37,7 @@ To create a new external URL monitor click on the New Monitor button in the uppe
 * To monitor a URL that’s using Basic access authentication,  specify the Authorization header appropriately or include the authentication information in the URL like "https: // user: password@example.com/...".
 
 ## Monitoring source IP addresses of external URL monitors
-This is the same as the source IP address range for Mackerel notification requests. For more information check our [FAQ page](https://mackerel.io/docs/entry/faq/spec/source-ip-addresses).
+This is the same as the source IP address range for Mackerel notification requests. For more information check our [FAQ page](https://support.mackerel.io/hc/en-us/articles/360039701332).
 
 ## Subscription plans
 This feature can only be used with a paid subscription or in the free trial.

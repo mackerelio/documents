@@ -40,7 +40,7 @@ External Httpのタブをクリックすると、以下の項目が表示され�
 
 ## URL外形監視の監視元IPアドレスについて
 Mackerelからの通知のリクエスト元IPアドレスレンジと同じとなります。  
-詳細は[Webhook通知や外形監視など、Mackerelからの通知元IPアドレスは？](https://mackerel.io/ja/docs/entry/faq/spec/source-ip-addresses)をご覧下さい。
+詳細は[Webhook通知や外形監視など、Mackerelからの通知元IPアドレスは？](https://support.mackerel.io/hc/ja/articles/360039701332-Webhook%E9%80%9A%E7%9F%A5%E3%82%84%E5%A4%96%E5%BD%A2%E7%9B%A3%E8%A6%96%E3%81%AA%E3%81%A9-Mackerel%E3%81%8B%E3%82%89%E3%81%AE%E9%80%9A%E7%9F%A5%E5%85%83IP%E3%82%A2%E3%83%89%E3%83%AC%E3%82%B9%E3%81%AF-)をご覧下さい。
 
 ## 利用可能なプランについて
 本機能はTrialプランまたは有料プランでのみご利用いただけます。

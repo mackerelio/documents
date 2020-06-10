@@ -136,7 +136,7 @@ AWSインテグレーションで使用する全ての権限を設定する場�
 
 <h2 id="select-metric">取得するメトリックを制限する</h2>
 
-一部のメトリックを取得しないように設定して、ホスト数を削減したりCloudWatch APIの料金を減らす事ができます。ホスト台数は過去一ヶ月分の移動平均での算出となります。詳しくは[ホスト数の計算方法について](https://mackerel.io/ja/docs/entry/faq/contracts/calculate-host-number)をご確認ください。
+一部のメトリックを取得しないように設定して、ホスト数を削減したりCloudWatch APIの料金を減らす事ができます。ホスト台数は過去一ヶ月分の移動平均での算出となります。詳しくは[ホスト数の計算方法について](https://support.mackerel.io/hc/ja/articles/360039702912-%E3%83%9B%E3%82%B9%E3%83%88%E6%95%B0%E3%81%AE%E8%A8%88%E7%AE%97%E6%96%B9%E6%B3%95%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6)をご確認ください。
 
 例えばKinesis Data Streamsの`kinesis.latency.#.minimum`を取得しないようにする場合は以下のようにチェックボックスを外します。この設定により`GetRecords.Latency`、`PutRecord.Latency`、`PutRecords.Latency`それぞれのminimumの取得を制限し、最大で3メトリックを削減します。
 

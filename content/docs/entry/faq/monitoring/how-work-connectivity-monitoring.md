@@ -6,7 +6,9 @@ URL: https://mackerel.io/docs/entry/faq/monitoring/how-work-connectivity-monitor
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/8599973812326829641
 ---
 
-When data from a mackerel-agent running on a host that has been registered to the Mackerel server is not being received for a period of time, it will be judged as NG.
+This page has been moved.
+
+https://support.mackerel.io/hc/en-us/articles/360040107831
 
 ---
 

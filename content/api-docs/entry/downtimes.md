@@ -93,7 +93,7 @@ The input is returned along with an ID.
     </tr>
     <tr>
       <td>403</td>
-      <td>when the API key doesn't have the required permissions / when accessing from outside the <a href="https://mackerel.io/docs/entry/faq/organization/ip-restriction" target="_blank">permitted IP address range</a></td>
+      <td>when the API key doesn't have the required permissions / when accessing from outside the <a href="https://support.mackerel.io/hc/en-us/articles/360039701952" target="_blank">permitted IP address range</a></td>
     </tr>
   </tbody>
 </table>
@@ -189,7 +189,7 @@ The updated downtime is returned. Same format as [Registering Downtimes](#create
     </tr>
     <tr>
       <td>403</td>
-      <td>when the API key doesn't have the required permissions / when accessing from outside the <a href="https://mackerel.io/docs/entry/faq/organization/ip-restriction" target="_blank">permitted IP address range</a></td>
+      <td>when the API key doesn't have the required permissions / when accessing from outside the <a href="https://support.mackerel.io/hc/en-us/articles/360039701952" target="_blank">permitted IP address range</a></td>
     </tr>
     <tr>
       <td>404</td>
@@ -231,7 +231,7 @@ The downtime before deletion is returned, same as [Registering Downtimes](#creat
   <tbody>
     <tr>
       <td>403</td>
-      <td>when the API key doesn't have the required permissions / when accessing from outside the <a href="https://mackerel.io/docs/entry/faq/organization/ip-restriction" target="_blank">permitted IP address range</a></td>
+      <td>when the API key doesn't have the required permissions / when accessing from outside the <a href="https://support.mackerel.io/hc/en-us/articles/360039701952" target="_blank">permitted IP address range</a></td>
     </tr>
     <tr>
       <td>404</td>

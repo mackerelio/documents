@@ -5,11 +5,9 @@ URL: https://mackerel.io/ja/docs/entry/faq/troubleshoot/cannot-view-graph
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/8599973812319468568
 ---
 
-* mackerel-agentが起動しているかどうかを確認してください。
-* mackerel-agentが起動している場合、サーバーの時刻が正しく設定されているかを確認してください。
-    * サーバーに設定された時刻と現在時刻との間で相違がある場合、データが正しく投稿されない可能性があります。
-* mackerel-agent がインストールされているサーバから、mackerel.io / api.mackerelio.com への通信がおこなえるかどうかを確認してください。
-* 新規ホスト登録から初回メトリック投稿まで少しタイムラグがあるため、その間はグラフが表示されません。表示されるまでしばらくお待ちください。
+こちらのページは移転しました。
+
+https://support.mackerel.io/hc/ja/articles/360040108671-Mackerel%E7%AE%A1%E7%90%86%E7%94%BB%E9%9D%A2%E3%81%AB%E3%82%B0%E3%83%A9%E3%83%95%E3%81%8C%E8%A1%A8%E7%A4%BA%E3%81%95%E3%82%8C%E3%81%A6%E3%81%84%E3%81%AA%E3%81%84-%E3%83%87%E3%83%BC%E3%82%BF%E3%81%8C%E6%8A%95%E7%A8%BF%E3%81%95%E3%82%8C%E3%81%A6%E3%81%84%E3%81%AA%E3%81%84%E3%82%88%E3%81%86%E3%81%A0
 
 ---
 

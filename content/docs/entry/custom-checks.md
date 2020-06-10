@@ -18,7 +18,7 @@ As for **metric monitoring**, which monitors the thresholds of metric values ​
 
 In order to use check monitoring with mackerel-agent, a program is required that performs the target monitoring process and returns the exit status according to the results. For this reason, an official check plugin pack is available. For more information please refer to [Using the official check plugin pack for check monitoring](https://mackerel.io/docs/entry/howto/mackerel-check-plugins).
 
-Check monitors will be counted as 1 host metric each. See [here](https://mackerel.io/pricing) for the limits of each plan, and [here](https://mackerel.io/docs/entry/faq/contracts/limit-exceeded-conversion) for metric limits per host and specifications when limits are exceeded.
+Check monitors will be counted as 1 host metric each. See [here](https://mackerel.io/pricing) for the limits of each plan, and [here](https://support.mackerel.io/hc/en-us/articles/360040109431) for metric limits per host and specifications when limits are exceeded.
 
 <h2 id="setting">Configuration</h2>
 

@@ -68,7 +68,7 @@ If old values are being transmitted to the API, the values on the Mackerel inter
   <tbody>
     <tr>
       <td>403</td>
-      <td>when the API key doesn't have the required permissions / when accessing from outside the <a href="https://mackerel.io/docs/entry/faq/organization/ip-restriction" target="_blank">permitted IP address range</a></td>
+      <td>when the API key doesn't have the required permissions / when accessing from outside the <a href="https://support.mackerel.io/hc/en-us/articles/360039701952" target="_blank">permitted IP address range</a></td>
     </tr>
     <tr>
       <td>other than 200</td>
@@ -204,7 +204,7 @@ With the following parameter, host and metric names will be assigned.
   <tbody>
     <tr>
       <td>403</td>
-      <td>when the API key doesn't have the required permissions / when accessing from outside the <a href="https://mackerel.io/docs/entry/faq/organization/ip-restriction" target="_blank">permitted IP address range</a></td>
+      <td>when the API key doesn't have the required permissions / when accessing from outside the <a href="https://support.mackerel.io/hc/en-us/articles/360039701952" target="_blank">permitted IP address range</a></td>
     </tr>
     <tr>
       <td>other than 200</td>
@@ -309,7 +309,7 @@ metric: an object that contains the following keys.
   <tbody>
     <tr>
       <td>403</td>
-      <td>when the API key doesn't have the required permissions / when accessing from outside the <a href="https://mackerel.io/docs/entry/faq/organization/ip-restriction" target="_blank">permitted IP address range</a></td>
+      <td>when the API key doesn't have the required permissions / when accessing from outside the <a href="https://support.mackerel.io/hc/en-us/articles/360039701952" target="_blank">permitted IP address range</a></td>
     </tr>
     <tr>
       <td>other than 200</td>

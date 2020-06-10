@@ -5,7 +5,6 @@ URL: https://mackerel.io/api-docs/entry/check-monitoring
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel.io/atom/entry/10328537792368374608
 ---
 
-
 <h2 id="post">Posting Monitoring Check Reports</h2>
 
 This will transmit a monitoring check’s report to Mackerel. Monitoring reports are restricted to hosts.
@@ -76,7 +75,7 @@ If a new monitoring timestamp has already been posted with the same name/host, p
   <tbody>
     <tr>
       <td>403</td>
-      <td>when the API key doesn't have the required permissions / when accessing from outside the <a href="https://mackerel.io/docs/entry/faq/organization/ip-restriction" target="_blank">permitted IP address range</a></td>
+      <td>when the API key doesn't have the required permissions / when accessing from outside the <a href="https://support.mackerel.io/hc/en-us/articles/360039701952" target="_blank">permitted IP address range</a></td>
     </tr>
     <tr>
       <td>other than 200</td>

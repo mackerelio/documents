@@ -5,19 +5,9 @@ URL: https://mackerel.io/ja/docs/entry/faq/troubleshoot/update-ca-certificates
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/26006613563828584
 ---
 
-mackerel-agent が以下のようなログを出力した場合、
+こちらのページは移転しました。
 
-```
-Failed to post metrics value (will retry): Post https://mackerel.io/api/v0/tsdb: x509: certificate signed by unknown authority
-```
-
-mackerel-agent がインストールされているホストのCA証明書が古い可能性があります。
-`ca-certificates` パッケージの更新や Windows Update の実施をご検討ください。（`will retry` という出力のとおり、通信が正常な状態に復帰した際にメトリックの投稿はリトライされます。）
-
-また、ご利用のOSが[公式サポート対象](https://mackerel.io/ja/docs/entry/overview#support-environments)のものであることも合わせてご確認ください。
-
-
-これは例えば、SSL/TLS通信を確立するために必要となる証明書の更新により発生する場合があります。この事象は Mackerel に限らず、そのホストから SSL/TLS 通信を行う全ての場合に起こり得るものとなりますので、ホストのCA証明書は定期的に更新することをおすすめいたします。
+https://support.mackerel.io/hc/ja/articles/360043006992-%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E3%81%8C-x509-certificate-signed-by-unknown-authority-%E3%82%A8%E3%83%A9%E3%83%BC%E3%82%92%E5%87%BA%E5%8A%9B%E3%81%97%E3%81%A6%E3%81%84%E3%81%BE%E3%81%99
 
 ---
 

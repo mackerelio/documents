@@ -5,7 +5,9 @@ URL: https://mackerel.io/docs/entry/faq/troubleshoot/mackerel-status
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/8599973812326839618
 ---
 
-If you have encountered a problem within Mackerel, it’s likely we are in the process of working to fix it. To see the latest information and updates about development, please follow us on twitter [@mackerelio](https://twitter.com/mackerelio/) or subscribe to our status page [status.mackerel.io](http://status.mackerel.io/).
+This page has been moved.
+
+https://support.mackerel.io/hc/en-us/articles/360040108791
 
 ---
 

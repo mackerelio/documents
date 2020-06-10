@@ -5,10 +5,9 @@ URL: https://mackerel.io/docs/entry/faq/troubleshoot/alert-notification
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/8599973812326835196
 ---
 
-* In order to receive alert notifications, hosts must be set to the “Working” status.
-* The default status for newly registered hosts can be changed in the Settings tab of your organization’s details page. https://mackerel.io/my?tab=setting
-  * By setting the default status to “Working”, you can receive alert notifications immediately after registering a new host. 
-* For more information regarding the relationship between hosts’ statuses and notifications, please refer to [Setting up monitoring and alerts]https://mackerel.io/docs/entry/howto/alerts).
+This page has been moved.
+
+https://support.mackerel.io/hc/en-us/articles/360040108711
 
 ---
 
