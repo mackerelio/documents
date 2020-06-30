@@ -13,7 +13,7 @@ Azureのクラウド製品1台が、Mackerelで1ホストとして登録され�
 
 Azureインテグレーションは現在は以下のAzureクラウド製品に対応しています。取得メトリックなどについてはそれぞれのドキュメントを参照ください。
 
-[SQL Database](https://mackerel.io/ja/docs/entry/integrations/azure/sql-database)・[Cache for Redis](https://mackerel.io/ja/docs/entry/integrations/azure/redis-cache)・[Virtual Machines](https://mackerel.io/ja/docs/entry/integrations/azure/virtual-machine)・[App Service](https://mackerel.io/ja/docs/entry/integrations/azure/app-service)・[Functions](https://mackerel.io/ja/docs/entry/integrations/azure/functions)・[Load Balancer](https://mackerel.io/ja/docs/entry/integrations/azure/load-balancer)
+[SQL Database](https://mackerel.io/ja/docs/entry/integrations/azure/sql-database)・[Cache for Redis](https://mackerel.io/ja/docs/entry/integrations/azure/redis-cache)・[Virtual Machines](https://mackerel.io/ja/docs/entry/integrations/azure/virtual-machine)・[App Service](https://mackerel.io/ja/docs/entry/integrations/azure/app-service)・[Functions](https://mackerel.io/ja/docs/entry/integrations/azure/functions)・[Load Balancer](https://mackerel.io/ja/docs/entry/integrations/azure/load-balancer)・[Database for MySQL](https://mackerel.io/ja/docs/entry/integrations/azure/database-for-mysql)・[Database for PostgreSQL](https://mackerel.io/ja/docs/entry/integrations/azure/database-for-postgresql)
 
 # 連携方法
 Azureインテグレーションはサービスプリンシパルを使って連携をします。
