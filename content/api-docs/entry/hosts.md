@@ -560,7 +560,7 @@ Detailed information that accompanies the monitoring status. Currently only avai
 
 | KEY | TYPE | DESCRIPTION |
 | --- | --- | --- |
-| `type` | *number* | the type of detailed information. check monitoring is always `check` |
+| `type` | *string* | the type of detailed information. check monitoring is always `check` |
 | `message` | *string* | auxillary text such as command output results |
 | `memo` | *string* | [optional] notes configured for check monitoring |
 

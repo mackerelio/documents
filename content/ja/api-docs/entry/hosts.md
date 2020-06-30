@@ -555,7 +555,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 
 | KEY | TYPE | DESCRIPTION |
 | --- | --- | --- |
-| `type` | *number* | 詳細情報の種類。チェック監視の場合、常に `check` です。 |
+| `type` | *string* | 詳細情報の種類。チェック監視の場合、常に `check` です。 |
 | `message` | *string* | コマンド出力結果などの補助的なテキスト |
 | `memo` | *string* | [optional] チェック監視に設定されたメモ |
 
