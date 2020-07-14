@@ -43,7 +43,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 | --- | --- | --- |
 | `name` | *string* | ホスト名 |
 | `displayName` | *string* | [optional] ホストの管理名 |
-| `customIdentifier` | *string* | [optional] ホストに対するユーザー独自の識別子[*1](#customIdentifier) |
+| `customIdentifier` | *string* | [optional] ホストに対するユーザー独自の、オーガニゼーションで一意な識別子[*1](#customIdentifier) |
 | `meta` | *object* | ホストのメタ情報[*2](#meta)。空のオブジェクトでも登録することができます。 |
 | `interfaces` | *array[object]* | [optional] ホストのネットワークインターフェース情報[*3](#interfaces) |
 | `roleFullnames` | *array[string]* | [optional] ホストが所属しているロールの名前の配列[*4](#roleFullnames) |
