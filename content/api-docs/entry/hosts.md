@@ -45,7 +45,7 @@ This object holds the following keys:
 | --- | --- | --- |
 | `name` | *string* | name of the host |
 | `displayName` | *string* | [optional] host management name |
-| `customIdentifier` | *string* | [optional] a user-specific identifier for the host[*1](#customIdentifier) |
+| `customIdentifier` | *string* | [optional] an identifier for the host that is user-specific and unique to the organization[*1](#customIdentifier) |
 | `meta` | *object* | host metadata[*2](#meta). Empty objects can also be registered. |
 | `interfaces` | *array[object]* | [optional] host network interface information[*3](#interfaces) |
 | `roleFullnames` | *array[string]* | [optional] an array of the full name of the role to which the host belongs[*4](#roleFullnames) |
@@ -180,7 +180,7 @@ One element of `checks` is an object that holds the following keys.
 | `id` | *string* | the host's ID |
 | `name` | *string* | the name of the host |
 | `displayName` | *string* | [optional] the host's management name |
-| `customIdentifier` | *string* | [optional] a user-specific identifier for the host |
+| `customIdentifier` | *string* | [optional] an identifier for the host that is user-specific and unique to the organization |
 | `meta` | *object* | host metadata |
 | `interfaces` | *array[object]* | host network interface information |
 | `type` | *string* | classification of the host（`"agent"`, `"container-agent"`, `"cloud"` etc.） |
@@ -463,7 +463,7 @@ The following parameters can be used to filter hosts. If nothing has been assign
 | `role` | *string* | [optional] role names in the service, multiple assignments possible (result will be a unit of the hosts that belong to each role) if `service` has not been assigned it will be ignored.|
 | `name` | *string* | [optional] host name |
 | `status` | *string* | [optional] filters the host status. multiple specifications are possible. defaults are `working` and `standby`. |
-| `customIdentifier`    | *string*        | [optional] user-specific identifier for the host (registered at [Registering Host Information](#create) or [Updating Host Information](#update-information) API) |
+| `customIdentifier`    | *string*        | [optional] an identifier for the host that is user-specific and unique to the organization (registered at [Registering Host Information](#create) or [Updating Host Information](#update-information) API) |
 
 ### Response
 

@@ -178,7 +178,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 | `id` | *string* | ホストID |
 | `name` | *string* | ホスト名 |
 | `displayName` | *string* | [optional] ホストの管理名 |
-| `customIdentifier` | *string* | [optional] ホストに対するユーザー独自の識別子 |
+| `customIdentifier` | *string* | [optional] ホストに対するユーザー独自の、オーガニゼーションで一意な識別子 |
 | `meta` | *object* | ホストのメタ情報 |
 | `interfaces` | *array[object]* | ホストのネットワークインターフェース情報 |
 | `type` | *string* | ホストの種別（`"agent"`, `"container-agent"`, `"cloud"` など） |
@@ -458,7 +458,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 | `role` | *string* | [optional] サービス内のロール名。複数指定可能（結果は各ロールに所属するホスト群の和集合となります）。`service`が指定されていない場合は無効です。 |
 | `name` | *string* | [optional] ホスト名。 |
 | `status` | *string* | [optional] ホストのステータスを絞り込む。複数指定可能。デフォルトは `working` と `standby`です。 |
-| `customIdentifier`    | *string*        | [optional] [ホスト情報の登録](#create)や[ホスト情報の更新](#update-information)で登録したユーザー独自の識別子。 |
+| `customIdentifier`    | *string*        | [optional] [ホスト情報の登録](#create)や[ホスト情報の更新](#update-information)で登録したユーザー独自のオーガニゼーションで一意な識別子。 |
 
 
 ### 応答

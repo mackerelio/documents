@@ -12,7 +12,7 @@ Azureインテグレーションの設定方法や対応Azureサービス一覧�
 
 ## 取得メトリック
 AzureインテグレーションのSQL Database対応で取得できるメトリックは価格レベルによって異なります。
-各価格レベルで取得できるメトリックは以下の通りです。 `メトリック` の説明に関しては<a href="https://msdn.microsoft.com/library/en-us/Mt163593.aspx" target="_blank">Azureのドキュメント</a>をご確認ください。
+各価格レベルで取得できるメトリックは以下の通りです。 `メトリック` の説明に関しては<a href="https://docs.microsoft.com/ja-jp/azure/azure-monitor/platform/metrics-supported#microsoftsqlserversdatabases" target="_blank">Azureのドキュメント</a>をご確認ください。
 
 ## DTUベース
 
