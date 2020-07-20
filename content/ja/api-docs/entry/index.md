@@ -888,8 +888,8 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
     <p id="human-image"><img src="/assets/images/blog/support.png" alt=""></p>
     <h4>なにかお困りですか？</h4>
     <p id="contact-human-info">このヘルプサイトの内容だけでは解決できない問題を抱えている場合はMackerelサポートチームへご連絡ください。</p>
-    <p id="contact-human-button"><a href="mailto:support@mackerel.io?body=%E6%97%A2%E3%81%ABMackerel%E3%82%92%E3%81%94%E5%88%A9%E7%94%A8%E3%81%AE%E5%A0%B4%E5%90%88%E3%80%81%E4%BB%A5%E4%B8%8B%E3%81%AE%E6%83%85%E5%A0%B1%E3%82%82%E4%BD%B5%E3%81%9B%E3%81%A6%E3%81%8A%E7%9F%A5%E3%82%89%E3%81%9B%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82%0A%0A%E3%82%AA%E3%83%BC%E3%82%AC%E3%83%8B%E3%82%BC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E5%90%8D%EF%BC%9A%0A%E3%81%94%E8%B3%AA%E5%95%8F%E3%81%AE%E5%AF%BE%E8%B1%A1%E3%81%A8%E3%81%AA%E3%82%8B%E3%83%9A%E3%83%BC%E3%82%B8URL%EF%BC%9A" class="ui-button button-blue">サポートチームへ連絡</a></p>
-    <p id="contact-human-link"><a href="https://mackerel.io/ja/docs/entry/faq">よくある質問を見る</a></p>
+    <p id="contact-human-button"><a href="https://support.mackerel.io/hc/ja/requests/new" class="ui-button button-blue">サポートチームへ連絡</a></p>
+    <p id="contact-human-link"><a href="https://support.mackerel.io/hc/ja">よくある質問を見る</a></p>
 </div>
 <div id="about-container">
     <h4 id="about"><span>このページについて/about</span></h4>

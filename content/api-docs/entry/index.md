@@ -887,8 +887,8 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
 <div id="contact-human">
   <p id="human-image"><img src="/assets/images/blog/support.png" alt="" /></p>
   <h4>Need even more help?</h4>
-  <p id="contact-human-info">Send us an email at support@mackerel.io. We'll get back to you right away.</p> 
-  <p id="contact-human-button"><a href="mailto:support@mackerel.io" class="ui-button button-blue">Email Us</a></p>
+  <p id="contact-human-info">If the content covered in this help page doesn't solve your problem, please contact our support team.</p> 
+  <p id="contact-human-button"><a href="https://support.mackerel.io/hc/en-us/requests/new" class="ui-button button-blue">Contact Us</a></p>
 </div>
 <div id="about-container">
   <h4 id="about"><span>About</span></h4>
