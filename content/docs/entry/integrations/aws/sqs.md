@@ -18,7 +18,7 @@ The maximum number of metrics obtainable is 11.
 |Graph name|Metric|Metric name in Mackerel|Unit|Statistics|
 |:---|:---|:---|:---|:---|
 |Oldest Age|ApproximateAgeOfOldestMessage|sqs.oldest_message.age|integer|Maximum|
-|Message State Count|ApproximateNumberOfMessagesDelayed<br>ApproximateNumberOfMessagesNotVisible<br>ApproximateNumberOfMessagesVisible|sqs.message_state.delayed<br>sqs.message_state.not_visible<br>sqs.message_state.visible|integer|Average|
+|Message State Count|ApproximateNumberOfMessagesDelayed<br>ApproximateNumberOfMessagesNotVisible<br>ApproximateNumberOfMessagesVisible|sqs.message_state.delayed<br>sqs.message_state.not_visible<br>sqs.message_state.visible|float|Average|
 |Receive Count|NumberOfEmptyReceives<br>NumberOfMessagesReceived|sqs.receive_count.empty<br>sqs.receive_count.received|integer|Sum|
 |Message Count|NumberOfMessagesDeleted<br>NumberOfMessagesSent|sqs.message_count.deleted<br>sqs.message_count.sent|integer|Sum|
 |Sent Message Size|SentMessageSize<br>SentMessageSize<br>SentMessageSize|sqs.message_size.average<br>sqs.message_size.max<br>sqs.message_size.min|bytes|Average<br>Maximum<br>Minimum|

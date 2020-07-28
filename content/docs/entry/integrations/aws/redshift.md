@@ -24,17 +24,17 @@ The `SERVICE_CLASS` of the metric name contains the workload management (WLM) se
 |Graph name|Metric|Metric name in Mackerel|Unit|Statistics|
 |:---|:---|:---|:---|:---|
 |CPU|CPUUtilization|redshift.cpu.used|percentage|Average|
-|Database Connections|DatabaseConnections|redshift.database_connections.used|integer|Average|
-|Cluster Status|HealthStatus<br>MaintenanceMode|redshift.cluster_status.health<br>redshift.cluster_status.maintenance|integer|Average|
+|Database Connections|DatabaseConnections|redshift.database_connections.used|float|Average|
+|Cluster Status|HealthStatus<br>MaintenanceMode|redshift.cluster_status.health<br>redshift.cluster_status.maintenance|float|Average|
 |Network Throughput|NetworkReceiveThroughput<br>NetworkTransmitThroughput|redshift.network_throughput.receive<br>redshift.network_throughput.transmit|bytes/sec|Average|
 |Disk Space|PercentageDiskSpaceUsed|redshift.disk.used|percentage|Average|
-|Total Table Count|TotalTableCount|redshift.total_table_count.count|integer|Average|
+|Total Table Count|TotalTableCount|redshift.total_table_count.count|float|Average|
 |Query Runtime Breakdown|QueryRuntimeBreakdown|redshift.query_runtime_breakdown.planning<br>redshift.query_runtime_breakdown.waiting<br>redshift.query_runtime_breakdown.executing_read<br>redshift.query_runtime_breakdown.executing_insert<br>redshift.query_runtime_breakdown.executing_delete<br>redshift.query_runtime_breakdown.executing_update<br>redshift.query_runtime_breakdown.executing_ctas<br>redshift.query_runtime_breakdown.executing_unload<br>redshift.query_runtime_breakdown.executing_copy<br>redshift.query_runtime_breakdown.commit|float|Average|
 |Query Throughput|QueriesCompletedPerSecond|redshift.query_throughput.short<br>redshift.query_throughput.medium<br>redshift.query_throughput.long|float|Average|
 |Query Duration|QueryDuration|redshift.query_duration.short<br>redshift.query_duration.medium<br>redshift.query_duration.long|float|Average|
 |WLM Query Throughput|WLMQueriesCompletedPerSecond|redshift.wlm_query_throughput.WLM_ID|float|Average|
 |WLM Query Duration|WLMQueryDuration|redshift.wlm_query_duration.WLM_ID|float|Average|
-|WLM Queue Length|WLMQueueLength|redshift.wlm_queue_length.SERVICE_CLASS|integer|Average|
+|WLM Queue Length|WLMQueueLength|redshift.wlm_queue_length.SERVICE_CLASS|float|Average|
 
 ### Metrics per Node
 Since there can be multiple Nodes per cluster in Redshift, each metric is grouped as follows. The metric name’s `NODE_ROLE` will contain the Role of the Node. (Example: leader, compute_0  etc.)

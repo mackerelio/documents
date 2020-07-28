@@ -39,7 +39,7 @@ AWSインテグレーションのAPI Gateway対応で取得できるメトリッ
 |WebSocket Connect|ConnectCount|apigateway.websocket_connect.count|integer|Sum|
 |WebSocket Message|MessageCount|apigateway.websocket_message.count|integer|Sum|
 |WebSocket Errors|IntegrationError<br>ClientError<br>ExecutionError|apigateway.websocket_errors.integration<br>apigateway.websocket_errors.client<br>apigateway.websocket_errors.execution|integer|Sum|
-|WebSocket Latency|IntegrationLatency|apigateway.websocket_latency.minimum<br>apigateway.websocket_latency.average<br>apigateway.websocket_latency.maximum|integer|Minimum<br>Average<br>Maximum|
+|WebSocket Latency|IntegrationLatency|apigateway.websocket_latency.minimum<br>apigateway.websocket_latency.average<br>apigateway.websocket_latency.maximum|float|Minimum<br>Average<br>Maximum|
 
 ### HTTP
 

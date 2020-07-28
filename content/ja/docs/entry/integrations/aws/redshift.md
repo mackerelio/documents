@@ -23,17 +23,17 @@ AWSインテグレーションのRedshift対応で取得できるメトリック
 |グラフ名|メトリック|Mackerel上のメトリック名|単位|Statistics|
 |:---|:---|:---|:---|:---|
 |CPU|CPUUtilization|redshift.cpu.used|percentage|Average|
-|Database Connections|DatabaseConnections|redshift.database_connections.used|integer|Average|
-|Cluster Status|HealthStatus<br>MaintenanceMode|redshift.cluster_status.health<br>redshift.cluster_status.maintenance|integer|Average|
+|Database Connections|DatabaseConnections|redshift.database_connections.used|float|Average|
+|Cluster Status|HealthStatus<br>MaintenanceMode|redshift.cluster_status.health<br>redshift.cluster_status.maintenance|float|Average|
 |Network Throughput|NetworkReceiveThroughput<br>NetworkTransmitThroughput|redshift.network_throughput.receive<br>redshift.network_throughput.transmit|bytes/sec|Average|
 |Disk Space|PercentageDiskSpaceUsed|redshift.disk.used|percentage|Average|
-|Total Table Count|TotalTableCount|redshift.total_table_count.count|integer|Average|
+|Total Table Count|TotalTableCount|redshift.total_table_count.count|float|Average|
 |Query Runtime Breakdown|QueryRuntimeBreakdown|redshift.query_runtime_breakdown.planning<br>redshift.query_runtime_breakdown.waiting<br>redshift.query_runtime_breakdown.executing_read<br>redshift.query_runtime_breakdown.executing_insert<br>redshift.query_runtime_breakdown.executing_delete<br>redshift.query_runtime_breakdown.executing_update<br>redshift.query_runtime_breakdown.executing_ctas<br>redshift.query_runtime_breakdown.executing_unload<br>redshift.query_runtime_breakdown.executing_copy<br>redshift.query_runtime_breakdown.commit|float|Average|
 |Query Throughput|QueriesCompletedPerSecond|redshift.query_throughput.short<br>redshift.query_throughput.medium<br>redshift.query_throughput.long|float|Average|
 |Query Duration|QueryDuration|redshift.query_duration.short<br>redshift.query_duration.medium<br>redshift.query_duration.long|float|Average|
 |WLM Query Throughput|WLMQueriesCompletedPerSecond|redshift.wlm_query_throughput.WLM_ID|float|Average|
 |WLM Query Duration|WLMQueryDuration|redshift.wlm_query_duration.WLM_ID|float|Average|
-|WLM Queue Length|WLMQueueLength|redshift.wlm_queue_length.SERVICE_CLASS|integer|Average|
+|WLM Queue Length|WLMQueueLength|redshift.wlm_queue_length.SERVICE_CLASS|float|Average|
 
 ### ノードごとのメトリック
 Redshiftではクラスターごとに複数のノードを持つことができるので、それぞれのメトリックは以下のようにグルーピングされます。メトリック名の `NODE_ROLE` にノードのRoleが入ります。 (例: leader, compute_0 など)

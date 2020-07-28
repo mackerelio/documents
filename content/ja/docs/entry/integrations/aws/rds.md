@@ -24,7 +24,7 @@ Auroraでは最大で49個、Aurora Serverlessでは最大で50個、それ以�
 |グラフ名|メトリック|Mackerel上のメトリック名|単位|Statistics|
 |:---|:---|:---|:---|:---|
 |CPU|CPUUtilization|rds.cpu.used|percentage|Average|
-|CPU Credit|CPUCreditUsage<br>CPUCreditBalance|rds.cpu_credit.used<br>rds.cpu_credit.balance|integer|Average|
+|CPU Credit|CPUCreditUsage<br>CPUCreditBalance|rds.cpu_credit.used<br>rds.cpu_credit.balance|float|Average|
 |Database Connections|DatabaseConnections|rds.database_connections.used|float|Average|
 |Disk Queue|DiskQueueDepth|rds.disk_queue.depth|float|Average|
 |BinLog Disk Usage|BinLogDiskUsage|rds.disk_usage.bin_log|bytes|Average|
@@ -63,7 +63,7 @@ Auroraで取得できるメトリックは、上記に加えて以下のとお�
 
 |グラフ名|メトリック|Mackerel上のメトリック名|単位|Statistics|
 |:---|:---|:---|:---|:---|
-|Serverless Database Capacity|ServerlessDatabaseCapacity|rds.aurora.serverless_database_capacity.capacity|integer|Average|
+|Serverless Database Capacity|ServerlessDatabaseCapacity|rds.aurora.serverless_database_capacity.capacity|float|Average|
 
 <h2 id="notes">注意事項</h2>
 

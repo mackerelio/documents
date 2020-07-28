@@ -22,9 +22,9 @@ AWSインテグレーションのNLB対応で取得できるメトリックは�
 |グラフ名|メトリック|Mackerel上のメトリック名|単位|Statistics|
 |:---|:---|:---|:---|:---|
 |Processed Bytes|ProcessedBytes<br>ProcessedBytes_TCP<br>ProcessedBytes_TLS<br>ProcessedBytes_UDP|nlb.bytes.processed<br>nlb.bytes.tcp<br>nlb.bytes.tls<br>nlb.bytes.udp|bytes|Sum|
-|TCP Flow|ActiveFlowCount<br>NewFlowCount|nlb.flowcount.active<br>nlb.flowcount.new|integer|Average<br>Sum|
+|TCP Flow|ActiveFlowCount<br>NewFlowCount|nlb.flowcount.active<br>nlb.flowcount.new|float|Average<br>Sum|
 |TCP Reset Packets|TCP_Client_Reset_Count<br>TCP_Target_Reset_Count<br>TCP_ELB_Reset_Count|nlb.tcp_reset.client_count<br>nlb.tcp_reset.target_count<br>nlb.tcp_reset.elb_count|integer|Sum|
-|Established Active Flow|ActiveFlowCount_TCP<br>ActiveFlowCount_TLS<br>ActiveFlowCount_UDP|nlb.established_active_flow.tcp<br>nlb.established_active_flow.tls<br>nlb.established_active_flow.udp|integer|Average|
+|Established Active Flow|ActiveFlowCount_TCP<br>ActiveFlowCount_TLS<br>ActiveFlowCount_UDP|nlb.established_active_flow.tcp<br>nlb.established_active_flow.tls<br>nlb.established_active_flow.udp|float|Average|
 |Consumed LCUs|ConsumedLCUs<br>ConsumedLCUs_TCP<br>ConsumedLCUs_TLS<br>ConsumedLCUs_UDP|nlb.consumed_lcus.all<br>nlb.consumed_lcus.tcp<br>nlb.consumed_lcus.tls<br>nlb.consumed_lcus.udp|float|Sum|
 |New Flow|NewFlowCount_TCP<br>NewFlowCount_TLS<br>NewFlowCount_UDP|nlb.new_flow.tcp<br>nlb.new_flow.tls<br>nlb.new_flow.udp|integer|Sum|
 |TLS Negotiation Error|TargetTLSNegotiationErrorCount<br>ClientTLSNegotiationErrorCount|nlb.tls_negotiation_error.target<br>nlb.tls_negotiation_error.client|integer|Sum|
@@ -34,4 +34,4 @@ Application Load BalancerとNetwork Load Balancerではロードバランサー�
 
 |グラフ名|メトリック|Mackerel上のメトリック名|単位|Statistics|
 |:---|:---|:---|:---|:---|
-|Host Count|HealthyHostCount<br>UnHealthyHostCount|nlb.host_count.TARGET_GROUP_NAME.healthy<br>nlb.host_count.TARGET_GROUP_NAME.unhealthy|integer|Average|
+|Host Count|HealthyHostCount<br>UnHealthyHostCount|nlb.host_count.TARGET_GROUP_NAME.healthy<br>nlb.host_count.TARGET_GROUP_NAME.unhealthy|float|Average|

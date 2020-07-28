@@ -21,7 +21,7 @@ The maximum number of metrics obtainable is 13.
 |Graph name|Metric|Metric name in Mackerel|Unit|Statistics|
 |:---|:---|:---|:---|
 |Request Count|RequestCount|elb.count.request_count|integer|Sum|
-|Host Count|HealthyHostCount<br>UnHealthyHostCount|elb.host_count.healthy<br>elb.host_count.unhealthy|integer|Average|
+|Host Count|HealthyHostCount<br>UnHealthyHostCount|elb.host_count.healthy<br>elb.host_count.unhealthy|float|Average|
 |Latency|Latency|elb.latency.latency|float|Average|
 |HTTP Code ELB Count|HTTPCode_ELB_4XX<br>HTTPCode_ELB_5XX|elb.httpcode_elb.4xx<br>elb.httpcode_elb.5xx|integer|Sum|
 |HTTP Code Backend Count|HTTPCode_Backend_2XX<br>HTTPCode_Backend_3XX<br>HTTPCode_Backend_4XX<br>HTTPCode_Backend_5XX|elb.httpcode_backend.2xx<br>elb.httpcode_backend.3xx<br>elb.httpcode_backend.4xx<br>elb.httpcode_backend.5xx|integer|Sum|

@@ -21,10 +21,10 @@ AWSインテグレーションのElasticsearch Service対応で取得できる�
 |:--|:--|:--|:--|:--|
 |Cluster Status|ClusterStatus.green<br>ClusterStatus.yellow<br>ClusterStatus.red|es.cluster_status.green<br>es.cluster_status.yellow<br>es.cluster_status.red|integer|Minimum<br>Maximum<br>Maximum|
 |Nodes|Nodes|es.nodes.count|integer|Minimum|
-|Searchable Documents|SearchableDocuments|es.searchable_documents.count|integer|Average|
-|Deleted Documents|DeletedDocuments|es.deleted_documents.count|integer|Average|
+|Searchable Documents|SearchableDocuments|es.searchable_documents.count|float|Average|
+|Deleted Documents|DeletedDocuments|es.deleted_documents.count|float|Average|
 |CPU Utilization|CPUUtilization|es.cpu_utilization.maximum<br>es.cpu_utilization.average|percentage|Maximum<br>Average|
-|Free Storage Space|FreeStorageSpace|es.free_storage_space.maximum<br>es.free_storage_space.average<br>es.free_storage_space.minimum|integer|Maximum<br>Average<br>Minimum|
+|Free Storage Space|FreeStorageSpace|es.free_storage_space.maximum<br>es.free_storage_space.average<br>es.free_storage_space.minimum|bytes|Maximum<br>Average<br>Minimum|
 |Cluster Used Space|ClusterUsedSpace|es.cluster_used_space.maximum<br>es.cluster_used_space.minimum|integer|Maximum<br>Minimum|
 |Cluster Index Writes Blocked|ClusterIndexWritesBlocked|es.cluster_index_writes_blocked.blocked|integer|Maximum|
 |JVM Memory Pressure|JVMMemoryPressure|es.jvm_memory_pressure.maximum|percentage|Maximum|
