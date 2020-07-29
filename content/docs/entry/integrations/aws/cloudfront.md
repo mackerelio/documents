@@ -20,7 +20,7 @@ The maximum number of metrics obtainable is 13.
 |Requests|Requests|cloudfront.requests.request|integer|Sum|
 |Transfer|BytesDownloaded<br>BytesUploaded|cloudfront.transfer.download<br>cloudfront.transfer.upload|bytes|Sum|
 |ErrorRate|4xxErrorRate<br>5xxErrorRate<br>401ErrorRate [*](#additional-metric-notes)<br>403ErrorRate [*](#additional-metric-notes)<br>404ErrorRate [*](#additional-metric-notes)<br>502ErrorRate [*](#additional-metric-notes)<br>503ErrorRate [*](#additional-metric-notes)<br>504ErrorRate [*](#additional-metric-notes)|cloudfront.error_rate.4xx_error_rate<br>cloudfront.error_rate.5xx_error_rate<br>cloudfront.error_rate.401_error_rate<br>cloudfront.error_rate.403_error_rate<br>cloudfront.error_rate.404_error_rate<br>cloudfront.error_rate.502_error_rate<br>cloudfront.error_rate.503_error_rate<br>cloudfront.error_rate.504_error_rate|float|Average|
-|CacheHitRate|CacheHitRate [*](#additional-metric-notes)|cloudfront.origin_latency|float|Average|
+|CacheHitRate|CacheHitRate [*](#additional-metric-notes)|cloudfront.cache_hit_rate|float|Average|
 |OriginLatency|OriginLatency [*](#additional-metric-notes)|cloudfront.origin_latency|float|Minimum<br>Average<br>Maximum|
 
 <h4 id="additional-metric-notes">* Additional metrics</h4>
