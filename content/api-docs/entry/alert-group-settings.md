@@ -32,7 +32,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
 
 ```json
 {
-  "alert_group_settings": [<alertGroupSetting>, <alertGroupSetting>, ...]
+  "alertGroupSettings": [<alertGroupSetting>, <alertGroupSetting>, ...]
 }
 ```
 
