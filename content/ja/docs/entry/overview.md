@@ -33,7 +33,7 @@ Mackerelおよびmackerel-agentは、以下の環境で動作確認を行って�
   - [Mozilla Firefox](http://www.mozilla.org/firefox/) 最新版
 - mackerel-agent
     - Linux
-        - CentOS 6/7/8、Ubuntu 16.04LTS/18.04LTS/20.04LTS、 Debian 8/9/10、Amazon Linux、Amazon Linux 2
+        - CentOS 6/7/8、Ubuntu 16.04LTS/18.04LTS/20.04LTS、 Debian 9/10、Amazon Linux、Amazon Linux 2
         - その他、一般的なLinux環境(カーネルバージョン 2.6.23以降)でも動作すると思われますが、現在のところサポート対象外です。
     - Windows
         - Windows Server 2012 以降 の 64ビット環境
