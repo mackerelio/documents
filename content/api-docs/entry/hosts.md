@@ -550,8 +550,7 @@ Retrieves the monitor associated with the host and its status (monitoring status
 | KEY | TYPE | DESCRIPTION |
 | --- | --- | --- |
 | `monitorId`  | *string* | monitor ID |
-| `status` | *string* | alert status. either `"OK"`、
-, `"CRITICAL"`, `"WARNING"`, or `"UNKNOWN"` |
+| `status` | *string* | alert status. either `"OK"`, `"CRITICAL"`, `"WARNING"`, or `"UNKNOWN"` |
 | `detail` | *string* | [optional] detailed information[*6](#list-detail)|
 
 <h4 id="list-detail" class="annotation">*6 detail</h4>
