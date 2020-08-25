@@ -199,6 +199,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 | `type`          | *string*   | 定数文字列 `"connectivity"`               |
 | `name`          | *string*   | [optional] 監視一覧などで参照できる任意の名称。デフォルトは`connectivity`です。   |
 | `memo`          | *string*   | [optional] 監視ルールのメモ。 |
+| `alertStatusOnGone`        | *string*       | [optional] この監視ルールで発生するアラートのアラートステータス。`"CRITICAL"`（デフォルト値）または `"WARNING"` です。|
 | `scopes`        | *array[string]* | [optional] 監視対象のサービス名またはロール詳細名。[*2](#service-name)  |
 | `excludeScopes` | *array[string]* | [optional] 監視除外対象のサービス名またはロール詳細名。[*2](#service-name)  |
 | `notificationInterval` | *number* | [optional] 通知の再送設定をするときの再送間隔 (分)。このフィールドを省略すると通知は再送されません。 |
@@ -211,6 +212,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
   "type": "connectivity",
   "name": "connectivity service1",
   "memo": "A monitor that checks connectivity.",
+  "alertStatusOnGone": "WARNING",
   "scopes": [
     "service1"
   ],
@@ -230,6 +232,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
   "type": "connectivity",
   "name": "connectivity service1",
   "memo": "A monitor that checks connectivity.",
+  "alertStatusOnGone": "WARNING",
   "scopes": [
     "service1"
   ],
@@ -262,6 +265,10 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
     <tr>
       <td>400</td>
       <td><code>memo</code>が250文字を超えているとき</td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td><code>alertStatusOnGone</code>が<code>CRITICAL</code>または<code>WARNING</code>でないとき</td>
     </tr>
     <tr>
       <td>400</td>
@@ -739,6 +746,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
     {
       "id": "2cSZzK3XfmA",
       "type": "connectivity",
+      "alertStatusOnGone": "CRITICAL",
       "scopes": [],
       "excludeScopes": []
     },
@@ -837,7 +845,24 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 
 リクエストとレスポンスは[監視ルールの登録](#create)と同様です。不足している項目があると必須項目の場合はエラーとなります。
 `scopes`と`excludeScopes`の更新は、指定したJsonで完全に上書きされます。たとえば、`scopes`がすでに存在している場合に項目を省略すると、`scopes`は削除されます。
-type = `external` の監視ルールで `headers` フィールドを指定しなかった場合、`headers` フィールドの値は更新されません．ヘッダの設定を削除したい場合は空の配列を指定してください。
+
+### 死活監視
+
+`alertStatusOnGone` フィールドを変更した時、変更前にその監視ルールによって発生したアラートは次のようになります。
+
+- 通知の再送設定（`notificationInterval`）がされているアラート
+
+    `alertStatusOnGone` の変更後に通知の再送が発生した場合にのみ、そのタイミングで新しいアラートステータスに変更されます。  
+
+- 通知の再送設定がされていないアラート
+
+    アラートステータスは変更されません。
+
+また、`alertStatusOnGone` フィールドを指定しなかった場合、 `alertStatusOnGone` フィールドの値は更新されません。
+
+### 外形監視
+
+`headers` フィールドを指定しなかった場合、`headers` フィールドの値は更新されません。ヘッダの設定を削除したい場合は空の配列を指定してください。
 
 ### APIキーに必要な権限
 
