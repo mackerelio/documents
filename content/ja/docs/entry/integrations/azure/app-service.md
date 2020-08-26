@@ -17,19 +17,19 @@ AzureインテグレーションのApp Service対応で取得できるメトリ�
 
 |グラフ名|メトリック|Mackerel上のメトリック名|単位|Aggregation Type|
 |:---|:---|:---|:---|:---|
-| Total App Domains                         | TotalAppDomains<br/>TotalAppDomainsUnloaded| azure.app_service.total_app_domains.loaded<br/>azure.app_service.total_app_domains.unloaded| integer   | Average |
+| Total App Domains                         | TotalAppDomains<br>TotalAppDomainsUnloaded| azure.app_service.total_app_domains.loaded<br>azure.app_service.total_app_domains.unloaded| integer   | Average |
 | Thread Count                              | Threads                    | azure.app_service.threads.threads                         | integer   | Average |
 | Requests In Application Queue             | RequestsInApplicationQueue | azure.app_service.requests_in_application_queue.requests  | integer   | Average |
 | Requests                                  | Requests                   | azure.app_service.requests.requests                       | integer   | Total   |
 | Private Bytes                             | PrivateBytes               | azure.app_service.private_bytes.bytes                     | bytes     | Average |
 | Memory working set                        | MemoryWorkingSet| azure.app_service.memory_working_set.current| bytes     | Average |
-| IO Read/Write/Other Operations Per Second | IoOtherOperationsPerSecond<br/>IoReadOperationsPerSecond<br/>IoWriteOperationsPerSecond| azure.app_service.io_iops.other<br/>azure.app_service.io_iops.read<br/>azure.app_service.io_iops.write| iops      | Total   |
-| IO Read/Write/Other Bytes Per Second      | IoOtherBytesPerSecond<br/>IoReadBytesPerSecond<br/> IoWriteBytesPerSecond| azure.app_service.io.other<br/>azure.app_service.io.read<br/>azure.app_service.io.write| bytes/sec | Total   |
-| Http StatusCode                           | Http101<br/>Http2xx<br/>Http3xx<br/>Http4xx<br/>Http5xx|azure.app_service.http_statuscode.http_101<br/>azure.app_service.http_statuscode.http_2xx<br/>azure.app_service.http_statuscode.http_3xx<br/>azure.app_service.http_statuscode.http_4xx<br/>azure.app_service.http_statuscode.http_server_errors | integer   | Total   |
+| IO Read/Write/Other Operations Per Second | IoOtherOperationsPerSecond<br>IoReadOperationsPerSecond<br>IoWriteOperationsPerSecond| azure.app_service.io_iops.other<br>azure.app_service.io_iops.read<br>azure.app_service.io_iops.write| iops      | Total   |
+| IO Read/Write/Other Bytes Per Second      | IoOtherBytesPerSecond<br>IoReadBytesPerSecond<br> IoWriteBytesPerSecond| azure.app_service.io.other<br>azure.app_service.io.read<br>azure.app_service.io.write| bytes/sec | Total   |
+| Http StatusCode                           | Http101<br>Http2xx<br>Http3xx<br>Http4xx<br>Http5xx|azure.app_service.http_statuscode.http_101<br>azure.app_service.http_statuscode.http_2xx<br>azure.app_service.http_statuscode.http_3xx<br>azure.app_service.http_statuscode.http_4xx<br>azure.app_service.http_statuscode.http_server_errors | integer   | Total   |
 | Health Check Status                       | HealthCheckStatus          | azure.app_service.health_check_status.health_check_status | integer   | Average |
 | Handle Count                              | Handles                    | azure.app_service.handles.handles                         | integer   | Average |
-| Gen Garbage Collections                   | Gen0Collections<br/>Gen1Collections<br/>Gen2Collections| azure.app_service.gen_collections.gen_0_collections<br/>azure.app_service.gen_collections.gen_1_collections<br/>azure.app_service.gen_collections.gen_2_collections| integer   | Total   |
-| Data In/Out                               | BytesReceived<br/>BytesSent | azure.app_service.data.in<br/>azure.app_service.data.out| bytes     | Total   |
+| Gen Garbage Collections                   | Gen0Collections<br>Gen1Collections<br>Gen2Collections| azure.app_service.gen_collections.gen_0_collections<br>azure.app_service.gen_collections.gen_1_collections<br>azure.app_service.gen_collections.gen_2_collections| integer   | Total   |
+| Data In/Out                               | BytesReceived<br>BytesSent | azure.app_service.data.in<br>azure.app_service.data.out| bytes     | Total   |
 | Current Assemblies                        | CurrentAssemblies          | azure.app_service.current_assemblies.current_assemblies   | integer   | Average |
 | CPU Time                                  | CpuTime                    | azure.app_service.cpu_time.cpu_time                       | float     | Total   |
 | Connections                               | AppConnections             | azure.app_service.connections.connections                 | integer   | Average |

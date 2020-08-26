@@ -18,19 +18,19 @@ The maximum number of metrics obtainable is 30.
 
 |Graph name|Metric|Metric name in Mackerel|Unit|Aggregation Type|
 |:---|:---|:---|:---|:---|
-| Total App Domains                         | TotalAppDomains<br/>TotalAppDomainsUnloaded| azure.functions.total_app_domains.loaded<br/>azure.functions.total_app_domains.unloaded| integer   | Average |
+| Total App Domains                         | TotalAppDomains<br>TotalAppDomainsUnloaded| azure.functions.total_app_domains.loaded<br>azure.functions.total_app_domains.unloaded| integer   | Average |
 | Thread Count                              | Threads                    | azure.functions.threads.threads                         | integer   | Average |
 | Requests In Application Queue             | RequestsInApplicationQueue | azure.functions.requests_in_application_queue.requests  | integer   | Average |
 | Requests                                  | Requests                   | azure.functions.requests.requests                       | integer   | Total   |
 | Private Bytes                             | PrivateBytes               | azure.functions.private_bytes.bytes                     | bytes     | Average |
 | Memory working set                        | MemoryWorkingSet| azure.functions.memory_working_set.current| bytes     | Average |
-| IO Read/Write/Other Operations Per Second | IoOtherOperationsPerSecond<br/>IoReadOperationsPerSecond<br/>IoWriteOperationsPerSecond| azure.functions.io_iops.other<br/>azure.functions.io_iops.read<br/>azure.functions.io_iops.write| iops      | Total   |
-| IO Read/Write/Other Bytes Per Second      | IoOtherBytesPerSecond<br/>IoReadBytesPerSecond<br/> IoWriteBytesPerSecond| azure.functions.io.other<br/>azure.functions.io.read<br/>azure.functions.io.write| bytes/sec | Total   |
-| Http StatusCode                           | Http101<br/>Http2xx<br/>Http3xx<br/>Http4xx<br/>Http5xx|azure.functions.http_statuscode.http_101<br/>azure.functions.http_statuscode.http_2xx<br/>azure.functions.http_statuscode.http_3xx<br/>azure.functions.http_statuscode.http_4xx<br/>azure.functions.http_statuscode.http_server_errors | integer   | Total   |
+| IO Read/Write/Other Operations Per Second | IoOtherOperationsPerSecond<br>IoReadOperationsPerSecond<br>IoWriteOperationsPerSecond| azure.functions.io_iops.other<br>azure.functions.io_iops.read<br>azure.functions.io_iops.write| iops      | Total   |
+| IO Read/Write/Other Bytes Per Second      | IoOtherBytesPerSecond<br>IoReadBytesPerSecond<br> IoWriteBytesPerSecond| azure.functions.io.other<br>azure.functions.io.read<br>azure.functions.io.write| bytes/sec | Total   |
+| Http StatusCode                           | Http101<br>Http2xx<br>Http3xx<br>Http4xx<br>Http5xx|azure.functions.http_statuscode.http_101<br>azure.functions.http_statuscode.http_2xx<br>azure.functions.http_statuscode.http_3xx<br>azure.functions.http_statuscode.http_4xx<br>azure.functions.http_statuscode.http_server_errors | integer   | Total   |
 | Health Check Status                       | HealthCheckStatus          | azure.functions.health_check_status.health_check_status | integer   | Average |
 | Handle Count                              | Handles                    | azure.functions.handles.handles                         | integer   | Average |
-| Gen Garbage Collections                   | Gen0Collections<br/>Gen1Collections<br/>Gen2Collections| azure.functions.gen_collections.gen_0_collections<br/>azure.functions.gen_collections.gen_1_collections<br/>azure.functions.gen_collections.gen_2_collections| integer   | Total   |
-| Data In/Out                               | BytesReceived<br/>BytesSent | azure.functions.data.in<br/>azure.functions.data.out| bytes     | Total   |
+| Gen Garbage Collections                   | Gen0Collections<br>Gen1Collections<br>Gen2Collections| azure.functions.gen_collections.gen_0_collections<br>azure.functions.gen_collections.gen_1_collections<br>azure.functions.gen_collections.gen_2_collections| integer   | Total   |
+| Data In/Out                               | BytesReceived<br>BytesSent | azure.functions.data.in<br>azure.functions.data.out| bytes     | Total   |
 | Current Assemblies                        | CurrentAssemblies          | azure.functions.current_assemblies.current_assemblies   | integer   | Average |
 | Connections                               | AppConnections             | azure.functions.connections.connections                 | integer   | Average |
 | Average Response Time                     | AverageResponseTime        | azure.functions.average_response_time.seconds           | float     | Average |
