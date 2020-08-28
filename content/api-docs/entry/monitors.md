@@ -5,6 +5,7 @@ URL: https://mackerel.io/api-docs/entry/monitors
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel.io/atom/entry/10328537792368374710
 ---
 
+
 <ul class="internal-nav">
   <li><a href="#create">Registering Monitor Configurations</a></li>
   <li><a href="#list">Listing Monitor Configurations</a></li>
