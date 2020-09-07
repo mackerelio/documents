@@ -14,7 +14,7 @@ AWSインテグレーションの設定方法や対応AWSサービス一覧に�
 ## 取得メトリック
 AWSインテグレーションのElastiCache対応で取得できるメトリックは以下の通りです。 `メトリック` の説明に関してはAWSのヘルプ(<a href="https://docs.aws.amazon.com/ja_jp/AmazonElastiCache/latest/red-ug/CacheMetrics.HostLevel.html" target="_blank">ホストレベル</a>、<a href="https://docs.aws.amazon.com/ja_jp/AmazonElastiCache/latest/mem-ug/CacheMetrics.Memcached.html" target="_blank">Memcached</a>、<a href="https://docs.aws.amazon.com/ja_jp/AmazonElastiCache/latest/red-ug/CacheMetrics.Redis.html" target="_blank">Redis</a>)をご確認ください。
 
-Memcachedの場合は最大で39個、Redisの場合は最大で22個のメトリックが取得されます。
+Memcachedの場合は最大で41個、Redisの場合は最大で50個のメトリックが取得されます。
 
 ### ホストレベルメトリック
 |グラフ名|メトリック|Mackerel上のメトリック名|単位|Statistics|
@@ -23,6 +23,7 @@ Memcachedの場合は最大で39個、Redisの場合は最大で22個のメト�
 |Swap Usage|SwapUsage|elasticache.swap.usage|bytes|Average|
 |Freeable Memory|FreeableMemory|elasticache.memory.freeable|bytes|Average|
 |Network Traffic|NetworkBytesIn<br>NetworkBytesOut|elasticache.network.in<br>elasticache.network.out|bytes|Average|
+|Network Packets|NetworkPacketsIn<br>NetworkPacketsOut|elasticache.network_packets.in<br>elasticache.network_packets.out|integer|Sum|
 
 ### Memcachedメトリック
 |グラフ名|メトリック|Mackerel上のメトリック名|単位|Statistics|
@@ -39,10 +40,19 @@ Memcachedの場合は最大で39個、Redisの場合は最大で22個のメト�
 ### Redisメトリック
 |グラフ名|メトリック|Mackerel上のメトリック名|単位|Statistics|
 |:---|:---|:---|:---|:---|
-|Commands|GetTypeCmds<br>SetTypeCmds<br>KeyBasedCmds<br>StringBasedCmds<br>HashBasedCmds<br>ListBasedCmds<br>SetBasedCmds<br>SortedSetBasedCmds|elasticache.redis.commands.get_type<br>elasticache.redis.commands.set_type<br>elasticache.redis.commands.key_based<br>elasticache.redis.commands.string_based<br>elasticache.redis.commands.hash_based<br>elasticache.redis.commands.list_based<br>elasticache.redis.commands.set_based<br>elasticache.redis.commands.sorted_set_based|float|Average|
+|Commands|GetTypeCmds<br>SetTypeCmds<br>KeyBasedCmds<br>StringBasedCmds<br>HashBasedCmds<br>ListBasedCmds<br>SetBasedCmds<br>SortedSetBasedCmds<br>EvalBasedCmds<br>GeoSpatialBasedCmds<br>HyperLogLogBasedCmds<br>PubSubBasedCmds<br>StreamBasedCmds|elasticache.redis.commands.get_type<br>elasticache.redis.commands.set_type<br>elasticache.redis.commands.key_based<br>elasticache.redis.commands.string_based<br>elasticache.redis.commands.hash_based<br>elasticache.redis.commands.list_based<br>elasticache.redis.commands.set_based<br>elasticache.redis.commands.sorted_set_based<br>elasticache.redis.commands.eval_based<br>elasticache.redis.commands.geo_spatial_based<br>elasticache.redis.commands.hyper_log_log_based<br>elasticache.redis.commands.pub_sub_based<br>elasticache.redis.commands.stream_based|float|Average|
 |Cache Hits/Misses|CacheHits<br>CacheMisses|elasticache.redis.cache.cache_hits<br>elasticache.redis.cache.cache_misses|float|Average|
 |Evictions|Evictions|elasticache.redis.evictions.evictions|float|Average|
 |Memory|BytesUsedForCache|elasticache.redis.memory.used_for_cache|bytes|Average|
 |Redis CPU|EngineCPUUtilization|elasticache.redis.cpu.engine|percentage|Average|
 |Connections|CurrConnections<br>NewConnections|elasticache.redis.connections.current<br>elasticache.redis.connections.new|float|Average|
 |Items|CurrItems<br>Reclaimed|elasticache.redis.items.current<br>elasticache.redis.items.reclaimed|float|Average|
+|Active Defrag|ActiveDefragHits|elasticache.redis.active_defrag.hits|integer|Sum|
+|Cache Hit Rate|CacheHitRate|elasticache.redis.cache_hit_rate.hit|percentage|Average|
+|Memory Percentage|DatabaseMemoryUsagePercentage|elasticache.redis.memory_percentage.database|percentage|Average|
+|Average TTL|DBAverageTTL|elasticache.redis.average_ttl.db0|float|Average|
+|Fragmentation Ratio|MemoryFragmentationRatio|elasticache.redis.fragmentation_ratio.memory|float|Average|
+|Replication Bytes|ReplicationBytes|elasticache.redis.replication_bytes.replication|bytes|Average|
+|Replication Lag|ReplicationLag|elasticache.redis.replication_lag.lag|float|Average|
+|Save In Progress|SaveInProgress|elasticache.redis.save_in_progress.bgsave|integer|Maximum|
+|Commands Latency|GetTypeCmdsLatency<br>SetTypeCmdsLatency<br>KeyBasedCmdsLatency<br>StringBasedCmdsLatency<br>HashBasedCmdsLatency<br>ListBasedCmdsLatency<br>SetBasedCmdsLatency<br>SortedSetBasedCmdsLatency<br>EvalBasedCmdsLatency<br>GeoSpatialBasedCmdsLatency<br>HyperLogLogBasedCmdsLatency<br>PubSubBasedCmdsLatency<br>StreamBasedCmdsLatency|elasticache.redis.commands_latency.get_type<br>elasticache.redis.commands_latency.set_type<br>elasticache.redis.commands_latency.key_based<br>elasticache.redis.commands_latency.string_based<br>elasticache.redis.commands_latency.hash_based<br>elasticache.redis.commands_latency.list_based<br>elasticache.redis.commands_latency.set_based<br>elasticache.redis.commands_latency.sorted_set_based<br>elasticache.redis.commands_latency.eval_based<br>elasticache.redis.commands_latency.geo_spatial_based<br>elasticache.redis.commands_latency.hyper_log_log_based<br>elasticache.redis.commands_latency.pub_sub_based<br>elasticache.redis.commands_latency.stream_based|float|Average|
