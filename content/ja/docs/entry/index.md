@@ -110,6 +110,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 <div id="specifications" class="fragment"></div>
 <h4>仕様/specification</h4>
 <ul>
+    <li><a href="https://mackerel.io/ja/docs/entry/spec/about-host"><strong>「ホスト」とは</strong><span>Mackerelにおける「ホスト」について</span></a></li>
     <li><a href="https://mackerel.io/ja/api-docs/"><strong>API仕様（v0）</strong><span>MackerelのAPIの仕様について</span></a></li>
     <li><a href="https://mackerel.io/ja/docs/entry/spec/agent"><strong>mackerel-agent仕様</strong><span>mackerel-agentコマンドのオプションや設定について</span></a></li>
     <li><a href="https://mackerel.io/ja/docs/entry/spec/metrics"><strong>メトリック仕様</strong><span>グラフに描画されるメトリック名の仕様について</span></a></li>
