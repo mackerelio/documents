@@ -66,6 +66,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 | KEY                 | TYPE            | DESCRIPTION                        |
 | ------------        | -------------   | ---------------------------------- |
 | `url`               | *string*        |  HTTPリクエストを受け取るURL      |
+| `enabledGraphImage` | *boolean*       | 関連するグラフのURLを通知内容に含めるか否か |
 | `events`            | *array[string]*        | 通知するイベント(`"alert"`, `"alertGroup"`, `"hostStatus"`, `"hostRegister"`, `"hostRetire"`, `"monitor"` のいずれか) |
 
 ----------------------------------------------
@@ -217,6 +218,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 | `type`   | *string* | 固定文字列`"webhook"` |
 | `name`   | *string* | チャンネルの名前 |
 | `url`               | *string*        |  HTTPリクエストを受け取るURL      |
+| `enabledGraphImage` | *boolean*       | 関連するグラフのURLを通知内容に含めるか否か |
 | `events`            | *array[string]*        | 通知するイベント(`"alert"`, `"alertGroup"`, `"hostStatus"`, `"hostRegister"`, `"hostRetire"`, `"monitor"` のいずれか) |
 
 #### 応答(Webhook)
@@ -229,6 +231,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
   "type": "webhook",
   "name": "My Channel",
   "url": "https://example.com/webhook",
+  "enabledGraphImage": true,
   "events": ["alert"]
 }
 ```

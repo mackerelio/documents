@@ -17,7 +17,7 @@ A role is a function of further categorizing and sorting hosts within a service 
 
 <h2 id="host">Host</h2>
 
-A host is one instance of an OS that the mackerel-agent is running on. It’s possible to assign one host to multiple roles (as well as services). 
+A host is one instance of the OS that the mackerel-agent is running on. It’s possible to assign one host to multiple roles (as well as services). See [https://mackerel.io/docs/entry/spec/about-host:title] for more regarding "hosts" in Mackerel.
 
 **Status**: Hosts are given statuses (standby, maintenance, working, etc.) for the purpose of indicating their current condition. A host's status is indicative of a its position in the life-cycle of a host within Mackerel, from initial set-up, to being deployed into a service, to eventual retirement.
 

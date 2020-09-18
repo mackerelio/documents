@@ -110,7 +110,8 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackere
 <div id="specifications" class="fragment"></div>
 <h4><span>Specifications</span></h4>
 <ul>
-    <li><a href="https://mackerel.io/api-docs/"><strong>API specs (v0)</strong><span>regarding the specification of the API for Mackerel</span></a></li>
+    <li><a href="https://mackerel.io/ja/docs/entry/spec/about-host"><strong>What is a "host"?</strong><span>regarding hosts in Mackerel</span></a></li>
+    <li><a href="https://mackerel.io/api-docs/"><strong>API specs (v0)</strong><span>regarding API specifications for Mackerel</span></a></li>
     <li><a href="https://mackerel.io/docs/entry/spec/metrics"><strong>Metrics specifications</strong><span>regarding the specs of the metric names drawn on graphs</span></a></li>
     <li><a href="https://mackerel.io/docs/entry/spec/agent"><strong>mackerel-agent specifications</strong><span>an explanation of mackerel-agent’s command options and settings</span></a></li>
     <li><a href="https://mackerel.io/docs/entry/spec/authority"><strong>User permissions</strong><span>about user permissions</span></a></li>
