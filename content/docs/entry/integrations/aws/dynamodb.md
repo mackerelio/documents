@@ -15,7 +15,7 @@ Please refer to the following page for AWS Integration configuration methods and
 
 The metrics obtainable with AWS Integration’s DynamoDB support are as follows. For `Metric` explanations, refer to the <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/metrics-dimensions.html" target="_blank">AWS help page</a>.
 
-The maximum number of metrics obtainable is `13 + 6 * (number of operation types)`. Plus an additional 10 metrics if the stream is enabled. 
+The maximum number of metrics obtainable is `15 + 6 * (number of operation types)`. Plus an additional 10 metrics if the stream is enabled. 
 
 ### Metrics per table
 
@@ -29,6 +29,7 @@ The maximum number of metrics obtainable is `13 + 6 * (number of operation types
 |SuccessfulRequestLatency|SuccessfulRequestLatency|dynamodb.successful_request_latency.#.minimum<br>dynamodb.successful_request_latency.#.average<br>dynamodb.successful_request_latency.#.maximum|float|Minimum<br>Average<br>Maximum|
 |ReturnedItemCount|ReturnedItemCount|dynamodb.returned_item_count.#.minimum<br>dynamodb.returned_item_count.#.average<br>dynamodb.returned_item_count.#.maximum|float|Minimum<br>Average<br>Maximum|
 |RequestCount|RequestCount|dynamodb.request_count.requests|integer|SampleCount|
+|TransactionConflict|TransactionConflict|dynamodb.transaction_conflict.item_level<br>dynamodb.transaction_conflict.request_level|integer|Sum<br>SampleCount|
 
 - Among the metrics displayed in Requests,  metrics generated for each operation are aggregated and displayed.
 - Similar to UpdateItem, the DynamoDB operation name is actually included in the # of "Mackerel metrics".

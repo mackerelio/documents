@@ -15,7 +15,7 @@ AWSインテグレーションの設定方法や対応AWSサービス一覧に�
 
 AWSインテグレーションのDynamoDB対応で取得できるメトリックは以下の通りです。`メトリック`の説明に関しては<a href="https://docs.aws.amazon.com/ja_jp/amazondynamodb/latest/developerguide/metrics-dimensions.html" target="_blank">AWSのヘルプ</a>をご確認ください。
 
-最大で `13 + 6 × (行われるオペレーションの種類の数)` 個、ストリームが有効になっている場合はそれに加えて最大で10個のメトリックが取得されます。
+最大で `15 + 6 × (行われるオペレーションの種類の数)` 個、ストリームが有効になっている場合はそれに加えて最大で10個のメトリックが取得されます。
 
 ### テーブルごとのメトリック
 
@@ -29,6 +29,7 @@ AWSインテグレーションのDynamoDB対応で取得できるメトリック
 |SuccessfulRequestLatency|SuccessfulRequestLatency|dynamodb.successful_request_latency.#.minimum<br>dynamodb.successful_request_latency.#.average<br>dynamodb.successful_request_latency.#.maximum|float|Minimum<br>Average<br>Maximum|
 |ReturnedItemCount|ReturnedItemCount|dynamodb.returned_item_count.#.minimum<br>dynamodb.returned_item_count.#.average<br>dynamodb.returned_item_count.#.maximum|float|Minimum<br>Average<br>Maximum|
 |RequestCount|RequestCount|dynamodb.request_count.requests|integer|SampleCount|
+|TransactionConflict|TransactionConflict|dynamodb.transaction_conflict.item_level<br>dynamodb.transaction_conflict.request_level|integer|Sum<br>SampleCount|
 
 - Requestsに表示されるメトリックの内、オペレーションごとに発生するメトリックは集約して表示します。
 - "Mackerel上のメトリック" の # には、実際には UpdateItem のような DynamoDB のオペレーション名が入ります。
