@@ -53,3 +53,10 @@ AWSインテグレーションのAPI Gateway対応で取得できるメトリッ
 |Latency|Latency<br>IntegrationLatency|apigateway.latency.#.minimum<br>apigateway.latency.#.average<br>apigateway.latency.#.maximum|float|Minimum<br>Average<br>Maximum|
 
 - "Mackerel上のメトリック名"の#には、"Latency"、"IntegrationLatency"のいずれかが入ります。
+
+<h3 id="notice">注意事項</h3>
+
+REST APIでASCII以外の文字がAPI名に含まれる場合、ASCII以外の文字はCloudWatch上で"-"(ハイフン)に置換されます。<br>
+置換後のAPI名が一致するREST APIが他に存在する場合、取得するメトリックが混同されます。
+
+これは、AWSの仕様です。
