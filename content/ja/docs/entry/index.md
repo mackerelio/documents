@@ -111,6 +111,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 <h4>仕様/specification</h4>
 <ul>
     <li><a href="https://mackerel.io/ja/docs/entry/spec/about-host"><strong>「ホスト」とは</strong><span>Mackerelにおける「ホスト」について</span></a></li>
+    <li><a href="https://mackerel.io/ja/docs/entry/spec/about-service-role"><strong>「サービス」「ロール」とは</strong><span>Mackerelにおける「サービス」「ロール」について</span></a></li>
     <li><a href="https://mackerel.io/ja/api-docs/"><strong>API仕様（v0）</strong><span>MackerelのAPIの仕様について</span></a></li>
     <li><a href="https://mackerel.io/ja/docs/entry/spec/agent"><strong>mackerel-agent仕様</strong><span>mackerel-agentコマンドのオプションや設定について</span></a></li>
     <li><a href="https://mackerel.io/ja/docs/entry/spec/metrics"><strong>メトリック仕様</strong><span>グラフに描画されるメトリック名の仕様について</span></a></li>
@@ -138,6 +139,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
     <li><a href="https://mackerel.io/ja/docs/entry/advanced/advanced-graph"><strong>カスタマイズしたグラフを表示する</strong><span>関数を使って柔軟にカスタマイズしたグラフを表示します</span></a></li>
     <li><a href="https://mackerel.io/ja/docs/entry/integrations/aws"><strong>AWSインテグレーション</strong><span>AWSクラウド製品をMackerelのホストとして管理、監視します</span></a></li>
     <li><a href="https://mackerel.io/ja/docs/entry/integrations/azure"><strong>Azureインテグレーション</strong><span>Azureクラウド製品をMackerelのホストとして管理、監視します</span></a></li>
+    <li><a href="https://mackerel.io/ja/docs/entry/integrations/gcp"><strong>Google Cloudインテグレーション</strong><span>Google Cloudのクラウド製品をMackerelのホストとして管理、監視します</span></a></li>
     <li><a href="https://mackerel.io/ja/docs/entry/advanced/experimental-features"><strong>実験的機能を利用する</strong><span>正式リリース前の機能を先行してお試しいただけます</span></a></li>
     <li><a href="https://mackerel.io/ja/docs/entry/howto/MFA"><strong>2段階認証を利用する</strong><span>2段階認証を設定してセキュリティを強化します</span></a></li>
     <li><a href="https://mackerel.io/ja/docs/entry/howto/enforcing-MFA"><strong>2段階認証の設定を強制する</strong><span>2段階認証を必須化してセキュリティを強化します</span></a></li>
