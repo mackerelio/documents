@@ -2,7 +2,7 @@
 Title: Google Cloud Integration - Compute Engine
 Date: 2020-09-10T12:00:00+09:00
 URL: https://mackerel.io/docs/entry/integrations/gcp/gce
-EditURL: 
+EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/26006613631923270
 ---
 
 Mackerel supports obtaining and monitoring <a href="https://cloud.google.com/compute" target="_blank">Compute Engine</a> metrics with Google Cloud Integration. When integrating with Google Cloud Integration, billable targets are determined using the conversion 1 Instance = 1 Standard Host. Google Cloud Integration can also be used together with [mackerel-agent](https://mackerel.io/docs/entry/howto/install-agent). In such cases, system metrics and custom metrics are integrated into one host (with no redundant charges).

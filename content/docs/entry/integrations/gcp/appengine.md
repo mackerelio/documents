@@ -2,7 +2,7 @@
 Title: Google Cloud Integration - App Engine
 Date: 2020-09-10T12:00:00+09:00
 URL: https://mackerel.io/docs/entry/integrations/gcp/appengine
-EditURL: 
+EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/26006613631923578
 ---
 
 Mackerel supports obtaining and monitoring <a href="https://cloud.google.com/appengine" target="_blank">App Engine</a> metrics with Google Cloud Integration. When integrating with Google Cloud Integration, billable targets are determined using the conversion 1 Version = 1 Micro Host. In addition to this, depending on the number of metrics retrieved, you may be charged for exceeding the maximum number of metrics per micro host.

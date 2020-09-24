@@ -2,7 +2,7 @@
 Title: Google Cloud Integration
 Date: 2020-09-15T12:00:00+09:00
 URL: https://mackerel.io/docs/entry/integrations/gcp
-EditURL:
+EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/26006613631923961
 ---
 
 Google Cloud Integration lets you manage Google Cloud Platform services as hosts in Mackerel and monitor metrics. This feature is only available for Trial and Standard plans.
