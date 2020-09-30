@@ -53,3 +53,10 @@ The maximum number of metrics obtainable is 10.
 |Latency|Latency<br>IntegrationLatency|apigateway.latency.#.minimum<br>apigateway.latency.#.average<br>apigateway.latency.#.maximum|float|Minimum<br>Average<br>Maximum|
 
 - Either "Latency" or "IntegrationLatency" goes in for the # of "Metric name in Mackerel".
+
+<h3 id="notice">Notes</h3>
+
+If the REST API contains any non-ASCII characters in the API name, the non-ASCII characters will be replaced with a "-" (hyphen) in CloudWatch.<br>
+If the replaced name matches that of another REST API, retrieved metrics will get mixed up.
+
+This is a specification of AWS.
