@@ -9,11 +9,11 @@ The following is an explanation of terminology used within Mackerel.
 
 ## Service
 
-In Mackerel, services are one of the two levels in to which hosts can be sorted. An example of a service could be something like "Hatena Bookmark", or "in-house system", etc. Typically, hosts are assigned to multiple “roles” which then function cooperatively within a service. By grouping hosts that are related or perform similar functions into roles and services, monitoring and managing hosts can be optimized.
+In Mackerel, services are one of the two levels in to which hosts can be sorted. An example of a service could be something like "Hatena Bookmark", or "in-house system", etc. Typically, hosts are assigned to multiple “roles” which then function cooperatively within a service. By grouping hosts that are related or perform similar functions into roles and services, monitoring and managing hosts can be optimized. For more on services in Mackerel, see [https://mackerel.io/docs/entry/spec/about-service-role:title].
 
 ## Role
 
-A role is a function of further categorizing and sorting hosts within a service based on the function they perform (application, database, etc.) Hosts within a role are overlaid in one graph making it easier to pick up on trends in graphs and manage your hosts in terms of function or role rather than one at a time.
+A role is a function of further categorizing and sorting hosts within a service based on the function they perform (application, database, etc.) Hosts within a role are overlaid in one graph making it easier to pick up on trends in graphs and manage your hosts in terms of function or role rather than one at a time. For more on roles in Mackerel, see [https://mackerel.io/docs/entry/spec/about-service-role:title].
 
 <h2 id="host">Host</h2>
 
