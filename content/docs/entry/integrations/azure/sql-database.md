@@ -16,7 +16,7 @@ The metrics available with Azure Integration SQL Database support vary by pricin
 ## DTU based model
 
 ### Basic, Standard, Premium
-The maximum number of metrics obtainable is 16.
+The maximum number of metrics obtainable is 21.
 
 |Graph name|Metric|Metric name in Mackerel|Unit|Aggregation Type|
 |:---|:---|:---|:---|:---|
@@ -29,15 +29,20 @@ The maximum number of metrics obtainable is 16.
 |Log Write|log_write_percent|azure.sql_database.log_write.percent|percentage|Average|
 |Data Read|physical_data_read_percent|azure.sql_database.physical_data_read.percent|percentage|Average|
 |Sessions|sessions_percent|azure.sql_database.sessions.percent|percentage|Average|
+|SQL Server process core percent|sqlserver_process_core_percent|azure.sql_database.sqlserver_process_core_percent.percent|percentage|Maximum|
+|SQL Server process memory percent|sqlserver_process_memory_percent|azure.sql_database.sqlserver_process_memory_percent.percent|percentage|Maximum|
 |Data space used|storage|azure.sql_database.storage.used|bytes|Maximum|
 |Data space used percent|storage_percent|azure.sql_database.storage_percent.percent|percentage|Maximum|
+|Tempdb Data File Size|tempdb_data_size|azure.sql_database.tempdb_data_size.data_size|bytes|Maximum|
+|Tempdb Log File Size|tempdb_log_size|azure.sql_database.tempdb_log_size.log_size|bytes|Maximum|
+|Tempdb Percent Log Used|tempdb_log_used_percent|azure.sql_database.tempdb_log_used_percent.percent|percentage|Maximum|
 |Workers|workers_percent|azure.sql_database.workers.percent|percentage|Average|
 |In-Memory OLTP Storage|xtp_storage_percent|azure.sql_database.xtp_storage.percent|percentage|Average|
 
 ## vCore based model
 
 ### General Purpose
-The maximum number of metrics obtainable is 15.
+The maximum number of metrics obtainable is 20.
 
 |Graph name|Metric|Metric name in Mackerel|Unit|Aggregation Type|
 |:---|:---|:---|:---|:---|
@@ -49,8 +54,13 @@ The maximum number of metrics obtainable is 15.
 |Log Write|log_write_percent|azure.sql_database.log_write.percent|percentage|Average|
 |Data Read|physical_data_read_percent|azure.sql_database.physical_data_read.percent|percentage|Average|
 |Sessions|sessions_percent|azure.sql_database.sessions.percent|percentage|Average|
+|SQL Server process core percent|sqlserver_process_core_percent|azure.sql_database.sqlserver_process_core_percent.percent|percentage|Maximum|
+|SQL Server process memory percent|sqlserver_process_memory_percent|azure.sql_database.sqlserver_process_memory_percent.percent|percentage|Maximum|
 |Data space used|storage|azure.sql_database.storage.used|bytes|Maximum|
 |Data space used percent|storage_percent|azure.sql_database.storage_percent.percent|percentage|Maximum|
+|Tempdb Data File Size|tempdb_data_size|azure.sql_database.tempdb_data_size.data_size|bytes|Maximum|
+|Tempdb Log File Size|tempdb_log_size|azure.sql_database.tempdb_log_size.log_size|bytes|Maximum|
+|Tempdb Percent Log Used|tempdb_log_used_percent|azure.sql_database.tempdb_log_used_percent.percent|percentage|Maximum|
 |Workers|workers_percent|azure.sql_database.workers.percent|percentage|Average|
 |In-Memory OLTP Storage|xtp_storage_percent|azure.sql_database.xtp_storage.percent|percentage|Average|
 
@@ -63,7 +73,7 @@ In addition to the metrics above, the following metrics are retrieved for server
 |App memory used percentage|app_memory_percent|azure.sql_database.app_memory_percent.percent|percentage|Average|
 
 ### Business Critical
-The maximum number of metrics obtainable is 15.
+The maximum number of metrics obtainable is 20.
 
 |Graph name|Metric|Metric name in Mackerel|Unit|Aggregation Type|
 |:---|:---|:---|:---|:---|
@@ -75,13 +85,18 @@ The maximum number of metrics obtainable is 15.
 |Log Write|log_write_percent|azure.sql_database.log_write.percent|percentage|Average|
 |Data Read|physical_data_read_percent|azure.sql_database.physical_data_read.percent|percentage|Average|
 |Sessions|sessions_percent|azure.sql_database.sessions.percent|percentage|Average|
+|SQL Server process core percent|sqlserver_process_core_percent|azure.sql_database.sqlserver_process_core_percent.percent|percentage|Maximum|
+|SQL Server process memory percent|sqlserver_process_memory_percent|azure.sql_database.sqlserver_process_memory_percent.percent|percentage|Maximum|
 |Data space used|storage|azure.sql_database.storage.used|bytes|Maximum|
 |Data space used percent|storage_percent|azure.sql_database.storage_percent.percent|percentage|Maximum|
+|Tempdb Data File Size|tempdb_data_size|azure.sql_database.tempdb_data_size.data_size|bytes|Maximum|
+|Tempdb Log File Size|tempdb_log_size|azure.sql_database.tempdb_log_size.log_size|bytes|Maximum|
+|Tempdb Percent Log Used|tempdb_log_used_percent|azure.sql_database.tempdb_log_used_percent.percent|percentage|Maximum|
 |Workers|workers_percent|azure.sql_database.workers.percent|percentage|Average|
 |In-Memory OLTP Storage|xtp_storage_percent|azure.sql_database.xtp_storage.percent|percentage|Average|
 
 ### Hyperscale
-The maximum number of metrics obtainable is 13.
+The maximum number of metrics obtainable is 18.
 
 |Graph name|Metric|Metric name in Mackerel|Unit|Aggregation Type|
 |:---|:---|:---|:---|:---|
@@ -93,5 +108,44 @@ The maximum number of metrics obtainable is 13.
 |Log Write|log_write_percent|azure.sql_database.log_write.percent|percentage|Average|
 |Data Read|physical_data_read_percent|azure.sql_database.physical_data_read.percent|percentage|Average|
 |Sessions|sessions_percent|azure.sql_database.sessions.percent|percentage|Average|
+|SQL Server process core percent|sqlserver_process_core_percent|azure.sql_database.sqlserver_process_core_percent.percent|percentage|Maximum|
+|SQL Server process memory percent|sqlserver_process_memory_percent|azure.sql_database.sqlserver_process_memory_percent.percent|percentage|Maximum|
+|Tempdb Data File Size|tempdb_data_size|azure.sql_database.tempdb_data_size.data_size|bytes|Maximum|
+|Tempdb Log File Size|tempdb_log_size|azure.sql_database.tempdb_log_size.log_size|bytes|Maximum|
+|Tempdb Percent Log Used|tempdb_log_used_percent|azure.sql_database.tempdb_log_used_percent.percent|percentage|Maximum|
 |Workers|workers_percent|azure.sql_database.workers.percent|percentage|Average|
 |In-Memory OLTP Storage|xtp_storage_percent|azure.sql_database.xtp_storage.percent|percentage|Average|
+
+## Notes
+Databases within Azure SQL Database supported elastic pools will not obtain the following metrics.
+
+- sqlserver_process_core_percent
+- sqlserver_process_memory_percent
+- tempdb_data_size
+- tempdb_log_size
+- tempdb_log_used_percent
+
+These metrics are also unobtainable if using a DTU-based SQL Database with Gen 4 hardware and less than 200 DTU. <br>
+This is due to Azure platform restrictions.
+
+Use the following method to check your environment.
+
+- DTU
+  - DTU can be checked in the Azure portal's target resource overview.
+- Hardware generation
+  - The generation can be checked by running the following query in the target's SQL Database.
+
+
+```
+SELECT TOP (1) rg.slo_name,
+  CASE 
+    WHEN rg.slo_name LIKE '%SQLG4%' THEN 'Gen4'
+    WHEN rg.slo_name LIKE '%SQLGZ%' THEN 'Gen4'
+    WHEN rg.slo_name LIKE '%SQLG5%' THEN 'Gen5'
+    WHEN rg.slo_name LIKE '%SQLG6%' THEN 'Gen5'
+ END AS dtu_hardware_gen
+FROM sys.dm_user_db_resource_governance AS rg
+```
+
+Furthermore, Gen 4 hardware is gradually being replaced with Gen 5 through Azure maintenance. <br>
+SQL Databases that do not currently display the corresponding metrics may display them in the future.
