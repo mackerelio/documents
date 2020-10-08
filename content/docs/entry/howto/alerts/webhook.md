@@ -21,6 +21,7 @@ The JSON that will be sent contains the following. (Items may be added at any ti
 {
   "orgName": "Macker...",
   "event": "alert",
+  "imageUrl": "https://mackerel.io/embed/public/.../....png",
   "host": {
     "id": "22D4...",
     "name": "app01",
@@ -68,6 +69,7 @@ The JSON that will be sent contains the following. (Items may be added at any ti
 |host|object|host information (output for alerts of host metrics only)|
 |service|object|service information (output for alerts of service metrics only)|
 |alert|object|alert information|
+|imageUrl|string / null|image URL of the corresponding graph<br />However, this is set as null if **Include graph image** is turned off or if no corresponding graph exists.|
 
 ### JSON items (host information)
 

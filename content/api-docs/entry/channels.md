@@ -56,9 +56,9 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
 
 | KEY                 | TYPE            | DESCRIPTION                        |
 | ------------        | -------------   | ---------------------------------- |
-| `url`               | *string*        |  Incoming Webhook URL for Slack     |
+| `url`               | *string*        | Incoming Webhook URL for Slack     |
 | `mentions`          | *hash[string]*  | the key is the condition (`ok`, `warning`, or `critical`), the value is the text accompanying the alert notification |
-| `enabledGraphImage` | *boolean*       | whether posting related graphs to Slack or not |
+| `enabledGraphImage` | *boolean*       | whether or not the corresponding graph is posted to Slack |
 | `events`            | *array[string]*        | notification events (`"alert"`, `"alertGroup"`, `"hostStatus"`, `"hostRegister"`, `"hostRetire"`, or `"monitor"`) |
 
 ##### When the `type` is `webhook`
@@ -66,6 +66,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
 | KEY             | TYPE            | DESCRIPTION                      |
 | ------------    | -------------   | --------------------------------------------- |
 | `url`           | *string*        | URL that will receive HTTP request            |
+| `enabledGraphImage` | *boolean*       | whether or not the URL of the corresponding graph is included in the notification content |
 | `events`        | *array[string]*        | notification events (`"alert"`, `"alertGroup"`, `"hostStatus"`, `"hostRegister"`, `"hostRetire"`, or `"monitor"`) |
 
 ----------------------------------------------
@@ -157,9 +158,9 @@ The object contains the following keys
 | -------- | ------ | ----------- |
 | `type`   | *string* | fixed character string `"slack"` |
 | `name`   | *string* | the name of the channel |
-| `url`               | *string*        |  Incoming Webhook URL for Slack      |
+| `url`               | *string*        | Incoming Webhook URL for Slack      |
 | `mentions`          | *hash[string]*  | the key is the condition (`ok`, `warning`, or `critical`), the value is the text accompanying the alert notification  |
-| `enabledGraphImage` | *boolean*       | whether posting related graphs to Slack or not |
+| `enabledGraphImage` | *boolean*       | whether or not the corresponding graph is posted to Slack |
 | `events`            | *array[string]*        | notification events (`"alert"`, `"alertGroup"`, `"hostStatus"`, `"hostRegister"`, `"hostRetire"`, or `"monitor"`) |
 
 #### Response(Slack)
@@ -214,6 +215,7 @@ The object contains the following keys
 | `type`   | *string* | fixed character string `"webhook"` |
 | `name`   | *string* | the name of the channel |
 | `url`           | *string*        | URL that will receive HTTP request            |
+| `enabledGraphImage` | *boolean*       | whether or not the URL of the corresponding graph is included in the notification content |
 | `events`        | *array[string]*        | notification events (`"alert"`, `"alertGroup"`, `"hostStatus"`, `"hostRegister"`, `"hostRetire"`, or `"monitor"`) |
 
 #### Response(Webhook)
@@ -226,6 +228,7 @@ The object contains the following keys
   "type": "webhook",
   "name": "My Channel",
   "url": "http://example.com/webhook",
+  "enabledGraphImage": true,
   "events": ["alert"]
 }
 ```
