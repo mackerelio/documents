@@ -16,7 +16,11 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 
 [チェック監視項目を追加する](https://mackerel.io/ja/docs/entry/custom-checks) の実装に使われています。
 エージェントは設定されたチェック監視の名前の一覧を [ホスト情報の更新](/ja/api-docs/entry/hosts#update-information) の API に定期的に送信しており、その時に一覧に含まれず、かつ発生中のアラートのないチェック監視は Mackerel から削除されます。
-同じ名前/ホストで監視時刻が新しいものが既に投稿されていた場合、投稿は無視されます。
+以下の場合、投稿は無視されます。
+
+- 監視時刻が投稿時刻の6時間以上前である場合
+- 同じ名前/ホストで監視時刻が新しいものが既に投稿されていた場合
+
 
 ### APIキーに必要な権限
 
@@ -43,7 +47,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 | `message`    | *string* | 監視結果のアラートステータスに付随する補助的なテキスト, 1024文字以下です。 |
 | `occurredAt` | *number* | 監視実行時刻のエポック秒。 |
 | `notificationInterval` | *number*   | [optional] アラートの再送間隔 (分) 省略した場合は再送されない。10分未満を指定した場合は、10分間隔で再送通知されます。 |
-| `maxCheckAttempts` | *number* | [optional] 何回連続で Warning/Critical になったらアラートを発生させるか。デフォルトは1 (1~10)です。 |
+| `maxCheckAttempts` | *number* | [optional] 何回連続で Warning/Critical になったらアラートを発生させるか[*1](#maxCheckAttempts)。デフォルトは1 (1~10)です。 |
 
 <span class="table-code">source</span> : 以下のキーをもつオブジェクトです。
 
@@ -82,3 +86,6 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
     </tr>
   </tbody>
 </table>
+
+<h4 id="maxCheckAttempts" class="annotation">*1 maxCheckAttempts</h4>
+`maxCheckAttempts` が2以上である場合、正常に動作するためにはチェック監視の投稿間隔が6時間以内である必要があります。
