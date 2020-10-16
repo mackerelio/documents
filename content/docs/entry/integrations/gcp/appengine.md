@@ -80,3 +80,6 @@ The maximum number of obtainable metrics is `5 × [command name]`
 
 * Enter the Memcace command name in place of [command name] in "Metric name on Mackerel".
 * Enter either `HIT` or `MISS` in place of [status] in "Metric name on Mackerel".
+
+<h2 id="notes">Notes</h2>
+- Due to the specifications of App Engine, App Engine hosts cannot be filtered by label in Google Cloud Integration.

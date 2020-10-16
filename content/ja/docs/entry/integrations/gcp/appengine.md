@@ -82,3 +82,6 @@ Google CloudインテグレーションのApp Engine対応で取得できるメ�
 
 * "Mackerel上のメトリック名"の[コマンド名]にはMemcacheコマンド名が入ります。
 * "Mackerel上のメトリック名"の[ステータス]には`HIT`または`MISS`が入ります。
+
+<h2 id="notes">注意事項</h2>
+- Google CloudインテグレーションではApp Engine側の仕様により、ラベルでApp Engineのホストを絞り込むことができません。
