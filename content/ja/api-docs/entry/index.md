@@ -729,7 +729,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
     <div class="apis">
       <div class="api">
         <a href="entry/users#list">
-          <p>ユーザーの一覧</p>
+          <p>オーガニゼーションメンバーに所属するユーザーの一覧</p>
           <p class="type-get">
             <code>GET</code>
             <code>/api/v0/users</code>
@@ -738,7 +738,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
       </div>
       <div class="api">
         <a href="entry/users#delete">
-          <p>ユーザーの削除</p>
+          <p>オーガニゼーションメンバーに所属するユーザーの削除</p>
           <p class="type-delete">
             <code>DELETE</code>
             <code>/api/v0/users/<em>&lt;userId&gt;</em></code>

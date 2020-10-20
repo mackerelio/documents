@@ -6,12 +6,12 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
 ---
 
 <ul class="internal-nav">
-  <li><a href="#get">Getting Notification Channels</a></li>
-  <li><a href="#create">Registering Notification Channels</a></li>
-  <li><a href="#delete">Deleting Notification Channels</a></li>
+  <li><a href="#get">Get Notification Channels</a></li>
+  <li><a href="#create">Register Notification Channels</a></li>
+  <li><a href="#delete">Delete Notification Channels</a></li>
 </ul>
 
-<h2 id="get">Notification channel list</h2>
+<h2 id="get">Get Notification channel list</h2>
 
 <p class="type-get">
   <code>GET</code>
@@ -71,7 +71,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
 
 ----------------------------------------------
 
-<h2 id="create">Registering Notification Channels</h2>
+<h2 id="create">Register Notification Channels</h2>
 
 ※Currently supported for email, Slack, and Webhook.
 
@@ -260,9 +260,9 @@ The object contains the following keys
 
 ----------------------------------------------
 
-<h2 id="delete">Deleting Notification Channels</h2>
+<h2 id="delete">Delete Notification Channels</h2>
 
-Deleting the channel
+Delete the channel
 
 <p class="type-delete">
   <code>DELETE</code>

@@ -6,16 +6,16 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
 ---
 
 <ul class="internal-nav">
-  <li><a href="#create">Registering Downtimes</a></li>
-  <li><a href="#list">Listing Downtimes</a></li>
-  <li><a href="#update">Updating Downtimes</a></li>
-  <li><a href="#delete">Deleting Downtimes</a></li>
+  <li><a href="#create">Register Downtime</a></li>
+  <li><a href="#list">List Downtime</a></li>
+  <li><a href="#update">Update Downtime</a></li>
+  <li><a href="#delete">Delete Downtime</a></li>
 </ul>
 
 
-<h2 id="create">Registering Downtimes</h2>
+<h2 id="create">Register Downtime</h2>
 
-This section covers registering downtime in Mackerel.
+This section covers register downtime in Mackerel.
 
 <p class="type-post">
   <code>POST</code>
@@ -115,7 +115,7 @@ Usable characters are /^[A-Za-z0-9][A-Za-z0-9_-]+$/.
 
 ----------------------------------------------
 
-<h2 id="list">Listing Downtimes</h2>
+<h2 id="list">List Downtime</h2>
 <p class="type-get">
   <code>GET</code>
   <code>/api/v0/downtimes</code>
@@ -134,7 +134,7 @@ Usable characters are /^[A-Za-z0-9][A-Za-z0-9_-]+$/.
 
 ----------------------------------------------
 
-<h2 id="update">Updating Downtimes</h2>
+<h2 id="update">Update Downtime</h2>
 <p class="type-put">
   <code>PUT</code>
   <code>/api/v0/downtimes/<em>&lt;downtimeId&gt;</em></code>
@@ -147,11 +147,11 @@ Usable characters are /^[A-Za-z0-9][A-Za-z0-9_-]+$/.
 </ul>
 
 ### Input
-Same as [Registering Downtimes](#create).
+Same as [Register Downtime](#create).
 
 ### Response
 #### Success
-The updated downtime is returned. Same format as [Registering Downtimes](#create).
+The updated downtime is returned. Same format as [Register Downtime](#create).
 
 #### Error
 
@@ -200,7 +200,7 @@ The updated downtime is returned. Same format as [Registering Downtimes](#create
 
 ----------------------------------------------
 
-<h2 id="delete">Deleting Downtimes</h2>
+<h2 id="delete">Delete Downtime</h2>
 
 This will delete the downtime corresponding to the designated ID.
 
@@ -217,7 +217,7 @@ This will delete the downtime corresponding to the designated ID.
 
 ### Response
 #### Success
-The downtime before deletion is returned, same as [Registering Downtimes](#create).
+The downtime before deletion is returned, same as [Register Downtime](#create).
 
 #### Error
 

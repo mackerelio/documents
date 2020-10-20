@@ -6,14 +6,14 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
 ---
 
 <ul class="internal-nav">
-  <li><a href="#create">Creating Graph Annotations</a></li>
-  <li><a href="#get">Obtaining Graph Annotations</a></li>
-  <li><a href="#update">Updating Graph Annotations</a></li>
-  <li><a href="#delete">Deleting Graph Annotations</a></li>
+  <li><a href="#create">Create Graph Annotations</a></li>
+  <li><a href="#get">Get Graph Annotations</a></li>
+  <li><a href="#update">Update Graph Annotations</a></li>
+  <li><a href="#delete">Delete Graph Annotations</a></li>
 </ul>
 
 
-<h2 id="create">Creating Graph Annotations</h2>
+<h2 id="create">Create Graph Annotations</h2>
 <p class="type-post">
   <code>POST</code>
   <code>/api/v0/graph-annotations</code>
@@ -85,7 +85,7 @@ The input is returned along with an ID.
   </tbody>
 </table>
 
-<h2 id="get">Obtaining Graph Annotations</h2>
+<h2 id="get">Get Graph Annotations</h2>
 
 Specify the service and interval and obtain the graph annotations list. Annotations with intervals intersecting with the specified interval will all be returned.
 
@@ -155,7 +155,7 @@ Specify the service and interval and obtain the graph annotations list. Annotati
   </tbody>
 </table>
 
-<h2 id="update">Updating Graph Annotations</h2>
+<h2 id="update">Update Graph Annotations</h2>
 
 <p class="type-put">
   <code>PUT</code>
@@ -171,11 +171,11 @@ Specify the service and interval and obtain the graph annotations list. Annotati
 
 ### Input
 
-The same as [Creating Graph Annotations](#create).
+The same as [Create Graph Annotations](#create).
 
 ### Response
 
-The same as [Creating Graph Annotations](#create), the input is returned with an ID.
+The same as [Create Graph Annotations](#create), the input is returned with an ID.
 
 #### Error
 
@@ -214,7 +214,7 @@ The same as [Creating Graph Annotations](#create), the input is returned with an
   </tbody>
 </table>
 
-<h2 id="delete">Deleting Graph Annotations</h2>
+<h2 id="delete">Delete Graph Annotations</h2>
 
 <p class="type-delete">
   <code>DELETE</code>

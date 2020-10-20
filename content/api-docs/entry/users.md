@@ -5,15 +5,16 @@ URL: https://mackerel.io/api-docs/entry/users
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel.io/atom/entry/10328537792368377732
 ---
 
+
 <ul class="internal-nav">
-  <li><a href="#list">Listing Users</a></li>
-  <li><a href="#delete">Deleting Users</a></li>
+  <li><a href="#list">List Users that are Organization Members</a></li>
+  <li><a href="#delete">Delete Users that are Organization Members</a></li>
 </ul>
 
 
-<h2 id="list">Listing Users</h2>
+<h2 id="list">List Users that are Organization Members</h2>
 
-This will get a list of the users belonging to an organization.
+This will retrieve a list of the users that are members of the organization.
 
 <p class="type-get">
   <code>GET</code>
@@ -45,13 +46,13 @@ This will get a list of the users belonging to an organization.
 | `isInRegistrationProcess` | *boolean*       | Whether or not the user is in the process of registration.                                                                          |
 | `isMFAEnabled`            | *boolean*       | Whether or not the user has enabled 2-step verification.                                                                 |
 | `authenticationMethods`   | *array[string]* | Authentication methods used (`password`, `github`, `idcf`, `google`, `nifty`, `yammer`, `kddi`) |
-| `joinedAt`                | *number*        | Date and time the user joined the organization (in epoch seconds)                                                |
+| `joinedAt`                | *number*        | Date and time the user became a member of the organization (in epoch seconds)                                                |
 
 ----------------------------------------------
 
-<h2 id="delete">Deleting Users</h2>
+<h2 id="delete">Delete Users that are Organization Members</h2>
 
-This will delete users belonging to an organization.
+This will delete a user that is a member of the organization.
 
 <p class="type-delete">
   <code>DELETE</code>
@@ -69,8 +70,8 @@ This will delete users belonging to an organization.
 
 #### Success
 
-The information of the user that was deleted from the organization will be returned.
-The format will be the same as when getting the [list of users](#list).
+User information is returned for the user that was deleted as a member of the organization.
+The format is the same as [List Users that are Organization Members](#list).
 
 #### Error
 
@@ -92,7 +93,7 @@ The format will be the same as when getting the [list of users](#list).
     </tr>
     <tr>
       <td>404</td>
-      <td>when the <code><em>&lt;userId&gt;</em></code> that was designated doesn't belong to the organization</td>
+      <td>when the specified <code><em>&lt;userId&gt;</em></code> is not a member of the organization</td>
     </tr>
   </tbody>
 </table>

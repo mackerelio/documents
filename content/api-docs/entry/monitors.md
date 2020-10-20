@@ -7,15 +7,15 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
 
 
 <ul class="internal-nav">
-  <li><a href="#create">Registering Monitor Configurations</a></li>
-  <li><a href="#list">Listing Monitor Configurations</a></li>
-  <li><a href="#get">Getting Monitor Configurations</a></li>
-  <li><a href="#update">Updating Monitor Configurations</a></li>
-  <li><a href="#delete">Deleting Monitor Configurations</a></li>
+  <li><a href="#create">Register Monitor Configurations</a></li>
+  <li><a href="#list">List Monitor Configurations</a></li>
+  <li><a href="#get">Get Monitor Configurations</a></li>
+  <li><a href="#update">Update Monitor Configurations</a></li>
+  <li><a href="#delete">Delete Monitor Configurations</a></li>
 </ul>
 
 
-<h2 id="create">Registering Monitor Configurations</h2>
+<h2 id="create">Register Monitor Configurations</h2>
 
 Monitors for various types of metrics as well as external monitors will be registered with Mackerel.
 The input procedure varies depending on the monitoring target.
@@ -614,7 +614,7 @@ In order to monitor response time, it's necessary to assign `responseTimeWarning
 
 ----------------------------------------------
 
-<h2 id="list">Listing Monitor Configurations</h2>
+<h2 id="list">List Monitor Configurations</h2>
 
 <p class="type-get">
   <code>GET</code>
@@ -798,7 +798,7 @@ In order to monitor response time, it's necessary to assign `responseTimeWarning
 
 ----------------------------------------------
 
-<h2 id="get">Getting Monitor Configurations</h2>
+<h2 id="get">Get Monitor Configurations</h2>
 
 <p class="type-get">
   <code>GET</code>
@@ -840,14 +840,14 @@ In order to monitor response time, it's necessary to assign `responseTimeWarning
 
 ----------------------------------------------
 
-<h2 id="update">Updating Monitor Configurations</h2>
+<h2 id="update">Update Monitor Configurations</h2>
 
 <p class="type-put">
   <code>PUT</code>
   <code>/api/v0/monitors/<em>&lt;monitorId&gt;</em></code>
 </p>
 
-As for requests and responses, just as when [creating monitors](#create), every field must be specified. If there are any insufficient items that are required, an error will be generated.
+As for requests and responses, just as when [create monitors](#create), every field must be specified. If there are any insufficient items that are required, an error will be generated.
 When `scopes` and `excludeScopes` are updated, the JSON which was designated will be completely overwritten. For example, by omitting an item in `scopes` when it has already been saved, `scopes` will be deleted. 
 
 ### Connectivity Monitoring
@@ -879,7 +879,7 @@ If the `headers` field is not specified, its value will not be updated. If you w
 
 #### Success
 
-The updated monitoring configurations are returned. The same format as [Registering Monitor Configurations](#create).
+The updated monitoring configurations are returned. The same format as [Register Monitor Configurations](#create).
 
 #### Error
 
@@ -918,7 +918,7 @@ same errors as when [creating](#create).
 
 ----------------------------------------------
 
-<h2 id="delete">Deleting Monitor Configurations</h2>
+<h2 id="delete">Delete Monitor Configurations</h2>
 
 <p class="type-delete">
   <code>DELETE</code>

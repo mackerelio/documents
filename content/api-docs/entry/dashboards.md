@@ -6,16 +6,16 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
 ---
 
 <ul class="internal-nav">
-  <li><a href="#create">Creating Dashboards</a></li>
-  <li><a href="#get">Getting Dashboards</a></li>
-  <li><a href="#update">Updating Dashboards</a></li>
-  <li><a href="#delete">Deleting Dashboards</a></li>
-  <li><a href="#list">Listing Dashboards</a></li>
+  <li><a href="#create">Create Dashboards</a></li>
+  <li><a href="#get">Get Dashboards</a></li>
+  <li><a href="#update">Update Dashboards</a></li>
+  <li><a href="#delete">Delete Dashboards</a></li>
+  <li><a href="#list">List Dashboards</a></li>
 </ul>
 
 This page explains Custom Dashboards following the feature's renovation as of November 2018. For details regarding the API operating this feature before its renovation, refer [here](https://mackerel.io/api-docs/entry/dashboards/legacy).
 
-<h2 id="create">Creating Dashboards</h2>
+<h2 id="create">Create Dashboards</h2>
 
 This section covers creating dashboards.
 
@@ -87,7 +87,7 @@ The dashboard that was created is returned.
 
 ----------------------------------------------
 
-<h2 id="get">Getting Dashboards</h2>
+<h2 id="get">Get Dashboards</h2>
 <p class="type-get">
   <code>GET</code>
   <code>/api/v0/dashboards/<em>&lt;dashboardId&gt;</em></code>
@@ -100,7 +100,7 @@ The dashboard that was created is returned.
 
 ### Response
 #### Success
-Same as [Creating Dashboards](#create).
+Same as [Create Dashboards](#create).
 
 #### Error
 
@@ -121,7 +121,7 @@ Same as [Creating Dashboards](#create).
 
 ----------------------------------------------
 
-<h2 id="update">Updating Dashboards</h2>
+<h2 id="update">Update Dashboards</h2>
 <p class="type-put">
   <code>PUT</code>
   <code>/api/v0/dashboards/<em>&lt;dashboardId&gt;</em></code>
@@ -134,11 +134,11 @@ Same as [Creating Dashboards](#create).
 </ul>
 
 ### Input
-Same as [Creating Dashboards](#create).
+Same as [Create Dashboards](#create).
 
 ### Response
 #### Success
-The updated dashboard is returned. Same format as [Creating Dashboards](#create).
+The updated dashboard is returned. Same format as [Create Dashboards](#create).
 
 #### Error
 
@@ -171,7 +171,7 @@ The updated dashboard is returned. Same format as [Creating Dashboards](#create)
 
 ----------------------------------------------
 
-<h2 id="delete">Deleting Dashboards</h2>
+<h2 id="delete">Delete Dashboards</h2>
 
 This will delete the dashboard corresponding to the designated ID.
 
@@ -188,7 +188,7 @@ This will delete the dashboard corresponding to the designated ID.
 
 ### Response
 #### Success
-The dashboard before deletion is returned, same as [Creating Dashboards](#create).
+The dashboard before deletion is returned, same as [Create Dashboards](#create).
 
 #### Error
 
@@ -213,7 +213,7 @@ The dashboard before deletion is returned, same as [Creating Dashboards](#create
 
 ----------------------------------------------
 
-<h2 id="list">Listing Dashboards</h2>
+<h2 id="list">List Dashboards</h2>
 <p class="type-get">
   <code>GET</code>
   <code>/api/v0/dashboards</code>

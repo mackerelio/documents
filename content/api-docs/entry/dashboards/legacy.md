@@ -6,16 +6,16 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
 ---
 
 <ul class="internal-nav">
-  <li><a href="#create">Creating Dashboards</a></li>
-  <li><a href="#get">Getting Dashboards</a></li>
-  <li><a href="#update">Updating Dashboards</a></li>
-  <li><a href="#delete">Deleting Dashboards</a></li>
+  <li><a href="#create">Create Dashboards</a></li>
+  <li><a href="#get">Get Dashboards</a></li>
+  <li><a href="#update">Update Dashboards</a></li>
+  <li><a href="#delete">Delete Dashboards</a></li>
   <li><a href="https://mackerel.io/api-docs/entry/dashboards#list">List of Dashboards</a></li>
 </ul>
 
 This page explains the API for Custom Dashboards (Legacy Custom Dashboards) before the feature's renovation as of November 2018. For details regarding the API operating the new feature following its renovation, refer [here](https://mackerel.io/api-docs/entry/dashboards).
 
-<h2 id="create">Creating Dashboards</h2>
+<h2 id="create">Create Dashboards</h2>
 
 This section covers creating dashboards.
 
@@ -93,7 +93,7 @@ The dashboard that was created is returned.
 
 ----------------------------------------------
 
-<h2 id="get">Getting Dashboards</h2>
+<h2 id="get">Get Dashboards</h2>
 
 <p class="type-get">
   <code>GET</code>
@@ -143,7 +143,7 @@ The dashboard that was created is returned.
 
 ----------------------------------------------
 
-<h2 id="update">Updating Dashboards</h2>
+<h2 id="update">Update Dashboards</h2>
 
 <p class="type-put">
   <code>PUT</code>
@@ -159,13 +159,13 @@ The dashboard that was created is returned.
 
 ### Input
 
-Same as [Creating Dashboards](#create).
+Same as [Create Dashboards](#create).
 
 ### Response
 
 #### Success
 
-The updated dashboard is returned. Same format as [Creating Dashboards](#create).
+The updated dashboard is returned. Same format as [Create Dashboards](#create).
 
 #### Error
 
@@ -200,7 +200,7 @@ The updated dashboard is returned. Same format as [Creating Dashboards](#create)
 
 ----------------------------------------------
 
-<h2 id="delete">Deleting Dashboards</h2>
+<h2 id="delete">Delete Dashboards</h2>
 
 This will delete the dashboard corresponding to the designated ID.
 
@@ -220,7 +220,7 @@ This will delete the dashboard corresponding to the designated ID.
 
 #### Success
 
-The dashboard before deletion is returned, same as [Creating Dashboards](#create).
+The dashboard before deletion is returned, same as [Create Dashboards](#create).
 
 #### Error
 

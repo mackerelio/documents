@@ -6,20 +6,20 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
 ---
 
 <ul class="internal-nav">
-  <li><a href="#create">Registering Host Information</a></li>
-  <li><a href="#get">Getting Host Information</a></li>
-  <li><a href="#update-information">Updating Host Information</a></li>
-  <li><a href="#update-status">Updating Host Status</a></li>
-  <li><a href="#update-roles">Updating Host Roles</a></li>
-  <li><a href="#retire">Retiring Hosts</a></li>
-  <li><a href="#list">Listing Hosts</a></li>
-  <li><a href="#metric-names">Listing Metric Names</a></li>
-  <li><a href="#monitored-statuses">Listing Monitoring Statuses</a></li>
+  <li><a href="#create">Register Host Information</a></li>
+  <li><a href="#get">Get Host Information</a></li>
+  <li><a href="#update-information">Update Host Information</a></li>
+  <li><a href="#update-status">Update Host Status</a></li>
+  <li><a href="#update-roles">Update Host Roles</a></li>
+  <li><a href="#retire">Retire Hosts</a></li>
+  <li><a href="#list">List Hosts</a></li>
+  <li><a href="#metric-names">List Metric Names</a></li>
+  <li><a href="#monitored-statuses">List Monitoring Statuses</a></li>
   
 </ul>
 
 
-<h2 id="create">Registering Host Information</h2>
+<h2 id="create">Register Host Information</h2>
 
 Registering an agent-running host to Mackerel.
 
@@ -151,7 +151,7 @@ One element of `checks` is an object that holds the following keys.
 
 ----------------------------------------------
 
-<h2 id="get">Getting Host Information</h2>
+<h2 id="get">Get Host Information</h2>
 
 <p class="type-get">
   <code>GET</code>
@@ -192,7 +192,7 @@ One element of `checks` is an object that holds the following keys.
 
 ----------------------------------------------
 
-<h2 id="update-information">Updating Host Information</h2>
+<h2 id="update-information">Update Host Information</h2>
 
 <p class="type-put">
   <code>PUT</code>
@@ -208,10 +208,10 @@ One element of `checks` is an object that holds the following keys.
 
 ### Input
 
-Same as [Registering Host Information](#create).
+Same as [Register Host Information](#create).
 
 A host remains to belong to the roles which you didn't specify by `roleFullnames`.
-If you want to Un-assign roles from a host, please use [Updating Host Roles](#update-roles) API.
+If you want to Un-assign roles from a host, please use [Update Host Roles](#update-roles) API.
 
 ### Response
 
@@ -250,7 +250,7 @@ If you want to Un-assign roles from a host, please use [Updating Host Roles](#up
 
 ----------------------------------------------
 
-<h2 id="update-status">Updating Host Status</h2>
+<h2 id="update-status">Update Host Status</h2>
 
 <p class="type-post">
   <code>POST</code>
@@ -311,7 +311,7 @@ If you want to Un-assign roles from a host, please use [Updating Host Roles](#up
 
 ----------------------------------------------
 
-<h2 id="update-roles">Updating Host Roles</h2>
+<h2 id="update-roles">Update Host Roles</h2>
 
 <p class="type-put">
   <code>PUT</code>
@@ -332,7 +332,7 @@ If you want to Un-assign roles from a host, please use [Updating Host Roles](#up
 }
 ```
 
-`roleFullnames` is the same as  `roleFullnames` object in [Registering Host Information](#create).
+`roleFullnames` is the same as  `roleFullnames` object in [Register Host Information](#create).
 
 ### Response
 
@@ -375,7 +375,7 @@ If you want to Un-assign roles from a host, please use [Updating Host Roles](#up
 
 ----------------------------------------------
 
-<h2 id="retire">Retiring Hosts</h2>
+<h2 id="retire">Retire Hosts</h2>
 
 This will retire a registered host.
 
@@ -463,7 +463,7 @@ The following parameters can be used to filter hosts. If nothing has been assign
 | `role` | *string* | [optional] role names in the service, multiple assignments possible (result will be a unit of the hosts that belong to each role) if `service` has not been assigned it will be ignored.|
 | `name` | *string* | [optional] host name |
 | `status` | *string* | [optional] filters the host status. multiple specifications are possible. defaults are `working` and `standby`. |
-| `customIdentifier`    | *string*        | [optional] an identifier for the host that is user-specific and unique to the organization (registered at [Registering Host Information](#create) or [Updating Host Information](#update-information) API) |
+| `customIdentifier`    | *string*        | [optional] an identifier for the host that is user-specific and unique to the organization (registered at [Register Host Information](#create) or [Update Host Information](#update-information) API) |
 
 ### Response
 
@@ -472,11 +472,11 @@ The following parameters can be used to filter hosts. If nothing has been assign
   "hosts": [ <host>, <host>, …]
 }
 ```
-<i>`<host>`</i> is the same type as the object that changes in [Getting Host Information](#get)
+<i>`<host>`</i> is the same type as the object that changes in [Get Host Information](#get)
 
 ----------------------------------------------
 
-<h2 id="metric-names">Listing Metric Names</h2>
+<h2 id="metric-names">List Metric Names</h2>
 
 <p class="type-get">
   <code>GET</code>
@@ -520,7 +520,7 @@ The following parameters can be used to filter hosts. If nothing has been assign
   </tbody>
 </table>
 
-<h2 id="monitored-statuses">Listing Monitoring Statuses</h2>
+<h2 id="monitored-statuses">List Monitoring Statuses</h2>
 
 Retrieves the monitor associated with the host and its status (monitoring status). Supported for connectivity monitoring, metric monitoring, check monitoring, and anomaly detection for roles.
 

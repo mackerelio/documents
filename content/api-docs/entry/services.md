@@ -6,16 +6,16 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
 ---
 
 <ul class="internal-nav">
-  <li><a href="#list">Listing Services</a></li>
-  <li><a href="#create">Registering Services</a></li>
-  <li><a href="#delete">Deleting Services</a></li>
-  <li><a href="#rolelist">Listing Roles</a></li>
-  <li><a href="#rolecreate">Registering Roles</a></li>
-  <li><a href="#roledelete">Deleting Roles</a></li>
-  <li><a href="#metric-names">Listing Metric Names</a></li>
+  <li><a href="#list">List Services</a></li>
+  <li><a href="#create">Register Services</a></li>
+  <li><a href="#delete">Delete Services</a></li>
+  <li><a href="#rolelist">List Roles</a></li>
+  <li><a href="#rolecreate">Register Roles</a></li>
+  <li><a href="#roledelete">Delete Roles</a></li>
+  <li><a href="#metric-names">List Metric Names</a></li>
 </ul>
 
-<h2 id="list">Listing Services</h2>
+<h2 id="list">List Services</h2>
 
 <p class="type-get">
   <code>GET</code>
@@ -48,7 +48,7 @@ Arrays will be shown in the order of Role names.
 
 ----------------------------------------------
 
-<h2 id="create">Registering Services</h2>
+<h2 id="create">Register Services</h2>
 
 <p class="type-post">
   <code>POST</code>
@@ -126,7 +126,7 @@ The created service will be returned. The format will be the same as <i>`<servic
 
 ----------------------------------------------
 
-<h2 id="delete">Deleting Services</h2>
+<h2 id="delete">Delete Services</h2>
 
 <p class="type-delete">
   <code>DELETE</code>
@@ -186,7 +186,7 @@ Arrays will be shown in the order of Role names.
 
 ----------------------------------------------
 
-<h2 id="rolelist">Listing Roles</h2>
+<h2 id="rolelist">List Roles</h2>
 
 <p class="type-get">
   <code>GET</code>
@@ -238,7 +238,7 @@ Arrays will be shown in the order of Role names.
 
 ----------------------------------------------
 
-<h2 id="rolecreate">Registering Roles</h2>
+<h2 id="rolecreate">Register Roles</h2>
  
 <p class="type-post">
   <code>POST</code>
@@ -319,7 +319,7 @@ The created role will be returned. The format will be the same as <i>`<role>`</i
 
 ----------------------------------------------
 
-<h2 id="roledelete">Deleting Roles</h2>
+<h2 id="roledelete">Delete Roles</h2>
 
 <p class="type-delete">
   <code>DELETE</code>
@@ -373,7 +373,7 @@ The state of the role just before being deleted will be returned.
 
 ----------------------------------------------
 
-<h2 id="metric-names">Listing Metric Names</h2>
+<h2 id="metric-names">List Metric Names</h2>
 
 <p class="type-get">
   <code>GET</code>

@@ -6,12 +6,12 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
 ---
 
 <ul class="internal-nav">
-  <li><a href="#get">Getting Alerts</a></li>
-  <li><a href="#close">Closing Alerts</a></li>
+  <li><a href="#get">Get Alerts</a></li>
+  <li><a href="#close">Close Alerts</a></li>
 </ul>
 
 
-<h2 id="get">Getting Alerts</h2>
+<h2 id="get">Get Alerts</h2>
 
 This will get the list of alerts.
 
@@ -83,7 +83,7 @@ Alerts will be returned in chronological order of when they were generated from 
 
 ----------------------------------------------
 
-<h2 id="close">Closing Alerts</h2>
+<h2 id="close">Close Alerts</h2>
 
 The designated alert will be closed.
 

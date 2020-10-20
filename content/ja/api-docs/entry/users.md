@@ -6,13 +6,13 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 ---
 
 <ul class="internal-nav">
-  <li><a href="#list">ユーザーの一覧</a></li>
-  <li><a href="#delete">ユーザーの削除</a></li>
+  <li><a href="#list">オーガニゼーションメンバーに所属するユーザーの一覧</a></li>
+  <li><a href="#delete">オーガニゼーションメンバーに所属するユーザーの削除</a></li>
 </ul>
 
-<h2 id="list">ユーザーの一覧</h2>
+<h2 id="list">オーガニゼーションメンバーに所属するユーザーの一覧</h2>
 
-オーガニゼーションに所属するユーザーの一覧を取得します。
+オーガニゼーションにメンバーとして所属するユーザーの一覧を取得します。
 
 <p class="type-get">
   <code>GET</code>
@@ -44,13 +44,13 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 | `isInRegistrationProcess` | *boolean*       | ユーザーが仮登録かどうか。                                                                          |
 | `isMFAEnabled`            | *boolean*       | ユーザーの2段階認証が有効かどうか。                                                                 |
 | `authenticationMethods`   | *array[string]* | ユーザーが利用している認証方式(`password`, `github`, `idcf`, `google`, `nifty`, `yammer`, `kddi`)。 |
-| `joinedAt`                | *number*        | ユーザーがオーガニゼーションに参加した日時 (epoch秒)                                                |
+| `joinedAt`                | *number*        | ユーザーがオーガニゼーションのメンバーに参加した日時 (epoch秒)                                                |
 
 ----------------------------------------------
 
-<h2 id="delete">ユーザーの削除</h2>
+<h2 id="delete">オーガニゼーションメンバーに所属するユーザーの削除</h2>
 
-オーガニゼーションに所属するユーザーを削除します。
+オーガニゼーションのメンバーに所属するユーザーを削除します。
 
 <p class="type-delete">
   <code>DELETE</code>
@@ -67,7 +67,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 ### 応答
 
 #### 成功時
-オーガニゼーションから削除されたユーザーの情報が返却されます。 形式は[ユーザー一覧](#list)で取得できるユーザー形式と同様です。
+オーガニゼーションのメンバーから削除されたユーザーの情報が返却されます。 形式は[オーガニゼーションメンバーに所属するユーザーの一覧](#list)で取得できるユーザー形式と同様です。
 
 #### 失敗時
 
@@ -89,7 +89,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
     </tr>
     <tr>
       <td>404</td>
-      <td>指定された<code><em>&lt;userId&gt;</em></code>がオーガニゼーションに所属していなかったとき</td>
+      <td>指定された<code><em>&lt;userId&gt;</em></code>がオーガニゼーションのメンバーに所属していなかったとき</td>
     </tr>
   </tbody>
 </table>
