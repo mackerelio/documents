@@ -7,15 +7,19 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
 
 <h2 id="post">Post Monitoring Check Reports</h2>
 
-This will transmit a monitoring check’s report to Mackerel. Monitoring reports are restricted to hosts.
+This will transmit a monitoring check report to Mackerel. Monitoring reports are restricted to hosts.
 
 <p class="type-post">
   <code>POST</code>
   <code>/api/v0/monitoring/checks/report</code>
 </p>
 
-Implementation described in [Adding a monitoring check item by script](https://mackerel.io/docs/entry/custom-checks) is being used. The agent will periodically transmit the list of configured monitoring checks to the [Updating Host Information](/api-docs/entry/hosts#update-information) API and, any monitoring checks that aren’t included in that list and do not have open alerts will be deleted from Mackerel at that time.
-If a new monitoring timestamp has already been posted with the same name/host, posting will be ignored.
+The implementation described in [Adding monitors for script checks](https://mackerel.io/docs/entry/custom-checks) is used. The agent will periodically transmit the list of configured monitoring checks to the [Update Host Information](/api-docs/entry/hosts#update-information) API and any monitoring checks not included in that list and those which do not have any open alerts will be deleted from Mackerel at that time.
+Posts will be ignored in the following cases:
+
+- When the time of monitoring time preceeds the time of posting by 6 hours or more
+- When a monitoring time has already been posted with the same name / host
+
 
 
 ### Required permissions for the API key
@@ -43,7 +47,7 @@ If a new monitoring timestamp has already been posted with the same name/host, p
 | `message`    | *string* | auxiliary text attached to the alert status of the monitor report, under 1024 characters |
 | `occurredAt` | *number* | unix timestamp of execution |
 | `notificationInterval` | *number* | [optional] Notifications will not be re-sent if the time interval (in minutes) is omitted. If the time interval is set for less than 10 minutes, the notifications will be re-sent at an interval of 10 minutes. |
-| `maxCheckAttempts` | *number* | [optional] number of consecutive Warning/Critical instances before an alert is made. Default setting is 1 (1-10) |
+| `maxCheckAttempts` | *number* | [optional] number of consecutive Warning/Critical instances before an alert is made[*1](#maxCheckAttempts). Default setting is 1 (1-10) |
 
 
 `source` : an object that holds the following keys
@@ -83,3 +87,6 @@ If a new monitoring timestamp has already been posted with the same name/host, p
     </tr>
   </tbody>
 </table>
+
+<h4 id="maxCheckAttempts" class="annotation">*1 maxCheckAttempts</h4>
+If `maxCheckAttempts` is 2 or more, the check monitor posting interval must be within 6 hours in order to run normally.
