@@ -24,16 +24,20 @@ To create a new external URL monitor click on the New Monitor button in the uppe
 
 ## About external URL monitor specs
 
-* Check intervals are fixed at 1 minute.
-* Under the following conditions an error will be recognized and an alert notification will be sent.
+* Check intervals are fixed at 1 minute
+* An error is recognized and an alert notification issued under the following conditions
     * 4xx or 5xx status codes 
     * a 15-second timeout 
     * an invalid SSL certificate  
-    * When response time exceeds the threshold (optional setting).
-    * When a designated string isn’t included in the response body (optional setting).
-    * When the number of remaining days before the SSL certificate expiration date falls below the threshold (optional setting). 
-* 2xx or 3xx responses will be recognized not as errors but as normal responses
-    * 3xx responses, however, will not be followed up.
+    * When response time exceeds the threshold (optional setting)
+    * When a designated string isn’t included in the response body (optional setting)
+    * When the number of remaining days before the SSL certificate expiration date falls below the threshold (optional setting)
+* 2xx responses are recognized as normal and not as an error
+* Behavior regarding the redirect follow can be changed in settings
+   * If not followed, 3xx responses will be recognized as normal and not as an error
+   * If followed, the redirect will occur according to the response header
+     * Three or more redirects will result in an error and an alert notification will be issued
+
 * To monitor a URL that’s using Basic access authentication,  specify the Authorization header appropriately or include the authentication information in the URL like "https: // user: password@example.com/...".
 
 ## Monitoring source IP addresses of external URL monitors
