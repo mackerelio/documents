@@ -13,7 +13,7 @@ Additionally, the API of Azure will be called every 5 minutes for each targeted 
 
 Currently, the following Azure cloud products are supported. For information on obtaining metrics, please refer to each individual document.
 
-[SQL Database](https://mackerel.io/docs/entry/integrations/azure/sql-database)・[Cache for Redis](https://mackerel.io/docs/entry/integrations/azure/redis-cache)・[Virtual Machines](https://mackerel.io/docs/entry/integrations/azure/virtual-machine)・[App Service](https://mackerel.io/docs/entry/integrations/azure/app-service)・[Functions](https://mackerel.io/docs/entry/integrations/azure/functions)・[Load Balancer](https://mackerel.io/docs/entry/integrations/azure/load-balancer)・[Database for MySQL](https://mackerel.io/docs/entry/integrations/azure/database-for-mysql)・[Database for PostgreSQL](https://mackerel.io/docs/entry/integrations/azure/database-for-postgresql)
+[SQL Database](https://mackerel.io/docs/entry/integrations/azure/sql-database)・[Cache for Redis](https://mackerel.io/docs/entry/integrations/azure/redis-cache)・[Virtual Machines](https://mackerel.io/docs/entry/integrations/azure/virtual-machine)・[App Service](https://mackerel.io/docs/entry/integrations/azure/app-service)・[Functions](https://mackerel.io/docs/entry/integrations/azure/functions)・[Load Balancer](https://mackerel.io/docs/entry/integrations/azure/load-balancer)・[Database for MySQL](https://mackerel.io/docs/entry/integrations/azure/database-for-mysql)・[Database for PostgreSQL](https://mackerel.io/docs/entry/integrations/azure/database-for-postgresql)・[Application Gateway](https://mackerel.io/docs/entry/integrations/azure/application-gateway)
 
 # Integration method
 Azure Integration will integrate using service principals.
