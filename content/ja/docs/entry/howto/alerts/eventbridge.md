@@ -44,6 +44,7 @@ Mackerelでの設定が完了したら、Amazon EventBridgeでイベントバス
 {
   "orgName": "Macker...",
   "event": "alert",
+  "memo": "memo....",
   "host": {
     "id": "22D4...",
     "name": "app01",
@@ -95,6 +96,7 @@ Mackerelでの設定が完了したら、Amazon EventBridgeでイベントバス
 |:--|:--|:-|
 |orgName|string|アラートが発生しているオーガニゼーションの名前|
 |event|string|`alert`固定|
+|memo|string|監視ルールのメモ|
 |host|object|ホスト情報(ホストメトリック時のアラートのみ出力)|
 |service|object|サービス情報(サービスメトリック時のアラートのみ出力)
 |alert|object|アラート情報|

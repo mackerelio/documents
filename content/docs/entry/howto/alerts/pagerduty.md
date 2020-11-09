@@ -10,7 +10,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackere
 By integrating with PagerDuty, you can manage alerts that occur in Mackerel as PagerDuty incidents. 
 
 
-<p><span itemscope itemtype="http://schema.org/Photograph"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20141125/20141125162901.png" alt="f:id:mackerelio:20141125162901p:plain" title="f:id:mackerelio:20141125162901p:plain" class="hatena-fotolife" itemprop="image"></span></p>
+<p><span itemscope itemtype="http://schema.org/Photograph"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20201109/20201109113940.png" alt="f:id:mackerelio:20201109113940p:plain" title="f:id:mackerelio:20201109113940p:plain" class="hatena-fotolife" itemprop="image"></span></p>
 
 ### Integrating PagerDuty
 
@@ -48,6 +48,13 @@ It's also possible to choose which alert notifications you want to be sent to Pa
 
 By default, when an alert is closed in Mackerel, the incident will also close in PagerDuty. However, if you turn off the option to "Close incident when alert closes", the incident in PagerDuty will not close even if the alert has been closed.
 
+### Notification content unique to Events API v2
+
+The following items are included in the notification content only when using API v2.
+
+- Related graphs
+- Monitor Memo
+- custom_identifier
 
 <h2 id="api-version">About the API Version</h2>
 

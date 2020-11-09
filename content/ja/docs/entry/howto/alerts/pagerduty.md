@@ -9,7 +9,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 
 PagerDutyと連携を行う事で、Mackerelで発生したアラートをPagerDuty上のインシデントとして管理できます。
 
-<p><span itemscope itemtype="http://schema.org/Photograph"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20141125/20141125162901.png" alt="f:id:mackerelio:20141125162901p:plain" title="f:id:mackerelio:20141125162901p:plain" class="hatena-fotolife" itemprop="image"></span></p>
+<p><span itemscope itemtype="http://schema.org/Photograph"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20201109/20201109113940.png" alt="f:id:mackerelio:20201109113940p:plain" title="f:id:mackerelio:20201109113940p:plain" class="hatena-fotolife" itemprop="image"></span></p>
 
 ## PagerDutyとの連携を追加する
 
@@ -45,6 +45,14 @@ PagerDuty連携では、アラート通知をPagerDutyへ送信する監視の�
 ### アラート解決時の処理
 
 デフォルトでは、Mackerel上でアラートが閉じた時点でPagerDuty上のインシデントも閉じられますが、"アラートが閉じた時にインシデントも閉じる"オプションをオフにすると、アラートが閉じた場合でもPagerDuty上のインシデントは閉じられません。
+
+### Events API v2でのみ通知される内容
+
+API v2を利用している場合にのみ通知される内容に以下の項目が追加されます。
+
+- 関連するグラフ
+- メモ
+- custom_identifier
 
 <h2 id="api-version">API Versionについて</h2>
 

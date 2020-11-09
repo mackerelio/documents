@@ -43,6 +43,7 @@ The JSON that will be sent contains the following. (Items may be added at any ti
 {
   "orgName": "Macker...",
   "event": "alert",
+  "memo": "memo....",
   "host": {
     "id": "22D4...",
     "name": "app01",
@@ -94,6 +95,7 @@ The JSON that will be sent contains the following. (Items may be added at any ti
 |:--|:--|:-|
 |orgName|string|name of the organization where the alert occurred|
 |event|string|fixed as `alert`|
+|memo|string|notes for the monitoring configuration.|
 |host|object|host information (output for alerts of host metrics only)|
 |service|object|service information (output for alerts of service metrics only)|
 |alert|object|alert information|
