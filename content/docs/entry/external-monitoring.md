@@ -20,7 +20,7 @@ To create a new external URL monitor click on the New Monitor button in the uppe
 * Certificate Expiration Date Monitor: The SSL certificate’s expiration date will be monitored. An alert will be sent when the number of remaining days before the expiration date falls below the threshold.
 * Monitor Name: enter a descriptive name for the new monitor.
 
-![](https://cdn-ak.f.st-hatena.com/images/fotolife/a/andyyk/20160316/20160316160744.png)
+![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20201109/20201109170355.png)
 
 ## About external URL monitor specs
 
@@ -51,7 +51,7 @@ If more than 20 are created, the excess will be charged using the conversion 20 
 
 ## Sample Alert
 When a new monitor has been added it will be displayed in the list in the Monitors page.
-[https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20150907/20150907153553.png:image=https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20150907/20150907153553.png]
+[https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20201109/20201109120423.png:image=https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20201109/20201109120423.png]
 
 If an alert arises it will be displayed as shown below, at which point the details of the alert can be viewed in the alert details screen.
 The 503 displayed at the top is the HTTP status code.

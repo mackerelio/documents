@@ -22,7 +22,7 @@ External Httpのタブをクリックすると、以下の項目が表示され�
 * 証明書の有効期限の監視：SSL証明書の有効期限を監視します。有効期限の残り日数が閾値下回った場合、アラートが発報されます。
 * 監視ルール名：本監視定義の名前を記述してください
 
-[https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20160125/20160125155134.png:image=https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20160125/20160125155134.png]
+[https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20201109/20201109114130.png:image=https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20201109/20201109114130.png]
 
 
 ## URL外形監視の仕様について
@@ -53,7 +53,7 @@ Mackerelからの通知のリクエスト元IPアドレスレンジと同じと�
 
 ## アラートサンプル
 監視ルールを追加するとサイドメニューにあるMonitorsの一覧に以下のように表示されます。
-[https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20150907/20150907153553.png:image=https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20150907/20150907153553.png]
+[https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20201109/20201109120423.png:image=https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20201109/20201109120423.png]
 
 アラートが発生した際には以下の様な表示となり、アラート詳細画面で詳細が確認できます。  
 画像上で表示されている503はHTTPステータスコードです。  
