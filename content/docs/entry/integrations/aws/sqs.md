@@ -22,7 +22,3 @@ The maximum number of metrics obtainable is 11.
 |Receive Count|NumberOfEmptyReceives<br>NumberOfMessagesReceived|sqs.receive_count.empty<br>sqs.receive_count.received|integer|Sum|
 |Message Count|NumberOfMessagesDeleted<br>NumberOfMessagesSent|sqs.message_count.deleted<br>sqs.message_count.sent|integer|Sum|
 |Sent Message Size|SentMessageSize<br>SentMessageSize<br>SentMessageSize|sqs.message_size.average<br>sqs.message_size.max<br>sqs.message_size.min|bytes|Average<br>Maximum<br>Minimum|
-
-## Notes
-
-Due to restrictions on the AWS API, if there are more than 1000 queues in the same region, all queues may not integrate.
