@@ -40,7 +40,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 | ------------    | -------- | -------------------------------- |
 | `id`            | *string* | 通知チャンネルのID               |
 | `name`          | *string* | 通知チャンネルの名称             |
-| `type`          | *string* | 通知チャンネルの種類 (`"email"`, `"slack"`, `"line"`, `"chatwork"`, `"typetalk"`, `"hipchat"`, `"twilio"`, `"reactio"`, `"pagerduty"`, `"opsgenie"`, `"yammer"`, `"webhook"` のいずれかです) |
+| `type`          | *string* | 通知チャンネルの種類 (`"email"`, `"slack"`, `"line"`, `"chatwork"`, `"typetalk"`, `"hipchat"`, `"twilio"`, `"reactio"`, `"pagerduty"`, `"opsgenie"`, `"yammer"`, `"microsoft-teams`, `"webhook"`, `"amazon-event-bridge"` のいずれかです) |
 
 `type` が `"email"`, `"slack"` または `"webhook"` の場合は上記に加えて、以下のように詳細な情報を返します
 
