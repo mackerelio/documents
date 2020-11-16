@@ -586,3 +586,4 @@ Here is a list of the AWS services and their corresponding identifiers (ID) used
 | `Firehose`      | Amazon Kinesis Data Firehose     |
 | `Batch`         | AWS Batch                        |
 | `WAF`           | AWS WAF                          |
+| `Billing`       | Billing                          |

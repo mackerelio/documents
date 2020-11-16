@@ -586,3 +586,4 @@ Mackerel で用いられる識別子（ID）とそれに対応するAWSサービ
 | `Firehose`      | Amazon Kinesis Data Firehose     |
 | `Batch`         | AWS Batch                        |
 | `WAF`           | AWS WAF                          |
+| `Billing`       | Billing                          |
