@@ -75,7 +75,6 @@ The following Kubernetes resources are used with mackerel-container-agent for EK
 | ----------- | ---- |
 | nodes/proxy | get  |
 | nodes/stats | get  |
-| nodes/spec  | get  |
 
 RBAC needs to be configured so that mackerel-container-agent can refer to these resources.
 
@@ -90,7 +89,6 @@ rules:
   - apiGroups: [""]
     resources:
       - nodes/proxy
-      - nodes/spec
       - nodes/stats
     verbs:
       - get

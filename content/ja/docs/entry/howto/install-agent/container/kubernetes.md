@@ -113,7 +113,6 @@ mackerel-container-agentでは下記のリソースに参照します。
 | ----------- | ---- |
 | nodes/proxy | get  |
 | nodes/stats | get  |
-| nodes/spec  | get  |
 
 kubeletで認証が有効な場合には、mackerel-container-agentがこれらのリソースを参照できるよう、ServiceAccountに対してRoleを設定する必要となります。
 
@@ -133,7 +132,6 @@ rules:
   resources:
   - nodes/proxy
   - nodes/stats
-  - nodes/spec
   verbs:
   - get
 ---

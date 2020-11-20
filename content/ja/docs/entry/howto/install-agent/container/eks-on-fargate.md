@@ -75,7 +75,6 @@ EKS on Fargateにおいて、mackerel-container-agentでは下記のKubernetes�
 | ----------- | ---- |
 | nodes/proxy | get  |
 | nodes/stats | get  |
-| nodes/spec  | get  |
 
 mackerel-container-agentがこれらのリソースを参照できるよう、RBACを設定する必要があります。
 
@@ -90,7 +89,6 @@ rules:
   - apiGroups: [""]
     resources:
       - nodes/proxy
-      - nodes/spec
       - nodes/stats
     verbs:
       - get

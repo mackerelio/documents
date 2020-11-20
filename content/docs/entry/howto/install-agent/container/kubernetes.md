@@ -113,7 +113,6 @@ The following resources are referred to in mackerel-container-agent.
 | ----------- | ---- |
 | nodes/proxy | get  |
 | nodes/stats | get  |
-| nodes/spec  | get  |
 
 If authentication is enabled for kubelet, Role configuration for ServiceAccount will be necessary so that mackerel-container-agent can refer to these resources.
 
@@ -133,7 +132,6 @@ rules:
   resources:
   - nodes/proxy
   - nodes/stats
-  - nodes/spec
   verbs:
   - get
 ---
