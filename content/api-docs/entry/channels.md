@@ -50,7 +50,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
 | ------------    | -------------   | --------------------------------------------- |
 | `emails`        | *array[string]* | email addresses specified to receive notifications          |
 | `userIds`       | *array[string]* | user IDs specified to receive notifications             |
-| `events`        | *array[string]*        | notification events (`"alert"` or `"alertGroup"`) |
+| `events`        | *array[string]*        | notification events (`"alert"`, `"alertGroup"`, `"hostStatus"`, `"hostRegister"`, `"hostRetire"`, or `"monitor"`) |
 
 ##### When the `type` is `slack`
 
@@ -102,7 +102,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
 | `name`   | *string* | the name of the channel |
 | `emails`        | *array[string]* | email addresses specified to receive notifications           |
 | `userIds`       | *array[string]* | user IDs specified to receive notifications                |
-| `events`        | *array[string]*        | notfication events (`"alert"` or `"alertGroup"`) |
+| `events`        | *array[string]*        | notification events (`"alert"`, `"alertGroup"`, `"hostStatus"`, `"hostRegister"`, `"hostRetire"`, or `"monitor"`) |
 
 #### Response(email notifications)
 
