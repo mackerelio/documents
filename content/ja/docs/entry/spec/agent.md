@@ -55,6 +55,9 @@ on_stop  = "poweroff"
 ignore = "/dev/ram.*"
 use_mountpoint = true
 
+[interfaces]
+ignore = "bond.*"
+
 [plugin.metrics.vmstat]
 command = ["ruby", "/etc/sensu/plugins/system/vmstat-metrics.rb"]
 
@@ -221,6 +224,19 @@ ignore = "/dev/ram.*"
 use_mountpoint = true
 ```
 
+<h4 id="config-file-interfaces">interfaces</h4>
+<h5>ignore</h5>
+特定のインターフェイスからのメトリック収集を除外できます。
+
+以下のように正規表現を用いて指定することで、指定されたインターフェイスからのメトリックは収集されなくなります。
+
+```config
+# /etc/mackerel-agent/mackerel-agent.conf
+[interfaces]
+ignore = "bond.*"
+```
+
+Windows の場合、インターフェース名は Windows の デバイスマネージャー で表示されるインターフェース名に対応する正規表現を指定してください。
 
 <h4 id="config-file-custommetrics">[plugin.metrics.{name}]</h4>
 `plugin.metrics.{name}` セクションで、任意のメトリックを取得、投稿するための設定を記述できます。

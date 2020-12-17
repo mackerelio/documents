@@ -57,6 +57,9 @@ on_stop  = "poweroff"
 ignore = "/dev/ram.*"
 use_mountpoint = true
 
+[interfaces]
+ignore = "bond.*"
+
 [plugin.metrics.vmstat]
 command = ["ruby", "/etc/sensu/plugins/system/vmstat-metrics.rb"]
 
@@ -222,6 +225,19 @@ You can obtain filesystem metrics for each mount point by specifying the followi
 use_mountpoint = true
 ```
 
+<h4 id="config-file-interfaces">interfaces</h4>
+<h5>ignore</h5>
+Metric collection can be excluded from specific interfaces.
+
+Using a regular expression like shown below, metrics will not be collected from the specified interface.
+
+```config
+# /etc/mackerel-agent/mackerel-agent.conf
+[interfaces]
+ignore = "bond.*"
+```
+
+For Windows, specify a regular expression that corresponds to the interface name displayed in Windows Device Manager.
 
 <h4 id="config-file-custommetrics">[plugin.metrics.{name}]</h4>
 In the section `plugin.metrics. {name}`, you can write configurations to retrieve and post arbitrary metrics.
