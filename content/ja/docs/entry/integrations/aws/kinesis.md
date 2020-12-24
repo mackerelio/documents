@@ -14,12 +14,12 @@ AWSインテグレーションの設定方法や対応AWSサービス一覧に�
 ## 取得メトリック
 AWSインテグレーションのKinesis Data Streams対応で取得できるメトリックは以下の通りです。`メトリック`の説明に関しては<a href="https://docs.aws.amazon.com/ja_jp/streams/latest/dev/monitoring-with-cloudwatch.html" target="_blank">AWSのヘルプ</a>をご確認ください。
 
-最大で31個のメトリックが取得されます。
+最大で34個のメトリックが取得されます。
 
 |グラフ名|メトリック|Mackerel上のメトリック名|単位|Statistics|
 |:--|:--|:--|:--|:--|
 |Bytes|GetRecords.Bytes<br>IncomingBytes<br>PutRecord.Bytes<br>PutRecords.Bytes|kinesis.bytes.get_records<br>kinesis.bytes.incoming<br>kinesis.bytes.put_record<br>kinesis.bytes.put_records|bytes|Sum|
-|Records|GetRecords.Records<br>IncomingRecords<br>PutRecords.Records|kinesis.records.get_records<br>kinesis.records.incoming<br>kinesis.records.put_records|integer|Sum|
+|Records|GetRecords.Records<br>IncomingRecords<br>PutRecords.SuccessfulRecords<br>PutRecords.TotalRecords<br>PutRecords.FailedRecords<br>PutRecords.ThrottledRecords|kinesis.records.get_records<br>kinesis.records.incoming<br>kinesis.records.put_records_successful<br>kinesis.records.put_records_total<br>kinesis.records.put_records_failed<br>kinesis.records.put_records_throttled|integer|Sum|
 |Delay|GetRecords.IteratorAgeMilliseconds|kinesis.delay.minimum<br>kinesis.delay.average<br>kinesis.delay.maximum|float|Minimum<br>Average<br>Maximum|
 |Success Rate|GetRecords.Success<br>PutRecord.Success<br>PutRecords.Success|kinesis.success_rate.get_records<br>kinesis.success_rate.put_record<br>kinesis.success_rate.put_records|float|Average|
 |Success Count|GetRecords.Success<br>PutRecord.Success<br>PutRecords.Success|kinesis.success_count.get_records<br>kinesis.success_count.put_record<br>kinesis.success_count.put_records|integer|Sum|

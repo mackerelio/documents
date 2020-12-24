@@ -14,12 +14,12 @@ Please refer to the following page for AWS Integration configuration methods and
 ## Obtaining metrics
 The metrics obtainable with AWS Integration's support for Kinesis Data Streams are as follows. For `Metric` explanations, refer to the <a href="https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html" target="_blank">AWS help page</a>.
 
-The maximum number of metrics obtainable is 31.
+The maximum number of metrics obtainable is 34.
 
 |Graph name|Metric|Metric name in Mackerel|Unit|Statistics|
 |:--|:--|:--|:--|:--|
 |Bytes|GetRecords.Bytes<br>IncomingBytes<br>PutRecord.Bytes<br>PutRecords.Bytes|kinesis.bytes.get_records<br>kinesis.bytes.incoming<br>kinesis.bytes.put_record<br>kinesis.bytes.put_records|bytes|Sum|
-|Records|GetRecords.Records<br>IncomingRecords<br>PutRecords.Records|kinesis.records.get_records<br>kinesis.records.incoming<br>kinesis.records.put_records|integer|Sum|
+|Records|GetRecords.Records<br>IncomingRecords<br>PutRecords.SuccessfulRecords<br>PutRecords.TotalRecords<br>PutRecords.FailedRecords<br>PutRecords.ThrottledRecords|kinesis.records.get_records<br>kinesis.records.incoming<br>kinesis.records.put_records_successful<br>kinesis.records.put_records_total<br>kinesis.records.put_records_failed<br>kinesis.records.put_records_throttled|integer|Sum|
 |Delay|GetRecords.IteratorAgeMilliseconds|kinesis.delay.minimum<br>kinesis.delay.average<br>kinesis.delay.maximum|float|Minimum<br>Average<br>Maximum|
 |Success Rate|GetRecords.Success<br>PutRecord.Success<br>PutRecords.Success|kinesis.success_rate.get_records<br>kinesis.success_rate.put_record<br>kinesis.success_rate.put_records|float|Average|
 |Success Count|GetRecords.Success<br>PutRecord.Success<br>PutRecords.Success|kinesis.success_count.get_records<br>kinesis.success_count.put_record<br>kinesis.success_count.put_records|integer|Sum|
