@@ -188,7 +188,7 @@ mkr monitors では monitor rule の特定に`id`もしくは`name`を利用し�
   ```
   mkr monitors push
   ```
-  - `Name`ベースで監視ルールの同一判定をするため、`id`反映のためのpullは不要となります
+  - `name`ベースで監視ルールの同一判定をするため、`id`反映のためのpullは不要となります
 
 ### Mackerel側のルールを反映する
 
