@@ -42,7 +42,7 @@ If you want to configure all the permissions used in AWS Integration, please ref
 - `AmazonElastiCacheReadOnlyAccess`
 - `AmazonRDSReadOnlyAccess`
 - `AmazonRedshiftReadOnlyAccess`
-- `AWSLambdaReadOnlyAccess`
+- `AWSLambda_ReadOnlyAccess`
 - `AmazonSQSReadOnlyAccess`
 - `AmazonDynamoDBReadOnlyAccess`
 - `CloudFrontReadOnlyAccess`
@@ -96,7 +96,7 @@ If you want to configure all the permissions used in AWS Integration, please ref
 - `AmazonElastiCacheReadOnlyAccess`
 - `AmazonRDSReadOnlyAccess`
 - `AmazonRedshiftReadOnlyAccess`
-- `AWSLambdaReadOnlyAccess`
+- `AWSLambda_ReadOnlyAccess`
 - `AmazonSQSReadOnlyAccess`
 - `AmazonDynamoDBReadOnlyAccess`
 - `CloudFrontReadOnlyAccess`

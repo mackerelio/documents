@@ -44,7 +44,7 @@ AWSインテグレーションで使用する全ての権限を設定する場�
 - `AmazonEC2ReadOnlyAccess`
 - `AmazonElastiCacheReadOnlyAccess`
 - `AmazonRDSReadOnlyAccess`
-- `AWSLambdaReadOnlyAccess`
+- `AWSLambda_ReadOnlyAccess`
 - `AmazonSQSReadOnlyAccess`
 - `AmazonDynamoDBReadOnlyAccess`
 - `CloudFrontReadOnlyAccess`
@@ -105,7 +105,7 @@ AWSインテグレーションで使用する全ての権限を設定する場�
 - `AmazonEC2ReadOnlyAccess`
 - `AmazonElastiCacheReadOnlyAccess`
 - `AmazonRDSReadOnlyAccess`
-- `AWSLambdaReadOnlyAccess`
+- `AWSLambda_ReadOnlyAccess `
 - `AmazonSQSReadOnlyAccess`
 - `AmazonDynamoDBReadOnlyAccess`
 - `CloudFrontReadOnlyAccess`
