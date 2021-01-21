@@ -6,7 +6,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 CustomPath: integrations/azure/application-gateway
 ---
 
-MackerelはAzureインテグレーションにて<a href="https://azure.microsoft.com/ja-jp/services/application-gateway/" target="_blank">Application Gateway</a>のメトリック取得や監視に対応しています。課金対象として 1リソース = 1マイクロホスト と換算します。
+MackerelはAzureインテグレーションにて<a href="https://azure.microsoft.com/ja-jp/services/application-gateway/" target="_blank">Application Gateway</a>のメトリック取得や監視に対応しています。課金対象として 1リソース = 2マイクロホスト と換算します。
 
 Azureインテグレーションの設定方法や対応Azureサービス一覧についてはこちらのページをご確認ください。<br>
 <a href="https://mackerel.io/ja/docs/entry/integrations/azure">Azureインテグレーション</a>
@@ -47,14 +47,18 @@ AzureインテグレーションのApplication Gateway対応で取得できる�
 |Web Application Firewall v1 Total Rule Distribution|MatchedCount|azure.application_gateway.matched_count.#.count|integer|Total|
 
 ### Standard V2
-最大で 25 個のメトリックが取得されます。
+最大で 33 個のメトリックが取得されます。
 
 |グラフ名|メトリック|Mackerel上のメトリック名|単位|Aggregation Type|
 |:---|:---|:---|:---|:---|
+|Application Gateway Total Time|ApplicationGatewayTotalTime|azure.application_gateway.application_gateway_total_time.#.milliseconds|float|Average|
 |Backend Connect Time|BackendConnectTime|azure.application_gateway.backend_connect_time.#.milliseconds|float|Average|
 |Backend First Byte Response Time|BackendFirstByteResponseTime|azure.application_gateway.backend_first_byte_response_time.#.milliseconds|float|Average|
 |Backend Last Byte Response Time|BackendLastByteResponseTime|azure.application_gateway.backend_last_byte_response_time.#.milliseconds|float|Average|
 |Backend Response Status|BackendResponseStatus|azure.application_gateway.backend_response_status.#.1xx<br>azure.application_gateway.backend_response_status.#.2xx<br>azure.application_gateway.backend_response_status.#.3xx<br>azure.application_gateway.backend_response_status.#.4xx<br>azure.application_gateway.backend_response_status.#.5xx|integer|Total|
+|Bytes Sent/Received|BytesSent<br>BytesReceived|azure.application_gateway.bytes_sent_received.#.sent<br>azure.application_gateway.bytes_sent_received.#.received|bytes|Total|
+|Client RTT|ClientRtt|azure.application_gateway.client_rtt.#.milliseconds|float|Average|
+|Client TLS Protocol|TlsProtocol|azure.application_gateway.tls_protocol.#.nontls<br>azure.application_gateway.tls_protocol.#.tlsv1<br>azure.application_gateway.tls_protocol.#.tlsv1_1<br>azure.application_gateway.tls_protocol.#.tlsv1_2|integer|Total|
 |Current Capacity Units|CapacityUnits|azure.application_gateway.capacity_units.count|float|Average|
 |Current Compute Units|ComputeUnits|azure.application_gateway.compute_units.count|float|Average|
 |Current Connections|CurrentConnections|azure.application_gateway.current_connections.count|integer|Total|
@@ -69,14 +73,18 @@ AzureインテグレーションのApplication Gateway対応で取得できる�
 |Total Requests|TotalRequests|azure.application_gateway.total_requests.#.count|integer|Total|
 
 ### WAF V2
-最大で 25 個のメトリックが取得されます。
+最大で 33 個のメトリックが取得されます。
 
 |グラフ名|メトリック|Mackerel上のメトリック名|単位|Aggregation Type|
 |:---|:---|:---|:---|:---|
+|Application Gateway Total Time|ApplicationGatewayTotalTime|azure.application_gateway.application_gateway_total_time.#.milliseconds|float|Average|
 |Backend Connect Time|BackendConnectTime|azure.application_gateway.backend_connect_time.#.milliseconds|float|Average|
 |Backend First Byte Response Time|BackendFirstByteResponseTime|azure.application_gateway.backend_first_byte_response_time.#.milliseconds|float|Average|
 |Backend Last Byte Response Time|BackendLastByteResponseTime|azure.application_gateway.backend_last_byte_response_time.#.milliseconds|float|Average|
 |Backend Response Status|BackendResponseStatus|azure.application_gateway.backend_response_status.#.1xx<br>azure.application_gateway.backend_response_status.#.2xx<br>azure.application_gateway.backend_response_status.#.3xx<br>azure.application_gateway.backend_response_status.#.4xx<br>azure.application_gateway.backend_response_status.#.5xx|integer|Total|
+|Bytes Sent/Received|BytesSent<br>BytesReceived|azure.application_gateway.bytes_sent_received.#.sent<br>azure.application_gateway.bytes_sent_received.#.received|bytes|Total|
+|Client RTT|ClientRtt|azure.application_gateway.client_rtt.#.milliseconds|float|Average|
+|Client TLS Protocol|TlsProtocol|azure.application_gateway.tls_protocol.#.nontls<br>azure.application_gateway.tls_protocol.#.tlsv1<br>azure.application_gateway.tls_protocol.#.tlsv1_1<br>azure.application_gateway.tls_protocol.#.tlsv1_2|integer|Total|
 |Current Capacity Units|CapacityUnits|azure.application_gateway.capacity_units.count|float|Average|
 |Current Compute Units|ComputeUnits|azure.application_gateway.compute_units.count|float|Average|
 |Current Connections|CurrentConnections|azure.application_gateway.current_connections.count|integer|Total|
@@ -111,6 +119,14 @@ Mackerel上のメトリック名の「#」には、以下のいずれかが格�
       - Healthy/Unhealthy Host Count
       - Requests per minute per Healthy Host
       - Total Requests
+
+  - Listener<br>
+  監視対象となるApplication Gatewayに存在するリスナーを示します。
+    - 該当グラフ
+      - Application Gateway Total Time
+      - Bytes Sent/Received
+      - Client RTT
+      - Client TLS Protocol
 
   - RuleGroup<br>
   WAFで適用されているCRS(Core Rule Set)の規則グループを示します。

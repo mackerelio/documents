@@ -6,7 +6,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackere
 CustomPath: integrations/azure/application-gateway
 ---
 
-Mackerel supports obtaining and monitoring <a href="https://azure.microsoft.com/en-us/services/application-gateway/" target="_blank">Application Gateway</a> metrics in Azure Integration. When integrating with Azure Integration, billable targets are determined using the conversion 1 Resource = 1 Micro Host.
+Mackerel supports obtaining and monitoring <a href="https://azure.microsoft.com/en-us/services/application-gateway/" target="_blank">Application Gateway</a> metrics in Azure Integration. When integrating with Azure Integration, billable targets are determined using the conversion 1 Resource = 2 Micro Hosts.
 
 Please refer to the following page for Azure Integration configuration methods and a list of supported Azure services.<br>
 <a href="https://mackerel.io/docs/entry/integrations/azure">Azure Integration</a>
@@ -46,14 +46,18 @@ The maximum number of metrics obtainable is 16.
 |Web Application Firewall v1 Total Rule Distribution|MatchedCount|azure.application_gateway.matched_count.#.count|integer|Total|
 
 ### Standard V2
-The maximum number of metrics obtainable is 25.
+The maximum number of metrics obtainable is 33.
 
 |Graph name|Metric|Metric name in Mackerel|Unit|Aggregation Type|
 |:---|:---|:---|:---|:---|
+|Application Gateway Total Time|ApplicationGatewayTotalTime|azure.application_gateway.application_gateway_total_time.#.milliseconds|float|Average|
 |Backend Connect Time|BackendConnectTime|azure.application_gateway.backend_connect_time.#.milliseconds|float|Average|
 |Backend First Byte Response Time|BackendFirstByteResponseTime|azure.application_gateway.backend_first_byte_response_time.#.milliseconds|float|Average|
 |Backend Last Byte Response Time|BackendLastByteResponseTime|azure.application_gateway.backend_last_byte_response_time.#.milliseconds|float|Average|
 |Backend Response Status|BackendResponseStatus|azure.application_gateway.backend_response_status.#.1xx<br>azure.application_gateway.backend_response_status.#.2xx<br>azure.application_gateway.backend_response_status.#.3xx<br>azure.application_gateway.backend_response_status.#.4xx<br>azure.application_gateway.backend_response_status.#.5xx|integer|Total|
+|Bytes Sent/Received|BytesSent<br>BytesReceived|azure.application_gateway.bytes_sent_received.#.sent<br>azure.application_gateway.bytes_sent_received.#.received|bytes|Total|
+|Client RTT|ClientRtt|azure.application_gateway.client_rtt.#.milliseconds|float|Average|
+|Client TLS Protocol|TlsProtocol|azure.application_gateway.tls_protocol.#.nontls<br>azure.application_gateway.tls_protocol.#.tlsv1<br>azure.application_gateway.tls_protocol.#.tlsv1_1<br>azure.application_gateway.tls_protocol.#.tlsv1_2|integer|Total|
 |Current Capacity Units|CapacityUnits|azure.application_gateway.capacity_units.count|float|Average|
 |Current Compute Units|ComputeUnits|azure.application_gateway.compute_units.count|float|Average|
 |Current Connections|CurrentConnections|azure.application_gateway.current_connections.count|integer|Total|
@@ -68,14 +72,18 @@ The maximum number of metrics obtainable is 25.
 |Total Requests|TotalRequests|azure.application_gateway.total_requests.#.count|integer|Total|
 
 ### WAF V2
-The maximum number of metrics obtainable is 25.
+The maximum number of metrics obtainable is 33.
 
 |Graph name|Metric|Metric name in Mackerel|Unit|Aggregation Type|
 |:---|:---|:---|:---|:---|
+|Application Gateway Total Time|ApplicationGatewayTotalTime|azure.application_gateway.application_gateway_total_time.#.milliseconds|float|Average|
 |Backend Connect Time|BackendConnectTime|azure.application_gateway.backend_connect_time.#.milliseconds|float|Average|
 |Backend First Byte Response Time|BackendFirstByteResponseTime|azure.application_gateway.backend_first_byte_response_time.#.milliseconds|float|Average|
 |Backend Last Byte Response Time|BackendLastByteResponseTime|azure.application_gateway.backend_last_byte_response_time.#.milliseconds|float|Average|
 |Backend Response Status|BackendResponseStatus|azure.application_gateway.backend_response_status.#.1xx<br>azure.application_gateway.backend_response_status.#.2xx<br>azure.application_gateway.backend_response_status.#.3xx<br>azure.application_gateway.backend_response_status.#.4xx<br>azure.application_gateway.backend_response_status.#.5xx|integer|Total|
+|Bytes Sent/Received|BytesSent<br>BytesReceived|azure.application_gateway.bytes_sent_received.#.sent<br>azure.application_gateway.bytes_sent_received.#.received|bytes|Total|
+|Client RTT|ClientRtt|azure.application_gateway.client_rtt.#.milliseconds|float|Average|
+|Client TLS Protocol|TlsProtocol|azure.application_gateway.tls_protocol.#.nontls<br>azure.application_gateway.tls_protocol.#.tlsv1<br>azure.application_gateway.tls_protocol.#.tlsv1_1<br>azure.application_gateway.tls_protocol.#.tlsv1_2|integer|Total|
 |Current Capacity Units|CapacityUnits|azure.application_gateway.capacity_units.count|float|Average|
 |Current Compute Units|ComputeUnits|azure.application_gateway.compute_units.count|float|Average|
 |Current Connections|CurrentConnections|azure.application_gateway.current_connections.count|integer|Total|
@@ -95,7 +103,7 @@ The "#" in 'Metric name in Mackerel' holds one of the following.
   Indicates the IP address and port number for the backend server.<br>
   IP addresses and port numbers are displayed separated by hyphens.<br>
   For example, `127.0.0.1:8080` would be displayed as `127-0-0-1-8080`.
-    - Corresponding graph
+    - Corresponding graphs
       - Backend Connect Time
       - Backend First Byte Response Time
       - Backend Last Byte Response Time
@@ -105,14 +113,22 @@ The "#" in 'Metric name in Mackerel' holds one of the following.
   Indicates the backend pool and HTTP setting for the backend target.<br>
   The backend pool and HTTP setting are displayed separated by a hyphen.<br>
   For example, if the backend pool is `backendpool` and the HTTP setting is `httpsetting`, then it will be displayed as `backendpool-httpsetting`.
-    - Corresponding graph
+    - Corresponding graphs
       - Failed Requests
       - Healthy/Unhealthy Host Count
       - Requests per minute per Healthy Host
       - Total Requests
 
+  - Listener<br>
+  Indicates the listener in the target Application Gateway.
+    - Corresponding graphs
+      - Application Gateway Total Time
+      - Bytes Sent/Received
+      - Client RTT
+      - Client TLS Protocol
+
   - RuleGroup<br>
   Indicates the CRS (Core Rule Set) rule group applied by WAF.
-    - Corresponding graph
+    - Corresponding graphs
       - Web Application Firewall v1 Blocked Requests Rule Distribution
       - Web Application Firewall v1 Total Rule Distribution
