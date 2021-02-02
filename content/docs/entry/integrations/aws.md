@@ -14,7 +14,8 @@ To limit the metrics that are retrieved, refer to the [Limit metrics retrieved](
 
 Currently, the following AWS cloud products are supported. For information on obtaining metrics, please refer to each individual document.
 
-[EC2](https://mackerel.io/docs/entry/integrations/aws/ec2)・[ELB (CLB)](https://mackerel.io/docs/entry/integrations/aws/elb)・[ALB](https://mackerel.io/docs/entry/integrations/aws/alb)・[NLB](https://mackerel.io/docs/entry/integrations/aws/nlb)・[RDS](https://mackerel.io/docs/entry/integrations/aws/rds)・[ElastiCache](https://mackerel.io/docs/entry/integrations/aws/elasticache)・[Redshift](https://mackerel.io/docs/entry/integrations/aws/redshift)・[Lambda](https://mackerel.io/docs/entry/integrations/aws/lambda)・[SQS](https://mackerel.io/docs/entry/integrations/aws/sqs)・[DynamoDB](https://mackerel.io/docs/entry/integrations/aws/dynamodb)・[CloudFront](https://mackerel.io/docs/entry/integrations/aws/cloudfront)・[API Gateway](https://mackerel.io/docs/entry/integrations/aws/apigateway)・[Kinesis Data Streams](https://mackerel.io/docs/entry/integrations/aws/kinesis)・[S3](https://mackerel.io/docs/entry/integrations/aws/s3)・[Elasticsearch Service](https://mackerel.io/docs/entry/integrations/aws/es)・[ECS](https://mackerel.io/docs/entry/integrations/aws/ecs)・[SES](https://mackerel.io/ja/docs/entry/integrations/aws/ses)・[Step Functions](https://mackerel.io/docs/entry/integrations/aws/states)・[EFS](https://mackerel.io/docs/entry/integrations/aws/efs)・[Kinesis Data Firehose](https://mackerel.io/docs/entry/integrations/aws/firehose)・[Batch](https://mackerel.io/docs/entry/integrations/aws/batch)・[WAF](https://mackerel.io/docs/entry/integrations/aws/waf)・[Billing](https://mackerel.io/docs/entry/integrations/aws/billing)
+[EC2](https://mackerel.io/docs/entry/integrations/aws/ec2)・[ELB (CLB)](https://mackerel.io/docs/entry/integrations/aws/elb)・[ALB](https://mackerel.io/docs/entry/integrations/aws/alb)・[NLB](https://mackerel.io/docs/entry/integrations/aws/nlb)・[RDS](https://mackerel.io/docs/entry/integrations/aws/rds)・[ElastiCache](https://mackerel.io/docs/entry/integrations/aws/elasticache)・[Redshift](https://mackerel.io/docs/entry/integrations/aws/redshift)・[Lambda](https://mackerel.io/docs/entry/integrations/aws/lambda)・[SQS](https://mackerel.io/docs/entry/integrations/aws/sqs)・[DynamoDB](https://mackerel.io/docs/entry/integrations/aws/dynamodb)・[CloudFront](https://mackerel.io/docs/entry/integrations/aws/cloudfront)・[API Gateway](https://mackerel.io/docs/entry/integrations/aws/apigateway)・[Kinesis Data Streams](https://mackerel.io/docs/entry/integrations/aws/kinesis)・[S3](https://mackerel.io/docs/entry/integrations/aws/s3)・[Elasticsearch Service](https://mackerel.io/docs/entry/integrations/aws/es)・[ECS](https://mackerel.io/docs/entry/integrations/aws/ecs)・[SES](https://mackerel.io/ja/docs/entry/integrations/aws/ses)・[Step Functions](https://mackerel.io/docs/entry/integrations/aws/states)・[EFS](https://mackerel.io/docs/entry/integrations/aws/efs)・[Kinesis Data Firehose](https://mackerel.io/docs/entry/integrations/aws/firehose)・[Batch](https://mackerel.io/docs/entry/integrations/aws/batch)・[WAF](https://mackerel.io/docs/entry/integrations/aws/waf)・[Billing](https://mackerel.io/docs/entry/integrations/aws/billing)・[Route 53](https://mackerel.io/docs/entry/integrations/aws/route53)
+
 
 
 <h2 id="setting">Integration method</h2>
@@ -59,7 +60,8 @@ If you want to configure all the permissions used in AWS Integration, please ref
 - `batch:Describe* / batch:List*`
 - `AWSWAFReadOnlyAccess`
 - `AWSBudgetsReadOnlyAccess`
-- `CloudWatchReadOnlyAccess`（When only configuring CloudFront, API Gateway, Kinesis Data Streams, S3, Elasticsearch Service, ECS, SES, Step Functions, EFS, Kinesis Data Firehose, Batch, WAF or Billing）
+- `AmazonRoute53ReadOnlyAccess`
+- `CloudWatchReadOnlyAccess`（When only configuring CloudFront, API Gateway, Kinesis Data Streams, S3, Elasticsearch Service, ECS, SES, Step Functions, EFS, Kinesis Data Firehose, Batch, WAF, Billing or Route 53）
 
 Furthmore, AWS Integration lets you filter using tags (as is mentioned further down in this document). However, additional policies need to be added to use this function with ElastiCache or SQS.
 For more details, refer to <a href="#tag">Filter by tag</a>.
@@ -113,7 +115,8 @@ If you want to configure all the permissions used in AWS Integration, please ref
 - `batch:Describe* / batch:List*`
 - `AWSWAFReadOnlyAccess`
 - `AWSBudgetsReadOnlyAccess`
-- `CloudWatchReadOnlyAccess`（When only configuring CloudFront, API Gateway, Kinesis Data Streams, S3, Elasticsearch Service, ECS, SES, Step Functions, EFS, Kinesis Data Firehose, Batch, WAF or Billing）
+- `AmazonRoute53ReadOnlyAccess`
+- `CloudWatchReadOnlyAccess`（When only configuring CloudFront, API Gateway, Kinesis Data Streams, S3, Elasticsearch Service, ECS, SES, Step Functions, EFS, Kinesis Data Firehose, Batch, WAF, Billing or Route 53）
 
 Furthmore, AWS Integration lets you filter using tags (as is mentioned further down in this document). However, additional policies need to be added to use this function with ElastiCache or SQS.
 
@@ -200,6 +203,7 @@ Create and attach your own policies or specify them in Inline Policies.
                 "rds:Describe*",
                 "rds:ListTagsForResource",
                 "redshift:Describe*",
+                "route53:List*",
                 "s3:ListAllMyBuckets",
                 "s3:GetBucketLocation",
                 "s3:GetBucketLogging",
