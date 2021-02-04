@@ -64,7 +64,7 @@ AWSインテグレーションで使用する全ての権限を設定する場�
 - `AmazonRoute53ReadOnlyAccess`
 - `CloudWatchReadOnlyAccess`
     - 以下のサービスのみを設定する場合に指定します。
-        - CloudFront, API Gateway, Kinesis Data Streams, S3, Elasticsearch Service, ECS, SES, Step Functions, EFS, Kinesis Data Firehose, Batch, WAF, Billing, Route 53
+        - CloudFront, API Gateway, Kinesis Data Streams, S3, Elasticsearch Service, ECS, SES, Step Functions, EFS, Kinesis Data Firehose, Batch, WAF, Billing, Route 53, Lambda
 
 また、AWSインテグレーションでは後述するようにタグによって絞り込みを行うことが出来ますが、ElastiCacheやSQSでタグによる絞り込みを行う場合は追加のポリシーを付与する必要があります。
 詳しくは<a href="#tag">タグで絞り込む</a> の項目を参照してください。
@@ -126,7 +126,7 @@ AWSインテグレーションで使用する全ての権限を設定する場�
 - `AmazonRoute53ReadOnlyAccess`
 - `CloudWatchReadOnlyAccess`
     - 以下のサービスのみを設定する場合に指定します。
-        - CloudFront, API Gateway, Kinesis Data Streams, S3, Elasticsearch Service, ECS, SES, Step Functions, EFS, Kinesis Data Firehose, Batch, WAF, Billing, Route 53
+        - CloudFront, API Gateway, Kinesis Data Streams, S3, Elasticsearch Service, ECS, SES, Step Functions, EFS, Kinesis Data Firehose, Batch, WAF, Billing, Route 53, Lambda
 
 また、AWSインテグレーションでは後述するようにタグによって絞り込みを行うことが出来ますが、ElastiCacheやSQSでタグによる絞り込みを行う場合は追加のポリシーを付与する必要があります。
 詳しくは<a href="#tag">タグで絞り込む</a> の項目を参照してください。

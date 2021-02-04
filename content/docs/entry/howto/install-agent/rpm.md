@@ -26,7 +26,7 @@ Updates can be performed using the `yum` command.
 sudo yum update mackerel-agent
 ```
 
-<h2 id="v1">When using CentOS 6 / Red Hat 6</h2>
+<h2 id="v1">When using Red Hat 6</h2>
 
 Execute the following command:
 
@@ -92,7 +92,7 @@ sudo journalctl -u mackerel-agent.service
 Once the agent starts functioning properly, the host will be registered with Mackerel, which you can confirm by checking the [Dashboard](https://mackerel.io/my/dashboard).
 
 
-<h3>When using CentOS 6 / Red Hat 6</h3>
+<h3>When using Red Hat 6</h3>
 
 Executing the following command starts the agent.
 

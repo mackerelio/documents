@@ -61,7 +61,7 @@ If you want to configure all the permissions used in AWS Integration, please ref
 - `AWSWAFReadOnlyAccess`
 - `AWSBudgetsReadOnlyAccess`
 - `AmazonRoute53ReadOnlyAccess`
-- `CloudWatchReadOnlyAccess`（When only configuring CloudFront, API Gateway, Kinesis Data Streams, S3, Elasticsearch Service, ECS, SES, Step Functions, EFS, Kinesis Data Firehose, Batch, WAF, Billing or Route 53）
+- `CloudWatchReadOnlyAccess`（When only configuring CloudFront, API Gateway, Kinesis Data Streams, S3, Elasticsearch Service, ECS, SES, Step Functions, EFS, Kinesis Data Firehose, Batch, WAF, Billing, Route 53 or Lambda）
 
 Furthmore, AWS Integration lets you filter using tags (as is mentioned further down in this document). However, additional policies need to be added to use this function with ElastiCache or SQS.
 For more details, refer to <a href="#tag">Filter by tag</a>.
@@ -116,7 +116,7 @@ If you want to configure all the permissions used in AWS Integration, please ref
 - `AWSWAFReadOnlyAccess`
 - `AWSBudgetsReadOnlyAccess`
 - `AmazonRoute53ReadOnlyAccess`
-- `CloudWatchReadOnlyAccess`（When only configuring CloudFront, API Gateway, Kinesis Data Streams, S3, Elasticsearch Service, ECS, SES, Step Functions, EFS, Kinesis Data Firehose, Batch, WAF, Billing or Route 53）
+- `CloudWatchReadOnlyAccess`（When only configuring CloudFront, API Gateway, Kinesis Data Streams, S3, Elasticsearch Service, ECS, SES, Step Functions, EFS, Kinesis Data Firehose, Batch, WAF, Billing, Route 53 or Lambda）
 
 Furthmore, AWS Integration lets you filter using tags (as is mentioned further down in this document). However, additional policies need to be added to use this function with ElastiCache or SQS.
 

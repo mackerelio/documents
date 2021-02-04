@@ -19,18 +19,13 @@ To add a new Slack notification channel, click on “Monitors,” then “Channe
 
 ![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20190204/20190204181054.png)
 
-Because Mackerel uses [Incoming Webhooks](https://my.slack.com/services/new/incoming-webhook) to send notifications to Slack, we will need to obtain the Webhook URL. To obtain the Webhook URL, follow the steps below:
+[Incoming Webhooks](https://my.slack.com/services/new/incoming-webhook), one of Slack's APIs, are used to send notifications to the Slack channel.
 
-- In Slack, open the drop down menu by clicking the down arrow next to your Slack domain's name and select “Configure Integrations.”
-  - <p><span itemscope itemtype="http://schema.org/Photograph"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20141003/20141003120426.png" alt="f:id:mackerelio:20141003120426p:plain" title="f:id:mackerelio:20141003120426p:plain" class="hatena-fotolife" itemprop="image"></span></p>
-- From the “All Services” tab, click the green “Add” button next to “Incoming Webhooks.”
-  - <p><span itemscope itemtype="http://schema.org/Photograph"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/m/motemen/20141029/20141029155413.png" alt="f:id:motemen:20141029155413p:plain" title="f:id:motemen:20141029155413p:plain" class="hatena-fotolife" itemprop="image"></span></p>
-- Select the channel or private group you’d like to have notifications sent to and click “Add Incoming Webhooks Integration.”
-  - <p><span itemscope itemtype="http://schema.org/Photograph"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/m/motemen/20141029/20141029155439.png" alt="f:id:motemen:20141029155439p:plain" title="f:id:motemen:20141029155439p:plain" class="hatena-fotolife" itemprop="image"></span></p>
-- Copy the Webhook URL which is then displayed and paste the URL back in Mackerel.
-  - <p><span itemscope itemtype="http://schema.org/Photograph"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/m/motemen/20141029/20141029155456.png" alt="f:id:motemen:20141029155456p:plain" title="f:id:motemen:20141029155456p:plain" class="hatena-fotolife" itemprop="image"></span></p>
+For the URL, enter the Incoming Webhook URL you can obtain by referring to the following article.
 
-- In the “Mentions” drop down menus you can decide what types of alerts you would like to be notified of and who should be able to see notifications.
+- [Incoming webhooks for Slack | Slack](https://slack.com/help/articles/115005265063-Incoming-webhooks-for-Slack)
+
+- In the “Mentions” drop down menu, you can decide what types of alerts you would like to be notified of and who can see notifications.
 - Click “Create” to complete set-up. To test the new notification channel, go back to the “Channels” page and click the “Test” button next to the Slack channel. If everything was configured correctly, you should receive a notification in Slack instantly.
 
 If you have any questions please contact our support team at support@mackerel.io

@@ -26,7 +26,7 @@ APIキーは[オーガニゼーションページ内・APIキータブ](https://
 sudo yum update mackerel-agent
 ```
 
-<h2 id="v1">CentOS 6 / Red Hat 6 をご利用の場合</h2>
+<h2 id="v1">Red Hat 6 をご利用の場合</h2>
 
 以下のコマンドを実行してください:
 
@@ -92,7 +92,7 @@ sudo journalctl -u mackerel-agent.service
 エージェントが正しく動きはじめると、Mackerelにホストとして登録されます。[ダッシュボード](https://mackerel.io/my/dashboard)などでご確認ください。
 
 
-<h3>CentOS 6 / Red Hat 6 をご利用の場合</h3>
+<h3>Red Hat 6 をご利用の場合</h3>
 
 以下のコマンドを実行することで、エージェントが起動します。
 
