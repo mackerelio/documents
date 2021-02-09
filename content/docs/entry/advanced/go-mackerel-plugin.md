@@ -34,7 +34,7 @@ import (
     "strings"
 
     mp "github.com/mackerelio/go-mackerel-plugin"
-    "github.com/mackerelio/golib/uptime"
+    "github.com/mackerelio/go-osstat/uptime"
 )
 ```
 
@@ -60,7 +60,7 @@ Additionally, this plugin struct must satisfy the `interface` of `mp.PluginWithP
 ```go
 type PluginWithPrefix interface {
     FetchMetrics() (map[string]float64, error)
-    GraphDefinition() map[string]Graphs
+    GraphDefinition() map[string]mp.Graphs
     MetricKeyPrefix() string
 }
 ```
@@ -113,7 +113,7 @@ func (u UptimePlugin) FetchMetrics() (map[string]float64, error) {
     if err != nil {
         return nil, fmt.Errorf("Failed to fetch uptime metrics: %s", err)
     }
-    return map[string]float64{"seconds": ut}, nil
+    return map[string]float64{"seconds": ut.Seconds()}, nil
 }
 ```
 
