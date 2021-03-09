@@ -181,7 +181,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 | `customIdentifier` | *string* | [optional] ホストに対するユーザー独自の、オーガニゼーションで一意な識別子 |
 | `meta` | *object* | ホストのメタ情報 |
 | `interfaces` | *array[object]* | ホストのネットワークインターフェース情報 |
-| `type` | *string* | ホストの種別（`"agent"`, `"container-agent"`, `"cloud"` など） |
+| `size` | *string* | [ホストの種類](https://mackerel.io/ja/docs/entry/spec/about-host#host-kinds) （`"standard"` または `"micro"`） |
 | `status` | *string* | ホストのステータス（`"working"`, `"standby"` など） |
 | `memo` | *string* | ホストに関するメモ。メモは管理画面から編集できます。 |
 | `isRetired` | *boolean* | ホストが退役しているかどうか |
