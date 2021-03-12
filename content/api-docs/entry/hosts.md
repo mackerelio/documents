@@ -183,7 +183,7 @@ One element of `checks` is an object that holds the following keys.
 | `customIdentifier` | *string* | [optional] an identifier for the host that is user-specific and unique to the organization |
 | `meta` | *object* | host metadata |
 | `interfaces` | *array[object]* | host network interface information |
-| `type` | *string* | classification of the host（`"agent"`, `"container-agent"`, `"cloud"` etc.） |
+| `size` | *string* | [host type](https://mackerel.io/docs/entry/spec/about-host#host-kinds) （`"standard"` or `"micro"`） |
 | `status` | *string* | status of the host（`"working"`, `"standby"` etc.） |
 | `memo` | *string* | notes related to the host; can be edited from the management screen |
 | `isRetired` | *boolean* | whether or not the host is retired |
