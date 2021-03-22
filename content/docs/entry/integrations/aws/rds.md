@@ -19,7 +19,7 @@ Please refer to the following page for AWS Integration configuration methods and
 
 The metrics obtainable with AWS Integration’s RDS support are as follows. For `Metric` explanations, refer to the AWS help pages (<a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Monitoring.html" target="_blank">Aurora</a> and <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MonitoringOverview.html" target="_blank">otherwise</a>).
 
-The maximum number of metrics obtainable is 52 with Aurora, 51 with Aurora Serverless, and 24 for anything else.
+The maximum number of metrics obtainable is 53 with Aurora, 51 with Aurora Serverless, and 24 for anything else.
 
 |Graph name|Metric|Metric name in Mackerel|Unit|Statistics|
 |:---|:---|:---|:---|:---|
@@ -70,8 +70,10 @@ In addition to the above, metrics that can be obtained with Aurora are listed be
 |Backtrack Window Difference|BacktrackWindowActual [*3](#rds-aurora-mysql)|rds.aurora.backtrack_window_difference.minutes|integer|Average|
 |Backtrack Window Alert|BacktrackWindowAlert [*3](#rds-aurora-mysql)|rds.aurora.backtrack_window_alert.alert|integer|Sum|
 |Aurora Volume Bytes Left Total|AuroraVolumeBytesLeftTotal [*3](#rds-aurora-mysql)|rds.aurora.aurora_volume_bytes_left_total.total|bytes|Average|
+|Volume Used|VolumeBytesUsed [*4](#rds-aurora-cluster)|rds.aurora.volume_used.bytes|bytes|Average|
 
 <div id="rds-aurora-mysql">*3 Applies to Aurora MySQL</div>
+<div id="rds-aurora-cluster">*4 A metric generated for each cluster. Instances of the same cluster display the same metric.</div>
 <br>
 
 With Aurora Serverless clusters, in addition to the metrics that can be obtained by Aurora, the following metrics can be obtained.
@@ -86,5 +88,6 @@ Among the graphs/metrics obtainable with AWS Integration, metrics included in th
 
 * CPU Credit
 * gp2 Storage Burst Balance
+* Volume Used
 
 This is specified by the AWS CloudWatch API.

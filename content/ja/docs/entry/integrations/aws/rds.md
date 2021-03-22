@@ -19,7 +19,7 @@ AWSインテグレーションの設定方法や対応AWSサービス一覧に�
 ## 取得メトリック
 AWSインテグレーションのRDS対応で取得できるメトリックは以下の通りです。 `メトリック` の説明に関してはAWSのヘルプ(<a href="https://docs.aws.amazon.com/ja_jp/AmazonRDS/latest/AuroraUserGuide/Aurora.Monitoring.html" target="_blank">Aurora</a>、<a href="https://docs.aws.amazon.com/ja_jp/AmazonRDS/latest/UserGuide/MonitoringOverview.html" target="_blank">Aurora以外</a>)をご確認ください。
 
-Auroraでは最大で52個、Aurora Serverlessでは最大で51個、それ以外では最大で24個のメトリックが取得されます。
+Auroraでは最大で53個、Aurora Serverlessでは最大で51個、それ以外では最大で24個のメトリックが取得されます。
 
 |グラフ名|メトリック|Mackerel上のメトリック名|単位|Statistics|
 |:---|:---|:---|:---|:---|
@@ -70,8 +70,10 @@ Auroraで取得できるメトリックは、上記に加えて以下のとお�
 |Backtrack Window Difference|BacktrackWindowActual [*3](#rds-aurora-mysql)|rds.aurora.backtrack_window_difference.minutes|integer|Average|
 |Backtrack Window Alert|BacktrackWindowAlert [*3](#rds-aurora-mysql)|rds.aurora.backtrack_window_alert.alert|integer|Sum|
 |Aurora Volume Bytes Left Total|AuroraVolumeBytesLeftTotal [*3](#rds-aurora-mysql)|rds.aurora.aurora_volume_bytes_left_total.total|bytes|Average|
+|Volume Used|VolumeBytesUsed [*4](#rds-aurora-cluster)|rds.aurora.volume_used.bytes|bytes|Average|
 
 <div id="rds-aurora-mysql">*3 Aurora MySQLに適用されます</div>
+<div id="rds-aurora-cluster">*4 クラスター毎に発生するメトリックであり、同じクラスターのインスタンスは同じメトリックが表示されます</div>
 <br>
 
 また、 Aurora Serverlessクラスターの場合は、Auroraで取得できるメトリックに加えて以下のメトリックが取得できます。
@@ -86,5 +88,6 @@ AWSインテグレーションにより取得可能な上記のグラフ・メ�
 
 * CPU Credit
 * gp2 Storage Burst Balance
+* Volume Used
 
 これは、AWS CloudWatch API の仕様です。
