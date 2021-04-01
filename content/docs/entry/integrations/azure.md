@@ -11,9 +11,11 @@ Each Azure cloud product will be registered as one host in Mackerel and therefor
 Virtual Machines will count as standard hosts and all other products will count as micro hosts. 
 Additionally, the API of Azure will be called every 5 minutes for each targeted metric to be obtained. Please take note, for this reason, an [Azure Monitor API usage fee](https://azure.microsoft.com/en-us/pricing/details/monitor/) may occur.
 
-Currently, the following Azure cloud products are supported. For information on obtaining metrics, please refer to each individual document.
+Currently, the following Azure cloud products are supported. For information on obtaining metrics, please refer to each individual document.[^1]
 
 [SQL Database](https://mackerel.io/docs/entry/integrations/azure/sql-database)・[Cache for Redis](https://mackerel.io/docs/entry/integrations/azure/redis-cache)・[Virtual Machines](https://mackerel.io/docs/entry/integrations/azure/virtual-machine)・[App Service](https://mackerel.io/docs/entry/integrations/azure/app-service)・[Functions](https://mackerel.io/docs/entry/integrations/azure/functions)・[Load Balancer](https://mackerel.io/docs/entry/integrations/azure/load-balancer)・[Database for MySQL](https://mackerel.io/docs/entry/integrations/azure/database-for-mysql)・[Database for PostgreSQL](https://mackerel.io/docs/entry/integrations/azure/database-for-postgresql)・[Application Gateway](https://mackerel.io/docs/entry/integrations/azure/application-gateway)・[Blob Storage](https://mackerel.io/docs/entry/integrations/azure/blob-storage)・[Azure Files](https://mackerel.io/docs/entry/integrations/azure/azure-files)
+
+[^1]: According to the specifications of Azure Metrics Explorer, any dimensions exceeding 50 for a single metric are ignored.
 
 # Integration method
 Azure Integration will integrate using service principals.

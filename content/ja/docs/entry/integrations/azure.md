@@ -11,9 +11,11 @@ Azureのクラウド製品1台が、Mackerelで1ホストとして登録され�
 ホストの種類は、Virtual Machinesについてはスタンダードホスト、その他の製品についてはマイクロホストとなります。
 また、5分ごとに取得対象となるメトリックの数だけAzureのAPIをコールして値を取得します。そのため[Azure Monitor API利用の料金](https://azure.microsoft.com/ja-jp/pricing/details/monitor/)が発生する場合がありますのでご注意ください。
 
-Azureインテグレーションは現在は以下のAzureクラウド製品に対応しています。取得メトリックなどについてはそれぞれのドキュメントを参照ください。
+Azureインテグレーションは現在は以下のAzureクラウド製品に対応しています。取得メトリックなどについてはそれぞれのドキュメントを参照ください。[^1]
 
 [SQL Database](https://mackerel.io/ja/docs/entry/integrations/azure/sql-database)・[Cache for Redis](https://mackerel.io/ja/docs/entry/integrations/azure/redis-cache)・[Virtual Machines](https://mackerel.io/ja/docs/entry/integrations/azure/virtual-machine)・[App Service](https://mackerel.io/ja/docs/entry/integrations/azure/app-service)・[Functions](https://mackerel.io/ja/docs/entry/integrations/azure/functions)・[Load Balancer](https://mackerel.io/ja/docs/entry/integrations/azure/load-balancer)・[Database for MySQL](https://mackerel.io/ja/docs/entry/integrations/azure/database-for-mysql)・[Database for PostgreSQL](https://mackerel.io/ja/docs/entry/integrations/azure/database-for-postgresql)・[Application Gateway](https://mackerel.io/ja/docs/entry/integrations/azure/application-gateway)・[Blob Storage](https://mackerel.io/ja/docs/entry/integrations/azure/blob-storage)・[Azure Files](https://mackerel.io/ja/docs/entry/integrations/azure/azure-files)
+
+[^1]: Azureメトリックスエクスプローラーの仕様に伴い、1メトリックのディメンションが50を超えた分は無視されます。
 
 # 連携方法
 Azureインテグレーションはサービスプリンシパルを使って連携をします。
