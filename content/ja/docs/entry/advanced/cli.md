@@ -272,144 +272,76 @@ Summary: 1 modify, 1 append, 1 remove
  },
 ```
 
-### ダッシュボードを生成する
+### カスタムダッシュボード
 
-mkrではdashboardsサブコマンドでカスタムダッシュボードを定義ファイルから自動生成できます。
+mkrではdashboardsサブコマンドでカスタムダッシュボードを操作できます。サブコマンドはpull/push/migrate/generateの4種類あります。サブコマンドを指定しない場合、カスタムダッシュボード一覧が表示されます。
 
-定義ファイルはYAML形式です。
+- `pull`
+  - Mackerelからカスタムダッシュボード一覧を取得し、複数の設定ファイルをカレントディレクトリに保存します。
+- `push`
+  - ローカルファイルのカスタムダッシュボード設定ファイルをMackerelに反映します。
+- `migrate`
+  - レガシーカスタムダッシュボード設定ファイルを、現行のカスタムダッシュボード設定ファイルへ変換します。
+- `generate`
+  - レガシーカスタムダッシュボード廃止に伴い非推奨です。
+
+カスタムダッシュボード設定ファイルのフォーマットについては、[API仕様の「ダッシュボードの作成」](https://mackerel.io/ja/api-docs/entry/dashboards#create)を参照してください。
+
+#### push時のカスタムダッシュボードの同一性判定ロジック
+
+`pull`する際はMackerelが付与した`id`が必ず含まれます。
+`push`する場合は`id`が含まれないルールも許容するために以下のロジックで監視ルールの同一判定を行います。
+
+- `id`を含む .. `id`で一致するカスタムダッシュボードをアップデート
+  - 同じ`id`のダッシュボードがなければエラーとなります。
+- `id`を含まない .. 新規のカスタムダッシュボードを作成
 
 #### 実行例
 
-以下のように定義ファイルをパラメータで指定して実行することで、mkrに設定されているAPIキーに対応するオーガニゼーション内にカスタムダッシュボードが自動的に作成されます。
+- カスタムダッシュボード一覧を取得
+
+リストの取得では、`widgets`は常に`null`となります。
+
 ```cdl
-% mkr dashboards generate config.yml
+% mkr dashboards
+[
+    {
+        "id": "2LHfKUq36xW",
+        "title": "demo",
+        "urlPath": "2LHfFFsNvo1",
+        "createdAt": 1470725548,
+        "updatedAt": 1538371379,
+        "memo": "",
+        "widgets": null,
+        "isLegacy": true,
+	},
+    {
+        "id": "49CBJiNaXfQ",
+        "title": "demo2",
+        "urlPath": "custom",
+        "createdAt": 1470725548,
+        "updatedAt": 1538371379,
+        "memo": "",
+        "widgets": null
+	}
+]
 ```
 
-また、`--print`オプションを指定することで、Mackerelへの登録・更新を行わずに標準出力にダッシュボードのmarkdownを出力することもできます。
+- カスタムダッシュボードをローカルファイルへ保存
+
 ```cdl
-% mkr dashboards generate config.yml --print
+% mkr dashboards pull
+      info Dashboard file is saved to 'dashboard-2LHfKUq36xW.json'(title:demo)
+      info Dashboard file is saved to 'dashboard-49CBJiNaXfQ.json'(title:demo2)
+% ls
+dashboard-2LHfKUq36xW.json	dashboard-49CBJiNaXfQ.json
 ```
 
-#### 定義ファイル(YAML)の仕様
+- Mackerelのカスタムダッシュボードを更新
 
-mkrで生成できるダッシュボードは2種類あります。
-
-1. ホストとメトリックを指定するホストグラフの一覧
-2. サービスメトリックや式によるグラフなどを個別に指定するグラフの一覧
-
-それぞれのフォーマット例は以下のようになります。
-
-##### ホストグラフ
-```yaml
-config_version: 0.9
-url_path: custom-graph
-title: Custom Host Graphs
-format: iframe
-height: 200
-width: 400
-host_graphs:
-  - headline: host graphs 1
-    host_ids:
-     - XXXXXXXXXXX
-     - YYYYYYYYYYY
-     - ZZZZZZZZZZZ
-    graph_names:
-     - loadavg5
-     - cpu
-     - filesystem
-     - custom.linux.disk.elapsed.*
-    period: 30m
-  - headline: host graphs 2
-    host_ids:
-     - XXXXXXXXXXX
-    graph_names:
-     - loadavg5
-     - memory
-    period: 30m
+```cdl
+% mkr dashboards push --file-path dashboard-49CBJiNaXfQ.json
 ```
-
-##### 個別グラフ指定
-```yaml
-config_version: 0.9
-url_path: custom-graph
-title: Custom Graphs
-format: iframe
-graphs:
-  - headline: any graphs
-    column_count: 2
-    graph_def:
-     - service_name: sugoi-service
-       graph_name: custom.access_latency.*
-     - service_name: sugoi-service
-       role_name: api
-       graph_name: loadavg5
-       stacked: false
-       simplified: true
-       period: 6h
-     - host_id: XXXXXXXXX
-       graph_name: custom.inode.count.#.*
-       period: 30m
-     - host_id: XXXXXXXXX
-       graph_name: filesystem
-       period: 30m
-  - headline: expression graph
-    graph_def:
-     - query: avg(roleSlots('sugoi-service:api',sum(group(host($HOST_ID, 'cpu.system.percentage'), host($HOST_ID, 'cpu.user.percentage')))))
-       period: 30m
-       title: graph title
-       unit: float
-```
-
-#### YAMLの各項目
-
-##### 共通
-| 項目名          | type | 説明  |
-|--------------|--|--------------------------------------|
-| config_version | string |yamlの定義ファイルのversion。 現在は0.9固定 |
-| url_path       | string | カスタムダッシュボードのURL。上記例だと`https://mackerel.io/orgs/<orgname>/dashboards/custom-graph`となる |
-| title          | string | カスタムダッシュボードのタイトル |
-| format         | string | [optional]グラフの形式。`iframe` or `image`。デフォルト値は`iframe` 。|
-| height         | int | [optional]グラフの高さ。formatが`iframe`の場合のみ有効。デフォルト値は200。|
-| width          | int | [optional]グラフの幅。formatが`iframe`の場合のみ有効。デフォルト値は400。|
-| host_graphs    | array[host_graphs] | 以下にホストグラフの定義が配列形式で続く。`graphs` といずれか片方のみ指定できる。 |
-| graphs         | array[graphs] | 以下に個別グラフ指定の定義が配列形式で続く。`host_graphs` といずれか片方のみ指定できる。 |
-
-##### ホストグラフの定義
-上記の `host_graphs`配下の項目として配列形式で定義。
-
-| 項目名          | type | 説明  |
-|--------------|--|--------------------------------------|
-| headline       | string | 表の見出し |
-| host_ids       | array[string] | 一覧に展開させるホストの一覧。配列形式で指定。|
-| graph_names    | array[string] | 一覧に展開させるグラフ名の一覧。配列形式で指定。|
-| period         | string | [optional]グラフの表示期間。デフォルト値は"1h"。使用可能な単位は`m`, `h`, `d`, `w`, `mo`, `y`。|
-
-
-##### 個別グラフの定義
-上記の `graphs`配下の項目として配列形式で定義。
-定義方法により、以下のグラフ形式に対応。
-
-- `service_name` のみの指定でサービスグラフ
-- `service_name`, `role_name` の指定でロールグラフ
-- `host_id` の指定でホストグラフ
-- `query` の指定で式によるグラフ
-- サービスグラフ, ロールグラフ, ホストグラフ, 式によるグラフのいずれにも該当しなければエラー
-
-| 項目名          | type | 説明  |
-|--------------  |------|--------------------------------------|
-| headline       | string | 表の見出し |
-| column_count   | int | [optional]生成されるグラフのカラム数。デフォルト値は1。 |
-| graph_def      | array[graph_def] | 以下にそれぞれのグラフの定義を配列形式で指定 |
-| service_name   | string | サービス名 |
-| role_name      | string | ロール名   |
-| host_id        | string | ホストID |
-| query          | string | 式 |
-| title          | string | [optional]式グラフ（query）を指定している場合のみ指定可能。式グラフのタイトルを指定 |
-| unit           | string | [optional]式グラフ（query）を指定している場合のみ指定可能。式グラフのメトリックの単位を指定 |
-| graph_name     | string | グラフ名 |
-| period         | string | [optional]グラフの表示期間。デフォルト値は"1h"。使用可能な単位は`m`, `h`, `d`, `w`, `mo`, `y`。|
-| stacked        | boolean | [optional]積み上げグラフかどうか。デフォルト値はfalse。ロールグラフのみ有効 |
-| simplified     | boolean | [optional]簡略表示かどうか。デフォルト値はfalse。ロールグラフのみ有効 |
 
 ### グラフアノテーション
 mkrでは、annotationsサブコマンドでグラフアノテーションに関連する操作を行なえます。サブコマンドはcreate/list/update/deleteの4種類あります。
