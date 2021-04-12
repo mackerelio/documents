@@ -28,7 +28,7 @@ The maximum number of metrics obtainable is `15 + 6 * (number of operation types
 |TimeToLiveDeletedItemCount|TimeToLiveDeletedItemCount|dynamodb.time_to_live_deleted_item_count.count|integer|Sum|
 |SuccessfulRequestLatency|SuccessfulRequestLatency|dynamodb.successful_request_latency.#.minimum<br>dynamodb.successful_request_latency.#.average<br>dynamodb.successful_request_latency.#.maximum|float|Minimum<br>Average<br>Maximum|
 |ReturnedItemCount|ReturnedItemCount|dynamodb.returned_item_count.#.minimum<br>dynamodb.returned_item_count.#.average<br>dynamodb.returned_item_count.#.maximum|float|Minimum<br>Average<br>Maximum|
-|RequestCount|RequestCount|dynamodb.request_count.requests|integer|SampleCount|
+|RequestCount|ReturnedItemCount|dynamodb.request_count.requests|integer|SampleCount|
 |TransactionConflict|TransactionConflict|dynamodb.transaction_conflict.item_level<br>dynamodb.transaction_conflict.request_level|integer|Sum<br>SampleCount|
 
 - Among the metrics displayed in Requests,  metrics generated for each operation are aggregated and displayed.

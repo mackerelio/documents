@@ -13,7 +13,7 @@ AWSインテグレーションの設定方法や対応AWSサービス一覧に�
 ## 取得メトリック
 AWSインテグレーションのEFS対応で取得できるメトリックは以下の通りです。`メトリック`の説明に関しては<a href="https://docs.aws.amazon.com/ja_jp/efs/latest/ug/monitoring-cloudwatch.html" target="_blank">AWSのヘルプ</a>をご確認ください。
 
-最大で28個のメトリックが取得されます。
+最大で36個のメトリックが取得されます。
 
 |グラフ名|メトリック|Mackerel上のメトリック名|単位|Statistics|
 |:--|:--|:--|:--|:--|
@@ -21,6 +21,15 @@ AWSインテグレーションのEFS対応で取得できるメトリックは�
 |Client Connections|ClientConnections|efs.client_connections.count|integer|Sum|
 |IO Limit|PercentIOLimit|efs.io_limit.maximum|percentage|Maximum|
 |Permitted Throughput|PermittedThroughput|efs.permitted_throughput.minimum<br>efs.permitted_throughput.average<br>efs.permitted_throughput.maximum|bytes/sec|Minimum<br>Average<br>Maximum|
-|Data IO Count|DataReadIOBytes<br>DataWriteIOBytes<br>MetadataIOBytes<br>TotalIOBytes|efs.data_io_count.read<br>efs.data_io_count.write<br>efs.data_io_count.metadata<br>efs.data_io_count.total|integer|SampleCount|
-|Data IO Sum Bytes|DataReadIOBytes<br>DataWriteIOBytes<br>MetadataIOBytes<br>TotalIOBytes|efs.data_io_sum_bytes.read<br>efs.data_io_sum_bytes.write<br>efs.data_io_sum_bytes.metadata<br>efs.data_io_sum_bytes.total|bytes|Sum|
-|Data IO Bytes|DataReadIOBytes<br>DataWriteIOBytes<br>MetadataIOBytes<br>TotalIOBytes|efs.data_io_bytes.Read.minimum<br>efs.data_io_bytes.Read.average<br>efs.data_io_bytes.Read.maximum<br>efs.data_io_bytes.Write.minimum<br>efs.data_io_bytes.Write.average<br>efs.data_io_bytes.Write.maximum<br>efs.data_io_bytes.Metadata.minimum<br>efs.data_io_bytes.Metadata.average<br>efs.data_io_bytes.Metadata.maximum<br>efs.data_io_bytes.Total.minimum<br>efs.data_io_bytes.Total.average<br>efs.data_io_bytes.Total.maximum|bytes|Minimum<br>Average<br>Maximum|
+|Data IO Count|DataReadIOBytes<br>DataWriteIOBytes<br>MetadataIOBytes<br>TotalIOBytes<br>MeteredIOBytes|efs.data_io_count.read<br>efs.data_io_count.write<br>efs.data_io_count.metadata<br>efs.data_io_count.total<br>efs.data_io_count.metered|integer|SampleCount|
+|Data IO Sum Bytes|DataReadIOBytes<br>DataWriteIOBytes<br>MetadataIOBytes<br>TotalIOBytes<br>MeteredIOBytes|efs.data_io_sum_bytes.read<br>efs.data_io_sum_bytes.write<br>efs.data_io_sum_bytes.metadata<br>efs.data_io_sum_bytes.total<br>efs.data_io_sum_bytes.metered|bytes|Sum|
+|Data IO Bytes|DataReadIOBytes<br>DataWriteIOBytes<br>MetadataIOBytes<br>TotalIOBytes<br>MeteredIOBytes|efs.data_io_bytes.Read.minimum<br>efs.data_io_bytes.Read.average<br>efs.data_io_bytes.Read.maximum<br>efs.data_io_bytes.Write.minimum<br>efs.data_io_bytes.Write.average<br>efs.data_io_bytes.Write.maximum<br>efs.data_io_bytes.Metadata.minimum<br>efs.data_io_bytes.Metadata.average<br>efs.data_io_bytes.Metadata.maximum<br>efs.data_io_bytes.Total.minimum<br>efs.data_io_bytes.Total.average<br>efs.data_io_bytes.Total.maximum<br>efs.data_io_bytes.Metered.minimum<br>efs.data_io_bytes.Metered.average<br>efs.data_io_bytes.Metered.maximum|bytes|Minimum<br>Average<br>Maximum|
+|Storage|StorageBytes|efs.storage.standard<br>efs.storage.ia<br>efs.storage.total|bytes|Sum|
+
+<h2 id="notes">注意事項</h2>
+
+AWSインテグレーションにより取得可能な上記のグラフ・メトリックのうち、下記のグラフに含まれるメトリックについては、通常、15分間隔粒度でのメトリックが取得されます。
+
+* Storage
+
+これは、AWS CloudWatch APIの仕様です。

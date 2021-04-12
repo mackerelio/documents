@@ -14,7 +14,7 @@ Please refer to the following page for AWS Integration configuration methods and
 ## Obtaining metrics
 The metrics obtainable with AWS Integration's support for EFS are as follows. For `Metric` explanations, refer to <a href="https://docs.aws.amazon.com/en_us/step-functions/latest/dg/procedure-cw-metrics.html" target="_blank">the AWS help page</a>.
 
-The maximum number of metrics obtainable is 28.
+The maximum number of metrics obtainable is 36.
 
 |Graph name|Metric|Metric name in Mackerel|Unit|Statistics|
 |:--|:--|:--|:--|:--|
@@ -22,6 +22,15 @@ The maximum number of metrics obtainable is 28.
 |Client Connections|ClientConnections|efs.client_connections.count|integer|Sum|
 |IO Limit|PercentIOLimit|efs.io_limit.maximum|percentage|Maximum|
 |Permitted Throughput|PermittedThroughput|efs.permitted_throughput.minimum<br>efs.permitted_throughput.average<br>efs.permitted_throughput.maximum|bytes/sec|Minimum<br>Average<br>Maximum|
-|Data IO Count|DataReadIOBytes<br>DataWriteIOBytes<br>MetadataIOBytes<br>TotalIOBytes|efs.data_io_count.read<br>efs.data_io_count.write<br>efs.data_io_count.metadata<br>efs.data_io_count.total|integer|SampleCount|
-|Data IO Sum Bytes|DataReadIOBytes<br>DataWriteIOBytes<br>MetadataIOBytes<br>TotalIOBytes|efs.data_io_sum_bytes.read<br>efs.data_io_sum_bytes.write<br>efs.data_io_sum_bytes.metadata<br>efs.data_io_sum_bytes.total|bytes|Sum|
-|Data IO Bytes|DataReadIOBytes<br>DataWriteIOBytes<br>MetadataIOBytes<br>TotalIOBytes|efs.data_io_bytes.Read.minimum<br>efs.data_io_bytes.Read.average<br>efs.data_io_bytes.Read.maximum<br>efs.data_io_bytes.Write.minimum<br>efs.data_io_bytes.Write.average<br>efs.data_io_bytes.Write.maximum<br>efs.data_io_bytes.Metadata.minimum<br>efs.data_io_bytes.Metadata.average<br>efs.data_io_bytes.Metadata.maximum<br>efs.data_io_bytes.Total.minimum<br>efs.data_io_bytes.Total.average<br>efs.data_io_bytes.Total.maximum|bytes|Minimum<br>Average<br>Maximum|
+|Data IO Count|DataReadIOBytes<br>DataWriteIOBytes<br>MetadataIOBytes<br>TotalIOBytes<br>MeteredIOBytes|efs.data_io_count.read<br>efs.data_io_count.write<br>efs.data_io_count.metadata<br>efs.data_io_count.total<br>efs.data_io_count.metered|integer|SampleCount|
+|Data IO Sum Bytes|DataReadIOBytes<br>DataWriteIOBytes<br>MetadataIOBytes<br>TotalIOBytes<br>MeteredIOBytes|efs.data_io_sum_bytes.read<br>efs.data_io_sum_bytes.write<br>efs.data_io_sum_bytes.metadata<br>efs.data_io_sum_bytes.total<br>efs.data_io_sum_bytes.metered|bytes|Sum|
+|Data IO Bytes|DataReadIOBytes<br>DataWriteIOBytes<br>MetadataIOBytes<br>TotalIOBytes<br>MeteredIOBytes|efs.data_io_bytes.Read.minimum<br>efs.data_io_bytes.Read.average<br>efs.data_io_bytes.Read.maximum<br>efs.data_io_bytes.Write.minimum<br>efs.data_io_bytes.Write.average<br>efs.data_io_bytes.Write.maximum<br>efs.data_io_bytes.Metadata.minimum<br>efs.data_io_bytes.Metadata.average<br>efs.data_io_bytes.Metadata.maximum<br>efs.data_io_bytes.Total.minimum<br>efs.data_io_bytes.Total.average<br>efs.data_io_bytes.Total.maximum<br>efs.data_io_bytes.Metered.minimum<br>efs.data_io_bytes.Metered.average<br>efs.data_io_bytes.Metered.maximum|bytes|Minimum<br>Average<br>Maximum|
+|Storage|StorageBytes|efs.storage.standard<br>efs.storage.ia<br>efs.storage.total|bytes|Sum|
+
+<h2 id="notes">Precautions</h2>
+
+Among the graphs/metrics obtainable with AWS Integration, metrics included in the following graphs are usually obtained in 15 minute intervals.
+
+* Storage
+
+This is specified by the AWS CloudWatch API.
