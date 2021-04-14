@@ -35,7 +35,7 @@ As of now, Mackerel and mackerel-agent have been verified to operate in the foll
         - CentOS 7/8, Ubuntu 16.04LTS/18.04LTS/20.04LTS,  Debian 9/10, Amazon Linux, Amazon Linux 2
         - Aside from the above, the agent will probably be run on most Linux systems (kernel version 2.6.23 or later), however we do not give official support for them at this time.
     - Windows
-        - Windows Server 2012 and later 64-bit environments
+        - Windows Server 2012 and later for x64-based Systems
     - Additionally, mackerel-agent is especially well suited for public IaaS cloud-based systems such as Amazon Web Services, Microsoft Azure and Google Compute Engine. (There may be reduced functionality on certain systems, such as those with specialized cloud network systems.)
 
 <h3 id="tsdb-spec">Metric data retention</h3>

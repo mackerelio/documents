@@ -36,7 +36,7 @@ Mackerelおよびmackerel-agentは、以下の環境で動作確認を行って�
         - CentOS 7/8、Ubuntu 16.04LTS/18.04LTS/20.04LTS、 Debian 9/10、Amazon Linux、Amazon Linux 2
         - その他、一般的なLinux環境(カーネルバージョン 2.6.23以降)でも動作すると思われますが、現在のところサポート対象外です。
     - Windows
-        - Windows Server 2012 以降 の 64ビット環境
+        - Windows Server 2012 以降の x64 ベースシステム
     - またAmazon Web ServicesやMicrosoft Azure、Google Compute EngineなどのパブリックIaaSクラウド全般を動作対象としています。（ネットワーク環境が特殊なクラウドなどでは全ての機能が正常に動作しない可能性はあります。）
 
 <h3 id="tsdb-spec">メトリックの保持について</h3>
