@@ -32,12 +32,18 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 <img src="https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20190228/20190228114822_original.png" class="hatena-fotolife" itemprop="image" width=457>
 
 ## ロール内異常検知による監視の仕様について
-- 対象となるホストはmackerel-agentが動作しているLinuxホストのみになります
-  - ロール内に対象外のホストを含む場合、学習が失敗する場合があります
-  - mackerel-agentから収集するシステムメトリック([参照](https://mackerel.io/ja/docs/entry/spec/metrics))を使用しています。カスタムメトリックやサービスメトリックは判定には使われません
-- 異常検知の学習が完了するまでは監視は行なわれません
+- 以下に該当する種類のホストがロール内異常検知の対象となります
+  - mackerel-agentが動作しているLinuxホスト
+  - mackerel-agentが動作しているWindowsホスト(実験的機能)
+- 学習・判定にはmackerel-agentから収集するシステムメトリック([参照](https://mackerel.io/ja/docs/entry/spec/metrics))を使用しています。カスタムメトリックやサービスメトリックは使用されません
+- ロール内に対象外のホストが含まれる場合、学習が失敗する場合があります
+- ロール内に複数の種類のホストが含まれる場合、学習および判定はいずれかの種類のホストのみが対象となります
+  - **複数の種類のホストを対象にロール内異常検知を利用する場合は、ホストの種類ごとにロールを割り当てることを推奨します**
 - 同一のロールに対して異常検知による監視を複数指定することはできません
+- 学習が完了するまでは監視は行なわれません
 - Trialプラン及び有料プランでのみご利用いただけます
   - 監視対象となっている5ホスト単位でスタンダードホスト1台分としてカウントします
   - 同一のホストが複数のロールを通して監視されている場合、重複してカウントします
   - 監視対象ホスト1台から利用料金が発生します
+- Windowsホストに対するロール内異常検知は、[実験的機能](https://mackerel.io/ja/docs/entry/advanced/experimental-features)として提供しています
+  - 実験的機能としての提供期間中は、Windowsホストは上記の利用数のカウントからは除外され、料金は発生しません

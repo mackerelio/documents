@@ -32,12 +32,18 @@ Go to the Monitors screen, located on the left side menu, and click the “Add M
 <img src="https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20190228/20190228114828_original.png" class="hatena-fotolife" itemprop="image" width=457>
 
 ## Monitoring specifications with anomaly detection for roles
-- Only available for Linux hosts running mackerel-agent.
-  - Training may fail when the role has unavailable hosts for anomaly detection
-  - System metrics collected from mackerel-agent are used ([reference](https://mackerel.io/docs/entry/spec/metrics). Custom metrics and service metrics are not.
+- The following types of hosts are subject to anomaly detection for roles.
+  - Linux hosts running mackerel-agent
+  - Windows hosts running mackerel-agent (experimental feature)
+- System metrics collected from mackerel-agent are used ([reference](https://mackerel.io/docs/entry/spec/metrics). Custom metrics and service metrics are not.
+- Training may fail when the role has hosts unavailable for anomaly detection.
+- If a role contains multiple types of hosts, training will only be conducted for one type.
+  - **To use anomaly detection with multiple types of hosts, we recommend assigning a role for each host type**
+- Multiple monitors with anomaly detection can not be specified for the same role.
 - Monitoring will not continue until the anomaly detection training has completed.
-- Multiple monitors with anomaly detection can not be specified for the same role
 - Only available for the Trial and Paid plans
-  - Every 5 hosts targeted for monitoring will count as 1 Standard host
-  - The same host will be counted multiple times if it is monitored through multiple roles
-  - A usage charge will incur starting with one monitored host
+  - Every 5 hosts targeted for monitoring will count as 1 Standard host.
+  - The same host will be counted multiple times if it is monitored through multiple roles.
+  - A usage charge will incur starting with one monitored host.
+- Anomaly detection for roles for Windows hosts is currently offered as an [experimental feature](https://mackerel.io/docs/entry/advanced/experimental-features).
+  - During its period as an experimental feature, Windows hosts will be excluded from the usage calculation mentioned above and charges will not incur.
