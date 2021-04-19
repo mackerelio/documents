@@ -14,7 +14,7 @@ Please refer to the following page for AWS Integration configuration methods and
 
 The metrics obtainable with AWS Integration’s EC2 support are as follows. For `Metric` explanations, refer to the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/viewing_metrics_with_cloudwatch.html" target="_blank">AWS help page</a>.
 
-The maximum number of metrics obtainable is 15.
+The maximum number of metrics obtainable is 21.
 
 |Graph name|Metric|Metric name in Mackerel|Unit|Statistics|
 |:---|:---|:---|:---|:---|
@@ -25,6 +25,11 @@ The maximum number of metrics obtainable is 15.
 |Network Traffic|NetworkIn<br>NetworkOut|ec2.network.in<br>ec2.network.out|bytes|Average|
 |Network Packets|NetworkPacketsIn<br>NetworkPacketsOut|ec2.network_packets.in<br>ec2.network_packets.out|float|Average|
 |Status Check Failed|StatusCheckFailed_Instance<br>StatusCheckFailed_System<br>StatusCheckFailed|ec2.status_check_failed.instance<br>ec2.status_check_failed.system<br>ec2.status_check_failed.total|float|Average|
+|EBS Operation|EBSReadOps [*1](#ec2-nitro)<br>EBSWriteOps [*1](#ec2-nitro)|ec2.ebs_operation.read<br>ec2.ebs_operation.write|integer|Sum|
+|EBS Bytes Used|EBSReadBytes [*1](#ec2-nitro)<br>EBSWriteBytes [*1](#ec2-nitro)|ec2.ebs_bytes_used.read<br>ec2.ebs_bytes_used.write|bytes|Sum|
+|EBS Burst Bucket Balance|EBSIOBalance% [*1](#ec2-nitro)<br>EBSByteBalance% [*1](#ec2-nitro)|ec2.ebs_burst_bucket_balance.io<br>ec2.ebs_burst_bucket_balance.throughput|percentage|Average|
+
+ediv id="ec2-nitro">*1 Occurs with Nitro-based instances. Click <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">here</a> for a list of instances.
 
 <h3 id="notes">Precautions</h2>
 
@@ -37,6 +42,19 @@ Among the graphs/metrics obtainable with AWS Integration, metrics included in th
 * Network Traffic
 * Network Packets
 * Status Check Failed
+* EBS Operation
+* EBS Bytes Used
+* EBS Burst Bucket Balance
+
+By enabling <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch-new.html">detailed monitoring</a>, the metrics in the graph below will be obtained in 1-minute intervals.
+
+* CPU
+* Disk OPS
+* Disk IO
+* Network Traffic
+* Status Check Failed
+* EBS Operation
+* EBS Bytes Used
 
 This is specified by the AWS CloudWatch API.
 
