@@ -274,16 +274,12 @@ Summary: 1 modify, 1 append, 1 remove
 
 ### カスタムダッシュボード
 
-mkrではdashboardsサブコマンドでカスタムダッシュボードを操作できます。サブコマンドはpull/push/migrate/generateの4種類あります。サブコマンドを指定しない場合、カスタムダッシュボード一覧が表示されます。
+mkrではdashboardsサブコマンドでカスタムダッシュボードを操作できます。サブコマンドはpull/pushの2種類あります。サブコマンドを指定しない場合、カスタムダッシュボード一覧が表示されます。
 
 - `pull`
   - Mackerelからカスタムダッシュボード一覧を取得し、複数の設定ファイルをカレントディレクトリに保存します。
 - `push`
   - ローカルファイルのカスタムダッシュボード設定ファイルをMackerelに反映します。
-- `migrate`
-  - レガシーカスタムダッシュボード設定ファイルを、現行のカスタムダッシュボード設定ファイルへ変換します。
-- `generate`
-  - レガシーカスタムダッシュボード廃止に伴い非推奨です。
 
 カスタムダッシュボード設定ファイルのフォーマットについては、[API仕様の「ダッシュボードの作成」](https://mackerel.io/ja/api-docs/entry/dashboards#create)を参照してください。
 
@@ -313,7 +309,6 @@ mkrではdashboardsサブコマンドでカスタムダッシュボードを操�
         "updatedAt": 1538371379,
         "memo": "",
         "widgets": null,
-        "isLegacy": true,
 	},
     {
         "id": "49CBJiNaXfQ",

@@ -8,8 +8,6 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackere
 # Custom Dashboards
 With this feature, user-customized dashboards can be added to the standard dashboard view in Mackerel.
 
-This page explains Custom Dashboards following the feature's renovation as of November 2018. For details regarding this feature before its renovation, refer to [Using Legacy Custom Dashboards](https://mackerel.io/docs/entry/howto/dashboard/legacy).
-
 ## Creating a custom dashboard
 Click "Dashboards" located in left sidebar menu to change to the dashboard management screen.
 

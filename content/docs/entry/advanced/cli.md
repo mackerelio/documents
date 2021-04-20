@@ -277,16 +277,12 @@ Summary: 1 modify, 1 append, 1 remove
 
 ### Custom Dashboards
 
-mkr lets you manage custom dashboards with the dashboards subcommand. There are four types of subcommands: pull / push / migrate / generate. If a subcommand is not specified, the custom dashboard list is displayed.
+mkr lets you manage custom dashboards with the dashboards subcommand. There are two types of subcommands: pull / push. If a subcommand is not specified, the custom dashboard list is displayed.
 
 - `pull`
   - Retrieve a list of custom dashboards from Mackerel and save multiple configuration files in the current directory.
 - `push`
   - Apply a local file's custom dashboard configuration file in Mackerel.
-- `migrate`
-  - Convert a legacy custom dashboard configuration file to the current custom dashboard configuration file.
-- `generate`
-  - Deprecated due to the discontinuation of Legacy Custom Dashboards.
 
 Refer to the [Create Dashboards](https://mackerel.io/api-docs/entry/dashboards#create) section of the API documentation for custom dashboard configuration file format.
 
@@ -317,7 +313,6 @@ When retrieving lists, `widgets` are always `null`.
         "updatedAt": 1538371379,
         "memo": "",
         "widgets": null,
-        "isLegacy": true,
 	},
     {
         "id": "49CBJiNaXfQ",

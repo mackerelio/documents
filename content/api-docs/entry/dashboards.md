@@ -13,8 +13,6 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
   <li><a href="#list">List Dashboards</a></li>
 </ul>
 
-This page explains Custom Dashboards following the feature's renovation as of November 2018. For details regarding the API operating this feature before its renovation, refer [here](https://mackerel.io/api-docs/entry/dashboards/legacy).
-
 <h2 id="create">Create Dashboards</h2>
 
 This section covers creating dashboards.
@@ -229,9 +227,8 @@ The dashboard before deletion is returned, same as [Create Dashboards](#create).
 | ------------ | --------------- | ---------------------- |
 | `dashboards` | *array[object]* | a list of the dashboards |
 
-`dashboards` contains both Custom Dashboards and [Legacy Custom Dashboards](https://mackerel.io/docs/entry/howto/dashboard/legacy). Each format is as follows:
+Each dashboard is an object with the following keys:
 
-#### For Custom Dashboards
 | KEY         | TYPE     | DESCRIPTION                |
 | ----------- | -------- | -------------------------- |
 | `id`        | *string* | the dashboard's ID         |
@@ -240,17 +237,6 @@ The dashboard before deletion is returned, same as [Create Dashboards](#create).
 | `urlPath`   | *string* | the dashboard's URL path   |
 | `createdAt` | *number* | the time at which created (in epoch seconds)     |
 | `updatedAt` | *number* | the time at which last updated (in epoch seconds) |
-
-#### For Legacy Custom Dashboards
-| KEY            | TYPE      | DESCRIPTION                |
-| -------------- | --------- | -------------------------- |
-| `id`           | *string*  | the dashboard's ID         |
-| `title`        | *string*  | the name of the dashboard       |
-| `urlPath`      | *string*  | the dashboard's URL path   |
-| `bodyMarkdown` | *string*  | a character string in Markdown format       |
-| `createdAt`    | *number*  | the time at which created (in epoch seconds)     |
-| `updatedAt`    | *number*  | the time at which last updated (in epoch seconds) |
-| `isLegacy`     | *boolean* | a fixed value `true`              |
 
 ----------------------------------------------
 

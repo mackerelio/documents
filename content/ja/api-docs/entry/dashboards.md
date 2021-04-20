@@ -13,8 +13,6 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
   <li><a href="#list">ダッシュボードの一覧</a></li>
 </ul>
 
-このページでは2018年11月のリニューアル後のカスタムダッシュボードのAPIについて説明します。リニューアル以前のカスタムダッシュボードを操作するAPIについては[こちら](https://mackerel.io/ja/api-docs/entry/dashboards/legacy)をご覧ください。
-
 <h2 id="create">ダッシュボードの作成</h2>
 
 ダッシュボードを作成します。
@@ -229,9 +227,8 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 | ------------ | --------------- | ---------------------- |
 | `dashboards` | *array[object]* | ダッシュボードのリスト |
 
-`dashboards` にはカスタムダッシュボードと[レガシーカスタムダッシュボード](https://mackerel.io/ja/docs/entry/howto/dashboard/legacy)の両方が含まれます。それぞれの形式は以下の通りです:
+それぞれのダッシュボードは以下のキーを持つオブジェクト
 
-#### カスタムダッシュボードの場合
 | KEY         | TYPE     | DESCRIPTION                |
 | ----------- | -------- | -------------------------- |
 | `id`        | *string* | ダッシュボードのID         |
@@ -240,17 +237,6 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 | `urlPath`   | *string* | ダッシュボードのURLのパス  |
 | `createdAt` | *number* | 作成時刻（エポック秒）     |
 | `updatedAt` | *number* | 最終更新時刻（エポック秒） |
-
-#### レガシーカスタムダッシュボードの場合
-| KEY            | TYPE      | DESCRIPTION                |
-| -------------- | --------- | -------------------------- |
-| `id`           | *string*  | ダッシュボードのID         |
-| `title`        | *string*  | ダッシュボード名           |
-| `urlPath`      | *string*  | ダッシュボードのURLのパス  |
-| `bodyMarkdown` | *string*  | Markdown形式の文字列       |
-| `createdAt`    | *number*  | 作成時刻（エポック秒）     |
-| `updatedAt`    | *number*  | 最終更新時刻（エポック秒） |
-| `isLegacy`     | *boolean* | 固定値 `true`              |
 
 ----------------------------------------------
 
