@@ -8,7 +8,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackere
 Mackerel supports obtaining and monitoring <a href="https://azure.microsoft.com/ja-jp/services/virtual-machines/" target="_blank">Virtual Machines</a> metrics in Azure Integration. When integrating with Azure Integration, billable targets are determined using the conversion 1 Instance = 1 Standard Host.
 
 Please refer to the following page for Azure Integration configuration methods and a list of supported Azure services. <br>
-<a href="https://mackerel.io/ja/docs/entry/integrations/azure">Azure Integration</a>
+<a href="https://mackerel.io/docs/entry/integrations/azure">Azure Integration</a>
 
 ## Obtaining metrics
 

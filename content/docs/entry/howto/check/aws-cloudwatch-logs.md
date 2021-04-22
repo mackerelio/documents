@@ -5,7 +5,7 @@ URL: https://mackerel.io/docs/entry/howto/check/aws-cloudwatch-logs
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/10257846132639277272
 ---
 
-With `check-aws-cloudwatch-logs` included in the official check plugin pack, you can monitor log data from [Amazon CloudWatch Logs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html). For information on how to install the official check plugin pack, refer to [Using the official check plugin pack for check monitoring](https://mackerel.io/ja/docs/entry/howto/mackerel-check-plugins).
+With `check-aws-cloudwatch-logs` included in the official check plugin pack, you can monitor log data from [Amazon CloudWatch Logs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html). For information on how to install the official check plugin pack, refer to [Using the official check plugin pack for check monitoring](https://mackerel.io/docs/entry/howto/mackerel-check-plugins).
 
 ## How to use `check-aws-cloudwatch-logs`
 

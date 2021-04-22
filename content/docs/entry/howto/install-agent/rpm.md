@@ -72,7 +72,7 @@ Using configuration files the following can be done:
 
 - [Setting services and roles](https://mackerel.io/docs/entry/spec/agent#setting-services-and-roles)
 - [Posting custom metrics](https://mackerel.io/docs/entry/advanced/custom-metrics)
-- [Adding monitors for script checks](https://mackerel.io/ja/docs/entry/custom-checks)
+- [Adding monitors for script checks](https://mackerel.io/docs/entry/custom-checks)
 
 <h2 id="start-agent">Launching mackerel-agent</h2>
 <h3>When using CentOS 7 / Red Hat 7 or later</h3>
@@ -171,13 +171,13 @@ apikey = "<YOUR_API_KEY>"
 
 You can obtain the API key from your [organization's page](https://kcps-mackerel.io/my). Keep in mind this key is used to identify your organization, so we strongly advise not sharing it with others.
 
-For more information, please refer to [mackerel-agent specifications](https://mackerel.io/ja/docs/entry/spec/agent).
+For more information, please refer to [mackerel-agent specifications](https://mackerel.io/docs/entry/spec/agent).
 
 Using configuration files the following can be done:
 
-- [Setting services and roles](https://mackerel.io/ja/docs/entry/spec/agent#setting-services-and-roles)
-- [Posting custom metrics](https://mackerel.io/ja/docs/entry/advanced/custom-metrics)
-- [Adding monitors for script checks](https://mackerel.io/ja/docs/entry/custom-checks)
+- [Setting services and roles](https://mackerel.io/docs/entry/spec/agent#setting-services-and-roles)
+- [Posting custom metrics](https://mackerel.io/docs/entry/advanced/custom-metrics)
+- [Adding monitors for script checks](https://mackerel.io/docs/entry/custom-checks)
 
 <h2 id="start-agent">Launching mackerel-agent</h2>
 

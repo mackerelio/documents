@@ -9,7 +9,7 @@ CustomPath: integrations/azure/database-for-postgresql
 Mackerel supports obtaining and monitoring <a href="https://azure.microsoft.com/en-us/services/postgresql/" target="_blank">Database for PostgreSQL</a> metrics in Azure Integration. Billable targets are determined using the conversion 1 resource = 1 Micro Host.
 
 Please refer to the following page for Azure Integration configuration methods and a list of supported Azure services.<br>
-<a href="https://mackerel.io/ja/docs/entry/integrations/azure">Azure Integration</a>
+<a href="https://mackerel.io/docs/entry/integrations/azure">Azure Integration</a>
 
 ## Obtaining metrics
 The metrics obtainable with Azure Integration’s Database for PostgreSQL support vary by price level.

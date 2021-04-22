@@ -44,7 +44,7 @@ Once [mackerel-agent has been installed and launched](https://mackerel.io/docs/e
 
 Connectivity monitoring works by looking at intervals of metric data from mackerel-agent. In the event that no data is being reported from a host, Mackerel will determine the source of the problem and send an alert.
 
-[install-agent]: https://mackerel.io/ja/docs/entry/howto/install-agent
+[install-agent]: https://mackerel.io/docs/entry/howto/install-agent
 
 ## Metric monitoring
 
