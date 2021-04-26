@@ -31,7 +31,8 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 
 <img src="https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20190228/20190228114822_original.png" class="hatena-fotolife" itemprop="image" width=457>
 
-## ロール内異常検知による監視の仕様について
+<h2 id="hosttype">ロール内異常検知による監視の仕様について</h2>
+
 - 以下に該当する種類のホストがロール内異常検知の対象となります
   - mackerel-agentが動作しているLinuxホスト
   - mackerel-agentが動作しているWindowsホスト(実験的機能)

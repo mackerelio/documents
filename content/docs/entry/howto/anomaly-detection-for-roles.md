@@ -31,7 +31,8 @@ Go to the Monitors screen, located on the left side menu, and click the “Add M
 
 <img src="https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20190228/20190228114828_original.png" class="hatena-fotolife" itemprop="image" width=457>
 
-## Monitoring specifications with anomaly detection for roles
+<h2 id="hosttype">Monitoring specifications with anomaly detection for roles</h2>
+
 - The following types of hosts are subject to anomaly detection for roles.
   - Linux hosts running mackerel-agent
   - Windows hosts running mackerel-agent (experimental feature)
