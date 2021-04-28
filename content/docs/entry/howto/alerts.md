@@ -71,7 +71,7 @@ The following items are included in monitoring rules.
   - Have an alert will occur when the threshold is continously exceeded. The alert will close if the current state falls below the threshold even once.
 - Notes
   - Write memos describing the intent of certain monitoring settings or how to deal with an alert when it occurs.
-- Number of notification retransmissions
+- Interval of notification retransmissions
   - Continue to have notifications sent at a set time interval while the alert is still occurring.
 
 - A few things to keep in mind:
