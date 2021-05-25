@@ -13,7 +13,7 @@ In Mackerel, there are four permissions that vary in strength. In order of stren
     - Each organization has one Owner (limited to one position)
 - Manager
     - Users who can perform all configurations associated with the organization (excluding plan and payment method)
-    - The Manager can create, view, edit, delete an API key, add and delete members, and configure AWS/Azure Integrations
+    - The Manager can create, view, edit, delete an API key, add and delete members, and configure AWS/Azure/Google Cloud Integrations
 - Collaborator
     - Users who can perform various settings, changes, deletions, etc. within the organization
     - The Collaborator can create/update/delete services and roles, monitor rules, notification channels, and various configurations
@@ -25,28 +25,28 @@ User permission settings can be configured at the time of user invitation or fro
 
 The operations that are possible / impossible for each permission are as follows.
 
-|                                                            | Owner  | Manager  | Collaborator  | Viewer  |
-|-----------------------------------------------------------:|----------:|--------:|--------------:|--------:|
-| Change/cancel plan                                          |         ○|       ×|             ×|       ×|
-| Change payment info                                           |         ○|       ×|             ×|       ×|
-| Delete organization                                   |         ○|       ×|             ×|       ×|
-| Create/view/edit/delete API key                              |         ○|       ○|             ×|       ×|
-| View payment info                                           |         ○|       ○|             ×|       ×|
-| Edit AWS/Azure Integration settings                            |         ○|       ○|             ×|       ×|
-| Add/edit/delete members                                   |         ○|       ○|             ×|       ×|
-| View/edit organization settings                          |         ○|       ○|             ×|       ×|
-| Configure monitor notifications’ on/off settings                                  |         ○|       ○|             ×|       ×|
-| Host configurations (status changes or retirement)                      |         ○|       ○|             ○|       ×|
-| Create/edit/delete services and roles                           |         ○|       ○|             ○|       ×|
-| Create/edit/delete monitor rules and notification channels                 |         ○|       ○|             ○|       ×|
-| Close alerts                                           |         ○|       ○|             ○|       ×|
-| Create/edit/delete custom dashboards                     |         ○|       ○|             ○|       ×|
-| Create/edit/delete graph settings and graph annotations           |         ○|       ○|             ○|       ×|
-| Create/edit/delete graphboards                                    |         ○|       ○|             ○|       ×|
-| Create/delete graph sharing URLs                         |         ○|       ○|             ○|       ×|
-| View Services/Roles/Hosts                             |         ○|       ○|             ○|       ○|
-| View monitor rules/notification channels/alerts                 |         ○|       ○|             ○|       ○|
-| View graphs/custom dashboards/graph annotations |         ○|       ○|             ○|       ○|
-| View graphboards                                |         ○|       ○|             ○|       ○|
-| View graph sharing URLs                         |         ○|       ○|             ○|       ○|
-| View AWS/Azure Integration settings/member list              |         ○|       ○|             ○|       ○|
+|                                                              | Owner  | Manager | Collaborator | Viewer |
+|-------------------------------------------------------------:|-------:|--------:|-------------:|-------:|
+| Change/cancel plan                                           |       ○|        ×|             ×|       ×|
+| Change payment info                                          |       ○|        ×|             ×|       ×|
+| Delete organization                                          |       ○|        ×|             ×|       ×|
+| Create/view/edit/delete API key                              |       ○|        ○|             ×|       ×|
+| View payment info                                            |       ○|        ○|             ×|       ×|
+| Edit AWS/Azure/Google Cloud Integration settings             |       ○|        ○|             ×|       ×|
+| Add/edit/delete members                                      |       ○|        ○|             ×|       ×|
+| View/edit organization settings                              |       ○|        ○|             ×|       ×|
+| Configure monitor notifications’ on/off settings             |       ○|        ○|             ×|       ×|
+| Host configurations (status changes or retirement)           |       ○|        ○|             ○|       ×|
+| Create/edit/delete services and roles                        |       ○|        ○|             ○|       ×|
+| Create/edit/delete monitor rules and notification channels   |       ○|        ○|             ○|       ×|
+| Close alerts                                                 |       ○|        ○|             ○|       ×|
+| Create/edit/delete custom dashboards                         |       ○|        ○|             ○|       ×|
+| Create/edit/delete graph settings and graph annotations      |       ○|        ○|             ○|       ×|
+| Create/edit/delete graphboards                               |       ○|        ○|             ○|       ×|
+| Create/delete graph sharing URLs                             |       ○|        ○|             ○|       ×|
+| View Services/Roles/Hosts                                    |       ○|        ○|             ○|       ○|
+| View monitor rules/notification channels/alerts              |       ○|        ○|             ○|       ○|
+| View graphs/custom dashboards/graph annotations              |       ○|        ○|             ○|       ○|
+| View graphboards                                             |       ○|        ○|             ○|       ○|
+| View graph sharing URLs                                      |       ○|        ○|             ○|       ○|
+| View AWS/Azure/Google Cloud Integration settings/member list |       ○|        ○|             ○|       ○|

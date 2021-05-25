@@ -95,7 +95,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackere
     <li><a href="https://mackerel.io/docs/entry/howto/alerts/pagerduty"><strong>PagerDuty notifications</strong><span>sending alert notifications to PagerDuty</span></a></li>
     <li><a href="https://mackerel.io/docs/entry/howto/alerts/chatwork"><strong>Chatwork notifications</strong><span>sending alert notifications to Chatwork</span></a></li>
     <li><a href="https://mackerel.io/docs/entry/howto/alerts/typetalk"><strong>Typetalk notifications</strong><span>sending alert notifications to Typetalk</span></a></li>
-    <li><a href="https://mackerel.io/docs/entry/howto/alerts/OpsGenie"><strong>OpsGenie notifications</strong><span>sending alert notifications to OpsGenie</span></a></li>
+    <li><a href="https://mackerel.io/docs/entry/howto/alerts/OpsGenie"><strong>Opsgenie notifications</strong><span>sending alert notifications to Opsgenie</span></a></li>
     <li><a href="https://mackerel.io/docs/entry/howto/alerts/webhook"><strong>Webhook notifications</strong><span>sending alert notifications to Webhook</span></a></li>
     <li><a href="https://mackerel.io/docs/entry/howto/alerts/reactio"><strong>Reactio notifications</strong><span>sending alert notifications to Reactio</span></a></li>
     <li><a href="https://mackerel.io/docs/entry/howto/alerts/yammer"><strong>Yammer notifications</strong><span>sending alert notifications to Yammer</span></a></li>

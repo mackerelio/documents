@@ -112,7 +112,7 @@ Mackerel と連携するためのアプリケーションを登録してくだ�
 
 **注意** こちらのシークレットの有効期限が切れますとその時点からMackerelのAzureインテグレーションでもメトリック取得が不可能となりますので、その際はシークレットを新たに作り直してください。「期限なし」を選んだ場合は有効期限がすぐに切れることはありません。
 
-![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20191225/20191225150353.png)
+![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20210525/20210525144640.png)
 
 ![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20170621/20170621114251.png)
 

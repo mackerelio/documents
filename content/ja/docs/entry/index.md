@@ -95,7 +95,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
     <li><a href="https://mackerel.io/ja/docs/entry/howto/alerts/pagerduty"><strong>PagerDutyにアラートを通知する</strong><span>アラートをPagerDutyへ通知します</span></a></li>
     <li><a href="https://mackerel.io/ja/docs/entry/howto/alerts/chatwork"><strong>Chatworkにアラートを通知する</strong><span>アラートをChatworkへ通知します</span></a></li>
     <li><a href="https://mackerel.io/ja/docs/entry/howto/alerts/typetalk"><strong>TypeTalkにアラートを通知する</strong><span>アラートをTypeTalkへ通知します</span></a></li>
-    <li><a href="https://mackerel.io/ja/docs/entry/howto/alerts/OpsGenie"><strong>OpsGenieにアラートを通知する</strong><span>アラートをOpsGenieへ通知します</span></a></li>
+    <li><a href="https://mackerel.io/ja/docs/entry/howto/alerts/OpsGenie"><strong>Opsgenieにアラートを通知する</strong><span>アラートをOpsgenieへ通知します</span></a></li>
     <li><a href="https://mackerel.io/ja/docs/entry/howto/alerts/webhook"><strong>Webhookにアラートを通知する</strong><span>アラートをWebhookへ通知します</span></a></li>
     <li><a href="https://mackerel.io/ja/docs/entry/howto/alerts/reactio"><strong>Reactioにアラートを通知する</strong><span>アラートをReactioへ通知します</span></a></li>
     <li><a href="https://mackerel.io/ja/docs/entry/howto/alerts/yammer"><strong>Yammerにアラートを通知する</strong><span>アラートをYammerへ通知します</span></a></li>
