@@ -39,7 +39,7 @@ env = { SAMPLE_KEY = "VALUE" } # optional
         - 配列を渡した場合、シェル経由での実行にならず、エスケープも不要になります。
 - user: `command` で指定したコマンドの実行ユーザーを指定できます。指定しない場合は mackerel-agent の実行ユーザーがコマンドの実行ユーザーとなります。Windows環境には未対応のため、利用できません。
 - custom_identifier: 実行結果のメトリックを、 agent が動作しているホストではなく指定した識別子のホストのメトリックとして送信します。
-    - AWS / Azure インテグレーションの連携ホストにメトリックを追加する場合などに有用です。詳細は[AWSインテグレーションのドキュメント](https://mackerel.io/ja/docs/entry/integrations/aws#plugin-custom-identifier)をご覧下さい。
+    - AWS / Azure / Google Cloud インテグレーションの連携ホストにメトリックを追加する場合などに有用です。詳細は[AWSインテグレーションのドキュメント](https://mackerel.io/ja/docs/entry/integrations/aws#plugin-custom-identifier)をご覧下さい。
 - include_pattern / exclude_pattern: 実行結果のメトリックのうち特定のものだけを Mackerel に投稿するために正規表現を記述できます。
     - include_pattern が指定されていた場合、メトリック名が指定された正規表現にマッチするメトリックのみを投稿します。
     - exclude_pattern が指定されていた場合、メトリック名が指定された正規表現にマッチしないメトリックのみを投稿します。
