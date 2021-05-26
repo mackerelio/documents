@@ -19,34 +19,57 @@ AWSインテグレーションの設定方法や対応AWSサービス一覧に�
 ## 取得メトリック
 AWSインテグレーションのRDS対応で取得できるメトリックは以下の通りです。 `メトリック` の説明に関してはAWSのヘルプ(<a href="https://docs.aws.amazon.com/ja_jp/AmazonRDS/latest/AuroraUserGuide/Aurora.Monitoring.html" target="_blank">Aurora</a>、<a href="https://docs.aws.amazon.com/ja_jp/AmazonRDS/latest/UserGuide/MonitoringOverview.html" target="_blank">Aurora以外</a>)をご確認ください。
 
-Auroraでは最大で53個、Aurora Serverlessでは最大で51個、それ以外では最大で24個のメトリックが取得されます。
+各DBエンジン毎に、最大で以下のメトリックが取得されます。
+
+|DBエンジン|  |最大取得メトリック数|
+|:---|:---|---:|
+|RDS|PostgreSQL|24|
+|  |SQL Server|20|
+|  |上記以外|19|
+|Aurora|MySQL|43|
+|  |PostgreSQL|39|
+|Aurora Serverless|MySQL|41|
+|  |PostgreSQL|40|
+
+### 共通メトリック
+RDS、Aurora、Aurora Serverlessで共通して取得できるメトリックは以下のとおりです。
 
 |グラフ名|メトリック|Mackerel上のメトリック名|単位|Statistics|
 |:---|:---|:---|:---|:---|
 |CPU|CPUUtilization|rds.cpu.used|percentage|Average|
 |CPU Credit|CPUCreditUsage<br>CPUCreditBalance|rds.cpu_credit.used<br>rds.cpu_credit.balance|float|Average|
 |Database Connections|DatabaseConnections|rds.database_connections.used|float|Average|
-|Disk Queue|DiskQueueDepth|rds.disk_queue.depth|float|Average|
 |BinLog Disk Usage|BinLogDiskUsage|rds.disk_usage.bin_log|bytes|Average|
 |Memory|FreeableMemory<br>SwapUsage|rds.memory.free<br>rds.memory.swap|bytes|Average|
+|Network Throughput|NetworkReceiveThroughput<br>NetworkTransmitThroughput|rds.network_throughput.read<br>rds.network_throughput.transmit|bytes/sec|Average|
+|gp2 Storage Burst Balance|BurstBalance|rds.burst_balance.balance|percentage|Average|
+|Maximum Used Transaction IDs|MaximumUsedTransactionIDs [*1](#common-postgres)|rds.maximum_used_transaction_ids.count|integer|Average|
+
+<div id="common-postgres">*1 PostgreSQLに適用されます</div>
+<br>
+
+### RDSメトリック
+RDSの場合は上記の共通メトリックに加えて以下のメトリックが取得できます。
+
+|グラフ名|メトリック|Mackerel上のメトリック名|単位|Statistics|
+|:---|:---|:---|:---|:---|
+|Disk Queue|DiskQueueDepth|rds.disk_queue.depth|float|Average|
 |Free Storage Space|FreeStorageSpace|rds.disk.free|bytes|Average|
 |Replica Lag|ReplicaLag|rds.replica_lag.lag|float|Average|
 |Disk IOPS|ReadIOPS<br>WriteIOPS|rds.diskiops.read<br>rds.diskiops.write|iops|Average|
 |Disk Latency|ReadLatency<br>WriteLatency|rds.latency.read<br>rds.latency.write|float|Average|
 |Disk Throughput|ReadThroughput<br>WriteThroughput|rds.throughput.read<br>rds.throughput.write|bytes/sec|Average|
-|Network Throughput|NetworkReceiveThroughput<br>NetworkTransmitThroughput|rds.network_throughput.read<br>rds.network_throughput.transmit|bytes/sec|Average|
-|gp2 Storage Burst Balance|BurstBalance|rds.burst_balance.balance|percentage|Average|
-|Maximum Used Transaction IDs|MaximumUsedTransactionIDs [*1](#rds-postgres)|rds.maximum_used_transaction_ids.count|integer|Average|
-|Disk Usage|ReplicationSlotDiskUsage [*1](#rds-postgres)<br>TransactionLogsDiskUsage [*1](#rds-postgres)|rds.postgres_disk_usage.replication_slot<br>rds.postgres_disk_usage.transaction_logs|bytes|Average|
-|Oldest Replication Slot Lag|OldestReplicationSlotLag [*1](#rds-postgres)|rds.oldest_replication_slot_lag.slot_lag|bytes|Average|
-|Transaction Logs Generation|TransactionLogsGeneration [*1](#rds-postgres)|rds.transaction_logs_generation.transaction_log|bytes/sec|Average|
-|Failed SQL Server Agent Jobs|FailedSQLServerAgentJobsCount [*2](#rds-sqlserver)|rds.failed_sql_server_agent_jobs.failed|integer|Average|
+|Disk Usage|ReplicationSlotDiskUsage [*2](#rds-postgres)<br>TransactionLogsDiskUsage [*2](#rds-postgres)|rds.postgres_disk_usage.replication_slot<br>rds.postgres_disk_usage.transaction_logs|bytes|Average|
+|Oldest Replication Slot Lag|OldestReplicationSlotLag [*2](#rds-postgres)|rds.oldest_replication_slot_lag.slot_lag|bytes|Average|
+|Transaction Logs Generation|TransactionLogsGeneration [*2](#rds-postgres)|rds.transaction_logs_generation.transaction_log|bytes/sec|Average|
+|Failed SQL Server Agent Jobs|FailedSQLServerAgentJobsCount [*3](#rds-sqlserver)|rds.failed_sql_server_agent_jobs.failed|integer|Average|
 
-<div id="rds-postgres">*1 PostgreSQLに適用されます</div>
-<div id="rds-sqlserver">*2 Microsoft SQL Serverに適用されます</div>
+<div id="rds-postgres">*2 PostgreSQLに適用されます</div>
+<div id="rds-sqlserver">*3 Microsoft SQL Serverに適用されます</div>
 <br>
 
-Auroraで取得できるメトリックは、上記に加えて以下のとおりです。
+### Auroraメトリック
+Auroraの場合は上記の共通メトリックに加えて以下のメトリックが取得できます。
 
 |グラフ名|メトリック|Mackerel上のメトリック名|単位|Statistics|
 |:---|:---|:---|:---|:---|
@@ -67,16 +90,19 @@ Auroraで取得できるメトリックは、上記に加えて以下のとお�
 |Queries|Queries|rds.aurora.queries.queries|float|Average|
 |Login Failures|LoginFailures|rds.aurora.login_failures.failures|float|Average|
 |Deadlocks|Deadlocks|rds.aurora.deadlocks.deadlocks|float|Average|
-|Backtrack Window Difference|BacktrackWindowActual [*3](#rds-aurora-mysql)|rds.aurora.backtrack_window_difference.minutes|integer|Average|
-|Backtrack Window Alert|BacktrackWindowAlert [*3](#rds-aurora-mysql)|rds.aurora.backtrack_window_alert.alert|integer|Sum|
-|Aurora Volume Bytes Left Total|AuroraVolumeBytesLeftTotal [*3](#rds-aurora-mysql)|rds.aurora.aurora_volume_bytes_left_total.total|bytes|Average|
-|Volume Used|VolumeBytesUsed [*4](#rds-aurora-cluster)|rds.aurora.volume_used.bytes|bytes|Average|
+|Backtrack Window Difference|BacktrackWindowActual [*4](#rds-aurora-mysql)|rds.aurora.backtrack_window_difference.minutes|integer|Average|
+|Backtrack Window Alert|BacktrackWindowAlert [*4](#rds-aurora-mysql)|rds.aurora.backtrack_window_alert.alert|integer|Sum|
+|Aurora Volume Bytes Left Total|AuroraVolumeBytesLeftTotal [*4](#rds-aurora-mysql)|rds.aurora.aurora_volume_bytes_left_total.total|bytes|Average|
+|Aborted Clients|AbortedClients [*4](#rds-aurora-mysql)|rds.aurora.aborted_clients.aborted|integer|Sum|
+|Row Lock Time|RowLockTime [*4](#rds-aurora-mysql)|rds.aurora.row_lock_time.row_lock|float|Average|
+|Volume Used|VolumeBytesUsed [*5](#rds-aurora-cluster)|rds.aurora.volume_used.bytes|bytes|Average|
 
-<div id="rds-aurora-mysql">*3 Aurora MySQLに適用されます</div>
-<div id="rds-aurora-cluster">*4 クラスター毎に発生するメトリックであり、同じクラスターのインスタンスは同じメトリックが表示されます</div>
+<div id="rds-aurora-mysql">*4 Aurora MySQLに適用されます</div>
+<div id="rds-aurora-cluster">*5 クラスター毎に発生するメトリックであり、同じクラスターのインスタンスは同じメトリックが表示されます</div>
 <br>
 
-また、 Aurora Serverlessクラスターの場合は、Auroraで取得できるメトリックに加えて以下のメトリックが取得できます。
+### Aurora Serverlessメトリック
+Aurora Serverlessクラスターの場合は、Auroraで取得できるメトリックに加えて以下のメトリックが取得できます。
 
 |グラフ名|メトリック|Mackerel上のメトリック名|単位|Statistics|
 |:---|:---|:---|:---|:---|
