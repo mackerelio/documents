@@ -23,7 +23,7 @@ By mousing over any point on a graphed line, you can see detailed information ab
 
 <h2 id="simplify">Simplified Display</h2>
 
-Any role graph from the Services detail screen with a large number of hosts (30 or more) is simplified. Stacked graphs display the sum and line graphs display the maximum, minimum, and average. By clicking "show all hosts" located at the bottom of the graph, a detailed version of the simplified graph can be seen. 
+Any role graph from the Services detail screen with a large number of hosts (more than 30) is simplified. Stacked graphs display the sum and line graphs display the maximum, minimum, and average. By clicking "show all hosts" located at the bottom of the graph, a detailed version of the simplified graph can be seen. 
 
 ![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20160304/20160304142120.png)
 
