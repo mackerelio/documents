@@ -19,34 +19,57 @@ Please refer to the following page for AWS Integration configuration methods and
 
 The metrics obtainable with AWS Integration’s RDS support are as follows. For `Metric` explanations, refer to the AWS help pages (<a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Monitoring.html" target="_blank">Aurora</a> and <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MonitoringOverview.html" target="_blank">otherwise</a>).
 
-The maximum number of metrics obtainable is 53 with Aurora, 51 with Aurora Serverless, and 24 for anything else.
+For each DB engine, the maximum number of metrics shown in the table below is obtained.
+
+|DB engine|  |The maximum number of metrics obtainable|
+|:---|:---|---:|
+|RDS|PostgreSQL|24|
+|  |SQL Server|20|
+|  |Other than those above|19|
+|Aurora|MySQL|43|
+|  |PostgreSQL|39|
+|Aurora Serverless|MySQL|41|
+|  |PostgreSQL|40|
+
+### Common metrics
+The following metrics can be obtained in common for RDS, Aurora, and Aurora Serverless.
 
 |Graph name|Metric|Metric name in Mackerel|Unit|Statistics|
 |:---|:---|:---|:---|:---|
 |CPU|CPUUtilization|rds.cpu.used|percentage|Average|
 |CPU Credit|CPUCreditUsage<br>CPUCreditBalance|rds.cpu_credit.used<br>rds.cpu_credit.balance|float|Average|
 |Database Connections|DatabaseConnections|rds.database_connections.used|float|Average|
-|Disk Queue|DiskQueueDepth|rds.disk_queue.depth|float|Average|
 |BinLog Disk Usage|BinLogDiskUsage|rds.disk_usage.bin_log|bytes|Average|
 |Memory|FreeableMemory<br>SwapUsage|rds.memory.free<br>rds.memory.swap|bytes|Average|
+|Network Throughput|NetworkReceiveThroughput<br>NetworkTransmitThroughput|rds.network_throughput.read<br>rds.network_throughput.transmit|bytes/sec|Average|
+|gp2 Storage Burst Balance|BurstBalance|rds.burst_balance.balance|percentage|Average|
+|Maximum Used Transaction IDs|MaximumUsedTransactionIDs [*1](#rds-postgres)|rds.maximum_used_transaction_ids.count|integer|Average|
+
+
+<div id="common-postgres">*1 Applies to PostgreSQL</div>
+<br>
+
+### RDS metrics
+In the case of RDS, the following metrics can be obtained in addition to the above common metrics.
+
+|Graph name|Metric|Metric name in Mackerel|Unit|Statistics|
+|:---|:---|:---|:---|:---|
+|Disk Queue|DiskQueueDepth|rds.disk_queue.depth|float|Average|
 |Free Storage Space|FreeStorageSpace|rds.disk.free|bytes|Average|
 |Replica Lag|ReplicaLag|rds.replica_lag.lag|float|Average|
 |Disk IOPS|ReadIOPS<br>WriteIOPS|rds.diskiops.read<br>rds.diskiops.write|iops|Average|
 |Disk Latency|ReadLatency<br>WriteLatency|rds.latency.read<br>rds.latency.write|float|Average|
 |Disk Throughput|ReadThroughput<br>WriteThroughput|rds.throughput.read<br>rds.throughput.write|bytes/sec|Average|
-|Network Throughput|NetworkReceiveThroughput<br>NetworkTransmitThroughput|rds.network_throughput.read<br>rds.network_throughput.transmit|bytes/sec|Average|
-|gp2 Storage Burst Balance|BurstBalance|rds.burst_balance.balance|percentage|Average|
-|Maximum Used Transaction IDs|MaximumUsedTransactionIDs [*1](#rds-postgres)|rds.maximum_used_transaction_ids.count|integer|Average|
-|Disk Usage|ReplicationSlotDiskUsage [*1](#rds-postgres)<br>TransactionLogsDiskUsage [*1](#rds-postgres)|rds.postgres_disk_usage.replication_slot<br>rds.postgres_disk_usage.transaction_logs|bytes|Average|
-|Oldest Replication Slot Lag|OldestReplicationSlotLag [*1](#rds-postgres)|rds.oldest_replication_slot_lag.slot_lag|bytes|Average|
-|Transaction Logs Generation|TransactionLogsGeneration [*1](#rds-postgres)|rds.transaction_logs_generation.transaction_log|bytes/sec|Average|
-|Failed SQL Server Agent Jobs|FailedSQLServerAgentJobsCount [*2](#rds-sqlserver)|rds.failed_sql_server_agent_jobs.failed|integer|Average|
+|Disk Usage|ReplicationSlotDiskUsage [*2](#rds-postgres)<br>TransactionLogsDiskUsage [*2](#rds-postgres)|rds.postgres_disk_usage.replication_slot<br>rds.postgres_disk_usage.transaction_logs|bytes|Average|
+|Oldest Replication Slot Lag|OldestReplicationSlotLag [*2](#rds-postgres)|rds.oldest_replication_slot_lag.slot_lag|bytes|Average|
+|Transaction Logs Generation|TransactionLogsGeneration [*2](#rds-postgres)|rds.transaction_logs_generation.transaction_log|bytes/sec|Average|
+|Failed SQL Server Agent Jobs|FailedSQLServerAgentJobsCount [*3](#rds-sqlserver)|rds.failed_sql_server_agent_jobs.failed|integer|Average|
 
-<div id="rds-postgres">*1 Applies to PostgreSQL</div>
-<div id="rds-sqlserver">*2 Applies to Microsoft SQL Server</div>
+<div id="rds-postgres">*2 Applies to PostgreSQL</div>
+<div id="rds-sqlserver">*3 Applies to Microsoft SQL Server</div>
 <br>
-
-In addition to the above, metrics that can be obtained with Aurora are listed below.
+### Aurora metrics
+In the case of Aurora, the following metrics can be obtained in addition to the above common metrics.
 
 |Graph name|Metric|Metric name in Mackerel|Unit|Statistics|
 |:---|:---|:---|:---|:---|
@@ -67,16 +90,20 @@ In addition to the above, metrics that can be obtained with Aurora are listed be
 |Queries|Queries|rds.aurora.queries.queries|float|Average|
 |Login Failures|LoginFailures|rds.aurora.login_failures.failures|float|Average|
 |Deadlocks|Deadlocks|rds.aurora.deadlocks.deadlocks|float|Average|
-|Backtrack Window Difference|BacktrackWindowActual [*3](#rds-aurora-mysql)|rds.aurora.backtrack_window_difference.minutes|integer|Average|
-|Backtrack Window Alert|BacktrackWindowAlert [*3](#rds-aurora-mysql)|rds.aurora.backtrack_window_alert.alert|integer|Sum|
-|Aurora Volume Bytes Left Total|AuroraVolumeBytesLeftTotal [*3](#rds-aurora-mysql)|rds.aurora.aurora_volume_bytes_left_total.total|bytes|Average|
-|Volume Used|VolumeBytesUsed [*4](#rds-aurora-cluster)|rds.aurora.volume_used.bytes|bytes|Average|
+|Backtrack Window Difference|BacktrackWindowActual [*4](#rds-aurora-mysql)|rds.aurora.backtrack_window_difference.minutes|integer|Average|
+|Backtrack Window Alert|BacktrackWindowAlert [*4](#rds-aurora-mysql)|rds.aurora.backtrack_window_alert.alert|integer|Sum|
+|Aurora Volume Bytes Left Total|AuroraVolumeBytesLeftTotal [*4](#rds-aurora-mysql)|rds.aurora.aurora_volume_bytes_left_total.total|bytes|Average|
+|Aborted Clients|AbortedClients [*4](#rds-aurora-mysql)|rds.aurora.aborted_clients.aborted|integer|Sum|
+|Row Lock Time|RowLockTime [*4](#rds-aurora-mysql)|rds.aurora.row_lock_time.row_lock|float|Average|
+|Volume Used|VolumeBytesUsed [*5](#rds-aurora-cluster)|rds.aurora.volume_used.bytes|bytes|Average|
 
-<div id="rds-aurora-mysql">*3 Applies to Aurora MySQL</div>
-<div id="rds-aurora-cluster">*4 A metric generated for each cluster. Instances of the same cluster display the same metric.</div>
+<div id="rds-aurora-mysql">*4 Applies to Aurora MySQL</div>
+<div id="rds-aurora-cluster">*5 Generated per cluster. Instances of the same cluster will display the same metric.</div>
 <br>
 
-With Aurora Serverless clusters, in addition to the metrics that can be obtained by Aurora, the following metrics can be obtained.
+### Aurora Serverless metrics
+In the case of Aurora Serverless, the following metrics can be obtained in addition to the above common metrics.
+
 
 |Graph name|Metric|Metric name in Mackerel|Unit|Statistics|
 |:---|:---|:---|:---|:---|
