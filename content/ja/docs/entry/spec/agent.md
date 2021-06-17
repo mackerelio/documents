@@ -138,7 +138,7 @@ roles = [ "My-Service:app", "Another-Service:db" ]
 
 
 <h4 id="config-file-proxy">proxy</h4>
-このオプションを指定することで、エージェントが通信に利用する HTTP Proxy を設定できます。このオプションを利用することにより、監視対象サーバーが直接のインターネット通信をおこなえないようなネットワーク環境でも、プロキシサーバーを経由してのサーバー監視をおこなうことが可能です。
+このオプションを指定することで、エージェントが通信に利用する HTTP/HTTPS Proxy を設定できます。このオプションを利用することにより、監視対象サーバーが直接のインターネット通信をおこなえないようなネットワーク環境でも、プロキシサーバーを経由してのサーバー監視をおこなうことが可能です。
 
 **例: 経由させたいプロキシサーバーが localhost:8080 で提供されている場合**
 
@@ -159,6 +159,28 @@ yum/rpmの場合 `/etc/sysconfig/mackerel-agent` 、apt/debの場合は `/etc/de
 HTTP_PROXY="http://localhost:8080/"
 ```
 
+設定ファイル内に、 `http_proxy` と同様の形式で、 `https_proxy` と記述することで、HTTPとHTTPSのプロキシサーバーの設定を分離することができます。また、環境変数 `HTTPS_PROXY` にも対応しています。
+
+**例: 経由させたいプロキシサーバーが localhost:8080, localhost:8081 で提供されている場合**
+
+```config
+# /etc/mackerel-agent/mackerel-agent.conf
+http_proxy = "http://localhost:8080"
+https_proxy = "http://localhost:8081"
+```
+
+`http_proxy` / `https_proxy` の設定とエージェントが通信に利用するプロキシの対応は以下のようになります。
+
+| `http_proxy` | `https_proxy` | HTTP のプロキシ | HTTPS のプロキシ  |
+|:-------------|:--------------|:----------------|:------------------|
+| 設定しない   | 設定しない    | なし            | なし              |
+| 設定しない   | 設定する      | なし            | https_proxy の値  |
+| 設定する     | 設定しない    | http_proxy の値 | _http_proxy の値_ |
+| 設定する     | 設定する      | http_proxy の値 | https_proxy の値  |
+| 設定する     | `direct`      | http_proxy の値 | なし              |
+
+- `http_proxy` のみ設定ファイルに記述していた場合、 `https_proxy` としてもその値を利用します。
+- HTTPSプロキシを利用しない場合は `https_proxy` に `direct` を指定します。
 
 <h4 id="config-file-diagnostic">diagnostic</h4>
 このオプションを指定することで、エージェント自身のメモリ使用状況を収集しカスタムメトリックとして投稿します（診断モード。デフォルトは `false` ）。
