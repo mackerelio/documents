@@ -28,8 +28,9 @@ mackerel-agent is a program that is installed on your hosts to periodically gath
 As of now, Mackerel and mackerel-agent have been verified to operate in the following environments:
 
 - Mackerel (web)
-  - [Google Chrome](https://www.google.com/chrome/browser/desktop/index.html) latest version
-  - [Mozilla Firefox](https://www.mozilla.org/en-US/firefox/new/) latest version
+  - [Google Chrome](https://www.google.com/chrome/) (desktop version) latest version
+  - [Mozilla Firefox](https://www.mozilla.org/firefox/) (desktop version) latest version
+  - [Microsoft Edge](https://www.microsoft.com/edge) (desktop version) latest version
 - mackerel-agent
     - Linux
         - CentOS 7/8, Ubuntu 16.04LTS/18.04LTS/20.04LTS,  Debian 9/10, Amazon Linux, Amazon Linux 2

@@ -29,8 +29,9 @@ mackerel-agentはお使いのホストにインストールするプログラム
 Mackerelおよびmackerel-agentは、以下の環境で動作確認を行っています。
 
 - Mackerel（ウェブ）
-  - [Google Chrome](http://www.google.co.jp/intl/ja/chrome/browser/) 最新版
-  - [Mozilla Firefox](http://www.mozilla.org/firefox/) 最新版
+  - [Google Chrome](https://www.google.com/chrome/) (デスクトップ版) 最新版
+  - [Mozilla Firefox](https://www.mozilla.org/firefox/) (デスクトップ版) 最新版
+  - [Microsoft Edge](https://www.microsoft.com/edge) (デスクトップ版) 最新版
 - mackerel-agent
     - Linux
         - CentOS 7/8、Ubuntu 16.04LTS/18.04LTS/20.04LTS、 Debian 9/10、Amazon Linux、Amazon Linux 2
