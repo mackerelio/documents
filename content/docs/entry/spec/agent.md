@@ -139,7 +139,7 @@ roles = [ "My-Service:app", "Another-Service:db" ]
 
 
 <h4 id="config-file-proxy">proxy</h4>
-By specifying this option, you can set an HTTP Proxy for the agent to use for communication. Using this option, it is possible to monitor the server via a proxy server even in a network environment where the monitored server can not directly communicate through the internet.
+By specifying this option, you can set an HTTP/HTTPS Proxy for the agent to use for communication. Using this option, it is possible to monitor the server via a proxy server even in a network environment where the monitored server can not directly communicate through the internet.
 
 **Example: When a proxy server that you want to go through is provided with localhost:8080**
 
@@ -159,6 +159,29 @@ The environment variable `HTTP_PROXY` is also supported. For example, you can ga
 ```
 HTTP_PROXY="http://localhost:8080/"
 ```
+
+By writing `https_proxy` in the same format as `http_proxy` in the configuration file, you can define the proxy server settings for HTTP and HTTPS separately.
+
+**Example: When a proxy server that you want to go through is provided with localhost:8080 and localhost:8081**
+
+```config
+# /etc/mackerel-agent/mackerel-agent.conf
+http_proxy = "http://localhost:8080"
+https_proxy = "http://localhost:8081"
+```
+
+The correspondence between the `http_proxy` / `https_proxy` settings and the proxy that mackerel-agent uses for communication is as follows.
+
+| `http_proxy` | `https_proxy` | HTTP communication | HTTPS communication |
+|:-------------|:--------------|:-----------------------------|:-------------------------------|
+| Not Set      | Not Set       | direct communication         | direct communication           |
+| Not Set      | Set           | direct communication         | proxy via `https_proxy` value  |
+| Set          | Not Set       | proxy via `http_proxy` value | _proxy via `http_proxy` value_ |
+| Set          | Set           | proxy via `http_proxy` value | proxy via `https_proxy` value  |
+| Set          | `direct`      | proxy via `http_proxy` value | direct communication           |
+
+- If only `http_proxy` is specified in the configuration file, the value will be used as `https_proxy` as well.
+- If you do not want to use HTTPS proxy, specify `direct` for `https_proxy`.
 
 
 <h4 id="config-file-diagnostic">diagnostic</h4>
