@@ -146,10 +146,6 @@ In order to filter using an AWS tag, permission for the following actions is req
 - `sqs:ListQueueTags`
 - `states:ListTagsForResource`
 
-Furthmore, permission for the following action is needed to configure using the Access Key and Secret Access Key. This is not needed for configuration via the IAM role.
-
-- `iam:GetUser` for linked users
-
 To add policies, use the Inline Policies process.
 
 ![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20160616/20160616150058.png)
@@ -195,7 +191,6 @@ Create and attach your own policies or specify them in Inline Policies.
                 "es:List*",
                 "firehose:DescribeDeliveryStream",
                 "firehose:List*",
-                "iam:GetUser",
                 "kinesis:Describe*",
                 "kinesis:List*",
                 "lambda:GetFunctionConfiguration",

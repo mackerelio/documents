@@ -158,10 +158,6 @@ AWSのタグで絞り込むには、AWSインテグレーションの設定の�
 - `sqs:ListQueueTags`
 - `states:ListTagsForResource`
 
-また、Access Key IDとSecret Access Keyを用いた設定を行っている場合は、以下のアクションに対する権限も必要になります。IAMロールによる設定の場合は不要です。
-
-- 連携ユーザーに対する `iam:GetUser`
-
 これらのポリシーの付与は、Inline Policiesにて行ってください。
 
 ![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20160616/20160616150058.png)
@@ -211,7 +207,6 @@ Mackerelの設定画面でタグを指定します。連携ホスト数を確認
                 "es:List*",
                 "firehose:DescribeDeliveryStream",
                 "firehose:List*",
-                "iam:GetUser",
                 "kinesis:Describe*",
                 "kinesis:List*",
                 "lambda:GetFunctionConfiguration",
