@@ -25,4 +25,4 @@ The maximum number of metrics obtainable is `4 × (number of rules) + 4<"ALL">`.
 
 <h2 id="notes">Notes</h2>
 - Tag filtering for hosts is not available with AWS Integration WAF support.
-
+- Obtaining metrics of managed rule groups is not supported.
