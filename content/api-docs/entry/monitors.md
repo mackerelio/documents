@@ -5,7 +5,6 @@ URL: https://mackerel.io/api-docs/entry/monitors
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel.io/atom/entry/10328537792368374710
 ---
 
-
 <ul class="internal-nav">
   <li><a href="#create">Register Monitor Configurations</a></li>
   <li><a href="#list">List Monitor Configurations</a></li>
@@ -424,7 +423,8 @@ This function disables notifications in monitoring. Alerts occur in response to 
 | `maxCheckAttempts`     | *number*   | [optional] number of consecutive Warning/Critical instances before an alert is made. Default setting is 1 (1-10) |
 | `certificationExpirationWarning`    | *number*   | [optional] certification expiration date monitor’s “Warning” threshold. number of days remaining until expiration. |
 | `certificationExpirationCritical`   | *number*   | [optional] certification expiration date monitor’s “Critical” threshold. number of days remaining until expiration. |
-| `isMute`               | *boolean*  | [optional] Whether monitoring is muted or not [*3](#muted-monitoring) | 
+| `skipCertificateVerification`       | *boolean*  | [optional] Whether or not to skip the verification of the certificate. |
+| `isMute`               | *boolean*  | [optional] Whether monitoring is muted or not [*3](#muted-monitoring) |
 | `headers`              | *array[object]* | [optional] The values that should be configured as the HTTP request header specified by `name` and `value`. If this field is omitted, the default header will be configured. If you do not want to configure headers, specify an empty array. |
 | `requestBody`          | *string*   | [optional] HTTP request body |
 
