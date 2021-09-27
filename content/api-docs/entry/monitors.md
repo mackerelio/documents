@@ -427,6 +427,7 @@ This function disables notifications in monitoring. Alerts occur in response to 
 | `isMute`               | *boolean*  | [optional] Whether monitoring is muted or not [*3](#muted-monitoring) |
 | `headers`              | *array[object]* | [optional] The values that should be configured as the HTTP request header specified by `name` and `value`. If this field is omitted, the default header will be configured. If you do not want to configure headers, specify an empty array. |
 | `requestBody`          | *string*   | [optional] HTTP request body |
+| `followRedirect` | *boolean* | [optional] Evaluates the response of the redirector as a result. If this field is omitted, the redirection destination in the response will not be tracked. |
 
 In order to monitor response time, it's necessary to assign `responseTimeWarning`, `responseTimeCritical`, and `responseTimeDuration`. . In order to monitor the certification expiration date, it’s necessary to assign both `certificationExpirationWarning`, and `certificationExpirationCritical`.
 

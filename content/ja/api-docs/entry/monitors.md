@@ -424,6 +424,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 | `isMute`                          | *boolean*  | [optional] 監視がミュート状態か否か |
 | `headers`                         | *array[object]* | [optional] HTTPリクエストヘッダとして設定されているべき値を`name`と`value`で指定。このフィールドを省略するとデフォルトのヘッダが設定されます。ヘッダを設定したくない場合は空の配列を指定してください。|
 | `requestBody`                     | *string*   | [optional] リクエスト時のメッセージボディ |
+| `followRedirect` | *boolean* | [optional] リダイレクト先のレスポンスを結果として評価する。このフィールドを省略するとレスポンスに含まれるリダイレクト先を追跡しません。 |
 
 応答時間の監視を行うには `responseTimeWarning`, `responseTimeCritical`, `responseTimeDuration` の全てを指定する必要があります。
 証明書有効期限の監視を行うには `certificationExpirationWarning`, `certificationExpirationCritical` の両方を指定する必要があります。
