@@ -55,6 +55,13 @@ Furthermore, you can specify the filename of the monitoring target with regular 
 command = ["check-log", "--file-pattern", "/var/log/access.log.\\d{4}-\\d{2}-\\d{2}", "--pattern", "FATAL"]
 ```
 
+In a Windows Server environment, it is recommended to use both `--search-in-directory` and `--file-pattern` options to specify a directory in which log files are located and a file name condition, because the directory delimiter `\` conflicts with regular expressions in the pattern.
+
+```config
+[plugin.checks.access_log]
+command = ["check-log", "--search-in-directory", "C:\\log\\", "--file-pattern", "access.log.\\d{4}-\\d{2}-\\d{2}", "--pattern", "FATAL"]
+```
+
 The log file will be checked periodically and any lines that have already been checked will be skipped. The execution interval is specified by `check_interval` ([reference](https://mackerel.io/docs/entry/custom-checks)) with the default set at 1 minute.
 
 

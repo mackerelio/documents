@@ -56,6 +56,13 @@ command = ["check-log", "--file", "/var/log/*.log", "--pattern", "FATAL"]
 command = ["check-log", "--file-pattern", "/var/log/access.log.\\d{4}-\\d{2}-\\d{2}", "--pattern", "FATAL"]
 ```
 
+Windows Server環境では、ディレクトリの区切り文字 `\` と正規表現が競合するため、 `--search-in-directory` オプション、 `--file-pattern` オプションの両方を使用して、ログファイルが存在するディレクトリとファイル名の条件を個別に指定することをおすすめします。
+
+```config
+[plugin.checks.access_log]
+command = ["check-log", "--search-in-directory", "C:\\log\\", "--file-pattern", "access.log.\\d{4}-\\d{2}-\\d{2}", "--pattern", "FATAL"]
+```
+
 mackerel-agentは定期的にcheck-logを実行しますが、前回実行時までにチェックした行はスキップされます。実行間隔は `check_interval` （[参照](https://mackerel.io/ja/docs/entry/custom-checks)）で指定された間隔(デフォルト1分)です。
 
 ログローテーションが発生した場合、ログは冒頭から読み直されます。正確には、前回チェック時よりもファイルサイズが小さくなっている場合にログローテーションが発生したとみなし、冒頭から読み直す挙動となっています。
