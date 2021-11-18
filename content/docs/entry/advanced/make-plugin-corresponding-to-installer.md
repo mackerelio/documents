@@ -39,8 +39,8 @@ In order to meet the specifications of the plugin installer, you’ll need to do
 First, let’s install the tools, goxz and ghr. Go execution environment is necessary for installation.
 
 ```sh
-$ go get -v -u github.com/Songmu/goxz/cmd/goxz
-$ go get -v -u github.com/tcnksm/ghr
+$ go install github.com/Songmu/goxz/cmd/goxz@latest
+$ go install github.com/tcnksm/ghr@latest
 ```
 
 

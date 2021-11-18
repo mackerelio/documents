@@ -42,7 +42,7 @@ yumやaptを利用の場合は、mackerel-agentでも使われているMackerel�
 #### goでビルド
 
 ```cdl
-% go get github.com/mackerelio/mkr
+% go install github.com/mackerelio/mkr@latest
 ```
 
 ### セットアップ

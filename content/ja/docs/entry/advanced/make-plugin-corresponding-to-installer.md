@@ -38,8 +38,8 @@ mkrを使ったプラグインのインストール方法については[mkr plu
 まず必要なツールである、goxzとghrをインストールしておきます。インストールにはGoの実行環境が必要です。
 
 ```sh
-$ go get -v -u github.com/Songmu/goxz/cmd/goxz
-$ go get -v -u github.com/tcnksm/ghr
+$ go install github.com/Songmu/goxz/cmd/goxz@latest
+$ go install github.com/tcnksm/ghr@latest
 ```
 
 ### 実行ファイルとリリースアーカイブの作成

@@ -39,7 +39,7 @@ To install mkr using yum or apt, you first have to register the Mackerel package
 #### Build with go
 
 ```
-% go get github.com/mackerelio/mkr
+% go install github.com/mackerelio/mkr@latest
 ```
 
 #### For Windows
