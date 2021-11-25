@@ -47,6 +47,7 @@ This object holds the following keys:
 | `displayName` | *string* | [optional] host management name |
 | `customIdentifier` | *string* | [optional] an identifier for the host that is user-specific and unique to the organization[*1](#customIdentifier) |
 | `meta` | *object* | host metadata[*2](#meta). Empty objects can also be registered. |
+| `memo` | *string* | [optional] notes related to the host |
 | `interfaces` | *array[object]* | [optional] host network interface information[*3](#interfaces) |
 | `roleFullnames` | *array[string]* | [optional] an array of the full name of the role to which the host belongs[*4](#roleFullnames) |
 | `checks` | *array[hash[string]]* | [optional] an array of the check monitoring item that monitors the host[*5](#checks) |
@@ -185,7 +186,7 @@ One element of `checks` is an object that holds the following keys.
 | `interfaces` | *array[object]* | host network interface information |
 | `size` | *string* | [host type](https://mackerel.io/docs/entry/spec/about-host#host-kinds) （`"standard"` or `"micro"`） |
 | `status` | *string* | status of the host（`"working"`, `"standby"` etc.） |
-| `memo` | *string* | notes related to the host; can be edited from the management screen |
+| `memo` | *string* | notes related to the host |
 | `isRetired` | *boolean* | whether or not the host is retired |
 | `retiredAt` | *number* | [optional] the host's retirement timestamp（in epoch seconds） |
 | `roles` | *hash[array[string]]* | List of the roles to which the host belongs. The keys are service names, and the values are arrays of role names. |

@@ -44,6 +44,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 | `name` | *string* | ホスト名 |
 | `displayName` | *string* | [optional] ホストの管理名 |
 | `customIdentifier` | *string* | [optional] ホストに対するユーザー独自の、オーガニゼーションで一意な識別子[*1](#customIdentifier) |
+| `memo` | *string* | [optional] ホストに関するメモ |
 | `meta` | *object* | ホストのメタ情報[*2](#meta)。空のオブジェクトでも登録することができます。 |
 | `interfaces` | *array[object]* | [optional] ホストのネットワークインターフェース情報[*3](#interfaces) |
 | `roleFullnames` | *array[string]* | [optional] ホストが所属しているロールの名前の配列[*4](#roleFullnames) |
@@ -183,7 +184,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 | `interfaces` | *array[object]* | ホストのネットワークインターフェース情報 |
 | `size` | *string* | [ホストの種類](https://mackerel.io/ja/docs/entry/spec/about-host#host-kinds) （`"standard"` または `"micro"`） |
 | `status` | *string* | ホストのステータス（`"working"`, `"standby"` など） |
-| `memo` | *string* | ホストに関するメモ。メモは管理画面から編集できます。 |
+| `memo` | *string* | ホストに関するメモ |
 | `isRetired` | *boolean* | ホストが退役しているかどうか |
 | `retiredAt` | *number* | [optional] ホストの退役時刻（epoch秒） |
 | `roles` | *hash[array[string]]* | ホストが所属しているロールの一覧。キーはサービス名、値はそのサービスにおけるロール名の配列です。 |
