@@ -33,7 +33,7 @@ As of now, Mackerel and mackerel-agent have been verified to operate in the foll
   - [Microsoft Edge](https://www.microsoft.com/edge) (desktop version) latest version
 - mackerel-agent
     - Linux
-        - CentOS 7/8, Ubuntu 16.04LTS/18.04LTS/20.04LTS,  Debian 9/10, Amazon Linux, Amazon Linux 2
+        - CentOS 7/8, CentOS Stream 8, Ubuntu 16.04LTS/18.04LTS/20.04LTS,  Debian 9/10, Amazon Linux, Amazon Linux 2
         - Aside from the above, the agent will probably be run on most Linux systems (kernel version 2.6.23 or later), however we do not give official support for them at this time.
     - Windows
         - Windows Server 2012 and later for x64-based Systems
