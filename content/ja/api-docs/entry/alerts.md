@@ -6,11 +6,12 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 ---
 
 <ul class="internal-nav">
+  <li><a href="#list">アラートの一覧</a></li>
   <li><a href="#get">アラートの取得</a></li>
   <li><a href="#close">アラートを閉じる</a></li>
 </ul>
 
-<h2 id="get">アラートの取得</h2>
+<h2 id="list">アラートの一覧</h2>
 
 アラートの一覧を取得します。
 
@@ -78,6 +79,44 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
     <tr>
       <td>400</td>
       <td><code>limit</code> の値が最大値(100)より大きい場合</td>
+    </tr>
+  </tbody>
+</table>
+
+----------------------------------------------
+
+<h2 id="get">アラートの取得</h2>
+
+<p class="type-get">
+  <code>GET</code>
+  <code>/api/v0/alerts/<em>&lt;alertId&gt;</em></code>
+</p>
+
+### APIキーに必要な権限
+
+<ul class="api-key">
+  <li class="label-read">Read</li>
+</ul>
+
+### 応答
+
+#### 成功時
+
+アラートの情報が返却されます。形式は[アラートの一覧](#list)で取得できるアラートの形式と同様です。
+
+#### 失敗時
+
+<table class="default api-error-table">
+  <thead>
+    <tr>
+      <th class="status-code">STATUS CODE</th>
+      <th class="description">DESCRIPTION</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>404</td>
+      <td>指定されたIDのアラートがみつからないとき</td>
     </tr>
   </tbody>
 </table>

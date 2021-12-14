@@ -6,12 +6,13 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
 ---
 
 <ul class="internal-nav">
-  <li><a href="#get">Get Alerts</a></li>
+  <li><a href="#list">List Alerts</a></li>
+  <li><a href="#get">Get Alert</a></li>
   <li><a href="#close">Close Alerts</a></li>
 </ul>
 
 
-<h2 id="get">Get Alerts</h2>
+<h2 id="list">List Alerts</h2>
 
 This will get the list of alerts.
 
@@ -77,6 +78,44 @@ Alerts will be returned in chronological order of when they were generated from 
     <tr>
       <td>400</td>
       <td>when `limit` value is larger than the maximum allowed value (100)</td>
+    </tr>
+  </tbody>
+</table>
+
+----------------------------------------------
+
+<h2 id="get">Get Alert</h2>
+
+<p class="type-get">
+  <code>GET</code>
+  <code>/api/v0/alerts/<em>&lt;alertId&gt;</em></code>
+</p>
+
+### Required permissions for the API key
+
+<ul class="api-key">
+  <li class="label-read">Read</li>
+</ul>
+
+### Response
+
+#### Success
+
+The alert is returned. The response format is the same as that which can be obtained with [List Alerts](#list).
+
+#### Error
+
+<table class="default api-error-table">
+  <thead>
+    <tr>
+      <th class="status-code">STATUS CODE</th>
+      <th class="description">DESCRIPTION</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>404</td>
+      <td>when the specified alert does not exist</td>
     </tr>
   </tbody>
 </table>

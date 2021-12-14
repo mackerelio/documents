@@ -559,11 +559,20 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
     <h3><a href="entry/alerts">アラート</a></h3>
     <div class="apis">
       <div class="api">
+        <a href="entry/alerts#list">
+          <p>アラートの一覧</p>
+          <p class="type-get">
+            <code>GET</code>
+            <code>/api/v0/alerts</code>
+          </p>
+        </a>
+      </div>
+      <div class="api">
         <a href="entry/alerts#get">
           <p>アラートの取得</p>
           <p class="type-get">
             <code>GET</code>
-            <code>/api/v0/alerts</code>
+            <code>/api/v0/alerts/<em>&lt;alertId&gt;</em></code>
           </p>
         </a>
       </div>
