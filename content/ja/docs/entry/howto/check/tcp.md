@@ -34,7 +34,7 @@ command = ["check-tcp", "--service", "ftp", "-H", "localhost"]
 command = ["check-tcp", "-H", "localhost", "--port", "21", "--expect-pattern", "^200", "--quit", "QUIT"]
 ```
 
-`--service` オプションに指定可能な設定は、FTP, POP, SPOP, IMAP, SIMAP, SMPT, SSMTPとなっています。
+`--service` オプションに指定可能な設定は、FTP, POP, SPOP, IMAP, SIMAP, SMTP, SSMTPとなっています。
 
 その他のオプションに関しては `check-tcp --help` や [README](https://github.com/mackerelio/go-check-plugins/blob/master/check-tcp/README.md) をご確認下さい。
 

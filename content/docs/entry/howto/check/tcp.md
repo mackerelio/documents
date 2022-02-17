@@ -34,7 +34,7 @@ This is equivalent to the configuration below.
 command = ["check-tcp", "-H", "localhost", "--port", "21", "--expect-pattern", "^200", "--quit", "QUIT"]
 ```
 
-Possible settings that can be assigned to `--service` are: FTP, POP, SPOP, IMAP, SIMAP, SMPT, and SSMTP.
+Possible settings that can be assigned to `--service` are: FTP, POP, SPOP, IMAP, SIMAP, SMTP, and SSMTP.
 
 For information regarding other options please refer to `check-tcp --help` and the [README](https://github.com/mackerelio/go-check-plugins/blob/master/check-tcp/README.md).
 
