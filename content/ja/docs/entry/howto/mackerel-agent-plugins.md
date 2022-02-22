@@ -54,7 +54,7 @@ Windows Server で公式プラグイン集を利用する場合、エージェ�
 エージェントをアップデートすることで同梱のプラグインもアップデートされます。アップデート方法については[Windowsにmackerel-agentをインストールする](https://mackerel.io/ja/docs/entry/howto/install-agent/msi)を参照してください。
 
 [Mackerelエージェントをインストールする]: https://mackerel.io/my/instruction-agent
-[GitHubリポジトリにある同梱プラグインリスト]: https://github.com/mackerelio/mackerel-agent/blob/master/wix/pluginlist.txt
+[GitHubリポジトリにある同梱プラグインリスト]: https://github.com/mackerelio/mackerel-agent/blob/master/wix/plugins_windows.go
 
 ## 公式プラグイン集を利用する（Linux系OSの場合）
 

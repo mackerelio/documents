@@ -54,7 +54,7 @@ For a list of the bundled plugins, refer to the [GitHub Repository Bundled Plugi
 Updating the agent will also update the bundled plugins. For more information on how to update, refer to [Installing mackerel-agent on Windows](https://mackerel.io/docs/entry/howto/install-agent/msi).
 
 [Installing Mackerel Agent]: https://mackerel.io/my/instruction-agent
-[GitHub Repository Bundled Plugin List]: https://github.com/mackerelio/mackerel-agent/blob/master/wix/pluginlist.txt
+[GitHub Repository Bundled Plugin List]: https://github.com/mackerelio/mackerel-agent/blob/master/wix/plugins_windows.go
 
 ## Using the official plugin pack (for Linux OS)
 
