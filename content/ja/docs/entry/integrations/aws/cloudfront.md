@@ -41,4 +41,7 @@ AWSインテグレーションのCloudFront対応で取得できるメトリッ�
     - `FUNCTION_NAME`：CloudFront Functionsの関数名
 
 <h2 id="notes">注意事項</h2>
+
+AWSインテグレーションのCloudFront対応ではタグによるサービス・ロール割り当てに対応していません。
+
 CloudFrontはグローバルなサービスである為、どのリージョンを選択していてもCloudFrontと連携できます。

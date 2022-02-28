@@ -50,6 +50,8 @@ Since there can be multiple Nodes per cluster in Redshift, each metric is groupe
 
 <h2 id="notes">Notes</h2>
 
+Assigning roles by tags is not available with AWS Integration Redshift support.
+
 Among the graphs/metrics obtainable with AWS integration mentioned above, the metric retrieval interval differs for metrics included in the following graph.
 
 - 5 minute interval

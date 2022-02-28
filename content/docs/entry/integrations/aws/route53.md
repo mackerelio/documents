@@ -30,3 +30,7 @@ The maximum number of metrics obtainable can be calculated using the formula `1 
 |Time To First Byte|TimeToFirstByte|route53.time_to_first_byte.HEALTH_CHECK_ID|float|Average|
 |Child Health Check Healthy Count|ChildHealthCheckHealthyCount|route53.child_health_check_healthy_count.HEALTH_CHECK_ID|float|Average|
 |Connection Time|ConnectionTime|route53.connection_time.HEALTH_CHECK_ID|float|Average|
+
+<h2 id="notes">Notes</h2>
+
+Assigning roles by tags is not available with AWS Integration Route 53 support.

@@ -35,4 +35,5 @@ The maximum number of metrics obtainable can be calculated using the formula `11
 <h2 id="notes">Notes</h2>
 
 - AWS Integration support for Connect does not include filtering hosts by tags.
+- AWS Integration support for Connect does not include assigning roles by tags.
 - Metrics will no generate in CloudWatch if non-ASCII characters are included in the contact flow name or queue name. This is a specification of AWS.

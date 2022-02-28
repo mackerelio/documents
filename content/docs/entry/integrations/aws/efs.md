@@ -29,6 +29,8 @@ The maximum number of metrics obtainable is 36.
 
 <h2 id="notes">Precautions</h2>
 
+Assigning roles by tags is not available with AWS Integration EFS support.
+
 Among the graphs/metrics obtainable with AWS Integration, metrics included in the following graphs are usually obtained in 15 minute intervals.
 
 * Storage

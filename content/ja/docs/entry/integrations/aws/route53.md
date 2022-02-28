@@ -30,3 +30,7 @@ AWSインテグレーションのRoute 53対応で取得できるメトリック
 |Time To First Byte|TimeToFirstByte|route53.time_to_first_byte.HEALTH_CHECK_ID|float|Average|
 |Child Health Check Healthy Count|ChildHealthCheckHealthyCount|route53.child_health_check_healthy_count.HEALTH_CHECK_ID|float|Average|
 |Connection Time|ConnectionTime|route53.connection_time.HEALTH_CHECK_ID|float|Average|
+
+<h2 id="notes">注意事項</h2>
+
+AWSインテグレーションのRoute 53対応ではタグによるサービス・ロール割り当てに対応していません。

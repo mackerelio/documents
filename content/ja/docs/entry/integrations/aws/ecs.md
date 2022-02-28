@@ -26,3 +26,7 @@ AWSインテグレーションのECS対応で取得できるメトリックは�
 |Service Memory Utilization|MemoryUtilization|ecs.service_memory_utilization.#.minimum<br>ecs.service_memory_utilization.#.average<br>ecs.service_memory_utilization.#.maximum|percentage|Minimum<br>Average<br>Maximum|
 
 - "Mackerel上のメトリック名"の#には、ECSのサービス名が入ります。
+
+<h2 id="notes">注意事項</h2>
+
+AWSインテグレーションのECS対応ではタグによるサービス・ロール割り当てに対応していません。

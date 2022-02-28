@@ -31,4 +31,5 @@ Enter the member account ID in place of `ACCOUNT_ID` in the metric name . (Examp
 
 
 <h2 id="notes">Notes</h2>
+- Assigning roles by tags is not available with AWS Integration Billing support.
 - The estimated charge is updated several times a day and the budget is updated at least once a day. This is a specification of AWS.

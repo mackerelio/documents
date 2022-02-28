@@ -39,3 +39,7 @@ AWSインテグレーションのKinesis Data Firehose対応で取得できる�
 |Data Transformation Bytes|SucceedProcessing.Bytes|firehose.data_transformation_bytes.succeed|bytes|Sum|
 |Format Conversion Records|SucceedConversion.Records<br>FailedConversion.Records|firehose.format_conversion_records.succeed<br>firehose.format_conversion_recordsfailed|integer|Sum|
 |Format Conversion Bytes|SucceedConversion.Bytes<br>FailedConversion.Bytes|firehose.format_conversion_bytes.succeed<br>firehose.format_conversion_bytes.failed|bytes|Sum|
+
+<h2 id="notes">注意事項</h2>
+
+AWSインテグレーションのKinesis Data Firehose対応ではタグによるサービス・ロール割り当てに対応していません。

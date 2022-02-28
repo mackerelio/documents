@@ -48,6 +48,8 @@ AWSインテグレーションのDynamoDB対応で取得できるメトリック
 |Stream SuccessfulRequestLatency|SuccessfulRequestLatency|dynamodb.successful_request_latency_streams.GetRecords.minimum<br>dynamodb.successful_request_latency_streams.GetRecords.average<br>dynamodb.successful_request_latency_streams.GetRecords.maximum|float|Minimum<br>Average<br>Maximum|
 
 <h2 id="notes">注意事項</h2>
+AWSインテグレーションのDynamoDB対応ではタグによるサービス・ロール割り当てに対応していません。
+
 AWSインテグレーションにより取得可能な上記のグラフ・メトリックのうち、下記のグラフに含まれるメトリックについては、5分間隔粒度でのメトリックが取得されます。
 
 - ReadCapacityUnits

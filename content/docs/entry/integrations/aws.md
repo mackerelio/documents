@@ -63,7 +63,7 @@ If you want to configure all the permissions used in AWS Integration, please ref
 - `AmazonRoute53ReadOnlyAccess`
 - `CloudWatchReadOnlyAccess`（When only configuring CloudFront, API Gateway, Kinesis Data Streams, S3, Elasticsearch Service, ECS, SES, Step Functions, EFS, Kinesis Data Firehose, Batch, WAF, Billing, Route 53 or Lambda）
 
-Furthmore, AWS Integration lets you filter using tags (as is mentioned further down in this document). However, additional policies need to be added to use this function with ElastiCache or SQS.
+Furthmore, AWS Integration lets you filter using tags (as is mentioned further down in this document). However, additional policies need to be added to use this function with ElastiCache, SQS or Step Functions.
 For more details, refer to <a href="#tag">Filter by tag</a>.
 
 ![](https://cdn-ak.f.st-hatena.com/images/fotolife/a/andyyk/20171025/20171025153435.png)
@@ -157,6 +157,35 @@ You can specify tags from the Mackerel settings screen. Confirm the number of li
 By specifying the tag as `service:foo, service:bar`, instances tagged with a key of `service` and value of `foo` or a key of `service` and value of `bar` will be targeted. If the key or value contains characters such as a colon `:` or comma `,`, enclose it with quotation marks (`"` or `'`). For example, if the key is `service:role` and the value is `foo,bar`, specify it as `"service:role":"foo,bar"`.
 
 ![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20160622/20160622115520.png)
+
+<h2 id="resource_tag">Assigning roles by tags</h2>
+
+There is a feature that is about assigning roles by tags.
+This feature enables tags with the label `mackerel-integration` on AWS resources to be automatically imported as Mackarel services and roles.
+The tag format is described as follows:
+
+* Key: `mackerel-integration`
+* Value: `<Service>:<Role> [ / <Service>:<Role> ...]`
+  * Service: `/^[a-zA-Z0-9_-]+$/`
+  * Role: `/^[a-zA-Z0-9_-]+$/`
+
+To assign multiple roles to a host, specify them by separating with `/`. If a specified Mackerel service and role doesn’t exist, it will be automatically created for you.
+
+![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20220215/20220215164116.png)
+
+Additional policies need to be added to use this feature with ElastiCache, SQS or Step Functions. For more details, refer to **Grant permissions for tag retrieval** section of <a href="#tag">Filter by tag</a>.
+
+Please note that hosts registered with the `mackerel-integration` tag will not be assigned the default roles specified in the AWS Integration settings of the web console.
+
+### When the tag settings are not reflected
+
+Upon noticing that the contact of the tag hasn’t been reflected in the role, please check if all of the following items are applicably:
+
+* The tag value you assigned must be valid according to Mackerel’s service and role naming rules
+* AWS Integration supports the `mackerel-integration` tag for the AWS service
+  * Please refer to the relevant documentation for the latest support status
+
+Please note that it may take several hours for the role to be reflected on the host.
 
 <h2 id="iam_policy">IAM policies used in AWS Integration</h2>
 

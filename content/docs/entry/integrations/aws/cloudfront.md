@@ -41,4 +41,7 @@ In order to obtain these metrics, <a href="https://docs.aws.amazon.com/en_us/Ama
     - `FUNCTION_NAME`: The function name of CloudFront Functions
 
 <h2 id="notes">Precautions</h2>
+
+Assigning roles by tags is not available with AWS Integration CloudFront support.
+
 Since CloudFront is a global service, integration with CloudFront is possible regardless of the region selected.

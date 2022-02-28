@@ -23,3 +23,4 @@ The maximum number of metrics obtainable is `7 × (number of job queues)`.
 
 <h2 id="notes">Notes</h2>
 - Tag filtering for hosts is not available with AWS Integration Batch support.
+- Assigning roles by tags is not available with AWS Integration Batch support.

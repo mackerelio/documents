@@ -27,3 +27,7 @@ The maximum number of metrics obtainable is 34.
 |Latency|GetRecords.Latency<br>PutRecord.Latency<br>PutRecords.Latency|kinesis.latency.#.minimum<br>kinesis.latency.#.average<br>kinesis.latency.#.maximum|float|Minimum<br>Average<br>Maximum|
 
 - Enter either "Read" or "Write" for the # in [Provisioned Throughput Exceeded] under "Metric name in Mackerel". Likewise, either "GetRecords", "PutRecord", or "PutRecords" for the # in [Latency].
+
+<h2 id="notes">Notes</h2>
+
+Assigning roles by tags is not available with AWS Integration Kinesis Data Streams support.

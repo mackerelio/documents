@@ -67,7 +67,7 @@ AWSインテグレーションで使用する全ての権限を設定する場�
     - 以下のサービスのみを設定する場合に指定します。
         - CloudFront, API Gateway, Kinesis Data Streams, S3, Elasticsearch Service, ECS, SES, Step Functions, EFS, Kinesis Data Firehose, Batch, WAF, Billing, Route 53, Lambda, Connect
 
-また、AWSインテグレーションでは後述するようにタグによって絞り込みを行うことが出来ますが、ElastiCacheやSQSでタグによる絞り込みを行う場合は追加のポリシーを付与する必要があります。
+また、AWSインテグレーションでは後述するようにタグによって絞り込みを行うことが出来ますが、ElastiCache、SQS、Step Functionsでタグによる絞り込みを行う場合は追加のポリシーを付与する必要があります。
 詳しくは<a href="#tag">タグで絞り込む</a> の項目を参照してください。
 
 ![](https://cdn-ak2.f.st-hatena.com/images/fotolife/m/mackerelio/20170912/20170912165028.png)
@@ -171,6 +171,32 @@ Mackerelの設定画面でタグを指定します。連携ホスト数を確認
 キーや値にコロン `:` やカンマ `,` などを含む場合は、クォート (`"` または `'`) で囲ってください。例えば、キーが`service:role`で値が`foo,bar`である場合は、`"service:role": "foo,bar"`のように指定します。
 
 ![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20160617/20160617104510.png)
+
+<h2 id="resource_tag">タグの値からサービス・ロールを割り当てる</h2>
+各AWSリソースに `mackerel-integration` タグを付与しておくと、AWSインテグレーションがメトリックを取得するときに自動でロールを割り当てます。タグの書式は以下の通りです。
+
+* Key: `mackerel-integration`
+* Value: `<Service>:<Role> [ / <Service>:<Role> ...]`
+
+複数のロールを割り当てたい場合は、`/` で区切って必要なだけ記述してください。ここで設定したサービス・ロールがMackerelに存在しない場合は、AWSインテグレーションが必要なサービス・ロールを作成します。
+
+![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20220204/20220204114346.png)
+
+ElastiCache、SQSでタグによるサービス・ロール割り当てを行う場合は追加のポリシーを付与する必要があります。詳しくは<a href="#tag">タグで絞り込む</a>の「タグを取得するための権限を付与する」を参照してください。
+
+また、`mackerel-integration` タグを設定したホストでは、MackerelのWebコンソールで設定したデフォルトロールの割り当ては行われません。
+
+### タグの設定が反映されない場合
+
+タグの内容がロールに反映されない場合は、以下の項目に該当するかご確認ください。
+
+* タグに設定したサービス・ロール名に不正な文字がないか
+  * 利用できる文字はMackerelのサービス・ロールに使える文字と同等です
+* タグを追加したAWSサービスが`mackerel-integration`に対応しているか
+  * `mackerel-integration`への対応は随時行っていきます
+  * 対応状況は各インテグレーションのドキュメントを参照ください
+
+なお、ホストにロールを反映するまで数時間いただくことがあります。
 
 <h2 id="iam_policy">AWS インテグレーションで使用するIAMポリシー</h2>
 

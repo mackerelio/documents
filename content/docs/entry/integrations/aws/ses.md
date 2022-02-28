@@ -31,6 +31,8 @@ The maximum number of metrics obtainable is `10 + 2 × (number of rules) + 1 × 
      - `DIMENSION_VALUE`: The value of the dimension set in the configuration set's CloudWatch event destination
 
 <h2 id="notes">Notes</h2>
+- Tag filtering for hosts is not available with AWS Integration SES support.
+- Assigning roles by tags is not available with AWS Integration SES support.
 - The Email Sending Events "Open" and "Click" occur when using <a href="https://docs.aws.amazon.com/us_en/ses/latest/DeveloperGuide/using-configuration-sets.html" target="_blank">Configuration Sets</a> and Open/Click events have been captured. Refer to the <a href="https://docs.aws.amazon.com/us_en/ses/latest/DeveloperGuide/configure-custom-open-click-domains.html" target="_blank">AWS Help page</a> for more details.
 - "Delivery Delay" uses <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/using-configuration-sets.html" target="_blank">Configuration Sets</a> and event destinations must be set to the `DELIVERY_DELAY` event type. See the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-using-event-publishing.html" target="_blank">AWS documentation</a> for more details.
 - The values of `DIMENSION_NAME` and` DIMENSION_VALUE` under "Metric name in Mackerel" are processed in the following cases. <br>
@@ -38,4 +40,3 @@ Also, If the processed metric name matches another metric name, the retrieved me
      - If the CloudWatch event destination has multiple dimensions, the string connected with "_" (underscore) will be applied.
      - If the string length exceeds 100 characters, the excess will be truncated.
      - Any "." (Dot) or "@" (at sign) included in `DIMENSION_VALUE` is replaced with an "_" (underscore).
-- Tag filtering for hosts is not available with AWS Integration SES support.
