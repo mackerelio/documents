@@ -130,7 +130,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackere
     <li><a href="https://mackerel.io/docs/entry/advanced/fluentd"><strong>Posting Service Metrics with fluentd</strong><span>use fluentd to post the number of requests, error rate, and more for each status code</span></a></li>
     <li><a href="https://mackerel.io/docs/entry/advanced/capistrano-2.x"><strong>Integrating Capistrano 2.x</strong><span>eliminate the need for host list management by obtaining the host list from Mackerel</span></a></li>
     <li><a href="https://mackerel.io/docs/entry/advanced/capistrano-3.x"><strong>Integrating Capistrano 3.x</strong><span>eliminate the need for host list management by obtaining the host list from Mackerel</span></a></li>    
-　<li><a href="https://mackerel.io/docs/entry/advanced/cli"><strong>Using the mkr CLI tool</strong><span>automate tasks using command-line tools</span></a></li>
+    <li><a href="https://mackerel.io/docs/entry/advanced/cli"><strong>Using the mkr CLI tool</strong><span>automate tasks using command-line tools</span></a></li>
     <li><a href="https://mackerel.io/docs/entry/advanced/monitors-github"><strong>Managing monitoring rules in GitHub</strong><span>an introduction to managing monitoring rules with GitHub</span></a></li>
     <li><a href="https://mackerel.io/docs/entry/advanced/docker"><strong>Monitoring Docker</strong><span>monitor Docker hosts using the mackerel-agent Docker image</span></a></li>
     <li><a href="https://mackerel.io/docs/entry/advanced/fluent-plugin-webhook-mackerel"><strong>Using fluent-plugin-webhook-mackerel</strong><span>use fluentd to handle alerts from Mackerel with more flexibility</span></a></li>
@@ -142,6 +142,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackere
     <li><a href="https://mackerel.io/docs/entry/advanced/experimental-features"><strong>Using Experimental Features</strong><span>try out features before their official release</span></a></li>
     <li><a href="https://mackerel.io/docs/entry/howto/MFA"><strong>Using 2-Step Authentication</strong><span>strengthen security by configuring 2-Step Authentication.</span></a></li>
     <li><a href="https://mackerel.io/docs/entry/howto/enforcing-MFA"><strong>Mandatory 2-Step Authentication</strong><span>strengthen security by requiring 2-Step Authentication</span></a></li>
+    <li><a href="https://mackerel.io/docs/entry/advanced/cloudwatch-logs-aggregator"><strong>Aggregating Amazon CloudWatch Logs and posting the metrics to Mackerel</strong><span>utilize logs to monitor application metrics</span></a></li>
 </ul>
 </section>
 
