@@ -6,7 +6,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 CustomPath: integrations/azure/database-for-postgresql
 ---
 
-MackerelはAzureインテグレーションにて<a href="https://azure.microsoft.com/ja-jp/services/postgresql/" target="_blank">Database for PostgreSQL</a>のメトリック取得や監視に対応しています。課金対象として 1リソース = 1マイクロホスト と換算します。
+MackerelはAzureインテグレーションにて<a href="https://azure.microsoft.com/ja-jp/services/postgresql/" target="_blank">Database for PostgreSQL</a>のメトリック取得や監視に対応しています。課金対象として 1リソース = 1マイクロホスト と換算します。 (現在サポートしているデプロイオプションは「単一サーバー」のみとなります)
 
 Azureインテグレーションの設定方法や対応Azureサービス一覧についてはこちらのページをご確認ください。<br>
 <a href="https://mackerel.io/ja/docs/entry/integrations/azure">Azureインテグレーション</a>

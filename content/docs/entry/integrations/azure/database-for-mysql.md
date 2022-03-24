@@ -6,7 +6,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackere
 CustomPath: integrations/azure/database-for-mysql
 ---
 
-Mackerel supports obtaining and monitoring <a href="https://azure.microsoft.com/en-us/services/mysql/" target="_blank">Database for MySQL</a> metrics in Azure Integration. Billable targets are determined using the conversion 1 resource = 1 Micro Host. 
+Mackerel supports obtaining and monitoring <a href="https://azure.microsoft.com/en-us/services/mysql/" target="_blank">Database for MySQL</a> metrics in Azure Integration. Billable targets are determined using the conversion 1 resource = 1 Micro Host.  (Currently the only supported deployment option is "Single server")
 
 Please refer to the following page for Azure Integration configuration methods and a list of supported Azure services.<br>
 <a href="https://mackerel.io/docs/entry/integrations/azure">Azure Integration</a>
