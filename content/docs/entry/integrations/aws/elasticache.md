@@ -51,7 +51,7 @@ The maximum number of metrics obtainable is 41 with Memcached, and 50 with Redis
 |Active Defrag|ActiveDefragHits|elasticache.redis.active_defrag.hits|integer|Sum|
 |Cache Hit Rate|CacheHitRate|elasticache.redis.cache_hit_rate.hit|percentage|Average|
 |Memory Percentage|DatabaseMemoryUsagePercentage|elasticache.redis.memory_percentage.database|percentage|Average|
-|Average TTL|DBAverageTTL|elasticache.redis.average_ttl.db0|float|Average|
+|Average TTL|DB0AverageTTL|elasticache.redis.average_ttl.db0|float|Average|
 |Fragmentation Ratio|MemoryFragmentationRatio|elasticache.redis.fragmentation_ratio.memory|float|Average|
 |Replication Bytes|ReplicationBytes|elasticache.redis.replication_bytes.replication|bytes|Average|
 |Replication Lag|ReplicationLag|elasticache.redis.replication_lag.lag|float|Average|

@@ -242,9 +242,9 @@ Create and attach your own policies or specify them in Inline Policies.
                 "states:DescribeStateMachine",
                 "states:List*",
                 "waf-regional:Get*",
-                "waf-regional:ListWebACLs",
+                "waf-regional:List*",
                 "waf:Get*",
-                "waf:ListWebACLs",
+                "waf:List*",
                 "wafv2:GetWebACL",
                 "wafv2:List*"
             ],

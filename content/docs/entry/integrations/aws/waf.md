@@ -15,15 +15,14 @@ Please refer to the following page for AWS Integration configuration methods and
 ## Obtaining metrics
 The metrics obtainable with AWS Integration's WAF support are as follows. For `Metric` explanations, refer to the <a href="https://docs.aws.amazon.com/en_us/waf/latest/developerguide/monitoring-cloudwatch.html" target="_blank">AWS help page</a>.
 
-The maximum number of metrics obtainable is `4 × (number of rules) + 4<"ALL">`.
+The maximum number of metrics obtainable is `6 × (number of rules) + 6<"ALL">`.
 
 |Graph name|Metric|Metric name in Mackerel|Unit|Statistics|
 |:---|:---|:---|:---|:---|
-|WebACL Requests|AllowedRequests<br>BlockedRequests<br>CountedRequests<br>PassedRequests|waf.web_acl_requests.#.allowed<br>waf.web_acl_requests.#.blocked<br>waf.web_acl_requests.#.counted<br>waf.web_acl_requests.#.passed|integer|Sum|
+|WebACL Requests|AllowedRequests<br>BlockedRequests<br>CountedRequests<br>PassedRequests<br>RequestsWithValidCaptchaToken<br>CaptchaRequests|waf.web_acl_requests.#.allowed<br>waf.web_acl_requests.#.blocked<br>waf.web_acl_requests.#.counted<br>waf.web_acl_requests.#.passed<br>waf.web_acl_requests.#.valid_captcha_token<br>waf.web_acl_requests.#.captcha|integer|Sum|
 
 - Enter the rule name in place of the # in "Metric name in Mackerel".
 
 <h2 id="notes">Notes</h2>
 - Tag filtering for hosts is not available with AWS Integration WAF support.
 - Assigning roles by tags is not available with AWS Integration WAF support.
-- Obtaining metrics of managed rule groups is not supported.

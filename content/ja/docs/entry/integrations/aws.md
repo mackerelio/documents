@@ -255,9 +255,9 @@ ElastiCache、SQSでタグによるサービス・ロール割り当てを行う
                 "states:DescribeStateMachine",
                 "states:List*",
                 "waf-regional:Get*",
-                "waf-regional:ListWebACLs",
+                "waf-regional:List*",
                 "waf:Get*",
-                "waf:ListWebACLs",
+                "waf:List*",
                 "wafv2:GetWebACL",
                 "wafv2:List*"
             ],
