@@ -193,6 +193,13 @@ APIに対して過去の値を送信した場合、Mackerel上の値は上書き
 }
 ```
 
+<i>`<metricvalue>`</i> : 以下のキーをもつオブジェクトです。
+
+| KEY      | TYPE     | DESCRIPTION |
+| -------- | -------- | ----------- |
+| `time`   | *number* | エポック秒。 |
+| `value`  | *number* | `time` 時点での計測値。 |
+
 #### 失敗時
 
 <table class="default api-error-table">

@@ -305,7 +305,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
       </div>
       <div class="api">
         <a href="entry/metadata#hostlist">
-          <p>Listi Host Metadata</p>
+          <p>List Host Metadata</p>
           <p class="type-get">
             <code>GET</code>
             <code>/api/v0/hosts/<em>&lt;hostId&gt;</em>/metadata</code>

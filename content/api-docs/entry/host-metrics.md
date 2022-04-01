@@ -192,6 +192,13 @@ With the following parameter, host and metric names will be assigned.
 }
 ```
 
+`<metricValue>` : an object that holds the following keys.
+
+| KEY      | TYPE   | DESCRIPTION |
+| -------- | ------ | ----------- |
+| `time`   | *number* | unix time |
+| `value`  | *number* | measured value at `time` |
+
 #### Error
 
 <table class="default api-error-table">
