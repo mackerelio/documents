@@ -106,9 +106,9 @@ The registered value is overwritten with `null`.
 | `agent-name` | *string* | agent name e.g. "mackerel-agent/0.27.0 (Revision dfbccea)" |
 | `agent-revision` | *string* | agent revision (Git commit SHA1) e.g. "2f531c6" | 
 | `agent-version` | *string* | agent version, e.g. "0.4.2" |
-| `block_device` | *hash[object]* | block device info. object that contains key name, variables like `size` etc. |
+| `block_device` | *hash[object]* | block device info. The keys are device names, and the values are objects that contain variables like `size`. |
 | `cpu` | *array[object]* | each CPU’s core info. each object holds `mhz` and `model_name` |
-| `filesystem` | *hash[object]* | filesystem information. an object that holds “key is a name of filesystem”, `kb_available`, `kb_used`, etc. |
+| `filesystem` | *hash[object]* | filesystem information. The keys are filesystem names, and the values are objects that hold `kb_available`, `kb_used`, etc. |
 | `kernel` | *hash[string]* | kernel information; can be got with the command `uname` |
 | `memory` | *hash[string]* | memory information |
 | `cloud`  | *hash[object]* | Exists if the host is registered through Cloud Integration such as [AWS Integration](https://mackerel.io/docs/entry/integrations/aws). An object that contains keys like `provider` and `metadata`. |
