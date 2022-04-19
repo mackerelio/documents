@@ -74,7 +74,7 @@ In the case of Aurora, the following metrics can be obtained in addition to the 
 |Graph name|Metric|Metric name in Mackerel|Unit|Statistics|
 |:---|:---|:---|:---|:---|
 |Storage|FreeLocalStorage|rds.aurora.storage.free|bytes|Average|
-|BinLog Replica Lag|AuroraBinLogReplicaLag|rds.aurora.binlog_replica_lag.lag|float|Average|
+|BinLog Replica Lag|AuroraBinlogReplicaLag|rds.aurora.binlog_replica_lag.lag|float|Average|
 |Replica Lag|AuroraReplicaLag<br>AuroraReplicaLagMaximum<br>AuroraReplicaLagMinimum|rds.aurora.replica_lag.lag<br>rds.aurora.replica_lag.max_lag<br>rds.aurora.replica_lag.min_lag|float|Average|
 |Engine Uptime|EngineUptime|rds.aurora.engine_uptime.uptime|float|Average|
 |Transactions|ActiveTransactions<br>BlockedTransactions|rds.aurora.transactions.active<br>rds.aurora.transactions.blocked|float|Average|

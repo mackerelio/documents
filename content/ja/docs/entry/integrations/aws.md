@@ -16,7 +16,7 @@ AWSインテグレーションは現在は以下のAWSクラウド製品に対�
 
 [EC2](https://mackerel.io/ja/docs/entry/integrations/aws/ec2)・[ELB (CLB)](https://mackerel.io/ja/docs/entry/integrations/aws/elb)・[ALB](https://mackerel.io/ja/docs/entry/integrations/aws/alb)・[NLB](https://mackerel.io/ja/docs/entry/integrations/aws/nlb)・[RDS](https://mackerel.io/ja/docs/entry/integrations/aws/rds)・[ElastiCache](https://mackerel.io/ja/docs/entry/integrations/aws/elasticache)・[Redshift](https://mackerel.io/ja/docs/entry/integrations/aws/redshift)・[Lambda](https://mackerel.io/ja/docs/entry/integrations/aws/lambda)・[SQS](https://mackerel.io/ja/docs/entry/integrations/aws/sqs)・[DynamoDB](https://mackerel.io/ja/docs/entry/integrations/aws/dynamodb)・[CloudFront](https://mackerel.io/ja/docs/entry/integrations/aws/cloudfront)
 ・[API Gateway](https://mackerel.io/ja/docs/entry/integrations/aws/apigateway)
-・[Kinesis Data Streams](https://mackerel.io/ja/docs/entry/integrations/aws/kinesis)・[S3](https://mackerel.io/ja/docs/entry/integrations/aws/s3)・[Elasticsearch Service](https://mackerel.io/ja/docs/entry/integrations/aws/es)・[ECS](https://mackerel.io/ja/docs/entry/integrations/aws/ecs)・[SES](https://mackerel.io/ja/docs/entry/integrations/aws/ses)・[Step Functions](https://mackerel.io/ja/docs/entry/integrations/aws/states)・[EFS](https://mackerel.io/ja/docs/entry/integrations/aws/efs)・[Kinesis Data Firehose](https://mackerel.io/ja/docs/entry/integrations/aws/firehose)・[Batch](https://mackerel.io/ja/docs/entry/integrations/aws/batch)・[WAF](https://mackerel.io/ja/docs/entry/integrations/aws/waf)・[Billing](https://mackerel.io/ja/docs/entry/integrations/aws/billing)・[Route 53](https://mackerel.io/ja/docs/entry/integrations/aws/route53)・[Connect](https://mackerel.io/ja/docs/entry/integrations/aws/connect)
+・[Kinesis Data Streams](https://mackerel.io/ja/docs/entry/integrations/aws/kinesis)・[S3](https://mackerel.io/ja/docs/entry/integrations/aws/s3)・[Elasticsearch Service](https://mackerel.io/ja/docs/entry/integrations/aws/es)・[ECS](https://mackerel.io/ja/docs/entry/integrations/aws/ecs)・[SES](https://mackerel.io/ja/docs/entry/integrations/aws/ses)・[Step Functions](https://mackerel.io/ja/docs/entry/integrations/aws/states)・[EFS](https://mackerel.io/ja/docs/entry/integrations/aws/efs)・[Kinesis Data Firehose](https://mackerel.io/ja/docs/entry/integrations/aws/firehose)・[Batch](https://mackerel.io/ja/docs/entry/integrations/aws/batch)・[WAF](https://mackerel.io/ja/docs/entry/integrations/aws/waf)・[Billing](https://mackerel.io/ja/docs/entry/integrations/aws/billing)・[Route 53](https://mackerel.io/ja/docs/entry/integrations/aws/route53)・[Connect](https://mackerel.io/ja/docs/entry/integrations/aws/connect)・[DocumentDB](https://mackerel.io/ja/docs/entry/integrations/aws/docdb)
 
 <h2 id="setting">連携方法</h2>
 AWSインテグレーションの連携方法には2つの方法があります。
@@ -44,6 +44,7 @@ AWSインテグレーションで使用する全ての権限を設定する場�
 - `AmazonEC2ReadOnlyAccess`
 - `AmazonElastiCacheReadOnlyAccess`
 - `AmazonRDSReadOnlyAccess`
+    - RDS、またはDocumentDBの場合に指定します。
 - `AWSLambda_ReadOnlyAccess`
 - `AmazonSQSReadOnlyAccess`
 - `AmazonDynamoDBReadOnlyAccess`
@@ -107,6 +108,7 @@ AWSインテグレーションで使用する全ての権限を設定する場�
 - `AmazonEC2ReadOnlyAccess`
 - `AmazonElastiCacheReadOnlyAccess`
 - `AmazonRDSReadOnlyAccess`
+    - RDS、またはDocumentDBの場合に指定します。
 - `AWSLambda_ReadOnlyAccess `
 - `AmazonSQSReadOnlyAccess`
 - `AmazonDynamoDBReadOnlyAccess`
