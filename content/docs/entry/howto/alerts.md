@@ -5,7 +5,7 @@ URL: https://mackerel.io/docs/entry/howto/alerts
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/8454420450073673768
 ---
 
-With Mackerel it’s possible to monitor your registered hosts by receiving notifications of alerts regarding the status of hosts.
+With Mackerel it’s possible to monitor your registered hosts by receiving notifications of alerts regarding the host status of hosts.
 
 ## Using the monitoring function effectively
 
@@ -17,7 +17,7 @@ With Mackerel it’s possible to monitor your registered hosts by receiving noti
 
 <h2 id="host-statuses">Monitoring targeted hosts</h2>
 
-* Only hosts with their status set to “working” or “standby” will be monitored, whereas hosts with “maintenance” or “power off” status will not be targeted by monitoring.
+* Only hosts with their status set to “working” or “standby” will be monitored, whereas hosts with “maintenance” or “poweroff” status will not be targeted by monitoring.
 * Settings for the default starting status can be configured under the Settings tab in your organization's page or it can be accessed directly through this link (https://mackerel.io/my?tab=setting). By setting the starting status as "working" you can begin receiving alert notifications immediately upon host registration.
 * Mackerel does not send alert notifications for hosts with a status of “standby”, however you can view these alerts on the web.
 
@@ -28,15 +28,15 @@ With Mackerel it’s possible to monitor your registered hosts by receiving noti
 | <span style="background: #f4bd0b;font-size: 12px;letter-spacing: .5px;color: #fff;text-align: center;text-shadow: 0 1px 0 rgba(0,0,0,.2);width: 90px;border-radius: 2px;display: inline-block;font-weight: bold;">maintenance</span> | no | no |
 | <span style="background: #c6cacc;font-size: 12px;letter-spacing: .5px;color: #fff;text-align: center;text-shadow: 0 1px 0 rgba(0,0,0,.2);width: 90px;border-radius: 2px;display: inline-block;font-weight: bold;">poweroff</span> | no | no |
 
-### About alerts when a host retires or the status changes
+### About alerts when a host retires or the host status changes
 
 When a host retires, alerts related to that host will automatically be closed.
 
-When a host’s status changes, automatic operations regarding the alert will not be performed.
+When a host status changes, automatic operations regarding the alert will not be performed.
 
-Notifications will not be sent for alerts that occur when the host’s status is “standby”, even if the status is changed to “working”. In this case, either the status of the alert has changed afterward or the re-sending interval has been configured and a notification will be sent if the interval is passed.
+Notifications will not be sent for alerts that occur when the host status is “standby”, even if the host status is changed to “working”. In this case, either the host status of the alert has changed afterward or the re-sending interval has been configured and a notification will be sent if the interval is passed.
 
-In the event that a host’s status is changed to “maintenance” or “poweroff”, alerts that have already occurred will not close automatically, even if threshold abnormalities and communications are restored. Returning the status to “working” or “standby”, alerts will automatically close once the abnormal state recovers.
+In the event that a host status is changed to “maintenance” or “poweroff”, alerts that have already occurred will not close automatically, even if threshold abnormalities and communications are restored. Returning the host status to “working” or “standby”, alerts will automatically close once the abnormal state recovers.
 
 ## Connectivity Monitoring
 
@@ -108,7 +108,7 @@ Please refer to the document below about the Alert group feature that lets you c
 
 ## Notifications
 
-Mackerel will notify you in the event that an alert has been raised, resolved/closed, or if the status of an alert has changed.
+Mackerel will notify you in the event that an alert has been raised, resolved/closed, or if the host status of an alert has changed.
 
 Notification settings can be edited in [Channels Settings][channels-settings]. Supported notification channels other than email and Webhook include Slack, HipChat, Typetalk, Chatwork, PagerDuty and many more. We will continue to add more supported notification channels as need dictates.
 

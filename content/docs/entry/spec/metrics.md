@@ -128,4 +128,4 @@ You can take a look at the mackerel-agent source code published in the link belo
 * `custom.foo(.bar)*.*`
   * Metrics which have the same name up to the last dot in the name will be collected together and displayed in one graph.
 
-Custom metrics sent from mackerel-agent are attached with the prefix `custom.` (from version 0.6.1). We recommend adding `custom.` even when using the API directly because standard metrics may now be added with the mackerel-agent update. See also [Posting user-defined custom metrics](https://mackerel.io/docs/entry/advanced/custom-metrics).
+Custom metrics sent from mackerel-agent are attached with the prefix `custom.` (from version 0.6.1). We recommend adding `custom.` even when using the API directly because system metrics may now be added with the mackerel-agent update. See also [Posting user-defined custom metrics](https://mackerel.io/docs/entry/advanced/custom-metrics).

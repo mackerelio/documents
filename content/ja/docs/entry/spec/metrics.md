@@ -128,4 +128,4 @@ mackerel-agent のソースコードは以下で公開されていますので�
 * `custom.foo(.bar)*.*`
   * 名前の最後のドットまでが共通するメトリックがひとつのグラフにまとめられ表示されます。
 
-mackerel-agentから送信するカスタムメトリックには、プレフィックスとして`custom.`が付与されます（バージョン 0.6.1 より）。 mackerel-agentのアップデートにより標準メトリックが追加されることがありますので、APIを直接使用する場合も、`custom.`を付与することを推奨します。[ホストのカスタムメトリックを投稿する](https://mackerel.io/ja/docs/entry/advanced/custom-metrics)も参照して下さい。
+mackerel-agentから送信するカスタムメトリックには、プレフィックスとして`custom.`が付与されます（バージョン 0.6.1 より）。 mackerel-agentのアップデートによりシステムメトリックが追加されることがありますので、APIを直接使用する場合も、`custom.`を付与することを推奨します。[ホストのカスタムメトリックを投稿する](https://mackerel.io/ja/docs/entry/advanced/custom-metrics)も参照して下さい。
