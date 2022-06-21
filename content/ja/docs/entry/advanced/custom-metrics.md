@@ -118,7 +118,7 @@ mackerel-agent は起動時に、設定ファイルで指定されたコマン�
 | ---- | ---- |
 | `graphs.{graph}` | ユーザー定義メトリック {graph}.* に対応するグラフ名。{graph} にはドット（`.`）を含むことができます。また、ワイルドカード`#`, `*` を使用することもできます。詳しくは <a href="https://mackerel.io/ja/api-docs/entry/host-metrics#post-graphdef">API仕様（v0）/ グラフ定義の投稿</a> を参照してください。 |
 | `graphs.{graph}.label` | ユーザー定義メトリック {graph}.* に対応するグラフの表示名。 |
-| `graphs.{graph}.unit`  | ユーザー定義メトリック {graph}.* に対応するグラフの値の種類。可能な値は "float", "integer", "percentage", "bytes", "bytes/sec", "iops" のいずれか。 |
+| `graphs.{graph}.unit`  | ユーザー定義メトリック {graph}.* に対応するグラフの値の種類。可能な値は "float", "integer", "percentage", "seconds", "milliseconds", "bytes", "bytes/sec", "bits/sec", "iops" のいずれか。 |
 | `graphs.{graph}.metrics` | ユーザー定義メトリック {graph}.* に対応するメトリック定義の配列。 |
 
 メトリック定義は以下のようなキーを持ちます。

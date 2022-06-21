@@ -250,7 +250,7 @@ This will transmit custom metric graph definitions to Mackerel.
 | --------------| -------- | ---------------------------------------------- |
 | `name`        | *string* | The part of the metric name before the last `.`. Must begin with `custom.`. Additionally, wildcard characters (`*` and `#`) can also be used. |
 | `displayName` | *string* | [optional] The graph's display name.                                 |
-| `unit`        | *string* | [optional] The type of the graph's values. Possible values are "float", "integer", "percentage", "bytes", "bytes/sec", and "iops" |
+| `unit`        | *string* | [optional] The type of the graph's values. Possible values are "float", "integer", "percentage", "seconds", "milliseconds", "bytes", "bytes/sec", "bits/sec", and "iops" |
 | `metrics`     | *array*  | `[ <metric>, <metric>, ...]` For metrics, refer to the chart below. |
 
 

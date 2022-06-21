@@ -251,7 +251,7 @@ APIに対して過去の値を送信した場合、Mackerel上の値は上書き
 | --------------| -------- | ---------------------------------------------- |
 | `name`        | *string* | メトリック名の最後の `.` より前の部分。 `custom.` ではじまる必要があります。また、ワイルドカード`#`, `*` を使用することもできます。 |
 | `displayName` | *string* | [optional] グラフの表示名。                                |
-| `unit`        | *string* | [optional] グラフの値の種類。可能な値は "float", "integer", "percentage", "bytes", "bytes/sec", "iops" のいずれかです。 |
+| `unit`        | *string* | [optional] グラフの値の種類。可能な値は "float", "integer", "percentage", "seconds", "milliseconds", "bytes", "bytes/sec", "bits/sec", "iops" のいずれかです。 |
 | `metrics`     | *array*  | `[ <metric>, <metric>, ...]` metric は下記参照。 |
 
 <i>`<metric>`</i> : 以下のキーをもつオブジェクト。</p>

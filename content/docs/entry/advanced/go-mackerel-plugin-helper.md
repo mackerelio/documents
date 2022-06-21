@@ -84,7 +84,7 @@ func (u UptimePlugin) GraphDefinition() map[string](mp.Graphs) {
 
 By defining `GraphDefinition`, the graph definition JSON and metrics will output correctly. For the uptime plugin, a single graph definition with `u.Prefix` as the key will be returned, but for many other plugins, several graph definitions will be returned with keys such as `u.Prefix + "runtime"` and `u.Prefix + "memory"`.
 
-`Label` is the graph name displayed from the Mackerel page. `Unit` is the unit of the graph. And similar to the graph definition API, “float”,"integer", "percentage", "bytes", "bytes/sec", and "iops" can be configured. 
+`Label` is the graph name displayed from the Mackerel page. `Unit` is the unit of the graph. And similar to the graph definition API, "float", "integer", "percentage", "seconds", "milliseconds", "bytes", "bytes/sec", "bits/sec", and "iops" can be configured.
 
 The multiple `Metrics` definitions drawn inside the graph are configured in `Metrics`. Fields that can be specified in the `mp.Metrics` are as follows.
 

@@ -85,7 +85,7 @@ func (u UptimePlugin) GraphDefinition() map[string]mp.Graphs {
 
 実際のグラフ定義出力時には、この定義のキーの前に `MetricKeyPrefix()` が返す値が付けられます。例えば `MetricKeyPrefix()` がuptimeを返す場合、`""` -> `"uptime"`, `"runtime"` -> `"uptime.runtime"`のように出力されます。
 
-`Label` はMackerel上で表示されるグラフ名、`Unit` はグラフの単位で、グラフ定義API同様に"float", "integer", "percentage", "bytes", "bytes/sec", "iops"が指定可能となっています。
+`Label` はMackerel上で表示されるグラフ名、`Unit` はグラフの単位で、グラフ定義API同様に"float", "integer", "percentage", "seconds", "milliseconds", "bytes", "bytes/sec", "bits/sec", "iops"が指定可能となっています。
 
 `Metrics` にはそのグラフ内に描画する複数の `Metrics` 定義を指定します。 `mp.Metrics` に指定できるフィールドは以下のとおりです。
 

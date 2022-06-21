@@ -115,7 +115,7 @@ The following is a description of each item.
 | ---- | ---- |
 | `graphs.{graph}` | The name for the graph corresponding to custom metrics {graph}.* . {graph} may contain dots (`.`). Additionally, wildcard characters (`*` and `#`) can also be used. For more details, refer to the [API specs (v0) / Posting Graph Definitions help page.](https://mackerel.io/api-docs/entry/host-metrics#post-graphdef) |
 | `graphs.{graph}.label` | The label for the graph corresponding to custom metrics {graph}.* . |
-| `graphs.{graph}.unit` | The type of value displayed in the graph corresponding to custom metrics {graph}.* . Must be one of the following: "float", "integer", "percentage", "bytes", "bytes/sec", or "iops". |
+| `graphs.{graph}.unit` | The type of value displayed in the graph corresponding to custom metrics {graph}.* . Must be one of the following: "float", "integer", "percentage", "seconds", "milliseconds", "bytes", "bytes/sec", "bits/sec", or "iops". |
 | `graphs.{graph}.metrics` | An array of metric definitions of custom metrics {graph}.* . |
 
 Metric definitions contain the following items:

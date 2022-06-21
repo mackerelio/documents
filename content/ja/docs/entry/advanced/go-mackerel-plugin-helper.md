@@ -84,7 +84,7 @@ func (u UptimePlugin) GraphDefinition() map[string](mp.Graphs) {
 
 この、 `GraphDefinition` を定義することで、グラフ定義のJSONや、メトリックが正しく出力されるようになります。uptimeプラグインでは、 `u.Prefix` をキーとした一つのグラフ定義しか返していませんが、多くのプラグインは、 `u.Prefix + "runtime"`、`u.Prefix + "memory"` と言ったようなキーで複数のグラフ定義を返します。
 
-`Label` はMackerel上で表示されるグラフ名、`Unit` はグラフの単位で、グラフ定義API同様に"float", "integer", "percentage", "bytes", "bytes/sec", "iops"が指定可能となっています。
+`Label` はMackerel上で表示されるグラフ名、`Unit` はグラフの単位で、グラフ定義API同様に"float", "integer", "percentage", "seconds", "milliseconds", "bytes", "bytes/sec", "bits/sec", "iops"が指定可能となっています。
 
 `Metrics` にはそのグラフ内に描画する複数の `Metrics` 定義を指定します。 `mp.Metrics` に指定できるフィールドは以下のとおりです。
 

@@ -89,7 +89,7 @@ By defining this `GraphDefinition`, the graph definition JSON and metrics will b
 
 When the plugin outputs the list of graph definitions, it attaches the prefix returned by the `MetricKeyPrefix()` function before each key of the graph definition. For example, if `MetricKeyPrefix()` returns `uptime`, it’s output as `""` -> `"uptime"`, `"runtime"` -> `"uptime.runtime"`.
 
-`Label` is the graph name displayed in Mackerel, `Unit` is the unit of graph, and "float", "integer", "percentage", "bytes", "bytes / sec", "iops" are able to be specified similar to the graph definition API.
+`Label` is the graph name displayed in Mackerel, `Unit` is the unit of graph, and "float", "integer", "percentage", "seconds", "milliseconds", "bytes", "bytes/sec", "bits/sec", "iops" are able to be specified similar to the graph definition API.
 
 `Metrics` specifies multiple `Metrics` definitions to be rendered within the graph. The fields for `mp.Metrics`  are as follows.
 
