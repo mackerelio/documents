@@ -34,7 +34,7 @@ Mackerelおよびmackerel-agentは、以下の環境で動作確認を行って�
   - [Microsoft Edge](https://www.microsoft.com/edge) (デスクトップ版) 最新版
 - mackerel-agent
     - Linux
-        - CentOS 7/8、CentOS Stream 8、MIRACLE LINUX 8、Ubuntu 16.04LTS/18.04LTS/20.04LTS、 Debian 9/10/11、Amazon Linux、Amazon Linux 2
+        - CentOS 7/8、CentOS Stream 8、MIRACLE LINUX 8、Ubuntu 16.04LTS/18.04LTS/20.04LTS/22.04LTS、 Debian 9/10/11、Amazon Linux、Amazon Linux 2
         - その他、一般的なLinux環境(カーネルバージョン 2.6.23以降)でも動作すると思われますが、現在のところサポート対象外です。
     - Windows
         - Windows Server 2012 以降の x64 ベースシステム
