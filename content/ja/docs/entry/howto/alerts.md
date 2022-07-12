@@ -108,9 +108,9 @@ mackerel-agentから投稿されるメトリック（ユーザー定義メトリ
 
 Mackerelは、アラートが生成された際・アラートの状態に変化があった際・閉じられた際に通知をおこないます。
 
-[通知チャンネルの設定][channels-settings]より、アラートの通知チャンネルを編集できます。対応している通知チャンネルはEメールとWebhookの他に、Slack、HipChat、TypeTalk、Chatwork、PagerDuty など多くのWebサービスと連携可能になっています。対応チャンネルは随時追加していきます。
+[通知チャンネルの設定][channels-settings]より、アラートの通知チャンネルを編集できます。対応している通知チャンネルはEメールとWebhookの他に、Slack、TypeTalk、Chatwork、PagerDuty など多くのWebサービスと連携可能になっています。対応チャンネルは随時追加していきます。
 
-[channels-settings]: https://mackerel.io/my/channels?new
+[channels-settings]: https://mackerel.io/my/channels/-/create
 [alerts-settings]: https://mackerel.io/my/monitors
 
 メールブロードキャストはそのオーガニゼーションに所属しているすべてのメンバーにメールを一斉送信します（[個人設定により受け取らないように変更できます](#optout-broadcast-notification-email)）。その他の通知チャンネルの設定の詳細については、ヘルプのサイドバー「アラート/alerts」をご確認下さい。

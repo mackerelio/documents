@@ -47,9 +47,9 @@ Graph URLs can be posted to notification channels directly from Mackerel. From t
 
 ![](https://cdn-ak.f.st-hatena.com/images/fotolife/a/andyyk/20161017/20161017170856.png)
 
-Each notification channel can be configured from the [Channel Settings](https://mackerel.io/my/channels?new).
+Each notification channel can be configured from the [Channel Settings](https://mackerel.io/my/channels/-/create).
 
-This feature is not yet supported for alert graphs, embedded graphs in Dashboards etc., and preview graphs of expression monitoring. The notification channels that are currently supported are [Slack](https://mackerel.io/docs/entry/howto/alerts/slack), [Hipchat](https://mackerel.io/docs/entry/howto/alerts/hipchat), [Typetalk](https://mackerel.io/docs/entry/howto/alerts/typetalk), [LINE](https://mackerel.io/docs/entry/howto/alerts/line), [Yammer](https://mackerel.io/docs/entry/howto/alerts/yammer) and [Microsoft Teams](https://mackerel.io/docs/entry/howto/alerts/microsoft-teams).
+This feature is not yet supported for alert graphs, embedded graphs in Dashboards etc., and preview graphs of expression monitoring. The notification channels that are currently supported are [Slack](https://mackerel.io/docs/entry/howto/alerts/slack), [Typetalk](https://mackerel.io/docs/entry/howto/alerts/typetalk), [LINE](https://mackerel.io/docs/entry/howto/alerts/line), [Yammer](https://mackerel.io/docs/entry/howto/alerts/yammer) and [Microsoft Teams](https://mackerel.io/docs/entry/howto/alerts/microsoft-teams).
 
 <h2 id="graph-share">Sharing graphs</h2>
 

@@ -13,7 +13,7 @@ By registering Chatwork as a notification channel with Mackerel, users can have 
 
 ###Adding Chatwork to your channels
 
-Chatwork can be added as a new channel and configured from the [Chatwork form](https://mackerel.io/my/channels?new=chatwork) in the Channels page.
+Chatwork can be added as a new channel and configured from the [Chatwork form](https://mackerel.io/my/channels/-/create#chatwork) in the Channels page.
 
 ![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20190121/20190121191504.png)
 

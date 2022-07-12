@@ -13,7 +13,7 @@ PagerDutyと連携を行う事で、Mackerelで発生したアラートをPagerD
 
 ## PagerDutyとの連携を追加する
 
-連携の設定は、[チャンネルページのPagerDutyフォーム](https://mackerel.io/my/channels?new=pagerduty)から行って下さい。
+連携の設定は、[チャンネルページのPagerDutyフォーム](https://mackerel.io/my/channels/-/create#pagerduty)から行って下さい。
 
 <p><span itemscope="" itemtype="http://schema.org/Photograph"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20171124/20171124160618.png" alt="f:id:mackerelio:20171124160618p:plain" title="f:id:mackerelio:20171124160618p:plain" class="hatena-fotolife" itemprop="image"></span></p>
 

@@ -91,7 +91,6 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackere
     <li><a href="https://mackerel.io/docs/entry/external-monitoring"><strong>External URL Monitoring</strong><span>how to set up http and https external URL monitors</span></a></li>
     <li><a href="https://mackerel.io/docs/entry/expression-monitoring"><strong>Expression Monitoring</strong><span>how to set up expression monitors</span></a></li>
     <li><a href="https://mackerel.io/docs/entry/howto/alerts/slack"><strong>Slack notifications</strong><span>sending alert notifications to Slack</span></a></li>
-    <li><a href="https://mackerel.io/docs/entry/howto/alerts/hipchat"><strong>HipChat notifications</strong><span>sending alert notifications to HipChat</span></a></li>
     <li><a href="https://mackerel.io/docs/entry/howto/alerts/pagerduty"><strong>PagerDuty notifications</strong><span>sending alert notifications to PagerDuty</span></a></li>
     <li><a href="https://mackerel.io/docs/entry/howto/alerts/chatwork"><strong>Chatwork notifications</strong><span>sending alert notifications to Chatwork</span></a></li>
     <li><a href="https://mackerel.io/docs/entry/howto/alerts/typetalk"><strong>Typetalk notifications</strong><span>sending alert notifications to Typetalk</span></a></li>

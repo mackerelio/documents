@@ -12,7 +12,7 @@ Linked with Mackerel’s channel features, alert notifications can be sent to Ya
 
 ### Adding Notifications to Yammer 
 
-In Alerts settings, add a new channel from the [channel page’s Yammer form](https://mackerel.io/orgs/hatena/channels?new=yammer). 
+In Alerts settings, add a new channel from the [channel page’s Yammer form](https://mackerel.io/orgs/hatena/channels/-/create#yammer). 
 
 ![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20160314/20160314124108.png)
 

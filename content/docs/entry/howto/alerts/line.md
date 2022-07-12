@@ -13,7 +13,7 @@ Integrating with [LINE Notify](https://notify-bot.line.me/), alert notifications
 
 ## Add alert notifications for LINE 
 
-To set up notifications, add a new channel from the [Channel page’s LINE form](https://mackerel.io/my/channels?new=line).
+To set up notifications, add a new channel from the [Channel page’s LINE form](https://mackerel.io/my/channels/-/create#line).
 
 ![](https://cdn-ak.f.st-hatena.com/images/fotolife/a/andyyk/20161003/20161003165358.png)
 

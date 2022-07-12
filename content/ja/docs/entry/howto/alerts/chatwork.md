@@ -12,7 +12,7 @@ Mackerel上でChatworkチャンネルを登録すると、Mackerelで監視し�
 <!--![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20141204/20141204112031.png)-->
 
 ### Chatwork との連携を追加する
-連携の設定は、[チャンネルページのChatworkフォーム](https://mackerel.io/my/channels?new=chatwork)から行って下さい。
+連携の設定は、[チャンネルページのChatworkフォーム](https://mackerel.io/my/channels/-/create#chatwork)から行って下さい。
 
 ![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20190121/20190121191504.png)
 

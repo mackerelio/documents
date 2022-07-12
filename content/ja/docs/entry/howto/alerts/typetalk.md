@@ -13,7 +13,7 @@ Mackerel上でTypetalkチャンネルを登録すると、Mackerelで監視し�
 ![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20150507/20150507163216.png)
 
 ### Typetalk との連携を追加する
-連携の設定は、[チャンネルページのTypetalkフォーム](https://mackerel.io/my/channels?new=typetalk)から新しい連携を追加してください。
+連携の設定は、[チャンネルページのTypetalkフォーム](https://mackerel.io/my/channels/-/create#typetalk)から新しい連携を追加してください。
 
 ![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20170919/20170919114420.png)
 

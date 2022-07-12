@@ -15,7 +15,7 @@ Click on the Microsoft Teams channel connector and create an Incoming Webhook.
 <p><span itemscope itemtype="http://schema.org/Photograph"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20190207/20190207162249.png" alt="f:id:mackerelio:20190207162249:plain" title="f:id:mackerelio:20190207162249:plain" class="hatena-fotolife" itemprop="image" width="600"></span></p>
 Use the [Brand Assets](https://mackerel.io/brand-assets/) PNG image to customize the image.
 
-Specify the generated URL in the [Mackerel Settings screen](https://mackerel.io/my/channels?new=microsoft-teams) and create the channel.
+Specify the generated URL in the [Mackerel Settings screen](https://mackerel.io/my/channels/-/create#microsoft-teams) and create the channel.
 <p><span itemscope itemtype="http://schema.org/Photograph"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20190207/20190207162452.png" alt="f:id:mackerelio:20190207162452:plain" title="f:id:mackerelio:20190207162452:plain" class="hatena-fotolife" itemprop="image" width="600"></span></p>
 Confirm by sending a test notification. 
 <p><span itemscope itemtype="http://schema.org/Photograph"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20190207/20190207162718.png" alt="f:id:mackerelio:20190207162718:plain" title="f:id:mackerelio:20190207162718:plain" class="hatena-fotolife" itemprop="image" width="600"></span></p>

@@ -9,7 +9,7 @@ Webhookを利用することでアラートの内容のJSONをPOSTで受け取�
 
 ## Webhookへの通知を追加する
 
-通知の設定は、[チャンネルページのWebhookのフォーム](https://mackerel.io/my/channels?new=webhook)から、追加ができます。MackerelサーバーからのPOSTを受け取るURLを指定して下さい。
+通知の設定は、[チャンネルページのWebhookのフォーム](https://mackerel.io/my/channels/-/create#webhook)から、追加ができます。MackerelサーバーからのPOSTを受け取るURLを指定して下さい。
 
 ![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20150924/20150924174417.png)
 

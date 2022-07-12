@@ -24,7 +24,7 @@ Mackerel では、Twilio で作成したアクセストークンや電話番号�
 
 アラートが発生した際に、指定されたエンドポイントから配信される [TwiML](https://jp.twilio.com/docs/api/twiml) を用いて電話を発信します。単純な文言の読み上げ以外の対応を自動化したい場合などにご利用ください。
 
-Twilio を用いた通知を設定する場合は、[チャンネルページの Twilio フォーム](https://mackerel.io/my/channels?new=twilio)から、新しいチャンネルを追加してください。
+Twilio を用いた通知を設定する場合は、[チャンネルページの Twilio フォーム](https://mackerel.io/my/channels/-/create#twilio)から、新しいチャンネルを追加してください。
 
 ![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20161107/20161107180322.png)
 

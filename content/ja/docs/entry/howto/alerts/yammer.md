@@ -11,7 +11,7 @@ Yammer は、社員が部門、場所、ビジネスアプリケーションを�
 
 ## Yammerへのアラート通知を追加する
 
-通知の設定は、[チャンネルページのYammerフォーム](https://mackerel.io/my/channels?new=yammer)から、新しいチャンネルを追加してください。
+通知の設定は、[チャンネルページのYammerフォーム](https://mackerel.io/my/channels/-/create#yammer)から、新しいチャンネルを追加してください。
 
 ![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20160114/20160114113017.png)
 

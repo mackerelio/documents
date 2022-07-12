@@ -11,7 +11,7 @@ Mackerelでは、アラートの内容のJSONをAmazon EventBridgeで受け取�
 
 ### コンソール画面で設定する
 
-通知の設定は、[チャンネルページのAmazon EventBridgeのフォーム](https://mackerel.io/my/channels?new=amazon-event-bridge)から、追加ができます。ご利用のAWSのアカウントID、通知を受け取るAWSリージョン、通知を識別するためのイベント名を指定して下さい。
+通知の設定は、[チャンネルページのAmazon EventBridgeのフォーム](https://mackerel.io/my/channels/-/create#amazon-event-bridge)から、追加ができます。ご利用のAWSのアカウントID、通知を受け取るAWSリージョン、通知を識別するためのイベント名を指定して下さい。
 
 <img src="https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20191211/20191211105919.png" style="max-width:400px">
 

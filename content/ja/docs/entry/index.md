@@ -91,7 +91,6 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
     <li><a href="https://mackerel.io/ja/docs/entry/external-monitoring"><strong>URL外形監視をおこなう</strong><span>URL外形監視を設定します</span></a></li>
     <li><a href="https://mackerel.io/ja/docs/entry/expression-monitoring"><strong>式による監視をおこなう</strong><span>式による監視を設定します</span></a></li>
     <li><a href="https://mackerel.io/ja/docs/entry/howto/alerts/slack"><strong>Slackにアラートを通知する</strong><span>アラートをSlackへ通知します</span></a></li>
-    <li><a href="https://mackerel.io/ja/docs/entry/howto/alerts/hipchat"><strong>HipChatにアラートを通知する</strong><span>アラートをHipChatへ通知します</span></a></li>
     <li><a href="https://mackerel.io/ja/docs/entry/howto/alerts/pagerduty"><strong>PagerDutyにアラートを通知する</strong><span>アラートをPagerDutyへ通知します</span></a></li>
     <li><a href="https://mackerel.io/ja/docs/entry/howto/alerts/chatwork"><strong>Chatworkにアラートを通知する</strong><span>アラートをChatworkへ通知します</span></a></li>
     <li><a href="https://mackerel.io/ja/docs/entry/howto/alerts/typetalk"><strong>TypeTalkにアラートを通知する</strong><span>アラートをTypeTalkへ通知します</span></a></li>

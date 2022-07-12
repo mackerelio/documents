@@ -23,7 +23,7 @@ When an alert occurs, a call is made and a fixed message is transmitted.
 
 When an alert occurs, a call is made using [TwiML](https://jp.twilio.com/docs/api/twiml) delivered from the specified endpoint. Use this when an automated correspondence other than a simple message is desired. 
 
-To configure notifications using Twilio, add a new channel from the [Twilio form on the channel’s page](https://mackerel.io/my/channels?new=twilio).
+To configure notifications using Twilio, add a new channel from the [Twilio form on the channel’s page](https://mackerel.io/my/channels/-/create#twilio).
 
 ![](https://cdn-ak.f.st-hatena.com/images/fotolife/a/andyyk/20161111/20161111165830.png)
 

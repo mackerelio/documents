@@ -9,7 +9,7 @@ Using Webhook you can receive the JSON from your Mackerel alerts with POST. This
 
 ## Adding Webhook notifications
 
-Notification settings can be added and configured [Webhook form](https://mackerel.io/my/channels?new=webhook) in the Channels Page. Here you will need to designate the URL that will receive POSTs from Mackerel’s servers.
+Notification settings can be added and configured [Webhook form](https://mackerel.io/my/channels/-/create#webhook) in the Channels Page. Here you will need to designate the URL that will receive POSTs from Mackerel’s servers.
 
 ![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20150924/20150924174417.png)
 

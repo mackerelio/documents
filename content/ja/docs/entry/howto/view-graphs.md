@@ -45,9 +45,9 @@ Mackerel上から直接グラフURLを通知チャンネルに流すことがで
 
 <p><span itemscope itemtype="http://schema.org/Photograph"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20161007/20161007115204.png" alt="f:id:mackerelio:20161007115204p:plain" title="f:id:mackerelio:20161007115204p:plain" class="hatena-fotolife" itemprop="image"></span></p>
 
-それぞれのチャンネルは <a href="https://mackerel.io/my/channels?new" target="_blank">通知チャンネル設定</a> から設定が可能です。
+それぞれのチャンネルは <a href="https://mackerel.io/my/channels/-/create" target="_blank">通知チャンネル設定</a> から設定が可能です。
 
-アラートグラフ、ダッシュボードなどの埋め込みグラフ、式による監視のプレビューグラフは未対応です。また、現在投稿がサポートされている通知チャンネルは <a href="https://mackerel.io/ja/docs/entry/howto/alerts/slack" target="_blank">Slack</a>, <a href="https://mackerel.io/ja/docs/entry/howto/alerts/hipchat" target="_blank">Hipchat</a>, <a href="https://mackerel.io/ja/docs/entry/howto/alerts/typetalk" target="_blank">Typetalk</a>, <a href="https://mackerel.io/ja/docs/entry/howto/alerts/line" target="_blank">LINE</a>, <a href="https://mackerel.io/ja/docs/entry/howto/alerts/yammer" target="_blank">Yammer</a>, <a href="https://mackerel.io/ja/docs/entry/howto/alerts/microsoft-teams" target="_blank">Microsoft Teams</a>です。
+アラートグラフ、ダッシュボードなどの埋め込みグラフ、式による監視のプレビューグラフは未対応です。また、現在投稿がサポートされている通知チャンネルは <a href="https://mackerel.io/ja/docs/entry/howto/alerts/slack" target="_blank">Slack</a>, <a href="https://mackerel.io/ja/docs/entry/howto/alerts/typetalk" target="_blank">Typetalk</a>, <a href="https://mackerel.io/ja/docs/entry/howto/alerts/line" target="_blank">LINE</a>, <a href="https://mackerel.io/ja/docs/entry/howto/alerts/yammer" target="_blank">Yammer</a>, <a href="https://mackerel.io/ja/docs/entry/howto/alerts/microsoft-teams" target="_blank">Microsoft Teams</a>です。
 
 
 <h2 id="graph-share">グラフを共有する</h2>

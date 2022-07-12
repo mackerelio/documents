@@ -11,7 +11,7 @@ In Mackerel, JSON of alert contents can be received with Amazon EventBridge. Thi
 
 ### Configuration from the console
 
-Notification settings can be added using the [Amazon EventBridge form on the Channels page](https://mackerel.io/my/channels?new=amazon-event-bridge). Specify your AWS account ID, the AWS region that will receive the notifications, and an event name to identify the notifications.
+Notification settings can be added using the [Amazon EventBridge form on the Channels page](https://mackerel.io/my/channels/-/create#amazon-event-bridge). Specify your AWS account ID, the AWS region that will receive the notifications, and an event name to identify the notifications.
 
 <img src="https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20191219/20191219142116.png" style="max-width:400px">
 

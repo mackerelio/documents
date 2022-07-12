@@ -16,7 +16,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 
 ### Slackへのアラート通知を追加する
 
-通知の設定は、[チャンネルページのSlackフォーム](https://mackerel.io/my/channels?new=slack)から、新しいチャンネルを追加してください。
+通知の設定は、[チャンネルページのSlackフォーム](https://mackerel.io/my/channels/-/create#slack)から、新しいチャンネルを追加してください。
 
 <p><span itemscope itemtype="http://schema.org/Photograph"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20190204/20190204181058.png" alt="f:id:mackerelio:20190129183300p:plain" title="f:id:mackerelio:20190129183300p:plain" class="hatena-fotolife" itemprop="image"></span></p>
 

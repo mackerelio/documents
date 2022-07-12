@@ -13,7 +13,7 @@ Mackerel では、[LINE Notify](https://notify-bot.line.me/ja/)と連携する�
 
 ## LINE へのアラート通知を追加する
 
-通知の設定は、[チャンネルページのLINEフォーム](https://mackerel.io/my/channels?new=line)から、新しいチャンネルを追加してください。
+通知の設定は、[チャンネルページのLINEフォーム](https://mackerel.io/my/channels/-/create#line)から、新しいチャンネルを追加してください。
 
 <span itemscope="" itemtype="http://schema.org/Photograph"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20160928/20160928141848.png" alt="f:id:mackerelio:20160928141848p:plain" title="f:id:mackerelio:20160928141848p:plain" class="hatena-fotolife" itemprop="image"></span>
 

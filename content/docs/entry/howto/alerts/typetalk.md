@@ -13,7 +13,7 @@ By configuring Typetalk as a notification channel, you can have alert informatio
 
 ##Connecting to Typetalk
 
-To connect to Typetalk, [add Typetalk](https://mackerel.io/my/channels?new=typetalk) as a new channel in the Channels page.
+To connect to Typetalk, [add Typetalk](https://mackerel.io/my/channels/-/create#typetalk) as a new channel in the Channels page.
 
 ![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20150507/20150507163750.png)
 
