@@ -5,6 +5,8 @@ URL: https://mackerel.io/ja/docs/entry/advanced/hubot
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/12921228815732107358
 ---
 
+注）本ページで紹介している[hubot-mackerel-notifier][]は現在メンテナンスしておらず、**非推奨**です。
+
 [Hubot][]スクリプトの[hubot-mackerel-notifier][]を利用すると、Mackerelからのアラート通知のWebhookを受けとり、IRCやSlack, HipChatなどのチャットツールに次のような通知を流すことができます。(SlackにはHubot経由ではなく直接送ることもできます。詳しくは[Slackにアラートを通知する](https://mackerel.io/ja/docs/entry/howto/alerts/slack)を参照してください。)
 
 ```

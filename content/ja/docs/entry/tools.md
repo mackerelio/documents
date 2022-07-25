@@ -35,9 +35,3 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 * cookbook-mackerel-agent
   * https://github.com/mackerelio/cookbook-mackerel-agent
   * 詳細は [https://mackerel.io/ja/docs/entry/howto/chef:title] を参照ください
-
-## hubotスクリプト
-
-* hubot-mackerel
-  * [https://github.com/mackerelio/hubot-mackerel:title]
-  * 詳細は [https://mackerel.io/ja/docs/entry/advanced/hubot:title] を参照ください

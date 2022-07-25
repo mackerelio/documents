@@ -124,7 +124,6 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 <ul>
     <li><a href="https://mackerel.io/ja/docs/entry/advanced/custom-metrics"><strong>ホストのカスタムメトリックを投稿する</strong><span>mackerel-agentからMySQLなどのミドルウェアのメトリックを投稿します</span></a></li>
     <li><a href="https://mackerel.io/ja/docs/entry/advanced/go-mackerel-plugin"><strong>go-mackerel-pluginを利用してカスタムメトリックプラグインを作成する</strong><span>公式で提供しているライブラリを利用してプラグインを作成する方法を紹介します</span></a></li>
-    <li><a href="https://mackerel.io/ja/docs/entry/advanced/hubot"><strong>hubotでチャットにアラートを通知する</strong><span>Mackerelが検出したアラートをhubot経由でSlackやIRCなどに通知します</span></a></li>
     <li><a href="https://mackerel.io/ja/docs/entry/advanced/fluentd"><strong>fluentdでサービスメトリックを投稿する</strong><span>ステータスコードごとのリクエスト数やエラー率などをfluentd経由で投稿します</span></a></li>
     <li><a href="https://mackerel.io/ja/docs/entry/advanced/capistrano-2.x"><strong>Capistrano 2.x と連携する</strong><span>ホスト一覧をMackerelから取得することでホストリストの管理が不要になります</span></a></li>
     <li><a href="https://mackerel.io/ja/docs/entry/advanced/capistrano-3.x"><strong>Capistrano 3.x と連携する</strong><span>ホスト一覧をMackerelから取得することでホストリストの管理が不要になります</span></a></li>

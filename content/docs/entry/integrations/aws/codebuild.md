@@ -2,7 +2,8 @@
 Title: AWS Integration - CodeBuild
 Date: 2022-07-19T10:00:00+09:00
 URL: https://mackerel.io/docs/entry/integrations/aws/codebuild
-EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/
+EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/4207112889900714278
+CustomPath: integrations/aws/codebuild
 ---
 
 Mackerel supports obtaining and monitoring <a href="https://aws.amazon.com/codebuild/" target="_blank">AWS CodeBuild</a> metrics in AWS Integration. When integrating with AWS Integration, billable targets are determined using the conversion 1 Project = 1 Micro Host. In addition to this, depending on the number of metrics retrieved, you may be charged for exceeding the maximum number of metrics per micro host.

@@ -5,6 +5,8 @@ URL: https://mackerel.io/docs/entry/advanced/hubot
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/8454420450083906607
 ---
 
+Note: We will no longer maintain [hubot-mackerel-notifier][] script, and it has been **DEPRECATED**.
+
 Using [Hubot][] with the [hubot-mackerel-notifier][] script, you can receive alert notification Webhooks from Mackerel as well as broadcast notifications like the ones shown below to multiple chat tools such as IRC, Slack, and HipChat. (With Slack, notifications are not only sent via Hubot, but can also be sent directly. For more information about Slack notifications please refer to [Slack notifications](https://mackerel.io/docs/entry/howto/alerts/slack).
 ```
 17:06 hubot: [Mackerel] CRITICAL: IOwait at app01 (working) Service: app https://mackerel.io/orgs/.../alerts/...

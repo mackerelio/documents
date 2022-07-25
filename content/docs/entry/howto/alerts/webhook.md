@@ -129,7 +129,6 @@ The JSON that will be sent contains the following. (Items may be added at any ti
 
 ## Making use of Webhook
 
-- [Getting notifications in chat tools with Hubot](https://mackerel.io/docs/entry/advanced/hubot)
 - [Using fluent-plugin-webhook-mackerel](https://mackerel.io/docs/entry/advanced/fluent-plugin-webhook-mackerel)
 
 ## Security when using Webhook

@@ -31,7 +31,7 @@ URL: https://mackerel.io/orgs/example/advanced-graph
 | `host(hostId, metricName)`            | Returns host metrics.                                                                        | `host(22CXRB3pZmu, memory.*)`                                             |
 | `service(serviceName, metricName)`    | Returns service metrics.                                                                     | `service(Blog, access_count)`                                             |
 | `role(roleFullname, metricName)`      | Returns host metrics that currently belong to a role.                                        | `role(Blog:db, memory.*)`                                                 |
-| `roleSlots(roleFullname, metricName)` | Returns a role's metrics. Metrics sent from hosts that used to belong to a role in the past can also be gotten, but only some metrics<a href="#1">*1</a> can be used.| `roleSlots(Blog:db, loadavg5)` |
+| `roleSlots(roleFullname, metricName)` | Returns a role's metrics. Metrics sent from hosts that used to belong to a role in the past can also be gotten. Every custom metric and some system metrics<a href="#1">*1</a> can be used.| `roleSlots(Blog:db, loadavg5)` |
 | `avg(metrics)`                        | Returns an average of metrics of an argument for each point in time.                         | `avg(group(host(22CXRB3pZmu, loadavg5), host(22CXRB3pZmu, loadavg5)))`    |
 | `max(metrics)`                        | Returns the largest metric value of an argument for each point in time.                      | `max(host(22CXRB3pZmu, custom.foo.jobs.*))`                               |
 | `min(metrics)`                        | Returns the smallest metric value of an argument for each point in time.                     | `min(host(22CXRB3pZmu, custom.foo.jobs.*))`                               |
@@ -51,7 +51,7 @@ URL: https://mackerel.io/orgs/example/advanced-graph
 | `alias(metrics, displayName)`         | Customizes a metric's display name.                                                          | `alias(service(Blog, foo.bar), 'Blog foo bar')`                           |
 
 <div id="1" style="position:relative; top:-80px;"></div>
-<a href="#1">*1</a> `loadavg5`, `processor_queue_length`, `cpu.user.percentage`, `cpu.iowait.percentage`, `cpu.system.percentage`, `interface.rxBytes.delta`, `interface.txBytes.delta`, `disk.reads.delta`, `disk.writes.delta`, `memory.used`, `memory.cached`
+<a href="#1">*1</a> `loadavg5`, `processor_queue_length`, `cpu.user.percentage`, `cpu.iowait.percentage`, `cpu.system.percentage`, `interface.rxBytes.delta`, `interface.txBytes.delta`, `disk.reads.delta`, `disk.writes.delta`, `memory.used`, `memory.cached`, `container.cpu.usage`, `container.memory.usage`
 
 All functions will return metrics. The parameters of the functions' arguments are as follows.
 

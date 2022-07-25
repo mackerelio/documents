@@ -125,7 +125,6 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackere
     <li><a href="https://mackerel.io/docs/entry/advanced/custom-metrics"><strong>Posting user-defined custom metrics</strong><span>posting middleware metrics for MySQL and more from mackerel-agent</span></a></li>
     <li><a href="https://mackerel.io/docs/entry/advanced/go-mackerel-plugin"><strong>Using go-mackerel-plugin to create a custom metric plugin</strong><span>an
  introduction on how to create plugins using the official library</span></a></li>
-    <li><a href="https://mackerel.io/docs/entry/advanced/hubot"><strong>Getting notifications in chat tools with Hubot</strong><span>receive alert notification Webhooks from Mackerel and broadcast notifications to chat tools such as IRC, Slack, and HipChat via Hubot</span></a></li>
     <li><a href="https://mackerel.io/docs/entry/advanced/fluentd"><strong>Posting Service Metrics with fluentd</strong><span>use fluentd to post the number of requests, error rate, and more for each status code</span></a></li>
     <li><a href="https://mackerel.io/docs/entry/advanced/capistrano-2.x"><strong>Integrating Capistrano 2.x</strong><span>eliminate the need for host list management by obtaining the host list from Mackerel</span></a></li>
     <li><a href="https://mackerel.io/docs/entry/advanced/capistrano-3.x"><strong>Integrating Capistrano 3.x</strong><span>eliminate the need for host list management by obtaining the host list from Mackerel</span></a></li>    

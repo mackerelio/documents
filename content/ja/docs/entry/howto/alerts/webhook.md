@@ -130,7 +130,6 @@ Webhookを利用することでアラートの内容のJSONをPOSTで受け取�
 
 ## Webhook活用方法
 
-- [Hubotでチャットにアラートを通知する](https://mackerel.io/ja/docs/entry/advanced/hubot)
 - [fluent-plugin-webhook-mackerelを利用する](https://mackerel.io/ja/docs/entry/advanced/fluent-plugin-webhook-mackerel)
 
 ## Webhookをセキュアに使うために

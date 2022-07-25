@@ -2,7 +2,8 @@
 Title: AWSインテグレーション - CodeBuild
 Date: 2022-06-28T10:00:00+09:00
 URL: https://mackerel.io/ja/docs/entry/integrations/aws/codebuild
-EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/
+EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/4207112889900711877
+CustomPath: integrations/aws/codebuild
 ---
 
 MackerelはAWSインテグレーションにて<a href="https://aws.amazon.com/jp/codebuild/" target="_blank">AWS CodeBuild</a>のメトリック取得や監視に対応しています。AWSインテグレーションで連携を行なった場合、課金対象として1プロジェクト = 1マイクロホストと換算します。またそれに加えて、取得されるメトリックの数に応じて、1マイクロホストあたりのメトリック数上限の超過による請求が行われる場合があります。

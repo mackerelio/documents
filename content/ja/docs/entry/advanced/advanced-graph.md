@@ -33,7 +33,7 @@ URL: https://mackerel.io/orgs/example/advanced-graph
 | `host(hostId, metricName)`            | ホストメトリックを返します                                                                                                                                 | `host(22CXRB3pZmu, memory.*)`                                                      |
 | `service(serviceName, metricName)`    | サービスメトリックを返します                                                                                                                               | `service(Blog, access_count)`                                                      |
 | `role(roleFullname, metricName)`      | ロールに現在所属しているホストのメトリックを返します                                                                                                       | `role(Blog:db, memory.*)`                                                          |
-| `roleSlots(roleFullname, metricName)` | ロールのメトリックを返します。過去にロールに所属していたホストから送られたメトリックも取得できますが、一部のメトリック<a href="#1">*1</a>のみ使用できます。| `roleSlots(Blog:db, loadavg5)`                                                     |
+| `roleSlots(roleFullname, metricName)` | ロールのメトリックを返します。過去にロールに所属していたホストから送られたメトリックも取得できます。全てのカスタムメトリックと一部のシステムメトリック<a href="#1">*1</a>を使用できます。| `roleSlots(Blog:db, loadavg5)`                                                     |
 | `avg(metrics)`                        | 各時刻ごとに引数のメトリックの平均したメトリックを返します                                                                                                 | `avg(group(host(22CXRB3pZmu, loadavg5), host(22CXRB3pZmu, loadavg5)))`             |
 | `max(metrics)`                        | 各時刻ごとに引数のメトリックの最大値のメトリックを返します                                                                                                 | `max(host(22CXRB3pZmu, custom.foo.jobs.*))`                                        |
 | `min(metrics)`                        | 各時刻ごとに引数のメトリックの最小値のメトリックを返します                                                                                                 | `min(host(22CXRB3pZmu, custom.foo.jobs.*))`                                        |
@@ -53,7 +53,7 @@ URL: https://mackerel.io/orgs/example/advanced-graph
 | `alias(metrics, displayName)`         | メトリックの表示名をカスタマイズします                                                                                                                     | `alias(service(Blog, foo.bar), 'Blog foo bar')`                                    |
 
 <div id="1" style="position:relative; top:-80px;"></div>
-<a href="#1">*1</a> `loadavg5`, `processor_queue_length`, `cpu.user.percentage`, `cpu.iowait.percentage`, `cpu.system.percentage`, `interface.rxBytes.delta`, `interface.txBytes.delta`, `disk.reads.delta`, `disk.writes.delta`, `memory.used`, `memory.cached`
+<a href="#1">*1</a> `loadavg5`, `processor_queue_length`, `cpu.user.percentage`, `cpu.iowait.percentage`, `cpu.system.percentage`, `interface.rxBytes.delta`, `interface.txBytes.delta`, `disk.reads.delta`, `disk.writes.delta`, `memory.used`, `memory.cached`, `container.cpu.usage`, `container.memory.usage`
 
 全ての関数は metrics を返します。また関数の引数のパラメータは以下の通りです。
 
