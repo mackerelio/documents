@@ -9,6 +9,10 @@ Mackerel offers mackerel-agent’s [Homebrew](https://brew.sh/) Tap for macOS. M
 
 However, please note that macOS is not officially supported for mackerel-agent. For a list of supported OS, check [here](https://mackerel.io/docs/entry/overview).
 
+We assume that you have installed Homebrew in `/usr/local` directory.
+If you are using Homebrew which natively supports Apple Silicon Mac, please replace `/usr/local` with `/opt/homebrew`.
+You can find where Homebrew is installed with `brew --prefix` command.
+
 <h2 id="install-command">Installing mackerel-agent </h2>
 
 With Homebrew's preinstalled environment, the agent can be installed by executing the following command.

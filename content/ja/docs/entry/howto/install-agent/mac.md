@@ -9,6 +9,10 @@ Mackerel では macOS 向けの mackerel-agent の [Homebrew](https://brew.sh/) 
 
 ただし、 macOS は mackerel-agent の公式サポート対象とはなっておりませんのでご了承ください。サポート対象OSについては[こちら](https://mackerel.io/ja/docs/entry/overview)をご確認ください。
 
+また、本ページでは Homebrew を `/usr/local` ディレクトリにインストールしていることを前提に説明しています。
+例えば、 Apple シリコン搭載の Mac にネイティブ対応した Homebrew をご利用の方は、 `/usr/local` を `/opt/homebrew` に読み替えてください。
+Homebrew のインストール先は `brew --prefix` コマンドで確認できます。
+
 <h2 id="install-command">mackerel-agent のインストール</h2>
 
 Homebrew の予め導入された環境で、以下のコマンドを実行してエージェントをインストールできます。
