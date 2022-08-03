@@ -27,6 +27,3 @@ The maximum number of metrics obtainable is `12 + 7 × (number of Services)`.
 |Service Memory Utilization|MemoryUtilization|ecs.service_memory_utilization.#.minimum<br>ecs.service_memory_utilization.#.average<br>ecs.service_memory_utilization.#.maximum|percentage|Minimum<br>Average<br>Maximum|
 
 - Enter the ECS service name in place of the # in "Metric name in Mackerel".
-
-<h2 id="notes">Notes</h2>
-- Assigning roles by tags is not available with AWS Integration ECS support.
