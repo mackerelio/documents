@@ -147,19 +147,9 @@ roles = [ "My-Service:app", "Another-Service:db" ]
 http_proxy = "http://localhost:8080"
 ```
 
-また、環境変数 `HTTP_PROXY` にも対応しています。例えば、次のように指定することで、HTTP Proxy経由でのアクセスにできます。
+環境変数 `HTTP_PROXY` にも対応しています。詳しくは[環境変数を適用する](#environment-variables)をご確認ください。
 
-```sh
-% HTTP_PROXY=http://localhost:8080 mackerel-agent
-```
-
-yum/rpmの場合 `/etc/sysconfig/mackerel-agent` 、apt/debの場合は `/etc/default/mackerel-agent` ファイルに環境変数の設定を追記することでmackerel-agentに適用させられます。例えば次のように指定します。
-
-```
-HTTP_PROXY="http://localhost:8080/"
-```
-
-設定ファイル内に、 `http_proxy` と同様の形式で、 `https_proxy` と記述することで、HTTPとHTTPSのプロキシサーバーの設定を分離することができます。また、環境変数 `HTTPS_PROXY` にも対応しています。
+また、設定ファイル内に `http_proxy` と同様の形式で、 `https_proxy` と記述することで、HTTPとHTTPSのプロキシサーバーの設定を分離することができます。なお、こちらも同様に環境変数 `HTTPS_PROXY` に対応しています。
 
 **例: 経由させたいプロキシサーバーが localhost:8080, localhost:8081 で提供されている場合**
 
@@ -288,6 +278,59 @@ Windows の場合、インターフェース名は Windows の デバイスマ�
 - `-role=<service>:<role>` ホストに割り当てるロールおよびサービスを指定します。
 - `-diagnostic` エージェント自身のメトリックを収集して投稿します。
 
+<h2 id="environment-variables">環境変数を適用する</h2>
+
+mackerel-agentのプロセスに環境変数を適用できます。OSごとの設定方法をご確認ください。
+
+<h3 id="environment-variables-linux">Linux環境</h2>
+
+規定のファイルに環境変数の設定を追記することで適用できます。
+
+ご利用のOSのパッケージマネージャーに応じて設定してください。
+
+| パッケージマネージャー | 設定ファイル |
+|:-------------|:--------------|
+| yum/rpm | `/etc/sysconfig/mackerel-agent` |
+| apt/deb | `/etc/default/mackerel-agent` |
+
+以下は設定例です。
+
+- 自動退役を有効にするため`AUTO_RETIREMENT=1`を設定する
+- プロキシサーバー経由で通信させるため`HTTP_PROXY=http://localhost:8080/`を設定する
+
+```
+AUTO_RETIREMENT=1
+HTTP_PROXY="http://localhost:8080/"
+```
+
+<h3 id="environment-variables-windows">Windows環境</h2>
+
+システムのプロパティ > 詳細設定 > 環境変数 > システム環境変数 より設定してください。
+
+<h3 id="environment-variables-list">対応した環境変数</h3>
+
+mackerel-agentが対応している環境変数です。これら以外の環境変数を指定することでプラグインから参照することも可能です。
+
+#### OTHER_OPTS
+
+mackerel-agentに追加したいオプションを指定します。例えば `OTHER_OPTS="-diagnostic -verbose"` のように指定すると診断モードが有効になるとともにDEBUGログが出力されます。
+
+#### HTTP_PROXY / HTTPS_PROXY
+
+mackerel-agentは指定されたプロキシサーバーを経由して通信を行います。詳細については[proxy](#config-file-proxy)をご確認ください。
+
+#### AUTO_RETIREMENT （Linux環境）
+
+この変数に0以外の文字列を指定すると、OSシャットダウン時(正確には `/etc/init.d/mackerel-agent stop` などによるサービス停止時)にホストが自動的に退役されます。
+
+**注意** 手動で `/etc/init.d/mackerel-agent stop` などを実行した場合でも、この指定がされていた場合にはホストは退役されてしまいます。エージェントのバージョンアップ時など、エージェントをstop/startさせたい場合には、`/etc/init.d/mackerel-agent reload` のようなリロードコマンドを環境に合わせて実行して下さい。
+
+[TOML]: https://github.com/mojombo/toml
+
+#### MACKEREL_AUTO_RETIREMENT （Windows環境）
+
+Windowsのシステム環境変数で、この変数に0以外の文字列を指定すると、OSシャットダウン時にホストが自動的に退役されます。サービスの停止では退役処理は実行されません。
+
 <h2 id="faq">FAQ</h2>
 
 ### エージェントはどうやってホストを判別していますか?
@@ -331,24 +374,3 @@ mackerel-agent once
 
 一度だけメトリックの収集を実行して標準出力に表示します。投稿は行われません。
 
-## initスクリプト用設定ファイル
-
-yum/rpmの場合 `/etc/sysconfig/mackerel-agent` 、apt/debの場合は `/etc/default/mackerel-agent` ファイルに環境変数の設定を追記することでmackerel-agentに適用させられます。以下の様な変数が設定可能です。
-
-### OTHER_OPTS
-
-mackerel-agentに追加したいオプションを指定します。例えば `OTHER_OPTS="-diagnostic -verbose"` のように指定すると診断モードが有効になるとともにDEBUGログが出力されます
-
-### AUTO_RETIREMENT
-
-この変数に0以外の文字列を指定すると、OSシャットダウン時(正確には `/etc/init.d/mackerel-agent stop` 時)にホストが自動的に退役されます。
-
-**注意** 手動で `/etc/init.d/mackerel-agent stop` を打った場合でもこの指定がされていた場合にはホストは退役されてしまいます。エージェントのバージョンアップ時など、エージェントをstop/startさせたい場合には、`/etc/init.d/mackerel-agent reload` を使うようにして下さい。
-
-[TOML]: https://github.com/mojombo/toml
-
-## Windowsシステム環境変数
-
-### MACKEREL_AUTO_RETIREMENT
-
-Windowsのシステム環境変数で、この変数に0以外の文字列を指定すると、OSシャットダウン時にホストが自動的に退役されます。サービスの停止では退役処理は実行されません。

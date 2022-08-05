@@ -88,19 +88,7 @@ command = "check-mysql ・・・ --password=$MYSQL_PASSWORD ・・・"
 env = { "MYSQL_PASSWORD" = "xxxxx" }
 ```
 
-**別ファイルに記述した変数を利用する**
-
-Mackerel エージェントは `/etc/sysconfig/mackerel-agent` に記述した変数を利用出来ます。
-
-`mackerel-agent.conf`
-```
-command = "check-mysql ・・・ --password=$MYSQL_PASSWORD ・・・"
-```
-
-`/etc/sysconfig/mackerel-agent`
-```
-MYSQL_PASSWORD=xxxxx
-```
+また、mackerel-agentのプロセスに適用された環境変数も利用できます。詳しくは[環境変数を適用する](https://mackerel.io/ja/docs/entry/spec/agent#environment-variables)をご確認ください。
 
 ## トラブルシューティング
 
