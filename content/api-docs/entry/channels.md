@@ -40,7 +40,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
 | ------------    | -------- | -------------------------------- |
 | `id`            | *string* | the notification channel ID               |
 | `name`          | *string* | the name of the notification channel             |
-| `type`          | *string* | the type of notification channel (`"email"`, `"slack"`, `"line"`, `"chatwork"`, `"typetalk"`, `"hipchat"`, `"twilio"`, `"reactio"`, `"pagerduty"`, `"opsgenie"`, `"yammer"`, `"microsoft-teams`, `"webhook"`, `"amazon-event-bridge"`) |
+| `type`          | *string* | the type of notification channel (`"email"`, `"slack"`, `"line"`, `"chatwork"`, `"typetalk"`, `"twilio"`, `"reactio"`, `"pagerduty"`, `"opsgenie"`, `"yammer"`, `"microsoft-teams`, `"webhook"`, `"amazon-event-bridge"`) |
 
  In addition to that above, the following detailed information returns if the `type` is `"email"`, `"slack"`, or `"webhook"`,
 
