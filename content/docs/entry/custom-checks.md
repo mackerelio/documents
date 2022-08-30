@@ -5,90 +5,119 @@ URL: https://mackerel.io/docs/entry/custom-checks
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/8454420450094528333
 ---
 
-Check monitoring is a feature that monitors the check plugin execution results similarly to Nagios. The agent periodically runs the check plugin and sends the results to Mackerel. 
+Check monitoring is a feature to monitor the execution results of a check plugin. The agent will execute the check plugin periodically and send the results to Mackerel. Each check monitor item counts as one host metric. Please refer to [Differences between metric monitoring and check monitoring](https://mackerel.io/docs/entry/custom-checks#difference) for more information on the differences between check monitoring and the monitoring of host metrics and service metrics.
 
-As for **metric monitoring**, which monitors the thresholds of metric values ​​sent to Mackerel, they differ in the following ways.
+[:contents]
 
-- With metric monitoring, the host posts metric values and Mackerel compares/judges those values against thresholds.
-  - Metrics are displayed as graphs, and monitors can be configured from the web console or API
-- With check monitoring, plugins are used to make OK / NG (`CRITICAL` or `WARNING` or `UNKNOWN`) judgments within the host and post the results to Mackerel.
-    - Graphs are not displayed because metrics are not posted. Monitors can not be configured from the web console, but configurations can be added to mackerel-agent installed on the host.
+<h2 id="check-plugin">About check plugins</h2>
 
-[f:id:mackerelio:20200108154244p:plain]
+A program that performs the desired monitoring process is required for check monitoring. We have released an official check plugin pack that can be used for this purpose. Please refer to [Using the official check plugin pack for check monitoring](https://mackerel.io/docs/entry/howto/mackerel-check-plugins) for more information.
 
-In order to use check monitoring with mackerel-agent, a program is required that performs the target monitoring process and returns the exit status according to the results. For this reason, an official check plugin pack is available. For more information please refer to [Using the official check plugin pack for check monitoring](https://mackerel.io/docs/entry/howto/mackerel-check-plugins).
+Users may also use programs they have created as check plugins. Such programs must perform the desired monitoring process and return an exit status based on the monitoring results. Please refer to [Check plugin specs](https://mackerel.io/docs/entry/custom-checks#specification) for more information.
 
-Check monitors will be counted as 1 host metric each. See [here](https://mackerel.io/pricing) for the limits of each plan, and [here](https://support.mackerel.io/hc/en-us/articles/360040109431) for metric limits per host and specifications when limits are exceeded.
+<h2 id="setting">Sample agent configuration</h2>
 
-<h2 id="setting">Configuration</h2>
-
-In the [agent settings file](https://mackerel.io/docs/entry/spec/agent#config-file), add an item as shown here:
+Check monitoring settings are added to the [Agent configuration file](https://mackerel.io/docs/entry/spec/agent#config-file). The following is a sample monitor configuration using a selfmade program named "check-ssh.rb". Please refer to [Configuration items](https://mackerel.io/docs/entry/custom-checks#items) for a description of each item. (Set non-required fields as needed.)
 
 ```config
 [plugin.checks.ssh]
 command = ["ruby", "/path/to/check-ssh.rb"]
-custom_identifier = "SOME_IDENTIFIER" # optional
-notification_interval = 60
-max_check_attempts = 1
 check_interval = 5
 timeout_seconds = 45
+max_check_attempts = 3
 prevent_alert_auto_close = true
+notification_interval = 60
+custom_identifier = "SOME_IDENTIFIER"
 env = { HOST = "hostname", PORT = "port" }
-action = { command = "bash -c '[ \"$MACKEREL_STATUS\" != \"OK\" ]' && ruby /path/to/notify_something.rb", env = { NOTIFY_API_KEY = "API_KEY" }, user = "someone", timeout_seconds = 45 }
 memo = "This check monitor is ..."
 ```
 
-- Item name: With the key for the settings file, the item name must begin with "plugin.checks." and contain exactly two periods. Anything after the second dot will be used as the monitor settings name.
-- command: This command will have the agent temporarily execute, and use it’s exit status/standard output as the monitoring result.
-- custom_identifier: Monitoring results are sent as a monitor of the host of the specified identifier, not the host on which the agent is running.
-    - If the check result is not OK, it will be notified as an alert for the host that is specified here.    
-    - This can be useful for adding monitors to hosts integrated with AWS / Azure / Google Cloud Integration. For more details, refer to the [AWS Integration Document](https://mackerel.io/docs/entry/integrations/aws#plugin-custom-identifier).
-- notification_interval: Specify the interval for re-sending notifications in minutes. If the agent version is v0.67.0 or later, expressions such as `"10m"` or `"1h"` can also be written. If omitted, notifications will not be re-sent. An interval of less than 10 minutes can not be designated. If an interval of less than 10 min is designated, the notification will be re-sent at 10 minutes.
-- max_check_attempts: An alert will be sent for any result other than “okay” in the designated number sequence. For example, if set at 3 and the latest monitoring result for all three is not ok, then a notification will be sent. **When used with  `prevent_alert_auto_close`, the value of `max_check_attempts` will be treated as `1` regardless of the specified value.**
-- check_interval: Specify the check monitoring execution interval in minutes. If the agent version is v0.67.0 or later, expressions such as `"10m"` or `"1h"` can also be written. The default value is 1 minute. The configurable range is 1 to 60 minutes. If a value of less than 1 minute is designated, monitoring will be run at 1 minute intervals. If a value of more than 60 minutes is designated, monitoring will be run at 60 minute intervals.
-- timeout_seconds: Specify the plugin timeout in seconds. The default value is 30 seconds. Since simultaneous activation for each plugin is not controlled, we recommend that the plugin execution interval not be exceeded.
-- prevent_alert_auto_close: With this value set to true, alerts opened for this check plugin will not be automatically closed. **When used with `max_check_attempts`, `max_check_attempts` will always be treated as `1`.**
-- env: Environment variables can be specified to pass to command. Specify with TOML [Table](https://github.com/toml-lang/toml#table) or [Inline Table](https://github.com/toml-lang/toml#inline-table).
-- action.command: An action executed following the execution of the command configured in `command`. This is used when there is a process to be performed depending on the command result. The result of the previous/current command etc. is passed as an environment variable. The execution result is ignored.
-- action.env: Environment variables can be specified to pass to action.command. Specify with TOML [Table](https://github.com/toml-lang/toml#table) or [Inline Table](https://github.com/toml-lang/toml#inline-table).
-- action.timeout_seconds : Specify the timeout for `action.command` in seconds. The default value is 30 seconds.
-- action.user: Execute `action.command` as the user specified for this option. Not yet supported for Windows environments.
-- memo: Configure notes for check monitoring. The character string specified here can be checked in alert notifications / the alert details screen / the host details page.
+<h3 id="items">Configuration items</h3>
 
-<h2 id="plugin">Check plugin specs</h2>
+| Configuration item | Required | Description | Default value |
+|---|---|---|---|
+| [plugin.checks.XXX] | ◯ | This is the key used by the configuration file. The "plugin.checks." part is fixed, and the string following the second dot (XXX) will be used as the name of the monitoring rule. The "XXX" part can not contain dots. | None |
+| command | ◯ | This is executed by the agent periodically, and its exit status and standard output are used as the monitoring results. Users may also execute arbitrary commands and programs they have created, in addition to the official check plugin. | None |
+| check_interval |  | This specifies the interval (in minutes) between successive executions of the check monitor. If using an agent whose version is v0.67.0 or later, you may enter expressions such as "10m" or "1h". Intervals allowed range from 1 minute to 60 minutes. Specified intervals under 1 minute will default to 1 minute, and intervals over 60 minutes will default to 60 minutes. | 1 (minute) |
+| timeout_seconds |  | This specifies the timeout period (in seconds) for the processing performed by a plugin. Since the launch of multiple instances of each plugin is not controlled, it is recommended that the value set for this item does not exceed the plugin execution interval (check_interval). | 30 (seconds) |
+| max_check_attempts |  |This specifies the maximum number of attempts. An alert will be generated in the event that a result besides OK is obtained for more times than the value specified here in succession. <br>**This defaults to "1" regardless of the value specified when used in conjunction with "prevent_alert_auto_close".** | 1 |
+| prevent_alert_auto_close |  | This prevents the alerts generated through monitoring with this check plugin from being closed automatically. <br>**"max_check_attempts" will always default to "1" when this is used in conjunction with "max_check_attempts".** | false |
+| notification_interval |  | This specifies the interval (in minutes) between successive resends of alert notifications. If using an agent whose version is v0.67.0 or later, you may enter expressions such as "10m" or "1h". Alert notifications will not be resent if no value is specified. Intervals under 10 minutes are not allowed. Specified intervals under 10 minutes will default to 10 minutes. | Not specified |
+| custom_identifier |  | This allows the monitor's execution results to be handled as monitoring results for the host whose identifier is specified here instead of the host on which mackerel-agent is running. If the check result is not OK, an alert will be generated for the host specified here. <br>This is useful for adding check monitoring to hosts where the agent cannot be installed, such as hosts that are integrated via AWS, Azure, or Google Cloud integration. Please refer to [AWS integration documentation](https://mackerel.io/docs/entry/integrations/aws#plugin-custom-identifier) for more information. <br>This value may be found at [Get Host Information](https://mackerel.io/api-docs/entry/hosts#get) for the API. | Not specified |
+| env |  | This allows environment variables to be set. It is only valid for plugins that have been configured. | Not specified |
+| action |  | The action entered in this item will be executed after each execution of the command set in "command". Please refer to [How to write an action](https://mackerel.io/docs/entry/custom-checks#action-setting) for more information. | Not specified |
+| memo |  | This allows a note to be set for the check monitor. You will see the string specified here in alert notifications as well as on the Alert Details screen and the Host Details screen. | Not specified |
 
-The specs for the [Nagios][] plugin and the [Sensu][] check script are mostly the same.
-In the settings file, the assign command’s exit status will be treated as shown below.
+<h3 id="action-setting">How to write an action</h3>
 
-|exit status|meaning|
-|:-----------|------------:|:------------:|
-| 0 | OK |
-| 1 | WARNING |
-| 2 | CRITICAL |
-| other than 0,1, or 2 | UNKNOWN |
+You can write an action by entering the following items in the syntax "action = {}". Multiple items can be entered at the same time using a comma-delimited list.
 
-It's also possible to add an auxiliary message to the standard output. The maximum character limit for messages is 1024. This output is sent to Mackerel and visualized in the host's details and Alerts page. For this reason, please be careful not to unintentionally send confidential information such as passwords.
+| Setting | Description |
+|---|---|
+| command | This will be executed immediately after each execution of the command set in "command". This is used to perform any further processing that is required depending on the execution results of the command. [Environment variables](https://mackerel.io/docs/entry/custom-checks#action-env) described below may also be used. (This will be referred to as "action.command" in this section to differentiate it from the "command" of the plugin.) |
+| env | This can be used to specify environment variables that are passed to "action.command". The variables are specified as a [Table][] or [Inline Table][] in TOML format. |
+| user | This specifies the user by whom "action.command" is executed. This is not supported on Windows. |
+| timeout_seconds | This specifies the timeout period (in seconds) for processing "action.command". (Default: 30 seconds) |
 
+The following is a sample configuration for executing "action.command" in the event that the execution result of "command" (MACKEREL_STATUS) is not OK.
 
-About to develop a plugin using [github.com/mackerelio/checkers](https://github.com/mackerelio/checkers) (a helper library that is used in our official plugins), please refer to [Creating check plugins using checkers](https://mackerel.io/docs/entry/advanced/checkers).
+```
+action = { command = "bash -c '[ \"$MACKEREL_STATUS\" != \"OK\" ]' && ruby /path/to/notify_something.rb", env = { NOTIFY_API_KEY = "API_KEY" }, user = "someone", timeout_seconds = 45 }
+```
 
-<h2 id="notification">Check monitoring notifications</h2>
-
-An alert notification will be sent when an alert has occurred and when the condition has been changed after an alert has occurred. Two cases for “when the alert condition has been changed” follow below. 
-
-- When the status has changed 
-    - ex. CRITICAL -> WARNING, WARNING -> CRITICAL, CRITICAL -> OK
-    - Including when the status is “OK”
-
-When the condition of an alert or the message content has changed, that information will also be available in the alert details screen. A notification will not occur if just the message content changes. 
-
-<h2 id="action-env">Environment variables available with action</h2>
+<h3 id="action-env">Environment variables available with action</h3>
 
 |Environment variable|Description|
 |:-----------|:------------|
-| MACKEREL_STATUS | The result of the previous command (`max_check_attempts` not taken into account).Either `OK`, `WARNING`, `CRITICAL`, or `UNKNOWN`. |
-| MACKEREL_PREVIOUS_STATUS | The result of the command before the previous command (`max_check_attempts` not taken into account). The initial result is an empty string after starting-up the agent. Either an empty string, `OK`, `WARNING`, `CRITICAL`, or `UNKNOWN`.|
-| MACKEREL_CHECK_MESSAGE | The result message of the previous command ( `command` stdout). |
+| MACKEREL_STATUS | This is the execution result for the latest "command". Possible values are "OK", "WARNING", "CRITICAL", and "UNKNOWN". ("max_check_attempts" is not taken into account.) |
+| MACKEREL_PREVIOUS_STATUS | This is the execution result for the previous "command". It will be an empty string for the first execution after the agent is launched. Possible values are "OK", "WARNING", "CRITICAL", and "UNKNOWN" from the second execution onwards. ("max_check_attempts" is not taken into account.) |
+| MACKEREL_CHECK_MESSAGE | This is the standard output result for the latest "command". It may not be possible to obtain a result on Windows. |
+
+<h2 id="specification">Check plugin specs</h2>
+
+Alert levels are returned as follows based on the exit status of "command".
+
+| Exit status | Alert level |
+|-----------|------------|
+| 0 | OK |
+| 1 | WARNING |
+| 2 | CRITICAL |
+| Any value besides 0, 1, or 2 | UNKNOWN |
+
+A supplementary message may also be added to the standard output. The length of this message may not exceed 1024 characters. The output will be sent to Mackerel and displayed on the Host Details screen and the Alert Details screen. Therefore, please make sure that no confidential information, such as passwords, is sent.
+
+For more information on how to develop plugins using [github.com/mackerelio/checkers](https://github.com/mackerelio/checkers), the utility library used for the official plugin, please refer to [Creating a check plugin using checkers](https://mackerel.io/docs/entry/advanced/checkers).
+
+<h2 id="notification">Check monitoring notifications</h2>
+
+Notifications are sent when an alert is generated and when the status of an alert changes after it is generated. This includes cases in which the status becomes OK.
+
+The following is an illustration of changes to an alert status and whether a notification will be sent for each status change.
+
+| Check monitor execution attempt | 1st | 2nd | 3rd | 4th | 5th | 6th |
+|---|---|---|---|---|---|---|
+| Status | CRITICAL | WARNING | WARNING | CRITICAL | CRITICAL | OK |
+| Alert notification | Yes | Yes | No | Yes | No | Yes |
+
+In the event of changes to an alert status or the content of a message, this information will also be reflected on the Alert Details screen. No notification will be sent if only the content of a message has changed.
+
+<h2 id="difference">Differences between metric monitoring and check monitoring</h2>
+
+Metric monitoring, such as the monitoring of host metrics and service metrics, differs from check monitoring in the following ways.
+
+- Metric monitoring
+  - The host posts metric values to Mackerel, which compares them to the threshold values before generating alert notifications accordingly.
+  - Metrics are plotted as graphs.
+  - Monitoring rules may be configured via the Web Console or Web API.
+  - There is no charge for adding monitoring rules. (Charges apply only to the metrics.)
+- Check monitoring
+  - The host on which the plugin is executed will determine if the status is OK or NG ("CRITICAL", "WARNING", or "UNKNOWN") and send this result to Mackerel, which will generate an alert notification based on the result received.
+  - No metrics are posts, so no graphs are plotted.
+  - Monitoring rules are configured within the mackerel-agent configuration file, and no configuration may be added or modified via the Web Console.
+  -  Each check monitor item counts as one host metric. Please refer to [Pricing](https://mackerel.io/pricing) for more information on the maximum number of metrics allowed per host. Also, please refer to [Host conversion when plan limit is exceeded](https://support.mackerel.io/hc/en-us/articles/360040109431-%E3%83%97%E3%83%A9%E3%83%B3%E4%B8%8A%E9%99%90%E8%B6%85%E9%81%8E%E6%99%82%E3%81%AE%E3%83%9B%E3%82%B9%E3%83%88%E5%8F%B0%E6%95%B0%E6%8F%9B%E7%AE%97%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6) for more information on the specifications when the limit is exceeded.
+- Illustrations of monitoring
+  -[Left] Metric monitoring / [Right] Check monitoring
+  - ![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20200108/20200108154244.png)
 
 <h3 id="example-ruby">An example in Ruby</h3>
 
@@ -111,6 +140,3 @@ If an alert is raised it will be displayed as shown below and can be confirmed i
 ![](https://cdn-ak.f.st-hatena.com/images/fotolife/S/Songmu/20150514/20150514115053.png)
 
 ![](https://cdn-ak.f.st-hatena.com/images/fotolife/S/Songmu/20150514/20150514115052.png)
-
-[Nagios]: http://www.nagios.org/
-[Sensu]: https://sensuapp.org/
