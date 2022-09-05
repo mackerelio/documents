@@ -26,22 +26,6 @@ Updates can be performed using the `yum` command.
 sudo yum update mackerel-agent
 ```
 
-<h2 id="v1">When using Red Hat 6</h2>
-
-Execute the following command:
-
-```
-curl -fsSL https://mackerel.io/file/script/setup-all-yum.sh | MACKEREL_APIKEY='<YOUR_API_KEY>' sh
-```
-
-You can obtain the API key from the [API tab on your organization's page](https://mackerel.io/my?tab=apikeys). Keep in mind this key is used to identify your organization, so we strongly advise not sharing it with others.
-
-Updates can be performed using the `yum` command.
-
-```
-sudo yum update mackerel-agent
-```
-
 <h2 id="rpm">Using <code>rpm</code></h2>
 
 To install mackerel-agent with `rpm` run the following command:
@@ -90,20 +74,6 @@ sudo journalctl -u mackerel-agent.service
 ```
 
 Once the agent starts functioning properly, the host will be registered with Mackerel, which you can confirm by checking the [Dashboard](https://mackerel.io/my/dashboard).
-
-
-<h3>When using Red Hat 6</h3>
-
-Executing the following command starts the agent.
-
-```
-sudo /etc/init.d/mackerel-agent start
-```
-
-The agent log is output to `/var/log/mackerel-agent.log`.
-
-Once the agent starts functioning properly, the host will be registered with Mackerel, which you can confirm by checking the [Dashboard](https://mackerel.io/my/dashboard).
-
 
 <h2 id="uninstall">Uninstalling mackerel-agent</h2>
 

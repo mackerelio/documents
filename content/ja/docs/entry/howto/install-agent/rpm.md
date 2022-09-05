@@ -26,22 +26,6 @@ APIキーは[オーガニゼーションページ内・APIキータブ](https://
 sudo yum update mackerel-agent
 ```
 
-<h2 id="v1">Red Hat 6 をご利用の場合</h2>
-
-以下のコマンドを実行してください:
-
-```
-curl -fsSL https://mackerel.io/file/script/setup-all-yum.sh | MACKEREL_APIKEY='<YOUR_API_KEY>' sh
-```
-
-APIキーは[オーガニゼーションページ内・APIキータブ](https://mackerel.io/my?tab=apikeys)から確認できます。このAPIキーでオーガニゼーションを識別しますので、APIキーは外部に漏らさないようご注意ください。
-
-アップデートの際は、`yum` コマンドからおこなうことができます。
-
-```
-sudo yum update mackerel-agent
-```
-
 <h2 id="rpm">rpmコマンドを使用する</h2>
 
 `rpm`コマンドでインストールするには、以下のコマンドを実行します:
@@ -88,19 +72,6 @@ sudo systemctl start mackerel-agent
 ```
 sudo journalctl -u mackerel-agent.service
 ```
-
-エージェントが正しく動きはじめると、Mackerelにホストとして登録されます。[ダッシュボード](https://mackerel.io/my/dashboard)などでご確認ください。
-
-
-<h3>Red Hat 6 をご利用の場合</h3>
-
-以下のコマンドを実行することで、エージェントが起動します。
-
-```
-sudo /etc/init.d/mackerel-agent start
-```
-
-`/var/log/mackerel-agent.log` にエージェントのログが出力されます。
 
 エージェントが正しく動きはじめると、Mackerelにホストとして登録されます。[ダッシュボード](https://mackerel.io/my/dashboard)などでご確認ください。
 
