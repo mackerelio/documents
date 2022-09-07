@@ -12,10 +12,10 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
   <li><a href="#update-status">Update Host Status</a></li>
   <li><a href="#update-roles">Update Host Roles</a></li>
   <li><a href="#retire">Retire Hosts</a></li>
+  <li><a href="#bulk-retire">Bulk Retire Hosts</a></li>
   <li><a href="#list">List Hosts</a></li>
   <li><a href="#metric-names">List Metric Names</a></li>
   <li><a href="#monitored-statuses">List Monitoring Statuses</a></li>
-  
 </ul>
 
 
@@ -428,6 +428,73 @@ This will POST empty JSON.
   <tr>
     <td>400</td>
     <td>when JSON format is incorrect</td>
+  </tr>
+  <tr>
+    <td>403</td>
+    <td>when the API key doesn't have the required permissions / when accessing from outside the <a href="https://support.mackerel.io/hc/en-us/articles/360039701952" target="_blank">permitted IP address range</a></td>
+  </tr>
+</tbody>
+</table>
+
+----------------------------------------------
+
+<h2 id="bulk-retire">Bulk Retire Hosts</h2>
+
+This will retire multiple registered hosts.
+
+<p class="type-post">
+  <code>POST</code>
+  <code>/api/v0/hosts/bulk-retire</code>
+</p>
+
+### Required permissions for the API key
+
+<ul class="api-key">
+  <li class="label-read">Read</li>
+  <li class="label-write">Write</li>
+</ul>
+
+### Input
+
+You can specify <code><em>&lt;hostId&gt;</em></code> up to 30.
+
+```json
+{
+  "ids": [ <hostId>, <hostId>, … ]
+}
+```
+
+### Response
+
+#### Success
+
+```json
+{
+  "success": true
+}
+```
+
+#### Error
+
+<table class="default api-error-table">
+<thead>
+  <tr>
+    <th class="status-code">STATUS CODE</th>
+    <th class="description">DESCRIPTION</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>404</td>
+    <td>when some of the hosts that correspond to the <code><em>&lt;hostId&gt;</em></code> can't be found</td>
+  </tr>
+  <tr>
+    <td>400</td>
+    <td>when JSON format is incorrect</td>
+  </tr>
+  <tr>
+    <td>400</td>
+    <td>when trying to retire hosts and exceeding the limit (30)</td>
   </tr>
   <tr>
     <td>403</td>

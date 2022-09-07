@@ -163,6 +163,15 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
         </a>
       </div>
       <div class="api">
+        <a href="entry/hosts#bulk-retire">
+          <p>Bulk Retire Hosts</p>
+          <p class="type-post">
+            <code>POST</code>
+            <code>/api/v0/hosts/bulk-retire</code>
+          </p>
+        </a>
+      </div>
+      <div class="api">
         <a href="entry/hosts#list">
           <p>List Hosts</p>
           <p class="type-get">
