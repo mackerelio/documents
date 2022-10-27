@@ -8,6 +8,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 <ul class="internal-nav">
   <li><a href="#create">ホスト情報の登録</a></li>
   <li><a href="#get">ホスト情報の取得</a></li>
+  <li><a href="#get-by-custom-identifier">customIdentifier を指定したホスト情報の取得</a></li>
   <li><a href="#update-information">ホスト情報の更新</a></li>
   <li><a href="#update-status">ホストのステータスの更新</a></li>
   <li><a href="#update-roles">ホストのロールの更新</a><li>
@@ -189,6 +190,41 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 | `isRetired` | *boolean* | ホストが退役しているかどうか |
 | `retiredAt` | *number* | [optional] ホストの退役時刻（epoch秒） |
 | `roles` | *hash[array[string]]* | ホストが所属しているロールの一覧。キーはサービス名、値はそのサービスにおけるロール名の配列です。 |
+
+----------------------------------------------
+
+<h2 id="get-by-custom-identifier">customIdentifier を指定したホスト情報の取得</h2>
+
+指定した customIdentifier を持つ、退役していない単一のホスト情報を取得できます。customIdentifier は `/` や `?` といったURL予約文字を含み得るため、必要に応じてURLエンコードしてください。
+
+<p class="type-get">
+  <code>GET</code>
+  <code>/api/v0/hosts-by-custom-identifier/<em>&lt;customIdentifier&gt;</em></code>
+</p>
+
+### APIキーに必要な権限
+
+<ul class="api-key">
+  <li class="label-read">Read</li>
+</ul>
+
+### 入力（クエリパラメータ）
+
+以下のパラメータを指定することで、大文字小文字を区別せずに <i>`<customIdentifier>`</i> を比較して単一のホスト情報を取得することができます。その場合、最も古いものが選ばれます。`caseInsensitive` が指定されていない場合は、大文字小文字を区別して探索します。
+
+| PARAM     | TYPE   | DESCRIPTION |
+| --------  | ------ | ----------- |
+| `caseInsensitive` | *boolean* | [optional] <i>`<customIdentifier>`</i> を、大文字小文字を区別せずに比較するかどうか。真なら大文字小文字を区別しません。 |
+
+### 応答
+
+```json
+{
+  "host": <host>
+}
+```
+
+<i>`<host>`</i> は[ホスト情報の取得](#get)で返ってくるオブジェクトと同型です。
 
 ----------------------------------------------
 

@@ -8,6 +8,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
 <ul class="internal-nav">
   <li><a href="#create">Register Host Information</a></li>
   <li><a href="#get">Get Host Information</a></li>
+  <li><a href="#get-by-custom-identifier">Get Host Information By Custom Identifier</a></li>
   <li><a href="#update-information">Update Host Information</a></li>
   <li><a href="#update-status">Update Host Status</a></li>
   <li><a href="#update-roles">Update Host Roles</a></li>
@@ -190,6 +191,41 @@ One element of `checks` is an object that holds the following keys.
 | `isRetired` | *boolean* | whether or not the host is retired |
 | `retiredAt` | *number* | [optional] the host's retirement timestamp（in epoch seconds） |
 | `roles` | *hash[array[string]]* | List of the roles to which the host belongs. The keys are service names, and the values are arrays of role names. |
+
+----------------------------------------------
+
+<h2 id="get-by-custom-identifier">Get Host Information By Custom Identifier</h2>
+
+Get information of a non-retired host by specifying its customIdentifier. You should apply URL encoding to <i>`<customIdentifier>`</i> because it can contain reserved characters such as `/` and `?`.
+
+<p class="type-get">
+  <code>GET</code>
+  <code>/api/v0/hosts-by-custom-identifier/<em>&lt;customIdentifier&gt;</em></code>
+</p>
+
+### Required permissions for the API key
+
+<ul class="api-key">
+  <li class="label-read">Read</li>
+</ul>
+
+### Input (Query parameter)
+
+With the following parameter, you can compare <i>`<customIdentifier>`</i> in a case-insensitive manner and retrieve single host information. In that case, old one is chosen. If `caseInsensitive` is not specified, a host information by a case-sensitive search will be returned.
+
+| PARAM     | TYPE   | DESCRIPTION |
+| -------- | ------ | ----------- |
+| `caseInsensitive` | *boolean* | [optional] whether to compare <i>`<customIdentifier>`</i> to case-insensitive or not. If true, a case-insensitive search will be performed. |
+
+### Response
+
+```json
+{
+  "host": <host>
+}
+```
+
+<i>`<host>`</i> is the same type as the object that changes in [Get Host Information](#get)
 
 ----------------------------------------------
 

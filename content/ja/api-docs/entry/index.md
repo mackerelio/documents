@@ -127,6 +127,15 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
         </a>
       </div>
       <div class="api">
+        <a href="entry/hosts#get-by-custom-identifier">
+          <p>customIdentifier を指定したホスト情報の取得</p>
+          <p class="type-get">
+            <code>GET</code>
+            <code>/api/v0/hosts-by-custom-identifier/<em>&lt;customIdentifier&gt;</em></code>
+          </p>
+        </a>
+      </div>
+      <div class="api">
         <a href="entry/hosts#update-information">
           <p>ホスト情報の更新</p>
           <p class="type-put">
