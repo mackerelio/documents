@@ -8,6 +8,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
 <ul class="internal-nav">
   <li><a href="#list">List Alerts</a></li>
   <li><a href="#get">Get Alert</a></li>
+  <li><a href="#update">Update Alert</a></li>
   <li><a href="#close">Close Alerts</a></li>
 </ul>
 
@@ -116,6 +117,68 @@ The alert is returned. The response format is the same as that which can be obta
     <tr>
       <td>404</td>
       <td>when the specified alert does not exist</td>
+    </tr>
+  </tbody>
+</table>
+
+----------------------------------------------
+
+<h2 id="update">Update Alert</h2>
+
+<p class="type-put">
+  <code>PUT</code>
+  <code>/api/v0/alerts/<em>&lt;alertId&gt;</em></code>
+</p>
+
+### Required permissions for the API key
+
+<ul class="api-key">
+  <li class="label-read">Read</li>
+  <li class="label-write">Write</li>
+</ul>
+
+### Input
+
+```json
+{
+  "memo": "<text>"
+}
+```
+
+Any text can be appended in the `memo` field. This field is a required item.
+
+### Response
+
+#### Success
+
+alert's ID and memo are returned.
+
+```json
+  "id": "<alertId>",
+  "memo": "<text>"
+```
+
+#### Error
+
+<table class="default api-error-table">
+  <thead>
+    <tr>
+      <th class="status-code">STATUS CODE</th>
+      <th class="description">DESCRIPTION</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>403</td>
+      <td>when the API key doesn't have the required permissions / when accessing from outside the <a href="https://support.mackerel.io/hc/en-us/articles/360039701952" target="_blank">permitted IP address range</a></td>
+    </tr>
+    <tr>
+      <td>404</td>
+      <td>when the specified alert does not exist</td>
+    </tr>
+    <tr>
+      <td>413</td>
+      <td>when the memo exceeds 80KB</td>
     </tr>
   </tbody>
 </table>
