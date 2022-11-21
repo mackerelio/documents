@@ -97,7 +97,8 @@ If not using the plugin, the agent can be used with just environment variable co
 | MACKEREL_AGENT_CONFIG_POLLING_DURATION_MINUTES | Specifies time interval of retrieval in minutes for detecting changes in the agent configuration file. |
 | MACKEREL_IGNORE_CONTAINER | Sets the name of the container to be excluded from monitoring with regular expressions. |
 | MACKEREL_HOST_STATUS_ON_START | When set, the host status changes to the specified value upon startup of the agent. Valid values are "standby", "working", "maintenance", and "poweroff". |
-| HTTP_PROXY(HTTPS_PROXY) | Sets an HTTP Proxy that the agent uses to communicate outside of the container. Note that this is a different setting from the http probe proxy (described later). |
+| HTTP_PROXY | Sets an HTTP Proxy that the agent uses to communicate outside of the container. Note that this is a different setting from the http probe proxy (described later). |
+| HTTPS_PROXY | Sets an HTTPS Proxy that the agent uses to communicate outside of the container. Note that this is a different setting from the http probe proxy (described later). |
 
 
 By default, the configuration file is read once at startup. With `MACKEREL_AGENT_CONFIG_POLLING_DURATION_MINUTES` configured, the configuration file is periodically retrieved to detect and apply changes.
