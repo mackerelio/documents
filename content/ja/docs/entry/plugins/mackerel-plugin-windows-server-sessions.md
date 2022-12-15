@@ -1,6 +1,9 @@
 ---
 Title: メトリックプラグイン - mackerel-plugin-windows-server-sessions
+Date: 2022-12-15T16:28:34+09:00
 URL: https://mackerel.io/ja/docs/entry/plugins/mackerel-plugin-windows-server-sessions
+EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/4207112889945320315
+CustomPath: plugins/mackerel-plugin-windows-server-sessions
 ---
 
 mackerel-plugin-windows-server-sessions は Windows の共有フォルダのセッション数をメトリックとして監視できます。

@@ -1,6 +1,9 @@
 ---
 Title: Metric plugins - mackerel-plugin-windows-server-sessions
-URL: https://mackerel.io/ja/docs/entry/plugins/mackerel-plugin-windows-server-sessions
+Date: 2022-12-15T16:26:32+09:00
+URL: https://mackerel.io/docs/entry/plugins/mackerel-plugin-windows-server-sessions
+EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/4207112889945319790
+CustomPath: plugins/mackerel-plugin-windows-server-sessions
 ---
 
 mackerel-plugin-windows-server-sessions can monitor the number of sessions on Windows shared folders as a metric.
