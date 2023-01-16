@@ -227,16 +227,7 @@ The dashboard before deletion is returned, same as [Create Dashboards](#create).
 | ------------ | --------------- | ---------------------- |
 | `dashboards` | *array[object]* | a list of the dashboards |
 
-Each dashboard is an object with the following keys:
-
-| KEY         | TYPE     | DESCRIPTION                |
-| ----------- | -------- | -------------------------- |
-| `id`        | *string* | the dashboard's ID         |
-| `title`     | *string* | the dashboard's name       |
-| `memo`      | *string* | notes regarding the dashboard       |
-| `urlPath`   | *string* | the dashboard's URL path   |
-| `createdAt` | *number* | the time at which created (in epoch seconds)     |
-| `updatedAt` | *number* | the time at which last updated (in epoch seconds) |
+Each dashboard is same format as [Create Dashboards](#create).
 
 ----------------------------------------------
 

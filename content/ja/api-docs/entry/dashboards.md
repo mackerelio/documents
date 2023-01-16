@@ -227,16 +227,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 | ------------ | --------------- | ---------------------- |
 | `dashboards` | *array[object]* | ダッシュボードのリスト |
 
-それぞれのダッシュボードは以下のキーを持つオブジェクト
-
-| KEY         | TYPE     | DESCRIPTION                |
-| ----------- | -------- | -------------------------- |
-| `id`        | *string* | ダッシュボードのID         |
-| `title`     | *string* | ダッシュボード名           |
-| `memo`      | *string* | ダッシュボードのメモ       |
-| `urlPath`   | *string* | ダッシュボードのURLのパス  |
-| `createdAt` | *number* | 作成時刻（エポック秒）     |
-| `updatedAt` | *number* | 最終更新時刻（エポック秒） |
+それぞれのダッシュボードを[ダッシュボードの作成](#create)と同様の形式で返します。
 
 ----------------------------------------------
 
