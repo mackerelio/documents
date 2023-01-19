@@ -17,8 +17,8 @@ https://github.com/mackerelio/mkr
 yumやaptを利用の場合は、mackerel-agentでも使われているMackerelのpackageリポジトリが追加されている必要があります。
 
 - Amazon Linux: [Amazon Linuxにmackerel-agentをインストールする](https://mackerel.io/ja/docs/entry/howto/install-agent/amazon-linux)
-- Redhat系OS・RPMパッケージ (yum): [CentOS / RedHat にインストールする](https://mackerel.io/ja/docs/entry/howto/install-agent/rpm).
-- Debian系OS・debパッケージ (apt): [Ubuntu / Debian にインストールする](https://mackerel.io/ja/docs/entry/howto/install-agent/deb)
+- Red Hat Enterprise Linux派生OS・RPMパッケージ (yum): [Red Hat Enterprise Linux派生OSにインストールする](https://mackerel.io/ja/docs/entry/howto/install-agent/rpm).
+- Debian派生OS・debパッケージ (apt): [Ubuntu / Debian にインストールする](https://mackerel.io/ja/docs/entry/howto/install-agent/deb)
 
 #### yumを利用
 

@@ -7,12 +7,12 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackere
 
 Once you have completed user registration with Mackerel and created an organization, you will now be able to install the agent and register your hosts. Download the package suited to the environment you are currently running from the 「[mackerel-agent install page][]」 and install.
 
-- [install with Amazon Linux](./install-agent/amazon-linux)
-- [install in CentOS / RedHat](./install-agent/rpm)
-- [install in Ubuntu / Debian](./install-agent/deb)
-- [install with binary package](./install-agent/binary)
-- [install in Windows](./install-agent/msi)
-- [install in macOS](./install-agent/mac)
+- [Installing mackerel-agent in Amazon Linux](./install-agent/amazon-linux)
+- [Installing mackerel-agent in Red Hat Enterprise Linux derivatives](./install-agent/rpm)
+- [Installing mackerel-agent in Ubuntu / Debian](./install-agent/deb)
+- [Installing mackerel-agent in binary](./install-agent/binary)
+- [Installing mackerel-agent on Windows](./install-agent/msi)
+- [Installing mackerel-agent on macOS](./install-agent/mac)
 
 Once the agent has been installed and has begun operating properly, the host will be registered with Mackerel. Confirm that hosts have been registered by checking the main [dashboard](https://mackerel.io/my/dashboard).
 

@@ -16,8 +16,8 @@ https://github.com/mackerelio/mkr
 To install mkr using yum or apt, you first have to register the Mackerel package repository, which is used for mackerel-agent.
 
 - Amazon Linux: [Installing mackerel-agent in Amazon Linux](https://mackerel.io/docs/entry/howto/install-agent/amazon-linux).
-- Redhat OS systems・RPM package (yum): [Installing mackerel-agent in CentOS / RedHat](https://mackerel.io/docs/entry/howto/install-agent/rpm).
-- Debian OS systems・deb package (apt): [Installing mackerel-agent in Ubuntu / Debian](https://mackerel.io/docs/entry/howto/install-agent/deb).
+- Red Hat Enterprise Linux derivatives・RPM package (yum): [Installing mackerel-agent in Red Hat Enterprise Linux derivatives](https://mackerel.io/docs/entry/howto/install-agent/rpm).
+- Debian derivatives・deb package (apt): [Installing mackerel-agent in Ubuntu / Debian](https://mackerel.io/docs/entry/howto/install-agent/deb).
 
 #### Using yum
 

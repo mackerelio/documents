@@ -60,8 +60,8 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 <ul>
     <li><a href="https://mackerel.io/ja/docs/entry/howto/install-agent"><strong>エージェントをインストールする</strong><span>mackerel-agent をホストにインストールして、計測をはじめます</span></a></li>
     <li><a href="https://mackerel.io/ja/docs/entry/howto/container-agent"><strong>コンテナを監視する</strong><span>コンテナの監視にはmackerel-container-agentを利用します</span></a></li>
-    <li><a href="https://mackerel.io/ja/docs/entry/howto/install-agent/amazon-linux"><strong>Amazon Linuxにmackerel-agentをインストールする</strong><span>Redhat系OSでのセットアップ</span></a></li>
-    <li><a href="https://mackerel.io/ja/docs/entry/howto/install-agent/rpm"><strong>CentOS / RedHat にインストールする</strong><span>Redhat系OSでのセットアップ</span></a></li>
+    <li><a href="https://mackerel.io/ja/docs/entry/howto/install-agent/amazon-linux"><strong>Amazon Linuxにmackerel-agentをインストールする</strong><span>Amazon Linuxでのセットアップ</span></a></li>
+    <li><a href="https://mackerel.io/ja/docs/entry/howto/install-agent/rpm"><strong>Red Hat Enterprise Linux派生OSにインストールする</strong><span>Red Hat Enterprise Linux派生OSでのセットアップ</span></a></li>
     <li><a href="https://mackerel.io/ja/docs/entry/howto/install-agent/deb"><strong>Ubuntu / Debian にインストールする</strong><span>Debian系OSでのセットアップ</span></a></li>
     <li><a href="https://mackerel.io/ja/docs/entry/howto/install-agent/binary"><strong>バイナリファイルで直接mackerel-agentをインストールする</strong><span>バイナリでのセットアップ</span></a></li>
     <li><a href="https://mackerel.io/ja/docs/entry/howto/install-agent/msi"><strong>Windowsにmackerel-agentをインストールする</strong><span>Windows版のセットアップ</span></a></li>

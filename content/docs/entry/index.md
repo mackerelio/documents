@@ -62,7 +62,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackere
     <li><a href="https://mackerel.io/docs/entry/howto/install-agent"><strong>Installing the agent</strong><span>an explanation of how to install mackerel-agent in your hosts</span></a></li>
     <li><a href="https://mackerel.io/docs/entry/howto/container-agent"><strong>Monitoring Containers</strong><span>using mackerel-container-agent to monitor containers</span></a></li>
     <li><a href="https://mackerel.io/docs/entry/howto/install-agent/amazon-linux"><strong>Installing mackerel-agent in Amazon Linux</strong><span>an explanation of how to install mackerel-agent in Amazon Linux</span></a></li>
-    <li><a href="https://mackerel.io/docs/entry/howto/install-agent/rpm"><strong>Installing mackerel-agent in CentOS / RedHat</strong><span>setup for Redhat OS systems</span></a></li>
+    <li><a href="https://mackerel.io/docs/entry/howto/install-agent/rpm"><strong>Installing mackerel-agent in Red Hat Enterprise Linux derivatives</strong><span>setup for Red Hat Enterprise Linux derivatives</span></a></li>
     <li><a href="https://mackerel.io/docs/entry/howto/install-agent/deb"><strong>Installing mackerel-agent in Ubuntu / Debian</strong><span>setup for Debian OS systems</span></a></li>
     <li><a href="https://mackerel.io/docs/entry/howto/install-agent/binary"><strong>Installing mackerel-agent directly with binary file</strong><span>an explanation of how to install mackerel-agent directly using the binary file</span></a></li>
     <li><a href="https://mackerel.io/docs/entry/howto/install-agent/msi"><strong>Installing mackerel-agent on Windows</strong><span>an explanation of how to install mackerel-agent on Windows</span></a></li>

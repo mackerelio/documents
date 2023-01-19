@@ -1,5 +1,5 @@
 ---
-Title: Installing mackerel-agent in CentOS / RedHat
+Title: Installing mackerel-agent in Red Hat Enterprise Linux derivatives
 Date: 2014-11-10T16:45:49+09:00
 URL: https://mackerel.io/docs/entry/howto/install-agent/rpm
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/8454420450073117128
@@ -10,7 +10,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackere
 
 Contents described on this page are also available from the [New host registration screen in Mackerel](https://mackerel.io/my/instruction-agent).
 
-<h2 id="v2">When using CentOS 7 / Red Hat 7 or later</h2>
+<h2 id="v2">When using RHEL 7 (or later) based Linux Distributions</h2>
 
 Execute the following command:
 
@@ -59,7 +59,7 @@ Using configuration files the following can be done:
 - [Adding monitors for script checks](https://mackerel.io/docs/entry/custom-checks)
 
 <h2 id="start-agent">Launching mackerel-agent</h2>
-<h3>When using CentOS 7 / Red Hat 7 or later</h3>
+<h3>When using RHEL 7 (or later) based Linux Distributions</h3>
 
 To launch Mackerel-agent run the following command:
 

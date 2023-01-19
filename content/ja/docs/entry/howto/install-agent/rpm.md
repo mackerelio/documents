@@ -1,5 +1,5 @@
 ---
-Title: CentOS / RedHat にインストールする
+Title: Red Hat Enterprise Linux派生OSにインストールする
 Date: 2014-10-28T17:08:02+09:00
 URL: https://mackerel.io/ja/docs/entry/howto/install-agent/rpm
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/8454420450070885613
@@ -10,7 +10,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 
 このページに記載の内容は、[Mackerel Web画面・新規ホスト登録画面](https://mackerel.io/my/instruction-agent)からも利用可能です。
 
-<h2 id="v2">CentOS 7 / Red Hat 7 以降をご利用の場合</h2>
+<h2 id="v2">RHEL 7 以降の派生OSをご利用の場合</h2>
 
 以下のコマンドを実行してください:
 
@@ -59,7 +59,7 @@ APIキーは[オーガニゼーションページ内・APIキータブ](https://
 - [チェック監視項目を追加する](https://mackerel.io/ja/docs/entry/custom-checks)
 
 <h2 id="start-agent">エージェントを起動する</h2>
-<h3>CentOS 7 / Red Hat 7 以降をご利用の場合</h3>
+<h3>RHEL 7 以降の派生OSをご利用の場合</h3>
 
 以下のコマンドを実行することで、エージェントが起動します。
 

@@ -8,7 +8,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 Mackerelにユーザー登録、オーガニゼーションを作成すると、エージェントをインストールしてホストを登録することができるようになります。「[Mackerelエージェントをインストールする][]」からお使いのOSに合わせたパッケージをダウンロードし、指示に従ってインストールします。
 
 - [Amazon Linuxにインストールする](./install-agent/amazon-linux)
-- [CentOS / RedHat にインストールする](./install-agent/rpm)
+- [Red Hat Enterprise Linux派生OSにインストールする](./install-agent/rpm)
 - [Ubuntu / Debian にインストールする](./install-agent/deb)
 - [Linuxでバイナリファイルを直接使用する](./install-agent/binary)
 - [Windowsにインストールする](./install-agent/msi)
