@@ -52,7 +52,7 @@ Here, the struct that will be used for the plugin is being defined. A field call
 
 The `Prefix` field isn’t particularly beneficial in the uptime plugin. However, in a middleware plugin for example, separating the metric namespace is necessary in order to obtain each metric while starting up multiples of the same middleware in one host. Because of this, we recommend that you define this field.
 
-In uptime plugin, only the `Prefix` field is defined, but for middleware plugins、the `Port` and `Host` fields may also be required.
+In uptime plugin, only the `Prefix` field is defined, but for middleware plugins, the `Port` and `Host` fields may also be required.
 
 Additionally, this plugin struct must meet the `interface` of `mp.Plugin`. The definition of the `interface` is as follows.
 

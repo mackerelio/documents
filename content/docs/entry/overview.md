@@ -33,7 +33,8 @@ As of now, Mackerel and mackerel-agent have been verified to operate in the foll
   - [Microsoft Edge](https://www.microsoft.com/edge) (desktop version) latest version
 - mackerel-agent
     - Linux
-        - CentOS 7、CentOS Stream 8/9、MIRACLE LINUX 8/9, AlmaLinux 8/9, Rocky Linux 8/9
+        - Red Hat Enterprise Linux 8/9, CentOS 7, MIRACLE LINUX 8/9, AlmaLinux 8/9, Rocky Linux 8/9
+        - CentOS Stream 8/9
         - Ubuntu 18.04LTS/20.04LTS/22.04LTS,  Debian 10/11
         - Amazon Linux, Amazon Linux 2
         - x64 and arm64 processor architecture including AWS Graviton processors. 32-bit x86 architecture supported for Amazon Linux only.
