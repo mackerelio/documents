@@ -154,6 +154,15 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
         </a>
       </div>
       <div class="api">
+        <a href="entry/hosts#bulk-update-statuses">
+          <p>Bulk Update Host Statuses</p>
+          <p class="type-post">
+            <code>POST</code>
+            <code>/api/v0/hosts/bulk-update-statuses</code>
+          </p>
+        </a>
+      </div>
+      <div class="api">
         <a href="entry/hosts#update-roles">
           <p>Update Host Roles</p>
           <p class="type-put">
