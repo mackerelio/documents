@@ -5,19 +5,21 @@ URL: https://mackerel.io/docs/entry/howto/mackerel-check-plugins
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/6653458415127142258
 ---
 
-Using the official plugin pack for check monitoring, you can easily monitor processes, logs, and other types of checks in Mackerel.
+Using the official check plugin pack for check monitoring, you can easily monitor processes, logs, and other types of checks in Mackerel.
+
+See below for plugins included in the official check plugin pack.
+
+[https://mackerel.io/docs/entry/plugins/check-plugins-list:embed:cite]
 
 [:contents]
 
-## Installing the official check plugin pack(for Linux OS)
+## Installing the official check plugin pack
 
-To install, we recommend using either the yum repository or the apt repository in accordance with the environment you are using. For how to configure the repository, please refer to the [mackerel-agent installation page][]. If you would like to directly obtain the rpm and deb file, please refer to [GitHub Releases][].
+### Linux OS
 
-[mackerel-agent installation page]: https://mackerel.io/my/instruction-agent
-[GitHub Releases]: https://github.com/mackerelio/go-check-plugins/releases
+We recommend using yum or apt repositories for installation, depending on your environment. The repository is set up when you do [Register a new Host](https://mackerel.io/my/instruction-agent); if you want to get the rpm or deb files directly, please refer to [GitHub Releases](https://github.com/mackerelio/mackerel-agent-plugins/releases).
 
-
-### If installing with the rpm package
+#### rpm package
 
 ```
 sudo yum install mackerel-check-plugins
@@ -29,7 +31,7 @@ Updates can be performed using the following command.
 sudo yum update mackerel-check-plugins
 ```
 
-### If installing with the deb package
+#### deb package
 
 ```
 sudo apt-get install mackerel-check-plugins
@@ -42,18 +44,17 @@ sudo apt-get update
 sudo apt-get install mackerel-check-plugins
 ```
 
-## Installing the official plugin pack(for Windows Server)
+### Windows Server
 
-When using the official plugin pack on a Windows Server, we recommend using a plugin that comes bundled with the agent. (For details on how to install the agent, refer to [Installing Mackerel Agent][].)
+Official check plugins are bundled with the agent. See [List of Plugins](https://mackerel.io/docs/entry/plugins/check-plugins-list) for a list of included plugins. For information on how to install the agent, see [Registering a New Host](https://mackerel.io/my/instruction-agent).
 
-For a list of the bundled plugins, refer to the [GitHub Repository Bundled Plugin List][]. Plugins that are not included in this list are not officially supported and must be built independently.
+Updating the agent will also update the included plugins. See [Installing mackerel-agent on Windows](https://mackerel.io/docs/entry/howto/install-agent/msi) for instructions on how to update.
 
-Updating the agent will also update the bundled plugins. For more information on how to update, refer to [Installing mackerel-agent on Windows](https://mackerel.io/docs/entry/howto/install-agent/msi).
+Plugins that are not included are not officially supported and must be built by the user.
 
-[Installing Mackerel Agent]: https://mackerel.io/my/instruction-agent
-[GitHub Repository Bundled Plugin List]: https://github.com/mackerelio/mackerel-agent/blob/master/wix/plugins_windows.go
+## Using the official check plugin pack
 
-## Using the official plugin pack(for Linux OS)
+### Linux OS
 
 Each plugin will be installed in `/usr/bin`, so you will need to add the item shown below to the mackerel-agent settings file for the plugins you will be using. To apply the settings, you will need to restart the mackerel-agent.
 
@@ -64,9 +65,9 @@ If you wanted to, for example, use the process monitoring plugin to monitor cron
 command = ["check-procs", "-p", "crond"]
 ```
 
-## Using the official plugin pack(for Windows Server)
+### Windows Server
 
-As mentioned above, when using the official plugin pack on a Windows Server, we recommend using a plugin that comes bundled with the agent. When using a bundled plugin, each is stored in the agent's installation folder and run through pass. Add the following configuration according to the plugin of use in the mackerel-agent configuration file. Then restart mackerel-agent to apply the configuration.
+Each plugin is stored in the agent's installation folder and has its own path. add the following settings to mackerel-agent's configuration file according to the plugin you are using. Restarting mackerel-agent is required for the settings to take effect.
 
 To monitor the process "foobar" using the process monitoring plugin, use the following description.
 
@@ -81,8 +82,8 @@ command = ["check-procs", "-p", "foobar"]
 - [Monitoring Processes](https://mackerel.io/docs/entry/howto/check/process)
 - [Running checks on TCP servers](https://mackerel.io/docs/entry/howto/check/tcp)
 
-## The plugin pack source code
+## Source code for the official check plugin pack
 
-The source code for the official plugin pack is publicly available here: [https://github.com/mackerelio/go-check-plugins:title]. We are always happy to receive your pull requests for things like plugins to support new middleware.
+The source code for the official check plugin pack is publicly available here: [GitHub](https://github.com/mackerelio/go-check-plugins). We are always happy to receive your pull requests for things like plugins to support new middleware.
 
 For information about making plugins, please refer to [Adding monitors for script checks](https://mackerel.io/docs/entry/custom-checks).

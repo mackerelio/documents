@@ -5,19 +5,22 @@ URL: https://mackerel.io/ja/docs/entry/howto/mackerel-check-plugins
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/6653458415126984680
 ---
 
-チェック監視に対応した公式プラグイン集を利用して、プロセス監視やログ監視などのチェック監視を簡単に実現できます。
+チェック監視に対応した公式のプラグインを利用して、プロセス監視やログ監視などのチェック監視を簡単に実現できます。
+
+公式チェックプラグイン集に含まれるプラグインは下記を参照してください。
+
+[https://mackerel.io/ja/docs/entry/plugins/check-plugins-list:embed:cite]
 
 [:contents]
 
-## 公式チェックプラグイン集をインストールする（Linux系OSの場合）
+## 公式チェックプラグイン集をインストールする
 
-インストールにはお使いの環境に合わせてyumリポジトリもしくはaptリポジトリを使うことを推奨しています。リポジトリの設定方法は「[Mackerelエージェントをインストールする][]」をご参照ください。rpmファイルやdebファイルを直接取得したい場合は、[GitHub Releases][]を参照してください。
+### Linux系OSの場合
 
-[Mackerelエージェントをインストールする]: https://mackerel.io/my/instruction-agent
-[GitHub Releases]: https://github.com/mackerelio/go-check-plugins/releases
+インストールにはお使いの環境に合わせてyumリポジトリもしくはaptリポジトリを使うことを推奨しています。リポジトリは [新規ホストの登録](https://mackerel.io/my/instruction-agent) を行う際に設定されます。rpmファイルやdebファイルを直接取得したい場合は、[GitHub Releases](https://github.com/mackerelio/go-check-plugins/releases) を参照してください。
 
 
-### rpmパッケージの場合
+#### rpmパッケージの場合
 
 ```
 sudo yum install mackerel-check-plugins
@@ -29,7 +32,7 @@ sudo yum install mackerel-check-plugins
 sudo yum update mackerel-check-plugins
 ```
 
-### debパッケージの場合
+#### debパッケージの場合
 
 ```
 sudo apt-get install mackerel-check-plugins
@@ -42,19 +45,20 @@ sudo apt-get update
 sudo apt-get install mackerel-check-plugins
 ```
 
-## 公式チェックプラグイン集をインストールする（Windows Serverの場合）
+### Windows Serverの場合
 
-Windows Server で公式チェックプラグイン集を利用する場合、エージェントに同梱されているプラグインを利用すると便利です。（エージェントのインストール方法については「[Mackerelエージェントをインストールする][]」を参照してください。）
+公式プラグインはエージェントに同梱されます。同梱されているプラグインは [プラグイン一覧](https://mackerel.io/ja/docs/entry/plugins/check-plugins-list) を参照してください。エージェントのインストール方法については [新規ホストの登録](https://mackerel.io/my/instruction-agent) を参照してください。
 
-同梱されているプラグイン一覧は、[GitHubリポジトリにある同梱プラグインリスト][]を参照してください。同梱されていないプラグインについては、公式でのサポート対象外となっていることに加えて、ご自身でビルドを実施していただく必要があります。
+エージェントをアップデートすることで同梱のプラグインもアップデートされます。アップデート方法については [Windowsにmackerel-agentをインストールする](https://mackerel.io/ja/docs/entry/howto/install-agent/msi) を参照してください。
 
-エージェントをアップデートすることで同梱のプラグインもアップデートされます。アップデート方法については[Windowsにmackerel-agentをインストールする](https://mackerel.io/ja/docs/entry/howto/install-agent/msi)を参照してください。
-
-[Mackerelエージェントをインストールする]: https://mackerel.io/my/instruction-agent
-[GitHubリポジトリにある同梱プラグインリスト]: https://github.com/mackerelio/mackerel-agent/blob/master/wix/plugins_windows.go
+同梱されていないプラグインについては、公式でのサポート対象外となっていることに加えて、ご自身でビルドを実施していただく必要があります。
 
 
-## 公式プラグイン集を利用する（Linux系OSの場合）
+## 公式チェックプラグイン集を利用する
+
+各プラグインの利用方法の詳細は、[プラグイン一覧](https://mackerel.io/ja/docs/entry/plugins/check-plugins-list) のドキュメントを参照してください。
+
+### Linux系OSの場合
 
 各プラグインは`/usr/bin`にインストールされていますので、mackerel-agentの設定ファイルに利用するプラグインに合わせて以下のような設定を追加してください。設定の反映には、mackerel-agentの再起動が必要です。
 
@@ -65,9 +69,9 @@ Windows Server で公式チェックプラグイン集を利用する場合、�
 command = ["check-procs", "-p", "crond"]
 ```
 
-## 公式プラグイン集を利用する（Windows Serverの場合）
+### Windows Serverの場合
 
-上述のとおり、Windows Server で公式チェックプラグイン集を利用する場合、エージェントに同梱されているプラグインを利用すると便利です。同梱されているプラグインを利用する場合、各プラグインはエージェントのインストールフォルダに格納されており、パスも通っています。mackerel-agentの設定ファイルに利用するプラグインに合わせて以下のような設定を追加してください。設定の反映には、mackerel-agentの再起動が必要です。
+各プラグインはエージェントのインストールフォルダに格納されており、パスも通っています。mackerel-agentの設定ファイルに利用するプラグインに合わせて以下のような設定を追加してください。設定の反映には、mackerel-agentの再起動が必要です。
 
 プロセス監視プラグインを使ってプロセス名「foobar」の監視を行いたい場合は以下のようになります。
 
@@ -76,15 +80,16 @@ command = ["check-procs", "-p", "crond"]
 command = ["check-procs", "-p", "foobar"]
 ```
 
+
 ## 活用例
 
 - [ログ監視をおこなう](https://mackerel.io/ja/docs/entry/howto/check/log)
 - [プロセス監視をおこなう](https://mackerel.io/ja/docs/entry/howto/check/process)
 - [TCPサーバーの監視をおこなう](https://mackerel.io/ja/docs/entry/howto/check/tcp)
 
-## プラグイン集のコード
+## 公式チェックプラグイン集のコード
 
-公式のプラグイン集は、[https://github.com/mackerelio/go-check-plugins:title] で公開されています。
+公式チェックプラグイン集は [GitHub](https://github.com/mackerelio/go-check-plugins) で公開しています。
 新しいミドルウェアに対応するプラグインのPull Requestなど、いつでもお待ちしています。
 
-プラグインを作るためには[チェック監視項目を追加する](https://mackerel.io/ja/docs/entry/custom-checks)を参照してください。
+プラグインを作るためには [チェック監視項目を追加する](https://mackerel.io/ja/docs/entry/custom-checks) を参照してください。

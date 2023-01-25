@@ -149,44 +149,10 @@ mackerel-container-agent also offers a [Docker image that bundles official plugi
 
 `plugins` is an image that bundles the plugins in the `latest` image, and `vX.Y.Z-plugins` is an image that bundles plugins in the `vX.Y.Z` image.
 
-The plugins bundled in this image are as follows.
+See below for the plugins included with this image.
 
-- [mackerel-agent-plugins](https://github.com/mackerelio/mackerel-agent-plugins)
-  - mackerel-plugin-apache2
-  - mackerel-plugin-elasticsearch
-  - mackerel-plugin-fluentd
-  - mackerel-plugin-gostats
-  - mackerel-plugin-haproxy
-  - mackerel-plugin-jmx-jolokia
-  - mackerel-plugin-memcached
-  - mackerel-plugin-mysql
-  - mackerel-plugin-nginx
-  - mackerel-plugin-php-apc
-  - mackerel-plugin-php-fpm
-  - mackerel-plugin-php-opcache
-  - mackerel-plugin-plack
-  - mackerel-plugin-postgres
-  - mackerel-plugin-redis
-  - mackerel-plugin-sidekiq
-  - mackerel-plugin-snmp
-  - mackerel-plugin-squid
-  - mackerel-plugin-uwsgi-vassal
-- [mackerel-plugin-json](https://github.com/mackerelio/mackerel-plugin-json)
-- [go-check-plugins](https://github.com/mackerelio/go-check-plugins)
-  - check-cert-file
-  - check-elasticsearch
-  - check-file-age
-  - check-file-size
-  - check-http
-  - check-jmx-jolokia
-  - check-log
-  - check-memcached
-  - check-mysql
-  - check-postgresql
-  - check-redis
-  - check-ssh
-  - check-ssl-cert
-  - check-tcp
+- [Metric plugins list](https://mackerel.io/docs/entry/plugins/metric-plugins-list)
+- [Check plugins list](https://mackerel.io/docs/entry/plugins/check-plugins-list)
 
 If you would like to use a plugin other than the ones bundled, prepare an image with mackerel/mackerel-container-agent as the base and installed with the desired plugin.
 

@@ -149,44 +149,10 @@ ignoreContainer: '\Amackerel-container-agent\z'
 また、mackerel-container-agentでは[公式プラグインを同梱したDockerイメージ](https://hub.docker.com/r/mackerel/mackerel-container-agent/tags)も公開しています。
 `plugins` は `latest` に、`vX.Y.Z-plugins` は `vX.Y.Z` にプラグインを同梱したイメージとなります。
 
-こちらのイメージに同梱されているプラグインはつぎのとおりです。
+こちらのイメージに同梱されているプラグインは下記を参照してください。
 
-- [mackerel-agent-plugins](https://github.com/mackerelio/mackerel-agent-plugins)
-  - mackerel-plugin-apache2
-  - mackerel-plugin-elasticsearch
-  - mackerel-plugin-fluentd
-  - mackerel-plugin-gostats
-  - mackerel-plugin-haproxy
-  - mackerel-plugin-jmx-jolokia
-  - mackerel-plugin-memcached
-  - mackerel-plugin-mysql
-  - mackerel-plugin-nginx
-  - mackerel-plugin-php-apc
-  - mackerel-plugin-php-fpm
-  - mackerel-plugin-php-opcache
-  - mackerel-plugin-plack
-  - mackerel-plugin-postgres
-  - mackerel-plugin-redis
-  - mackerel-plugin-sidekiq
-  - mackerel-plugin-snmp
-  - mackerel-plugin-squid
-  - mackerel-plugin-uwsgi-vassal
-- [mackerel-plugin-json](https://github.com/mackerelio/mackerel-plugin-json)
-- [go-check-plugins](https://github.com/mackerelio/go-check-plugins)
-  - check-cert-file
-  - check-elasticsearch
-  - check-file-age
-  - check-file-size
-  - check-http
-  - check-jmx-jolokia
-  - check-log
-  - check-memcached
-  - check-mysql
-  - check-postgresql
-  - check-redis
-  - check-ssh
-  - check-ssl-cert
-  - check-tcp
+- [メトリックプラグイン一覧](https://mackerel.io/ja/docs/entry/plugins/metric-plugins-list)
+- [チェックプラグイン一覧](https://mackerel.io/ja/docs/entry/plugins/check-plugins-list)
 
 同梱されてるプラグイン以外を利用する場合は、[mackerel/mackerel-container-agent](https://hub.docker.com/r/mackerel/mackerel-container-agent)をベースイメージとして、利用したいプラグインをインストールしたイメージを用意してください。
 
