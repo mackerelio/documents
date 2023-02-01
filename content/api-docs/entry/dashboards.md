@@ -241,6 +241,7 @@ Objects representing widgets have the following formats for the differing types.
 | `title`  | *string* | the title of the widget                                        |
 | `graph`  | *object* | [object representing a graph](#graph)                            |
 | `range`  | *object* | [optional] [object representing the graph display range](#graph-range) |
+| `referenceLines` | *object* | [optional] [object representing the reference line](#reference-line). If you want to remove the reference line setting, specify an empty array.<br /> If reference line is not set when get dashboards, an empty array is returned. Cannot specify more than one element in an array.|
 | `layout` | *object* | [object representing the layout](#layout)                       |
 
 ### Value widget
@@ -325,6 +326,28 @@ By specifying a negative value for `offset`, you can display a graph of the past
 | `end`   | *number* | end time (in epoch seconds)  |
 
 The range is displayed from `start` to` end`.
+
+<h3 id="reference-line">Reference line</h3>
+
+If an reference line is specified for the graph, a horizontal line is drawn based on the specified value.
+
+| KEY      | TYPE     | DESCRIPTION             |
+| -------- | -------- | ----------------------- |
+| `label`  | *string* | label of the reference line |
+| `value`  | *number* | value of the reference line |
+
+#### About the label
+
+The label must comply with the following conditions.
+
+- Minimum length: 1 character (excluding spaces)
+- Maximum length: 32 characters
+
+#### About the value
+
+The value must comply with the following conditions.
+
+- Must be greater than or equal to 0
 
 <h3 id="metric">Metrics</h3>
 #### Host metrics
