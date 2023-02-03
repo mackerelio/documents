@@ -5,8 +5,12 @@ URL: https://mackerel.io/ja/docs/entry/advanced/monitoring-heroku
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/6653458415125235971
 ---
 
+**Herokuでのご利用は公式サポートの対象外です。**
+
 [Heroku](https://www.heroku.com/)はウェブアプリケーションを動かすためのPaaSです。
 ここでは、Mackerelを利用してHeroku上のアプリケーションを監視する方法を紹介します。
+
+ただし、公式サポート対象とはなっておりませんので、使用上のご質問等にお答えできかねます。なお、対応環境については[こちら](https://mackerel.io/ja/docs/entry/overview)をご確認ください。
 
 [:contents]
 

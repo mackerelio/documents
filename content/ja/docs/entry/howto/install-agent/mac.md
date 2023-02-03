@@ -5,9 +5,11 @@ URL: https://mackerel.io/ja/docs/entry/howto/install-agent/mac
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/8599973812309432945
 ---
 
+**macOSでのご利用は公式サポートの対象外です。**
+
 Mackerel では macOS 向けの mackerel-agent の [Homebrew](https://brew.sh/) Tap を提供しています。以下の手順で macOS マシンの監視を行うことが可能です。
 
-ただし、 macOS は mackerel-agent の公式サポート対象とはなっておりませんのでご了承ください。サポート対象OSについては[こちら](https://mackerel.io/ja/docs/entry/overview)をご確認ください。
+ただし、公式サポート対象とはなっておりませんので、使用上のご質問等にお答えできかねます。なお、サポート対象OSについては[こちら](https://mackerel.io/ja/docs/entry/overview)をご確認ください。
 
 また、本ページでは Homebrew を `/usr/local` ディレクトリにインストールしていることを前提に説明しています。
 例えば、 Apple シリコン搭載の Mac にネイティブ対応した Homebrew をご利用の方は、 `/usr/local` を `/opt/homebrew` に読み替えてください。
