@@ -92,7 +92,7 @@ If not using the plugin, the agent can be used with just environment variable co
 | :-- | :-- |
 | MACKEREL_APIKEY | Specifies the API key used by the agent to communicate with the Mackerel service. |
 | MACKEREL_APIBASE | Specifies the Mackerel API endpoint(Default: `https://api.mackerelio.com/`). |
-| MACKEREL_ROLES | Sets services and roles for tasks and pods. |
+| MACKEREL_ROLES | Sets services and roles for tasks and pods. You can specify multiple values with the separator `,`. (e.g. `service1:role1,service2:role2`) |
 | MACKEREL_AGENT_CONFIG | Sets the agent configuration file. Details for this will be described later. |
 | MACKEREL_AGENT_CONFIG_POLLING_DURATION_MINUTES | Specifies time interval of retrieval in minutes for detecting changes in the agent configuration file. |
 | MACKEREL_IGNORE_CONTAINER | Sets the name of the container to be excluded from monitoring with regular expressions. |

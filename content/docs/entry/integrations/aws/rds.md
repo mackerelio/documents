@@ -7,7 +7,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackere
 
 Mackerel supports obtaining and monitoring <a href="https://aws.amazon.com/rds/" target="_blank">Amazon Relational Database Service (RDS)</a> metrics in AWS Integration. When integrating with AWS Integration, billable targets are determined using the following conversions.
 
-- For Aurora Serverless: 1 Cluster = 1 Micro Host
+- For Aurora Serverless v1: 1 Cluster = 1 Micro Host
 - For others: 1 Instance = 1 Micro Host
 
 In addition to this, depending on the number of metrics retrieved, you may be charged for exceeding the maximum number of metrics per micro host.
@@ -28,11 +28,11 @@ For each DB engine, the maximum number of metrics shown in the table below is ob
 |  |Other than those above|19|
 |Aurora|MySQL|43|
 |  |PostgreSQL|39|
-|Aurora Serverless|MySQL|41|
+|Aurora Serverless v1|MySQL|41|
 |  |PostgreSQL|40|
 
 ### Common metrics
-The following metrics can be obtained in common for RDS, Aurora, and Aurora Serverless.
+The following metrics can be obtained in common for RDS, Aurora, and Aurora Serverless v1.
 
 |Graph name|Metric|Metric name in Mackerel|Unit|Statistics|
 |:---|:---|:---|:---|:---|
@@ -101,8 +101,8 @@ In the case of Aurora, the following metrics can be obtained in addition to the 
 <div id="rds-aurora-cluster">*5 Generated per cluster. Instances of the same cluster will display the same metric.</div>
 <br>
 
-### Aurora Serverless metrics
-In the case of Aurora Serverless, the following metrics can be obtained in addition to the above common metrics.
+### Aurora Serverless v1 metrics
+In the case of Aurora Serverless v1, the following metrics can be obtained in addition to the above common metrics.
 
 
 |Graph name|Metric|Metric name in Mackerel|Unit|Statistics|

@@ -8,7 +8,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 MackerelはAWSインテグレーションにて<a href="https://aws.amazon.com/rds/" target="_blank">Amazon Relational Database Service (RDS)</a>のメトリック取得や監視に対応しています。
 AWSインテグレーションで連携をおこなった場合、以下の対応で換算されます。
 
-- Aurora Serverlessの場合: Aurora Serverless 1クラスター = 1マイクロホスト
+- Aurora Serverless v1の場合: Aurora Serverless 1クラスター = 1マイクロホスト
 - それ以外の場合: RDS 1インスタンス = 1マイクロホスト
 
 またそれに加えて、取得されるメトリックの数に応じて、1マイクロホストあたりのメトリック数上限の超過による請求が行われる場合があります。
@@ -28,11 +28,11 @@ AWSインテグレーションのRDS対応で取得できるメトリックは�
 |  |上記以外|19|
 |Aurora|MySQL|43|
 |  |PostgreSQL|39|
-|Aurora Serverless|MySQL|41|
+|Aurora Serverless v1|MySQL|41|
 |  |PostgreSQL|40|
 
 ### 共通メトリック
-RDS、Aurora、Aurora Serverlessで共通して取得できるメトリックは以下のとおりです。
+RDS、Aurora、Aurora Serverless v1で共通して取得できるメトリックは以下のとおりです。
 
 |グラフ名|メトリック|Mackerel上のメトリック名|単位|Statistics|
 |:---|:---|:---|:---|:---|
@@ -101,8 +101,8 @@ Auroraの場合は上記の共通メトリックに加えて以下のメトリ�
 <div id="rds-aurora-cluster">*5 クラスター毎に発生するメトリックであり、同じクラスターのインスタンスは同じメトリックが表示されます</div>
 <br>
 
-### Aurora Serverlessメトリック
-Aurora Serverlessクラスターの場合は、Auroraで取得できるメトリックに加えて以下のメトリックが取得できます。
+### Aurora Serverless v1 メトリック
+Aurora Serverless v1クラスターの場合は、Auroraで取得できるメトリックに加えて以下のメトリックが取得できます。
 
 |グラフ名|メトリック|Mackerel上のメトリック名|単位|Statistics|
 |:---|:---|:---|:---|:---|
