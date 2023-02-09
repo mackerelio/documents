@@ -132,7 +132,7 @@ The input procedure varies depending on the monitoring target.
     </tr>
     <tr>
       <td>400</td>
-      <td>when the <code>memo</code> exceeds 250 characters</td>
+      <td>when the <code>memo</code> exceeds 2048 characters</td>
     </tr>
     <tr>
       <td>400</td>
@@ -267,7 +267,7 @@ This function disables notifications in monitoring. Alerts occur in response to 
     </tr>
     <tr>
       <td>400</td>
-      <td>when the<code>memo</code>exceeds 250 characters</td>
+      <td>when the<code>memo</code>exceeds 2048 characters</td>
     </tr>
     <tr>
       <td>400</td>
@@ -374,7 +374,7 @@ This function disables notifications in monitoring. Alerts occur in response to 
     </tr>
     <tr>
       <td>400</td>
-      <td>when the <code>memo</code> exceeds 250 characters</td>
+      <td>when the <code>memo</code> exceeds 2048 characters</td>
     </tr>
     <tr>
       <td>400</td>
@@ -502,7 +502,7 @@ In order to monitor response time, it's necessary to assign `responseTimeWarning
     </tr>
     <tr>
       <td>400</td>
-      <td>when the <code>memo</code> exceeds 250 characters</td>
+      <td>when the <code>memo</code> exceeds 2048 characters</td>
     </tr>
     <tr>
       <td>400</td>
@@ -596,7 +596,7 @@ In order to monitor response time, it's necessary to assign `responseTimeWarning
     </tr>
     <tr>
       <td>400</td>
-      <td>when the <code>memo</code> exceeds 250 characters</td>
+      <td>when the <code>memo</code> exceeds 2048 characters</td>
     </tr>
     <tr>
       <td>400</td>
@@ -772,7 +772,7 @@ In order to monitor response time, it's necessary to assign `responseTimeWarning
     </tr>
     <tr>
       <td>400</td>
-      <td>when the<code>memo</code>exceeds 250 characters</td>
+      <td>when the<code>memo</code>exceeds 2048 characters</td>
     </tr>
     <tr>
       <td>400</td>
@@ -904,7 +904,7 @@ same errors as when [creating](#create).
     </tr>
     <tr>
       <td>400</td>
-      <td>when the <code>memo</code> exceeds 250 characters</td>
+      <td>when the <code>memo</code> exceeds 2048 characters</td>
     </tr>
     <tr>
       <td>404</td>

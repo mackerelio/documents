@@ -130,7 +130,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
     </tr>
     <tr>
       <td>400</td>
-      <td><code>memo</code>が250文字を超えているとき</td>
+      <td><code>memo</code>が2048文字を超えているとき</td>
     </tr>
     <tr>
       <td>400</td>
@@ -264,7 +264,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
     </tr>
     <tr>
       <td>400</td>
-      <td><code>memo</code>が250文字を超えているとき</td>
+      <td><code>memo</code>が2048文字を超えているとき</td>
     </tr>
     <tr>
       <td>400</td>
@@ -371,7 +371,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
     </tr>
     <tr>
       <td>400</td>
-      <td><code>memo</code>が250文字を超えているとき</td>
+      <td><code>memo</code>が2048文字を超えているとき</td>
     </tr>
     <tr>
       <td>400</td>
@@ -500,7 +500,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
     </tr>
     <tr>
       <td>400</td>
-      <td><code>memo</code>が250文字を超えているとき</td>
+      <td><code>memo</code>が2048文字を超えているとき</td>
     </tr>
     <tr>
       <td>400</td>
@@ -592,7 +592,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
     </tr>
     <tr>
       <td>400</td>
-      <td><code>memo</code>が250文字を超えているとき</td>
+      <td><code>memo</code>が2048文字を超えているとき</td>
     </tr>
     <tr>
       <td>400</td>
@@ -681,7 +681,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
     </tr>
     <tr>
       <td>400</td>
-      <td><code>memo</code>が250文字を超えているとき</td>
+      <td><code>memo</code>が2048文字を超えているとき</td>
     </tr>
     <tr>
       <td>400</td>
@@ -900,7 +900,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
     </tr>
     <tr>
       <td>400</td>
-      <td><code>memo</code>が250文字を超えているとき</td>
+      <td><code>memo</code>が2048文字を超えているとき</td>
     </tr>
     <tr>
       <td>404</td>
