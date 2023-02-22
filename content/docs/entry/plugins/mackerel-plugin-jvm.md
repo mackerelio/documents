@@ -1,6 +1,9 @@
 ---
 Title: Metric plugins - mackerel-plugin-jvm
+Date: 2023-02-16T16:20:47+09:00
 URL: https://mackerel.io/docs/entry/plugins/mackerel-plugin-jvm
+EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/4207112889963699303
+CustomPath: plugins/mackerel-plugin-jvm
 ---
 
 mackerel-plugin-jvm retrieves various metrics about the JVM from commands such as jstat, jinfo and jps.

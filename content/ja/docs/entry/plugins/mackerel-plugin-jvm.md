@@ -1,6 +1,9 @@
 ---
 Title: メトリックプラグイン - mackerel-plugin-jvm
+Date: 2023-02-16T16:21:09+09:00
 URL: https://mackerel.io/ja/docs/entry/plugins/mackerel-plugin-jvm
+EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/4207112889963699440
+CustomPath: plugins/mackerel-plugin-jvm
 ---
 
 mackerel-plugin-jvm は jstat/jinfo/jps などのコマンドからJVMに関する各種メトリックを取得します。
