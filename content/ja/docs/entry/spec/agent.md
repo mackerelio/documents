@@ -187,8 +187,12 @@ mackerel-agent -diagnostic
 - `custom.agent.memory.sys`
 - `custom.agent.memory.heapAlloc`
 - `custom.agent.memory.heapSys`
+- `custom.agent.runtime.goroutine_num`
 
-取得できる値に関しての詳細は[https://golang.org/pkg/runtime/#MemStats](https://golang.org/pkg/runtime/#MemStats)をご参照ください。
+取得できる値の詳細は以下のドキュメントをご参照ください。
+
+- [https://pkg.go.dev/runtime#MemStats](https://pkg.go.dev/runtime#MemStats)
+- [https://pkg.go.dev/runtime#NumGoroutine](https://pkg.go.dev/runtime#NumGoroutine)
 
 
 <h4 id="config-file-include">include</h4>

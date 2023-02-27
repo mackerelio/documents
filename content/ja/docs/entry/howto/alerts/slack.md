@@ -22,9 +22,9 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 
 Slackチャンネルへの通知には、Slack APIの1つである[Incoming Webhooks](https://my.slack.com/services/new/incoming-webhook)を利用しています。
 
-URLには、以下の記事を参考に取得した Incoming Webhook URL を入力して下さい。
+URLには、以下のドキュメント（英語）を参考に取得した Incoming Webhook URL を入力して下さい。
 
-- [Slack での Incoming Webhook の利用 | Slack](https://slack.com/intl/ja-jp/help/articles/115005265063-Slack-%E3%81%A7%E3%81%AE-Incoming-Webhook-%E3%81%AE%E5%88%A9%E7%94%A8)
+- [Sending messages using Incoming Webhooks | Slack](https://api.slack.com/messaging/webhooks)
 
 また、MackerelからSlackへのアラート通知を送る際に、監視のステータスに応じて自由にテキストを追記する事も可能です。@channel/@group/@here/@everyoneはSlack向けのコマンドに変換されます。メンションを含んだテキストを送るように設定しておくと、Slackアプリなどですぐに通知を受信する事が出来ます。
 

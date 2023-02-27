@@ -199,8 +199,12 @@ The following metrics can be collected with diagnostic mode enabled.
 - `custom.agent.memory.sys`
 - `custom.agent.memory.heapAlloc`
 - `custom.agent.memory.heapSys`
+- `custom.agent.runtime.goroutine_num`
 
-For more information please refer to [https://golang.org/pkg/runtime/#MemStats](https://golang.org/pkg/runtime/#MemStats).
+For more information please refer to the following documents.
+
+- [https://pkg.go.dev/runtime#MemStats](https://pkg.go.dev/runtime#MemStats)
+- [https://pkg.go.dev/runtime#NumGoroutine](https://pkg.go.dev/runtime#NumGoroutine)
 
 
 <h4 id="config-file-include">include</h4>
