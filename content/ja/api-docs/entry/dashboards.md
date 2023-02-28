@@ -252,7 +252,8 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 | `metric`       | *object* | [メトリックを表すオブジェクト](#metric)    |
 | `fractionSize` | *number* | [optional] 表示する小数点以下の桁数 (0–16) |
 | `suffix`       | *string* | [optional] 数値の後に表示する単位 |
-| `layout`       | *object* | [レイアウトを表すオブジェクト](#layout)    |
+| `formatRules` | *array[object]* | [optional] [フォーマットルールを表すオブジェクト](#format-rule)。フォーマットルールの設定を削除したい場合には、空の配列を指定してください。<br />ダッシュボードの取得時にフォーマットルールが未設定の場合、空の配列が返されます。配列に2つ以上の要素を指定できません。 |
+| `layout`       | *object* | [レイアウトを表すオブジェクト](#layout)    
 
 ### Markdownウィジェット
 | KEY        | TYPE     | DESCRIPTION                             |
@@ -347,7 +348,22 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 値は下記の条件に従う必要があります。
 
 - 0以上であること
-  
+
+<h3 id="format-rule">フォーマットルール</h3>
+値のフォーマットルールを指定した場合、設定した条件式を満たす場合に強調したスタイルに変更されます。
+例えば、`threshold` に `10` を指定し、`operator` に `">"` を指定した場合、数値が `10` より大きい場合に強調したスタイルに変更されます。
+
+| KEY      | TYPE     | DESCRIPTION             |
+| -------- | -------- | ----------------------- |
+| `name`  | *string* | [optional] フォーマットルールの名前 |
+| `threshold`  | *number* | 条件の基準となる値 |
+| `operator`  | *string* | 強調したスタイルが適用される条件を指定。`">"` または `"<"`。 |
+
+#### 名前について
+
+名前は下記の条件に従う必要があります。
+
+- 32文字以下であること
 
 <h3 id="metric">メトリック</h3>
 #### ホストメトリック

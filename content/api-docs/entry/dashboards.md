@@ -252,6 +252,7 @@ Objects representing widgets have the following formats for the differing types.
 | `metric`       | *object* | [object representing a metric](#metric)                   |
 | `fractionSize` | *number* | [optional] decimal places displayed on the widget  (0–16) |
 | `suffix`       | *string* | [optional] the units to be displayed after the value      |
+| `formatRules`  | *array[object]* | [optional] [array of objects representing the format rule](#format-rule). If you want to remove the format rule setting, specify an empty array.<br /> If format rule is not set when get dashboards, an empty array is returned. Cannot specify more than one element in an array.|
 | `layout`       | *object* | [object representing the layout](#layout)                 |
 
 ### Markdown widget
@@ -348,6 +349,23 @@ The label must comply with the following conditions.
 The value must comply with the following conditions.
 
 - Must be greater than or equal to 0
+
+<h3 id="format-rule">Format Rule</h3>
+
+If a format rule is specified for the widget, the value will be changed to an emphasized style when the set conditional expression is satisfied.
+For example, if the `threshold` is set to `10` and the `operator` is set to `>`, the value will be emphasized when it is greater than 10.
+
+| KEY      | TYPE     | DESCRIPTION             |
+| -------- | -------- | ----------------------- |
+| `name`  | *string* | [optional] Name of the format rule |
+| `threshold`  | *number* | Base value of the conditional expression |
+| `operator` | *string* | Specify the conditions under which the emphasized style will be applied. `">"` or `"<"`. |
+
+#### About the name
+
+The name must comply with the following conditions.
+
+- Maximum length: 32 characters
 
 <h3 id="metric">Metrics</h3>
 #### Host metrics
