@@ -70,8 +70,10 @@ This is the same as the source IP address range for Mackerel notification reques
 ## Subscription plans
 This feature can only be used with a paid subscription or in the free trial.
 
-Up to 20 External URL monitors can be made without additional charges being incurred.
-If more than 20 are created, the excess will be charged using the conversion 20 External URL monitors equals the value of one standard host.
+## Usage Fees
+* Up to 20 monitoring rules are available at no additional charge when there is at least one active standard host
+* If there are no active standard hosts, a fee for one standard host will be charged per unit of 20 monitoring rules
+* If the number of monitoring rules exceeds 20, an additional fee of one standard host will be charged for each additional 20 rules.
 
 ## Sample Alert
 When a new monitor has been added it will be displayed in the list in the Monitors page.
