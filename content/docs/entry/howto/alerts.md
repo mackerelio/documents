@@ -7,9 +7,11 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackere
 
 With Mackerel it’s possible to monitor your registered hosts by receiving notifications of alerts regarding the host status of hosts.
 
+[:contents]
+
 ## Using the monitoring function effectively
 
-* In the event that you are not being notified of an alert, please check the [alert settings][alerts-settings] page and [user settings][settings-user] page to make sure everything is configured correctly.
+* In the event that you are not being notified of an alert, please check the [alert settings][alerts-settings] page and [Account settings][settings-user] page to make sure everything is configured correctly.
 
 [org-setting]: https://mackerel.io/my?tab=setting
 [alerts-settings]: https://mackerel.io/my/monitors
@@ -40,7 +42,7 @@ In the event that a host status is changed to “maintenance” or “poweroff�
 
 ## Connectivity Monitoring
 
-Once [mackerel-agent has been installed and launched](https://mackerel.io/docs/entry/howto/install-agent), connectivity monitoring of hosts will be done automatically.
+Once [mackerel-agent](https://mackerel.io/docs/entry/howto/install-agent) has been installed and launched, connectivity monitoring of hosts will be done automatically.
 
 Connectivity monitoring works by looking at intervals of metric data from mackerel-agent. In the event that no data is being reported from a host, Mackerel will determine the source of the problem and send an alert.
 
@@ -115,11 +117,13 @@ Notification settings can be edited in [Channels Settings][channels-settings]. S
 [channels-settings]: https://mackerel.io/my/channels/-/create
 [alerts-settings]: https://mackerel.io/my/monitors
 
-With notification by email broadcast, all members belonging to your organization will be notified simultaneously ([this can be changed in Personal Settings so as not to be notified](#optout-broadcast-notification-email)). For details on setting up other notification channels, please refer to the Alerts section of the Help Documents sidebar.
+With notification by email broadcast, all members belonging to your organization will be notified simultaneously (this can be changed in [Account Settings](#optout-broadcast-notification-email) so as not to be notified). For details on setting up other notification channels, please refer to the Alerts section of the Help Documents sidebar.
 
-<h3 id="optout-broadcast-notification-email">To stop receiving notification emails (User Settings)</h3>
+<h3 id="optout-broadcast-notification-email">To stop receiving notification emails (Account Settings)</h3>
 
-To stop receiving notification emails you can change your preferences in [User Settings.][settings-user]
+To stop receiving notification emails you can change your preferences in [Account Settings][settings-user].
+
+You can choose not to receive notification emails by setting "Alert Notification" to Off in the [Email Notifications](https://mackerel.io/settings/user?tab=emailNotifications) section of the [Account Settings][settings-user] page. This setting applies to all "Events to be notified" in the channel settings.
 
 [settings-user]: https://mackerel.io/settings/user
 [alerts-settings]: https://mackerel.io/my/monitors
@@ -145,7 +149,10 @@ In Mackerel there is a default notification group that will receive all notifica
 
 ### Limit the target notification group
 
-By enabling the "Send notificartions to this notification group only" option when configuring a monitor for a notification group, notifications from the configured monitor will only be sent to that notification group and not to other groups.
+When setting a monitoring rule as the notification target for a notification group, if the "Send notifications to this notification group only." option is enabled by clicking the icon to the left of the monitoring rule name, notifications from the set monitoring rule will be notified only to that notification group and not to other notification groups.
+
+<figure class="figure-image figure-image-fotolife" title="Configuration"><span itemscope itemtype="http://schema.org/Photograph"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20230314/20230314112410.png" width="500" height="auto" loading="lazy" title="" class="hatena-fotolife" itemprop="image"></span><figcaption>Configuration</figcaption></figure>
+
 
 ### Example configuration
 

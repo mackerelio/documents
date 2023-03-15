@@ -7,9 +7,11 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 
 Mackerelでは、登録しているホストを監視し、状況に応じてアラートを通知できます。
 
+[:contents]
+
 ## 監視機能を有効にする
 
-* アラートが発生しても通知されない場合、後述の[アラート設定][alerts-settings]、[個人設定ページ][settings-user]の設定が正しいか確認してください。
+* アラートが発生しても通知されない場合、後述の[アラート設定][alerts-settings]や[アカウント設定][settings-user]が正しいか確認してください。
 
 [org-setting]: https://mackerel.io/my?tab=setting
 
@@ -38,7 +40,7 @@ Mackerelでは、登録しているホストを監視し、状況に応じてア
 
 ## 死活監視
 
-[mackerel-agentをインストール・起動][install-agent] したホストに対しては、死活監視が自動的に行なわれます。
+[mackerel-agent][install-agent]をインストール・起動したホストに対しては、死活監視が自動的に行なわれます。
 
 死活監視はmackerel-agentからのメトリックの定期投稿を監視しています。一定期間この投稿がない場合、Mackerelはそのホストに異常が発生したと判断してアラートを発生させます。
 
@@ -113,14 +115,13 @@ Mackerelは、アラートが生成された際・アラートの状態に変化
 [channels-settings]: https://mackerel.io/my/channels/-/create
 [alerts-settings]: https://mackerel.io/my/monitors
 
-メールブロードキャストはそのオーガニゼーションに所属しているすべてのメンバーにメールを一斉送信します（[個人設定により受け取らないように変更できます](#optout-broadcast-notification-email)）。その他の通知チャンネルの設定の詳細については、ヘルプのサイドバー「アラート/alerts」をご確認下さい。
+メールブロードキャストはそのオーガニゼーションに所属しているすべてのメンバーにメールを一斉送信します（[アカウント設定](#optout-broadcast-notification-email)により受け取らないように変更できます）。その他の通知チャンネルの設定の詳細については、ヘルプのサイドバー「アラート/alerts」をご確認下さい。
 
-<h3 id="optout-broadcast-notification-email">通知メールを受け取らない（個人設定）</h3>
+<h3 id="optout-broadcast-notification-email">通知メールを受け取らない（アカウント設定）</h3>
 
-[個人設定ページ][settings-user]より、アラート一斉送信通知メールを受信しない設定にできます。
+[アカウント設定ページ][settings-user]の[メール通知](https://mackerel.io/settings/user?tab=emailNotifications)で「アラート通知」をOffにすると、通知メールを受信しない設定にできます。この設定はチャンネル設定の「通知するイベント」すべてが対象になります。
 
 [settings-user]: https://mackerel.io/settings/user
-
 [alerts-settings]: https://mackerel.io/my/monitors
 
 
@@ -135,7 +136,7 @@ Mackerelは、アラートが生成された際・アラートの状態に変化
 
 <h2 id="notification-group">通知グループで柔軟な通知条件を設定する</h2>
 
-Mackerelでは、通知グループを作成することでチームの通知チャンネルに特定のサービスの通知のみを行うなどの柔軟な通知条件を設定できます。通知グループは通知チャンネルと同じように[通知チャンネル設定][channels-settings] のページから作成することが出来ます。
+Mackerelでは、通知グループを作成することでチームの通知チャンネルに特定のサービスの通知のみを行うなどの柔軟な通知条件を設定できます。通知グループは通知チャンネルと同じように[通知チャンネル設定][channels-settings]のページから作成することが出来ます。
 
 [https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20190204/20190204165515.png:image]
 
@@ -148,7 +149,9 @@ Mackerelでは、通知グループを作成することでチームの通知チ
 
 ### 対象となる通知グループを限定する
 
-通知グループに監視ルールを設定するときに 「この通知グループのみに通知する」オプションを有効にすると、設定した監視ルールからの通知はその通知グループにのみ通知され、他の通知グループには通知されなくなります。
+通知グループの通知対象に監視ルールを設定する際、監視ルール名の左にあるアイコンをクリックして「この通知グループのみに通知する」オプションを有効にすると、設定した監視ルールからの通知はその通知グループにのみ通知され、他の通知グループには通知されなくなります。
+
+<figure class="figure-image figure-image-fotolife" title="設定箇所"><span itemscope itemtype="http://schema.org/Photograph"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20230313/20230313183923.png" width="500" height="auto" loading="lazy" title="" class="hatena-fotolife" itemprop="image"></span><figcaption>設定箇所</figcaption></figure>
 
 ### 設定例
 
