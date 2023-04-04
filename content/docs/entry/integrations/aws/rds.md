@@ -26,8 +26,8 @@ For each DB engine, the maximum number of metrics shown in the table below is ob
 |RDS|PostgreSQL|24|
 |  |SQL Server|20|
 |  |Other than those above|19|
-|Aurora|MySQL|43|
-|  |PostgreSQL|39|
+|Aurora|MySQL|47|
+|  |PostgreSQL|43|
 |Aurora Serverless v1|MySQL|41|
 |  |PostgreSQL|40|
 
@@ -102,12 +102,22 @@ In the case of Aurora, the following metrics can be obtained in addition to the 
 <br>
 
 ### Aurora Serverless v1 metrics
-In the case of Aurora Serverless v1, the following metrics can be obtained in addition to the above common metrics.
+In the case of Aurora Serverless v1, the following metrics can be obtained in addition to the above Aurora metrics.
 
 
 |Graph name|Metric|Metric name in Mackerel|Unit|Statistics|
 |:---|:---|:---|:---|:---|
 |Serverless Database Capacity|ServerlessDatabaseCapacity|rds.aurora.serverless_database_capacity.capacity|float|Average|
+
+### Aurora Serverless v2 metrics
+In the case of Aurora Serverless v2, the following metrics can be obtained in addition to the above Aurora metrics.
+
+|Graph name|Metric|Metric name in Mackerel|Unit|Statistics|
+|:---|:---|:---|:---|:---|
+|Serverless Database Capacity|ServerlessDatabaseCapacity|rds.aurora.serverless_database_capacity.capacity|float|Average|
+|ACU Utilization|ACUUtilization|rds.aurora.acu_utilization.utilization|percentage|Average|
+|Temp Storage IOPS|TempStorageIOPS|rds.aurora.temp_storage_iops.iops|iops|Average|
+|Temp Storage Throughput|TempStorageThroughput|rds.aurora.temp_storage_throughput.throughput|bytes/sec|Average|
 
 <h2 id="notes">Precautions</h2>
 

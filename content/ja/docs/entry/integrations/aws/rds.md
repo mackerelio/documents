@@ -26,8 +26,8 @@ AWSインテグレーションのRDS対応で取得できるメトリックは�
 |RDS|PostgreSQL|24|
 |  |SQL Server|20|
 |  |上記以外|19|
-|Aurora|MySQL|43|
-|  |PostgreSQL|39|
+|Aurora|MySQL|47|
+|  |PostgreSQL|43|
 |Aurora Serverless v1|MySQL|41|
 |  |PostgreSQL|40|
 
@@ -107,6 +107,16 @@ Aurora Serverless v1クラスターの場合は、Auroraで取得できるメト
 |グラフ名|メトリック|Mackerel上のメトリック名|単位|Statistics|
 |:---|:---|:---|:---|:---|
 |Serverless Database Capacity|ServerlessDatabaseCapacity|rds.aurora.serverless_database_capacity.capacity|float|Average|
+
+### Aurora Serverless v2 メトリック
+Aurora Serverless v2インスタンスの場合は、Auroraで取得できるメトリックに加えて以下のメトリックが取得できます。
+
+|グラフ名|メトリック|Mackerel上のメトリック名|単位|Statistics|
+|:---|:---|:---|:---|:---|
+|Serverless Database Capacity|ServerlessDatabaseCapacity|rds.aurora.serverless_database_capacity.capacity|float|Average|
+|ACU Utilization|ACUUtilization|rds.aurora.acu_utilization.utilization|percentage|Average|
+|Temp Storage IOPS|TempStorageIOPS|rds.aurora.temp_storage_iops.iops|iops|Average|
+|Temp Storage Throughput|TempStorageThroughput|rds.aurora.temp_storage_throughput.throughput|bytes/sec|Average|
 
 <h2 id="notes">注意事項</h2>
 
