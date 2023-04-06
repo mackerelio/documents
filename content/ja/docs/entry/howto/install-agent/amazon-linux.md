@@ -8,10 +8,10 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 このページに記載の内容は、[Mackerel Web画面・新規ホスト登録画面](https://mackerel.io/my/instruction-agent)からも利用可能です。
 
 <h2>パッケージをインストールする</h2>
-Amazon Linux と Amazon Linux 2 LTS でインストール時に実行するコマンドが異なります。それぞれの手順を確認して下さい。
+Amazon Linux と Amazon Linux 2 LTS または Amazon Linux 2023 でインストール時に実行するコマンドが異なります。それぞれの手順を確認して下さい。
 また、 `rpm` コマンドを用いて直接インストールすることもできます。
 
-<h3 id="v2">Amazon Linux 2 LTS をご利用の場合</h3>
+<h3 id="v2">Amazon Linux 2 LTS または Amazon Linux 2023 をご利用の場合</h3>
 
 以下のコマンドを実行してください:
 
@@ -43,7 +43,7 @@ APIキーは[オーガニゼーションページ内・APIキータブ](https://
 sudo yum update mackerel-agent
 ```
 
-<h3 id="rpm-v2">Amazon Linux 2 LTS で rpmコマンドを使用する</h2>
+<h3 id="rpm-v2">Amazon Linux 2 LTS または Amazon Linux 2023 で rpmコマンドを使用する</h2>
 
 `rpm`コマンドでインストールするには、以下のコマンドを実行します:
 
@@ -92,7 +92,7 @@ apikey = "<YOUR_API_KEY>"
 APIキーは[オーガニゼーションページ内・APIキータブ](https://mackerel.io/my?tab=apikeys)から確認できます。このAPIキーでオーガニゼーションを識別しますので、APIキーは外部に漏らさないようご注意ください。
 
 <h2 id="start-agent">エージェントを起動する</h2>
-<h3>Amazon Linux 2 LTS をご利用の場合</h3>
+<h3>Amazon Linux 2 LTS または Amazon Linux 2023 をご利用の場合</h3>
 
 以下のコマンドを実行することで、エージェントが起動します。
 

@@ -8,10 +8,10 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackere
 The content described on this page is also available from the [New Host registration screen in Mackerel](https://mackerel.io/my/instruction-agent).
 
 <h2>Install the package</h2>
-Amazon Linux and Amazon Linux 2 LTS run different commands for installation. Please check out each procedure.
+Amazon Linux, Amazon Linux 2 LTS and Amazon Linux 2023 run different commands for installation. Please check out each procedure.
 Installation can also be done directly using the `rpm` command.
 
-<h3 id="v2">When using Amazon Linux 2 LTS</h3>
+<h3 id="v2">When using Amazon Linux 2 LTS or Amazon Linux 2023</h3>
 
 Execute the following command:
 
@@ -43,7 +43,7 @@ Updates can be performed using the `yum` command.
 sudo yum update mackerel-agent
 ```
 
-<h3 id="rpm-v2">Using the rpm command with Amazon Linux 2 LTS</h2>
+<h3 id="rpm-v2">Using the rpm command with Amazon Linux 2 LTS or Amazon Linux 2023</h2>
 
 To install mackerel-agent with `rpm` run the following command:
 
@@ -92,7 +92,7 @@ apikey = "<YOUR_API_KEY>"
 You can check the API key from the [Organization page’s API Keys tab](https://mackerel.io/my?tab=apikeys). Keep in mind that this key is used to identify your organization, so we strongly advise not sharing it with others.
 
 <h2 id="start-agent">Starting the agent</h2>
-<h3>When using Amazon Linux 2 LTS</h3>
+<h3>When using Amazon Linux 2 LTS or Amazon Linux 2023</h3>
 
 The agent will start by running the following command:
 

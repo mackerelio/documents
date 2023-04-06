@@ -37,7 +37,7 @@ Mackerelおよびmackerel-agentは、以下の環境で動作確認を行って�
         - Red Hat Enterprise Linux 8/9、CentOS 7、MIRACLE LINUX 8/9、AlmaLinux 8/9、Rocky Linux 8/9
         - CentOS Stream 8/9
         - Ubuntu 18.04LTS/20.04LTS/22.04LTS、 Debian 10/11
-        - Amazon Linux、Amazon Linux 2
+        - Amazon Linux、Amazon Linux 2、Amazon Linux 2023
         - x64 アーキテクチャおよび AWS Graviton シリーズを含む Arm v8 アーキテクチャ。Amazon Linux のみ 32bit x86 アーキテクチャもサポートしています。
         - その他、一般的なLinux環境(カーネルバージョン 2.6.23以降)や、上記以外のRed Hat Enterprise Linux派生ディストリビューションでも動作すると思われますが、現在のところサポート対象外です。
     - Windows
