@@ -137,6 +137,9 @@ AWSインテグレーションで使用する全ての権限を設定する場�
 また、AWSインテグレーションでは後述するようにタグによって絞り込みを行うことが出来ますが、ElastiCacheやSQSでタグによる絞り込みを行う場合は追加のポリシーを付与する必要があります。
 詳しくは<a href="#tag">タグで絞り込む</a> の項目を参照してください。
 
+メトリックの除外を行う場合もAWSのタグを参照するため、タグで絞り込む機能と同様に追加のポリシーを付与する必要があります。
+詳しくは<a href="#select-metric">取得するメトリックを制限する</a> の項目を参照してください。
+
 ![](https://cdn-ak2.f.st-hatena.com/images/fotolife/m/mackerelio/20170912/20170912165028.png)
 
 <h4>4. ホストを確認する</h4>
@@ -146,7 +149,26 @@ AWSインテグレーションで使用する全ての権限を設定する場�
 
 <h2 id="select-metric">取得するメトリックを制限する</h2>
 
-一部のメトリックを取得しないように設定して、ホスト数を削減したりCloudWatch APIの料金を減らす事ができます。ホスト台数は過去一ヶ月分の移動平均での算出となります。詳しくは[ホスト数の計算方法について](https://support.mackerel.io/hc/ja/articles/360039702912-%E3%83%9B%E3%82%B9%E3%83%88%E6%95%B0%E3%81%AE%E8%A8%88%E7%AE%97%E6%96%B9%E6%B3%95%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6)をご確認ください。
+一部のメトリックを取得しないように設定して、ホスト数を削減したりCloudWatch APIの料金を減らす事ができます。
+
+<h3>1. タグを取得するための権限を付与する</h3>
+AWSのタグで絞り込むには、AWSインテグレーションの設定のために付与したポリシー以外に、以下のアクションに対する権限が追加で必要になります。
+
+- `elasticache:ListTagsForResource`
+- `sqs:ListQueueTags`
+- `states:ListTagsForResource`
+
+これらのポリシーの付与は、Inline Policiesにて行ってください。
+
+![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20160616/20160616150058.png)
+
+![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20160616/20160616150059.png)
+
+<h3>2. 取得するメトリックを制限する設定を行う</h3>
+
+ホスト台数は過去一ヶ月分の移動平均での算出となります。詳しくは[ホスト数の計算方法について](https://support.mackerel.io/hc/ja/articles/360039702912-%E3%83%9B%E3%82%B9%E3%83%88%E6%95%B0%E3%81%AE%E8%A8%88%E7%AE%97%E6%96%B9%E6%B3%95%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6)をご確認ください。
+
+Mackerelの設定画面で取得するメトリックを選択します。不要なメトリックのチェックを外して、保存してください。
 
 例えばKinesis Data Streamsの`kinesis.latency.#.minimum`を取得しないようにする場合は以下のようにチェックボックスを外します。この設定により`GetRecords.Latency`、`PutRecord.Latency`、`PutRecords.Latency`それぞれのminimumの取得を制限し、最大で3メトリックを削減します。
 
