@@ -9,10 +9,6 @@ Mackerel offers mackerel-agent’s [Homebrew](https://brew.sh/) Tap for macOS. M
 
 However, please note that macOS is not officially supported for mackerel-agent. For a list of supported OS, check [here](https://mackerel.io/docs/entry/overview).
 
-We assume that you have installed Homebrew in `/usr/local` directory.
-If you are using Homebrew which natively supports Apple Silicon Mac, please replace `/usr/local` with `/opt/homebrew`.
-You can find where Homebrew is installed with `brew --prefix` command.
-
 <h2 id="install-command">Installing mackerel-agent </h2>
 
 With Homebrew's preinstalled environment, the agent can be installed by executing the following command.
@@ -24,11 +20,11 @@ brew install mackerelio/mackerel-agent/mackerel-agent
 
 <h2 id="config">Edit the configuration file</h2>
 
-The agent configuration file installed with Homebrew is placed in `/usr/local/etc/mackerel-agent.conf`.
+The agent configuration file installed with Homebrew is placed in `$(brew --prefix)/etc/mackerel-agent.conf`.
 Before starting-up the agent, you need to configure an API key in the configuration file. The API key can be configured with the following command.
 
 ```
-mackerel-agent init -apikey="<YOUR_API_KEY>" -conf /usr/local/etc/mackerel-agent.conf
+mackerel-agent init -apikey="<YOUR_API_KEY>" -conf "$(brew --prefix)/etc/mackerel-agent.conf"
 ```
 
 You can check API keys from the [Organization](https://mackerel.io/my) page. Please be careful to not allow this API key to be leaked to the outside as it is used to identify the organization.
@@ -51,6 +47,6 @@ brew services start mackerel-agent
 brew services stop mackerel-agent
 ```
 
-The agent log is output to `/usr/local/var/log/mackerel-agent.log`
+The agent log is output to `$(brew --prefix)/var/log/mackerel-agent.log`
 
 When the agent starts to run correctly, it will be registered as a host in Mackerel. This can be confirmed from the [Dashboard](https://mackerel.io/my/dashboard) etc.

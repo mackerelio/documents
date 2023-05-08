@@ -11,10 +11,6 @@ Mackerel では macOS 向けの mackerel-agent の [Homebrew](https://brew.sh/) 
 
 ただし、公式サポート対象とはなっておりませんので、使用上のご質問等にお答えできかねます。なお、サポート対象OSについては[こちら](https://mackerel.io/ja/docs/entry/overview)をご確認ください。
 
-また、本ページでは Homebrew を `/usr/local` ディレクトリにインストールしていることを前提に説明しています。
-例えば、 Apple シリコン搭載の Mac にネイティブ対応した Homebrew をご利用の方は、 `/usr/local` を `/opt/homebrew` に読み替えてください。
-Homebrew のインストール先は `brew --prefix` コマンドで確認できます。
-
 <h2 id="install-command">mackerel-agent のインストール</h2>
 
 Homebrew の予め導入された環境で、以下のコマンドを実行してエージェントをインストールできます。
@@ -25,11 +21,11 @@ brew install mackerelio/mackerel-agent/mackerel-agent
 
 <h2 id="config">設定ファイルを編集</h2>
 
-Homebrew でインストールしたエージェントの設定ファイルは `/usr/local/etc/mackerel-agent.conf` に配置されます。
+Homebrew でインストールしたエージェントの設定ファイルは `$(brew --prefix)/etc/mackerel-agent.conf` に配置されます。
 エージェントを起動する前に、設定ファイルにAPIキーを設定する必要があります。 APIキーの設定は以下のコマンドでおこなえます。
 
 ```
-mackerel-agent init -apikey="<YOUR_API_KEY>" -conf /usr/local/etc/mackerel-agent.conf
+mackerel-agent init -apikey="<YOUR_API_KEY>" -conf "$(brew --prefix)/etc/mackerel-agent.conf"
 ```
 
 APIキーは[オーガニゼーションのページ](https://mackerel.io/my)から確認できます。このAPIキーでオーガニゼーションを識別しますので、APIキーは外部に漏らさないようご注意ください。
@@ -52,6 +48,6 @@ brew services start mackerel-agent
 brew services stop mackerel-agent
 ```
 
-エージェントのログは `/usr/local/var/log/mackerel-agent.log` に出力されます。
+エージェントのログは `$(brew --prefix)/var/log/mackerel-agent.log` に出力されます。
 
 エージェントが正しく動きはじめると、Mackerelにホストとして登録されます。[ダッシュボード](https://mackerel.io/my/dashboard)などでご確認ください。
