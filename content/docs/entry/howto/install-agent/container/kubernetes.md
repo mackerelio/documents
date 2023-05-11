@@ -116,7 +116,7 @@ The following resources are referred to in mackerel-container-agent.
 
 If authentication is enabled for kubelet, Role configuration for ServiceAccount will be necessary so that mackerel-container-agent can refer to these resources.
 
-For more on kubelet authentication, see the [Kubernetes document](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet-authentication-authorization/).
+For more on kubelet authentication, see the [Kubernetes document](https://kubernetes.io/docs/reference/access-authn-authz/kubelet-authn-authz/).
 
 The following is a RBAC configuration example.
 

@@ -116,7 +116,7 @@ mackerel-container-agentでは下記のリソースに参照します。
 
 kubeletで認証が有効な場合には、mackerel-container-agentがこれらのリソースを参照できるよう、ServiceAccountに対してRoleを設定する必要となります。
 
-kubeletの認証については[Kubernetesのドキュメント](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet-authentication-authorization/)を御覧ください。
+kubeletの認証については[Kubernetesのドキュメント](https://kubernetes.io/docs/reference/access-authn-authz/kubelet-authn-authz/)を御覧ください。
 
 以下はRBACの設定例です。
 
