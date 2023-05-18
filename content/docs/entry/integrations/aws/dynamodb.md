@@ -48,8 +48,6 @@ In addition to the above, the following metrics can be collected when a DynamoDB
 |Stream SuccessfulRequestLatency|SuccessfulRequestLatency|dynamodb.successful_request_latency_streams.GetRecords.minimum<br>dynamodb.successful_request_latency_streams.GetRecords.average<br>dynamodb.successful_request_latency_streams.GetRecords.maximum|float|Minimum<br>Average<br>Maximum|
 
 <h2 id="notes">Precautions</h2>
-Assigning roles by tags is not available with AWS Integration DynamoDB support.
-
 Among the graphs/metrics obtainable with AWS Integration, metrics included in the following graphs are obtained in 5 minute intervals.
 
 - ReadCapacityUnits

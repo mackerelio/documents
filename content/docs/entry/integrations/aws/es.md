@@ -53,8 +53,6 @@ The maximum number of metrics obtainable is 72.
 
 <h2 id="notes">Notes</h2>
 
-Assigning roles by tags is not available with AWS Integration Elasticsearch Service support.
-
 Among the graphs/metrics obtainable with AWS integration, the retrieval interval differs for the metrics below.
 
 - 5 min. interval
