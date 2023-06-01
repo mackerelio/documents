@@ -52,7 +52,3 @@ The maximum number of metrics obtainable is detemined by destination services:
 |Partition Limit|PartitionCountExceeded|firehose.partition_limit.exceeded|integer|Maximum|
 |Per Partition Throughput|PerPartitionThroughput|firehose.per_partition_throughput.maximum<br>firehose.per_partition_throughput.average<br>firehose.per_partition_throughput.minimum|bytes/sec|Maximum<br>Average<br>Minimum|
 |Delivered S3 Objects|DeliveryToS3.ObjectCount|firehose.delivered_s3_objects.count|integer|Sum|
-
-<h2 id="notes">Notes</h2>
-
-Assigning roles by tags is not available with AWS Integration Kinesis Data Firehose support.

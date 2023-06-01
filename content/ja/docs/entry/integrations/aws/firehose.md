@@ -52,7 +52,3 @@ AWSインテグレーションのKinesis Data Firehose対応で取得できる�
 |Partition Limit|PartitionCountExceeded|firehose.partition_limit.exceeded|integer|Maximum|
 |Per Partition Throughput|PerPartitionThroughput|firehose.per_partition_throughput.maximum<br>firehose.per_partition_throughput.average<br>firehose.per_partition_throughput.minimum|bytes/sec|Maximum<br>Average<br>Minimum|
 |Delivered S3 Objects|DeliveryToS3.ObjectCount|firehose.delivered_s3_objects.count|integer|Sum|
-
-<h2 id="notes">注意事項</h2>
-
-AWSインテグレーションのKinesis Data Firehose対応ではタグによるサービス・ロール割り当てに対応していません。

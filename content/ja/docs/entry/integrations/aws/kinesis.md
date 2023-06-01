@@ -27,7 +27,3 @@ AWSインテグレーションのKinesis Data Streams対応で取得できるメ
 |Latency|GetRecords.Latency<br>PutRecord.Latency<br>PutRecords.Latency|kinesis.latency.#.minimum<br>kinesis.latency.#.average<br>kinesis.latency.#.maximum|float|Minimum<br>Average<br>Maximum|
 
 - "Mackerel上のメトリック名"の#には、[Provisioned Throughput Exceeded]では"Read"、"Write"のいずれかが、[Latency]では"GetRecords"、"PutRecord"、"PutRecords"のいずれかが入ります。
-
-<h2 id="notes">注意事項</h2>
-
-AWSインテグレーションのKinesis Data Streams対応ではタグによるサービス・ロール割り当てに対応していません。

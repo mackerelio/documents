@@ -10,6 +10,7 @@ Using AWS integration, you can manage AWS cloud products as a host of Mackerel a
 Each AWS cloud product will be registered as one host in Mackerel and therefore be counted as a billable host.
 The types of hosts consist of standard hosts for EC2 and micro hosts for other products.
 Additionally, the API of AWS will be called every 5 minutes for each targeted metric to be obtained. Please take note, for this reason, an [Amazon CloudWatch API usage fee](https://aws.amazon.com/jp/cloudwatch/pricing/) may occur.
+If you want to automatically retire the associated host when you delete an AWS resource, please refer to the [Configure automatic retirement](#auto-retirement) section.
 To limit the metrics that are retrieved, refer to the [Limit metrics retrieved](#select-metric) section below.
 
 Currently, the following AWS cloud products are supported. For information on obtaining metrics, please refer to each individual document.
@@ -134,6 +135,21 @@ For more details, refer to <a href="#tag">Filter by tag</a>.
 After a short while, your AWS cloud product will be registered as a host in Mackerel and begin posting metrics. By creating monitoring rules, you can also be notified of alerts.
 For more information, see [Setting up monitoring and alerts](https://mackerel.io/docs/entry/howto/alerts).
 
+<h2 id="auto-retirement">Configure automatic retirement</h2>
+
+Some services offer the option to retire hosts from Mackerel upon removal of AWS resources. To enable automatic retirement, check the `Enable automatic retirement` checkbox in the configuration page.
+
+![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20230519/20230519115922.png)
+
+Automatic retirement of AWS integration provides automatic retirement of the associated host when it is determined that a resource linked to Mackerel has been deleted. Therefore, automatic retirement will not occur in the following cases:
+
+- Resources that had already been excluded by the tag filter deleted
+  - Exception: if the target service is EC2, it will be retired even if it has already been excluded by the tag
+- The service was linked in the past, but is now disabled in the integration settings
+- The service was linked in the past, but now the entire integration setup has been deleted
+
+In addition, AWS integration check only once when it detects the deletion of an AWS resource, so those that have enabled link after the detection of a deletion are not automatically retired. If the same host is linked to multiple integration settings, it will be automatically retired when any one of the settings is determined to be deleted.
+
 <h2 id="select-metric">Limit metrics retrieved</h2>
 
 You can reduce the number of hosts and cost of the CloudWatch API by limiting the metrics to be retrieved. The number of hosts is calculated using a moving average of the past month. For more information about that, refer to the FAQ page [Calculating the number of hosts](https://support.mackerel.io/hc/en-us/articles/360039702912).
@@ -167,7 +183,7 @@ By specifying the tag as `service:foo, service:bar`, instances tagged with a key
 <h2 id="resource_tag">Assigning roles by tags</h2>
 
 There is a feature that is about assigning roles by tags.
-This feature enables tags with the label `mackerel-integration` on AWS resources to be automatically imported as Mackarel services and roles.
+This feature enables tags with the label `mackerel-integration` on AWS resources to be automatically imported as Mackerel services and roles.
 The tag format is described as follows:
 
 * Key: `mackerel-integration`
@@ -273,7 +289,7 @@ In order to check whether or not the access key registered by the user has an un
 
 ### Regarding retiring hosts linked with AWS Integration
 
-By configuring the integration above, AWS cloud products complying with the target service and tag conditions are automatically integrated with Mackerel and registered as a host. On the other hand, hosts in Mackerel will not be deleted (retired) simply by deleting instances etc. in AWS. In order to remove hosts integrated with AWS from Mackerel's managed targets, you need to retire them separately.
+By configuring the integration above, AWS cloud products complying with the target service and tag conditions are automatically integrated with Mackerel and registered as a host. On the other hand, if [the service does not support automatic retirement or automatic retirement feature is disabled](#auto-retirement), hosts in Mackerel will not be deleted (retired) simply by deleting instances etc. in AWS. In order to remove hosts integrated with AWS from Mackerel's managed targets, you need to retire them separately.
 
 [https://mackerel.io/docs/entry/howto/host-retirement:embed:cite]
 

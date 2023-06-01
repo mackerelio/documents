@@ -31,7 +31,3 @@ The maximum number of metrics obtainable can be calculated using the formula `7 
 - Enter the name of the activity in place of ACTIVITY_NAME in "Metric name in Mackerel".
 - Enter the name of the Lambda function in place of LAMBDA_FUNCTION_NAME in "Metric name in Mackerel".
 - Enter the name of the service integration in place of SERVICE_INTEGRATION_NAME in "Metric name in Mackerel".
-
-<h2 id="notes">Notes</h2>
-
-Assigning roles by tags is not available with AWS Integration Step Functions support.

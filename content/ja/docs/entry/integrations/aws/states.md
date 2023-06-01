@@ -31,6 +31,3 @@ AWSインテグレーションのStep Functions対応で取得できるメトリ
 - "Mackerel上のメトリック名"のACTIVITY_NANEにはアクティビティ名が入ります。
 - "Mackerel上のメトリック名"のLAMBDA_FUNCTION_NAMEにはLambdaファンクション名が入ります。
 - "Mackerel上のメトリック名"のSERVICE_INTEGRATION_NAMEにはサービス統合名が入ります。
-
-<h2 id="notes">注意事項</h2>
-AWSインテグレーションのStep Functions対応ではタグによるサービス・ロール割り当てに対応していません。
