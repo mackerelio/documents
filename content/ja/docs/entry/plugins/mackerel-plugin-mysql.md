@@ -1,6 +1,9 @@
 ---
 Title: メトリックプラグイン - mackerel-plugin-mysql
+Date: 2023-06-09T15:42:20+09:00
 URL: https://mackerel.io/ja/docs/entry/plugins/mackerel-plugin-mysql
+EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/820878482940092156
+CustomPath: plugins/mackerel-plugin-mysql
 ---
 
 mackerel-plugin-mysqlはクエリの実行回数など、MySQLに関する各種メトリックを監視できます。
