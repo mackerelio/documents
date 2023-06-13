@@ -85,7 +85,7 @@ Enter the [AWS service identifier](#awsServiceNames) in place of <i>`<awsService
 
 This <i>`role`</i> is the same as the <i>`role`</i> in [Register AWS Integration Settings](#create).
 
-With Amazon EC2, the following additional keys are configured.
+With EC2 and RDS, the following additional keys are configured.
 
 | KEY                   | TYPE              | DESCRIPTION                              |
 | --------              | ------            | -----------                              |
@@ -211,7 +211,7 @@ Enter the [AWS service identifier](#awsServiceNames) in place of <i>`<awsService
 | `role`                | *string* / *null* | full role name[*4](#roleFullName). If not specifying a role, set to `null`.  |
 | `excludedMetrics`     | *array[string]*   | list of excluded metrics[*5](#excludedMetrics)                                         |
 
-With Amazon EC2, the following additional keys can be configured.
+With EC2 and RDS, the following additional keys can be configured.
 
 | KEY                   | TYPE              | DESCRIPTION                                                                                                                                      |
 | --------              | ------            | -----------                                                                                                                                      |

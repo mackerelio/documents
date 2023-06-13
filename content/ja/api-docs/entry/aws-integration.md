@@ -85,7 +85,7 @@ AWSインテグレーション設定の一覧が返却されます。
 
 <i>`role`</i> は [AWSインテグレーション設定の登録](#create)の項目の <i>`role`</i> と同じ。
 
-Amazon EC2 の場合は、追加で以下のキーが設定されています。
+EC2・RDS の場合は、追加で以下のキーが設定されています。
 
 | KEY                   | TYPE              | DESCRIPTION                              |
 | --------              | ------            | -----------                              |
@@ -211,7 +211,7 @@ AWSインテグレーション設定の情報が返却されます。
 | `role`                | *string* / *null* | ロールの詳細名[*4](#roleFullName)。ロールを指定しない場合は、 `null` を設定してください。  |
 | `excludedMetrics`     | *array[string]*   | 除外するメトリック名のリスト[*5](#excludedMetrics)                                         |
 
-Amazon EC2 の場合は、追加で以下のキーが設定できます。
+EC2・RDS の場合は、追加で以下のキーが設定できます。
 
 | KEY                   | TYPE              | DESCRIPTION                                                                                                                                      |
 | --------              | ------            | -----------                                                                                                                                      |
