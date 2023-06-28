@@ -57,6 +57,9 @@ on_stop  = "poweroff"
 ignore = "/dev/ram.*"
 use_mountpoint = true
 
+[disks]
+ignore = "loop"
+
 [interfaces]
 ignore = "bond.*"
 
@@ -250,6 +253,18 @@ You can obtain filesystem metrics for each mount point by specifying the followi
 # /etc/mackerel-agent/mackerel-agent.conf
 [filesystems]
 use_mountpoint = true
+```
+
+<h4 id="config-file-disks">disks</h4>
+<h5>ignore</h5>
+Metric collection can be excluded from specific disk devices.
+
+By designating a regular expression like shown below, metrics from the designated disk device will no longer be collected.
+
+```config
+# /etc/mackerel-agent/mackerel-agent.conf
+[disks]
+ignore = "loop"
 ```
 
 <h4 id="config-file-interfaces">interfaces</h4>
