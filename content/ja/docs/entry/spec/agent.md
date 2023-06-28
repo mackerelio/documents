@@ -55,6 +55,9 @@ on_stop  = "poweroff"
 ignore = "/dev/ram.*"
 use_mountpoint = true
 
+[disks]
+ignore = "loop"
+
 [interfaces]
 ignore = "bond.*"
 
@@ -238,6 +241,18 @@ ignore = "/dev/ram.*"
 # /etc/mackerel-agent/mackerel-agent.conf
 [filesystems]
 use_mountpoint = true
+```
+
+<h4 id="config-file-disks">disks</h4>
+<h5>ignore</h5>
+特定のディスクデバイスからのメトリック収集を除外できます。
+
+以下のように正規表現を用いて指定することで、指定されたディスクデバイスからのメトリックは収集されなくなります。
+
+```config
+# /etc/mackerel-agent/mackerel-agent.conf
+[disks]
+ignore = "loop"
 ```
 
 <h4 id="config-file-interfaces">interfaces</h4>
