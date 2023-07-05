@@ -10,6 +10,8 @@ You can set alerts not to occur during periods when the load is known to increas
 
 This configuration which includes the period of monitoring suspension and the target scope is referred to as downtime.
 
+[:contents]
+
 ## Configuring Downtime
 ### From the console screen
 Downtime can be configured from https://mackerel.io/my/downtimes.
@@ -39,3 +41,9 @@ curl -X POST https://api.mackerelio.com/api/v0/downtimes \
 ```
 
 For more detailed information, check out the [API document](https://mackerel.io/api-docs/entry/downtimes)
+
+### Notes
+
+Please note that due to Mackerel specifications, if downtime starts on Sunday and exceeds 24 hours, downtime will be ignored after 24 hours.  
+For example, if the downtime start time is set to Sunday 00:00 and the downtime period is set to 24 hours and 30 minutes, monitoring will not stop on Monday from 00:00 to 00:30. The same is true for a repeating setting.
+For downtime beginning on Sunday, the duration should not exceed 24 hours.

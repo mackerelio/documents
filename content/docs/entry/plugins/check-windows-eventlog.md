@@ -87,6 +87,10 @@ command = ["check-windows-eventlog", "--log", "Application", "--type", "Error", 
 
 This event occurs when the `--return` option is given and the contents of the event matching the pattern cannot be retrieved from the EventMessageFile. The cause may be that the log of the event source is not output in a format that meets the specifications of the event viewer. Please identify the relevant event in the Event Viewer based on the time when the alert occurred, and check the output format of the Event Source log.
 
+### Event Log UNKNOWN: strconv.ParseInt: parsing "\x00\x00\x00\x00\x00\x00\x00": invalid syntax alert occurs.
+
+The State file may be corrupt. Deleting the State file corresponding to the monitored event log will close the alert (The State file will be re-created at the next monitoring run). Please refer to [About State File](#state-file) for the location of the State file.
+
 <h2 id="repository">Repository</h2>
 
 https://github.com/mackerelio/go-check-plugins/tree/master/check-windows-eventlog

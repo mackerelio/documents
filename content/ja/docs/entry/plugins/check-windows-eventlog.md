@@ -87,6 +87,12 @@ command = ["check-windows-eventlog", "--log", "Application", "--type", "Error", 
 
 このイベントは `--return` オプションを付与している場合に、パターンに一致したイベントの内容をイベントソースのメッセージファイル（EventMessageFile）から取得できない場合に発生します。その原因として、イベントソースのログがイベントビューアの仕様に合った形式で出力されていない可能性があります。該当のイベントをアラート発生時刻を元にイベントビューアで特定し、イベントソースのログの出力形式ご確認してください。
 
+### Event Log UNKNOWN: strconv.ParseInt: parsing "\x00\x00\x00\x00\x00\x00\x00": invalid syntax というアラートが発生する
+
+State ファイル が破損している可能性があります。監視対象のイベントログに対応した State ファイルを削除することで、アラートの解消が見込めます（State ファイル は次回の監視実行時に再作成されます）。
+State ファイルの保存場所については [State ファイルについて](#state-file) をご確認ください。
+
+
 <h2 id="repository">リポジトリ</h2>
 
 https://github.com/mackerelio/go-check-plugins/tree/master/check-windows-eventlog

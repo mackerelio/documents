@@ -15,53 +15,52 @@ Depending on the version of PostgreSQL being monitored, additional roles may be 
 
 This plugin posts PostgreSQL statistics as a metric. For statistics, please refer to the PostgreSQL documentation.
 
-[https://www.postgresql.jp/document/:embed:cite]
-
+[https://www.postgresql.org/docs/current/:embed:cite]
 
 ### Postgres Connections
 
-Post [pg_stat_activity](https://www.postgresql.jp/document/14/html/monitoring-stats.html#MONITORING-PG-STAT-ACTIVITY-VIEW) information as a metric.
+Post [pg_stat_activity](https://www.postgresql.org/docs/14/monitoring-stats.html#MONITORING-PG-STAT-ACTIVITY-VIEW) information as a metric.
 
 | Metric Display Name | Metric Name                        | Diff | Stacked | Description                                          |
 | ---------------- | ----------------------------------- | ---- | ------------ | --------------------------------------------- |
-| Active | postgres.connections.active | - | ✓ | Number of active connections |
-| Active waiting | postgres.connections.active_waiting | - | ✓ | Number of connections with active and waiting events |
-| Idle | postgres.connections.idle | - | ✓ | Number of idle connections |
-| Idle in transaction | postgres.connections.idle_in_transaction | - | ✓ | Number of connections in "Idle in transaction" |
-| Idle in transaction (aborted) | postgres.connections.idle_in_transaction_aborted_ | - | ✓ | Number of connections in "Idle in transaction" state with errors during the transaction |
-| fast-path function call | postgres.connections.fastpath_function_call | - | ✓ | Number of connections running the fast-path function |
-| Disabled | postgres.connections.disabled | - | ✓ | Number of connections in disabled state |
+| Active | postgres.connections.active |  | ✓ | Number of active connections |
+| Active waiting | postgres.connections.active_waiting |  | ✓ | Number of connections with active and waiting events |
+| Idle | postgres.connections.idle |  | ✓ | Number of idle connections |
+| Idle in transaction | postgres.connections.idle_in_transaction |  | ✓ | Number of connections in "Idle in transaction" |
+| Idle in transaction (aborted) | postgres.connections.idle_in_transaction_aborted_ |  | ✓ | Number of connections in "Idle in transaction" state with errors during the transaction |
+| fast-path function call | postgres.connections.fastpath_function_call |  | ✓ | Number of connections running the fast-path function |
+| Disabled | postgres.connections.disabled |  | ✓ | Number of connections in disabled state |
 
 - Disabled will be posted if track_activities is disabled.
 
 
 ### Postgres Commits
 
-Post [pg_stat_database](https://www.postgresql.jp/document/14/html/monitoring-stats.html#MONITORING-PG-STAT-DATABASE-VIEW) information as a metric.
+Post [pg_stat_database](https://www.postgresql.org/docs/14/monitoring-stats.html#MONITORING-PG-STAT-DATABASE-VIEW) information as a metric.
 
 | Metric Display Name | Metric Name                        | Diff | Stacked | Description                                          |
 | ---------------- | ----------------------------------- | ---- | ------------ | --------------------------------------------- |
-| Xact Commit | postgres.commits.xact_commit | ✓ | - | Number of transactions committed in the database per minute |
-| Xact Rollback | postgres.commits.xact_rollback | ✓ | - | Number of transactions rolled back in the database per minute |
+| Xact Commit | postgres.commits.xact_commit | ✓ |  | Number of transactions committed in the database per minute |
+| Xact Rollback | postgres.commits.xact_rollback | ✓ |  | Number of transactions rolled back in the database per minute |
 
 
 ### Postgres Blocks
 
-Post [pg_stat_database](https://www.postgresql.jp/document/14/html/monitoring-stats.html#MONITORING-PG-STAT-DATABASE-VIEW) information as a metric.
+Post [pg_stat_database](https://www.postgresql.org/docs/14/monitoring-stats.html#MONITORING-PG-STAT-DATABASE-VIEW) information as a metric.
 
 | Metric Display Name | Metric Name                        | Diff | Stacked | Description                                          |
 | ---------------- | ----------------------------------- | ---- | ------------ | --------------------------------------------- |
-| Blocks Read | postgres.blocks.blks_read | ✓ | - | Number of blocks read from disk per minute |
-| Blocks Hit | postgres.blocks.blks_hit | ✓ | - | Number of blocks read from cache per minute |
+| Blocks Read | postgres.blocks.blks_read | ✓ |  | Number of blocks read from disk per minute |
+| Blocks Hit | postgres.blocks.blks_hit | ✓ |  | Number of blocks read from cache per minute |
 
 
 ### Postgres Rows
 
-Post [pg_stat_database](https://www.postgresql.jp/document/14/html/monitoring-stats.html#MONITORING-PG-STAT-DATABASE-VIEW) information as a metric.
+Post [pg_stat_database](https://www.postgresql.org/docs/14/monitoring-stats.html#MONITORING-PG-STAT-DATABASE-VIEW) information as a metric.
 
 | Metric Display Name | Metric Name                        | Diff | Stacked | Description                                          |
 | ---------------- | ----------------------------------- | ---- | ------------ | --------------------------------------------- |
-| Returned Rows | postgres.rows.tup_returned | ✓ | - | Number of rows returned by a query in the database per minute |
+| Returned Rows | postgres.rows.tup_returned | ✓ |  | Number of rows returned by a query in the database per minute |
 | Fetched Rows | postgres.rows.tup_fetched | ✓ | ✓ | Number of rows fetched by query in the database per minute |
 | Inserted Rows | postgres.rows.tup_inserted | ✓ | ✓ | Number of rows inserted by a query in the database per minute |
 | Updated Rows | postgres.rows.tup_updated | ✓ | ✓ | Number of rows updated by a query in the database per minute |
@@ -70,41 +69,41 @@ Post [pg_stat_database](https://www.postgresql.jp/document/14/html/monitoring-st
 
 ### Postgres Data Size
 
-`SELECT sum(pg_database_size(datname)) from pg_database` を実行した結果を投稿します。
+Post the results of running `SELECT sum(pg_database_size(datname)) from pg_database` as a metric.
 
 | Metric Display Name | Metric Name                        | Diff | Stacked | Description                                          |
 | ---------------- | ----------------------------------- | ---- | ------------ | --------------------------------------------- |
-| Total Size | postgres.size.total_size | - | - | Total size of all databases, in bytes |
+| Total Size | postgres.size.total_size |  |  | Total size of all databases, in bytes |
 
 
 ### Postgres Dead Locks
 
-Post [pg_stat_database](https://www.postgresql.jp/document/14/html/monitoring-stats.html#MONITORING-PG-STAT-DATABASE-VIEW) information as a metric.
+Post [pg_stat_database](https://www.postgresql.org/docs/14/monitoring-stats.html#MONITORING-PG-STAT-DATABASE-VIEW) information as a metric.
 
 | Metric Display Name | Metric Name                        | Diff | Stacked | Description                                          |
 | ---------------- | ----------------------------------- | ---- | ------------ | --------------------------------------------- |
-| Deadlocks | postgres.deadlocks.deadlocks | ✓ | - | Number of deadlocks detected in the database per minute |
+| Deadlocks | postgres.deadlocks.deadlocks | ✓ |  | Number of deadlocks detected in the database per minute |
 
 
 ### Postgres Block I/O time
 
-Post [pg_stat_database](https://www.postgresql.jp/document/14/html/monitoring-stats.html#MONITORING-PG-STAT-DATABASE-VIEW) information as a metric.
+Post [pg_stat_database](https://www.postgresql.org/docs/14/monitoring-stats.html#MONITORING-PG-STAT-DATABASE-VIEW) information as a metric.
 
 track_io_timing must be enabled to post this metric. If the setting is disabled, post 0.
 
 | Metric Display Name | Metric Name                        | Diff | Stacked | Description                                          |
 | ---------------- | ----------------------------------- | ---- | ------------ | --------------------------------------------- |
-| Block Read Time (ms) | postgres.iotime.blk_read_time | ✓ | - | Time spent reading data file block per minute, in milliseconds |
-| Block Write Time (ms) | postgres.iotime.blk_write_time | ✓ | - | Time spent writing data file block per minute, in milliseconds |
+| Block Read Time (ms) | postgres.iotime.blk_read_time | ✓ |  | Time spent reading data file block per minute, in milliseconds |
+| Block Write Time (ms) | postgres.iotime.blk_write_time | ✓ |  | Time spent writing data file block per minute, in milliseconds |
 
 
 ### Postgres Temporary file
 
-Post [pg_stat_database](https://www.postgresql.jp/document/14/html/monitoring-stats.html#MONITORING-PG-STAT-DATABASE-VIEW) information as a metric.
+Post [pg_stat_database](https://www.postgresql.org/docs/14/monitoring-stats.html#MONITORING-PG-STAT-DATABASE-VIEW) information as a metric.
 
 | Metric Display Name | Metric Name                        | Diff | Stacked | Description                                          |
 | ---------------- | ----------------------------------- | ---- | ------------ | --------------------------------------------- |
-| Temporary file size (byte) | postgres.tempfile.temp_bytes | ✓ | - | Total size of data written to temporary files per minute, in bytes |
+| Temporary file size (byte) | postgres.tempfile.temp_bytes | ✓ |  | Total size of data written to temporary files per minute, in bytes |
 
 
 ### Postgres Amount of Transaction location change
@@ -113,7 +112,7 @@ Post information about WAL as a metric. To post this metric, set wal_level in pg
 
 | Metric Display Name | Metric Name                        | Diff | Stacked | Description                                          |
 | ---------------- | ----------------------------------- | ---- | ------------ | --------------------------------------------- |
-| Amount of Transaction location change (byte) | postgres.xlog_location.xlog_location_bytes | ✓ | - | Size of WAL per minute, in bytes |
+| Amount of Transaction location change (byte) | postgres.xlog_location.xlog_location_bytes | ✓ |  | Size of WAL per minute, in bytes |
 
 The value of the metric is calculated by the following query.
 

@@ -16,16 +16,16 @@ Mackerel-plugin-multicore is a plugin for monitoring multi-core CPUs. In the [sy
 
 | Metric Display Name  | Metric Name                           | Diff  | Stacked | Description                                                      |
 | --------- | -------------------------------- | --- | ------ | ------------------------------------------------------- |
-| user      | custom.multicore.cpu.#.user      | -   | ◯      | Time spent in user mode                                          |
-| nice      | custom.multicore.cpu.#.nice      | -   | ◯      | Time spent in user mode with low priority (nice)                            |
-| system    | custom.multicore.cpu.#.system    | -   | ◯      | Time spent in system mode                                          |
-| idle      | custom.multicore.cpu.#.idle      | -   | ◯      | Time spent in the idle task                                               |
-| iowait    | custom.multicore.cpu.#.iowait    | -   | ◯      | Time waiting for I/O to complete                                        |
-| irq       | custom.multicore.cpu.#.irq       | -   | ◯      | Time spent processing interrupts                                          |
-| softirq   | custom.multicore.cpu.#.softirq   | -   | ◯      | Time spent processing softirqs                                       |
-| steal     | custom.multicore.cpu.#.steal     | -   | ◯      | In a virtualized environment, time when the guest OS is not allocated CPU by the host OS or hypervisor |
-| guest     | custom.multicore.cpu.#.guest     | -   | ◯      | Time used by the virtual CPU of the guest OS                                           |
-| guestNice | custom.multicore.cpu.#.guestNice | -   | ◯      | Time used by the virtual CPU of the niced guest OS                               |
+| user      | custom.multicore.cpu.#.user      |    | ✓      | Time spent in user mode                                          |
+| nice      | custom.multicore.cpu.#.nice      |    | ✓      | Time spent in user mode with low priority (nice)                            |
+| system    | custom.multicore.cpu.#.system    |    | ✓      | Time spent in system mode                                          |
+| idle      | custom.multicore.cpu.#.idle      |    | ✓      | Time spent in the idle task                                               |
+| iowait    | custom.multicore.cpu.#.iowait    |    | ✓      | Time waiting for I/O to complete                                        |
+| irq       | custom.multicore.cpu.#.irq       |    | ✓      | Time spent processing interrupts                                          |
+| softirq   | custom.multicore.cpu.#.softirq   |    | ✓      | Time spent processing softirqs                                       |
+| steal     | custom.multicore.cpu.#.steal     |    | ✓      | In a virtualized environment, time when the guest OS is not allocated CPU by the host OS or hypervisor |
+| guest     | custom.multicore.cpu.#.guest     |    | ✓      | Time used by the virtual CPU of the guest OS                                           |
+| guestNice | custom.multicore.cpu.#.guestNice |    | ✓      | Time used by the virtual CPU of the niced guest OS                               |
 
 Post each value of cpu0 etc. in /proc/stat. # is replaced by cpu0, etc.
 
@@ -33,7 +33,7 @@ Post each value of cpu0 etc. in /proc/stat. # is replaced by cpu0, etc.
 
 | Metric Display Name  | Metric Name                           | Diff  | Stacked | Description |
 | --- | --- | --- | --- | --- |
-| loadavg5 | custom.multicore.loadavg_per_core.loadavg5 | - | - | The value of `loadavg5` divided by the number of CPU cores |
+| loadavg5 | custom.multicore.loadavg_per_core.loadavg5 |  |  | The value of `loadavg5` divided by the number of CPU cores |
 
 Post the value of loadavg5 in /proc/loadavg.
 

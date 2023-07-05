@@ -86,7 +86,7 @@ You can define environment variables in the configuration file and optionally sp
 
 mackerel-agent.conf
 ```
-command = "check-mysql ... --password $MYSQL_PASSWORD ・・・"
+command = "check-mysql ... --password $MYSQL_PASSWORD ..."
 env = { "MYSQL_PASSWORD" = "xxxxx" }
 ```
 

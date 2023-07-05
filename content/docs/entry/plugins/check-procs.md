@@ -48,7 +48,7 @@ The sources of process information that can be specified in the options are as f
 - Windows
   - The Win32_PerfFormattedData_PerfProc_Process class in WMI.
 
-| オプション | Linux | Windows |
+| Option | Linux | Windows |
 | --- | --- | --- |
 | --pattern / --exclude-pattern | COMMAND | Name |
 | --user | USER | incompatible |
