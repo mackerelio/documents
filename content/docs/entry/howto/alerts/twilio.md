@@ -5,9 +5,9 @@ URL: https://mackerel.io/docs/entry/howto/alerts/twilio
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/10328749687193932961
 ---
 
-[Twilio](http://twilio.kddi-web.com) is a service that let’s you make calls and send messages via API. 
+[Twilio](https://www.twilio.com) is a service that let’s you make calls and send messages via API.
 
-In Mackerel, by registering the access token and phone number created with Twilio, you can now receive notifications via SMS or a phone call when a Mackerel alert occurs. [Twilio for KDDI Web Communications](http://twilio.kddi-web.com) or [Twilio](https://www.twilio.com/) can be used.
+In Mackerel, by registering the access token and phone number created with Twilio, you can now receive notifications via SMS or a phone call when a Mackerel alert occurs.
 
 Using Twilio, any of the following 3 types of notifications can be configured for one notification channel. If more than one type of notification is necessary, add multiple notification channels using the same AccountSid and AuthToken.
 

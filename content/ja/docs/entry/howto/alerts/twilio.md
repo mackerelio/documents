@@ -5,10 +5,9 @@ URL: https://mackerel.io/ja/docs/entry/howto/alerts/twilio
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/10328749687188878378
 ---
 
-[Twilio](http://twilio.kddi-web.com) は、API 経由で電話や SMS の発信を行えるサービスです。
+[Twilio](https://www.twilio.com/) は、API 経由で電話や SMS の発信を行えるサービスです。
 
 Mackerel では、Twilio で作成したアクセストークンや電話番号を登録することで、 Mackerel のアラート発生時に SMS や電話で通知を受信できるようになります。
-[Twilio for KDDI Web Communications](http://twilio.kddi-web.com) と [Twilio](https://www.twilio.com/) のどちらのアカウントも使用できます。
 
 ひとつの通知チャンネルに対して、 Twilio を用いた以下の3種類の通知のうちいずれかを設定できます。複数の種類の通知が必要な場合は、同じ AccountSid や AuthToken を用いて複数の通知チャンネルを追加してください。
 
