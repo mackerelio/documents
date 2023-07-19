@@ -94,6 +94,52 @@ mkr hosts --service My-Service --role proxy
 mkr update --st working $(mkr hosts -s My-Service -r proxy | jq -r '.[].id')
 ```
 
+### メトリックの名前の取得
+
+ホストやサービスが提供するメトリックの名前は、metric-namesサブコマンドで取得できます。
+
+```cdl
+mkr metric-names -H <hostId>
+mkr metric-names -s <serviceName>
+```
+
+#### 実行例
+- ホストメトリックの名前の取得
+```cdl
+% mkr metric-names -H 2eQGEaLxibb
+[
+    "cpu.guest.percentage",
+    "cpu.idle.percentage",
+    "cpu.iowait.percentage",
+    ...
+]
+```
+
+- サービスメトリックの名前の取得
+```cdl
+% mkr metric-names -s myservice
+[
+    "Sample.foo"
+    "Sample.bar"
+    ...
+]
+```
+
+ホストメトリックの名前の一覧は、statusサブコマンドに `-v` を付けることでも取得できます。
+
+```cdl
+% mkr status -v 2eQGEaLxibb
+{
+    "id": "2eQGEaLxibb",
+    ...
+    "metrics": [
+        "cpu.guest.percentage",
+        ...
+        "memory.used"
+    ]
+}
+```
+
 ### メトリック取得
 
 mkrでは metrics サブコマンドでメトリックを取得できます。
