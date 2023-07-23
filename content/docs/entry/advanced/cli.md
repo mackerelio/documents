@@ -97,6 +97,52 @@ By putting these together, it's possible to change the status of all hosts in th
 mkr update --st working $(mkr hosts -s My-Service -r proxy | jq -r '.[].id')
 ```
 
+### Get metric names
+
+The name of the metric a host or service has can be obtained by the `metric-names` subcommand.
+
+```cdl
+mkr metric-names -H <hostId>
+mkr metric-names -s <serviceName>
+```
+
+#### Execution example
+- Get host metric names
+```cdl
+% mkr metric-names -H 2eQGEaLxibb
+[
+    "cpu.guest.percentage",
+    "cpu.idle.percentage",
+    "cpu.iowait.percentage",
+    ...
+]
+```
+
+- Get service metric names
+```cdl
+% mkr metric-names -s myservice
+[
+    "Sample.foo"
+    "Sample.bar"
+    ...
+]
+```
+
+A list of host metric names can also be gotten by appending `-v` to the `status` subcommand.
+
+```cdl
+% mkr status -v 2eQGEaLxibb
+{
+    "id": "2eQGEaLxibb",
+    ...
+    "metrics": [
+        "cpu.guest.percentage",
+        ...
+        "memory.used"
+    ]
+}
+```
+
 ### Fetch metrics
 
 With mkr, each of the metric can be fetched by the `metrics` command.
@@ -291,9 +337,9 @@ Refer to the [Create Dashboards](https://mackerel.io/api-docs/entry/dashboards#c
 A Mackerel assigned `id` is always included when `pulling`.
 When `pushing`, the following logic is used so that rules without an `id` are also permitted.
 
-- If　an `id` is included, the custom dashboard with the matching id will be updated.
+- If an `id` is included, the custom dashboard with the matching id will be updated.
   - An error will occur if there is no dashboard with a matching `id`.
-- If　an `id` is not included, a new custom dashboard will be created.
+- If an `id` is not included, a new custom dashboard will be created.
 
 
 #### Execution example
