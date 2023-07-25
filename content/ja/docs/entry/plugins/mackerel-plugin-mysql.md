@@ -326,7 +326,7 @@ InnoDBに関するメトリックはデフォルトで有効ですが、`--disab
 | メトリック表示名 | メトリック名                                           | 差分 | 積み上げ表示 | 説明                                                         |
 | ---------------- | ------------------------------------------------------ | ---- | ------------ | ------------------------------------------------------------ |
 | Locked Tables    | custom.mysql.innodb_tables_in_use.innodb_locked_tables | -    | -            | 実行中のトランザクションによりロックされている延べテーブル数 |
-| Table in Use     | custom.mysql.innodb_tables_in_use.innodb_tables_in_use | -    | -            | 実行中のトランザクションにより使用されている述べテーブル数   |
+| Table in Use     | custom.mysql.innodb_tables_in_use.innodb_tables_in_use | -    | -            | 実行中のトランザクションにより使用されている延べテーブル数   |
 
 - `SHOW /*!50000 ENGINE*/ INNODB STATUS`の`TRANSACTIONS`から実行中のトランザクションに関する項目をメトリックとしています。
 
@@ -394,11 +394,11 @@ InnoDBに関するメトリックはデフォルトで有効ですが、`--disab
 #### MySQL files and Tables
 
 | メトリック表示名 | メトリック名                                | 差分 | 積み上げ表示 | 説明                                           |
-| ---------------- | ------------------------------------------- | ---- | ------------ | ---------------------------------------------- |
-| Table Cache      | custom.mysql.files_and_tables.table_cache   | -    | -            | すべてのスレッドについて開いているテーブルの数 |
-| Open Tables      | custom.mysql.files_and_tables.Open_tables   | -    | -            | 開いているテーブルの数                         |
-| Open Files       | custom.mysql.files_and_tables.Open_files    | -    | -            | 開いているファイルの数                         |
-| Opened Tables    | custom.mysql.files_and_tables.Opened_tables | ◯    | -            | 開いているテーブル数                           |
+| ---------------- | ------------------------------------------- | ---- | ------------ | ---------------------------------------- |
+| Table Cache      | custom.mysql.files_and_tables.table_cache   | -    | -            | 保持できるテーブルキャッシュの最大数 |
+| Open Tables      | custom.mysql.files_and_tables.Open_tables   | -    | -            | 開いているテーブルの数 |
+| Open Files       | custom.mysql.files_and_tables.Open_files    | -    | -            | 開いているファイルの数 |
+| Opened Tables    | custom.mysql.files_and_tables.Opened_tables | ◯    | -            | サーバー起動以降に開かれたテーブルの総数 |
 
 - `table_cache`は`SHOW VARIABLES`の結果から`table_open_cache`の値をメトリックとしています。
 - その他は`SHOW /*!50002 GLOBAL */ STATUS`の結果から各変数の値をメトリックとしています。
@@ -409,7 +409,7 @@ InnoDBに関するメトリックはデフォルトで有効ですが、`--disab
 | -------------------------- | --------------------------------------------------- | ---- | ------------ | ----------------------------------------------------------------------------------- |
 | State Closing Tables       | custom.mysql.processlist.State_closing_tables       | -    | ◯            | テーブルをクローズしている件数                                                      |
 | State Copying To Tmp Table | custom.mysql.processlist.State_copying_to_tmp_table | -    | ◯            | 一時テーブルにコピーしている件数                                                    |
-| State End                  | custom.mysql.processlist.State_end                  | -    | ◯            | ALTER TABLE、CREATE VIEW、DELETE、INSERT、SELECT、UPDATE ステートメントの最後の件数 |
+| State End                  | custom.mysql.processlist.State_end                  | -    | ◯            | ALTER TABLE、CREATE VIEW、DELETE、INSERT、SELECT、UPDATE ステートメントのクリーンアップ前の件数 |
 | State Freeing Items        | custom.mysql.processlist.State_freeing_items        | -    | ◯            | 解放中の件数                                                                        |
 | State Init                 | custom.mysql.processlist.State_init                 | -    | ◯            | ALTER TABLE、DELETE、INSERT、SELECT、UPDATEステートメントの初期化前の件数           |
 | State Locked               | custom.mysql.processlist.State_locked               | -    | ◯            | ロック獲得中の件数                                                                  |
