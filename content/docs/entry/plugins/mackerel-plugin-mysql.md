@@ -67,7 +67,7 @@ mackerel-plugin-mysql can monitor various metrics about MySQL, such as the numbe
 | Max Used Connections | custom.mysql.connections.Max_used_connections |   |   | Maximum number of simultaneous connections during operation                                          |
 | Connections          | custom.mysql.connections.Connections          | ✓ |   | Number of connection attempts                                                                        |
 | Threads Connected    | custom.mysql.connections.Threads_connected    |   |   | Number of connections currently open                                                                 |
-| Aborted Clients      | custom.mysql.connections.Aborted_clients      | ✓ |   | Number of connections aborted because the client terminated without properly closing the connection |
+| Aborted Clients      | custom.mysql.connections.Aborted_clients      | ✓ |   | Number of connections aborted because the client terminated without properly closing the connection  |
 | Aborted Connects     | custom.mysql.connections.Aborted_connects     | ✓ |   | Number of failed connection attempts to MySQL Server                                                 |
 
 - `max_connections` is the value of the variable from the result of `SHOW VARIABLES` as a metric.
@@ -161,8 +161,8 @@ Metrics about InnoDB are enabled by default, but can be disabled with the `--dis
 | ---------------------- | ------------------------------------------------------ | - | - | ------------------------------------------------------------------------------------------ |
 | Pages Read Ahead       | custom.mysql.innodb_buffer_pool_read.read_ahead        | ✓ |   | Number of pages per second read into the InnoDB buffer pool                                |
 | Evicted Without Access | custom.mysql.innodb_buffer_pool_read.read_evicted      | ✓ |   | Number of pages per second read into the InnoDB buffer pool that were erased due to unused |
-| Random Read Ahead      | custom.mysql.innodb_buffer_pool_read.read_random_ahead | ✓ |   | Number of random reads per second by InnoDB (MySQL 5.7 or later)                          |
-
+| Random Read Ahead      | custom.mysql.innodb_buffer_pool_read.read_random_ahead | ✓ |   | Number of random reads per second by InnoDB (MySQL 5.7 or later)                           |
+ 
 - The values of the following variables from the results of `SHOW /*!50002 GLOBAL */ STATUS` are used as the metric.
   - Innodb_buffer_pool_read_ahead
   - Innodb_buffer_pool_read_ahead_evicted
@@ -184,16 +184,16 @@ Metrics about InnoDB are enabled by default, but can be disabled with the `--dis
 #### MySQL innodb Buffer Pool Efficiency
 
 | Metric Display Name | Metric Name | Diff | Stacked | Description |
---------------- | --------------------------------------------------------------------------- | - | - | ----------------------------------------------- |
+| ------------- | --------------------------------------------------------------------------- | - | - | ------------------------------------------------ |
 | Reads         | custom.mysql.innodb_buffer_pool_efficiency.Innodb_buffer_pool_reads         | ✓ |   | Number of direct reads without using buffer pool |
-| Read Requests | custom.mysql.innodb_buffer_pool_efficiency.Innodb_buffer_pool_read_requests | ✓ |   | Number of logical read requests                 |
+| Read Requests | custom.mysql.innodb_buffer_pool_efficiency.Innodb_buffer_pool_read_requests | ✓ |   | Number of logical read requests                  |
 
 - The value of each variable is taken as a metric from the result of `SHOW /*!50002 GLOBAL */ STATUS`.
 
 #### MySQL innodb Buffer Pool (Pages)
 
 | Metric Display Name | Metric Name | Diff | Stacked | Description |
------------ | ---------------------------------------------- | - | - | --------------------------------------------------------- |
+| --------- | ---------------------------------------------- | - | - | --------------------------------------------------------- |
 | Pool Size | custom.mysql.innodb_buffer_pool.pool_size      |   |   | Total InnoDB buffer pool size (in pages)                  |
 | Used      | custom.mysql.innodb_buffer_pool.database_pages |   |   | Number of pages in the InnoDB buffer pool containing data |
 | Free      | custom.mysql.innodb_buffer_pool.free_pages     |   |   | Number of free pages in InnoDB buffer pool                |
@@ -208,7 +208,7 @@ Metrics about InnoDB are enabled by default, but can be disabled with the `--dis
 #### MySQL innodb Checkpoint Age
 
 | Metric Display Name | Metric Name | Diff | Stacked | Description |
----------------- | ------------------------------------------------------- | - | - | -------------------------------------- |
+| -------------- | ------------------------------------------------------- | - | - | -------------------------------------- |
 | Uncheckpointed | custom.mysql.innodb_checkpoint_age.uncheckpointed_bytes |   |   | Size not written by checkpoint (bytes) |
 
 - Calculated from the result of `SHOW /*!50000 ENGINE*/ INNODB STATUS` using `log_bytes_written - last_checkpoint`.
@@ -216,7 +216,7 @@ Metrics about InnoDB are enabled by default, but can be disabled with the `--dis
 #### MySQL innodb Current Lock Waits (secs)
 
 | Metric Display Name | Metric Name | Diff | Stacked | Description |
-| ---------------- | ------------------------------------------------------------ | - | - | ------------------------------------------------ |
+| ---------------- | ------------------------------------------------------------ | - | - | ----------------------------------------------- |
 | Innodb Lock Wait | custom.mysql.innodb_current_lock_waits.innodb_lock_wait_secs |   |   | Time waited for lock to be authorized (seconds) |
 
 - From `TRANSACTIONS` of `SHOW /*!50000 ENGINE*/ INNODB STATUS`, the wait time before a lock is allowed is used as a metric.
@@ -332,7 +332,7 @@ Metrics about InnoDB are enabled by default, but can be disabled with the `--dis
 #### MySQL innodb Transactions Active/Locked
 
 | Metric Display Name | Metric Name | Diff | Stacked | Description |
----------------- | ------------------------------------------------------------------- | - | - | ----------------------------------------------- |
+| ---------------- | ------------------------------------------------------------------- | - | - | ----------------------------------------------- |
 | Current        | custom.mysql.innodb_transactions_active_locked.current_transactions |   |   | Number of running transactions                  |
 | Active         | custom.mysql.innodb_transactions_active_locked.active_transactions  |   |   | Number of active transactions running           |
 | Locked         | custom.mysql.innodb_transactions_active_locked.locked_transactions  |   |   | Number of transactions that are LOCK WAIT       |
@@ -343,7 +343,7 @@ Metrics about InnoDB are enabled by default, but can be disabled with the `--dis
 #### MySQL innodb Transactions
 
 | Metric Display Name | Metric Name | Diff | Stacked | Description |
---------------------- | ---------------------------------------------------- | - | - | ---------------------- |
+| --------------------- | ---------------------------------------------------- | - | - | ---------------------- |
 | History List        | custom.mysql.innodb_transactions.history_list        |   |   | Number of UNDO pages   |
 | InnoDB Transactions | custom.mysql.innodb_transactions.innodb_transactions | ✓ |   | Number of Transactions |
 
@@ -382,7 +382,7 @@ Extended metrics can be enabled with the `--enable_extended=true` option.
 #### MySQL temporary Objects
 
 | Metric Display Name | Metric Name | Diff | Stacked | Description |
-------------------------- | ------------------------------------------------------ | - | - | ------------------------------------------------------------------------------ |
+| ----------------------- | ------------------------------------------------------ | - | - | ------------------------------------------------------------------------------ |
 | Created Tmp Tables      | custom.mysql.temporary_objects.Created_tmp_tables      | ✓ |   | Number of internal temporary tables created during statement execution         |
 | Created Tmp Disk Tables | custom.mysql.temporary_objects.Created_tmp_disk_tables | ✓ |   | Number of internal temporary tables on disk created during statement execution |
 | Created Tmp Files       | custom.mysql.temporary_objects.Created_tmp_files       | ✓ |   | Number of temporary files created by mysqld                                    |
