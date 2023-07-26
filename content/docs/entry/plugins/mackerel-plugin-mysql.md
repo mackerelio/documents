@@ -146,7 +146,7 @@ Metrics about InnoDB are enabled by default, but can be disabled with the `--dis
 #### MySQL innodb Adaptive Hash Index
 
 | Metric Display Name | Metric Name | Diff | Stacked | Description |
------------------------- | -------------------------------------------------------------- | - | - | ---------------------------------------- |
+| ---------------------- | -------------------------------------------------------------- | - | - | ---------------------------------------- |
 | Hash Index Cells Total | custom.mysql.innodb_adaptive_hash_index.hash_index_cells_total |   |   | Total Adaptive Hash Index cells          |
 | Hash Index Cells Used  | custom.mysql.innodb_adaptive_hash_index.hash_index_cells_used  |   |   | Amount of Adaptive Hash Index cells used |
 
