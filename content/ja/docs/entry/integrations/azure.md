@@ -42,12 +42,19 @@ Azureインテグレーションの設定の際に、「Azure Active Directory�
 $ az login
 ```
 
+サービスプリンシパルの設定にはサブスクリプションIDが必要になるので、次のコマンドでサブスクリプションIDを事前に取得してください。
+
+```console
+$ az account show --query id --output tsv
+xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+```
+
 次に以下のコマンドを利用して、Azureインテグレーションのためのサービスプリンシパルを作成し、同時に閲覧者権限も付与します。
 
 `--years` は `password` の有効期限を設定するもので、デフォルトでは1年となります。有効期限が切れると再び設定するまでメトリック取得が不可能となりますのでご注意ください。
 
 ```console
-$ az ad sp create-for-rbac --role Reader --years <YEARS>
+$ az ad sp create-for-rbac --role Reader --scope /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --years <YEARS>
 {
   "appId": "abcdefgh-abcd-efgh-abcd-abcdefghijkl",
   "displayName": "azure-cli-2017-01-23-45-67-89",
@@ -80,9 +87,9 @@ https://portal.azure.com にアクセスし、ログインしてください。
 ### テナントID取得
 サイドバーからAzure Active Directoryを選択し、「プロパティ」を選択してください。
 
-選択すると表示される「ディレクトリID」をMackerelのAzureインテグレーション設定画面の `テナントID` に入力してください。
+選択すると表示される「テナント ID」をMackerelのAzureインテグレーション設定画面の `テナントID` に入力してください。
 
-![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20191225/20191225150333.png)
+![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20230722/20230722114731.png)
 
 ![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20170621/20170621114147.png)
 
@@ -91,51 +98,52 @@ Mackerelとの連携の際にユーザーの権限ではなくアプリケーシ
 
 先ほどのActive Directoryの画面から「アプリの登録」を選択してください。
 
-![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20191225/20191225150337.png)
+![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20230722/20230722115601.png)
 
 次に「新規登録」を選ぶと以下の様な画面になります。
 
-![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20191225/20191225150342.png)
+![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20230722/20230722115857.png)
 
-Mackerel と連携するためのアプリケーションを登録してください。 アプリケーションの表示名とリダイレクトURIはMackerel側では利用しません。パブリッククライアント/ネイティブとWebを選ぶ場面では「Web」を選択してください。
+Mackerel と連携するためのアプリケーションを登録してください。 アプリケーションの表示名とリダイレクトURIはMackerel側では利用しません。リダイレクトURIの項目で「パブリッククライアント/ネイティブ」「Web」「シングルページアプリケーション（SPA）」から選ぶ場面では「Web」を選択してください。
 
-### クライアントID, シークレットキーの取得
-登録が完了したら、先ほどの画面から登録したアプリケーションを選択してください。以下の様な画面に移ります。「アプリケーション ID」をMackerelの画面の `クライアントID` の欄に入力してください。
+### クライアントID、シークレットキーの取得
+登録が完了したら、先ほどの画面から登録したアプリケーションを選択してください。以下の様な画面に移ります。「アプリケーション (クライアント) ID」をMackerelの画面の `クライアントID` の欄に入力してください。
 
-![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20191225/20191225150346.png)
-
-![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20191225/20191225150350.png)
+![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20230722/20230722121556.png)
 
 ![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20170621/20170621114144.png)
 
-このアプリケーションの画面で次に「証明書とシークレット」を選択してください。ここではクライアントシークレットを作成できます。シークレットの説明や有効期限を設定し保存するとシークレットの値が表示されます。こちらをコピーしMackerel側の `シークレットキー` の欄に入力してください。(権限設定がされていない間はMackerelの画面で「無効」と表示されます。「権限設定」の項目に進み、閲覧権限を付与してください）
+このアプリケーションの画面で次に「証明書とシークレット」を選択してください。ここではクライアントシークレットを作成できます。「新しいクライアントシークレット」をクリックし、シークレットの説明や有効期限を設定して保存するとシークレットの値が表示されます。こちらをコピーしMackerel側の `シークレットキー` の欄に入力してください。(権限設定がされていない間はMackerelの画面で「無効」と表示されます。「権限設定」の項目に進み、閲覧権限を付与してください）
 
-**注意** こちらのシークレットの有効期限が切れますとその時点からMackerelのAzureインテグレーションでもメトリック取得が不可能となりますので、その際はシークレットを新たに作り直してください。「期限なし」を選んだ場合は有効期限がすぐに切れることはありません。
+**注意** こちらのシークレットの有効期限が切れますとその時点からMackerelのAzureインテグレーションでもメトリック取得が不可能となりますので、その際はシークレットを新たに作り直してください。
 
-![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20210525/20210525144640.png)
+![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20230722/20230722122645.png)
 
-![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20170621/20170621114251.png)
+![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20230722/20230722122823.png)
+
 
 ### 権限設定
 上記でシークレットの取得と設定は完了ですが、最後に権限の付与も必要です。メトリック値を読み取るための権限を付与します。
 
-Portal画面のサイドバーの「サブスクリプション」を選択してください。その後対象のサブスクリプションを選びます。
+Portal画面のサイドバーの「サブスクリプション」を選択してください。その後対象のサブスクリプションを選び、「アクセス制御 (IAM)」を選択します。ここではユーザーやサービスプリンシパルに対する権限の設定ができます。
 
-![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20191225/20191225150357.png)
+今回は先ほど作成したActive Directoryのアプリケーションに対して権限を設定します。
 
-「アクセス制御 (IAM)」を選択してください。ここではユーザーやサービスプリンシパルに対する権限の設定ができます。今回は先ほど作成したActive Directoryのアプリケーションに対して権限を設定します。
+![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20230722/20230722131806.png)
 
-![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20191225/20191225150401.png)
+「追加」から「ロールの割り当ての追加」を押し、「役割」は「閲覧者」を選択して次に進んでください。（仮にここで閲覧者以外の権限を選択してしまった場合、安全のためMackerelのAzureインテグレーションはメトリック取得をしないようになっています）
 
-「追加」から「ロールの割り当ての追加」を押し、「役割」は「閲覧者」を選択してください（仮にここで閲覧者以外の権限を選択してしまった場合、安全のためMackerelのAzureインテグレーションはメトリック取得をしないようになっています。）
+![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20230722/20230722133143.png)
 
-「選択」の欄では先ほど作成したアプリケーションを選択してください。（注意: アプリケーション名の検索は前方一致なので先頭から入力しないと表示されません）
+「アクセスの割り当て先」で「ユーザー、グループ、またはサービス プリンシパル」にチェックを付け、メンバーには先ほど作成したアプリケーションを選択してください。（注意: アプリケーション名の検索は前方一致なので先頭から入力しないと表示されません）
 
-![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20191225/20191225150405.png)
+![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20230722/20230722132636.png)
 
-しばらくすると権限がアプリケーションに付与され、以下のように表示されます。「閲覧者」の欄の下に表示されているアプリケーションが正しいことを確認してください。
+「レビューと割り当て」をクリックしてしばらくすると、権限がアプリケーションに付与されます。
 
-![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20191225/20191225150409.png)
+「ロールの割り当て」タブで「閲覧者」の欄の下に表示されているアプリケーションが正しいことを確認してください。
+
+![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20230722/20230722134139.png)
 
 Azureインテグレーションは複数サブスクリプションに対応していますので、上記の権限設定を監視したい全てのサブスクリプションで繰り返してください。
 
@@ -145,6 +153,16 @@ Mackerelの設定画面にてテナントID、クライアントID、シーク�
 ![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20170719/20170719110914.png)
 
 連携ホストを確認した上で、設定を保存してください。しばらくすると、ホスト一覧にAzureインテグレーションによって作成されたホストが表示されます。
+
+設定に不備があり連携に失敗する場合、次のような理由が表示されます。
+
+- 認証情報の利用に失敗しました。入力した認証情報を確認してください。
+- 不必要に強い権限が付与されています。必要最低限の権限のみ付与してください。
+- 現在、一時的に認証が行えない状態です。しばらく時間をおいてから再度お試しください。
+
+![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20230722/20230722134538.png)
+
+確認の上、設定の見直しを行ってください。
 
 Azure Portalを用いた連携方法は以上です。
 
