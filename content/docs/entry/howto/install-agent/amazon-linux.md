@@ -8,11 +8,6 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackere
 The content described on this page is also available from the [New Host registration screen in Mackerel](https://mackerel.io/my/instruction-agent).
 
 <h2>Install the package</h2>
-Amazon Linux, Amazon Linux 2 LTS and Amazon Linux 2023 run different commands for installation. Please check out each procedure.
-Installation can also be done directly using the `rpm` command.
-
-<h3 id="v2">When using Amazon Linux 2 LTS or Amazon Linux 2023</h3>
-
 Execute the following command:
 
 ```
@@ -27,23 +22,9 @@ Updates can be performed using the `yum` command.
 sudo yum update mackerel-agent
 ```
 
-<h3 id="v1">When using Amazon Linux</h3>
+Installation can also be done directly using the `rpm` command.
 
-Execute the following command:
-
-```
-curl -fsSL https://mackerel.io/file/script/amznlinux/setup-all-yum.sh | MACKEREL_APIKEY='<YOUR_API_KEY>' sh
-```
-
-You can check the API key from the [Organization page’s API Keys tab](https://mackerel.io/my?tab=apikeys). Keep in mind that this key is used to identify your organization, so we strongly advise not sharing it with others.
-
-Updates can be performed using the `yum` command.
-
-```
-sudo yum update mackerel-agent
-```
-
-<h3 id="rpm-v2">Using the rpm command with Amazon Linux 2 LTS or Amazon Linux 2023</h2>
+<h3 id="rpm-v2">Using the rpm command</h2>
 
 To install mackerel-agent with `rpm` run the following command:
 
@@ -55,20 +36,6 @@ To update Mackerel-agent with `rpm` run the following command:
 
 ```
 sudo rpm -Uvh https://mackerel.io/file/agent/rpm/mackerel-agent-latest.amzn2.x86_64.rpm
-```
-
-<h3 id="rpm-v1">Using the rpm command with Amazon Linux</h2>
-
-To install mackerel-agent with `rpm` run the following command:
-
-```
-sudo rpm -ivh https://mackerel.io/file/agent/rpm/mackerel-agent-latest.x86_64.rpm
-```
-
-To update Mackerel-agent with `rpm` run the following command:
-
-```
-sudo rpm -Uvh https://mackerel.io/file/agent/rpm/mackerel-agent-latest.x86_64.rpm
 ```
 
 <h2 id="config">Edit the configuration file</h2>
@@ -92,8 +59,6 @@ apikey = "<YOUR_API_KEY>"
 You can check the API key from the [Organization page’s API Keys tab](https://mackerel.io/my?tab=apikeys). Keep in mind that this key is used to identify your organization, so we strongly advise not sharing it with others.
 
 <h2 id="start-agent">Starting the agent</h2>
-<h3>When using Amazon Linux 2 LTS or Amazon Linux 2023</h3>
-
 The agent will start by running the following command:
 
 ```
@@ -107,19 +72,6 @@ sudo journalctl -u mackerel-agent.service
 ```
 
 When the agent begins to run properly, it will be registered as a host in Mackerel. Please confirm this in [dashboards](https://mackerel.io/my/dashboard) etc.
-
-<h3>When using Amazon Linux</h3>
-
-The agent will start by running the following command:
-
-```
-sudo /sbin/service mackerel-agent start
-```
-
-The agent’s log is output to `/var/log/mackerel-agent.log`.
-
-When the agent begins to run properly, it will be registered as a host in Mackerel. Please confirm this in [dashboards](https://mackerel.io/my/dashboard) etc.
-
 
 <h2 id="uninstall">Uninstall the agent</h2>
 
