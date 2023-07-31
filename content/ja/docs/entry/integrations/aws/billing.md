@@ -11,8 +11,7 @@ MackerelはAWSインテグレーションにて<a href="https://aws.amazon.com/j
 AWSインテグレーションの設定方法や対応AWSサービス一覧についてはこちらのページをご確認ください。<br>
 <a href="https://mackerel.io/ja/docs/entry/integrations/aws">AWSインテグレーション</a>
 
-<b><u>概算請求額のメトリックを連携するには、請求アラートを有効にしておく必要があります。設定方法についてはこちらのページをご確認ください。</u></b><br>
-<a href="https://docs.aws.amazon.com/ja_jp/AmazonCloudWatch/latest/monitoring/monitor_estimated_charges_with_cloudwatch.html#turning_on_billing_metrics">請求アラートを有効にする</a>
+<b><u>概算請求額のメトリックを連携するには、請求アラートを有効にしておく必要があります。設定方法については<a href="https://docs.aws.amazon.com/ja_jp/AmazonCloudWatch/latest/monitoring/monitor_estimated_charges_with_cloudwatch.html#turning_on_billing_metrics">請求アラートの有効化</a>をご確認ください。</u></b><br>
 
 ## 取得メトリック
 AWSインテグレーションのBilling対応で取得できるメトリックは以下の通りです。`メトリック`の説明に関しては<a href="https://docs.aws.amazon.com/ja_jp/AmazonCloudWatch/latest/monitoring/monitor_estimated_charges_with_cloudwatch.html" target="_blank">AWSのヘルプ</a>をご確認ください。

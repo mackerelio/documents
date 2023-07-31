@@ -11,8 +11,7 @@ Mackerel supports obtaining and monitoring <a href="https://aws.amazon.com/aws-c
 Please refer to the following page for AWS Integration configuration methods and a list of supported AWS services.<br>
 <a href="https://mackerel.io/docs/entry/integrations/aws">AWS Integration</a>
 
-<b><u>Billing alerts must be enabled in order to integrate metrics for estimated charges. Refer to following page for configuration methods.</u></b><br>
-<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/monitor_estimated_charges_with_cloudwatch.html#turning_on_billing_metrics">Enable billing alerts</a>
+<b><u>Billing alerts must be enabled in order to integrate metrics for estimated charges. Refer to <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/monitor_estimated_charges_with_cloudwatch.html#turning_on_billing_metrics">Enabling billing alerts</a> for configuration methods.</u></b><br>
 
 ## Obtaining metrics
 The metrics obtainable with AWS Integration's Billing support are as follows. For `Metric` explanations, refer to the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/monitor_estimated_charges_with_cloudwatch.html" target="_blank">AWS help page</a>.
