@@ -241,6 +241,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 | `title`  | *string* | ウィジェットのタイトル                                        |
 | `graph`  | *object* | [グラフを表すオブジェクト](#graph)                            |
 | `range`  | *object* | [optional] [グラフの表示期間を表すオブジェクト](#graph-range) |
+| `valueRange` | *object* | [optional] [グラフの縦軸固定を表すオブジェクト](#graph-value-range) |
 | `referenceLines` | *array[object]* | [optional] [補助線を表すオブジェクト](#reference-line)。補助線の設定を削除したい場合には、空の配列を指定してください。<br />ダッシュボードの取得時に補助線が未設定の場合、空の配列が返されます。配列に2つ以上の要素を指定できません。 |
 | `layout` | *object* | [レイアウトを表すオブジェクト](#layout)                       |
 
@@ -327,6 +328,14 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 | `end`   | *number* | 終了時刻（エポック秒）  |
 
 `start` から `end` までの期間が表示されます。
+
+<h3 id="graph-value-range">グラフの縦軸固定</h3>
+未指定の場合はメトリックの値に合わせて自動で縦軸が設定されます。
+
+| KEY    | TYPE     | DESCRIPTION             |
+| ------ | -------- | ----------------------- |
+| `min`  | *number* | [optional] 縦軸の最小値   |
+| `max`  | *number* | [optional] 縦軸の最大値   |
 
 <h3 id="reference-line">グラフの補助線</h3>
 グラフの補助線を指定した場合、指定した値を基準として水平線が描画されます。
