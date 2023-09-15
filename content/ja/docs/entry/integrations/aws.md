@@ -5,30 +5,48 @@ URL: https://mackerel.io/ja/docs/entry/integrations/aws
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/6653812171392306672
 ---
 
-AWSインテグレーションを用いると、AWSクラウド製品をMackerelのホストとして管理し、メトリックを監視できます。本機能はTrialプランとStandardプランのみの提供となります。
+**本機能はTrialプランとStandardプランのみの提供となります。**
 
-AWSのクラウド製品1台が、Mackerelで1ホストとして登録され、Mackerelの課金対象のホスト数としてカウントされます。
-ホストの種類は、EC2についてはスタンダードホスト、その他の製品についてはマイクロホストとなります。
-また、5分ごとに取得対象となるメトリックの数だけAWSのAPIをコールして値を取得します。そのため、[Amazon CloudWatch API利用の料金](https://aws.amazon.com/jp/cloudwatch/pricing/)が発生する場合がありますのでご注意ください。
-AWSのリソースを削除したとき、関連するMackerelのホストを自動的に退役したい場合は[自動退役を設定する](#auto-retirement)の項目を参照してください。
-取得するメトリックを制限したい場合は[取得するメトリックを制限する](#select-metric)の項目を参照してください。
+AWSインテグレーションではAWSクラウド製品をMackerelのホストとして管理し、メトリックを監視できます。
 
-AWSインテグレーションは現在は以下のAWSクラウド製品に対応しています。取得メトリックなどについてはそれぞれのドキュメントを参照ください。
+AWSクラウド製品のうち、EC2についてはスタンダードホスト、その他の製品についてはマイクロホストとして課金されます。
+また、5分ごとに取得対象となるメトリックの数だけAWSのAPIをコールするため、[Amazon CloudWatch API利用の料金](https://aws.amazon.com/jp/cloudwatch/pricing/)が発生する場合がありますのでご注意ください。
+
+<details>
+<summary>目次（クリックすると開閉します）</summary>
+
+[:contents]
+
+</details>
+
+<h2 id="support-products">対応しているクラウド製品</h2>
+
+AWSインテグレーションでは、以下のAWSクラウド製品に対応しています。取得するメトリックなど詳細については各製品のドキュメントを参照ください。
 
 [EC2](https://mackerel.io/ja/docs/entry/integrations/aws/ec2)・[ELB (CLB)](https://mackerel.io/ja/docs/entry/integrations/aws/elb)・[ALB](https://mackerel.io/ja/docs/entry/integrations/aws/alb)・[NLB](https://mackerel.io/ja/docs/entry/integrations/aws/nlb)・[RDS](https://mackerel.io/ja/docs/entry/integrations/aws/rds)・[ElastiCache](https://mackerel.io/ja/docs/entry/integrations/aws/elasticache)・[Redshift](https://mackerel.io/ja/docs/entry/integrations/aws/redshift)・[Lambda](https://mackerel.io/ja/docs/entry/integrations/aws/lambda)・[SQS](https://mackerel.io/ja/docs/entry/integrations/aws/sqs)・[DynamoDB](https://mackerel.io/ja/docs/entry/integrations/aws/dynamodb)・[CloudFront](https://mackerel.io/ja/docs/entry/integrations/aws/cloudfront)
 ・[API Gateway](https://mackerel.io/ja/docs/entry/integrations/aws/apigateway)
 ・[Kinesis Data Streams](https://mackerel.io/ja/docs/entry/integrations/aws/kinesis)・[S3](https://mackerel.io/ja/docs/entry/integrations/aws/s3)・[Elasticsearch Service](https://mackerel.io/ja/docs/entry/integrations/aws/es)・[ECS](https://mackerel.io/ja/docs/entry/integrations/aws/ecs)・[SES](https://mackerel.io/ja/docs/entry/integrations/aws/ses)・[Step Functions](https://mackerel.io/ja/docs/entry/integrations/aws/states)・[EFS](https://mackerel.io/ja/docs/entry/integrations/aws/efs)・[Kinesis Data Firehose](https://mackerel.io/ja/docs/entry/integrations/aws/firehose)・[Batch](https://mackerel.io/ja/docs/entry/integrations/aws/batch)・[WAF](https://mackerel.io/ja/docs/entry/integrations/aws/waf)・[Billing](https://mackerel.io/ja/docs/entry/integrations/aws/billing)・[Route 53](https://mackerel.io/ja/docs/entry/integrations/aws/route53)・[Connect](https://mackerel.io/ja/docs/entry/integrations/aws/connect)・[DocumentDB](https://mackerel.io/ja/docs/entry/integrations/aws/docdb)・[CodeBuild](https://mackerel.io/ja/docs/entry/integrations/aws/codebuild)
 
 <h2 id="setting">連携方法</h2>
-AWSインテグレーションの連携方法には2つの方法があります。
 
-- MackerelのシステムのAWSアカウントからのアクセスのみを許可するIAMロールを設定し、AssumeRoleで認証する方法
-- Access Key IDとSecret Access Keyを設定する方法
+AWSインテグレーションの連携方法には、IAMロールで連携（AssumeRoleによる認証）を行う方法と、Access Key IDとSecret Access Keyで連携する2通りの方法があります。
 
-セキュリティー保全の観点から、IAMロールで設定する方法を強く推奨します。
+いずれかを設定していただきますが、セキュリティ保全の観点から、IAMロールによる連携を強く推奨しています。
 
-<h3>IAMロールを設定する方法</h3>
-<h4>1. IAM Management Consoleにてロールを作成する</h4>
+<ul>
+  <li><a href="#setting_aws">1. インテグレーション用のIAMロールもしくはIAMユーザーを追加する（以下のいずれかを設定してください。）</a></li>
+  <ul>
+      <li><a href="#setting_aws_iam_role">1-a. IAMロールを設定する方法</a></li>
+      <li><a href="#setting_aws_access_key">1-b. Access Key IDとSecret Access Keyを設定する方法</a></li>
+  </ul>
+  <li><a href="#setting_policy">2. ポリシーを付与する</a></li>
+  <li><a href="#setting_check_host">3. ホストを確認する</a></li>
+</ul>
+
+<h3 id="setting_aws">1. インテグレーション用のIAMロールもしくはIAMユーザーを追加する</h3>
+
+<h4 id="setting_aws_iam_role">1-a. IAMロールを設定する方法</h4>
+<h5>IAM Management Consoleにてロールを作成する</h5>
 <a href="https://console.aws.amazon.com/iam" target="_blank">IAM Management Console</a>にて新しいロールを作成します。
 ロールのタイプを選択する画面では「別のAWSアカウント」 (`Another AWS account`) を選択します。
 
@@ -36,104 +54,63 @@ AWSインテグレーションの連携方法には2つの方法があります�
 
 [MackerelのAWSインテグレーション設定のページ](https://mackerel.io/my?tab=awsIntegration)から作成ボタンを押して、External IDを取得してください。許可するAccount IDには `217452466226` を入力してください。また、`Require external ID` のオプションを選択した上で、External IDにはMackerelの設定作成ページで取得したExternal IDを指定して下さい。このアカウントはMackerelのシステムがユーザーのロールにアクセスする際に利用するアカウントです。この設定により、作成されたロールにはMackerelのアカウントしかアクセスできない状態になります。`Require MFA` はチェックせずに次の設定ページに移動してください。
 
-ロールには以下のポリシーを付与します。
-FullAccess権限を付与しないようにご注意ください。また、ひとつのIAMロールに対してアタッチ可能なポリシーの上限は10個に制限されており、これはAWSの仕様です。必要に応じて、AWSに対して上限緩和申請をおこなってください。
+続いて<a href="#setting_policy">ポリシーの付与</a>を行います。
 
-AWSインテグレーションで使用する全ての権限を設定する場合、<a href="#iam_policy">AWSインテグレーションで使用するIAMポリシー</a> の項目を参照下さい。
-
-- `AmazonRedshiftReadOnlyAccess`
-- `AmazonEC2ReadOnlyAccess`
-- `AmazonElastiCacheReadOnlyAccess`
-- `AmazonRDSReadOnlyAccess`
-    - RDS、またはDocumentDBの場合に指定します。
-- `AWSLambda_ReadOnlyAccess`
-- `AmazonSQSReadOnlyAccess`
-- `AmazonDynamoDBReadOnlyAccess`
-- `CloudFrontReadOnlyAccess`
-- `apigateway:GET`
-    - リソースポリシーは `arn:aws:apigateway:ap-northeast-1::/*` などのように指定します。リソースポリシーで対象を制限することはできません。
-- `AmazonKinesisReadOnlyAccess`
-- `AmazonS3ReadOnlyAccess`
-- `AmazonESReadOnlyAccess`
-- `ecs:Describe* / ecs:List*`
-- `AmazonSESReadOnlyAccess / ses:Describe*`
-- `codebuild:BatchGetProjects / codebuild:ListProjects`
-- `AWSStepFunctionsReadOnlyAccess`
-- `AmazonElasticFileSystemReadOnlyAccess`
-- `AmazonKinesisFirehoseReadOnlyAccess`
-- `batch:Describe* / batch:List*`
-- `AWSWAFReadOnlyAccess`
-- `AWSBudgetsReadOnlyAccess`
-- `AmazonRoute53ReadOnlyAccess`
-- `AmazonConnectReadOnlyAccess`
-- `CloudWatchReadOnlyAccess`
-    - 以下のサービスのみを設定する場合に指定します。
-        - CloudFront, API Gateway, Kinesis Data Streams, S3, Elasticsearch Service, ECS, SES, Step Functions, EFS, Kinesis Data Firehose, Batch, WAF, Billing, Route 53, Lambda, Connect, CodeBuild
-
-また、AWSインテグレーションでは後述するようにタグによって絞り込みを行うことが出来ますが、ElastiCache、SQS、Step Functionsでタグによる絞り込みを行う場合は追加のポリシーを付与する必要があります。
-詳しくは<a href="#tag">タグで絞り込む</a> の項目を参照してください。
-
-![](https://cdn-ak2.f.st-hatena.com/images/fotolife/m/mackerelio/20170912/20170912165028.png)
-
-ロール名を指定してロールを作成します。
-`MackerelAWSIntegrationRole` のようにMackerelのAWSインテグレーションで使用していることが分かりやすい名前を付けることを推奨します。
-
-<h4>2. ロールARNをMackerelに登録する</h4>
-ロールARNを、先程External IDを取得したMackerelの画面で登録します。
-
-<h4>3. ホストを確認する</h4>
-しばらくすると、ご利用のAWSクラウド製品がMackerelにホストとして登録され、メトリックが投稿されます。
-監視ルールを作成し、アラートを通知することもできます。
-詳しくは[監視・通知を設定する](https://mackerel.io/ja/docs/entry/howto/alerts)をご覧ください。
-
-<h3>Access Key IDとSecret Access Keyを設定する方法</h3>
+<h4 id="setting_aws_access_key">1-b. Access Key IDとSecret Access Keyを設定する方法</h4>
 以下の方法はセキュリティー保全の観点から推奨しておりません。
-<h4>1. IAM Management Consoleにてユーザーを作成する</h4>
+<h5>IAM Management Consoleにてユーザーを作成する</h5>
 <a href="https://console.aws.amazon.com/iam" target="_blank">IAM Management Console</a>にて新しいユーザーを作成します。
 `MackerelAWSIntegrationUser` のようにMackerelのAWSインテグレーションで使用していることが分かりやすい名前を付けることを推奨します。
 
 ![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20160425/20160425173140.png)
 
-<h4>2. アクセスキーをMackerelに登録する</h4>
+<h5>アクセスキーをMackerelに登録する</h5>
 作成時の画面に表示されるAccess Key IDとSecret Access Keyを、[Mackerelに登録](https://mackerel.io/my?tab=awsIntegration)します。
 登録するオーガニゼーションを間違えないようにご注意ください。
 
 ![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20160428/20160428110910.png)
 
-<h4>3. ポリシーを付与する</h4>
-作成したユーザーに、以下のポリシーを付与します。
-FullAccess権限を付与しないようにご注意ください。また、ひとつのIAMユーザーに対してアタッチ可能なポリシーの上限は10個に制限されており、これはAWSの仕様です。必要に応じて、AWSに対して上限緩和申請をおこなってください。
+
+<h3 id="setting_policy">2. ポリシーを付与する</h3>
+作成したIAMロールもしくはIAMユーザーに、連携に必要なポリシーを付与します。
+
+必ず以下に列挙されたポリシーやアクションを使用し、FullAccess権限などを付与しないようにご注意ください。
+
+またAWSの仕様で、ひとつのIAMロール／IAMユーザーに対してアタッチ可能なポリシーの上限は10個に制限されています。必要に応じて、AWSに対して上限緩和申請をおこなってください。
 
 AWSインテグレーションで使用する全ての権限を設定する場合、<a href="#iam_policy">AWSインテグレーションで使用するIAMポリシー</a> の項目を参照下さい。
 
-- `AmazonRedshiftReadOnlyAccess`
-- `AmazonEC2ReadOnlyAccess`
-- `AmazonElastiCacheReadOnlyAccess`
-- `AmazonRDSReadOnlyAccess`
-    - RDS、またはDocumentDBの場合に指定します。
-- `AWSLambda_ReadOnlyAccess `
-- `AmazonSQSReadOnlyAccess`
-- `AmazonDynamoDBReadOnlyAccess`
-- `CloudFrontReadOnlyAccess`
-- `apigateway:GET`
-    - リソースポリシーは `arn:aws:apigateway:ap-northeast-1::/*` などのように指定します。リソースポリシーで対象を制限することはできません。
-- `AmazonKinesisReadOnlyAccess`
-- `AmazonS3ReadOnlyAccess`
-- `AmazonESReadOnlyAccess`
-- `ecs:Describe* / ecs:List*`
-- `AmazonSESReadOnlyAccess / ses:Describe*`
-- `codebuild:BatchGetProjects / codebuild:ListProjects`
-- `AWSStepFunctionsReadOnlyAccess`
-- `AmazonElasticFileSystemReadOnlyAccess`
-- `AmazonKinesisFirehoseReadOnlyAccess`
-- `batch:Describe* / batch:List*`
-- `AWSWAFReadOnlyAccess`
-- `AWSBudgetsReadOnlyAccess`
-- `AmazonRoute53ReadOnlyAccess`
-- `AmazonConnectReadOnlyAccess`
-- `CloudWatchReadOnlyAccess`
-    - 以下のサービスのみを設定する場合に指定します。
-        - CloudFront, API Gateway, Kinesis Data Streams, S3, Elasticsearch Service, ECS, SES, Step Functions, EFS, Kinesis Data Firehose, Batch, WAF, Billing, Route 53, Lambda, Connect, CodeBuild
+| AWS製品 | 必要なポリシー／アクション | 備考 |
+| :--- | :--- | :--- |
+| EC2 |  AmazonEC2ReadOnlyAccess  |  |
+| ELB (CLB) |  AmazonEC2ReadOnlyAccess  |  |
+| ALB | AmazonEC2ReadOnlyAccess |  |
+| NLB | AmazonEC2ReadOnlyAccess |  |
+| RDS | AmazonRDSReadOnlyAccess |  |
+| ElastiCache | AmazonElastiCacheReadOnlyAccess |  |
+| Redshift | AmazonRedshiftReadOnlyAccess |  |
+| Lambda [*1](#single-product) | AWSLambda_ReadOnlyAccess |  |
+| SQS | AmazonSQSReadOnlyAccess |  |
+| DynamoDB | AmazonDynamoDBReadOnlyAccess |  |
+| CloudFront [*1](#single-product) | CloudFrontReadOnlyAccess |  |
+| API Gateway [*1](#single-product) | `apigateway:GET` | リソースポリシーは`arn:aws:apigateway:ap-northeast-1::/*`などのように指定します。<br>リソースポリシーで連携対象を制限することはできません。 |
+| Kinesis Data Streams [*1](#single-product) | AmazonKinesisReadOnlyAccess |  |
+| S3 [*1](#single-product) | AmazonS3ReadOnlyAccess | S3側でバケットのリクエストメトリックを有効にする必要があります。<br><a href="https://docs.aws.amazon.com/ja_jp/AmazonS3/latest/userguide/configure-request-metrics-bucket.html">S3バケットにリクエストメトリックを設定する方法</a>を参考に`EntireBucket`というフィルタ名で設定してください。 |
+| Elasticsearch Service [*1](#single-product) | AmazonESReadOnlyAccess |  |
+| ECS [*1](#single-product) | `ecs:Describe*` <br> `ecs:List*` |  |
+| SES [*1](#single-product) | AmazonSESReadOnlyAccess <br> `ses:Describe*` |  |
+| Step Functions [*1](#single-product) | AWSStepFunctionsReadOnlyAccess |  |
+| EFS [*1](#single-product) | AmazonElasticFileSystemReadOnlyAccess |  |
+| Kinesis Data Firehose [*1](#single-product) | AmazonKinesisFirehoseReadOnlyAccess |  |
+| Batch [*1](#single-product) | `batch:Describe*` <br> `batch:List*` |  |
+| WAF [*1](#single-product) | AWSWAFReadOnlyAccess |  |
+| Billing [*1](#single-product) | AWSBudgetsReadOnlyAccess |  |
+| Route 53 [*1](#single-product) | AmazonRoute53ReadOnlyAccess |  |
+| Connect [*1](#single-product) | AmazonConnectReadOnlyAccess |  |
+| DocumentDB | AmazonRDSReadOnlyAccess |  |
+| CodeBuild [*1](#single-product) | `codebuild:BatchGetProjects` <br> `codebuild:ListProjects` |  |
+
+<p id="single-product">*1 該当のAWS製品を単一で連携させる場合、必要なポリシー／アクションに加えて<code>CloudWatchReadOnlyAccess</code>が必要となります。</p>
 
 また、AWSインテグレーションでは後述するようにタグによって絞り込みを行うことが出来ますが、ElastiCacheやSQSでタグによる絞り込みを行う場合は追加のポリシーを付与する必要があります。
 詳しくは<a href="#tag">タグで絞り込む</a> の項目を参照してください。
@@ -143,7 +120,7 @@ AWSインテグレーションで使用する全ての権限を設定する場�
 
 ![](https://cdn-ak2.f.st-hatena.com/images/fotolife/m/mackerelio/20170912/20170912165028.png)
 
-<h4>4. ホストを確認する</h4>
+<h3 id="setting_check_host">3. ホストを確認する</h3>
 しばらくすると、ご利用のAWSクラウド製品がMackerelにホストとして登録され、メトリックが投稿されます。
 監視ルールを作成し、アラートを通知することもできます。
 詳しくは[監視・通知を設定する](https://mackerel.io/ja/docs/entry/howto/alerts)をご覧ください。
@@ -314,11 +291,11 @@ ElastiCache、SQSでタグによるサービス・ロール割り当てを行う
 
 
 
-<h2 id="faq">FAQ</h2>
+<h2 id="faq">よくある質問</h2>
 
 ### アクセスキーの権限チェックと CreateInternetGateway に関して
 
-ユーザーが登録したアクセスキーが不必要に強い権限を持っていないかのチェックのために、AWSインテグレーションは定期的に CreateInternetGateway API を dry-run にて実行しています。アクセスキーが必要以上の権限を持っていた場合には、メトリックの収集と投稿は行われませんのでご注意ください。チェックを登録後にも定期的におこなう理由は、アクセスキーに対してポリシーが追加され、権限が強くなってしまう可能性があるためです。
+ユーザーが登録したアクセスキーが不必要に強い権限を持っていないかチェックするために、AWSインテグレーションは定期的に CreateInternetGateway API を dry-run にて実行しています。アクセスキーが必要以上の権限を持っていた場合には、メトリックの収集と投稿は行われませんのでご注意ください。チェックを登録後にも定期的におこなう理由は、アクセスキーに対してポリシーが追加され、権限が強くなってしまう可能性があるためです。
 
 ### AWSインテグレーションにより連携したホストの退役について
 
@@ -352,4 +329,3 @@ custom_identifier = "RDSのエンドポイント"
 command = ["check-elasticsearch", "-s", "https", "-H", "Elasticsearch Service のエンドポイント", "-p", "443"]
 custom_identifier = "Elasticsearch Service の ARN"
 ```
-
