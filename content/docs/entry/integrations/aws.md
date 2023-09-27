@@ -5,30 +5,46 @@ URL: https://mackerel.io/docs/entry/integrations/aws
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/6653812171395777794
 ---
 
-Using AWS integration, you can manage AWS cloud products as a host of Mackerel and monitor its metrics. This function is only offered in the Trial plan and Standard plan.
+**This function is only offered in the Trial plan and Standard plan.**
 
-Each AWS cloud product will be registered as one host in Mackerel and therefore be counted as a billable host.
-The types of hosts consist of standard hosts for EC2 and micro hosts for other products.
+AWS Integration allows you to manage your AWS cloud products as Mackerel hosts and monitor metrics.
+
+Of the AWS cloud products, EC2 is billed as a standard host and the other products are billed as micro hosts.
 Additionally, the API of AWS will be called every 5 minutes for each targeted metric to be obtained. Please take note, for this reason, an [Amazon CloudWatch API usage fee](https://aws.amazon.com/jp/cloudwatch/pricing/) may occur.
-If you want to automatically retire the associated host when you delete an AWS resource, please refer to the [Configure automatic retirement](#auto-retirement) section.
-To limit the metrics that are retrieved, refer to the [Limit metrics retrieved](#select-metric) section below.
+
+<details>
+<summary>Table of Contents (click to open/close)</summary>
+
+[:contents]
+
+</details>
+
+<h2 id="support-products">Supported AWS cloud products</h2>
 
 Currently, the following AWS cloud products are supported. For information on obtaining metrics, please refer to each individual document.
-
 
 [EC2](https://mackerel.io/docs/entry/integrations/aws/ec2)・[ELB (CLB)](https://mackerel.io/docs/entry/integrations/aws/elb)・[ALB](https://mackerel.io/docs/entry/integrations/aws/alb)・[NLB](https://mackerel.io/docs/entry/integrations/aws/nlb)・[RDS](https://mackerel.io/docs/entry/integrations/aws/rds)・[ElastiCache](https://mackerel.io/docs/entry/integrations/aws/elasticache)・[Redshift](https://mackerel.io/docs/entry/integrations/aws/redshift)・[Lambda](https://mackerel.io/docs/entry/integrations/aws/lambda)・[SQS](https://mackerel.io/docs/entry/integrations/aws/sqs)・[DynamoDB](https://mackerel.io/docs/entry/integrations/aws/dynamodb)・[CloudFront](https://mackerel.io/docs/entry/integrations/aws/cloudfront)・[API Gateway](https://mackerel.io/docs/entry/integrations/aws/apigateway)・[Kinesis Data Streams](https://mackerel.io/docs/entry/integrations/aws/kinesis)・[S3](https://mackerel.io/docs/entry/integrations/aws/s3)・[Elasticsearch Service](https://mackerel.io/docs/entry/integrations/aws/es)・[ECS](https://mackerel.io/docs/entry/integrations/aws/ecs)・[SES](https://mackerel.io/docs/entry/integrations/aws/ses)・[Step Functions](https://mackerel.io/docs/entry/integrations/aws/states)・[EFS](https://mackerel.io/docs/entry/integrations/aws/efs)・[Kinesis Data Firehose](https://mackerel.io/docs/entry/integrations/aws/firehose)・[Batch](https://mackerel.io/docs/entry/integrations/aws/batch)・[WAF](https://mackerel.io/docs/entry/integrations/aws/waf)・[Billing](https://mackerel.io/docs/entry/integrations/aws/billing)・[Route 53](https://mackerel.io/docs/entry/integrations/aws/route53)・[Connect](https://mackerel.io/docs/entry/integrations/aws/connect)・[DocumentDB](https://mackerel.io/docs/entry/integrations/aws/docdb)・[CodeBuild](https://mackerel.io/docs/entry/integrations/aws/codebuild)
 
 
 <h2 id="setting">Integration method</h2>
-There are two ways to integrate AWS Integration.
+There are two ways to integrate AWS integration: by IAM role with authentication by AssumeRole, or by Access Key ID and Secret Access Key.
 
-- Configure the IAM role to allow access only from the AWS account of the Mackerel system and authenticate with AssumeRole
-- Configure the Access Key ID and Secret Access Key
+You are required to set up one of them, but from a security standpoint, we strongly recommend that you set up a set using IAM roles.
 
-From a security standpoint, we strongly recommend configuring with the IAM role.
+<ul>
+  <li><a href="#setting_aws">1. Choose one of the following methods to configure integration.</a></li>
+  <ul>
+      <li><a href="#setting_aws_iam_role">1-a. Configure the IAM role</a></li>
+      <li><a href="#setting_aws_access_key">1-b. Configure the Access Key ID and Secret Access Key</a></li>
+  </ul>
+  <li><a href="#setting_policy">2. Grant policies</a></li>
+  <li><a href="#setting_check_host">3. Confirm the host</a></li>
+</ul>
 
-<h3>How to configure an IAM role</h3>
-<h4>1. Creating a role with the IAM Management Console</h4>
+<h3 id="setting_aws">1. Create an IAM role or IAM user for integration</h3>
+
+<h4 id="setting_aws_iam_role">1-a. Configure the IAM role</h4>
+<h5>Creating a role with the IAM Management Console</h5>
 Create a new role with the <a href="https://console.aws.amazon.com/iam" target="_blank">IAM Management Console</a>.
 Select `Another AWS account` from the role types.
 
@@ -36,104 +52,73 @@ Select `Another AWS account` from the role types.
 
 Click the 'Create' button in the [Mackerel AWS Integration Settings page](https://mackerel.io/my?tab=awsIntegration) to get an External ID. Enter `217452466226` as the authorized Account ID. Select the `Require external ID` option and specify the External ID obtained from Mackerel's configuration page. The Mackerel system uses the account to access the user’s role. With this configuration, only the Mackerel account can access the created role. Create the role without checking `Require MFA`.
 
-Grant the policies listed below for the role. Be careful not to grant FullAccess permission. Also, the maximum number of policies that can be attached to one IAM role is limited to 10. This is a specification of AWS. If necessary, you can apply to AWS for an upper limit extension.
+The next step is to <a href="#setting_policy">grant policies</a>.
 
-If you want to configure all the permissions used in AWS Integration, please reference this list of <a href="#iam_policy">IAM policies used in AWS Integration</a>.
+<h4 id="setting_aws_access_key">1-b. Configure the Access Key ID and Secret Access Key</h4>
+The following method is NOT recommended for security protection reasons.
 
-- `AmazonEC2ReadOnlyAccess`
-- `AmazonElastiCacheReadOnlyAccess`
-- `AmazonRDSReadOnlyAccess`
-  - Specify for RDS or DocumentDB.
-- `AmazonRedshiftReadOnlyAccess`
-- `AWSLambda_ReadOnlyAccess`
-- `AmazonSQSReadOnlyAccess`
-- `AmazonDynamoDBReadOnlyAccess`
-- `CloudFrontReadOnlyAccess`
-- `apigateway:GET / apigateway:OPTIONS`
-    - Specify a resource policy like so `arn:aws:apigateway:ap-northeast-1::/*` . You can not limit integration targets by resource policy.
-- `AmazonKinesisReadOnlyAccess`
-- `AmazonS3ReadOnlyAccess`
-- `AmazonESReadOnlyAccess`
-- `ecs:Describe* / ecs:List*`
-- `AmazonSESReadOnlyAccess / ses:Describe*`
-- `codebuild:BatchGetProjects / codebuild:ListProjects`
-- `AWSStepFunctionsReadOnlyAccess`
-- `AmazonElasticFileSystemReadOnlyAccess`
-- `AmazonKinesisFirehoseReadOnlyAccess`
-- `batch:Describe* / batch:List*`
-- `AWSWAFReadOnlyAccess`
-- `AWSBudgetsReadOnlyAccess`
-- `AmazonRoute53ReadOnlyAccess`
-- `AmazonConnectReadOnlyAccess`
-- `CloudWatchReadOnlyAccess`（When only configuring CloudFront, API Gateway, Kinesis Data Streams, S3, Elasticsearch Service, ECS, SES, Step Functions, EFS, Kinesis Data Firehose, Batch, WAF, Billing, Route 53, Lambda, Connect or CodeBuild）
+<h5>Creating a user with the IAM Management Console</h5>
 
-Furthmore, AWS Integration lets you filter using tags (as is mentioned further down in this document). However, additional policies need to be added to use this function with ElastiCache, SQS or Step Functions.
-For more details, refer to <a href="#tag">Filter by tag</a>.
-
-![](https://cdn-ak.f.st-hatena.com/images/fotolife/a/andyyk/20171025/20171025153435.png)
-
-Fill in the name and create a role.
-We recommend assigning an easy-to-understand name like `MackerelAWSIntegrationRole`  for use in Mackerel’s AWS integration.
-
-<h4>2. Register an ARN role in Mackerel</h4>
-Register an ARN role from the same Mackerel screen where we just acquired the External ID.
-
-<h4>3. Confirm the host</h4>
-After a short while, your AWS cloud product will be registered as a host in Mackerel and begin posting metrics. By creating monitoring rules, you can also be notified of alerts. For more information, see [Setting up monitoring and alerts](https://mackerel.io/docs/entry/howto/alerts).
-
-<h3>Configure the Access Key ID and Secret Access Key</h3>
-From a security standpoint, the following method is not recommended.
-<h4>1. Creating a user with the IAM Management Console</h4>
 Create a new user with the <a href="https://console.aws.amazon.com/iam" target="_blank">IAM Management Console</a>. We recommend assigning an easy-to-understand name like `MackerelAWSIntegrationUser` for use in Mackerel’s AWS integration.
 
 ![](https://cdn-ak.f.st-hatena.com/images/fotolife/a/andyyk/20160512/20160512162316.png)
 
-<h4>2. Registering the Access Key in Mackerel</h4>
+<h5>Registering the Access Key in Mackerel</h5>
 Register the Access Key ID and Secret Access Key (displayed on the screen when creating the account) [in Mackerel](https://mackerel.io/my?tab=awsIntegration). Be careful not to mistake the organization to be registered.
 
 ![](https://cdn-ak.f.st-hatena.com/images/fotolife/a/andyyk/20160512/20160512162642.png)
 
-<h4>3. Granting policies</h4>
-Grant the policies listed below for the newly created user. Be careful not to grant FullAccess permission. Also, the maximum number of policies that can be attached to one IAM user is limited to 10. This is a specification of AWS. If necessary, you can apply to AWS for an upper limit extension.
+<h3 id="setting_policy">2. Grant policies</h3>
 
-If you want to configure all the permissions used in AWS Integration, please reference this list of <a href="#iam_policy">IAM policies used in AWS Integration</a>.
+Grant the policies listed below for the role.
+Be sure to use the policies and actions listed below and be careful not to grant FullAccess permission.
 
-- `AmazonEC2ReadOnlyAccess`
-- `AmazonElastiCacheReadOnlyAccess`
-- `AmazonRDSReadOnlyAccess`
-  - Specify for RDS or DocumentDB.
-- `AmazonRedshiftReadOnlyAccess`
-- `AWSLambda_ReadOnlyAccess`
-- `AmazonSQSReadOnlyAccess`
-- `AmazonDynamoDBReadOnlyAccess`
-- `CloudFrontReadOnlyAccess`
-- `apigateway:GET / apigateway:OPTIONS`
-    - Specify a resource policy like so `arn:aws:apigateway:ap-northeast-1::/*` . You can not limit integration targets by resource policy.
-- `AmazonKinesisReadOnlyAccess`
-- `AmazonS3ReadOnlyAccess`
-- `AmazonESReadOnlyAccess`
-- `ecs:Describe* / ecs:List*`
-- `AmazonSESReadOnlyAccess / ses:Describe*`
-- `codebuild:BatchGetProjects / codebuild:ListProjects`
-- `AWSStepFunctionsReadOnlyAccess`
-- `AmazonElasticFileSystemReadOnlyAccess`
-- `AmazonKinesisFirehoseReadOnlyAccess`
-- `batch:Describe* / batch:List*`
-- `AWSWAFReadOnlyAccess`
-- `AWSBudgetsReadOnlyAccess`
-- `AmazonRoute53ReadOnlyAccess`
-- `AmazonConnectReadOnlyAccess`
-- `CloudWatchReadOnlyAccess`（When only configuring CloudFront, API Gateway, Kinesis Data Streams, S3, Elasticsearch Service, ECS, SES, Step Functions, EFS, Kinesis Data Firehose, Batch, WAF, Billing, Route 53, Lambda, Connect or CodeBuild）
+Also, the maximum number of policies that can be attached to one IAM role is limited to 10. This is a specification of AWS. If necessary, you can apply to AWS for an upper limit extension.
 
-Furthmore, AWS Integration lets you filter using tags (as is mentioned further down in this document). However, additional policies need to be added to use this function with ElastiCache or SQS.
+If you want to configure all the permissions used in AWS Integration, please refer this list of <a href="#iam_policy">IAM policies used in AWS Integration</a>.
 
+| AWS Cloud Products | Policy / Action | Note |
+| :--- | :--- | :--- |
+| EC2 |  AmazonEC2ReadOnlyAccess  |  |
+| ELB (CLB) |  AmazonEC2ReadOnlyAccess  |  |
+| ALB | AmazonEC2ReadOnlyAccess |  |
+| NLB | AmazonEC2ReadOnlyAccess |  |
+| RDS | AmazonRDSReadOnlyAccess |  |
+| ElastiCache | AmazonElastiCacheReadOnlyAccess |  |
+| Redshift | AmazonRedshiftReadOnlyAccess |  |
+| Lambda [*1](#single-product) | AWSLambda_ReadOnlyAccess |  |
+| SQS | AmazonSQSReadOnlyAccess |  |
+| DynamoDB | AmazonDynamoDBReadOnlyAccess |  |
+| CloudFront [*1](#single-product) | CloudFrontReadOnlyAccess |  |
+| API Gateway [*1](#single-product) | `apigateway:GET` | Specify a resource policy like so `arn:aws:apigateway:ap-northeast-1::/*`.<br> You can not limit integration targets by resource policy. |
+| Kinesis Data Streams [*1](#single-product) | AmazonKinesisReadOnlyAccess |  |
+| S3 [*1](#single-product) | AmazonS3ReadOnlyAccess | Request metrics must be enabled in the S3 configuration.<br>See <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/configure-request-metrics-bucket.html">Creating a CloudWatch metrics configuration for all the objects in your bucket</a> and set the filter name as `EntireBucket`. |
+| Elasticsearch Service [*1](#single-product) | AmazonESReadOnlyAccess |  |
+| ECS [*1](#single-product) | `ecs:Describe*` <br> `ecs:List*` |  |
+| SES [*1](#single-product) | AmazonSESReadOnlyAccess <br> `ses:Describe*` |  |
+| Step Functions [*1](#single-product) | AWSStepFunctionsReadOnlyAccess |  |
+| EFS [*1](#single-product) | AmazonElasticFileSystemReadOnlyAccess |  |
+| Kinesis Data Firehose [*1](#single-product) | AmazonKinesisFirehoseReadOnlyAccess |  |
+| Batch [*1](#single-product) | `batch:Describe*` <br> `batch:List*` |  |
+| WAF [*1](#single-product) | AWSWAFReadOnlyAccess |  |
+| Billing [*1](#single-product) | AWSBudgetsReadOnlyAccess |  |
+| Route 53 [*1](#single-product) | AmazonRoute53ReadOnlyAccess |  |
+| Connect [*1](#single-product) | AmazonConnectReadOnlyAccess |  |
+| DocumentDB | AmazonRDSReadOnlyAccess |  |
+| CodeBuild [*1](#single-product) | `codebuild:BatchGetProjects` <br> `codebuild:ListProjects` |  |
+
+<p id="single-product">*1 <code>CloudWatchReadOnlyAccess</code> is required in addition to the required policies/actions for a single linkage of the relevant AWS products.</p>
+
+Furthmore, AWS Integration lets you filter using tags. However, additional policies need to be added to use this function with ElastiCache, SQS or Step Functions.
 For more details, refer to <a href="#tag">Filter by tag</a>.
+
+If you exclude a metric, you will still need to grant an additional policy as well as the ability to filter by tag, as it refers to AWS tags.
+See the <a href="#select-metric">Restrict which metrics to retrieve</a> section for more information.
 
 ![](https://cdn-ak.f.st-hatena.com/images/fotolife/a/andyyk/20171025/20171025153435.png)
 
-<h4>4. Verify the host</h4>
-After a short while, your AWS cloud product will be registered as a host in Mackerel and begin posting metrics. By creating monitoring rules, you can also be notified of alerts.
-For more information, see [Setting up monitoring and alerts](https://mackerel.io/docs/entry/howto/alerts).
+<h3 id="setting_check_host">3. Confirm the host</h3>
+After a short while, your AWS cloud product will be registered as a host in Mackerel and begin posting metrics. By creating monitoring rules, you can also be notified of alerts. For more information, see [Setting up monitoring and alerts](https://mackerel.io/docs/entry/howto/alerts).
 
 <h2 id="auto-retirement">Configure automatic retirement</h2>
 
@@ -152,7 +137,25 @@ In addition, AWS integration check only once when it detects the deletion of an 
 
 <h2 id="select-metric">Limit metrics retrieved</h2>
 
-You can reduce the number of hosts and cost of the CloudWatch API by limiting the metrics to be retrieved. The number of hosts is calculated using a moving average of the past month. For more information about that, refer to the FAQ page [Calculating the number of hosts](https://support.mackerel.io/hc/en-us/articles/360039702912).
+You can reduce the number of hosts and cost of the CloudWatch API by limiting the metrics to be retrieved.
+
+<h3>1. Grant permissions to limit the metrics to be retrieved</h3>
+In order to restrict the metrics to be retrieved, additional permissions for the following actions are required in addition to the policies granted for the AWS Integration setup.
+
+- `elasticache:ListTagsForResource`
+- `sqs:ListQueueTags`
+- `states:ListTagsForResource`
+
+To add policies, use the Inline Policies process.
+
+![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20160616/20160616150058.png)
+![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20160616/20160616150059.png)
+
+<h3>2. Configure settings to limit the metrics to be retrieved</h3>
+
+The number of hosts is calculated using a moving average of the past month. For more information about that, refer to the FAQ page [Calculating the number of hosts](https://support.mackerel.io/hc/en-us/articles/360039702912).
+
+Select the metrics you wish to retrieve in the Mackerel configuration page. Uncheck any unwanted metrics and save them.
 
 For example, you can specify to not retrieve a metric like `kinesis.latency.#.minimum` by simply unchecking the box as shown in the image below. This configuration limits the minimum for `GetRecords.Latency`,`PutRecord.Latency`, and `PutRecords.Latency` and reduces a maximum of 3 metrics.
 
