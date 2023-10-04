@@ -11,6 +11,10 @@ MackerelはAzureインテグレーションにて<a href="https://azure.microsof
 Azureインテグレーションの設定方法や対応Azureサービス一覧についてはこちらのページをご確認ください。<br>
 <a href="https://mackerel.io/ja/docs/entry/integrations/azure">Azureインテグレーション</a>
 
+### 注意事項
+
+階層型名前空間を有効にした場合の [Data Lake Storage](https://azure.microsoft.com/ja-jp/products/storage/data-lake-storage) には非対応です。
+
 ## 取得メトリック
 AzureインテグレーションのBlob Storage対応で取得できるメトリックはパフォーマンスによって異なります。
 各パフォーマンスで取得できるメトリックは以下の通りです。 `メトリック` の説明に関しては<a href="https://docs.microsoft.com/ja-jp/azure/storage/blobs/monitor-blob-storage-reference" target="_blank">Azureのドキュメント</a>をご確認ください。

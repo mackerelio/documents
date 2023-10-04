@@ -11,6 +11,10 @@ Mackerel supports obtaining and monitoring <a href="https://azure.microsoft.com/
 Please refer to the following page for Azure Integration configuration methods and a list of supported Azure services.<br>
 <a href="https://mackerel.io/docs/entry/integrations/azure">Azure Integration</a>
 
+### Notes
+
+[Data Lake Storage](https://azure.microsoft.com/en-us/products/storage/data-lake-storage/) is not supported when Hierarchical Namespace is enabled.
+
 ## Obtaining metrics
 The metrics available with Azure Integration Application Gateway support vary by performance tier. The metrics that can be obtained at each performance tier are as follows. For `Metric` explanations, please refer to the <a href="https://docs.microsoft.com/en-us/azure/storage/blobs/monitor-blob-storage-reference" target="_blank">Azure documentation</a>.
 
