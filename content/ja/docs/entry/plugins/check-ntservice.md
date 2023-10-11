@@ -15,10 +15,12 @@ check-ntservice はWindowsサービスが起動しているかを監視するプ
 | オプション        | 省略形 | 必須 | 説明                                               |
 | ----------------- | ------ | ---- | -------------------------------------------------- |
 | --service-name    | -s     | ◯    | 指定した文字列を含むサービスを監視します           |
-| --exclude-service | -E     |      | 指定した文字列を含む場合は監視の対象から除外します |
+| --exclude-service | -x     |      | 指定した文字列を含む場合は監視の対象から除外します |
 | --list-service    | -l     |      | サービス名の一覧を表示します                       |
+| --exact           |        |      | --service-nameに完全一致するサービスを監視します |
 
 - オプションの複数指定、正規表現による指定には対応していません。
+- `--exact`は mackerel-agent v0.78.0 以降に同梱されているプラグインで有効です。
 
 <h2 id="config">エージェントへの設定例</h2>
 
@@ -49,14 +51,27 @@ check-ntservice --list-service
 
 check-ntserviceは `--service-name` オプションに指定した文字列を含むサービスのチェックを行うため、意図しないサービスの停止を検知してしまう場合があります。
 
-その場合は `--exclude-service` オプションを併用し、対象としないサービスを除外するようにしてください。
+その場合は `--exact` や `--exclude-service` オプションを併用し、対象サービスの特定や不要な文字列の除外をするようにしてください。
 
-例えば`foo`というサービスの監視で`foobar`という別サービスを意図せず検知してしまう場合は以下のように設定します。
+例えば`foo`と`foobar`というサービスが稼働していて`foo`の監視を行いたい場合は、`--exact`オプションを指定することで簡単に監視対象にできます。
+
+```
+[plugin.checks.ntsvc_w3svc]
+command = ["check-ntservice", "--service-name", "foo", "--exact"]
+```
+
+また`--exclude-service`オプションを指定して、次のように除外することもできます。
 
 ```
 [plugin.checks.ntsvc_w3svc]
 command = ["check-ntservice", "--service-name", "foo", "--exclude-service", "foobar"]
 ```
+
+### サービスが見つからないとUNKNOWNのアラートが発報する
+
+条件に指定したサービスが見つからない場合に、`service does not exist.`のメッセージを含んだUNKNOWNのアラートが発報します。
+
+正しいサービス名が指定されているか、`--list-service`オプションを活用するなどして見直しをしてください。
 
 <h2 id="repository">リポジトリ</h2>
 

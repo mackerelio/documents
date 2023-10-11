@@ -16,10 +16,12 @@ check-ntservice is a plugin that monitors whether Windows services are running.
 | Option            | Short  | Required | Description                                                  |
 | ----------------- | ------ | -------- | ------------------------------------------------------------ |
 | --service-name    | -s     | ✓        | Monitor services that contain the specified string           |
-| --exclude-service | -E     |          | Exclude from monitoring if the specified string is contained |
+| --exclude-service | -x     |          | Exclude from monitoring if the specified string is contained |
 | --list-service    | -l     |          | Displays a list of service names                             |
+| --exact           |        |          | Check the service name for exact match                       |
 
 - Multiple specification of options and specification by regular expressions are not supported.
+- `--exact` has been enabled for plugins shipped with mackerel-agent v0.78.0 and later.
 
 <h2 id="config">Example configuration</h2>
 
@@ -52,14 +54,27 @@ check-ntservice --list-service
 
 Because check-ntservice checks for services containing the string specified in the `--service-name` option, it may detect unintended service outages.
 
-In such cases, use the `--exclude-service` option in conjunction with the `--exclude-service` option to exclude services that you do not want to target.
+In this case, use the `--exact` or `--exclude-service` option to identify the target service or exclude services that contain unnecessary strings.
 
-For example, if monitoring a service called `foo` unintentionally detects another service called `foobar`, configure as follows.
+For example, if you have two services running, `foo` and `foobar`, and you want to monitor `foo`, you can simply specify the `--exact` option as follows.
+
+```
+[plugin.checks.ntsvc_w3svc]
+command = ["check-ntservice", "--service-name", "foo", "--exact"]
+```
+
+It may also be excluded by specifying the `--exclude-service` option as follows.
 
 ```
 [plugin.checks.ntsvc_w3svc]
 command = ["check-ntservice", "--service-name", "foo", "--exclude-service", "foobar"]
 ```
+
+### When the specified service is not found, an UNKNOWN alert is emitted.
+
+An UNKNOWN alert with the message `service does not exist.` is caused when a service specified in the condition is not found.
+
+Please check whether the correct service name is specified or not by utilizing the `--list-service` option.
 
 <h2 id="repository">Repository</h2>
 
