@@ -22,7 +22,9 @@ Azure Integration will integrate using service principals.
 
 A service principal is an ID that is used to access a specific Azure resource, and is more secure than using a user ID because it has limited permissions.
 
-When configuring Azure integration, you’ll need access permission to do both "Create an application in the Azure Active Directory" and "Assign a role to the service principal". To confirm whether or not you have each permission, check out the items "Check Azure Active Directory permissions" and "Check Azure Subscription permissions" in the official document below.
+When configuring Azure integration, you’ll need access permission to do both "Create an application in the Microsoft Entra ID"[^2] and "Assign a role to the service principal". To confirm whether or not you have each permission, check out the items "Check Microsoft Entra ID permissions" and "Check Azure Subscription permissions" in the official document below.
+
+[^2]: Azure Active Directory has been renamed to Microsoft Entra ID. Some images in the document are from before the renaming.
 
 [https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal:embed:cite]
 
@@ -77,7 +79,7 @@ This section explains how to integrate using Azure Portal.
 Visit https://portal.azure.com and login.
 
 ### Obtain Tenant ID
-Select Azure Active Directory from the sidebar and click "Properties".
+Select Microsoft Entra ID from the sidebar and click "Properties".
 
 Upon selecting, enter the displayed "Directory ID" in the `Tenant ID` field of Mackerel's Azure integration configuration screen.
 
@@ -85,10 +87,10 @@ Upon selecting, enter the displayed "Directory ID" in the `Tenant ID` field of M
 
 ![](https://cdn-ak.f.st-hatena.com/images/fotolife/a/andyyk/20170623/20170623190731.png)
 
-### Create an Active Directory Application
-When integrating with Mackerel, an application shall be created in Azure Active Directory in order to obtain metrics through application authority instead of user authority.
+### Create an Entra ID Application
+When integrating with Mackerel, an application shall be created in Microsoft Entra ID in order to obtain metrics through application authority instead of user authority.
 
-Select "App registrations" from the previous Active Directory screen.
+Select "App registrations" from the previous Entra ID screen.
  
 ![](https://cdn-ak.f.st-hatena.com/images/fotolife/a/andyyk/20170626/20170626102652.png)
 
@@ -122,7 +124,7 @@ Select "Subscription" from Portal screen sidebar. Then select the target subscri
 
 ![](https://cdn-ak.f.st-hatena.com/images/fotolife/a/andyyk/20170626/20170626104121.png) 
 
-Select "Access control (IAM)". Here you can configure permissions for users and service principals. Now we will configure permissions for the Active Directory application that we created earlier.
+Select "Access control (IAM)". Here you can configure permissions for users and service principals. Now we will configure permissions for the Entra ID application that we created earlier.
 
 ![](https://cdn-ak.f.st-hatena.com/images/fotolife/a/andyyk/20170626/20170626104118.png)
 

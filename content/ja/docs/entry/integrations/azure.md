@@ -22,7 +22,9 @@ Azureインテグレーションはサービスプリンシパルを使って連
 
 サービスプリンシパルとは、特定のAzureリソースにアクセスするのに使用するIDであり、ユーザーのIDを使うのと比べて、限られた権限を持つのでセキュリティ的により安心です。
 
-Azureインテグレーションの設定の際に、「Azure Active Directoryでアプリケーションを作成する」「サービスプリンシパルにロールを割り当てる」の両方の操作をするためのアクセス許可が必要となります。それぞれのアクセス許可を持っているかどうか確認するには以下の公式ドキュメントの「Azure Active Directory のアクセス許可を確認する」と「Azure サブスクリプションのアクセス許可を確認する」の項目をご確認ください。
+Azureインテグレーションの設定の際に、「Microsoft Entra ID[^2]でアプリケーションを作成する」「サービスプリンシパルにロールを割り当てる」の両方の操作をするためのアクセス許可が必要となります。それぞれのアクセス許可を持っているかどうか確認するには以下の公式ドキュメントの「Microsoft Entra ID のアクセス許可を確認する」と「Azure サブスクリプションのアクセス許可を確認する」の項目をご確認ください。
+
+[^2]: Azure Active DirectoryはMicrosoft Entra IDに改称されました。本ページに掲載している一部の画像は改称前のものとなっております。
 
 [https://docs.microsoft.com/ja-jp/azure/azure-resource-manager/resource-group-create-service-principal-portal:embed:cite]
 
@@ -86,8 +88,8 @@ Mackerelの設定画面にてテナントID、クライアントID、シーク�
 #### Azure Portalにログイン
 https://portal.azure.com にアクセスし、ログインしてください。
 
-#### テナントID取得
-サイドバーからAzure Active Directoryを選択し、「プロパティ」を選択してください。
+### テナントID取得
+サイドバーからMicrosoft Entra IDを選択し、「プロパティ」を選択してください。
 
 選択すると表示される「テナント ID」をMackerelのAzureインテグレーション設定画面の `テナントID` に入力してください。
 
@@ -95,10 +97,10 @@ https://portal.azure.com にアクセスし、ログインしてください。
 
 ![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20170621/20170621114147.png)
 
-#### Active Directory アプリケーションの作成
-Mackerelとの連携の際にユーザーの権限ではなくアプリケーションの権限でメトリックの取得をするために、Azure Active Directoryでアプリケーションの作成をします。
+### Entra ID アプリケーションの作成
+Mackerelとの連携の際にユーザーの権限ではなくアプリケーションの権限でメトリックの取得をするために、Microsoft Entra IDでアプリケーションの作成をします。
 
-先ほどのActive Directoryの画面から「アプリの登録」を選択してください。
+先ほどのEntra IDの画面から「アプリの登録」を選択してください。
 
 ![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20230722/20230722115601.png)
 
@@ -129,7 +131,7 @@ Mackerel と連携するためのアプリケーションを登録してくだ�
 
 Portal画面のサイドバーの「サブスクリプション」を選択してください。その後対象のサブスクリプションを選び、「アクセス制御 (IAM)」を選択します。ここではユーザーやサービスプリンシパルに対する権限の設定ができます。
 
-今回は先ほど作成したActive Directoryのアプリケーションに対して権限を設定します。
+今回は先ほど作成したEntra IDのアプリケーションに対して権限を設定します。
 
 ![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20230722/20230722131806.png)
 
