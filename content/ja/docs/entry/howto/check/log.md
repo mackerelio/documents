@@ -93,7 +93,7 @@ mackerel-agentは定期的にcheck-logを実行しますが、前回実行時ま
 command = ["check-log", "--file", "/var/log/nginx/access.log", "--pattern", "HTTP/1\.[01]\" [45][0-9][0-9] ", "--exclude", "GET .*?robots\.txt HTTP/1\.[01]", "--warning-over", "3", "--critical-over", "10", "--return"]
 ```
 
-その他のオプションに関しては `check-log --help` や [README](https://github.com/mackerelio/go-check-plugins/blob/master/check-log/README.md) をご確認下さい。
+その他のオプションに関しては、[チェックプラグイン - check-log - Mackerel ヘルプ](https://mackerel.io/ja/docs/entry/plugins/check-log)や、`check-log --help`、[README](https://github.com/mackerelio/go-check-plugins/blob/master/check-log/README.md)をご確認下さい。
 
 ## ソースコードについて
 

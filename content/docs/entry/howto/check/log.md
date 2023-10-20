@@ -93,7 +93,7 @@ With the `--exclude` option we have excluded access to "robots.txt". Also, with 
 command = ["check-log", "--file", "/var/log/nginx/access.log", "--pattern", "HTTP/1\.[01]\" [45][0-9][0-9] ", "--exclude", "GET .*?robots\.txt HTTP/1\.[01]", "--warning-over", "3", "--critical-over", "10", "--return"]
 ```
 
-For more information regarding other options, please refer to `check-log --help` and the [README](https://github.com/mackerelio/go-check-plugins/blob/master/check-log/README.md)
+For more information regarding other options, please refer to [Check plugins - check-log - Mackerel Docs](https://mackerel.io/docs/entry/plugins/check-log) and `check-log --help` and the [README](https://github.com/mackerelio/go-check-plugins/blob/master/check-log/README.md).
 
 ## Source code
 
