@@ -30,6 +30,7 @@ check-tcp はTCPによるサーバーとの接続監視を行うプラグイン�
 | --critical             | -c     | Criticalとする応答時間（秒）                                                                                                             |          |
 | --escape               | -E     | `--quit`で指定した文字列に`\n` `\r` `\t` `\\` を含む場合にエスケープを行う（未指定の場合は`--quit`で指定した文字列の末尾に`\r\n`を追加） | false    |
 | --error-warning        | -W     | プラグインが異常終了した際のアラートステータスをWARNINGに設定する                                                                        | CRITICAL |
+| --expect-closed        | -C     | ポート/unixソケットが閉じられているかを確認する。閉じているならOK、開いているなら`--error-warning`オプションの設定によってCriticalまたはWarningとなる。このオプションは接続のみを検査する  | false    |
 
 <h2 id="services">対応サービス一覧</h2>
 

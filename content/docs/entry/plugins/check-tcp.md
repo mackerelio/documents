@@ -10,26 +10,27 @@ check-tcp is a plug-in that monitors connections to servers via TCP.
 
 [:contents]
 
-<h2 id="options">指定可能なオプション</h2>
+<h2 id="options">Configurable options</h2>
 
-| Option                 | Short  | Description                                                                                                                                           | Default value|
-| ---------------------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
-| --service              |        | Specify a service name. see [Supported services](#Supported services)                                                                                 |              |
-| --hostname             | -H     | Host name or IP address to check for communication                                                                                                    |              |
-| --port                 | -p     | Port number to check for communication                                                                                                                |              |
-| --send                 | -s     | String to be sent to server                                                                                                                           |              |
-| --expect-pattern       | -e     | Regular expression patterns expected in responses from the server                                                                                     |              |
-| --quit                 | -q     | String to be sent when disconnecting from the server                                                                                                  |              |
-| --ssl                  | -S     | TLS connection required or not                                                                                                                        | false        |
-| --unix-sock            | -U     | Unix socket                                                                                                                                           |              |
-| --no-check-certificate |        | Whether or not certificate verification is required                                                                                                   | false        |
-| --timeout              | -t     | Connection timeout time (sec)                                                                                                                         | 10           |
-| --maxbytes             | -m     | Disconnects when more than the specified number of bytes of data is received                                                                          |              |
-| --delay                | -d     | Latency between sending data and polling for a response (sec)                                                                                         |              |
-| --warning              | -w     | Response time as Warning (sec)                                                                                                                        |              |
-| --critical             | -c     | Response time as Critical (sec)                                                                                                                       |              |
-| --escape               | -E     | Escape if the string specified by `--quit` contains `\n` `\r` `\t` `\c`. If not specified, add `\r\n` at the end of the string specified by `--quit`. | false        |
-| --error-warning        | -W     | Set the alert status to WARNING when the plugin terminates abnormally                                                                                 | CRITICAL     |
+| Option                 | Short  | Description                                                                                                                                                 | Default value |
+| ---------------------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- |
+| --service              |        | Specify a service name. see [Supported services](#Supported services)                                                                                       |               |
+| --hostname             | -H     | Host name or IP address to check for communication                                                                                                          |               |
+| --port                 | -p     | Port number to check for communication                                                                                                                      |               |
+| --send                 | -s     | String to be sent to server                                                                                                                                 |               |
+| --expect-pattern       | -e     | Regular expression patterns expected in responses from the server                                                                                           |               |
+| --quit                 | -q     | String to be sent when disconnecting from the server                                                                                                        |               |
+| --ssl                  | -S     | TLS connection required or not                                                                                                                              | false         |
+| --unix-sock            | -U     | Unix socket                                                                                                                                                 |               |
+| --no-check-certificate |        | Whether or not certificate verification is required                                                                                                         | false         |
+| --timeout              | -t     | Connection timeout time (sec)                                                                                                                               | 10            |
+| --maxbytes             | -m     | Disconnects when more than the specified number of bytes of data is received                                                                                |               |
+| --delay                | -d     | Latency between sending data and polling for a response (sec)                                                                                               |               |
+| --warning              | -w     | Response time as Warning (sec)                                                                                                                              |               |
+| --critical             | -c     | Response time as Critical (sec)                                                                                                                             |               |
+| --escape               | -E     | Escape if the string specified by `--quit` contains `\n` `\r` `\t` `\c`. If not specified, add `\r\n` at the end of the string specified by `--quit`.       | false         |
+| --error-warning        | -W     | Set the alert status to WARNING when the plugin terminates abnormally                                                                                       | CRITICAL      |
+| --expect-closed        | -C     | Verify that the port/unixsock is closed. If the port/unixsock is closed, OK status returned; if open, Critical or Warning status is returned depending on the value of the `--error-warning`. This option only verifies the connection. | false         |
 
 <h2 id="services">Supported services</h2>
 
