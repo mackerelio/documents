@@ -41,7 +41,7 @@ Mackerelおよびmackerel-agentは、以下の環境で動作確認を行って�
         - x64 アーキテクチャおよび AWS Graviton シリーズを含む Arm v8 アーキテクチャをサポートしています。
         - その他、一般的なLinux環境(カーネルバージョン 2.6.23以降)や、上記以外のRed Hat Enterprise Linux派生ディストリビューションでも動作すると思われますが、現在のところサポート対象外です。
     - Windows
-        - Windows Server 2012 以降の x64 ベースシステム
+        - Windows Server 2016, 2019, 2022 (LTSC) の x64 ベースシステム
     - またAmazon Web ServicesやMicrosoft Azure、Google Compute EngineなどのパブリックIaaSクラウド全般を動作対象としています。（ネットワーク環境が特殊なクラウドなどでは全ての機能が正常に動作しない可能性はあります。）
 
 <h3 id="tsdb-spec">メトリックの保持について</h3>

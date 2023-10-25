@@ -40,7 +40,7 @@ As of now, Mackerel and mackerel-agent have been verified to operate in the foll
         - x64 and arm64 processor architecture including AWS Graviton processors.
         - Aside from the above, the agent will probably be run on most Linux systems (kernel version 2.6.23 or later) or Red Hat Enterprise Linux derivatives, however we do not give official support for them at this time.
     - Windows
-        - Windows Server 2012 and later for x64-based Systems
+        - Windows Server 2016, 2019, 2022 (LTSC) for x64-based Systems
     - Additionally, mackerel-agent is especially well suited for public IaaS cloud-based systems such as Amazon Web Services, Microsoft Azure and Google Compute Engine. (There may be reduced functionality on certain systems, such as those with specialized cloud network systems.)
 
 <h3 id="tsdb-spec">Metric data retention</h3>
