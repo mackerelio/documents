@@ -50,15 +50,15 @@ The input procedure varies depending on the monitoring target.
 | `name`          | *string*   | arbitrary name that can be referenced from the monitors list, etc. |
 | `memo`          | *string*   | [optional] notes for the monitoring configuration |
 | `duration`      | *number*   | average value of the designated interval (in minutes) will be monitored. valid interval (1 to 10 min.) |
-| `metric`        | *string*   | name of the host metric targeted by monitoring. by designating a specific constant string, comparative monitoring is possible [*1](#comparative-monitoring) | 
-| `operator`      | *string*   | determines the conditions that state whether the designated variable is either big or small. the observed value is on the left of `”>”` or `”<”` and the designated value is on the right | 
-| `warning`       | *number*   | the threshold that generates a warning alert. comparative monitoring has a valid range of 1-100[*1](#comparative-monitoring) |
-| `critical`      | *number*   | the threshold that generates a critical alert. comparative monitoring has a valid range of 1-100[*1](#comparative-monitoring) |
+| `metric`        | *string*   | name of the host metric targeted by monitoring. by designating a specific constant string, comparative monitoring is possible [*1](#comparative-monitoring) |
+| `operator`      | *string*   | determines the conditions that state whether the designated variable is either big or small. the observed value is on the left of `”>”` or `”<”` and the designated value is on the right |
+| `warning`       | *number*   | [optional] the threshold that generates a warning alert. comparative monitoring has a valid range of 1-100[*1](#comparative-monitoring) |
+| `critical`      | *number*   | [optional] the threshold that generates a critical alert. comparative monitoring has a valid range of 1-100[*1](#comparative-monitoring) |
 | `maxCheckAttempts`           | *number*   | [optional] number of consecutive Warning/Critical instances before an alert is made. Default setting is 1 (1-10) |
 | `notificationInterval`       | *number*   | [optional] the time interval (in minutes) for re-sending notifications. If this field is omitted, notifications will not be re-sent. |
-| `scopes`        | *array[string]* | [optional] monitoring target’s service name or role details name  [*2](#service-name) | 
-| `excludeScopes` | *array[string]* | [optional] monitoring exclusion target’s service name or role details name  [*2](#service-name) | 
-| `isMute` | *boolean* | [optional] Whether monitoring is muted or not [*3](#muted-monitoring) | 
+| `scopes`        | *array[string]* | [optional] monitoring target’s service name or role details name  [*2](#service-name) |
+| `excludeScopes` | *array[string]* | [optional] monitoring exclusion target’s service name or role details name  [*2](#service-name) |
+| `isMute` | *boolean* | [optional] Whether monitoring is muted or not [*3](#muted-monitoring) |
 
 
 ##### Example Input
@@ -301,13 +301,13 @@ This function disables notifications in monitoring. Alerts occur in response to 
 | `duration`      | *number*   | monitors the average value of the designated number of points. range: most recent 1~10 points |
 | `metric`        | *string*   | name of the monitoring target’s host metric name |
 | `operator`      | *string*   | determines the conditions that state whether the designated variable is either big or small. the observed value is on the left of `”>”` or `”<”` and the designated value is on the right |
-| `warning`       | *number*   | the threshold that generates a warning alert |
-| `critical`      | *number*   | the threshold that generates a critical alert |
+| `warning`       | *number*   | [optional] the threshold that generates a warning alert |
+| `critical`      | *number*   | [optional] the threshold that generates a critical alert |
 | `maxCheckAttempts`          | *number*   | [optional] number of consecutive Warning/Critical instances before an alert is made. Default setting is 1 (1-10) |
 | `missingDurationWarning`    | *number*   | [optional] the threshold (in minutes) to generate a warning alert for interruption monitoring                                                                |
 | `missingDurationCritical`   | *number*   | [optional] the threshold (in minutes) to generate a critical alert for interruption monitoring                                                                |
 | `notificationInterval`      | *number*   | [optional] the time interval (in minutes) for re-sending notifications. If this field is omitted, notifications will not be re-sent. |
-| `isMute` | *boolean* | [optional] Whether monitoring is muted or not [*3](#muted-monitoring) | 
+| `isMute` | *boolean* | [optional] Whether monitoring is muted or not [*3](#muted-monitoring) |
 
 ##### Example Input
 
@@ -411,15 +411,15 @@ This function disables notifications in monitoring. Alerts occur in response to 
 | ---------------------- | ---------- | -------------------------------- |
 | `type`                 | *string*   | constant string `"external"`          |
 | `name`                 | *string*   | arbitrary name that can be referenced from the monitors list, etc. |
-| `memo`                            | *string*   | [optional] notes for the monitoring configuration |
+| `memo`                 | *string*   | [optional] notes for the monitoring configuration |
 | `url`                  | *string*   | monitoring target URL |
 | `method`               | *string*   | [optional] request method, one of `GET`, `POST`, `PUT`, `DELETE`. If omitted, `GET` method is used. |
 | `service`              | *string*   | [optional] service name (when response time is monitored, it will be graphed in the service metrics of the service linked here) |
 | `notificationInterval` | *number*   | [optional] the time interval (in minutes) for re-sending notifications. If this field is omitted, notifications will not be re-sent. |
 | `responseTimeWarning`  | *number*   | [optional] the response time threshold for Warning alerts (in milliseconds) `service` designation is required|
 | `responseTimeCritical` | *number*   | [optional] the response time threshold for Critical alerts (in milliseconds) `service` designation is required |
-| `responseTimeDuration` | *number*   | [optional] will monitor the avg. value of requests in the designated time frame (1-10 min.). `service` designation is required |  
-| `containsString`       | *string*   | [optional] string which should be contained by the response body |  
+| `responseTimeDuration` | *number*   | [optional] will monitor the avg. value of requests in the designated time frame (1-10 min.). `service` designation is required |
+| `containsString`       | *string*   | [optional] string which should be contained by the response body |
 | `maxCheckAttempts`     | *number*   | [optional] number of consecutive Warning/Critical instances before an alert is made. Default setting is 1 (1-10) |
 | `certificationExpirationWarning`    | *number*   | [optional] certification expiration date monitor’s “Warning” threshold. number of days remaining until expiration. |
 | `certificationExpirationCritical`   | *number*   | [optional] certification expiration date monitor’s “Critical” threshold. number of days remaining until expiration. |
@@ -429,7 +429,8 @@ This function disables notifications in monitoring. Alerts occur in response to 
 | `requestBody`          | *string*   | [optional] HTTP request body |
 | `followRedirect` | *boolean* | [optional] Evaluates the response of the redirector as a result. If this field is omitted, the redirection destination in the response will not be tracked. |
 
-In order to monitor response time, it's necessary to assign `responseTimeWarning`, `responseTimeCritical`, and `responseTimeDuration`. . In order to monitor the certification expiration date, it’s necessary to assign both `certificationExpirationWarning`, and `certificationExpirationCritical`.
+In order to monitor response time, it's necessary to specify `responseTimeDuration` and at least one of `responseTimeWarning` and `responseTimeCritical`.
+In order to monitor the certification expiration date, it’s necessary to specify at least one of `certificationExpirationWarning` and `certificationExpirationCritical`.
 
 ##### Example Input
 
@@ -536,8 +537,8 @@ In order to monitor response time, it's necessary to assign `responseTimeWarning
 | `memo`          | *string*   | [optional] notes for the monitoring configuration |
 | `expression`    | *string*   | Expression of the monitoring target. Only valid for graph sequences that become one line. |
 | `operator`      | *string*   | determines the conditions that state whether the designated variable is either big or small. the observed value is on the left of ”>”or ”<” and the designated value is on the right|
-| `warning`       | *number*   | the threshold that generates a warning alert |
-| `critical`      | *number*   | the threshold that generates a critical alert |
+| `warning`       | *number*   | [optional] the threshold that generates a warning alert |
+| `critical`      | *number*   | [optional] the threshold that generates a critical alert |
 | `notificationInterval` | *number* | [optional] The time interval (in minutes) for re-sending notifications. If this field is omitted, notifications will not be re-sent. |
 | `isMute`        | *boolean*       | [optional] whether monitoring is muted or not  [*3](#mute) |
 
@@ -709,13 +710,13 @@ In order to monitor response time, it's necessary to assign `responseTimeWarning
 | `type`          | *string*   | constant string `"anomalyDetection"`               |
 | `name`          | *string*   | arbitrary name that can be referenced from the monitors list, etc. |
 | `memo`          | *string*   | [optional] notes for the monitoring configuration |
-| `scopes`        | *array[string]* | [optional] monitoring target’s service name and role details name  [*2](#service-name) | 
-| `warningSensitivity`       | *string*   | the sensitivity (`insensitive`, `normal`, or `sensitive`) that generates warning alerts. |
-| `criticalSensitivity`       | *string*   | the sensitivity (`insensitive`, `normal`, or `sensitive`) that generates critical alerts. |
-| `maxCheckAttempts`           | *number*   | [optional] number of consecutive Warning/Critical instances before an alert is made. Default setting is 3 (1-10) |
-| `trainingPeriodFrom`     | *number* | [optional] Specified training period (Uses metric data starting from the specified time) |
-| `notificationInterval` | *number* | [optional] the time interval (in minutes) for re-sending notifications. If this field is omitted, notifications will not be re-sent. |
-| `isMute`        | *boolean*       | [optional] whether monitoring is muted or not |
+| `scopes`        | *array[string]* | [optional] monitoring target’s service name and role details name  [*2](#service-name) |
+| `warningSensitivity`   | *string*  | [optional] the sensitivity (`insensitive`, `normal`, or `sensitive`) that generates warning alerts. |
+| `criticalSensitivity`  | *string*  | [optional] the sensitivity (`insensitive`, `normal`, or `sensitive`) that generates critical alerts. |
+| `maxCheckAttempts`     | *number*  | [optional] number of consecutive Warning/Critical instances before an alert is made. Default setting is 3 (1-10) |
+| `trainingPeriodFrom`   | *number*  | [optional] Specified training period (Uses metric data starting from the specified time) |
+| `notificationInterval` | *number*  | [optional] the time interval (in minutes) for re-sending notifications. If this field is omitted, notifications will not be re-sent. |
+| `isMute`               | *boolean* | [optional] whether monitoring is muted or not |
 
 ##### Example Input
 
@@ -784,6 +785,10 @@ In order to monitor response time, it's necessary to assign `responseTimeWarning
     </tr>
     <tr>
       <td>400</td>
+      <td>when the both <code>warningSensitivity</code> or <code>criticalSensitivity</code> are unspecified</td>
+    </tr>
+    <tr>
+      <td>400</td>
       <td>when the notification re-sending time interval is not set at 10 minutes or more</td>
     </tr>
     <tr>
@@ -849,7 +854,7 @@ In order to monitor response time, it's necessary to assign `responseTimeWarning
 </p>
 
 As for requests and responses, just as when [create monitors](#create), every field must be specified. If there are any insufficient items that are required, an error will be generated.
-When `scopes` and `excludeScopes` are updated, the JSON which was designated will be completely overwritten. For example, by omitting an item in `scopes` when it has already been saved, `scopes` will be deleted. 
+When `scopes` and `excludeScopes` are updated, the JSON which was designated will be completely overwritten. For example, by omitting an item in `scopes` when it has already been saved, `scopes` will be deleted.
 
 ### Connectivity Monitoring
 
@@ -857,7 +862,7 @@ When changing the `alertStatusOnGone` field, alerts generated by that monitor pr
 
 - Notifications configured to be resent (`notificationInterval`)
 
-    After `alertStatusOnGone` has been changed, only notifications that are configured for resending will change to the new alert status once resent. 
+    After `alertStatusOnGone` has been changed, only notifications that are configured for resending will change to the new alert status once resent.
 
 - Notifications not configured to be resent
 

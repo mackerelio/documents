@@ -51,8 +51,8 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 | `duration`      | *number*   | 指定された間隔(分)の平均値を監視します。有効範囲：1~10分。 |
 | `metric`        | *string*   | 監視対象のホストメトリック名。特定の定数文字列を指定することで、割合監視が可能です。 [*1](#comparative-monitoring) |
 | `operator`      | *string*   | 指定した数値より大きいか小さいかというアラート条件を指定。`">"` または `"<"`。左辺が観測値で右辺が設定値となります。|
-| `warning`       | *number*   | warningのAlert発生の閾値。割合監視 [*1](#comparative-monitoring) の場合は、有効範囲が0~100(%)になります。 |
-| `critical`      | *number*   | criticalのAlert発生の閾値。割合監視 [*1](#comparative-monitoring) の場合は、有効範囲が0~100(%)になります。 |
+| `warning`       | *number*   | [optional] warningのAlert発生の閾値。割合監視 [*1](#comparative-monitoring) の場合は、有効範囲が0~100(%)になります。 |
+| `critical`      | *number*   | [optional] criticalのAlert発生の閾値。割合監視 [*1](#comparative-monitoring) の場合は、有効範囲が0~100(%)になります。 |
 | `maxCheckAttempts`     | *number* | [optional] 何回連続で Warning/Critical になったらアラートを発生させるか。デフォルトは1 (1~10)です。 |
 | `notificationInterval` | *number* | [optional] 通知の再送設定をするときの再送間隔 (分)。このフィールドを省略すると通知は再送されません。 |
 | `scopes`        | *array[string]* | [optional] 監視対象のサービス名またはロール詳細名。[*2](#service-name)  |
@@ -298,8 +298,8 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 | `duration`                | *number*  | 指定されたポイント数の平均値を監視する。有効範囲：直近1~10ポイント                                                   |
 | `metric`                  | *string*  | 監視対象のホストメトリック名。                                                                                       |
 | `operator`                | *string*  | 指定した数値より大きいか小さいかというアラート条件を指定。`">"` または `"<"`。左辺が観測値で右辺が設定値となります。 |
-| `warning`                 | *number*  | warningのAlert発生の閾値。                                                                                           |
-| `critical`                | *number*  | criticalのAlert発生の閾値。                                                                                          |
+| `warning`                 | *number*  | [optional] warningのAlert発生の閾値。                                                                                           |
+| `critical`                | *number*  | [optional] criticalのAlert発生の閾値。                                                                                          |
 | `maxCheckAttempts`        | *number*  | [optional] 何回連続で Warning/Critical になったらアラートを発生させるか。デフォルトは1 (1~10)です。                  |
 | `missingDurationWarning`  | *number*  | [optional] 途切れ監視のwarningのAlert発生閾値 (分)。                                                                 |
 | `missingDurationCritical` | *number*  | [optional] 途切れ監視のcriticalのAlert発生閾値 (分)。                                                                |
@@ -426,8 +426,8 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 | `requestBody`                     | *string*   | [optional] リクエスト時のメッセージボディ |
 | `followRedirect` | *boolean* | [optional] リダイレクト先のレスポンスを結果として評価する。このフィールドを省略するとレスポンスに含まれるリダイレクト先を追跡しません。 |
 
-応答時間の監視を行うには `responseTimeWarning`, `responseTimeCritical`, `responseTimeDuration` の全てを指定する必要があります。
-証明書有効期限の監視を行うには `certificationExpirationWarning`, `certificationExpirationCritical` の両方を指定する必要があります。
+応答時間の監視を行うには `responseTimeWarning` と `responseTimeCritical` の両方またはいずれか一方と `responseTimeDuration` を指定する必要があります。
+証明書有効期限の監視を行うには `certificationExpirationWarning` と `certificationExpirationCritical` の両方またはいずれか一方を指定する必要があります。
 
 ##### 入力例
 
@@ -532,8 +532,8 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 | `memo`          | *string*   | [optional] 監視ルールのメモ。 |
 | `expression`    | *string*   | 監視対象の式。グラフの系列が1本になるもののみ有効。 |
 | `operator`      | *string*   | 指定した数値より大きいか小さいかというアラート条件を指定。`">"` または `"<"`。左辺が観測値で右辺が設定値となります。|
-| `warning`       | *number*   | warningのAlert発生の閾値。 |
-| `critical`      | *number*   | criticalのAlert発生の閾値。 |
+| `warning`       | *number*   | [optional] warningのAlert発生の閾値。 |
+| `critical`      | *number*   | [optional] criticalのAlert発生の閾値。 |
 | `notificationInterval` | *number* | [optional] 通知の再送設定をするときの再送間隔 (分)。このフィールドを省略すると通知は再送されません。 |
 | `isMute`        | *boolean*       | [optional] 監視がミュート状態か否か [*3](#mute) |
 
@@ -619,12 +619,12 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 | `name`          | *string*   | 監視一覧などで参照できる任意の名称。  |
 | `memo`          | *string*   | [optional] 監視ルールのメモ。 |
 | `scopes`        | *array[string]* | 監視対象のサービス名とロール詳細名。[*2](#service-name)  |
-| `warningSensitivity`       | *string*   | warningのAlert発生の閾値。`insensitive`、`normal`、`sensitive`のいずれか。 |
-| `criticalSensitivity`       | *string*   | criticalのAlert発生の閾値。`insensitive`、`normal`、`sensitive`のいずれか。 |
-| `maxCheckAttempts`     | *number* | [optional] 何回連続で Warning/Critical になったらアラートを発生させるか。デフォルトは3 (1~10)です。 |
-| `trainingPeriodFrom`     | *number* | [optional] 再学習させる際に起点となる時刻(epoch秒)。 |
-| `notificationInterval` | *number* | [optional] 通知の再送設定をするときの再送間隔 (分)。このフィールドを省略すると通知は再送されません。 |
-| `isMute`        | *boolean*       | [optional] 監視がミュート状態か否か |
+| `warningSensitivity`   | *string*  | [optional] warningのAlert発生の閾値。`insensitive`、`normal`、`sensitive`のいずれか。 |
+| `criticalSensitivity`  | *string*  | [optional] criticalのAlert発生の閾値。`insensitive`、`normal`、`sensitive`のいずれか。 |
+| `maxCheckAttempts`     | *number*  | [optional] 何回連続で Warning/Critical になったらアラートを発生させるか。デフォルトは3 (1~10)です。 |
+| `trainingPeriodFrom`   | *number*  | [optional] 再学習させる際に起点となる時刻(epoch秒)。 |
+| `notificationInterval` | *number*  | [optional] 通知の再送設定をするときの再送間隔 (分)。このフィールドを省略すると通知は再送されません。 |
+| `isMute`               | *boolean* | [optional] 監視がミュート状態か否か |
 
 ##### 入力例
 
@@ -690,6 +690,10 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
     <tr>
       <td>400</td>
       <td><code>warningSensitivity</code>または<code>criticalSensitivity</code>に <code>insensitive</code> / <code>normal</code> / <code>sensitive</code> 以外の値が指定されたとき</td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td><code>warningSensitivity</code>と<code>criticalSensitivity</code>の両方が未指定の時</td>
     </tr>
     <tr>
       <td>400</td>
@@ -853,7 +857,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 
 - 通知の再送設定（`notificationInterval`）がされているアラート
 
-    `alertStatusOnGone` の変更後に通知の再送が発生した場合にのみ、そのタイミングで新しいアラートステータスに変更されます。  
+    `alertStatusOnGone` の変更後に通知の再送が発生した場合にのみ、そのタイミングで新しいアラートステータスに変更されます。
 
 - 通知の再送設定がされていないアラート
 
