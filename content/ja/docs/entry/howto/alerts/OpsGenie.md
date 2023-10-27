@@ -16,7 +16,7 @@ Opsgenieとの連携を行う事で、Mackerelで設定した監視ルールに�
 
 [f:id:mackerelio:20210428161556p:plain]
 
-連携には、[OpsgenieのAlert API](https://www.opsgenie.com/docs/web-api/alert-api)を利用しています。API Keyは以下の方法で発行したものを入力してください。
+連携には、[OpsgenieのAlert API](https://docs.opsgenie.com/docs/alert-api)を利用しています。API Keyは以下の方法で発行したものを入力してください。
 
 - Opsgenieメイン画面左側のIntegrationsタブを選択
 - Integrations画面左のAPIタブをクリック

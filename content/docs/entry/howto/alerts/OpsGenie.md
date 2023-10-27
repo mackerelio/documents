@@ -16,7 +16,7 @@ Integration settings can be configured in the [Opsgenie form](https://mackerel.i
 
 [f:id:mackerelio:20210428161556p:plain]
 
-For integration we are using the [Opsgenie Alert API](https://www.opsgenie.com/docs/web-api/alert-api). The following steps explain how to obtain the API Key.
+For integration we are using the [Opsgenie Alert API](https://docs.opsgenie.com/docs/alert-api). The following steps explain how to obtain the API Key.
 
 - Select the Integrations tab from the left side of the Opsgenie main screen.
 - Click the API tab on the left side of the Integrations screen.
