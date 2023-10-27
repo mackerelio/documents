@@ -5,14 +5,14 @@ URL: https://mackerel.io/docs/entry/howto/alerts/OpsGenie
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/8454420450101373362
 ---
 
-[Opsgenie](https://www.opsgenie.com/) is an alert management service that aggregates and sends notifications from a variety of monitoring tools such as Mackerel in accordance with notification rules configured in Opsgenie. Mobile notifications can be received as voice, SMS, or email.
+[Opsgenie](https://www.atlassian.com/software/opsgenie) is an alert management service that aggregates and sends notifications from a variety of monitoring tools such as Mackerel in accordance with notification rules configured in Opsgenie. Mobile notifications can be received as voice, SMS, or email.
 
 By using Opsgenie in cooperation with Mackerel, alert notifications from alerts that are raised by monitoring rules that have been set in Mackerel can be sent to Opsgenie. More specifically, when an alert is raised in Mackerel, a new alert will be created by Opsgenie. Additionally, when an alert is resolved in Mackerel, the alert which was created by Opsgenie will be closed.
 
 ![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20150709/20150709113705.png)
 
 ## Adding Opsgenie Integration
-Integration settings can be configured in the [Opsgenie form](https://mackerel.io/my/channels).
+Integration settings can be configured in the [Opsgenie form](https://mackerel.io/my/channels/-/create#opsgenie).
 
 [f:id:mackerelio:20210428161556p:plain]
 

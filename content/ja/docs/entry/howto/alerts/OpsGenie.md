@@ -5,14 +5,14 @@ URL: https://mackerel.io/ja/docs/entry/howto/alerts/OpsGenie
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/8454420450100794470
 ---
 
-[Opsgenie](https://www.opsgenie.com/)はMackerelのような監視ツールからのアラートを集約し、Opsgenie上に登録した任意の通知ルールに従って様々な通知を送ることが出来るアラート管理サービスです。通知の例として、音声、SMS、email、モバイルへアラート通知を送る事が出来ます。
+[Opsgenie](https://www.atlassian.com/software/opsgenie)はMackerelのような監視ツールからのアラートを集約し、Opsgenie上に登録した任意の通知ルールに従って様々な通知を送ることが出来るアラート管理サービスです。通知の例として、音声、SMS、email、モバイルへアラート通知を送る事が出来ます。
 
 Opsgenieとの連携を行う事で、Mackerelで設定した監視ルールに従い発生したアラート通知をOpsgenieへ送る事が出来ます。具体的にはMackerelでアラートが発生した際に、Opsgenieに新たなアラートが作成されます。また、Mackerelでアラートが解決された際にOpsgenieで作成されたアラートを閉じる仕組みとなっております。
 
 ![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20150709/20150709113705.png)
 
 ## Opsgenieとの連携を追加する
-連携の設定は、チャンネルページの[Opsgenieフォーム](https://mackerel.io/my/channels)から行って下さい。
+連携の設定は、チャンネルページの[Opsgenieフォーム](https://mackerel.io/my/channels/-/create#opsgenie)から行って下さい。
 
 [f:id:mackerelio:20210428161556p:plain]
 

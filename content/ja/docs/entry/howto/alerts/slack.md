@@ -28,6 +28,6 @@ URLには、以下のドキュメント（英語）を参考に取得した Inco
 
 また、MackerelからSlackへのアラート通知を送る際に、監視のステータスに応じて自由にテキストを追記する事も可能です。@channel/@group/@here/@everyoneはSlack向けのコマンドに変換されます。メンションを含んだテキストを送るように設定しておくと、Slackアプリなどですぐに通知を受信する事が出来ます。
 
-Slack互換のソフトウェアに関しても、こちらのSlackチャンネルをご利用いただけます（動作保証対象外）。Slack互換のソフトウェアには例えば <a href="http://www.mattermost.org/" target="_blank">Mattermost</a> があります。
+Slack互換のソフトウェアに関しても、こちらのSlackチャンネルをご利用いただけます（動作保証対象外）。Slack互換のソフトウェアには例えば <a href="https://mattermost.com/" target="_blank">Mattermost</a> があります。
 
 どうぞご利用下さい。
