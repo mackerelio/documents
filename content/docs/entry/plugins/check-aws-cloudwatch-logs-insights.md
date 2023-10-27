@@ -44,6 +44,7 @@ The endTime is recorded in [State file](#state-file) each time it is executed, a
 - ex. 1st run 12:00, 2nd run 12:05
   - Target is 11:55 (startTime) to 12:00 (endTime)
 
+If more than 90 minutes has passed since the last execution, it monitors logs from the time 5 minutes before the current time up to an additional 1 minute before as in the case of the first execution.
 
 <h2 id="options">Configurable options</h2>
 
