@@ -722,9 +722,9 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 | --- | --- | --- |
 | `monitorId`  | *string* | 監視ルールのID |
 | `status` | *string* | アラートステータス。`"OK"`、 `"CRITICAL"`、 `"WARNING"`、 `"UNKNOWN"` のいずれかになります。 |
-| `detail` | *string* | [optional] 詳細情報[*6](#list-detail)|
+| `detail` | *object* | [optional] 詳細情報[*6](#monitored-status-detail)|
 
-<h4 id="list-detail" class="annotation">*6 detail</h4>
+<h4 id="monitored-status-detail" class="annotation">*6 detail</h4>
 
 監視ステータスに付随する詳細情報です。現在はチェック監視の監視ステータスにのみ付加されます。
 

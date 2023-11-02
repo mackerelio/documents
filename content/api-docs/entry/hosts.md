@@ -725,9 +725,9 @@ Retrieves the monitor associated with the host and its status (monitoring status
 | --- | --- | --- |
 | `monitorId`  | *string* | monitor ID |
 | `status` | *string* | alert status. either `"OK"`, `"CRITICAL"`, `"WARNING"`, or `"UNKNOWN"` |
-| `detail` | *string* | [optional] detailed information[*6](#list-detail)|
+| `detail` | *object* | [optional] detailed information[*6](#monitored-status-detail)|
 
-<h4 id="list-detail" class="annotation">*6 detail</h4>
+<h4 id="monitored-status-detail" class="annotation">*6 detail</h4>
 
 Detailed information that accompanies the monitoring status. Currently only available for monitoring statuses of check monitoring.
 

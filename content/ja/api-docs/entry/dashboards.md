@@ -242,7 +242,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 | `graph`  | *object* | [グラフを表すオブジェクト](#graph)                            |
 | `range`  | *object* | [optional] [グラフの表示期間を表すオブジェクト](#graph-range) |
 | `valueRange` | *object* | [optional] [グラフの縦軸固定を表すオブジェクト](#graph-value-range) |
-| `referenceLines` | *array[object]* | [optional] [補助線を表すオブジェクト](#reference-line)。補助線の設定を削除したい場合には、空の配列を指定してください。<br />ダッシュボードの取得時に補助線が未設定の場合、空の配列が返されます。配列に2つ以上の要素を指定できません。 |
+| `referenceLines` | *array[object]* | [optional] [補助線を表すオブジェクト](#reference-line)の配列。補助線の設定を削除したい場合には、空の配列を指定してください。<br />ダッシュボードの取得時に補助線が未設定の場合、空の配列が返されます。配列に2つ以上の要素を指定できません。 |
 | `layout` | *object* | [レイアウトを表すオブジェクト](#layout)                       |
 
 ### 数値ウィジェット
@@ -253,7 +253,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 | `metric`       | *object* | [メトリックを表すオブジェクト](#metric)    |
 | `fractionSize` | *number* | [optional] 表示する小数点以下の桁数 (0–16) |
 | `suffix`       | *string* | [optional] 数値の後に表示する単位 |
-| `formatRules` | *array[object]* | [optional] [フォーマットルールを表すオブジェクト](#format-rule)。フォーマットルールの設定を削除したい場合には、空の配列を指定してください。<br />ダッシュボードの取得時にフォーマットルールが未設定の場合、空の配列が返されます。配列に2つ以上の要素を指定できません。 |
+| `formatRules`  | *array[object]* | [optional] [フォーマットルールを表すオブジェクト](#format-rule)の配列。フォーマットルールの設定を削除したい場合には、空の配列を指定してください。<br />ダッシュボードの取得時にフォーマットルールが未設定の場合、空の配列が返されます。配列に2つ以上の要素を指定できません。 |
 | `layout`       | *object* | [レイアウトを表すオブジェクト](#layout)    
 
 ### Markdownウィジェット

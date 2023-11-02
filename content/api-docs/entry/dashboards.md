@@ -242,7 +242,7 @@ Objects representing widgets have the following formats for the differing types.
 | `graph`  | *object* | [object representing a graph](#graph)                            |
 | `range`  | *object* | [optional] [object representing the graph display range](#graph-range) |
 | `valueRange` | *object* | [optional] [object representing the value range of vertical axis](#graph-value-range) |
-| `referenceLines` | *object* | [optional] [object representing the reference line](#reference-line). If you want to remove the reference line setting, specify an empty array.<br /> If reference line is not set when get dashboards, an empty array is returned. Cannot specify more than one element in an array.|
+| `referenceLines` | *array[object]* | [optional] array of [objects representing the reference line](#reference-line). If you want to remove the reference line setting, specify an empty array.<br /> If reference line is not set when get dashboards, an empty array is returned. Cannot specify more than one element in an array.|
 | `layout` | *object* | [object representing the layout](#layout)                       |
 
 ### Value widget
