@@ -151,7 +151,6 @@ The input procedure varies depending on the monitoring target.
       <td>when the service name and role name that are assigned to <code>scope</code> and <code>excludeScopes</code> haven’t been registered yet</td>
     </tr>
     <tr>
-    <tr>
       <td>400</td>
       <td>when the notification re-sending time interval is not set at 10 minutes or more</td>
     </tr>
@@ -524,8 +523,6 @@ In order to monitor the certification expiration date, it’s necessary to speci
   </tbody>
 </table>
 
-----------------------------------------------
-
 <h3 id="create-expression-monitoring">Expression monitoring</h3>
 
 #### Input(expression monitoring)
@@ -610,6 +607,107 @@ In order to monitor the certification expiration date, it’s necessary to speci
     <tr>
       <td>403</td>
       <td>when the API key doesn't have the required permissions / when accessing from outside the <a href="https://support.mackerel.io/hc/en-us/articles/360039701952" target="_blank">permitted IP address range</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="create-anomaly-detection-monitoring">Monitoring with Anomaly Detection for Roles</h3>
+
+#### Input (when monitoring with Anomaly Detection for Roles)
+
+| KEY             | TYPE     | DESCRIPTION                      |
+| ------------    | -------- | -------------------------------- |
+| `type`          | *string*   | constant string `"anomalyDetection"`               |
+| `name`          | *string*   | arbitrary name that can be referenced from the monitors list, etc. |
+| `memo`          | *string*   | [optional] notes for the monitoring configuration |
+| `scopes`        | *array[string]* | [optional] monitoring target’s service name and role details name  [*2](#service-name) |
+| `warningSensitivity`   | *string*  | [optional] the sensitivity (`insensitive`, `normal`, or `sensitive`) that generates warning alerts. |
+| `criticalSensitivity`  | *string*  | [optional] the sensitivity (`insensitive`, `normal`, or `sensitive`) that generates critical alerts. |
+| `maxCheckAttempts`     | *number*  | [optional] number of consecutive Warning/Critical instances before an alert is made. Default setting is 3 (1-10) |
+| `trainingPeriodFrom`   | *number*  | [optional] Specified training period (Uses metric data starting from the specified time) |
+| `notificationInterval` | *number*  | [optional] the time interval (in minutes) for re-sending notifications. If this field is omitted, notifications will not be re-sent. |
+| `isMute`               | *boolean* | [optional] whether monitoring is muted or not |
+
+##### Example Input
+
+```json
+{
+  "type": "anomalyDetection",
+  "name": "anomaly detection",
+  "memo": "my anomaly detection for roles",
+  "scopes": [
+    "myService: myRole"
+  ],
+  "warningSensitivity": "insensitive",
+  "maxCheckAttempts": 3
+}
+```
+
+#### Response (Monitoring with Anomaly Detection for Roles)
+
+##### Success
+
+```json
+{
+  "id"  : "2cSZzK3XfmG",
+  "type": "anomalyDetection",
+  "name": "anomaly detection",
+  "memo": "my anomaly detection for roles",
+  "scopes": [
+    "myService: myRole"
+  ],
+  "warningSensitivity": "insensitive",
+  "maxCheckAttempts": 3
+}
+```
+
+`id` will be given and returned
+
+##### Error
+
+<table class="default api-error-table">
+  <thead>
+    <tr>
+      <th class="status-code">STATUS CODE</th>
+      <th class="description">DESCRIPTION</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>400</td>
+      <td>when the input is in a format that can’t be received</td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td>when the <code>name</code> is empty</td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td>when the<code>memo</code>exceeds 2048 characters</td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td>when the specified service name or role details name is not registered in <code>scope</code> or <code>excludeScopes</code></td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td>when the specified <code>warningSensitivity</code> or <code>criticalSensitivity</code> is not <code>insensitive</code> / <code>normal</code> / <code>sensitive</code></td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td>when both of the <code>warningSensitivity</code> and <code>criticalSensitivity</code> are unspecified</td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td>when the notification re-sending time interval is not set at 10 minutes or more</td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td>when a future vaule is specified for <code>trainingPeriodFrom</code></td>
+    </tr>
+    <tr>
+      <td>403</td>
+      <td>when the API key doesn't have the required permissions</td>
     </tr>
   </tbody>
 </table>
@@ -700,107 +798,6 @@ In order to monitor the certification expiration date, it’s necessary to speci
 
 - each field is the same as when the [monitor was created](#create)
 - list is ordered as monitor type -> name (same as the list of monitors on mackerel.io)
-
-<h3 id="create-anomaly-detection-monitoring">Monitoring with Anomaly Detection for Roles</h3>
-
-#### Input (when monitoring with Anomaly Detection for Roles)
-
-| KEY             | TYPE     | DESCRIPTION                      |
-| ------------    | -------- | -------------------------------- |
-| `type`          | *string*   | constant string `"anomalyDetection"`               |
-| `name`          | *string*   | arbitrary name that can be referenced from the monitors list, etc. |
-| `memo`          | *string*   | [optional] notes for the monitoring configuration |
-| `scopes`        | *array[string]* | [optional] monitoring target’s service name and role details name  [*2](#service-name) |
-| `warningSensitivity`   | *string*  | [optional] the sensitivity (`insensitive`, `normal`, or `sensitive`) that generates warning alerts. |
-| `criticalSensitivity`  | *string*  | [optional] the sensitivity (`insensitive`, `normal`, or `sensitive`) that generates critical alerts. |
-| `maxCheckAttempts`     | *number*  | [optional] number of consecutive Warning/Critical instances before an alert is made. Default setting is 3 (1-10) |
-| `trainingPeriodFrom`   | *number*  | [optional] Specified training period (Uses metric data starting from the specified time) |
-| `notificationInterval` | *number*  | [optional] the time interval (in minutes) for re-sending notifications. If this field is omitted, notifications will not be re-sent. |
-| `isMute`               | *boolean* | [optional] whether monitoring is muted or not |
-
-##### Example Input
-
-```json
-{
-  "type": "anomalyDetection",
-  "name": "anomaly detection",
-  "memo": "my anomaly detection for roles",
-  "scopes": [
-    "myService: myRole"
-  ],
-  "warningSensitivity": "insensitive",
-  "maxCheckAttempts": 3
-}
-```
-
-#### Response (Monitoring with Anomaly Detection for Roles)
-
-##### Success
-
-```json
-{
-  "id"  : "2cSZzK3XfmG",
-  "type": "anomalyDetection",
-  "name": "anomaly detection",
-  "memo": "my anomaly detection for roles",
-  "scopes": [
-    "myService: myRole"
-  ],
-  "warningSensitivity": "insensitive",
-  "maxCheckAttempts": 3
-}
-```
-
-`id` will be given and returned
-
-##### Error
-
-<table class="default api-error-table">
-  <thead>
-    <tr>
-      <th class="status-code">STATUS CODE</th>
-      <th class="description">DESCRIPTION</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>400</td>
-      <td>when the input is in a format that can’t be received</td>
-    </tr>
-    <tr>
-      <td>400</td>
-      <td>when the <code>name</code> is empty</td>
-    </tr>
-    <tr>
-      <td>400</td>
-      <td>when the<code>memo</code>exceeds 2048 characters</td>
-    </tr>
-    <tr>
-      <td>400</td>
-      <td>when the specified service name or role details name is not registered in <code>scope</code> or <code>excludeScopes</code></td>
-    </tr>
-    <tr>
-      <td>400</td>
-      <td>when the specified <code>warningSensitivity</code> or <code>criticalSensitivity</code> is not <code>insensitive</code> / <code>normal</code> / <code>sensitive</code></td>
-    </tr>
-    <tr>
-      <td>400</td>
-      <td>when the both <code>warningSensitivity</code> or <code>criticalSensitivity</code> are unspecified</td>
-    </tr>
-    <tr>
-      <td>400</td>
-      <td>when the notification re-sending time interval is not set at 10 minutes or more</td>
-    </tr>
-    <tr>
-      <td>400</td>
-      <td>when a future vaule is specified for <code>trainingPeriodFrom</code></td>
-    </tr>
-    <tr>
-      <td>403</td>
-      <td>when the API key doesn't have the required permissions</td>
-    </tr>
-  </tbody>
-</table>
 
 ----------------------------------------------
 
