@@ -793,7 +793,7 @@ In order to monitor the certification expiration date, it’s necessary to speci
     </tr>
     <tr>
       <td>400</td>
-      <td>when a future vaule is specified for <code>trainingPeriodFrom</code></td>
+      <td>when a future value is specified for <code>trainingPeriodFrom</code></td>
     </tr>
     <tr>
       <td>403</td>

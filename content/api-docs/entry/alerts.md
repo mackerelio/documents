@@ -60,7 +60,7 @@ Alerts will be returned in chronological order of when they were generated from 
 | `monitorId`  | *string* | the ID of the monitor that generated the alert |
 | `type`  | *string* | the type of the monitor: connectivity (`"connectivity"`), host metric (`"host"`), service metric (`"service"`), external monitor (`"external"`), check monitor (`"check"`), expression monitor (`"expression"`), or anomaly detection for roles (`"anomalyDetection"`) |
 | `hostId`  | *string* | [optional] the associated host ID. only exists when the type of the monitor is either `"connectivity"`, `"host"`, `"check"`, or `"anomalyDetection"` |
-| `value`  | *number* | [optional] the value of the monitoring target. only exists when the type of the monitor is `"host"`, or `"service"` or when there is a reponse time configuration in `"external"` |
+| `value`  | *number* | [optional] the value of the monitoring target. only exists when the type of the monitor is `"host"`, or `"service"` or when there is a response time configuration in `"external"` |
 | `message`  | *string* | [optional] the monitoring target's message. only exists when the type of the monitor is either `"check"` or `"external"` |
 | `reason`  | *string* | [optional] the reason the alert closed. does not exist if the alert is unresolved. |
 | `openedAt`  | *number* | the timestamp of when the alert was generated (Unix time) |

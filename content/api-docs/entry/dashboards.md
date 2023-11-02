@@ -269,7 +269,7 @@ Objects representing widgets have the following formats for the differing types.
 | ---------- | -------- | --------------------------------------- |
 | `type`     | *string* | fixed character string `"alertStatus"`                 |
 | `title`    | *string* | the title of the widget                  |
-| `roleFullname` | *string*  | the service name and role name linked by `:`<br /> However, if the relavent role or service has been deleted when the dashboard is retrieved, `roleFullname` will be set as `null`. |
+| `roleFullname` | *string*  | the service name and role name linked by `:`<br /> However, if the relevant role or service has been deleted when the dashboard is retrieved, `roleFullname` will be set as `null`. |
 | `layout`   | *object* | [object representing the layout](#layout) |
 
 <h3 id="graph">Graphs</h3>

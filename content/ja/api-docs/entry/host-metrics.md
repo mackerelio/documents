@@ -51,7 +51,7 @@ APIに対して過去の値を送信した場合、Mackerel上の値は上書き
 
 ```json
 {
-  "sucess": true
+  "success": true
 }
 ```
 

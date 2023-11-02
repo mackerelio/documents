@@ -52,7 +52,7 @@ If old values are being transmitted to the API, the values on the Mackerel inter
 
 ```json
 {
-  "sucess": true
+  "success": true
 }
 ```
 

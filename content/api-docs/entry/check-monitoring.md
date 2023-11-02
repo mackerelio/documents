@@ -17,7 +17,7 @@ This will transmit a monitoring check report to Mackerel. Monitoring reports are
 The implementation described in [Adding monitors for script checks](https://mackerel.io/docs/entry/custom-checks) is used. The agent will periodically transmit the list of configured monitoring checks to the [Update Host Information](/api-docs/entry/hosts#update-information) API and any monitoring checks not included in that list and those which do not have any open alerts will be deleted from Mackerel at that time.
 Posts will be ignored in the following cases:
 
-- When the time of monitoring time preceeds the time of posting by 6 hours or more
+- When the time of monitoring time proceeds the time of posting by 6 hours or more
 - When a monitoring time has already been posted with the same name / host
 
 

@@ -471,7 +471,7 @@ The format is the same as the object <i>`<aws_integration>`</i> in the <a href="
 
 Returns a generated external ID.
 
-Once issued, the external ID can be reused as long as it is within the same organization, unless all AWS Integration settings configured with ths external ID are deleted.
+Once issued, the external ID can be reused as long as it is within the same organization, unless all AWS Integration settings configured with the external ID are deleted.
 
 ``` json
 {
