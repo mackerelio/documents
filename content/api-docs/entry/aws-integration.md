@@ -586,4 +586,8 @@ Here is a list of the AWS services and their corresponding identifiers (ID) used
 | `Firehose`      | Amazon Kinesis Data Firehose     |
 | `Batch`         | AWS Batch                        |
 | `WAF`           | AWS WAF                          |
-| `Billing`       | Billing                          |
+| `Billing`       | AWS Billing                      |
+| `Route 53`      | Amazon Route 53                  |
+| `Connect`       | Amazon Connect                   |
+| `DocDB`         | Amazon DocumentDB                |
+| `CodeBuild`     | AWS CodeBuild                    |
