@@ -269,7 +269,7 @@ APIに対して過去の値を送信した場合、Mackerel上の値は上書き
   {
       "name" : "custom.cpu.foo",
       "displayName": "CPU",
-      "unit":"percentage",
+      "unit": "percentage",
       "metrics": [
          { "name": "custom.cpu.foo.user", "displayName": "CPU user", "isStacked": true },
          { "name": "custom.cpu.foo.idle", "displayName": "CPU idle", "isStacked": true },
@@ -279,7 +279,7 @@ APIに対して過去の値を送信した場合、Mackerel上の値は上書き
   {
       "name" : "custom.wild.#",
       "displayName": "wildcard",
-      "unit":"float",
+      "unit": "float",
       "metrics": [
          { "name": "custom.wild.#.foo", "displayName": "wild foo" },
          { "name": "custom.wild.#.bar", "displayName": "wild bar" },

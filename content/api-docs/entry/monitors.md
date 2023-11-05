@@ -451,7 +451,7 @@ In order to monitor the certification expiration date, it’s necessary to speci
   "certificationExpirationWarning": 90,
   "certificationExpirationCritical": 30,
   "isMute": false,
-  "headers": [{"name":"Cache-Control", "value":"no-cache"}]
+  "headers": [{"name": "Cache-Control", "value": "no-cache"}]
 }
 ```
 
@@ -477,7 +477,7 @@ In order to monitor the certification expiration date, it’s necessary to speci
   "certificationLimitWarning": 90,
   "certificationLimitCritical": 30,
   "isMute": false,
-  "headers": [{"name":"Cache-Control", "value":"no-cache"}]
+  "headers": [{"name": "Cache-Control", "value": "no-cache"}]
 }
 ```
 
@@ -680,7 +680,7 @@ In order to monitor the certification expiration date, it’s necessary to speci
       "memo": "Monitors example.com",
       "url": "http://www.example.com",
       "service": "Hatena-Blog",
-      "headers": [{"name":"Cache-Control", "value":"no-cache"}],
+      "headers": [{"name": "Cache-Control", "value": "no-cache"}],
       "maxCheckAttempts": 1
     },
     {
