@@ -1,7 +1,0 @@
-- aaa
-  - a
-  - bdcdef
-    - acefef
-      - dasdasda
-      - dsadadsa
-        - CentOS Stream 8/9
