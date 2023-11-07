@@ -450,7 +450,7 @@ In order to monitor the certification expiration date, it’s necessary to speci
   "certificationExpirationWarning": 90,
   "certificationExpirationCritical": 30,
   "isMute": false,
-  "headers": [{"name":"Cache-Control", "value":"no-cache"}]
+  "headers": [{"name": "Cache-Control", "value": "no-cache"}]
 }
 ```
 
@@ -476,7 +476,7 @@ In order to monitor the certification expiration date, it’s necessary to speci
   "certificationLimitWarning": 90,
   "certificationLimitCritical": 30,
   "isMute": false,
-  "headers": [{"name":"Cache-Control", "value":"no-cache"}]
+  "headers": [{"name": "Cache-Control", "value": "no-cache"}]
 }
 ```
 
@@ -703,7 +703,7 @@ In order to monitor the certification expiration date, it’s necessary to speci
     </tr>
     <tr>
       <td>400</td>
-      <td>when a future vaule is specified for <code>trainingPeriodFrom</code></td>
+      <td>when a future value is specified for <code>trainingPeriodFrom</code></td>
     </tr>
     <tr>
       <td>403</td>

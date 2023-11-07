@@ -52,7 +52,7 @@ If old values are being transmitted to the API, the values on the Mackerel inter
 
 ```json
 {
-  "sucess": true
+  "success": true
 }
 ```
 
@@ -270,7 +270,7 @@ metric: an object that contains the following keys.
   {
       "name" : "custom.cpu.foo",
       "displayName": "CPU",
-      "unit":"percentage",
+      "unit": "percentage",
       "metrics": [
          { "name": "custom.cpu.foo.user", "displayName": "CPU user", "isStacked": true },
          { "name": "custom.cpu.foo.idle", "displayName": "CPU idle", "isStacked": true },
@@ -280,7 +280,7 @@ metric: an object that contains the following keys.
   {
       "name" : "custom.wild.#",
       "displayName": "wildcard",
-      "unit":"float",
+      "unit": "float",
       "metrics": [
          { "name": "custom.wild.#.foo", "displayName": "wild foo" },
          { "name": "custom.wild.#.bar", "displayName": "wild bar" },

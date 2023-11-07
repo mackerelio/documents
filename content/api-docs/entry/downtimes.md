@@ -37,11 +37,11 @@ Objects that hold the following keys:
 | `memo` | *string* | [optional] notes for the downtime |
 | `start` | *number* | the starting time(in epoch seconds) |
 | `duration` | *number* | the duration of downtime (in minutes) |
-| `recurrence` | *recurrence* | [optional] configuration for repeating occurences |
+| `recurrence` | *recurrence* | [optional] configuration for repeating occurrences |
 | `serviceScopes` | *array[string]* | [optional] scope of target services. service name array[*](#service-name-and-role-fullname) |
-| `serviceExcludeScopes` | *array[string]* | [optional] scope of exluded services. service name array[*](#service-name-and-role-fullname) |
+| `serviceExcludeScopes` | *array[string]* | [optional] scope of excluded services. service name array[*](#service-name-and-role-fullname) |
 | `roleScopes` | *array[string]* | [optional] scope of target roles. role fullname array[*](#service-name-and-role-fullname) |
-| `roleExcludeScopes` | *array[string]* | [optional] scope of exluded roles. role fullname array[*](#service-name-and-role-fullname) |
+| `roleExcludeScopes` | *array[string]* | [optional] scope of excluded roles. role fullname array[*](#service-name-and-role-fullname) |
 | `monitorScopes` | *array[string]* | [optional] scope of target monitor configurations. `<monitor id>` array |
 | `monitorExcludeScopes` | *array[string]* | [optional] scope of excluded monitor configurations. `<monitor id>` array |
 
