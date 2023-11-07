@@ -151,7 +151,6 @@ The input procedure varies depending on the monitoring target.
       <td>when the service name and role name that are assigned to <code>scope</code> and <code>excludeScopes</code> haven’t been registered yet</td>
     </tr>
     <tr>
-    <tr>
       <td>400</td>
       <td>when the notification re-sending time interval is not set at 10 minutes or more</td>
     </tr>
@@ -524,8 +523,6 @@ In order to monitor the certification expiration date, it’s necessary to speci
   </tbody>
 </table>
 
-----------------------------------------------
-
 <h3 id="create-expression-monitoring">Expression monitoring</h3>
 
 #### Input(expression monitoring)
@@ -614,93 +611,6 @@ In order to monitor the certification expiration date, it’s necessary to speci
   </tbody>
 </table>
 
-----------------------------------------------
-
-<h2 id="list">List Monitor Configurations</h2>
-
-<p class="type-get">
-  <code>GET</code>
-  <code>/api/v0/monitors</code>
-</p>
-
-### Required permissions for the API key
-
-<ul class="api-key">
-  <li class="label-read">Read</li>
-</ul>
-
-### Response
-
-```json
-{
-  "monitors": [
-    {
-      "id"  : "2cSZzK3XfmB",
-      "type": "host",
-      "name": "disk.aa-00.writes.delta",
-      "memo": "This monitor is for Hatena Blog.",
-      "duration": 3,
-      "metric": "disk.aa-00.writes.delta",
-      "operator": ">",
-      "warning": 20000.0,
-      "critical": 400000.0,
-      "maxCheckAttempts": 3,
-      "scopes": [
-        "Hatena-Blog"
-      ],
-      "excludeScopes": [
-        "Hatena-Bookmark: db-master"
-      ]
-    },
-    {
-      "id": "2cSZzK3XfmA",
-      "type": "connectivity",
-      "alertStatusOnGone": "CRITICAL",
-      "scopes": [],
-      "excludeScopes": []
-    },
-    {
-      "id"  : "2cSZzK3XfmC",
-      "type": "service",
-      "name": "Hatena-Blog - access_num.4xx_count",
-      "memo": "A monitor that checks the number of 4xx for Hatena Blog",
-      "service": "Hatena-Blog",
-      "duration": 1,
-      "metric": "access_num.4xx_count",
-      "operator": ">",
-      "warning": 50.0,
-      "critical": 100.0,
-      "maxCheckAttempts": 1,
-      "notificationInterval": 60
-    },
-    {
-      "id"  : "2cSZzK3XfmD",
-      "type": "external",
-      "name": "example.com",
-      "memo": "Monitors example.com",
-      "url": "http://www.example.com",
-      "service": "Hatena-Blog",
-      "headers": [{"name": "Cache-Control", "value": "no-cache"}],
-      "maxCheckAttempts": 1
-    },
-    {
-      "id"  : "2cSZzK3XfmE",
-      "type": "expression",
-      "name": "role average",
-      "memo": "Monitors the average of loadavg5",
-      "expression": "avg(roleSlots(\"server:role\",\"loadavg5\"))",
-      "operator": ">",
-      "warning": 5.0,
-      "critical": 10.0,
-      "notificationInterval": 60
-    }
-  ]
-}
-```
-
-- each field is the same as when the [monitor was created](#create)
-- list is ordered as monitor type -> name (same as the list of monitors on mackerel.io)
-
 <h3 id="create-anomaly-detection-monitoring">Monitoring with Anomaly Detection for Roles</h3>
 
 #### Input (when monitoring with Anomaly Detection for Roles)
@@ -785,7 +695,7 @@ In order to monitor the certification expiration date, it’s necessary to speci
     </tr>
     <tr>
       <td>400</td>
-      <td>when the both <code>warningSensitivity</code> or <code>criticalSensitivity</code> are unspecified</td>
+      <td>when both of the <code>warningSensitivity</code> and <code>criticalSensitivity</code> are unspecified</td>
     </tr>
     <tr>
       <td>400</td>
@@ -801,6 +711,93 @@ In order to monitor the certification expiration date, it’s necessary to speci
     </tr>
   </tbody>
 </table>
+
+----------------------------------------------
+
+<h2 id="list">List Monitor Configurations</h2>
+
+<p class="type-get">
+  <code>GET</code>
+  <code>/api/v0/monitors</code>
+</p>
+
+### Required permissions for the API key
+
+<ul class="api-key">
+  <li class="label-read">Read</li>
+</ul>
+
+### Response
+
+```json
+{
+  "monitors": [
+    {
+      "id"  : "2cSZzK3XfmB",
+      "type": "host",
+      "name": "disk.aa-00.writes.delta",
+      "memo": "This monitor is for Hatena Blog.",
+      "duration": 3,
+      "metric": "disk.aa-00.writes.delta",
+      "operator": ">",
+      "warning": 20000.0,
+      "critical": 400000.0,
+      "maxCheckAttempts": 3,
+      "scopes": [
+        "Hatena-Blog"
+      ],
+      "excludeScopes": [
+        "Hatena-Bookmark: db-master"
+      ]
+    },
+    {
+      "id": "2cSZzK3XfmA",
+      "type": "connectivity",
+      "alertStatusOnGone": "CRITICAL",
+      "scopes": [],
+      "excludeScopes": []
+    },
+    {
+      "id"  : "2cSZzK3XfmC",
+      "type": "service",
+      "name": "Hatena-Blog - access_num.4xx_count",
+      "memo": "A monitor that checks the number of 4xx for Hatena Blog",
+      "service": "Hatena-Blog",
+      "duration": 1,
+      "metric": "access_num.4xx_count",
+      "operator": ">",
+      "warning": 50.0,
+      "critical": 100.0,
+      "maxCheckAttempts": 1,
+      "notificationInterval": 60
+    },
+    {
+      "id"  : "2cSZzK3XfmD",
+      "type": "external",
+      "name": "example.com",
+      "memo": "Monitors example.com",
+      "url": "http://www.example.com",
+      "service": "Hatena-Blog",
+      "headers": [{"name":"Cache-Control", "value":"no-cache"}],
+      "maxCheckAttempts": 1
+    },
+    {
+      "id"  : "2cSZzK3XfmE",
+      "type": "expression",
+      "name": "role average",
+      "memo": "Monitors the average of loadavg5",
+      "expression": "avg(roleSlots(\"server:role\",\"loadavg5\"))",
+      "operator": ">",
+      "warning": 5.0,
+      "critical": 10.0,
+      "notificationInterval": 60
+    }
+  ]
+}
+```
+
+- each field is the same as when the [monitor was created](#create)
+- list is ordered as monitor type -> name (same as the list of monitors on mackerel.io)
 
 ----------------------------------------------
 
