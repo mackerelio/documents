@@ -448,7 +448,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
   "certificationExpirationWarning": 90,
   "certificationExpirationCritical": 30,
   "isMute": false,
-  "headers": [{"name":"Cache-Control", "value":"no-cache"}]
+  "headers": [{"name": "Cache-Control", "value": "no-cache"}]
 }
 ```
 
@@ -474,7 +474,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
   "certificationLimitWarning": 90,
   "certificationLimitCritical": 30,
   "isMute": false,
-  "headers": [{"name":"Cache-Control", "value":"no-cache"}]
+  "headers": [{"name": "Cache-Control", "value": "no-cache"}]
 }
 ```
 
@@ -776,7 +776,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
       "memo": "Monitors example.com",
       "url": "http://www.example.com",
       "service": "Hatena-Blog",
-      "headers": [{"name":"Cache-Control", "value":"no-cache"}],
+      "headers": [{"name": "Cache-Control", "value": "no-cache"}],
       "maxCheckAttempts": 1
     },
     {

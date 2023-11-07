@@ -725,16 +725,16 @@ Retrieves the monitor associated with the host and its status (monitoring status
 | --- | --- | --- |
 | `monitorId`  | *string* | monitor ID |
 | `status` | *string* | alert status. either `"OK"`, `"CRITICAL"`, `"WARNING"`, or `"UNKNOWN"` |
-| `detail` | *string* | [optional] detailed information[*6](#list-detail)|
+| `detail` | *object* | [optional] detailed information[*6](#monitored-status-detail)|
 
-<h4 id="list-detail" class="annotation">*6 detail</h4>
+<h4 id="monitored-status-detail" class="annotation">*6 detail</h4>
 
 Detailed information that accompanies the monitoring status. Currently only available for monitoring statuses of check monitoring.
 
 | KEY | TYPE | DESCRIPTION |
 | --- | --- | --- |
 | `type` | *string* | the type of detailed information. check monitoring is always `check` |
-| `message` | *string* | auxillary text such as command output results |
+| `message` | *string* | auxiliary text such as command output results |
 | `memo` | *string* | [optional] notes configured for check monitoring |
 
 #### Error
