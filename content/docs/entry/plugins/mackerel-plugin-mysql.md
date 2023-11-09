@@ -6,9 +6,31 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackere
 CustomPath: plugins/mackerel-plugin-mysql
 ---
 
-mackerel-plugin-mysql can monitor various metrics about MySQL, such as the number of queries executed.
+mackerel-plugin-mysql can monitor various metrics about MySQL, such as the number of queries executed.  
+The installation method for the plugin varies depending on the version of MySQL. Please check the [Plugin installation instructions](#install) before using it.
 
 [:contents]
+
+<h2 id="install">Plugin installation instructions</h2>
+
+<h3 id="install-new">For MySQL 5.7 and later, MySQL 8.0 and later</h3>
+
+Please follow the official plugin installation procedures as usual.
+
+- [Using the official plugin pack to visualize middleware metrics](https://mackerel.io/docs/entry/howto/mackerel-agent-plugins)
+
+<h3 id="install-old">For versions older than the above</h3>
+
+Please install using the following steps with the mkr command.
+
+```
+sudo mkr plugin install mackerelio/mackerel-plugin-mysql@v1.0.0
+```
+
+For more information about the mkr command, please refer to the following.
+
+- [Using the mkr CLI tool](https://mackerel.io/docs/entry/advanced/cli)
+- [Using mkr plugin install](https://mackerel.io/docs/entry/advanced/install-plugin-by-mkr)
 
 <h2 id="metrics">Metrics you can monitor</h2>
 

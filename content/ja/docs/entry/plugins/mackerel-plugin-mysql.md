@@ -6,9 +6,31 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 CustomPath: plugins/mackerel-plugin-mysql
 ---
 
-mackerel-plugin-mysqlはクエリの実行回数など、MySQLに関する各種メトリックを監視できます。
+mackerel-plugin-mysqlはクエリの実行回数など、MySQLに関する各種メトリックを監視できます。  
+MySQLのバージョンによりプラグインのインストール方法が異なります。あらかじめ[プラグインのインストール方法](#install)をご確認の上でご利用ください。
 
 [:contents]
+
+<h2 id="install">プラグインのインストール方法</h2>
+
+<h3 id="install-new">MySQL 5.7以降、MySQL 8.0以降をご利用の場合</h3>
+
+通常通り、公式プラグインのインストール手順に沿ってご対応ください。
+
+- [ミドルウェアのメトリック可視化に公式プラグイン集を使う](https://mackerel.io/ja/docs/entry/howto/mackerel-agent-plugins)
+
+<h3 id="install-old">上記より古いバージョンをご利用の場合</h3>
+
+mkrコマンドを使用して、次の手順でインストールしてください。
+
+```
+sudo mkr plugin install mackerelio/mackerel-plugin-mysql@v1.0.0
+```
+
+mkrコマンドについては、以下をご参照ください。
+
+- [CLIツール mkr を使う](https://mackerel.io/ja/docs/entry/advanced/cli)
+- [mkr plugin installでプラグインをインストールする](https://mackerel.io/ja/docs/entry/advanced/install-plugin-by-mkr)
 
 <h2 id="metrics">監視できるメトリック</h2>
 
