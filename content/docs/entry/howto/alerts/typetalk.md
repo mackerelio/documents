@@ -5,6 +5,12 @@ URL: https://mackerel.io/docs/entry/howto/alerts/typetalk
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/8454420450083894396
 ---
 
+**Typetalk will be ending its service on December 1, 2025 (Monday). Please check the following announcement for more details.**
+
+- [Farewell to Typetalk: A platform that brought people together (nulab.com)](https://nulab.com/blog/company-news/typetalk-sunsetting/)
+
+---
+
 [Typetalk](http://www.typetalk.com/) is a fun and easy-to-use messaging tool that focuses on team-based communication.
 
 By configuring Typetalk as a notification channel, you can have alert information from hosts that are being monitored by Mackerel broadcasted to any designated chat room(s). You can also receive detailed information regarding important alerts in real-time. 

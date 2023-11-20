@@ -5,6 +5,12 @@ URL: https://mackerel.io/ja/docs/entry/howto/alerts/typetalk
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/8454420450076122607
 ---
 
+**Typetalkは2025年12月1日（月）をもってサービス終了となります。詳細については以下のお知らせをご確認ください。**
+
+- [【重要】Typetalkサービス終了のお知らせ | 株式会社ヌーラボ(Nulab inc.)](https://nulab.com/ja/blog/typetalk/announcement-close-of-typetalk/)
+
+---
+
 [Typetalk（タイプトーク）](http://www.typetalk.com)は楽しく簡単にメッセージのやりとりができるチーム向けコミュニケーションツールです。
 
 Mackerel上でTypetalkチャンネルを登録すると、Mackerelで監視しているホストのアラート情報を適宜チャットに流す事が出来ます。重大なアラートが発生した際にもリアル

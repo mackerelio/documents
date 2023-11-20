@@ -120,6 +120,18 @@ See the <a href="#select-metric">Restrict which metrics to retrieve</a> section 
 <h3 id="setting_check_host">3. Confirm the host</h3>
 After a short while, your AWS cloud product will be registered as a host in Mackerel and begin posting metrics. By creating monitoring rules, you can also be notified of alerts. For more information, see [Setting up monitoring and alerts](https://mackerel.io/docs/entry/howto/alerts).
 
+<h2 id="auto-new-metrics-addition">Configure automatic new metrics addition</h2>
+
+![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20231101/20231101163216.png)
+
+Mackerel may add new metrics as each AWS service is updated.
+
+By turning on "Add new metrics automatically", you can avoid having to select metrics for retrieval on the AWS integration settings page each time they are added.
+
+The usage fee for AWS integration is determined by the number of hosts calculated from the number of metrics acquired (Reference: [Handling of host conversion when plan limits are exceeded](https://support.mackerel.io/hc/en-us/articles/360040109431-Handling-of-host-conversion-when-plan-limits-are-exceeded)). Therefore, when a large number of metrics are added, the number of hosts will increase due to exceeding the upper limit, which may also affect usage charges.
+
+If you want to avoid unexpected increases in usage charges, turn off "Add new metrics automatically". Metrics added thereafter will not be automatically acquired, so please select the required metrics individually.
+
 <h2 id="auto-retirement">Configure automatic retirement</h2>
 
 Some services offer the option to retire hosts from Mackerel upon removal of AWS resources. To enable automatic retirement, check the `Enable automatic retirement` checkbox in the configuration page.
