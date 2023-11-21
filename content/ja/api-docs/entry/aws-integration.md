@@ -82,8 +82,11 @@ AWSインテグレーション設定の一覧が返却されます。
 | `enable`              | *boolean*         | インテグレーション設定が有効かどうか             |
 | `role`                | *string* / *null* | ロールの詳細名                                   |
 | `excludedMetrics`     | *array[string]*   | 除外するメトリック名のリスト                     |
+| `includedMetrics`     | *array[string]*   | 取得するメトリック名のリスト                     |
 
 <i>`role`</i> は [AWSインテグレーション設定の登録](#create)の項目の <i>`role`</i> と同じ。
+
+<i>`excludedMetrics`</i> と <i>`includedMetrics`</i> はAWSインテグレーション設定ごとに、全てのサービスを通してどちらか一方のみが返ります。
 
 EC2・RDS の場合は、追加で以下のキーが設定されています。
 
@@ -209,7 +212,8 @@ AWSインテグレーション設定の情報が返却されます。
 | --------              | ------            | -----------                                                                                |
 | `enable`              | *boolean*         | インテグレーション設定の有効(`true`)/無効(`false`)                                         |
 | `role`                | *string* / *null* | ロールの詳細名[*4](#roleFullName)。ロールを指定しない場合は、 `null` を設定してください。  |
-| `excludedMetrics`     | *array[string]*   | 除外するメトリック名のリスト[*5](#excludedMetrics)                                         |
+| `excludedMetrics`     | *array[string]*   | [optional] 除外するメトリック名のリスト[*5](#excludedMetrics)                              |
+| `includedMetrics`     | *array[string]*   | [optional] 取得するメトリック名のリスト[*5](#excludedMetrics)                              |
 
 EC2・RDS の場合は、追加で以下のキーが設定できます。
 
@@ -305,11 +309,16 @@ Mackerel ではAWSのタグを指定して、登録するホストを絞り込�
   </tbody>
 </table>
 
-<h4 id="excludedMetrics" class="annotation">*5 除外可能なメトリック名について</h4>
+<h4 id="excludedMetrics" class="annotation">*5 除外可能・取得可能なメトリック名について</h4>
 
 <i>`excludedMetrics`</i> では各AWSサービスに対して、監視対象から除外するメトリック名のリストを設定します。
 
-各AWSサービスで除外可能なメトリック名の一覧は、[こちら](https://mackerel.io/ja/docs/entry/integrations/aws) でご確認いただけます。
+<i>`includedMetrics`</i> では各AWSサービスに対して、監視対象として明示的に指定するメトリック名のリストを設定します。
+
+<i>`excludedMetrics`</i> と <i>`includedMetrics`</i> はAWSインテグレーション設定ごとに、全てのサービスを通してどちらか一方のみを指定できます。
+同一のAWSインテグレーション設定内で、サービスごとに <i>`excludedMetrics`</i> と <i>`includedMetrics`</i> を混在させることはできません。
+
+各AWSサービスで利用可能なメトリック名の一覧は、[こちら](https://mackerel.io/ja/docs/entry/integrations/aws) でご確認いただけます。
 
 もしくは、[AWSインテグレーションの除外可能なメトリック名一覧](#excludable-metrics) APIを利用して取得することも可能です。
 

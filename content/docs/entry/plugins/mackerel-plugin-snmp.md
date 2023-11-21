@@ -23,7 +23,7 @@ The options which can be configured in the plugin are as follows.
 | Option     | Explanation                                                                                                                                                        | Default Value |
 | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------- |
 | -name      | Graph name                                                                                                                                                         | snmp          |
-| -unit      | Units for the metric associated with the graph (Refer to `unit` [here] (https://mackerel.io/ja/api-docs/entry/host-metrics#post-graphdef) for the possible units.) | float         |
+| -unit      | Units for the metric associated with the graph (Refer to `unit` [here] (https://mackerel.io/api-docs/entry/host-metrics#post-graphdef) for the possible units.)    | float         |
 | -host      | Host which sends SNMP requests                                                                                                                                     | localhost     |
 | -community | Community name                                                                                                                                                     | public        |
 | -tempfile  | Temporary file save location                                                                                                                                       |               |
@@ -32,34 +32,34 @@ When defining the metric to be retrieved, use a colon (`:`) as a separator, e.g.
 
 | Item  | Explanation                                                          | Required | Default Value |
 | ----- | -------------------------------------------------------------------- | -------- | ------------- |
-| OID   | OID of the MIB value to retrieve (Cannot be designated by MIB name)  | ◯        |               |
-| NAME  | Metric Name                                                          | ◯        |               |
-| DIFF  | Difference display as a counter value (Specify with “0:No or 1:Yes”) |          | 0             |
-| STACK | Stack display (Specify with “0:No or 1:Yes”)                         |          | 0             |
+| OID   | OID of the MIB value to retrieve (Cannot be designated by MIB name)  | ✓        |               |
+| NAME  | Metric Name                                                          | ✓        |               |
+| DIFF  | Difference display as a counter value (Specify with "0:No or 1:Yes") |          | 0             |
+| STACK | Stack display (Specify with "0:No or 1:Yes")                         |          | 0             |
 
 <h2 id="config">Example configuration</h2>
 
 In this plugin, the options must be configured before defining metrics.
 
-The following is the configuration to post with `public` for the community, the OID `.1.2.3.4.5.6.7` for the MIB, `foo` for the graph name, `bar` for the metric name, and difference/stack display both set to “No”.
+The following is the configuration to post with `public` for the community, the OID `.1.2.3.4.5.6.7` for the MIB, `foo` for the graph name, `bar` for the metric name, and difference/stack display both set to "No".
 
-‘’’
+```
 [plugin.metrics.snmp]
 command = ["mackerel-plugin-snmp", "-name", "foo", "-community", "public", ".1.2.3.4.5.6.7:bar:0:0"]
-‘’’
+```
 
 It is possible to post multiple metrics to the same graph by listing multiple metric definitions.
 
-‘’’
+```
 [plugin.metrics.snmp]
 command = ["mackerel-plugin-snmp", "-name", "foo", "-community", "public", ".1.2.3.4.5.6.7:bar:0:0", ".1.2.3.4.5.6.8:fuga:0:0"]
-‘’’
+```
 
 To directly execute and confirm the above configuration via terminal, etc., please execute the following string.
 
-‘’’
+```
 mackerel-plugin-snmp -name foo -community public ".1.2.3.4.5.6.7:bar:0:0" ".1.2.3.4.5.6.8:fuga:0:0"
-‘’’
+```
 
 <h2 id="troubleshoot">Troubleshooting</h2>
 

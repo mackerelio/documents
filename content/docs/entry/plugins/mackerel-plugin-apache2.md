@@ -139,5 +139,5 @@ https://github.com/mackerelio/mackerel-agent-plugins/tree/master/mackerel-plugin
 
 <h2 id="reference">References</h2>
 
-- [httpd/scoreboard.h at trunk · apache/httpd](https://github.com/apache/httpd/blob/trunk/include/scoreboard.h)
+- [httpd/include/scoreboard.h at trunk · apache/httpd · GitHub](https://github.com/apache/httpd/blob/trunk/include/scoreboard.h)
 

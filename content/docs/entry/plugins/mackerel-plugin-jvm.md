@@ -106,7 +106,7 @@ The `XXX` in each graph name is set to the application name specified by the `--
 
 The options that can be specified for the plug-ins are as follows.
 
-| Option      | Description                                                               | Required | 初期値                                     |
+| Option      | Description                                                               | Required | Default                                    |
 | ----------- | ------------------------------------------------------------------------- | -------- | ------------------------------------------ |
 | --host      | Deprecated: hostname of jps/jstat                                         |          |                                            |
 | --port      | Deprecated: Target port of jps/jstat                                      |          | 0                                          |
@@ -144,7 +144,7 @@ command = [ "mackerel-plugin-jvm", "--jstatpath", "/usr/bin/jstat", "--jpspath",
 
 - It is thought that a timeout occurred when executing the jinfo command from the plugin, due to temporary host load or other factors.
 - If the output is continuous, please run the jinfo command manually to check the status.
-- It may be possible to avoid this problem by adjusting the timeout value (timeout_seconds) of the monitoring rule. Please refer to [Configuration](https://mackerel.io/ja/docs/entry/custom-checks#items) for details.
+- It may be possible to avoid this problem by adjusting the timeout value (timeout_seconds) of the monitoring rule. Please refer to [Configuration](https://mackerel.io/docs/entry/custom-checks#items) for details.
 
 
 <h2 id="repository">Repository</h2>

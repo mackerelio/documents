@@ -14,15 +14,15 @@ The check-http plugin performs monitoring of a desired server via HTTP connectio
 
 | Option                 | Abbreviation | Required | Explanation                                                                                    | Multiple Allowed | Default Value  |
 | ---------------------- | ------------ | -------- | ---------------------------------------------------------------------------------------------- | ---------------- | -------------- |
-| --url                  | -u           | ◯        | URL to connect to                                                                              |                  |                |
-| --status               | -s           |          | Designate the monitoring results for each HTTP response code in the format `key=value`         | ○                |                |
+| --url                  | -u           | ✓        | URL to connect to                                                                              |                  |                |
+| --status               | -s           |          | Designate the monitoring results for each HTTP response code in the format `key=value`         | ✓                |                |
 | --no-check-certificate |              |          | Do not authenticate certificate                                                                |                  |                |
 | --source-ip            | -i           |          | Source IP address                                                                              |                  |                |
-|                        | -H           |          | HTTP request header                                                                            | ○                |                |
+|                        | -H           |          | HTTP request header                                                                            | ✓                |                |
 | --pattern              | -p           |          | Regular expression to check the HTTP response body                                             |                  |                |
 | --max-redirects        |              |          | Maximum number of redirects to follow                                                          |                  | 10             |
 | --method               | -m           |          | HTTP request method (Specify `GET`, `HEAD`, `POST`, or `PUT`)                                  |                  | GET            |
-| --connect-to           |              |          | Connect to HOST2:PORT2 instead of HOST1:PORT1. Specify in the format `HOST1:PORT1:HOST2:PORT2` | ○                |                |
+| --connect-to           |              |          | Connect to HOST2:PORT2 instead of HOST1:PORT1. Specify in the format `HOST1:PORT1:HOST2:PORT2` | ✓                |                |
 | --proxy                | -x           |          | Send requests via HTTP proxy. Specify in the format `[PROTOCOL://][USER:PASS@]HOST[:PORT]`     |                  | `PORT` is 1080 |
 | --user                 |              |          | Assign the user ID and password for Basic authentication in the format `USER[:PASSWORD]`       |                  |                |
 | --require-bytes        | -B           |          | Checks that response size matches designated number of bytes                                   |                  | -1             |
@@ -52,24 +52,24 @@ The monitoring results for each HTTP response code can be configured via the `--
 
 To monitor `https://mackerel.io/`, use the following configuration.
 
-‘’’
+```
 [plugin.checks.https-mackerelio]
 command = ["check-http", "-u", "https://mackerel.io"]
-‘’’
+```
 
 To set the monitoring result for the HTTP response of 404 to `OK`, use the following configuration.
 
-‘’’
+```
 [plugin.checks.https-mackerelio]
 command = ["check-http", "-u", "https://mackerel.io", "--status", "404=OK"]
-‘’’
+```
 
 It is also possible to designate the HTTP status code in the format `200-404`.
 
-‘’’
+```
 [plugin.checks.https-mackerelio]
 command = ["check-http", "-u", "https://mackerel.io", "--status", "200-404=OK"]
-‘’’
+```
 
 <h2 id="tips">Tips</h2>
 

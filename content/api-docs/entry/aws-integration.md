@@ -82,8 +82,11 @@ Enter the [AWS service identifier](#awsServiceNames) in place of <i>`<awsService
 | `enable`              | *boolean*         | whether integration settings are enabled             |
 | `role`                | *string* / *null* | full role name                                   |
 | `excludedMetrics`     | *array[string]*   | list of excluded metrics                     |
+| `includedMetrics`     | *array[string]*   | list of included metrics                     |
 
 This <i>`role`</i> is the same as the <i>`role`</i> in [Register AWS Integration Settings](#create).
+
+Only one or the other of <i>`excludedMetrics`</i> and <i>`includedMetrics`</i> will be returned for each AWS integration settings across all services.
 
 With EC2 and RDS, the following additional keys are configured.
 
@@ -209,7 +212,8 @@ Enter the [AWS service identifier](#awsServiceNames) in place of <i>`<awsService
 | --------              | ------            | -----------                                                                                |
 | `enable`              | *boolean*         | whether integration settings are enabled(`true`)/disabled(`false`)                                        |
 | `role`                | *string* / *null* | full role name[*4](#roleFullName). If not specifying a role, set to `null`.  |
-| `excludedMetrics`     | *array[string]*   | list of excluded metrics[*5](#excludedMetrics)                                         |
+| `excludedMetrics`     | *array[string]*   | [optional] list of excluded metrics[*5](#excludedMetrics)                              |
+| `includedMetrics`     | *array[string]*   | [optional] list of included metrics[*5](#excludedMetrics)                              |
 
 With EC2 and RDS, the following additional keys can be configured.
 
@@ -305,11 +309,16 @@ The full name of a role is a string in the format of `<service name>:<role name>
   </tbody>
 </table>
 
-<h4 id="excludedMetrics" class="annotation">*5 About excludable metrics</h4>
+<h4 id="excludedMetrics" class="annotation">*5 About excludable / includable metrics</h4>
 
 <i>`excludedMetrics`</i> sets a list of metric names to be excluded from monitoring for each AWS service.
 
-Refer [here](https://mackerel.io/docs/entry/integrations/aws) for a list of metrics that can be excluded for each AWS service.
+<i>`includedMetrics`</i> sets a list of metric names to be explicitly included monitoring for each AWS service.
+
+Only one or the other of <i>`excludedMetrics`</i> and <i>`includedMetrics`</i> can be set for each AWS integration settings across all services.
+Both <i>'excludedMetrics'</i> and <i>'includedMetrics'</i> can't coexist for each service within the same AWS integration settings.
+
+Refer [here](https://mackerel.io/docs/entry/integrations/aws) for a list of metrics that can be used for each AWS service.
 
 Alternatively, you can also obtain this using the [List Excludable Metrics for AWS Integration ](#excludable-metrics) API.
 
