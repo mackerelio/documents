@@ -165,13 +165,14 @@ The input procedure varies depending on the monitoring target.
 
 If monitoring host metrics, by assigning a specific character string to `metric`, comparative monitoring will be done for that metric. `metric`s that can be assigned as comparative monitoring values are as follows.
 
-
-| metric             |
-|--------------------|
-| `"cpu%"`           |
-| `"memory%"`        |
-| `"disk%"`          |
-| `"swap%"`          |
+| metric                |
+|-----------------------|
+| `"cpu%"`              |
+| `"memory%"`           |
+| `"disk%"`             |
+| `"swap%"`             |
+| `"container-cpu%"`    |
+| `"container-memory%"` |
 
 <h4 id="service-name">*2 Service name and Role service name</h4>
 

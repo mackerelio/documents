@@ -164,12 +164,14 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 ホストメトリック監視の場合、`metric` に特定の文字列を指定することでメトリックに対する割合監視となります。
 割合監視として指定可能な `metric` は下記のとおりです。
 
-| metric             |
-|--------------------|
-| `"cpu%"`           |
-| `"memory%"`        |
-| `"disk%"`          |
-| `"swap%"`          |
+| metric                |
+|-----------------------|
+| `"cpu%"`              |
+| `"memory%"`           |
+| `"disk%"`             |
+| `"swap%"`             |
+| `"container-cpu%"`    |
+| `"container-memory%"` |
 
 <h4 id="service-name">*2 サービス名またはロール詳細名</h4>
 
