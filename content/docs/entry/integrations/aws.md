@@ -319,7 +319,7 @@ For example, the endpoint in the case of Amazon RDS, and the DNS Name in the cas
 #### Example uses
 Here are two example uses. In either case, the agent needs to be restarted after adding to the mackerel-agent configuration file.
 
-The first example is of MySQL monitoring using the [mackerel-plugin-mysql](https://github.com/mackerelio/mackerel-agent-plugins/tree/master/mackerel-plugin-mysql) plugin for Amazon RDS. Metrics retrieved by the plugin can be aggregated as custom metrics for the RDS host by adding the plugin configuration which includes the `custom_identifier` as shown below to the mackerel-agent.conf.
+The first example is of MySQL monitoring using the [mackerel-plugin-mysql](https://github.com/mackerelio/mackerel-plugin-mysql) plugin for Amazon RDS. Metrics retrieved by the plugin can be aggregated as custom metrics for the RDS host by adding the plugin configuration which includes the `custom_identifier` as shown below to the mackerel-agent.conf.
 
 ```
 [plugin.metrics.mysql]

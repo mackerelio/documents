@@ -326,7 +326,7 @@ mackerel-agent のカスタムメトリックとチェック監視の plugin 設
 #### 利用例
 以下にふたつの利用例を紹介します。いずれの場合も、mackerel-agent の設定ファイルへの追記後はエージェントの再起動が必要です。
 
-ひとつめの例は、Amazon RDS に対する [mackerel-plugin-mysql](https://github.com/mackerelio/mackerel-agent-plugins/tree/master/mackerel-plugin-mysql) プラグインを用いた MySQL 監視です。mackerel-agent.conf の設定に以下のように `custom_identifier` を含むプラグイン設定を追加することで、プラグインで取得したメトリックをRDSホストのカスタムメトリックとして集約できます。
+ひとつめの例は、Amazon RDS に対する [mackerel-plugin-mysql](https://github.com/mackerelio/mackerel-plugin-mysql) プラグインを用いた MySQL 監視です。mackerel-agent.conf の設定に以下のように `custom_identifier` を含むプラグイン設定を追加することで、プラグインで取得したメトリックをRDSホストのカスタムメトリックとして集約できます。
 
 ```
 [plugin.metrics.mysql]
