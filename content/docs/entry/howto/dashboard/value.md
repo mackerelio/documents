@@ -37,6 +37,7 @@ Other settings that can be made are listed below.
 |Format Rule - Reference Value|Criterion value for highlighting or not highlighting a value|
 |Value to display|If enabled, the value of the endpoint in the display period of the dashboard (calculated based on this endpoint in the case of moving average or linear regression) is displayed. If disabled, displays the latest posted value regardless of the display period|
 |Metric trend|If enabled, displays the average of the relevant metric for the display period and the difference between the average and the latest value (available only if the "Value to display" setting is enabled [^2])|
+
 [f:id:mackerelio:20231211203945p:plain]
 
 Once you've finished selecting, complete the process by clicking the create button.
