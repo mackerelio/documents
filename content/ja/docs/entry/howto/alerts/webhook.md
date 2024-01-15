@@ -24,6 +24,8 @@ Webhookを利用することでアラートの内容のJSONをPOSTで受け取�
   "event": "alert",
   "imageUrl": "https://mackerel.io/embed/public/.../....png",
   "memo": "memo....",
+  "type": "host",
+  "message": "MetricName 2.26 > 1.96",
   "host": {
     "id": "22D4...",
     "name": "app01",
@@ -68,6 +70,8 @@ Webhookを利用することでアラートの内容のJSONをPOSTで受け取�
 |:--|:--|:-|
 |orgName|string|アラートが発生しているオーガニゼーションの名前|
 |event|string|`alert`固定|
+|type|string|監視ルールの種別。疎通 (`"connectivity"`)、ホストメトリック (`"host"`)、サービスメトリック (`"service"`)、外形監視 (`"external"`)、チェック監視 (`"check"`)、式監視 (`"expression"`)、ロール内異常検知 (`"anomalyDetection"`) のいずれかになります。|
+|message|string|アラートのメッセージ|
 |host|object|ホスト情報(ホストメトリック時のアラートのみ出力)|
 |service|object|サービス情報(サービスメトリック時のアラートのみ出力)
 |alert|object|アラート情報|

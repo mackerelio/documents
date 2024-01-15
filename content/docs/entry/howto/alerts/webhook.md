@@ -9,7 +9,7 @@ Using Webhook you can receive the JSON from your Mackerel alerts with POST. This
 
 ## Adding Webhook notifications
 
-Notification settings can be added and configured [Webhook form](https://mackerel.io/my/channels/-/create#webhook) in the Channels Page. Here you will need to designate the URL that will receive POSTs from Mackerel’s servers.
+Notification settings can be added and configured [Webhook form](https://mackerel.io/my/channels/-/create#webhook) in the Channels Page. Here you will need to designate the URL that will receive POSTs from Mackerel's servers.
 
 ![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20150924/20150924174417.png)
 
@@ -23,6 +23,8 @@ The JSON that will be sent contains the following. (Items may be added at any ti
   "event": "alert",
   "imageUrl": "https://mackerel.io/embed/public/.../....png",
   "memo": "memo....",
+  "type": "host",
+  "message": "MetricName 2.26 > 1.96",
   "host": {
     "id": "22D4...",
     "name": "app01",
@@ -67,6 +69,8 @@ The JSON that will be sent contains the following. (Items may be added at any ti
 |:--|:--|:-|
 |orgName|string|name of the organization where the alert occurred|
 |event|string|fixed as `alert`|
+|type|string|the type of the monitor: connectivity (`"connectivity"`), host metric (`"host"`), service metric (`"service"`), external monitor (`"external"`), check monitor (`"check"`), expression monitor (`"expression"`), or anomaly detection for roles (`"anomalyDetection"`)|
+|message|string|alert message|
 |host|object|host information (output for alerts of host metrics only)|
 |service|object|service information (output for alerts of service metrics only)|
 |alert|object|alert information|
@@ -118,14 +122,14 @@ The JSON that will be sent contains the following. (Items may be added at any ti
 |closedAt|number|time the alert resolved (epoch seconds)|
 |createdAt|number|time the alert occurred (epoch milliseconds). A deprecated item and not recommended. Please use openedAt|
 |monitorName|string|name of the monitoring item that detected the alert|
-|metricLabel|string|title of the monitoring target’s metrics etc.|
+|metricLabel|string|title of the monitoring target's metrics etc.|
 |metricValue|number|metric value at the time of detection|
 |criticalThreshold|number|CRITICAL threshold|
 |warningThreshold|number|WARNING threshold|
 |monitorOperator|string|`>` or `<`|
 |duration|number|monitoring interval|
 
-※Alert information items fluctuate depending on the type of monitoring target (host metrics, service metrics, external monitoring, expression monitoring) and each configuration item. For example, if only the URL is configured with external monitoring, information for metrics, thresholds, etc. will not be included. The type of monitoring target and the output items correspond with possible input items from the monitoring configurations screen. 
+Note: Alert information items fluctuate depending on the type of monitoring target (host metrics, service metrics, external monitoring, expression monitoring) and each configuration item. For example, if only the URL is configured with external monitoring, information for metrics, thresholds, etc. will not be included. The type of monitoring target and the output items correspond with possible input items from the monitoring configurations screen.
 
 ## Making use of Webhook
 
