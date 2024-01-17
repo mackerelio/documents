@@ -96,7 +96,6 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
     <li><a href="https://mackerel.io/ja/docs/entry/howto/alerts/typetalk"><strong>TypeTalkにアラートを通知する</strong><span>アラートをTypeTalkへ通知します</span></a></li>
     <li><a href="https://mackerel.io/ja/docs/entry/howto/alerts/OpsGenie"><strong>Opsgenieにアラートを通知する</strong><span>アラートをOpsgenieへ通知します</span></a></li>
     <li><a href="https://mackerel.io/ja/docs/entry/howto/alerts/webhook"><strong>Webhookにアラートを通知する</strong><span>アラートをWebhookへ通知します</span></a></li>
-    <li><a href="https://mackerel.io/ja/docs/entry/howto/alerts/yammer"><strong>Yammerにアラートを通知する</strong><span>アラートをYammerへ通知します</span></a></li>
     <li><a href="https://mackerel.io/ja/docs/entry/howto/alerts/line"><strong>LINEにアラートを通知する</strong><span>アラートをLINEへ通知します</span></a></li>
     <li><a href="https://mackerel.io/ja/docs/entry/howto/alerts/twilio"><strong>Twilioにアラートを通知する</strong><span>アラートをTwilioへ通知します</span></a></li>
     <li><a href="https://mackerel.io/ja/docs/entry/howto/alerts/microsoft-teams"><strong>Microsoft Teamsにアラートを通知する</strong><span>アラートをMicrosoft Teamsへ通知します</span></a></li>

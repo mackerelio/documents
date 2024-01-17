@@ -96,7 +96,6 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackere
     <li><a href="https://mackerel.io/docs/entry/howto/alerts/typetalk"><strong>Typetalk notifications</strong><span>sending alert notifications to Typetalk</span></a></li>
     <li><a href="https://mackerel.io/docs/entry/howto/alerts/OpsGenie"><strong>Opsgenie notifications</strong><span>sending alert notifications to Opsgenie</span></a></li>
     <li><a href="https://mackerel.io/docs/entry/howto/alerts/webhook"><strong>Webhook notifications</strong><span>sending alert notifications to Webhook</span></a></li>
-    <li><a href="https://mackerel.io/docs/entry/howto/alerts/yammer"><strong>Yammer notifications</strong><span>sending alert notifications to Yammer</span></a></li>
     <li><a href="https://mackerel.io/docs/entry/howto/alerts/line"><strong>LINE notifications</strong><span>sending alert notifications to LINE</span></a></li>
     <li><a href="https://mackerel.io/docs/entry/howto/alerts/twilio"><strong>Twilio notifications</strong><span>sending alert notifications to Twilio</span></a></li>
     <li><a href="https://mackerel.io/docs/entry/howto/alerts/microsoft-teams"><strong>Microsoft Teams notifications</strong><span>sending alert notifications to Microsoft Teams</span></a></li>

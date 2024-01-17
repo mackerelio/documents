@@ -45,7 +45,7 @@ This will retrieve a list of the users that are members of the organization.
 | `authority`               | *string*        | user's authority (`owner`, `manager`, `collaborator`, `viewer`)                                     |
 | `isInRegistrationProcess` | *boolean*       | Whether or not the user is in the process of registration.                                                                          |
 | `isMFAEnabled`            | *boolean*       | Whether or not the user has enabled 2-step verification.                                                                 |
-| `authenticationMethods`   | *array[string]* | Authentication methods used (`password`, `github`, `idcf`, `google`, `nifty`, `yammer`, `kddi`) |
+| `authenticationMethods`   | *array[string]* | Authentication methods used (`password`, `github`, `idcf`, `google`, `nifty`, `kddi`) |
 | `joinedAt`                | *number*        | Date and time the user became a member of the organization (in epoch seconds)                                                |
 
 ----------------------------------------------

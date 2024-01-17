@@ -10,15 +10,17 @@ CLIツールmkrを利用することで、ホストのステータスをまと�
 mkrはGitHubで公開しております。
 https://github.com/mackerelio/mkr
 
-## 使う前に
+[:contents]
 
-### インストール
+## mkr の導入
 
-yumやaptを利用の場合は、mackerel-agentでも使われているMackerelのpackageリポジトリが追加されている必要があります。
+### Linux 系 OS の場合
 
-- Amazon Linux: [Amazon Linuxにmackerel-agentをインストールする](https://mackerel.io/ja/docs/entry/howto/install-agent/amazon-linux)
-- Red Hat Enterprise Linux派生OS・RPMパッケージ (yum): [Red Hat Enterprise Linux派生OSにインストールする](https://mackerel.io/ja/docs/entry/howto/install-agent/rpm).
-- Debian派生OS・debパッケージ (apt): [Ubuntu / Debian にインストールする](https://mackerel.io/ja/docs/entry/howto/install-agent/deb)
+mkr を利用するためはインストールが必要です。yum や apt を利用してインストールする場合、あらかじめ Mackerel の package リポジトリを追加する必要があります。Mackerel の package リポジトリは、mackerel-agent のインストールコマンドを実行した際に自動で追加されます。mackerel-agent のインストール方法については以下のヘルプを参照してください。
+
+- [Amazon Linuxにmackerel-agentをインストールする](https://mackerel.io/ja/docs/entry/howto/install-agent/amazon-linux)
+- [Red Hat Enterprise Linux派生OSにインストールする](https://mackerel.io/ja/docs/entry/howto/install-agent/rpm)
+- [Ubuntu / Debian にインストールする](https://mackerel.io/ja/docs/entry/howto/install-agent/deb)
 
 #### yumを利用
 
@@ -45,11 +47,26 @@ yumやaptを利用の場合は、mackerel-agentでも使われているMackerel�
 % go install github.com/mackerelio/mkr@latest
 ```
 
-### セットアップ
+### Windows の場合
 
-mkrを使うためには、まずAPIキーを環境変数で指定します。
+mackerel-agent をインストールすることで利用可能になります。
+
+[https://mackerel.io/ja/docs/entry/howto/install-agent/msi:embed:cite]
+
+### API キーの設定
+
+mkr の利用には API キーの設定が必要です。mackerel-agent がインストールされた環境においては、デフォルトで mackerel-agent.conf に記述された API キーが使用されます。mackerel-agent がインストールされていない環境で利用する場合は、下記のように API キーを環境変数として設定する必要があります。
+
+Linux 系 OS の場合
+
 ```cdl
 export MACKEREL_APIKEY=<API key>
+```
+
+Windows の場合
+
+```cdl
+set MACKEREL_APIKEY=<API key>
 ```
 
 ## 使い方

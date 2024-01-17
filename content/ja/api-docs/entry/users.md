@@ -43,7 +43,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 | `authority`               | *string*        | ユーザーの権限(`owner`, `manager`, `collaborator`, `viewer`)。                                      |
 | `isInRegistrationProcess` | *boolean*       | ユーザーが仮登録かどうか。                                                                          |
 | `isMFAEnabled`            | *boolean*       | ユーザーの2段階認証が有効かどうか。                                                                 |
-| `authenticationMethods`   | *array[string]* | ユーザーが利用している認証方式(`password`, `github`, `idcf`, `google`, `nifty`, `yammer`, `kddi`)。 |
+| `authenticationMethods`   | *array[string]* | ユーザーが利用している認証方式(`password`, `github`, `idcf`, `google`, `nifty`, `kddi`)。 |
 | `joinedAt`                | *number*        | ユーザーがオーガニゼーションのメンバーに参加した日時 (epoch秒)                                                |
 
 ----------------------------------------------

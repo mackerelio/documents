@@ -35,7 +35,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 [通知チャンネル一覧](https://mackerel.io/my/channels)でアラートグループ通知の設定を有効にすると、アラートグループの通知が送信されます。
 アラートグループに属するアラートは通知されなくなります。
 アラートグループの通知を受け取りつつ、それに属するアラートの通知も受け取りたい場合は、別のチャンネル設定を作成してください。
-アラートグループを通知できるチャンネルは、[Slack](https://mackerel.io/ja/docs/entry/howto/alerts/slack), Eメール, [Chatwork](https://mackerel.io/ja/docs/entry/howto/alerts/chatwork), [LINE](https://mackerel.io/ja/docs/entry/howto/alerts/line), [Typetalk](https://mackerel.io/ja/docs/entry/howto/alerts/typetalk), [Yammer](https://mackerel.io/ja/docs/entry/howto/alerts/yammer), [Microsoft Teams](https://mackerel.io/ja/docs/entry/howto/alerts/microsoft-teams), [Webhook](https://mackerel.io/ja/docs/entry/howto/alerts/webhook)です。
+アラートグループを通知できるチャンネルは、[Slack](https://mackerel.io/ja/docs/entry/howto/alerts/slack), Eメール, [Chatwork](https://mackerel.io/ja/docs/entry/howto/alerts/chatwork), [LINE](https://mackerel.io/ja/docs/entry/howto/alerts/line), [Typetalk](https://mackerel.io/ja/docs/entry/howto/alerts/typetalk), [Microsoft Teams](https://mackerel.io/ja/docs/entry/howto/alerts/microsoft-teams), [Webhook](https://mackerel.io/ja/docs/entry/howto/alerts/webhook)です。
 
 [f:id:mackerelio:20180627151922p:plain:w500]
 
