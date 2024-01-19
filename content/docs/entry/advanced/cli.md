@@ -10,14 +10,17 @@ With the mkr CLI tool, it's possible to perform operations such as changing all 
 mkr is now available on GitHub.
 https://github.com/mackerelio/mkr
 
-## Getting everything set up
+[:contents]
 
-### Install
-To install mkr using yum or apt, you first have to register the Mackerel package repository, which is used for mackerel-agent.
+## Introducing mkr
 
-- Amazon Linux: [Installing mackerel-agent in Amazon Linux](https://mackerel.io/docs/entry/howto/install-agent/amazon-linux).
-- Red Hat Enterprise Linux derivatives・RPM package (yum): [Installing mackerel-agent in Red Hat Enterprise Linux derivatives](https://mackerel.io/docs/entry/howto/install-agent/rpm).
-- Debian derivatives・deb package (apt): [Installing mackerel-agent in Ubuntu / Debian](https://mackerel.io/docs/entry/howto/install-agent/deb).
+### For Linux-based OS
+
+To use mkr, you need to install it. If you install using yum or apt, you need to add the Mackerel package repository beforehand. The Mackerel package repository is automatically added when you run the mackerel-agent install command. Please refer to the following help file for details on how to install mackerel-agent.
+
+- [Installing mackerel-agent in Amazon Linux](https://mackerel.io/docs/entry/howto/install-agent/amazon-linux)
+- [nstalling mackerel-agent in Red Hat Enterprise Linux derivatives](https://mackerel.io/docs/entry/howto/install-agent/rpm)
+- [Installing mackerel-agent in Ubuntu / Debian](https://mackerel.io/docs/entry/howto/install-agent/deb)
 
 #### Using yum
 
@@ -42,18 +45,27 @@ To install mkr using yum or apt, you first have to register the Mackerel package
 % go install github.com/mackerelio/mkr@latest
 ```
 
-#### For Windows
+### For Windows
 
 You can use mkr.exe as it is included in the mackerel-agent installer (msi file). mkr.exe is installed in the same folder as mackerel-agent.exe. However, since %PATH% is not configured, either specify with a full path or add this folder to the %PATH% at the time of use.
 
-### Setup
+[https://mackerel.io/docs/entry/howto/install-agent/msi:embed:cite]
 
-mkr automatically reads the API key from mackerel-agent.conf in the mackerel-agent configuration file. If there is no configuration file or if you want to configure a different API key, specify it with an environment variable. 
+### API Key Settings
+
+API key setting is required to use mkr. If mackerel-agent is installed, the API key described in mackerel-agent.conf is used by default. If you want to use it in an environment where mackerel-agent is not installed, you need to set the API key as an environment variable as shown below.
+
+For Linux-based OS
 
 ```
 export MACKEREL_APIKEY=<API key>
 ```
 
+For Windows
+
+```
+set MACKEREL_APIKEY=<API key>
+```
 
 ## How to use mkr
 
@@ -101,14 +113,14 @@ mkr update --st working $(mkr hosts -s My-Service -r proxy | jq -r '.[].id')
 
 The name of the metric a host or service has can be obtained by the `metric-names` subcommand.
 
-```cdl
+```
 mkr metric-names -H <hostId>
 mkr metric-names -s <serviceName>
 ```
 
 #### Execution example
 - Get host metric names
-```cdl
+```
 % mkr metric-names -H 2eQGEaLxibb
 [
     "cpu.guest.percentage",
@@ -119,7 +131,7 @@ mkr metric-names -s <serviceName>
 ```
 
 - Get service metric names
-```cdl
+```
 % mkr metric-names -s myservice
 [
     "Sample.foo"
@@ -130,7 +142,7 @@ mkr metric-names -s <serviceName>
 
 A list of host metric names can also be gotten by appending `-v` to the `status` subcommand.
 
-```cdl
+```
 % mkr status -v 2eQGEaLxibb
 {
     "id": "2eQGEaLxibb",
@@ -348,7 +360,7 @@ Retrieve custom dashboard list
 
 When retrieving lists, `widgets` are always `null`.
 
-```cdl
+```
 % mkr dashboards
 [
     {
@@ -374,7 +386,7 @@ When retrieving lists, `widgets` are always `null`.
 
 - Save custom dashboards to a local file
 
-```cdl
+```
 % mkr dashboards pull
       info Dashboard file is saved to 'dashboard-2LHfKUq36xW.json'(title:demo)
       info Dashboard file is saved to 'dashboard-49CBJiNaXfQ.json'(title:demo2)
@@ -384,7 +396,7 @@ dashboard-2LHfKUq36xW.json	dashboard-49CBJiNaXfQ.json
 
 - Update Mackerel custom dashboards
 
-```cdl
+```
 % mkr dashboards push --file-path dashboard-49CBJiNaXfQ.json
 ```
 

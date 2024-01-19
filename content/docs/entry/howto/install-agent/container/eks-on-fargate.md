@@ -81,7 +81,7 @@ RBAC needs to be configured so that mackerel-container-agent can refer to these 
 The following is an RBAC manifest example.
 
 ```yaml
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
   name: mackerel-container-agent

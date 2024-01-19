@@ -81,7 +81,7 @@ mackerel-container-agentがこれらのリソースを参照できるよう、RB
 以下はRBACのマニフェスト例です。
 
 ```yaml
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
   name: mackerel-container-agent

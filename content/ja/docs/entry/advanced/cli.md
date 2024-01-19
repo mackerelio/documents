@@ -24,26 +24,26 @@ mkr を利用するためはインストールが必要です。yum や apt を�
 
 #### yumを利用
 
-```cdl
+```
 % yum install mkr
 ```
 
 #### aptを利用
 
-```cdl
+```
 % apt-get install mkr
 ```
 
 #### brewを利用
 
-```cdl
+```
 % brew tap mackerelio/mackerel-agent
 % brew install mkr
 ```
 
 #### goでビルド
 
-```cdl
+```
 % go install github.com/mackerelio/mkr@latest
 ```
 
@@ -59,13 +59,13 @@ mkr の利用には API キーの設定が必要です。mackerel-agent がイ�
 
 Linux 系 OS の場合
 
-```cdl
+```
 export MACKEREL_APIKEY=<API key>
 ```
 
 Windows の場合
 
-```cdl
+```
 set MACKEREL_APIKEY=<API key>
 ```
 
@@ -76,7 +76,7 @@ set MACKEREL_APIKEY=<API key>
 ### ホスト関連
 
 例えばhostIdを指定して、そのホストの情報を取得できます。
-```cdl
+```
 mkr status <hostId>
 ```
 
@@ -96,18 +96,18 @@ $ mkr status 2eQGEaLxibb
 
 またhostIdを指定してステータス変更を行なったり、
 
-```cdl
+```
 mkr update --status maintenance <hostIds>...
 ```
 
 ホスト一覧を取得することが可能です。
-```cdl
+```
 mkr hosts --service My-Service --role proxy
 ```
 
 これらを組み合わせて、指定したサービスとロールのホストのステータスをまとめて変更できます。
 
-```cdl
+```
 mkr update --st working $(mkr hosts -s My-Service -r proxy | jq -r '.[].id')
 ```
 
@@ -115,14 +115,14 @@ mkr update --st working $(mkr hosts -s My-Service -r proxy | jq -r '.[].id')
 
 ホストやサービスが提供するメトリックの名前は、metric-namesサブコマンドで取得できます。
 
-```cdl
+```
 mkr metric-names -H <hostId>
 mkr metric-names -s <serviceName>
 ```
 
 #### 実行例
 - ホストメトリックの名前の取得
-```cdl
+```
 % mkr metric-names -H 2eQGEaLxibb
 [
     "cpu.guest.percentage",
@@ -133,7 +133,7 @@ mkr metric-names -s <serviceName>
 ```
 
 - サービスメトリックの名前の取得
-```cdl
+```
 % mkr metric-names -s myservice
 [
     "Sample.foo"
@@ -144,7 +144,7 @@ mkr metric-names -s <serviceName>
 
 ホストメトリックの名前の一覧は、statusサブコマンドに `-v` を付けることでも取得できます。
 
-```cdl
+```
 % mkr status -v 2eQGEaLxibb
 {
     "id": "2eQGEaLxibb",
@@ -162,7 +162,7 @@ mkr metric-names -s <serviceName>
 mkrでは metrics サブコマンドでメトリックを取得できます。
 例えば hostId を指定することで特定のホストのメトリックを、あるいはサービス名を指定することで特定のサービスのメトリックを取得できます。
 
-```cdl
+```
 mkr metrics --host <hostId> --name <name> --from <epoch seconds> --to <epoch seconds>  
 ```
 
@@ -223,7 +223,7 @@ jsonフォーマットについては、[API仕様の「監視ルールの登録
 #### 実行例
 
 - ローカルファイルとMackerel間の差分がない場合の`diff`
-```cdl
+```
 % mkr monitors diff
 Summary: 0 modify, 0 append, 0 remove
 ```
@@ -361,7 +361,7 @@ mkrではdashboardsサブコマンドでカスタムダッシュボードを操�
 
 リストの取得では、`widgets`は常に`null`となります。
 
-```cdl
+```
 % mkr dashboards
 [
     {
@@ -387,7 +387,7 @@ mkrではdashboardsサブコマンドでカスタムダッシュボードを操�
 
 - カスタムダッシュボードをローカルファイルへ保存
 
-```cdl
+```
 % mkr dashboards pull
       info Dashboard file is saved to 'dashboard-2LHfKUq36xW.json'(title:demo)
       info Dashboard file is saved to 'dashboard-49CBJiNaXfQ.json'(title:demo2)
@@ -397,7 +397,7 @@ dashboard-2LHfKUq36xW.json	dashboard-49CBJiNaXfQ.json
 
 - Mackerelのカスタムダッシュボードを更新
 
-```cdl
+```
 % mkr dashboards push --file-path dashboard-49CBJiNaXfQ.json
 ```
 
