@@ -8,7 +8,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 本機能ではhttpまたはhttpsに対しての監視を行います。
 
 ## URL外形監視を設定する
-画面左側メニューの Monitors より「監視ルールを追加」のボタンをクリックします。「外形監視」をクリックすると以下の項目が表示されますので、各項目に値・名称を記述して作成ボタンをクリックします。
+画面左側メニューの監視ルールより「監視ルールを追加」のボタンをクリックします。「外形監視」をクリックすると以下の項目が表示されますので、各項目に値・名称を記述して作成ボタンをクリックします。
 
 [https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20201109/20201109114130.png:image=https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20201109/20201109114130.png]
 
