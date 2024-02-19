@@ -17,7 +17,7 @@ Currently, the following Azure cloud products are supported. For information on 
 
 [^1]: According to the specifications of Azure Metrics Explorer, any dimensions exceeding 50 for a single metric are ignored.
 
-# Integration method
+## Integration method
 Azure Integration will integrate using service principals.
 
 A service principal is an ID that is used to access a specific Azure resource, and is more secure than using a user ID because it has limited permissions.
@@ -32,16 +32,27 @@ This help document will introduce how to setup Azure integration with Azure CLI 
 
 [:contents]
 
-## Integrate using Azure CLI 2.0
+## Set up authentication credentials for your Azure account
+
+Create authentication credentials using either Azure CLI 2.0 or Azure Portal, and set them up in Azure Integration.
+
+### Integrate using Azure CLI 2.0
 This section explains how to integrate using Azure CLI.
 
-### Install Azure CLI 2.0 
+#### Install Azure CLI 2.0
 [https://docs.microsoft.com/en-us/cli/azure/install-azure-cli:embed:cite]
 
-### Login and Service Principal configuration
+#### Login and Service Principal configuration
 First, login to Azure with the following command.
 ```console
 $ az login
+```
+
+To configure the service principal, you will need the subscription ID. Please obtain it in advance using the following command.
+
+```console
+$ az account show --query id --output tsv
+xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
 Next, use the following command to simultaneously create a service principal for Azure integration and grant viewer privileges.
@@ -49,7 +60,7 @@ Next, use the following command to simultaneously create a service principal for
 `--years` sets the expiration date of the `password`, with the default at 1 year. Please note that when the expiration date expires, obtaining metrics will be impossible until the password is reconfigured.
 
 ```console
-$ az ad sp create-for-rbac --role Reader --years <YEARS>
+$ az ad sp create-for-rbac --role Reader --scope /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --years <YEARS>
 {
   "appId": "abcdefgh-abcd-efgh-abcd-abcdefghijkl",
   "displayName": "azure-cli-2017-01-23-45-67-89",
@@ -63,91 +74,111 @@ Check out the following link for more about the options for `create-for-rbac` an
  
 [https://docs.microsoft.com/en-us/cli/azure/ad/sp#create-for-rbac:embed:cite]
  
-Among the above results, configure the `tenantId` value to that of Mackerel’s `Tenant ID`, the `appId` value to that of the `Client ID`, and the `password` to that of the `Client Secret`. In addition to the Tenant ID, Client ID, and Client Secret, make sure that the region, service, and tag are properly configured from Mackerel’s configuration screen.
+Among the above results, please set the value of `tenantId` as the `Tenant ID` in Mackerel, the value of `appId` as the `Client ID`, and `password` as the `Secret Key`. In Mackerel's settings screen, make sure that the Tenant ID, Client ID, and Secret Key are correctly set. If authentication fails, please check [here](#Verify-if-the-authentication-credentials-are-correct) for verification of the authentication information.
 
-![](https://cdn-ak.f.st-hatena.com/images/fotolife/a/andyyk/20170623/20170623190254.png)
-![](https://cdn-ak.f.st-hatena.com/images/fotolife/a/andyyk/20171213/20171213165935.png)
+![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20240215/20240215074908.png)
 
-Upon confirming the integration host, save the configuration. After a short while, the host created with Azure integration will be displayed in the host list.
+If there are no issues, proceed to [Select the Services and Subscriptions to Integrate](#Select-the-Services-and-Subscriptions-to-Integrate).
 
-That concludes how to integrate using Azure CLI 2.0.
-
-## Integrate using Azure Portal
+### Integrate using Azure Portal
 This section explains how to integrate using Azure Portal.
 
-### Login to Azure Portal
+#### Login to Azure Portal
 Visit https://portal.azure.com and login.
 
-### Obtain Tenant ID
+#### Obtain Tenant ID
 Select Microsoft Entra ID from the sidebar and click "Properties".
 
-Upon selecting, enter the displayed "Directory ID" in the `Tenant ID` field of Mackerel's Azure integration configuration screen.
+Upon selecting, enter the displayed "Tenant ID" in the `Tenant ID` field of Mackerel's Azure integration configuration screen.
 
-![](https://cdn-ak.f.st-hatena.com/images/fotolife/a/andyyk/20170623/20170623190736.png)
+![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20240215/20240215064438.png)
 
-![](https://cdn-ak.f.st-hatena.com/images/fotolife/a/andyyk/20170623/20170623190731.png)
+![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20240215/20240215064452.png)
 
 ### Create an Entra ID Application
 When integrating with Mackerel, an application shall be created in Microsoft Entra ID in order to obtain metrics through application authority instead of user authority.
 
 Select "App registrations" from the previous Entra ID screen.
  
-![](https://cdn-ak.f.st-hatena.com/images/fotolife/a/andyyk/20170626/20170626102652.png)
+![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20240215/20240215065004.png)
 
-Next, select "New application registration" and the following screen will appear.
+Next, select "New registration" and the following screen will appear.
 
-![](https://cdn-ak.f.st-hatena.com/images/fotolife/a/andyyk/20170626/20170626102649.png)
+![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20240215/20240215065222.png)
 
-Register the application to be integrated with Mackerel. The application name and Sign-on URL are not used in Mackerel. Specify the type of application as "Web app / API".
+Please register an application for integration with Mackerel. The application's display name and redirect URI are not used on the Mackerel side. When choosing from 'Public client/Native', 'Web', or 'Single-page application (SPA)' for the redirect URI, please select 'Web'.
 
-### Obtain Client ID and Client Secret
-When registration is complete, select the registered application from the previous screen. A screen like the one shown below should appear. Enter the "Application ID" in the `Client ID` field on the Mackerel screen.
+#### Obtain Client ID and Client Secret
+When registration is complete, select the registered application from the previous screen. A screen like the one shown below should appear. Enter the "Application (client) ID" in the `Client ID` field on the Mackerel screen.
 
-![](https://cdn-ak.f.st-hatena.com/images/fotolife/a/andyyk/20170626/20170626102953.png)
+![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20240215/20240215065906.png)
 
-![](https://cdn-ak.f.st-hatena.com/images/fotolife/a/andyyk/20170626/20170626102954.png)
+![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20240215/20240215065911.png)
 
-![](https://cdn-ak.f.st-hatena.com/images/fotolife/a/andyyk/20170626/20170626103356.png)
+On this application's screen, next select 'Certificates & secrets'. Here, you can create a client secret. Click on 'New client secret', set a description and an expiration for the secret, and save. The value of the secret will be displayed. Copy this and enter it into the `Secret Key` field on the Mackerel side.  
+It will be shown as 'Invalid' on the Mackerel screen until permission settings are configured. Proceed to the 'Permission settings' section and grant viewing permissions.
 
-Next, select "Keys" on this application screen. Here you can create keys. After configuring the key’s description, expiration date, and then saving, the value of the key will be displayed. Copy this and enter it in the `Client Secret` field in Mackerel. (As long as the permission is not configured, "Invalid" will be displayed from the Mackerel screen. Proceed to the "Permission setup" item and grant read-only permission)
+**Caution** If the expiration date of this secret passes, it will no longer be possible to obtain metrics in Mackerel's Azure Integration from that point. In such a case, please create a new secret.
 
-**Caution** If the expiration date of this key expires, it will be impossible to obtain metrics with Mackerel's Azure integration from that point on. In this case, recreate a new key. If you select "Never expires", the expiration date will not expire for a while.
+![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20240215/20240215071358.png)
 
-![](https://cdn-ak.f.st-hatena.com/images/fotolife/a/andyyk/20170626/20170626103359.png)
+![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20240215/20240215071458.png)
 
-![](https://cdn-ak.f.st-hatena.com/images/fotolife/a/andyyk/20170626/20170626103351.png)
-
-### Permission setup
+#### Permission setup
 Although the keys have been obtained and configured with the above process, you must lastly grant permissions. Grant the permission to read metric values.
 
-Select "Subscription" from Portal screen sidebar. Then select the target subscription.
+Please select 'Subscriptions' from the sidebar of the Portal screen. Then choose the target subscription and select 'Access control (IAM)'. Here, you can set permissions for users and service principals.
 
-![](https://cdn-ak.f.st-hatena.com/images/fotolife/a/andyyk/20170626/20170626104121.png) 
+ Now we will configure permissions for the Entra ID application that we created earlier.
 
-Select "Access control (IAM)". Here you can configure permissions for users and service principals. Now we will configure permissions for the Entra ID application that we created earlier.
+![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20240215/20240215072659.png) 
 
-![](https://cdn-ak.f.st-hatena.com/images/fotolife/a/andyyk/20170626/20170626104118.png)
+Click on 'Add' and then 'Add role assignment'. For the 'Role', select 'Reader' and proceed.  
+If you accidentally select a permission other than 'Reader' here, for safety reasons, Mackerel's Azure Integration will not retrieve metrics.
 
-Click "Add" and then select "Reader" for "Role". (If anything other than Reader is selected here, Mackerel's Azure integration will not obtain metrics for security reasons)
+![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20240215/20240215073625.png)
 
-Select the application that you created earlier in the "Select" field. (Note: Searching for an application name will only yield results for an exact match, so be sure to enter the name correctly)
+In 'Assign access to', check 'User, group, or service principal', and for the members, select the application you created earlier.  
+Note: The search for the application name is prefix-based, so it won't appear unless you start typing from the beginning.
 
-![](https://cdn-ak.f.st-hatena.com/images/fotolife/a/andyyk/20170626/20170626104443.png)
+![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20240215/20240215073630.png)
 
-After a short while, authority will be granted to the application displayed as follows. Make sure that the application displayed under "Reader" is correct.
+Click on 'Review + assign', and after a while, the permissions will be granted to the application.
 
-![](https://cdn-ak.f.st-hatena.com/images/fotolife/a/andyyk/20170626/20170626104403.png)
+In the 'Role assignments' tab, make sure that the application listed under the 'Reader' section is correct.
+
+![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20240215/20240215074305.png)
 
 Since Azure integration supports multiple subscriptions, repeat the above permission configuration for any subscription you would like to monitor.
 
-Again, make sure that the region, service, and tag are properly configured in addition to the Tenant ID, Client ID, and Client Secret from Mackerel’s configuration screen.
+In Mackerel's settings screen, make sure that the Tenant ID, Client ID, and Secret Key are correctly set. If authentication fails, please check [here](#Verify-if-the-authentication-credentials-are-correct) to verify the authentication information.
 
-![](https://cdn-ak.f.st-hatena.com/images/fotolife/a/andyyk/20170626/20170626104400.png)
-![](https://cdn-ak.f.st-hatena.com/images/fotolife/a/andyyk/20171213/20171213165935.png) 
+![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20240215/20240215074908.png)
 
-Upon confirming the integration host, save the configuration. After a short while, the host created with Azure integration will be displayed in the host list.
+### Verify if the authentication credentials are correct
 
-This concludes the integration method using Azure Portal.
+If there are errors in the settings and the integration fails, the following reasons may be displayed.
+
+- Authentication with the provided credentials failed. Please verify the entered credentials.
+- Excessively strong permissions have been granted. Please grant only the minimum necessary permissions.
+- Currently, authentication is temporarily unavailable. Please try again after some time.
+
+![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20240215/20240215075001.png)
+
+Please review your settings after confirming that there are no issues with the authentication credentials and permissions.
+
+## Select the Services and Subscriptions to Integrate
+
+Choose the region and check the services you want to integrate.
+
+![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20240215/20240215075504.png)
+
+
+If you want to select additional subscriptions to integrate, check the desired subscriptions. If you do not select any, all subscriptions will be included.
+
+![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20240215/20240215080423.png)
+
+After confirming the hosts to integrate, save the settings. After a while, the hosts created by Azure Integration will be displayed in the host list.
  
 ## Filter by tag
 
