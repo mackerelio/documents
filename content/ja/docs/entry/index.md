@@ -29,13 +29,14 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
       <a href="https://mackerel.io/ja/api-docs/"><i class="icon-api"></i><strong>APIドキュメント（v0）</strong><span>MackerelのAPIの仕様について</span></a>
     </p>
     <ul>
-      <li><a href="https://mackerel.io/ja/docs/entry/howto/alerts/slack"><strong>Slackにアラートを通知する</strong><span>アラートをSlackへ通知します</span></a></li>
       <li><a href="https://mackerel.io/ja/docs/entry/spec/agent"><strong>mackerel-agent仕様</strong><span>mackerel-agentコマンドのオプションや設定について</span></a></li>
-      <li><a href="https://mackerel.io/ja/docs/entry/advanced/fluentd"><strong>fluentdでサービスメトリックを投稿する</strong><span>ステータスコードごとのリクエスト数やエラー率などをfluentd経由で投稿します</span></a></li>
+      <li><a href="https://mackerel.io/ja/docs/entry/advanced/custom-metrics"><strong>ホストのカスタムメトリックを投稿する</strong><span>mackerel-agentから計測したいメトリックを投稿します</span></a></li>
       <li><a href="https://mackerel.io/ja/docs/entry/howto/mackerel-agent-plugins"><strong>ミドルウェアのメトリック可視化に公式プラグイン集を使う</strong><span>公式プラグインで各種ミドルウェアに対応します</span></a></li>
-      <li><a href="https://mackerel.io/ja/docs/entry/advanced/custom-metrics"><strong>ホストのカスタムメトリックを投稿する</strong><span>mackerel-agentからMySQLなどのミドルウェアのメトリックを投稿します</span></a></li>
+      <li><a href="https://mackerel.io/ja/docs/entry/howto/mackerel-check-plugins"><strong>チェック監視に公式チェックプラグイン集を使う</strong><span>公式プラグインでさまざまなチェックをおこなえます</span></a></li>
+      <li><a href="https://mackerel.io/ja/docs/entry/howto/check/log"><strong>ログ監視をおこなう</strong><span>ログファイルに特定のパターンがあったらアラートを発報します</span></a></li>
       <li><a href="https://mackerel.io/ja/docs/entry/howto/alerts"><strong>監視・通知を設定する</strong><span>ホストの死活監視とメトリックの監視を設定します</span></a></li>
       <li><a href="https://mackerel.io/ja/docs/entry/howto/downtimes"><strong>ダウンタイムを設定する</strong><span>定期的な監視の停止を設定します</span></a></li>
+      <li><a href="https://mackerel.io/ja/docs/entry/howto/dashboard"><strong>カスタムダッシュボードを利用する</strong><span>システムに合わせたダッシュボードを作成できます</span></a></li>
     </ul>
   </div>
   <p id="link-faq"><a href="https://support.mackerel.io/hc/ja">よくある質問（FAQ）をみる</a></p>
@@ -71,6 +72,8 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
     <li><a href="https://mackerel.io/ja/docs/entry/howto/assign-roles-to-hosts"><strong>ホストにロールを割り当てる</strong><span>作成したロールをホストに割り当てて分類整理します</span></a></li>
     <li><a href="https://mackerel.io/ja/docs/entry/howto/invite-others"><strong>他のユーザーを招待する</strong><span>他のユーザーをMackerelに招待し、共同でホストを管理します</span></a></li>
     <li><a href="https://mackerel.io/ja/docs/entry/howto/mackerel-agent-plugins"><strong>ミドルウェアのメトリック可視化に公式プラグイン集を使う</strong><span>公式プラグインで各種ミドルウェアに対応します</span></a></li>
+    <li><a href="https://mackerel.io/ja/docs/entry/howto/mackerel-check-plugins"><strong>チェック監視に公式チェックプラグイン集を使う</strong><span>公式プラグインでさまざまなチェックをおこなえます</span></a></li>
+    <li><a href="https://mackerel.io/ja/docs/entry/howto/check/log"><strong>ログ監視をおこなう</strong><span>ログファイルに特定のパターンがあったらアラートを発報します</span></a></li>
     <li><a href="https://mackerel.io/ja/docs/entry/howto/dashboard"><strong>カスタムダッシュボードを利用する</strong><span>カスタムダッシュボードを利用します</span></a></li>
     <li><a href="https://mackerel.io/ja/docs/entry/howto/auto-scaling"><strong>Auto Scaling環境で使う</strong><span>自動的に台数増減する環境に対応します</span></a></li>
     <li><a href="https://mackerel.io/ja/docs/entry/howto/metadata"><strong>メタデータを利用する</strong><span>管理データを登録して活用します</span></a></li>
@@ -123,7 +126,6 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
     <li><a href="https://mackerel.io/ja/docs/entry/advanced/custom-metrics"><strong>ホストのカスタムメトリックを投稿する</strong><span>mackerel-agentからMySQLなどのミドルウェアのメトリックを投稿します</span></a></li>
     <li><a href="https://mackerel.io/ja/docs/entry/advanced/go-mackerel-plugin"><strong>go-mackerel-pluginを利用してカスタムメトリックプラグインを作成する</strong><span>公式で提供しているライブラリを利用してプラグインを作成する方法を紹介します</span></a></li>
     <li><a href="https://mackerel.io/ja/docs/entry/advanced/fluentd"><strong>fluentdでサービスメトリックを投稿する</strong><span>ステータスコードごとのリクエスト数やエラー率などをfluentd経由で投稿します</span></a></li>
-    <li><a href="https://mackerel.io/ja/docs/entry/advanced/capistrano-2.x"><strong>Capistrano 2.x と連携する</strong><span>ホスト一覧をMackerelから取得することでホストリストの管理が不要になります</span></a></li>
     <li><a href="https://mackerel.io/ja/docs/entry/advanced/capistrano-3.x"><strong>Capistrano 3.x と連携する</strong><span>ホスト一覧をMackerelから取得することでホストリストの管理が不要になります</span></a></li>
     <li><a href="https://mackerel.io/ja/docs/entry/advanced/cli"><strong>CLIツール mkr を使う</strong><span>コマンドラインツールを使って作業を自動化しましょう</span></a></li>
     <li><a href="https://mackerel.io/ja/docs/entry/advanced/monitors-github"><strong>監視ルールをGitHubで管理しよう</strong><span>mkr を利用してGitHubで監視ルールを管理する方法を紹介します</span></a></li>
@@ -131,7 +133,6 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
     <li><a href="https://mackerel.io/ja/docs/entry/advanced/make-plugin-corresponding-to-installer"><strong>mkr plugin installに対応したプラグインを作成する</strong><span>作成したプラグインをmkrのプラグインインストーラに対応する方法を紹介します</span></a></li>
     <li><a href="https://mackerel.io/ja/docs/entry/advanced/docker"><strong>Dockerをモニタリングする</strong><span>mackerel-agentのDockerイメージを利用してDockerホストをモニタリングできます</span></a></li>
     <li><a href="https://mackerel.io/ja/docs/entry/advanced/fluent-plugin-webhook-mackerel"><strong>fluent-plugin-webhook-mackerelを利用する</strong><span>fluentを利用してアラートのハンドリングを柔軟におこなえます</span></a></li>
-    <li><a href="https://mackerel.io/ja/docs/entry/advanced/monitoring-heroku"><strong>HerokuをMackerelで監視する</strong><span>Herokuで動作するアプリケーションを監視します</span></a></li>
     <li><a href="https://mackerel.io/ja/docs/entry/advanced/advanced-graph"><strong>カスタマイズしたグラフを表示する</strong><span>関数を使って柔軟にカスタマイズしたグラフを表示します</span></a></li>
     <li><a href="https://mackerel.io/ja/docs/entry/integrations/aws"><strong>AWSインテグレーション</strong><span>AWSクラウド製品をMackerelのホストとして管理、監視します</span></a></li>
     <li><a href="https://mackerel.io/ja/docs/entry/integrations/azure"><strong>Azureインテグレーション</strong><span>Azureクラウド製品をMackerelのホストとして管理、監視します</span></a></li>
