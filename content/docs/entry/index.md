@@ -7,7 +7,6 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackere
 
 <div id="help-top-entry">
 
-
 <div class="hatena-module-search-box">
   <form class="search-form" role="search" action="https://mackerel.io/docs/search" method="get">
     <input type="text" name="q" class="search-module-input" value="" placeholder="Type to search..." required="">
@@ -30,13 +29,14 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackere
       <a href="https://mackerel.io/api-docs/"><i class="icon-api"></i><strong>API Documents (v0)</strong><span>regarding the specification of the API for Mackerel</span></a>
     </p>
     <ul>
-      <li><a href="https://mackerel.io/docs/entry/howto/alerts/slack"><strong>Slack notifications</strong><span>sending alert notifications to Slack</span></a></li>
       <li><a href="https://mackerel.io/docs/entry/spec/agent"><strong>mackerel-agent specifications</strong><span>an explanation of mackerel-agent’s command options and settings</span></a></li>
-      <li><a href="https://mackerel.io/docs/entry/advanced/fluentd"><strong>Posting Service Metrics with fluentd</strong><span>Posting the number of requests, error rate, and more for each status code via fluentd</span></a></li>
-      <li><a href="https://mackerel.io/docs/entry/howto/mackerel-agent-plugins"><strong>Using the official plugin pack to visualize middleware metrics</strong><span>how to use the official plugin pack, which supports various kinds of middleware</span></a></li>
       <li><a href="https://mackerel.io/docs/entry/advanced/custom-metrics"><strong>Posting user-defined custom metrics</strong><span>posting middleware metrics of MySQL and such from mackerel-agent</span></a></li>
+      <li><a href="https://mackerel.io/docs/entry/howto/mackerel-agent-plugins"><strong>Using the official plugin pack to visualize middleware metrics</strong><span>how to use the official plugin pack, which supports various kinds of middleware</span></a></li>
+      <li><a href="https://mackerel.io/docs/entry/howto/mackerel-check-plugins"><strong>Using the official check plugin pack for check monitoring</strong><span>Official plugins are available to perform a variety of check monitoring</span></a></li>
+      <li><a href="https://mackerel.io/docs/entry/howto/check/log"><strong>Monitoring Logs</strong><span>Alerts are issued if certain patterns are found in the log file</span></a></li>
       <li><a href="https://mackerel.io/docs/entry/howto/alerts"><strong>Setting up monitoring and alerts</strong><span>how to set up the monitoring of registered hosts and receive alert notifications</span></a></li>
       <li><a href="https://mackerel.io/docs/entry/howto/downtimes"><strong>Configuring Downtime</strong><span>how to set up periodic monitoring suspension</span></a></li>
+      <li><a href="https://mackerel.io/docs/entry/howto/dashboard"><strong>Using Custom Dashboards</strong><span>how to use user-customized dashboards</span></a></li>
     </ul>
   </div>
   <p id="link-faq"><a href="https://support.mackerel.io/hc/en-us">Read FAQs</a></p>
@@ -72,6 +72,8 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackere
     <li><a href="https://mackerel.io/docs/entry/howto/assign-roles-to-hosts"><strong>Assigning roles to hosts</strong><span>how to assign the roles that you have created to hosts via the web</span></a></li>
     <li><a href="https://mackerel.io/docs/entry/howto/invite-others"><strong>Inviting users to join your Mackerel organization</strong><span>how to invite other users to join your organization and manage hosts together as a team</span></a></li>
     <li><a href="https://mackerel.io/docs/entry/howto/mackerel-agent-plugins"><strong>Using the official plugin pack to visualize middleware metrics</strong><span>how to use the official plugin pack, which supports various kinds of middleware</span></a></li>
+    <li><a href="https://mackerel.io/docs/entry/howto/mackerel-check-plugins"><strong>Using the official check plugin pack for check monitoring</strong><span>Official plugins are available to perform a variety of check monitoring</span></a></li>
+    <li><a href="https://mackerel.io/docs/entry/howto/check/log"><strong>Monitoring Logs</strong><span>Alerts are issued if certain patterns are found in the log file</span></a></li>
     <li><a href="https://mackerel.io/docs/entry/howto/dashboard"><strong>Using Custom Dashboards</strong><span>how to use user-customized dashboards</span></a></li>
     <li><a href="https://mackerel.io/docs/entry/howto/auto-scaling"><strong>Using Mackerel in Auto Scaling environments</strong><span>how to best use Mackerel in Auto Scaling environments</span></a></li>
     <li><a href="https://mackerel.io/docs/entry/howto/metadata"><strong>Using metadata</strong><span>how to register and utilize metadata</span></a></li>
@@ -124,13 +126,11 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackere
     <li><a href="https://mackerel.io/docs/entry/advanced/go-mackerel-plugin"><strong>Using go-mackerel-plugin to create a custom metric plugin</strong><span>an
  introduction on how to create plugins using the official library</span></a></li>
     <li><a href="https://mackerel.io/docs/entry/advanced/fluentd"><strong>Posting Service Metrics with fluentd</strong><span>use fluentd to post the number of requests, error rate, and more for each status code</span></a></li>
-    <li><a href="https://mackerel.io/docs/entry/advanced/capistrano-2.x"><strong>Integrating Capistrano 2.x</strong><span>eliminate the need for host list management by obtaining the host list from Mackerel</span></a></li>
     <li><a href="https://mackerel.io/docs/entry/advanced/capistrano-3.x"><strong>Integrating Capistrano 3.x</strong><span>eliminate the need for host list management by obtaining the host list from Mackerel</span></a></li>    
     <li><a href="https://mackerel.io/docs/entry/advanced/cli"><strong>Using the mkr CLI tool</strong><span>automate tasks using command-line tools</span></a></li>
     <li><a href="https://mackerel.io/docs/entry/advanced/monitors-github"><strong>Managing monitoring rules in GitHub</strong><span>an introduction to managing monitoring rules with GitHub</span></a></li>
     <li><a href="https://mackerel.io/docs/entry/advanced/docker"><strong>Monitoring Docker</strong><span>monitor Docker hosts using the mackerel-agent Docker image</span></a></li>
     <li><a href="https://mackerel.io/docs/entry/advanced/fluent-plugin-webhook-mackerel"><strong>Using fluent-plugin-webhook-mackerel</strong><span>use fluentd to handle alerts from Mackerel with more flexibility</span></a></li>
-    <li><a href="https://mackerel.io/docs/entry/advanced/monitoring-heroku"><strong>Monitoring Heroku with Mackerel</strong><span>monitor applications on Heroku using Mackerel</span></a></li>
     <li><a href="https://mackerel.io/docs/entry/advanced/advanced-graph"><strong>Displaying customized graphs</strong><span>display flexible, function-based customized graphs</span></a></li>
     <li><a href="https://mackerel.io/docs/entry/integrations/aws"><strong>AWS Integration</strong><span>manage AWS cloud products as Mackerel hosts and monitor metrics.</span></a></li>
     <li><a href="https://mackerel.io/docs/entry/integrations/azure"><strong>Azure Integration</strong><span>manage Azure cloud products as Mackerel hosts and monitor metrics.</span></a></li>

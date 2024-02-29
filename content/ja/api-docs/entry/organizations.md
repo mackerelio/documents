@@ -24,10 +24,12 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 
 ```json
 {
-  "name": <name>
+  "name": <name>,
+  "displayName": <displayName>
 }
 ```
 
 | KEY            | TYPE     | DESCRIPTION |
 | -------------- | -------- | ----------- |
 | `name`         | *string* | オーガニゼーションの名前。 |
+| `displayName`  | *string* / *null* | オーガニゼーションの管理名。 |

@@ -24,10 +24,12 @@ This will get the information of the organization.
 
 ```json
 {
-  "name": <name>
+  "name": <name>,
+  "displayName": <displayName>
 }
 ```
 
 | KEY            | TYPE     | DESCRIPTION |
 | -------------- | -------- | ----------- |
 | `name`         | *string* | The name of the organization |
+| `displayName`  | *string* / *null* | The display name of the organization |
