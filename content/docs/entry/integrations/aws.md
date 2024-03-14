@@ -23,7 +23,7 @@ Additionally, the API of AWS will be called every 5 minutes for each targeted me
 
 Currently, the following AWS cloud products are supported. For information on obtaining metrics, please refer to each individual document.
 
-[EC2](https://mackerel.io/docs/entry/integrations/aws/ec2)・[ELB (CLB)](https://mackerel.io/docs/entry/integrations/aws/elb)・[ALB](https://mackerel.io/docs/entry/integrations/aws/alb)・[NLB](https://mackerel.io/docs/entry/integrations/aws/nlb)・[RDS](https://mackerel.io/docs/entry/integrations/aws/rds)・[ElastiCache](https://mackerel.io/docs/entry/integrations/aws/elasticache)・[Redshift](https://mackerel.io/docs/entry/integrations/aws/redshift)・[Lambda](https://mackerel.io/docs/entry/integrations/aws/lambda)・[SQS](https://mackerel.io/docs/entry/integrations/aws/sqs)・[DynamoDB](https://mackerel.io/docs/entry/integrations/aws/dynamodb)・[CloudFront](https://mackerel.io/docs/entry/integrations/aws/cloudfront)・[API Gateway](https://mackerel.io/docs/entry/integrations/aws/apigateway)・[Kinesis Data Streams](https://mackerel.io/docs/entry/integrations/aws/kinesis)・[S3](https://mackerel.io/docs/entry/integrations/aws/s3)・[Elasticsearch Service](https://mackerel.io/docs/entry/integrations/aws/es)・[ECS](https://mackerel.io/docs/entry/integrations/aws/ecs)・[SES](https://mackerel.io/docs/entry/integrations/aws/ses)・[Step Functions](https://mackerel.io/docs/entry/integrations/aws/states)・[EFS](https://mackerel.io/docs/entry/integrations/aws/efs)・[Kinesis Data Firehose](https://mackerel.io/docs/entry/integrations/aws/firehose)・[Batch](https://mackerel.io/docs/entry/integrations/aws/batch)・[WAF](https://mackerel.io/docs/entry/integrations/aws/waf)・[Billing](https://mackerel.io/docs/entry/integrations/aws/billing)・[Route 53](https://mackerel.io/docs/entry/integrations/aws/route53)・[Connect](https://mackerel.io/docs/entry/integrations/aws/connect)・[DocumentDB](https://mackerel.io/docs/entry/integrations/aws/docdb)・[CodeBuild](https://mackerel.io/docs/entry/integrations/aws/codebuild)
+[EC2](https://mackerel.io/docs/entry/integrations/aws/ec2)・[ELB (CLB)](https://mackerel.io/docs/entry/integrations/aws/elb)・[ALB](https://mackerel.io/docs/entry/integrations/aws/alb)・[NLB](https://mackerel.io/docs/entry/integrations/aws/nlb)・[RDS](https://mackerel.io/docs/entry/integrations/aws/rds)・[ElastiCache](https://mackerel.io/docs/entry/integrations/aws/elasticache)・[Redshift](https://mackerel.io/docs/entry/integrations/aws/redshift)・[Lambda](https://mackerel.io/docs/entry/integrations/aws/lambda)・[SQS](https://mackerel.io/docs/entry/integrations/aws/sqs)・[DynamoDB](https://mackerel.io/docs/entry/integrations/aws/dynamodb)・[CloudFront](https://mackerel.io/docs/entry/integrations/aws/cloudfront)・[API Gateway](https://mackerel.io/docs/entry/integrations/aws/apigateway)・[Kinesis Data Streams](https://mackerel.io/docs/entry/integrations/aws/kinesis)・[S3](https://mackerel.io/docs/entry/integrations/aws/s3)・[OpenSearch Service](https://mackerel.io/docs/entry/integrations/aws/es)・[ECS](https://mackerel.io/docs/entry/integrations/aws/ecs)・[SES](https://mackerel.io/docs/entry/integrations/aws/ses)・[Step Functions](https://mackerel.io/docs/entry/integrations/aws/states)・[EFS](https://mackerel.io/docs/entry/integrations/aws/efs)・[Kinesis Data Firehose](https://mackerel.io/docs/entry/integrations/aws/firehose)・[Batch](https://mackerel.io/docs/entry/integrations/aws/batch)・[WAF](https://mackerel.io/docs/entry/integrations/aws/waf)・[Billing](https://mackerel.io/docs/entry/integrations/aws/billing)・[Route 53](https://mackerel.io/docs/entry/integrations/aws/route53)・[Connect](https://mackerel.io/docs/entry/integrations/aws/connect)・[DocumentDB](https://mackerel.io/docs/entry/integrations/aws/docdb)・[CodeBuild](https://mackerel.io/docs/entry/integrations/aws/codebuild)
 
 
 <h2 id="setting">Integration method</h2>
@@ -93,7 +93,7 @@ If you want to configure all the permissions used in AWS Integration, please ref
 | API Gateway [*1](#single-product) | `apigateway:GET` | Specify a resource policy like so `arn:aws:apigateway:ap-northeast-1::/*`.<br> You can not limit integration targets by resource policy. |
 | Kinesis Data Streams [*1](#single-product) | AmazonKinesisReadOnlyAccess |  |
 | S3 [*1](#single-product) | AmazonS3ReadOnlyAccess | Request metrics must be enabled in the S3 configuration.<br>See <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/configure-request-metrics-bucket.html">Creating a CloudWatch metrics configuration for all the objects in your bucket</a> and set the filter name as `EntireBucket`. |
-| Elasticsearch Service [*1](#single-product) | AmazonESReadOnlyAccess |  |
+| OpenSearch Service [*1](#single-product) [*2](#opensearch-service) | AmazonOpenSearchServiceReadOnlyAccess |  |
 | ECS [*1](#single-product) | `ecs:Describe*` <br> `ecs:List*` |  |
 | SES [*1](#single-product) | AmazonSESReadOnlyAccess <br> `ses:Describe*` |  |
 | Step Functions [*1](#single-product) | AWSStepFunctionsReadOnlyAccess |  |
@@ -108,6 +108,7 @@ If you want to configure all the permissions used in AWS Integration, please ref
 | CodeBuild [*1](#single-product) | `codebuild:BatchGetProjects` <br> `codebuild:ListProjects` |  |
 
 <p id="single-product">*1 <code>CloudWatchReadOnlyAccess</code> is required in addition to the required policies/actions for a single linkage of the relevant AWS products.</p>
+<p id="opensearch-service">*2 You can continue to use <code>AmazonESReadOnlyAccess</code> from the former Elasticsearch Service.</p>
 
 Furthmore, AWS Integration lets you filter using tags. However, additional policies need to be added to use this function with ElastiCache, SQS or Step Functions.
 For more details, refer to <a href="#tag">Filter by tag</a>.
@@ -257,7 +258,7 @@ Create and attach your own policies or specify them in Inline Policies.
                 "elasticache:ListTagsForResource",
                 "elasticfilesystem:Describe*",
                 "elasticloadbalancing:Describe*",
-                "es:DescribeElasticsearchDomain",
+                "es:DescribeDomain",
                 "es:List*",
                 "firehose:DescribeDeliveryStream",
                 "firehose:List*",
@@ -327,10 +328,10 @@ command = ["mackerel-plugin-mysql", "-host", "<RDS endpoint>", "-username", "use
 custom_identifier = "<RDS endpoint>"
 ```
 
-The second example is of Elasticsearch monitoring using the Amazon Elasticsearch Service and the [check-elasticsearch](https://github.com/mackerelio/go-check-plugins/tree/master/check-elasticsearch) plugin. Elasticsearch Service Cluster Health Checks can be aggregated as check monitoring for ElasticsearchService hosts by adding the plugin configuration which includes the `custom_identifier` as shown below to the mackerel-agent.conf.
+The second example is of OpenSearch monitoring using the Amazon OpenSearch Service and the [check-elasticsearch](https://github.com/mackerelio/go-check-plugins/tree/master/check-elasticsearch) plugin. OpenSearch Service Cluster Health Checks can be aggregated as check monitoring for OpenSearch Service hosts by adding the plugin configuration which includes the `custom_identifier` as shown below to the mackerel-agent.conf.
 
 ```
 [plugin.checks.elasticsearch]
-command = ["check-elasticsearch", "-s", "https", "-H", "<Elasticsearch Service endpoint>", "-p", "443"]
-custom_identifier = "<Elasticsearch Service domain ARN>"
+command = ["check-elasticsearch", "-s", "https", "-H", "<OpenSearch Service endpoint>", "-p", "443"]
+custom_identifier = "<OpenSearch Service domain ARN>"
 ```

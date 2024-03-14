@@ -61,6 +61,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackere
 <ul>
     <li><a href="https://mackerel.io/docs/entry/howto/install-agent"><strong>Installing the agent</strong><span>an explanation of how to install mackerel-agent in your hosts</span></a></li>
     <li><a href="https://mackerel.io/docs/entry/howto/container-agent"><strong>Monitoring Containers</strong><span>using mackerel-container-agent to monitor containers</span></a></li>
+    <li><a href="https://mackerel.io/docs/entry/howto/labeled-metrics/query-graph"><strong>Using Query Graph</strong><span>Display labeled metrics in a query graph</span><a></li>
     <li><a href="https://mackerel.io/docs/entry/howto/install-agent/amazon-linux"><strong>Installing mackerel-agent in Amazon Linux</strong><span>an explanation of how to install mackerel-agent in Amazon Linux</span></a></li>
     <li><a href="https://mackerel.io/docs/entry/howto/install-agent/rpm"><strong>Installing mackerel-agent in Red Hat Enterprise Linux derivatives</strong><span>setup for Red Hat Enterprise Linux derivatives</span></a></li>
     <li><a href="https://mackerel.io/docs/entry/howto/install-agent/deb"><strong>Installing mackerel-agent in Ubuntu / Debian</strong><span>setup for Debian OS systems</span></a></li>
@@ -92,6 +93,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackere
     <li><a href="https://mackerel.io/docs/entry/custom-checks"><strong>Adding monitors for script checks</strong><span>execute check monitoring similarly to Nagios</span></a></li>
     <li><a href="https://mackerel.io/docs/entry/external-monitoring"><strong>External URL Monitoring</strong><span>how to set up http and https external URL monitors</span></a></li>
     <li><a href="https://mackerel.io/docs/entry/expression-monitoring"><strong>Expression Monitoring</strong><span>how to set up expression monitors</span></a></li>
+     <li><a href="https://mackere.io/docs/entry/query-monitoring"><strong>Monitoring with queries</strong><span>Monitor labeled metrics with PromQL queries</span></a></li>
     <li><a href="https://mackerel.io/docs/entry/howto/alerts/slack"><strong>Slack notifications</strong><span>sending alert notifications to Slack</span></a></li>
     <li><a href="https://mackerel.io/docs/entry/howto/alerts/pagerduty"><strong>PagerDuty notifications</strong><span>sending alert notifications to PagerDuty</span></a></li>
     <li><a href="https://mackerel.io/docs/entry/howto/alerts/chatwork"><strong>Chatwork notifications</strong><span>sending alert notifications to Chatwork</span></a></li>

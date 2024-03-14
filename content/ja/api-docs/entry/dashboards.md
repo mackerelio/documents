@@ -301,6 +301,13 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 | `type`       | *string* | 固定文字列 `"expression"` |
 | `expression` | *string* | グラフを表す式            |
 
+#### クエリグラフ
+| KEY          | TYPE     | DESCRIPTION               |
+| ------------ | -------- | ------------------------- |
+| `type`       | *string* | 固定文字列 `"query"`      |
+| `query`      | *string* | PromQL 形式のクエリ            |
+| `legend`     | *string* | クエリの凡例。`{{ }}` で囲んだ箇所にラベルのキーを指定することで、ラベルの値に展開できます。例: `{ http.method: "GET" }` というラベルがあるとき、`legend` に `method: {{http.method}}` を指定すると、`method: GET` と展開されます。|
+
 これらに加えて、ダッシュボード取得時に関連するロール・サービス・グラフ定義が削除されていた場合、次の結果が返却されることがあります。
 
 | KEY    | TYPE     | DESCRIPTION            |
@@ -397,6 +404,14 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 | ------------ | -------- | ------------------------- |
 | `type`       | *string* | 固定文字列 `"expression"` |
 | `expression` | *string* | メトリックを表す式        |
+
+#### クエリ
+
+| KEY          | TYPE     | DESCRIPTION               |
+| ------------ | -------- | ------------------------- |
+| `type`       | *string* | 固定文字列 `"query"`      |
+| `query`      | *string* | PromQL 形式のクエリ            |
+| `legend`     | *string* | クエリの凡例。`{{ }}` で囲んだ箇所にラベルのキーを指定することで、ラベルの値に展開できます。例: `{ http.method: "GET" }` というラベルがあるとき、`legend` に `method: {{http.method}}` を指定すると、`method: GET` と展開されます。|
 
 式によるメトリック指定を使用して数値を正しく表示するためには、式の結果が単一の系列を表すようにする必要があります。
 

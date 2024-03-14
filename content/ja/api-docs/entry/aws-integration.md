@@ -587,7 +587,7 @@ Mackerel で用いられる識別子（ID）とそれに対応するAWSサービ
 | `APIGateway`    | Amazon API Gateway               |
 | `Kinesis`       | Amazon Kinesis                   |
 | `S3`            | Amazon S3                        |
-| `ES`            | Amazon Elasticsearch Service     |
+| `ES`            | Amazon OpenSearch Service        |
 | `ECSCluster`    | Amazon ECS                       |
 | `SES`           | Amazon SES                       |
 | `States`        | AWS Step Functions               |

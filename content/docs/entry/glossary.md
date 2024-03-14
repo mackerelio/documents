@@ -40,3 +40,14 @@ Metrics are data that indicate the current state of a variety of parameters with
 Its also possible to register user-defined custom metrics using a simple Sensu plug-in compatible protocol.
 
 - →[How to post user defined metrics](https://mackerel.io/docs/entry/advanced/custom-metrics)
+
+## Labeled metrics
+
+Labeled metrics are a feature that conforms to the [OpenTelemetry](https://opentelemetry.io/) specification. The OpenTelemetry ecosystem benefits from the ability to post metrics to Mackerel, which can also be displayed and monitored using the PromQL query language.
+
+As of February 2024, this feature is being provided as a public beta.
+
+- → [Posting labeled metrics to Mackerel](https://mackerel.io/docs/entry/howto/labeled-metrics/post-metrics)
+- → [Monitoring with queries](https://mackerel.io/docs/entry/query-monitoring)
+- → [Using Query Graph](https://mackerel.io/docs/entry/howto/labeled-metrics/query-graph)
+- → [Supported PromQL features](https://mackerel.io/docs/entry/howto/labeled-metrics/promql)

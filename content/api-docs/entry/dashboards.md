@@ -301,6 +301,14 @@ Objects representing widgets have the following formats for the differing types.
 | `type`       | *string* | fixed character string `"expression"` |
 | `expression` | *string* | expression representing a graph           |
 
+#### Query graph
+| KEY          | TYPE     | DESCRIPTION               |
+| ------------ | -------- | ------------------------- |
+| `type`       | *string* | fixed character string `"query"` |
+| `query` | *string* | PromQL-style queries           |
+| `legend` | *string* | query legend. by specifiying the label key  in `{{ }}`, it can be expanded to the value of the label. e.g. if you have a label `{ http.method: "GET" }` and you specify `method: {{http.method}}` in the `legend`, it will expand to `method: GET`.|
+
+
 In addition to these, if the role/service graph definition connected to obtaining the dashboard is deleted, the following result may be returned.
 
 | KEY    | TYPE     | DESCRIPTION            |
@@ -400,6 +408,14 @@ The name must comply with the following conditions.
 | ------------ | -------- | ------------------------- |
 | `type`       | *string* | fixed character string `"expression"` |
 | `expression` | *string* | an expression that represents a metric       |
+
+#### Query
+
+| KEY          | TYPE     | DESCRIPTION               |
+| ------------ | -------- | ------------------------- |
+| `type`       | *string* | fixed character string `"query"` |
+| `query` | *string* | PromQL-style queries           |
+| `legend` | *string* | query legend. by specifiying the label key  in `{{ }}`, it can be expanded to the value of the label. e.g. if you have a label `{ http.method: "GET" }` and you specify `method: {{http.method}}` in the `legend`, it will expand to `method: GET`.|
 
 In order to properly display values of a metric specified by an expression, the result of the expression must represent a single series.
 

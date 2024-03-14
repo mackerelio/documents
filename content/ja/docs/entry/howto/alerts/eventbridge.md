@@ -38,7 +38,7 @@ Mackerelでの設定が完了したら、Amazon EventBridgeでイベントバス
 ## JSONフォーマット
 
 通知されるJSONは以下のような内容を含んでいます。
-(項目は任意のタイミングで追加される場合があります)
+（項目は任意のタイミングで追加される場合があります）
 
 ```javascript
 {
@@ -97,24 +97,24 @@ Mackerelでの設定が完了したら、Amazon EventBridgeでイベントバス
 |orgName|string|アラートが発生しているオーガニゼーションの名前|
 |event|string|`alert`固定|
 |memo|string|監視ルールのメモ|
-|host|object|ホスト情報(ホストメトリック時のアラートのみ出力)|
-|service|object|サービス情報(サービスメトリック時のアラートのみ出力)
+|host|object|ホスト情報（ホストメトリック時のアラートのみ出力）|
+|service|object|サービス情報（サービスメトリック時のアラートのみ出力）
 |alert|object|アラート情報|
-|resourceInfo|object|AWSのリソース情報(対応しているコンポーネントの場合のみ出力)|
+|resourceInfo|object|AWSのリソース情報（対応しているコンポーネントの場合のみ出力）|
 
-### JSONの各項目(ホスト情報)
+### JSONの各項目（ホスト情報）
 
 |KEY|TYPE|DESCRIPTION|
 |:--|:--|:-|
 |id|string|ホストID|
 |name|string|ホスト名|
 |url|string|ホスト詳細のURL|
-|status|string|ホストステータス(`working`, `standby`, `poweroff`, `maintenance`)|
+|status|string|ホストステータス（`working`, `standby`, `poweroff`, `maintenance`）|
 |memo|string|ホストに登録されているメモ|
 |isRetired|boolean|退役済みかどうか|
-|roles|array[object]|ロール情報(ホストにロールが設定されている場合)|
+|roles|array[object]|ロール情報（ホストにロールが設定されている場合）|
 
-### JSONの各項目(ロール情報)
+### JSONの各項目（ロール情報）
 
 |KEY|TYPE|DESCRIPTION|
 |:--|:--|:-|
@@ -124,7 +124,7 @@ Mackerelでの設定が完了したら、Amazon EventBridgeでイベントバス
 |roleName|string|ロール名|
 |roleUrl|string|サービス詳細中のロールのURL|
 
-### JSONの各項目(サービス情報)
+### JSONの各項目（サービス情報）
 
 |KEY|TYPE|DESCRIPTION|
 |:--|:--|:-|
@@ -132,20 +132,27 @@ Mackerelでの設定が完了したら、Amazon EventBridgeでイベントバス
 |memo|string|サービスに登録されているメモ|
 |name|string|サービス名|
 |orgId|string|サービスが登録されているオーガニゼーションのID|
-|roles|array[object]|ロール情報(サービスにロールが登録されている場合)|
+|roles|array[object]|ロール情報（サービスにロールが登録されている場合）|
 
-### JSONの各項目(アラート情報)
+### JSONの各項目（クエリによる監視のメトリック情報）
+
+|KEY|TYPE|DESCRIPTION|
+|:--|:--|:-|
+|labels|object|メトリックのラベル。例: `{ "http.method": "GET", "http.status_code": "200" }`|
+|name|string|メトリック名。例: `httpcheck.status`|
+
+### JSONの各項目（アラート情報）
 
 |KEY|TYPE|DESCRIPTION|
 |:--|:--|:-|
 |id|string|アラートのID|
-|status|string|アラートのステータス(`ok`, `warning`, `critical`, `unknown`)|
+|status|string|アラートのステータス（`ok`, `warning`, `critical`, `unknown`）|
 |isOpen|boolean|アラートのオープンの状態|
-|trigger|string|通知が送信されたトリガー(`monitoring`(監視), `manual`(手動操作), `monitorDelete`(監視ルール削除), `hostRetire`(ホスト退役))|
+|trigger|string|通知が送信されたトリガー（`monitoring`（監視）, `manual`（手動操作）, `monitorDelete`（監視ルール削除）, `hostRetire`（ホスト退役））|
 |url|string|アラート詳細のURL|
-|openedAt|number|アラートの発生時刻(エポック秒)|
-|closedAt|number|アラートの解決時刻(エポック秒)|
-|createdAt|number|アラートの発生時刻(エポックミリ秒)。非推奨で廃止予定。openedAtをご利用ください|
+|openedAt|number|アラートの発生時刻（エポック秒）|
+|closedAt|number|アラートの解決時刻（エポック秒）|
+|createdAt|number|アラートの発生時刻（エポックミリ秒）。非推奨で廃止予定。openedAtをご利用ください|
 |monitorName|string|アラートを検知した監視項目名|
 |metricLabel|string|監視対象のメトリックなどの名称|
 |metricValue|number|アラート検知時のメトリックの値|
@@ -154,9 +161,9 @@ Mackerelでの設定が完了したら、Amazon EventBridgeでイベントバス
 |monitorOperator|string|`>` or `<`|
 |duration|number|監視間隔|
 
-※アラート情報の項目は、監視対象の種類（ホストメトリック, サービスメトリック, 外形監視, 式による監視)やそれぞれの設定項目によって増減します。たとえば外形監視でURLのみ設定されている場合のアラートではメトリックや閾値などの情報はアラートに含まれません。監視対象の種類と出力される項目は、監視ルール設定画面で入力可能な項目と対応します。
+※アラート情報の項目は、監視対象の種類（ホストメトリック, サービスメトリック, 外形監視, 式による監視, クエリによる監視）やそれぞれの設定項目によって増減します。たとえば外形監視でURLのみ設定されている場合のアラートではメトリックや閾値などの情報はアラートに含まれません。監視対象の種類と出力される項目は、監視ルール設定画面で入力可能な項目と対応します。
 
-### JSONの各項目(AWSのリソース情報)
+### JSONの各項目（AWSのリソース情報）
 
 #### EC2 の場合
 

@@ -58,13 +58,24 @@ Alerts will be returned in chronological order of when they were generated from 
 | `id`     | *string*        | the alert's ID                                      |
 | `status` | *string*        | the alert's current status: `"OK"`, `"CRITICAL"`, `"WARNING"`, or `"UNKNOWN"` |
 | `monitorId`  | *string* | the ID of the monitor that generated the alert |
-| `type`  | *string* | the type of the monitor: connectivity (`"connectivity"`), host metric (`"host"`), service metric (`"service"`), external monitor (`"external"`), check monitor (`"check"`), expression monitor (`"expression"`), or anomaly detection for roles (`"anomalyDetection"`) |
+| `type`  | *string* | the type of the monitor: connectivity (`"connectivity"`), host metric (`"host"`), service metric (`"service"`), external monitor (`"external"`), check monitor (`"check"`), expression monitor (`"expression"`), anomaly detection for roles (`"anomalyDetection"`), or query monitor (`"query"`) |
 | `hostId`  | *string* | [optional] the associated host ID. only exists when the type of the monitor is either `"connectivity"`, `"host"`, `"check"`, or `"anomalyDetection"` |
-| `value`  | *number* | [optional] the value of the monitoring target. only exists when the type of the monitor is `"host"`, or `"service"` or when there is a response time configuration in `"external"` |
+| `series` | *object* | [optional] the monitoring series. only exists when the type of the monitor is `"query"` [*1](#series)|
+| `value`  | *number* | [optional] the value of the monitoring target. only exists when the type of the monitor is `"host"`, `"service"` or `"query"`, or when there is a response time configuration in `"external"` |
 | `message`  | *string* | [optional] the monitoring target's message. only exists when the type of the monitor is either `"check"` or `"external"` |
 | `reason`  | *string* | [optional] the reason the alert closed. does not exist if the alert is unresolved. |
 | `openedAt`  | *number* | the timestamp of when the alert was generated (Unix time) |
 | `closedAt`  | *number* | [optional] the timestamp of when the alert was resolved (Unix time). only exists if the alert is already resolved |
+
+<h4 id="series">*1 series</h4>
+
+<span class="table-code">series</span> is an object that holds the following keys.
+
+| KEY     | TYPE   | DESCRIPTION |
+| -------- | ------ | ----------- |
+| `name` | *string* | the name of the monitoring series, e.g. "container.cpu.utilization" |
+| `labels` | *object* | the labels of the monitoring series. an object consisting of keys and a values, where the keys and values of each label are stored, e.g. `{"ip":"127.0.0.1"}` |
+
 
 #### Error
 

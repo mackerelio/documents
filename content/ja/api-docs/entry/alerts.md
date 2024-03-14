@@ -59,13 +59,24 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 | `id`     | *string*        | アラートのid。                                      |
 | `status` | *string*        | アラートの現在のステータス `"OK"`、 `"CRITICAL"`、 `"WARNING"`、 `"UNKNOWN"` のいずれかになります。 |
 | `monitorId`  | *string* | アラートを発生させた監視ルールのid。 |
-| `type`  | *string* | 監視ルールの種別。疎通 (`"connectivity"`)、ホストメトリック (`"host"`)、サービスメトリック (`"service"`)、外形監視 (`"external"`)、チェック監視 (`"check"`)、式監視 (`"expression"`)、ロール内異常検知 (`"anomalyDetection"`) のいずれかになります。 |
+| `type`  | *string* | 監視ルールの種別。疎通 (`"connectivity"`)、ホストメトリック (`"host"`)、サービスメトリック (`"service"`)、外形監視 (`"external"`)、チェック監視 (`"check"`)、式監視 (`"expression"`)、ロール内異常検知 (`"anomalyDetection"`)、クエリ監視(`"query"`) のいずれかになります。 |
 | `hostId`  | *string* | [optional] 関連するホストのid。監視ルールの種別が `"connectivity"`、`"host"`、`"check"`、`"anomalyDetection"`の時のみ存在します。 |
-| `value`  | *number* | [optional] 監視対象の値。監視ルールの種別が `"host"`、`"service"` の時または `"external"`で応答時間の設定があるときのみ存在します。 |
+| `series` | *object* | [optional] 監視対象の系列。監視ルールの種別が `"query"` の時のみ存在します。[*1](#series)|
+| `value`  | *number* | [optional] 監視対象の値。監視ルールの種別が `"host"`、`"service"`、`"query"` の時または `"external"`で応答時間の設定がある時のみ存在します。 |
 | `message`  | *string* | [optional] 監視対象のメッセージ。監視ルールの種別が `"check"` の時または `"external"` の時のみ存在します。 |
 | `reason`  | *string* | [optional]  アラートを閉じた理由。アラートが解決していない時は存在しません。 |
 | `openedAt`  | *number* | アラートの発生時刻 (epoch秒) |
 | `closedAt`  | *number* | [optional]  アラートの解決時刻 (epoch秒)。アラートが既に解決している時のみ存在します。 |
+
+<h4 id="series">*1 series</h4>
+
+<span class="table-code">series</span>は以下のキーを持つオブジェクトです。
+
+| KEY     | TYPE   | DESCRIPTION |
+| -------- | ------ | ----------- |
+| `name` | *string* | 監視対象のラベル対応メトリックの名前。 例: "container.cpu.utilization" |
+| `labels` | *object* | 監視対象のラベル対応メトリックのラベル一覧。ラベルのキーと値をキーと値とするオブジェクト。例: `{"ip":"127.0.0.1"}` |
+
 
 #### 失敗時
 

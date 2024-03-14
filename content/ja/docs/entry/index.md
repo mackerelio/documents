@@ -61,6 +61,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 <ul>
     <li><a href="https://mackerel.io/ja/docs/entry/howto/install-agent"><strong>エージェントをインストールする</strong><span>mackerel-agent をホストにインストールして、計測をはじめます</span></a></li>
     <li><a href="https://mackerel.io/ja/docs/entry/howto/container-agent"><strong>コンテナを監視する</strong><span>コンテナの監視にはmackerel-container-agentを利用します</span></a></li>
+    <li><a href="https://mackerel.io/ja/docs/entry/howto/labeled-metrics/query-graph"><strong>クエリグラフを利用する</strong><span>ラベル付きメトリックをクエリグラフで表示します</span></a></li>
     <li><a href="https://mackerel.io/ja/docs/entry/howto/install-agent/amazon-linux"><strong>Amazon Linuxにmackerel-agentをインストールする</strong><span>Amazon Linuxでのセットアップ</span></a></li>
     <li><a href="https://mackerel.io/ja/docs/entry/howto/install-agent/rpm"><strong>Red Hat Enterprise Linux派生OSにインストールする</strong><span>Red Hat Enterprise Linux派生OSでのセットアップ</span></a></li>
     <li><a href="https://mackerel.io/ja/docs/entry/howto/install-agent/deb"><strong>Ubuntu / Debian にインストールする</strong><span>Debian系OSでのセットアップ</span></a></li>
@@ -93,6 +94,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
     <li><a href="https://mackerel.io/ja/docs/entry/custom-checks"><strong>チェック監視項目を追加する</strong><span>Nagiosのようなチェック監視をおこなう</span></a></li>
     <li><a href="https://mackerel.io/ja/docs/entry/external-monitoring"><strong>URL外形監視をおこなう</strong><span>URL外形監視を設定します</span></a></li>
     <li><a href="https://mackerel.io/ja/docs/entry/expression-monitoring"><strong>式による監視をおこなう</strong><span>式による監視を設定します</span></a></li>
+    <li><a href="https://mackere.io/ja/docs/entry/query-monitoring"><strong>クエリによる監視をおこなう</strong><span>PromQL クエリによりラベル付きメトリックを監視します</span></a></li>
     <li><a href="https://mackerel.io/ja/docs/entry/howto/alerts/slack"><strong>Slackにアラートを通知する</strong><span>アラートをSlackへ通知します</span></a></li>
     <li><a href="https://mackerel.io/ja/docs/entry/howto/alerts/pagerduty"><strong>PagerDutyにアラートを通知する</strong><span>アラートをPagerDutyへ通知します</span></a></li>
     <li><a href="https://mackerel.io/ja/docs/entry/howto/alerts/chatwork"><strong>Chatworkにアラートを通知する</strong><span>アラートをChatworkへ通知します</span></a></li>

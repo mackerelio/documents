@@ -25,7 +25,7 @@ AWSインテグレーションでは、以下のAWSクラウド製品に対応�
 
 [EC2](https://mackerel.io/ja/docs/entry/integrations/aws/ec2)・[ELB (CLB)](https://mackerel.io/ja/docs/entry/integrations/aws/elb)・[ALB](https://mackerel.io/ja/docs/entry/integrations/aws/alb)・[NLB](https://mackerel.io/ja/docs/entry/integrations/aws/nlb)・[RDS](https://mackerel.io/ja/docs/entry/integrations/aws/rds)・[ElastiCache](https://mackerel.io/ja/docs/entry/integrations/aws/elasticache)・[Redshift](https://mackerel.io/ja/docs/entry/integrations/aws/redshift)・[Lambda](https://mackerel.io/ja/docs/entry/integrations/aws/lambda)・[SQS](https://mackerel.io/ja/docs/entry/integrations/aws/sqs)・[DynamoDB](https://mackerel.io/ja/docs/entry/integrations/aws/dynamodb)・[CloudFront](https://mackerel.io/ja/docs/entry/integrations/aws/cloudfront)
 ・[API Gateway](https://mackerel.io/ja/docs/entry/integrations/aws/apigateway)
-・[Kinesis Data Streams](https://mackerel.io/ja/docs/entry/integrations/aws/kinesis)・[S3](https://mackerel.io/ja/docs/entry/integrations/aws/s3)・[Elasticsearch Service](https://mackerel.io/ja/docs/entry/integrations/aws/es)・[ECS](https://mackerel.io/ja/docs/entry/integrations/aws/ecs)・[SES](https://mackerel.io/ja/docs/entry/integrations/aws/ses)・[Step Functions](https://mackerel.io/ja/docs/entry/integrations/aws/states)・[EFS](https://mackerel.io/ja/docs/entry/integrations/aws/efs)・[Kinesis Data Firehose](https://mackerel.io/ja/docs/entry/integrations/aws/firehose)・[Batch](https://mackerel.io/ja/docs/entry/integrations/aws/batch)・[WAF](https://mackerel.io/ja/docs/entry/integrations/aws/waf)・[Billing](https://mackerel.io/ja/docs/entry/integrations/aws/billing)・[Route 53](https://mackerel.io/ja/docs/entry/integrations/aws/route53)・[Connect](https://mackerel.io/ja/docs/entry/integrations/aws/connect)・[DocumentDB](https://mackerel.io/ja/docs/entry/integrations/aws/docdb)・[CodeBuild](https://mackerel.io/ja/docs/entry/integrations/aws/codebuild)
+・[Kinesis Data Streams](https://mackerel.io/ja/docs/entry/integrations/aws/kinesis)・[S3](https://mackerel.io/ja/docs/entry/integrations/aws/s3)・[OpenSearch Service](https://mackerel.io/ja/docs/entry/integrations/aws/es)・[ECS](https://mackerel.io/ja/docs/entry/integrations/aws/ecs)・[SES](https://mackerel.io/ja/docs/entry/integrations/aws/ses)・[Step Functions](https://mackerel.io/ja/docs/entry/integrations/aws/states)・[EFS](https://mackerel.io/ja/docs/entry/integrations/aws/efs)・[Kinesis Data Firehose](https://mackerel.io/ja/docs/entry/integrations/aws/firehose)・[Batch](https://mackerel.io/ja/docs/entry/integrations/aws/batch)・[WAF](https://mackerel.io/ja/docs/entry/integrations/aws/waf)・[Billing](https://mackerel.io/ja/docs/entry/integrations/aws/billing)・[Route 53](https://mackerel.io/ja/docs/entry/integrations/aws/route53)・[Connect](https://mackerel.io/ja/docs/entry/integrations/aws/connect)・[DocumentDB](https://mackerel.io/ja/docs/entry/integrations/aws/docdb)・[CodeBuild](https://mackerel.io/ja/docs/entry/integrations/aws/codebuild)
 
 <h2 id="setting">連携方法</h2>
 
@@ -96,7 +96,7 @@ AWSインテグレーションで使用する全ての権限を設定する場�
 | API Gateway [*1](#single-product) | `apigateway:GET` | リソースポリシーは`arn:aws:apigateway:ap-northeast-1::/*`などのように指定します。<br>リソースポリシーで連携対象を制限することはできません。 |
 | Kinesis Data Streams [*1](#single-product) | AmazonKinesisReadOnlyAccess |  |
 | S3 [*1](#single-product) | AmazonS3ReadOnlyAccess | S3側でバケットのリクエストメトリックを有効にする必要があります。<br><a href="https://docs.aws.amazon.com/ja_jp/AmazonS3/latest/userguide/configure-request-metrics-bucket.html">S3バケットにリクエストメトリックを設定する方法</a>を参考に`EntireBucket`というフィルタ名で設定してください。 |
-| Elasticsearch Service [*1](#single-product) | AmazonESReadOnlyAccess |  |
+| OpenSearch Service [*1](#single-product) [*2](#opensearch-service) | AmazonOpenSearchServiceReadOnlyAccess |  |
 | ECS [*1](#single-product) | `ecs:Describe*` <br> `ecs:List*` |  |
 | SES [*1](#single-product) | AmazonSESReadOnlyAccess <br> `ses:Describe*` |  |
 | Step Functions [*1](#single-product) | AWSStepFunctionsReadOnlyAccess |  |
@@ -111,6 +111,7 @@ AWSインテグレーションで使用する全ての権限を設定する場�
 | CodeBuild [*1](#single-product) | `codebuild:BatchGetProjects` <br> `codebuild:ListProjects` |  |
 
 <p id="single-product">*1 該当のAWS製品を単一で連携させる場合、必要なポリシー／アクションに加えて<code>CloudWatchReadOnlyAccess</code>が必要となります。</p>
+<p id="opensearch-service">*2 以前のElasticsearch Serviceから<code>AmazonESReadOnlyAccess</code>を継続してご利用が可能です。</p>
 
 また、AWSインテグレーションでは後述するようにタグによって絞り込みを行うことが出来ますが、ElastiCacheやSQSでタグによる絞り込みを行う場合は追加のポリシーを付与する必要があります。
 詳しくは<a href="#tag">タグで絞り込む</a> の項目を参照してください。
@@ -262,7 +263,7 @@ ElastiCache、SQSでタグによるサービス・ロール割り当てを行う
                 "elasticache:ListTagsForResource",
                 "elasticfilesystem:Describe*",
                 "elasticloadbalancing:Describe*",
-                "es:DescribeElasticsearchDomain",
+                "es:DescribeDomain",
                 "es:List*",
                 "firehose:DescribeDeliveryStream",
                 "firehose:List*",
@@ -334,10 +335,10 @@ command = ["mackerel-plugin-mysql", "-host", "RDSのエンドポイント", "-us
 custom_identifier = "RDSのエンドポイント"
 ```
 
-ふたつめの例は、 Amazon Elasticsearch Service と [check-elasticsearch](https://github.com/mackerelio/go-check-plugins/tree/master/check-elasticsearch) プラグインを用いた Elasticsearch 監視です。mackerel-agent.conf の設定に以下のように `custom_identifier` を含むプラグイン設定を追加することで、 Elasticsearch Service クラスターのヘルスチェックを Elasticsearch Service ホストのチェック監視として集約できます。
+ふたつめの例は、 Amazon OpenSearch Service と [check-elasticsearch](https://github.com/mackerelio/go-check-plugins/tree/master/check-elasticsearch) プラグインを用いた OpenSearch 監視です。mackerel-agent.conf の設定に以下のように `custom_identifier` を含むプラグイン設定を追加することで、 OpenSearch Service クラスターのヘルスチェックを OpenSearch Service ホストのチェック監視として集約できます。
 
 ```
 [plugin.checks.elasticsearch]
-command = ["check-elasticsearch", "-s", "https", "-H", "Elasticsearch Service のエンドポイント", "-p", "443"]
-custom_identifier = "Elasticsearch Service の ARN"
+command = ["check-elasticsearch", "-s", "https", "-H", "OpenSearch Service のエンドポイント", "-p", "443"]
+custom_identifier = "OpenSearch Service の ARN"
 ```

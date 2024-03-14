@@ -6,11 +6,13 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackere
 ---
 
 # Graph Widgets
+
 Display graphs in custom dashboards with the use of Graph Widgets.
 
 [f:id:mackerelio:20181113152347p:plain]
 
 ## Creating a Graph Widget
+
 Drag &amp; drop the graph widget icon to determine where to place the widget.
 
 [f:id:mackerelio:20181113152413p:plain]
@@ -21,6 +23,7 @@ Then select the type of graph to display in the widget. Choose from following gr
 - Role graph
 - Service graph
 - Expression graph[^1]
+- Query graph[^2]
 
 [f:id:mackerelio:20181113152442p:plain]
 
@@ -38,3 +41,4 @@ Next, select the graph display range. Choose from the following.
 After your selections are complete, create the widget by clicking the Create button.
 
 [^1]: Specifying graphs using expressions is an [experimental feature](https://mackerel.io/docs/entry/advanced/experimental-features).
+[^2]: Query graph is currently a public beta feature.

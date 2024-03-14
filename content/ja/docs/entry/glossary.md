@@ -42,3 +42,16 @@ sensuプラグイン互換のシンプルなプロトコルで、ユーザー定
 メトリクスとも表記されますが、Mackerelではメトリックで統一しています。
 
 - → [ユーザー定義のメトリックを投稿するには](https://mackerel.io/ja/docs/entry/advanced/custom-metrics)
+
+## ラベル付きメトリック
+
+ラベル付きメトリックは [OpenTelemetry](https://opentelemetry.io/) の仕様に準拠した機能です。OpenTelemetry のエコシステムを利用してメトリックを Mackerel に投稿できます。
+
+Mackerel に投稿されたラベル付きメトリックは PromQL クエリ言語を用いてグラフに表示・監視することができます。
+
+2024 年 2 月時点では、この機能はパブリックベータ版として提供されています。
+
+- → [ラベル付きメトリックを Mackerel に投稿する](https://mackerel.io/ja/docs/entry/howto/labeled-metrics/post-metrics)
+- → [クエリによる監視を行う](https://mackerel.io/ja/docs/entry/query-monitoring)
+- → [クエリグラフを利用する](https://mackerel.io/ja/docs/entry/howto/labeled-metrics/query-graph)
+- → [サポートされている PromQL の機能](https://mackerel.io/ja/docs/entry/howto/labeled-metrics/promql)

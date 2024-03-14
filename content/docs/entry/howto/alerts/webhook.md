@@ -46,16 +46,16 @@ The JSON that will be sent contains the following. (Items may be added at any ti
   "alert": {
     "openedAt": 1473129912,
     "closedAt": 1473130092,
-    "createdAt": 1473129912693, 
-    "criticalThreshold": 1.9588528112516932, 
-    "duration": 5, 
-    "isOpen": true, 
-    "metricLabel": "MetricName", 
-    "metricValue": 2.255356387321597, 
-    "monitorName": "MonitorName", 
-    "monitorOperator": ">", 
-    "status": "critical", 
-    "trigger": "monitor", 
+    "createdAt": 1473129912693,
+    "criticalThreshold": 1.9588528112516932,
+    "duration": 5,
+    "isOpen": true,
+    "metricLabel": "MetricName",
+    "metricValue": 2.255356387321597,
+    "monitorName": "MonitorName",
+    "monitorOperator": ">",
+    "status": "critical",
+    "trigger": "monitor",
     "id": "2bj...",
     "url": "https://mackerel.io/orgs/.../alerts/2bj...",
     "warningThreshold": 1.4665636369580741
@@ -65,71 +65,78 @@ The JSON that will be sent contains the following. (Items may be added at any ti
 
 ## JSON items
 
-|KEY|TYPE|DESCRIPTION|
-|:--|:--|:-|
-|orgName|string|name of the organization where the alert occurred|
-|event|string|fixed as `alert`|
-|type|string|the type of the monitor: connectivity (`"connectivity"`), host metric (`"host"`), service metric (`"service"`), external monitor (`"external"`), check monitor (`"check"`), expression monitor (`"expression"`), or anomaly detection for roles (`"anomalyDetection"`)|
-|message|string|alert message|
-|host|object|host information (output for alerts of host metrics only)|
-|service|object|service information (output for alerts of service metrics only)|
-|alert|object|alert information|
-|imageUrl|string / null|image URL of the corresponding graph<br />However, this is set as null if **Include graph image** is turned off or if no corresponding graph exists.|
-|memo|string|notes regarding the monitor.|
+| KEY      | TYPE          | DESCRIPTION                                                                                                                                                                                                                                                            |
+| :------- | :------------ | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| orgName  | string        | name of the organization where the alert occurred                                                                                                                                                                                                                      |
+| event    | string        | fixed as `alert`                                                                                                                                                                                                                                                       |
+| type     | string        | the type of the monitor: connectivity (`"connectivity"`), host metric (`"host"`), service metric (`"service"`), external monitor (`"external"`), check monitor (`"check"`), expression monitor (`"expression"`), or anomaly detection for roles (`"anomalyDetection"`) |
+| message  | string        | alert message                                                                                                                                                                                                                                                          |
+| host     | object        | host information (output for alerts of host metrics only)                                                                                                                                                                                                              |
+| service  | object        | service information (output for alerts of service metrics only)                                                                                                                                                                                                        |
+| alert    | object        | alert information                                                                                                                                                                                                                                                      |
+| imageUrl | string / null | image URL of the corresponding graph<br />However, this is set as null if **Include graph image** is turned off or if no corresponding graph exists.                                                                                                                   |
+| memo     | string        | notes regarding the monitor.                                                                                                                                                                                                                                           |
 
 ### JSON items (host information)
 
-|KEY|TYPE|DESCRIPTION|
-|:--|:--|:-|
-|id|string|host ID|
-|name|string|host name|
-|url|string|URL of the host details|
-|status|string|host status (`working`, `standby`, `poweroff`, `maintenance`)|
-|memo|string|memo registered to the host|
-|isRetired|boolean|whether or not retired|
-|roles|array[object]|role information (if the role is configured to the host)|
+| KEY       | TYPE          | DESCRIPTION                                                   |
+| :-------- | :------------ | :------------------------------------------------------------ |
+| id        | string        | host ID                                                       |
+| name      | string        | host name                                                     |
+| url       | string        | URL of the host details                                       |
+| status    | string        | host status (`working`, `standby`, `poweroff`, `maintenance`) |
+| memo      | string        | memo registered to the host                                   |
+| isRetired | boolean       | whether or not retired                                        |
+| roles     | array[object] | role information (if the role is configured to the host)      |
 
 ### JSON items (role information)
 
-|KEY|TYPE|DESCRIPTION|
-|:--|:--|:-|
-|fullname|string|service name: role name|
-|serviceName|string|service name
-|serviceUrl|string|URL of the service details|
-|roleName|string|role name|
-|roleUrl|string|URL of the role in service details|
+| KEY         | TYPE   | DESCRIPTION                        |
+| :---------- | :----- | :--------------------------------- |
+| fullname    | string | service name: role name            |
+| serviceName | string | service name                       |
+| serviceUrl  | string | URL of the service details         |
+| roleName    | string | role name                          |
+| roleUrl     | string | URL of the role in service details |
 
 ### JSON items (service information)
 
-|KEY|TYPE|DESCRIPTION|
-|:--|:--|:-|
-|id|string|service ID|
-|memo|string|memo registered to services|
-|name|string|service name|
-|orgId|string|ID of the organization where the service is registered|
-|roles|array[object]|role information (if the role is registered in services)|
+| KEY   | TYPE          | DESCRIPTION                                              |
+| :---- | :------------ | :------------------------------------------------------- |
+| id    | string        | service ID                                               |
+| memo  | string        | memo registered to services                              |
+| name  | string        | service name                                             |
+| orgId | string        | ID of the organization where the service is registered   |
+| roles | array[object] | role information (if the role is registered in services) |
+
+### JSON items (Metric information by query monitoring)
+
+| KEY    | TYPE   | DESCRIPTION                                                                     |
+| :----- | :----- | :------------------------------------------------------------------------------ |
+| labels | object | labels of the metric e.g. `{ "http.method": "GET", "http.status_code": "200" }` |
+| name   | string | metric name e.g. `httpcheck.status`                                             |
 
 ### JSON items (alert information)
 
-|KEY|TYPE|DESCRIPTION|
-|:--|:--|:-|
-|id|string|alert ID|
-|status|string|alert status (`ok`, `warning`, `critical`, `unknown`)|
-|isOpen|boolean|whether or not the alert is open|
-|trigger|string|what triggered the notification (`monitoring`, `manual`, `monitorDelete`, `hostRetire`)|
-|url|string|URL of the alert details|
-|openedAt|number|time the alert occurred (epoch seconds)|
-|closedAt|number|time the alert resolved (epoch seconds)|
-|createdAt|number|time the alert occurred (epoch milliseconds). A deprecated item and not recommended. Please use openedAt|
-|monitorName|string|name of the monitoring item that detected the alert|
-|metricLabel|string|title of the monitoring target's metrics etc.|
-|metricValue|number|metric value at the time of detection|
-|criticalThreshold|number|CRITICAL threshold|
-|warningThreshold|number|WARNING threshold|
-|monitorOperator|string|`>` or `<`|
-|duration|number|monitoring interval|
+| KEY               | TYPE    | DESCRIPTION                                                                                              |
+| :---------------- | :------ | :------------------------------------------------------------------------------------------------------- |
+| id                | string  | alert ID                                                                                                 |
+| status            | string  | alert status (`ok`, `warning`, `critical`, `unknown`)                                                    |
+| isOpen            | boolean | whether or not the alert is open                                                                         |
+| trigger           | string  | what triggered the notification (`monitoring`, `manual`, `monitorDelete`, `hostRetire`)                  |
+| url               | string  | URL of the alert details                                                                                 |
+| openedAt          | number  | time the alert occurred (epoch seconds)                                                                  |
+| closedAt          | number  | time the alert resolved (epoch seconds)                                                                  |
+| createdAt         | number  | time the alert occurred (epoch milliseconds). A deprecated item and not recommended. Please use openedAt |
+| monitorName       | string  | name of the monitoring item that detected the alert                                                      |
+| metricLabel       | string  | title of the monitoring target's metrics etc.                                                            |
+| metricValue       | number  | metric value at the time of detection                                                                    |
+| criticalThreshold | number  | CRITICAL threshold                                                                                       |
+| warningThreshold  | number  | WARNING threshold                                                                                        |
+| monitorOperator   | string  | `>` or `<`                                                                                               |
+| duration          | number  | monitoring interval                                                                                      |
 
-Note: Alert information items fluctuate depending on the type of monitoring target (host metrics, service metrics, external monitoring, expression monitoring) and each configuration item. For example, if only the URL is configured with external monitoring, information for metrics, thresholds, etc. will not be included. The type of monitoring target and the output items correspond with possible input items from the monitoring configurations screen.
+Note: Alert information items fluctuate depending on the type of monitoring target (host metrics, service metrics, external monitoring, expression monitoring, query monitoring) and each configuration item. For example, if only the URL is configured with external monitoring, information for metrics, thresholds, etc. will not be included. The type of monitoring target and the output items correspond with possible input items from the monitoring configurations screen.
 
 ## Making use of Webhook
 

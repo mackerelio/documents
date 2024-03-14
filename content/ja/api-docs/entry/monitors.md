@@ -37,6 +37,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
   <li><a href="#create-external-monitoring">外形監視</a></li>
   <li><a href="#create-expression-monitoring">式による監視</a></li>
   <li><a href="#create-anomaly-detection-monitoring">ロール内異常検知による監視</a></li>
+  <li><a href="#create-query-monitoring">クエリによる監視</a></li>
 </ul>
 
 <h3 id="create-host-metric-monitoring">ホストメトリック監視</h3>
@@ -708,6 +709,97 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
     <tr>
       <td>403</td>
       <td>APIキーに書き込み権限がないとき</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="create-query-monitoring">クエリによる監視</h3>
+
+#### 入力（クエリによる監視）
+
+| KEY             | TYPE     | DESCRIPTION                      |
+| ------------    | -------- | -------------------------------- |
+| `type`          | *string*   | 定数文字列 `"query"`               |
+| `name`          | *string*   | 監視一覧などで参照できる任意の名称。   |
+| `memo`          | *string*   | [optional] 監視ルールのメモ。 |
+| `query`         | *string*   | 監視対象のクエリ。 |
+| `legend`        | *string*   | アラート画面などで表示するグラフの凡例。 |
+| `operator`      | *string*   | 指定した数値より大きいか小さいかというアラート条件を指定。`">"` または `"<"`。左辺が観測値で右辺が設定値となります。|
+| `warning`       | *number*   | warningのAlert発生の閾値。 |
+| `critical`      | *number*   | criticalのAlert発生の閾値。 |
+| `notificationInterval` | *number* | [optional] 通知の再送設定をするときの再送間隔（分）。このフィールドを省略すると通知は再送されません。 |
+| `isMute`        | *boolean*       | [optional] 監視がミュート状態か否か。 [*3](#mute) |
+
+##### 入力例
+
+```json
+{
+  "type": "query",
+  "name": "cpu utilization",
+  "memo": "Monitors the cpu utilization of httpbin",
+  "query": "container.cpu.utilization{k8s.deployment.name=\"httpbin\"}",
+  "legend": "cpu.utilization {{k8s.node.name}}",
+  "operator": ">",
+  "warning": 70.0,
+  "critical": 90.0,
+  "notificationInterval": 60
+}
+```
+
+#### 応答（クエリによる監視）
+
+##### 成功時
+
+```json
+{
+  "id"  : "2cSZzK3XfmG",
+  "type": "query",
+  "name": "cpu utilization",
+  "memo": "Monitors the cpu utilization of httpbin",
+  "query": "container.cpu.utilization{k8s.deployment.name=\"httpbin\"}",
+  "legend": "cpu.utilization {{k8s.node.name}}",
+  "operator": ">",
+  "warning": 70.0,
+  "critical": 90.0,
+  "notificationInterval": 60
+}
+```
+
+`id` が付与されて返却されます。
+
+##### 失敗時
+
+<table class="default api-error-table">
+  <thead>
+    <tr>
+      <th class="status-code">STATUS CODE</th>
+      <th class="description">DESCRIPTION</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>400</td>
+      <td>入力が受け付けられないフォーマットだったとき</td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td><code>name</code>が空文字列のとき</td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td><code>memo</code>が2048文字を超えているとき</td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td>再送間隔が10分以上でないとき</td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td>無効なクエリが指定されたとき</td>
+    </tr>
+    <tr>
+      <td>403</td>
+      <td>APIキーに書き込み権限がないとき / <a href="https://support.mackerel.io/hc/ja/articles/360039701952-%E3%82%AA%E3%83%BC%E3%82%AC%E3%83%8B%E3%82%BC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AB%E5%AF%BE%E3%81%99%E3%82%8B%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E3%82%92IP%E3%82%A2%E3%83%89%E3%83%AC%E3%82%B9%E3%82%92%E6%8C%87%E5%AE%9A%E3%81%97%E3%81%A6%E5%88%B6%E9%99%90%E3%81%97%E3%81%9F%E3%81%84" target="_blank">許可されたIPアドレス範囲</a>外からのアクセスの場合</td>
     </tr>
   </tbody>
 </table>

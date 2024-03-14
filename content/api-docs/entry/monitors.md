@@ -38,6 +38,7 @@ The input procedure varies depending on the monitoring target.
   <li><a href="#create-external-monitoring">External monitoring</a></li>
   <li><a href="#create-expression-monitoring">Expression monitoring</a></li>
   <li><a href="#create-anomaly-detection-monitoring">Monitoring with Anomaly Detection for Roles</a></li>
+  <li><a href="#create-query-monitoring">Query monitoring</a></li>
 </ul>
 
 <h3 id="create-host-metric-monitoring">Host metric monitoring</h3>
@@ -51,7 +52,7 @@ The input procedure varies depending on the monitoring target.
 | `memo`          | *string*   | [optional] notes for the monitoring configuration |
 | `duration`      | *number*   | average value of the designated interval (in minutes) will be monitored. valid interval (1 to 10 min.) |
 | `metric`        | *string*   | name of the host metric targeted by monitoring. by designating a specific constant string, comparative monitoring is possible [*1](#comparative-monitoring) |
-| `operator`      | *string*   | determines the conditions that state whether the designated variable is either big or small. the observed value is on the left of `”>”` or `”<”` and the designated value is on the right |
+| `operator`      | *string*   | determines the conditions that state whether the designated variable is greater (`>`) or less than (`<`). the observed value is on the left of `”>”` or `”<”` and the designated value is on the right |
 | `warning`       | *number*   | [optional] the threshold that generates a warning alert. comparative monitoring has a valid range of 1-100[*1](#comparative-monitoring) |
 | `critical`      | *number*   | [optional] the threshold that generates a critical alert. comparative monitoring has a valid range of 1-100[*1](#comparative-monitoring) |
 | `maxCheckAttempts`           | *number*   | [optional] number of consecutive Warning/Critical instances before an alert is made. Default setting is 1 (1-10) |
@@ -300,7 +301,7 @@ This function disables notifications in monitoring. Alerts occur in response to 
 | `service`       | *string*   | name of the service targeted by monitoring |
 | `duration`      | *number*   | monitors the average value of the designated number of points. range: most recent 1~10 points |
 | `metric`        | *string*   | name of the monitoring target’s host metric name |
-| `operator`      | *string*   | determines the conditions that state whether the designated variable is either big or small. the observed value is on the left of `”>”` or `”<”` and the designated value is on the right |
+| `operator`      | *string*   | determines the conditions that state whether the designated variable is greater (`>`) or less than (`<`). the observed value is on the left of `”>”` or `”<”` and the designated value is on the right |
 | `warning`       | *number*   | [optional] the threshold that generates a warning alert |
 | `critical`      | *number*   | [optional] the threshold that generates a critical alert |
 | `maxCheckAttempts`          | *number*   | [optional] number of consecutive Warning/Critical instances before an alert is made. Default setting is 1 (1-10) |
@@ -534,7 +535,7 @@ In order to monitor the certification expiration date, it’s necessary to speci
 | `name`          | *string*   | arbitrary name that can be referenced from the monitors list, etc.   |
 | `memo`          | *string*   | [optional] notes for the monitoring configuration |
 | `expression`    | *string*   | Expression of the monitoring target. Only valid for graph sequences that become one line. |
-| `operator`      | *string*   | determines the conditions that state whether the designated variable is either big or small. the observed value is on the left of ”>”or ”<” and the designated value is on the right|
+| `operator`      | *string*   | determines the conditions that state whether the designated variable is greater (`>`) or less than (`<`). the observed value is on the left of ”>”or ”<” and the designated value is on the right|
 | `warning`       | *number*   | [optional] the threshold that generates a warning alert |
 | `critical`      | *number*   | [optional] the threshold that generates a critical alert |
 | `notificationInterval` | *number* | [optional] The time interval (in minutes) for re-sending notifications. If this field is omitted, notifications will not be re-sent. |
@@ -712,6 +713,98 @@ In order to monitor the certification expiration date, it’s necessary to speci
     </tr>
   </tbody>
 </table>
+
+<h3 id="create-query-monitoring">Query monitoring</h3>
+
+#### Input (query monitoring)
+
+| KEY                    | TYPE            | DESCRIPTION                                                                                                                          |
+| ---------------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| `type`                 | _string_        | constant string `"query"`                                                                                                 |
+| `name`                 | _string_        | arbitrary name that can be referenced from the monitors list, etc.                                                                   |
+| `memo`                 | _string_        | [optional] notes for the monitoring configuration                                                                                    |
+| `query`                | _string_  | query of the monitoring target                                                                                           |
+| `legend`               | _string_  | graph legend for the alerts                                                                                           |
+| `operator`             | _string_  | determines the conditions that state whether the designated variable is greater (`>`) or less than (`<`). the observed value is on the left of ”>”or ”<” and the designated value is on the right |
+| `warning`              | _number_  | the threshold that generates a warning alert                                                                                                                                         |
+| `critical`             | _number_  | the threshold that generates a critical alert                                                                                                                                        |
+| `notificationInterval` | _number_  | [optional] the time interval (in minutes) for re-sending notifications. if this field is omitted, notifications will not be re-sent.                                                 |
+| `isMute`               | _boolean_ | [optional] whether monitoring is muted or not [\*3](#mute)                                                                                                                           |
+
+##### Example Input
+
+```json
+{
+  "type": "query",
+  "name": "cpu utilization",
+  "memo": "Monitors the cpu utilization of httpbin",
+  "query": "container.cpu.utilization{k8s.deployment.name=\"httpbin\"}",
+  "legend": "cpu.utilization {{k8s.node.name}}",
+  "operator": ">",
+  "warning": 70.0,
+  "critical": 90.0,
+  "notificationInterval": 60
+}
+```
+
+#### Response (query monitoring)
+
+##### Success
+
+```json
+{
+  "id"  : "2cSZzK3XfmG",
+  "type": "query",
+  "name": "cpu utilization",
+  "memo": "Monitors the cpu utilization of httpbin",
+  "query": "container.cpu.utilization{k8s.deployment.name=\"httpbin\"}",
+  "legend": "cpu.utilization {{k8s.node.name}}",
+  "operator": ">",
+  "warning": 70.0,
+  "critical": 90.0,
+  "notificationInterval": 60
+}
+```
+
+`id` will be given and returned.
+
+##### Error
+
+<table class="default api-error-table">
+  <thead>
+    <tr>
+      <th class="status-code">STATUS CODE</th>
+      <th class="description">DESCRIPTION</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>400</td>
+      <td>when the input is in a format that can’t be received</td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td>when the <code>name</code> is empty</td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td>when the <code>memo</code> exceeds 2048 characters</td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td>when the notification re-sending time interval is not set at 10 minutes or more</td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td>when an invalid query is designated</td>
+    </tr>
+    <tr>
+      <td>403</td>
+      <td>when the API key doesn't have the required permissions / when accessing from outside the <a href="https://support.mackerel.io/hc/en-us/articles/360039701952" target="_blank">permitted IP address range</a></td>
+    </tr>
+  </tbody>
+</table>
+
 
 ----------------------------------------------
 

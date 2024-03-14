@@ -133,6 +133,13 @@ The JSON that will be sent contains the following. (Items may be added at any ti
 |orgId|string|ID of the organization where the service is registered|
 |roles|array[object]|role information (if the role is registered in services)|
 
+### JSON Items (Metric information by query monitoring)
+
+|KEY|TYPE|DESCRIPTION|
+|:--|:--|:-|
+|labels|object|labels of the metric e.g. `{ "http.method": "GET", "http.status_code": "200" }`|
+|name|string|metric name e.g. `httpcheck.status`|
+
 ### JSON items (alert information)
 
 |KEY|TYPE|DESCRIPTION|
@@ -153,7 +160,7 @@ The JSON that will be sent contains the following. (Items may be added at any ti
 |monitorOperator|string|`>` or `<`|
 |duration|number|monitoring interval|
 
-※Alert information items fluctuate depending on the type of monitoring target (host metrics, service metrics, external monitoring, expression monitoring) and each configuration item. For example, if only the URL is configured with external monitoring, information for metrics, thresholds, etc. will not be included. The type of monitoring target and the output items correspond with possible input items from the monitoring configurations screen. 
+※Alert information items fluctuate depending on the type of monitoring target (host metrics, service metrics, external monitoring, expression monitoring, query monitoring) and each configuration item. For example, if only the URL is configured with external monitoring, information for metrics, thresholds, etc. will not be included. The type of monitoring target and the output items correspond with possible input items from the monitoring configurations screen. 
 
 ### JSON items (AWS resource information)
 

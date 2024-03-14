@@ -6,11 +6,13 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 ---
 
 # グラフウィジェットを利用する
+
 グラフウィジェットを利用すると、カスタムダッシュボードにグラフを表示できます。
 
 [f:id:mackerelio:20181102153824p:plain]
 
 ## グラフウィジェットを作成する
+
 グラフウィジェットのアイコンをドラッグ&amp;ドロップして、ウィジェットを作成する位置を決定します。
 
 [f:id:mackerelio:20181102173147p:plain]
@@ -21,6 +23,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 - ロールグラフ
 - サービスグラフ
 - 式グラフ[^1]
+- クエリグラフ[^2]
 
 のいずれかです。
 
@@ -40,3 +43,4 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 選択が完了したら作成ボタンでウィジェットを作成します。
 
 [^1]: 式グラフは[実験的機能](https://mackerel.io/ja/docs/entry/advanced/experimental-features)となっています。
+[^2]: クエリグラフはパブリックベータ機能です。
