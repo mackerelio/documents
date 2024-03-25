@@ -18,8 +18,8 @@ check-windows-eventlog is a plugin that monitors Windows event logs. It raises a
 | --type | | Specify the event type you want to detect.<br>See the [Event type to be alerted](#event-type). |  |
 | --source-pattern | | Specify the event source you want to detect. |  |
 | --source-exclude | | Specify the event sources you want to exclude. |  |
-| --message-pattern | | Specify the string pattern you want to detect with a regular expression. |  |
-| --message-exclude | | Specify the string pattern you want to exclude with a regular expression. |  |
+| --message-pattern | | Specify the string pattern you want to detect with a regular expression. (AND conditions are not supported.) *1 |  |
+| --message-exclude | | Specify the string pattern you want to exclude with a regular expression. (AND conditions are not supported.) *1 |  |
 | --event-id-pattern | | Specify event IDs to be detected, Multiple specifications can be specified by separating them with commas, and ranges can be specified with hyphens. |  |
 | --event-id-exclude | | Specify event IDs to exclude, Multiple specifications can be specified by separating them with commas, and ranges can be specified with hyphens. |  |
 | --warning-over | -w | Warning alert occurs if the number of lines matching the detection pattern exceeds the specified value. | 0 |
@@ -30,6 +30,8 @@ check-windows-eventlog is a plugin that monitors Windows event logs. It raises a
 | --fail-first | | Alerts on first check immediately after setting up the plugin. |  |
 | --verbose | | Display execution results in detail. Used for debugging. |  |
 | --help | -h | Show Help. |  |
+
+- *1 If multiple options are specified, only the last option is valid.
 
 <h3 id="log-type">Types of event logs that can be monitored</h3>
 

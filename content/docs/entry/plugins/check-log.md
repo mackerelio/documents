@@ -14,27 +14,28 @@ Pattern matching using regular expressions is performed on the output difference
 
 <h2 id="options">Configurable options</h2>
 
-| Option                | Short | Description                                                                                                          | Multiple Allowed | Default |
-| --------------------- | ----- | -------------------------------------------------------------------------------------------------------------------- | ---------------- | ------- |
-| --file                | -f    | Specify the path of the file to be monitored (can be specified in glob format)                                       |                  |         |
-| --pattern             | -p    | Specify the pattern of error wording to be detected with a regular expression                                        | ✓                |         |
-| --exclude             | -E    | Specify patterns to exclude from detection using regular expressions                                                 | ✓                |         |
-| --warning-over        | -w    | Raise a Warning alert if the number of rows matching the detection pattern exceeds the specified value               |                  |         |
-| --critical-over       | -c    | Raise a Critical alert if the number of rows matching the detection pattern exceeds the specified value              |                  |         |
-| --warning-level       |       | Raise a Warning alert if the value extracted by the detection pattern exceeds the specified value                    |                  |         |
-| --critical-level      |       | Raise a Critical alert if the value extracted by the detection pattern exceeds the specified value                   |                  |         |
-| --return              | -r    | Notify of log lines that match the pattern with an alert. *1                                                         |                  |         |
-| --search-in-directory |       | Specify the directory path where the monitored files are located (in Windows environment, use with `--file-pattern`) |                  |         |
-| --file-pattern        | -F    | Specify files to be monitored by regular expression                                                                  |                  |         |
-| --icase               | -i    | Case-insensitive matching                                                                                            |                  |         |
-| --state-dir           | -s    | Specify the directory path where the State file is to be saved                                                       |                  |         |
-| --no-state            |       | All logs are checked without State file                                                                              |                  |         |
-| --encoding            |       | Specify character encoding of monitored files                                                                        |                  |         |
-| --missing             |       | Specify alert level if monitored files are missing                                                                   |                  | UNKNOWN |
-| --check-first         |       | Check all contents at the time of the first check of the file                                                        |                  |         |
-| --suppress-pattern    |       | Suppress the display of detection patterns on the host detail screen                                                 |                  |         |
+| Option                | Short | Description                                                                                                          |  Default |
+| --------------------- | ----- | -------------------------------------------------------------------------------------------------------------------- |  ------- |
+| --file                | -f    | Specify the path of the file to be monitored (can be specified in glob format)                                       |          |
+| --pattern             | -p    | Specify the pattern of error wording to be detected with a regular expression *1                                     |          |
+| --exclude             | -E    | Specify patterns to exclude from detection using regular expressions *1                                              |          |
+| --warning-over        | -w    | Raise a Warning alert if the number of rows matching the detection pattern exceeds the specified value               |          |
+| --critical-over       | -c    | Raise a Critical alert if the number of rows matching the detection pattern exceeds the specified value              |          |
+| --warning-level       |       | Raise a Warning alert if the value extracted by the detection pattern exceeds the specified value                    |          |
+| --critical-level      |       | Raise a Critical alert if the value extracted by the detection pattern exceeds the specified value                   |          |
+| --return              | -r    | Notify of log lines that match the pattern with an alert. *1                                                         |          |
+| --search-in-directory |       | Specify the directory path where the monitored files are located (in Windows environment, use with `--file-pattern`) |          |
+| --file-pattern        | -F    | Specify files to be monitored by regular expression                                                                  |          |
+| --icase               | -i    | Case-insensitive matching                                                                                            |          |
+| --state-dir           | -s    | Specify the directory path where the State file is to be saved                                                       |          |
+| --no-state            |       | All logs are checked without State file                                                                              |          |
+| --encoding            |       | Specify character encoding of monitored files                                                                        |          |
+| --missing             |       | Specify alert level if monitored files are missing                                                                   |  UNKNOWN |
+| --check-first         |       | Check all contents at the time of the first check of the file                                                        |          |
+| --suppress-pattern    |       | Suppress the display of detection patterns on the host detail screen                                                 |          |
 
-- *1 Content exceeding 1024 characters will be truncated by mackerel-agent.
+- *1 If multiple conditions are specified, they become AND conditions. (`"--pattern", "A", "--pattern", "B"`)
+- *2 Content exceeding 1024 characters will be truncated by mackerel-agent.
 
 <h3 id="state-file">About state file</h3>
 
