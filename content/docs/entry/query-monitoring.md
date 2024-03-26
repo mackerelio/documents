@@ -26,7 +26,7 @@ For information on the PromQL features available in monitoring rules, see [Suppo
 - The monitoring interval is 1 minute.
 - For monitoring items, you can specify multiple series of graphs. If multiple series of graphs are specified, the thresholds for each series will be verified, and the occurrence of an alert will be determined. Therefore, multiple alerts may occur for a single monitoring rule.
 - You can use the label's [template syntax](#template-syntax) in the monitoring rule name.
-- The evaluation of the query is always performed within a 20-minute range. Therefore, due to the [constraints on range vector selectors](https://mackerel.io/docs/entry/howto/query/promql#constraints-on-range-vector-selectors), if a wide range (`[1w]`, etc.) is specified in the range vector selector, the query evaluation may not be performed correctly, and an `unknown` alert may occur.
+- The evaluation of the query is always performed within a 20-minute range. Therefore, due to the [constraints on range vector selectors](https://mackerel.io/docs/entry/howto/labeled-metrics/promql#constraints-on-range-vector-selectors), if a wide range (`[1w]`, etc.) is specified in the range vector selector, the query evaluation may not be performed correctly, and an `unknown` alert may occur.
 
 ## Template syntax
 
