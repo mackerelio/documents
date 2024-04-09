@@ -95,6 +95,8 @@ mackerel-container-agentでは各コンテナオーケストレーションプ�
 | MACKEREL_APIKEY | エージェントがMackerelサービスとの通信の際に用いる API キーを指定します。 |
 | MACKEREL_APIBASE | Mackerel APIのエンドポイントを指定します (デフォルト: `https://api.mackerelio.com/`)。 |
 | MACKEREL_ROLES | タスク、Podへサービス、ロールを設定できます。`,`区切りで複数の指定が可能です。（例: `service1:role1,service2:role2`） |
+| MACKEREL_DISPLAY_NAME | ホストの管理名を指定します。 |
+| MACKEREL_MEMO | ホストのメモを指定します。 |
 | MACKEREL_AGENT_CONFIG | エージェントの設定ファイルを設定できます。こちらの詳細は後述します。 |
 | MACKEREL_AGENT_CONFIG_POLLING_DURATION_MINUTES | エージェントの設定ファイルの変更を検知するために取得する間隔を分で指定します。|
 | MACKEREL_IGNORE_CONTAINER | 監視を除外するコンテナの名前を正規表現で設定します。 |
@@ -132,6 +134,8 @@ ignoreContainer: '\Amackerel-container-agent\z'
 | apikey | エージェントがMackerelサービスとの通信の際に用いる API キーを指定します。 |
 | apibase | Mackerel APIのエンドポイントです (デフォルト: `https://api.mackerelio.com/`)。 |
 | roles | タスク、Podへサービス、ロールを設定できます。 |
+| display_name | ホストの管理名を指定します。 |
+| memo | ホストのメモを指定します。 |
 | ignoreContainer | 監視を除外するコンテナの名前を正規表現で設定します。 |
 | root | mackerel-container-agentのルートディレクトリを指定できます (デフォルト: `/var/tmp/mackerel-container-agent`)。 |
 | plugin.metrics | 任意のメトリックの取得、投稿するプラグインを設定できます。こちらの詳細は後述します。 |

@@ -93,6 +93,8 @@ If not using the plugin, the agent can be used with just environment variable co
 | MACKEREL_APIKEY | Specifies the API key used by the agent to communicate with the Mackerel service. |
 | MACKEREL_APIBASE | Specifies the Mackerel API endpoint(Default: `https://api.mackerelio.com/`). |
 | MACKEREL_ROLES | Sets services and roles for tasks and pods. You can specify multiple values with the separator `,`. (e.g. `service1:role1,service2:role2`) |
+| MACKEREL_DISPLAY_NAME | Sets the display name of the host. |
+| MACKEREL_MEMO | Sets notes for the host. |
 | MACKEREL_AGENT_CONFIG | Sets the agent configuration file. Details for this will be described later. |
 | MACKEREL_AGENT_CONFIG_POLLING_DURATION_MINUTES | Specifies time interval of retrieval in minutes for detecting changes in the agent configuration file. |
 | MACKEREL_IGNORE_CONTAINER | Sets the name of the container to be excluded from monitoring with regular expressions. |
@@ -131,6 +133,8 @@ ignoreContainer: '\Amackerel-container-agent\z'
 | apikey | Specifies the API key used by the agent to communicate with the Mackerel service. |
 | apibase | The Mackerel API end point (Default: `https://api.mackerelio.com/`). |
 | roles | Sets services and roles for tasks and pods. |
+| display_name | Sets the display name of the host. |
+| memo | Sets notes for the host. |
 | ignoreContainer | Sets the name of the container to be excluded from monitoring with regular expressions. |
 | root | Specifies the mackerel-container-agent root directory (Default: `/var/tmp/mackerel-container-agent`)。 |
 | plugin.metrics | Sets a plugin to get and post arbitrary metrics. Details for this will be described later. |
