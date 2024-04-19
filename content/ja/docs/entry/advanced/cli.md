@@ -197,6 +197,55 @@ mkr metrics --host <hostId> --name <name> --from <epoch seconds> --to <epoch sec
 ]
 ```
 
+### メトリック投稿
+
+mkrではthrowサブコマンドでメトリックを投稿できます。ホストIDを指定することでホストメトリックを、サービス名を指定することでサービスメトリックを投稿できます。
+throwサブコマンドは、標準入力で投稿するメトリックを受け取ります。メトリックのフォーマットについては、[ホストのカスタムメトリックを投稿する - Mackerel ヘルプ](https://mackerel.io/ja/docs/entry/advanced/custom-metrics)内、[メトリックの投稿 - ホストのカスタムメトリックを投稿する - Mackerel ヘルプ](https://mackerel.io/ja/docs/entry/advanced/custom-metrics#post-metric)をご確認ください。
+
+以下は、ホストID `2eQGEaLxibb` のホストメトリック `custom.example.throwA` に値1を投稿する例です。
+
+```
+% echo -e "example.throwA\t1\t$(date +%s)" | mkr throw --host 2eQGEaLxibb
+```
+
+成功すると、以下のようなメッセージが表示されます。
+```
+    thrown 54EwSZbNexW 'custom.example.throwA       1.000000        1711596750'
+```
+
+以下は、サービス `myservice` のサービスメトリック `example.throwB` に値2を投稿する例です。
+
+```
+% echo -e "example.throwB\t2\t$(date +%s)" | mkr throw --service myservice
+```
+
+成功すると、以下のようなメッセージが表示されます。
+```
+    thrown myservice 'example.throwB   2.000000        1711596974'
+```
+
+同時に複数のメトリックを投稿することもできます。
+例として、`custom.example.throwC`に対して値1、`custom.example.throwD`に対して値2をそれぞれ投稿する場合は、以下のように`\n`を用いて、改行された状態の出力を用意します。
+
+```
+% echo -e "example.throwC\t1\t$(date +%s)\nexample.throwD\t2\t$(date +%s)"
+example.throwC  1       1713273764
+example.throwD  2       1713273764
+```
+
+この出力結果を `mkr throw` コマンドの標準入力に引き渡すことで、`custom.example.throwC` と `custom.example.throwD` の2メトリックが同時に投稿されます。
+
+```
+% echo -e "example.throwC\t1\t$(date +%s)\nexample.throwD\t2\t$(date +%s)" | mkr throw --host 2eQGEaLxibb
+```
+
+[メトリックプラグイン一覧 - Mackerel ヘルプ](https://mackerel.io/ja/docs/entry/plugins/metric-plugins-list)に記載されている公式メトリックプラグインのような、mackerel-agentからメトリック投稿が可能なメトリックプラグインは、`mkr throw`が受け付けるフォーマットでメトリックを出力するため、以下のように実行結果を標準入力に引き渡すことで投稿が可能です。
+
+```
+% mackerel-plugin-mysql | mkr throw --host 2eQGEaLxibb
+```
+
+
 ### 監視ルール
 
 mkrではmonitorsサブコマンドで監視ルールを操作できます。サブコマンドは、pull/diff/pushの3種類あります。サブコマンドを指定しない場合、監視ルール一覧が表示されます。
