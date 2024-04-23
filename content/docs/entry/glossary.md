@@ -27,11 +27,13 @@ A host is one instance of the OS that the mackerel-agent is running on. It’s p
 
 Organizations are how Mackerel identifies companies, organizations, and groups of individuals who use Mackerel. A single Mackerel user’s account can be attached to multiple organizations. Information from hosts and services will never be shared outside the bounds of the organization it belongs to.
 
-If an organization name you have entered is already taken by another organization, it will not be able to be used.
-
 Multiple users may belong to a single organization as a team. Additionally, a single user can belong to multiple organizations such as one for personal use and one for company use.
 
 - → [How to invite others to an organization](https://mackerel.io/docs/entry/howto/invite-others)
+
+### Restriction on Organization Name
+
+If an organization name you have entered is already taken by another organization, it will not be able to be used.
 
 ## Metrics
 
