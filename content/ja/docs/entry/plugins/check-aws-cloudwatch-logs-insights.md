@@ -132,6 +132,16 @@ check-aws-cloudwatch-logs は CloudWatch Logs の FilterLogEvents API を利用�
 
 [https://aws.amazon.com/jp/cloudwatch/pricing/:embed:cite]
 
+<h2 id="troubleshoot">トラブルシューティング</h2>
+
+### UNKNOWN: context canceledが発生する
+
+- 考えられる原因
+  - このエラーはプラグインの実行が中断された場合に発生します。本プラグインは AWS が提供する CloudWatch Logs Insights の API を利用して CloudWatch 上のログデータを取得しますが、API リクエストの送信や、応答が返って来るまでに時間がかかり、プラグインの実行がタイムアウトした可能性が考えられます（AWS が提供する API を利用するという性質上、詳細な原因についてはわかりかねます）。
+- 影響
+  - エラーが発生した際に監視対象となっていた期間のログのチェックに失敗します。監視対象となる期間については [監視仕様](#specification) を確認してください。
+- 対処方法
+  - 先述したタイムアウトが実際の原因である場合は、timeout_seconds でプラグイン実行のタイムアウトまでの時間を伸ばすことで、エラーの発生を回避できる可能性があります。timeout_seconds についてはチェック監視の [設定項目](https://mackerel.io/ja/docs/entry/custom-checks#items) を確認してください。
 
 <h2 id="repository">リポジトリ</h2>
 

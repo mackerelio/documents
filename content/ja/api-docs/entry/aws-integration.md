@@ -88,7 +88,7 @@ AWSインテグレーション設定の一覧が返却されます。
 
 <i>`excludedMetrics`</i> と <i>`includedMetrics`</i> はAWSインテグレーション設定ごとに、全てのサービスを通してどちらか一方のみが返ります。
 
-EC2・RDS の場合は、追加で以下のキーが設定されています。
+EC2・RDS・ElastiCache の場合は、追加で以下のキーが設定されています。
 
 | KEY                   | TYPE              | DESCRIPTION                              |
 | --------              | ------            | -----------                              |
@@ -215,7 +215,7 @@ AWSインテグレーション設定の情報が返却されます。
 | `excludedMetrics`     | *array[string]*   | [optional] 除外するメトリック名のリスト[*5](#excludedMetrics)                              |
 | `includedMetrics`     | *array[string]*   | [optional] 取得するメトリック名のリスト[*5](#excludedMetrics)                              |
 
-EC2・RDS の場合は、追加で以下のキーが設定できます。
+EC2・RDS・ElastiCache の場合は、追加で以下のキーが設定できます。
 
 | KEY                   | TYPE              | DESCRIPTION                                                                                                                                      |
 | --------              | ------            | -----------                                                                                                                                      |

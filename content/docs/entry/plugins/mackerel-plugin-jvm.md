@@ -12,6 +12,15 @@ This plugin will not work if `PerfDisableSharedMem` is specified in the JVM opti
 
 [:contents]
 
+<h2 id="specification">Specification</h2>
+
+Run the following jstat command on the application lvmid specified by `--javaname` or the process ID of the file specified by `--pidfile` and post the output as a metric. The string after the last dot (.) in the metric name corresponds to the name of each piece of information that can be retrieved with the jstat command.
+
+- jstat -gc
+- jstat -gccapacity
+- jstat -gcnew
+- jstat -gcold
+
 <h2 id="metrics">Monitorable metrics</h2>
 
 The `XXX` in each graph name is set to the application name specified by the `--javaname` option.
@@ -97,9 +106,12 @@ The `XXX` in each graph name is set to the application name specified by the `--
 | GC New Memory Space               | custom.jvm.#.memorySpace.newSpaceRate                   |      |         | New generation usage rate   |
 | CMS Initiating Occupancy Fraction | custom.jvm.#.memorySpace.CMSInitiatingOccupancyFraction |      |         | Threshold to perform CMS GC |
 
-- Old generation usage is calculated as `(Old used / Old current ) * 100`.
-- New generation utilization is calculated as `(Survivor0 used + Survivor1 used + Eden used) / (Survivor0 current + Survivor1 current + Eden current) * 100`.
-- If the `--remote` option is specified, the metric for CMS Initiating Occupancy Fraction is not retrieved.
+- GC Old Memory Space is calculated as `(Old used / Old current ) * 100`.
+- GC New Memory Space is calculated as `(Survivor0 used + Survivor1 used + Eden used) / (Survivor0 current + Survivor1 current + Eden current) * 100`.
+- CMS Initiating Occupancy Fraction is not posted when the `--remote` option is specified.
+  - If the `--remote` option is not specified, the following command will be executed when retrieving information.
+    - jinfo -flag UseConcMarkSweepGC
+    - jinfo -flag CMSInitiatingOccupancyFraction
 
 
 <h2 id="options">Configurable options</h2>
@@ -119,6 +131,8 @@ The options that can be specified for the plug-ins are as follows.
 | --tempfile  | Path to Temp file                                                         |          |                                            |
 
 - If the `--remote` option is specified, jps and jstat must be executable locally from this plugin.
+- If there is more than one application with the name specified in the `--javaname` option, only one of the metrics will be posted.
+  - To identify one of several applications with duplicate names, specify the pid file of the application to be monitored with the `--pidfile` option, or adjust the application name to avoid duplication.
 
 <h2 id="config">Example configuration</h2>
 

@@ -31,29 +31,13 @@ If more than one hour has passed since the last execution, logs up to 1 minute b
 | ---------------------- | ----- | ------------------------------------------------------------------------------------------------------------ | ----------------------------------- |
 | --log-group-name         |       | Specify target log group                                                                                            |                                     |
 | --log-stream-name-prefix |       | Prefix to filter log stream                                                                                  |                                     |
-| --pattern                | -p    | Set search strings for monitoring in CloudWatch Logs filter and pattern syntax              |                                     |
+| --pattern                | -p    | Set search strings for monitoring in [CloudWatch Logs filter and pattern](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html) syntax              |                                     |
 | --warning-over           | -w    | Warning alert is issued when the number of lines matching the detection pattern exceeds the specified value  | 0                                   |
 | --critical-over          | -c    | Critical alert is issued when the number of lines matching the detection pattern exceeds the specified value | 0                                   |
 | --state-dir              | -s    | Specify the directory path where the State file is saved                                               | See [About State file](#state-file) |
 | --return                 | -r    | Log lines matching the pattern will be noted in the alert notification (Up to 1024 characters)               |                                     |
 | --max-retries            | -t    | Specify the maximum number of query attempts to CloudWatch Logs                                              | 3                                   |
 | --help                   | -h    | Show help                                                                                                    |                                     |
-
-<h3 id="pattern">How to write --pattern option</h3>
-
---pattern is written in CloudWatch Logs filter and pattern syntax. Please refer to the AWS documentation for details on how to specify.
-
-[https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html:embed:cite]
-
-<h3 id="state-file">About State file</h3>
-
-If the `--state-dir` option is not specified, the State file will be saved in the following directory in the format `{monitoring log group name}-<hash string>.json`.
-
-- When run via mackerel-agent
-  - `/var/tmp/mackerel-agent/check-cloudwatch-logs`
-- When run manually
-  - `/tmp/check-cloudwatch-logs`
-
 
 <h2 id="config">Example configurations</h2>
 
@@ -65,6 +49,98 @@ command = ["check-aws-cloudwatch-logs", "--log-group-name", "/aws/lambda/sample_
 env = { AWS_REGION = "ap-northeast-1" }
 ```
 
+<h3 id="pattern">How to write --pattern option</h3>
+
+--pattern is written in CloudWatch Logs filter and pattern syntax. Please refer to the AWS documentation for details on how to specify.
+
+[https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html:embed:cite]
+
+Below are some examples of describing conditional specifications.
+
+#### Specify a single string
+
+The following matches logs containing “ERROR”.
+
+```
+"--pattern", "ERROR"
+```
+
+#### Specify AND condition
+
+To specify AND conditions, separate strings with a space. The following matches logs containing “ERROR” and “ARGUMENTS”.
+
+```
+"--pattern", "ERROR ARGUMENTS"
+```
+
+#### Specify OR condition
+
+To specify an OR condition, prefix the string with `?` at the beginning of the string. The following matches logs containing "ERROR" or "ARGUMENTS".
+
+```
+"--pattern", "?ERROR ?ARGUMENTS"
+```
+
+#### Specify strings to exclude
+
+If you want to exclude a specific string, put `-` at the beginning of the string you want to exclude. The following matches logs that contain "ERROR" and do not contain "ARGUMENTS".
+
+```
+"--pattern", "ERROR -ARGUMENTS"
+```
+
+A leading space is required to specify only the strings to be excluded. The following matches logs that do not include “ARGUMENTS”.
+
+```
+"--pattern", " -ARGUMENTS"
+```
+
+#### Specify regular expressions
+
+To specify a filter pattern with a regular expression, enclose the regular expression pattern with `%`. Supported regular expressions depend on the CloudWatch Logs filter pattern specification.
+
+```
+"--pattern", "%regular expression%"
+```
+
+#### Specify JSON format
+
+The filter pattern for JSON logs is `{ $. key = \“value\”}`. The following matches a JSON log with key “level” and value “ERROR”.
+
+```
+"--pattern", "{ $.level = \"ERROR\" }"
+```
+
+If the specified string of --pattern is enclosed in `'` (single quotation mark), no escaping of `"` is required.
+
+```
+"--pattern", '{ $.level = "ERROR" }'
+```
+
+#### Specify strings containing symbols or spaces
+
+To specify a string containing symbols or spaces, enclose the string in `\"`. If the specified string of --pattern is enclosed in `'` (single quotation mark), no escaping of `"` is required.
+
+The following matches logs containing “level: ERROR”.
+
+```
+"--pattern", "\"level: ERROR\""
+```
+
+```
+"--pattern", '"level: ERROR"'
+```
+
+The following matches logs that do not contain “level: ERROR”.
+
+```
+"--pattern", " -\"level: ERROR\""
+```
+
+```
+"--pattern", ' -"level: ERROR"'
+```
+
 <h3 id="region">How to specify a region</h3>
 
 The region is specified by the check monitoring environment variable, not by a plugin option. Named profiles by the AWS_PROFILE environment variable are also supported.
@@ -73,7 +149,16 @@ The region is specified by the check monitoring environment variable, not by a p
 env = { AWS_REGION = "ap-northeast-1" }
 ```
 
-<h3 id="policy">Authentication and required policies</h3>
+<h3 id="state-file">About State file</h3>
+
+If the `--state-dir` option is not specified, the State file will be saved in the following directory in the format `{monitoring log group name}-<hash string>.json`.
+
+- When run via mackerel-agent
+  - `/var/tmp/mackerel-agent/check-cloudwatch-logs`
+- When run manually
+  - `/tmp/check-cloudwatch-logs`
+
+<h2 id="policy">Authentication and required policies</h2>
 
 check-aws-cloudwatch-logs uses the FilterLogEvents API of CloudWatch Logs. Please check that the credentials of the IAM user/role are available to perform the following actions on the monitored log groups.
 
@@ -84,7 +169,6 @@ The following methods are supported for setting credentials.
 - Use of instance profiles (when monitoring from EC2 instances)
 - Use named profiles in the AWS_PROFILE environment variable
 - Specify the environment variable `AWS_ACCESS_KEY_ID` / `AWS_SECRET_ACCESS_KEY` directly with `env = {}` in mackerel-agent.conf.
-
 
 <h2 id="troubleshoot">Troubleshooting</h2>
 

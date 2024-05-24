@@ -133,6 +133,16 @@ The FilterLogEvents API used by check-aws-cloudwatch-logs is not charged for API
 
 [https://aws.amazon.com/cloudwatch/pricing/:embed:cite]
 
+<h2 id="troubleshoot">Troubleshooting</h2>
+
+### UNKNOWN: context canceled occurred
+
+- Possible Causes
+  - This error occurs when plugin execution is interrupted. This plugin uses the CloudWatch Logs Insights API provided by AWS to retrieve log data on CloudWatch. It is possible that the plugin execution timed out because it took a long time to send the API request or receive a response (We are not able to investigate what kind of issue was occurring on the AWS-provided API side).
+- Affect
+  - Fails to check logs for the period that was monitored when the error occurred. Please check the [Monitoring Specifications](#specification) for the period to be monitored.
+- How to deal with it
+  - If the timeout mentioned above is the actual cause of the error, you may be able to avoid the error by extending the time between plugin execution timeouts with timeout_seconds. For more information on timeout_seconds, see the [Configuration items](https://mackerel.io/docs/entry/custom-checks#items).
 
 <h2 id="repository">Repository</h2>
 

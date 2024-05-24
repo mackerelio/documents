@@ -1,7 +1,7 @@
 ---
 Title: チェック監視項目を追加する
 Date: 2015-05-14T12:14:36+09:00
-URL: 
+URL: https://mackerel.io/ja/docs/entry/custom-checks
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/8454420450093836347
 ---
 
@@ -11,17 +11,17 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 
 <h2 id="check-plugin">チェックプラグインについて</h2>
 
-チェック監視を行うためには目的の監視処理を行うプログラムが必要です。そのために利用できるものとして、公式のチェックプラグイン集を公開しています。詳しくは、[チェック監視に公式チェックプラグイン集を使う](https://mackerel.io/ja/docs/entry/howto/mackerel-check-plugins) を参照してください。
+チェック監視を実施するには目的の監視を行うプラグインが必要です。Mackerel では公式のチェックプラグイン集を公開しています。利用方法については [チェック監視に公式チェックプラグイン集を使う](https://mackerel.io/ja/docs/entry/howto/mackerel-check-plugins) を参照してください。
 
-また、チェックプラグインにはユーザが自作したプログラムも使用できます。そのプログラムは目的の監視処理を行い、監視結果に応じた終了ステータスを返す必要があります。詳しくは [チェックプラグイン仕様](#specification) を参照してください。
+また、公式チェックプラグインに限らず、[チェックプラグイン仕様](#specification) に沿ってユーザー独自のチェック監視を実装することも可能です。後述の [チェックプラグインのサンプル](#example) にて、シェルスクリプト、PowerShell、bat ファイルで作成したチェックプラグインのサンプルを紹介しています。 
 
 <h2 id="setting">エージェントへの設定例</h2>
 
-チェック監視の設定は [エージェントの設定ファイル](https://mackerel.io/ja/docs/entry/spec/agent#config-file) に追加します。以下は `check-ssh.rb` という自作のプログラムを使用した監視の設定例です。各項目の意味は [設定項目](#items) を参照してください。必須項目以外は必要に応じて設定してください。
+チェック監視の設定は [エージェントの設定ファイル](https://mackerel.io/ja/docs/entry/spec/agent#config-file) に追加します。以下は [チェックプラグインのサンプル](#example) で紹介しているシェルスクリプトを使用した監視の設定例です。各項目の意味は [設定項目](#items) を参照してください。必須項目以外は必要に応じて設定してください。
 
 ```config
-[plugin.checks.ssh]
-command = ["ruby", "/path/to/check-ssh.rb"]
+[plugin.checks.filecount]
+command = ["/path/filecount.sh"]
 check_interval = 5
 timeout_seconds = 45
 max_check_attempts = 3
@@ -39,13 +39,13 @@ memo = "This check monitor is ..."
 | 設定項目 | 必須 | 説明 | デフォルト値 |
 |---|---|---|---|
 | [plugin.checks.XXX] | ◯ | 監視ルールのキーとなる値をドット（.）区切りの 3 階層で、設定ファイル内で一意に定義します。2 階層目の `plugin.checks.` までは固定です。3 階層目の `XXX` に記述した文字列が監視ルール名として使用されます。`XXX` にドット（.）を含めることはできません。 |  |
-| command | ◯ | エージェントが定期的に実行し、その終了ステータスや標準出力内容を監視結果として使用します。公式チェックプラグインのほか、ユーザが自作したプログラムや任意のコマンドなども実行できます。 |  |
+| command | ◯ | エージェントが定期的に実行し、その終了ステータスや標準出力内容を監視結果として使用します。公式チェックプラグインのほか、ユーザーが自作したプラグインや、任意のコマンドを実行できます。 |  |
 | check_interval |  | チェック監視の実行間隔を分で指定します。エージェントのバージョンが v0.67.0 以降であれば `10m` や `1h` のような表現でも記述できます。設定可能な範囲は 1 分から 60 分です。1 分未満を指定した場合は 1 分、60 分以上を指定した場合は 60 分として扱われます。 | 1 分 |
-| timeout_seconds |  | `command` で指定したプログラムの処理におけるタイムアウト時間を秒で指定します。`check_interval` を超えないように設定してください。 | 30 秒 |
+| timeout_seconds |  | `command` で指定したプラグインの処理におけるタイムアウト時間を秒で指定します。`check_interval` を超えないように設定してください。 | 30 秒 |
 | max_check_attempts |  | 最大試行回数を指定します。ここで指定した回数以上、OK 以外の結果が連続した場合にアラートが発生します。<br>**`prevent_alert_auto_close` と併用した場合、指定した数値に関わらず `1` として扱われます。** | 1 |
 | prevent_alert_auto_close |  | 通常はアラート発生以後の監視結果が OK になるとそのアラートは自動で Closed になりますが、これが true の場合は Opend のままになります。<br>**`max_check_attempts` と併用した場合、 `max_check_attempts` は常に `1` として扱われます。** | false |
 | notification_interval |  | アラート通知の再送間隔を分で指定します。エージェントのバージョンが v0.67.0 以降であれば `10m` や `1h` のような表現でも記述できます。10 分未満を指定した場合は 10 分として扱われます。設定しない場合、通知の再送は行いません。 | null |
-| custom_identifier |  | この監視ルールを、mackerel-agent が動作しているホストではなく `custom_identifier` で指定したホストの監視として扱います。監視の実行結果が OK 以外の場合、ここで指定したホストのアラートとして発報されます。`custom_identifier` は API の [ホスト情報の取得](https://mackerel.io/ja/api-docs/entry/hosts#get)  で確認が可能です。<br>AWS / Azure / Google Cloud インテグレーションで連携したホストなど、エージェントがインストールできないホストにチェック監視を実行する場合などに有用です。詳細は [AWSインテグレーションのドキュメント](https://mackerel.io/ja/docs/entry/integrations/aws#plugin-custom-identifier) を参照してください。 | null |
+| custom_identifier |  | 監視結果をエージェントが動作しているホストではなく `custom_identifier` で指定したホストに投稿します。監視によるアラートは指定したホストのアラートとして発報されます。`custom_identifier` はホスト詳細画面で確認できます。<br>AWS / Azure / Google Cloud インテグレーションで連携したホストなど、エージェントがインストールできないホストに対してチェック監視を実行する場合に有用です。詳細は [AWSインテグレーションのドキュメント](https://mackerel.io/ja/docs/entry/integrations/aws#plugin-custom-identifier) を参照してください。 | null |
 | env |  | 環境変数を設定できます。これは設定を行った監視ルールの `command` でのみ有効です。 | null |
 | action |  | `command` に設定したコマンドの実行直後に、ここに記述したアクションが毎回実行されます。詳しくは [action の記述方法](#action-setting) を参照してください。 | null |
 | memo |  | チェック監視に対してメモを設定できます。ここで指定した文字列は、アラート通知、アラート詳細画面、ホスト詳細画面で確認できます。最大 250 文字まで。 | null |
@@ -109,7 +109,7 @@ action = { command = "if not %MACKEREL_STATUS% == OK ( net start %SERVICE% )", e
 | 2 | CRITICAL |
 | 0, 1, 2 以外 | UNKNOWN |
 
-また、標準出力には補助的なメッセージを追加できます。メッセージ長の上限は 1024 文字までです。その出力は Mackerel に送信され、ホスト詳細画面やアラート詳細画面に表示されます。そのため、パスワードなどの秘匿情報が送信されないようにご注意ください。
+プラグインが標準出力に書き出した内容は、ホスト詳細画面やアラート詳細画面に表示されます。パスワードなどの秘匿情報を含めないようにご注意ください。メッセージ長の上限は 1024 文字です。
 
 公式チェックプラグインで利用しているユーティリティライブラリである、[github.com/mackerelio/checkers](https://github.com/mackerelio/checkers) を利用したチェックプラグインの開発方法については、[checkersを利用してチェックプラグインを作成する](https://mackerel.io/ja/docs/entry/advanced/checkers) を参照してください。
 
@@ -128,7 +128,7 @@ action = { command = "if not %MACKEREL_STATUS% == OK ( net start %SERVICE% )", e
 
 <h2 id="difference">メトリック監視とチェック監視の違い</h2>
 
-ホストメトリック監視やサービスメトリック監視などのメトリック監視とチェック監視では以下のような点で異なります。
+メトリック監視とチェック監視では以下の点で異なります。
 
 - メトリック監視
   - ホスト側はメトリック値を Mackerel に投稿します。その値と閾値との比較やアラート通知は Mackerel 側で行われます。
@@ -145,26 +145,98 @@ action = { command = "if not %MACKEREL_STATUS% == OK ( net start %SERVICE% )", e
   - ![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20200108/20200108154244.png)
 
 
-<h2 id="example-ruby">Ruby によるチェックプラグインのサンプル</h2>
+<h2 id="example">チェックプラグインのサンプル</h2>
 
-6 面ダイスの値をメッセージとして、値が 4 及び 5 のときは WARNING を、6 のときは CRITICAL を Mackerel に投稿するチェックプラグインです。
+下記のサンプルは引数で渡したディレクトリ内のファイル数（ディレクトリを除く）をカウントし、ファイル数が閾値を超えたらアラートを発報するチェックプラグインです。
 
-```ruby
-#!/usr/bin/env ruby
-dice = rand(6)+1
-puts "value is #{dice}"
-exit (dice >= 6 ? 2 : dice >= 4 ? 1 : 0)
+- ファイル数が 50 個を超えた場合に WARNING、100 個を超えた場合に CRITICAL アラートを発報します。
+- アラート詳細画面に「file counts: 51（現在のファイル数） over 50」といったメッセージが表示されます。
+- Windows 環境の mackerel-agent.conf にパスを記述する際は、パスを区切る `\` に対してエスケープ処理としての `\` が必要です。例として `C:\` は `C:\\` と記述します。
+
+<h3 id="example-shell">シェルスクリプト</h3>
+
+```
+#!/bin/bash
+FILECOUNT=$(ls -1 $1 | wc -l)
+
+if [ "$FILECOUNT" -gt 100 ]; then
+    echo "file counts: $FILECOUNT over 100"
+    exit 2
+elif [ "$FILECOUNT" -gt 50 ]; then
+    echo "file counts: $FILECOUNT over 50"
+    exit 1
+else
+    echo "file counts: $FILECOUNT"
+    exit 0
+fi
 ```
 
-チェックプラグインを設定したエージェントを実行すると、以下のようにホスト詳細に監視中であることが表示されます。
+mackerel-agent.conf に記述する内容
+```
+[plugin.checks.filecount]
+command = ["/path/filecount.sh", "/path"]
+```
 
-![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20230125/20230125174429.png)
+<h3 id="example-powershell">PowerShell</h3>
 
-アラートが発生した際には以下の様な表示となり、アラート詳細画面で詳細が確認できます。
+```
+$FILECOUNT =  (Get-ChildItem -Path $Args[0] | Where-Object { ! $_.PSIsContainer }).Count
 
-![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20230125/20230125174450.png)
+if($FILECOUNT -gt 100) {
+    Write-Host "file counts: $FILECOUNT over 100"
+    exit 2
+} elseif($FILECOUNT -gt 50) {
+    Write-Host "file counts: $FILECOUNT over 50"
+    exit 1
+} else {
+    Write-Host "file counts: $FILECOUNT"
+    exit 0
+}
+```
 
-![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20230125/20230125174337.png)
+mackerel-agent.conf に記述する内容
+```
+[plugin.checks.filecount]
+command = ["powershell", "-File", "C:\\path\\filecount.ps1", "C:\\path"]
+```
+
+<h3 id="example-bat">bat ファイル</h3>
+
+```
+@echo off
+setlocal
+for /f "usebackq" %%i in (`dir %1 /a-d /b ^| find /c /v ""`) do set FILECOUNT=%%i
+
+if %FILECOUNT% gtr 100 (
+    echo file counts: %FILECOUNT% over 100
+    exit /b 2
+) else if %FILECOUNT% gtr 50 (
+    echo file counts: %FILECOUNT% over 50
+    exit /b 1
+) else (
+    echo file counts: %FILECOUNT%
+    exit /b 0
+)
+```
+
+mackerel-agent.conf に記述する内容
+```
+[plugin.checks.filecount]
+command = ["C:\\path\\filecount.bat", "C:\\path"]
+```
+
+<h2 id="confirmation">チェック監視の確認方法</h2>
+
+チェック監視は設定したホストの詳細画面に以下のように表示されます。
+
+<figure class="figure-image figure-image-fotolife" title="通常時の表示"><center>[f:id:mackerelio:20240501122238p:plain:w320]</center><figcaption>通常時の表示</figcaption></figure>
+
+アラートが発生した際は以下のような表示に変化します。クリックするとアラート詳細画面に遷移します。
+
+<figure class="figure-image figure-image-fotolife" title="アラート発生時の表示"><center>[f:id:mackerelio:20240501122311p:plain:w320]</center><figcaption>アラート発生時の表示</figcaption></figure>
+
+<figure class="figure-image figure-image-fotolife" title="アラート詳細画面"><center>[f:id:mackerelio:20240501122712p:plain]</center><figcaption>アラート詳細画面</figcaption></figure>
+
 
 [Table]: https://github.com/toml-lang/toml#table
 [Inline Table]: https://github.com/toml-lang/toml#inline-table

@@ -88,7 +88,7 @@ This <i>`role`</i> is the same as the <i>`role`</i> in [Register AWS Integration
 
 Only one or the other of <i>`excludedMetrics`</i> and <i>`includedMetrics`</i> will be returned for each AWS integration settings across all services.
 
-With EC2 and RDS, the following additional keys are configured.
+With EC2, RDS and ElastiCache, the following additional keys are configured.
 
 | KEY                   | TYPE              | DESCRIPTION                              |
 | --------              | ------            | -----------                              |
@@ -215,7 +215,7 @@ Enter the [AWS service identifier](#awsServiceNames) in place of <i>`<awsService
 | `excludedMetrics`     | *array[string]*   | [optional] list of excluded metrics[*5](#excludedMetrics)                              |
 | `includedMetrics`     | *array[string]*   | [optional] list of included metrics[*5](#excludedMetrics)                              |
 
-With EC2 and RDS, the following additional keys can be configured.
+With EC2, RDS and ElastiCache, the following additional keys can be configured.
 
 | KEY                   | TYPE              | DESCRIPTION                                                                                                                                      |
 | --------              | ------            | -----------                                                                                                                                      |

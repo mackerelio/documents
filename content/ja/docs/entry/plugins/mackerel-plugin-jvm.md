@@ -12,6 +12,15 @@ mackerel-plugin-jvm は jstat/jinfo/jps などのコマンドからJVMに関す�
 
 [:contents]
 
+<h2 id="specification">仕様</h2>
+
+`--javaname` に指定したアプリケーションの lvmid もしくは `--pidfile` に指定したファイルのプロセス ID に対して以下の jstat コマンドを実行し、出力された結果をメトリックとして投稿します。メトリック名の最後のドット（`.`）より後の名前が、jstat コマンドによって取得できる各情報に対応しています。
+
+- jstat -gc
+- jstat -gccapacity
+- jstat -gcnew
+- jstat -gcold
+
 <h2 id="metrics">監視できるメトリック</h2>
 
 各グラフ名の`XXX`には`--javaname`オプションで指定したアプリケーション名が設定されます。
@@ -94,10 +103,12 @@ mackerel-plugin-jvm は jstat/jinfo/jps などのコマンドからJVMに関す�
 | GC New Memory Space               | custom.jvm.#.memorySpace.newSpaceRate                   | -    | -            | New世代の使用率      |
 | CMS Initiating Occupancy Fraction | custom.jvm.#.memorySpace.CMSInitiatingOccupancyFraction | -    | -            | CMS GCを実行する閾値 |
 
-- Old世代の使用率は`(Old used / Old current ) * 100`で算出しています。
-- New世代の使用率は`(Survivor0 used + Survivor1 used + Eden used) / (Survivor0 current + Survivor1 current + Eden current) * 100`で算出しています。
-- `--remote`オプションを指定する場合、CMS Initiating Occupancy Fractionに関するメトリックは取得されません。
-
+- GC Old Memory Space は `(Old used / Old current ) * 100` で算出しています。
+- GC New Memory Space は `(Survivor0 used + Survivor1 used + Eden used) / (Survivor0 current + Survivor1 current + Eden current) * 100` で算出しています。
+- CMS Initiating Occupancy Fraction は `--remote` オプションを指定した場合に投稿されません。
+  - `--remote` オプションの指定がない場合は、情報取得の際に以下のコマンドが実行されます。
+    - jinfo -flag UseConcMarkSweepGC
+    - jinfo -flag CMSInitiatingOccupancyFraction
 
 <h2 id="options">指定可能なオプション</h2>
 
@@ -116,6 +127,8 @@ mackerel-plugin-jvm は jstat/jinfo/jps などのコマンドからJVMに関す�
 | --tempfile  | Tempファイル名                                                        |      |                                                  |
 
 - `--remote`オプションを指定する場合、jps および jstat は、このプラグインからローカルで実行可能である必要があります。
+- `--javaname` オプションに指定した名前のアプリケーションが複数存在する場合は、いずれか 1 つのメトリックのみ投稿されます。
+  - 名前が重複するアプリケーションを区別する場合は、`--pidfile` オプションで監視したいアプリケーションの pid ファイルを指定するか、アプリケーション名が重複しないように調整してください。
 
 <h2 id="config">エージェントへの設定例</h2>
 
