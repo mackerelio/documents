@@ -258,6 +258,15 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
           </p>
         </a>
       </div>
+      <div class="api">
+        <a href="entry/host-metrics#delete-graphdef">
+          <p>グラフ定義の削除</p>
+          <p class="type-delete">
+            <code>DELETE</code>
+            <code>/api/v0/graph-defs/delete</code>
+          </p>
+        </a>
+      </div>
     </div>
   </div>
 

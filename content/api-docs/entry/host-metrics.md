@@ -10,6 +10,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
   <li><a href="#get">Get Host Metrics</a></li>
   <li><a href="#get-latest">Get Latest Metrics</a></li>
   <li><a href="#post-graphdef">Post Graph Definitions</a></li>
+  <li><a href="#delete-graphdef">Delete Graph Definitions</a></li>
 </ul>
 
 
@@ -347,3 +348,67 @@ are transmitted, the graph legend will be grouped as shown below.
 <p><span itemscope itemtype="http://schema.org/Photograph"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20150909/20150909172654.png" alt="f:id:mackerelio:20150909172654p:plain" title="f:id:mackerelio:20150909172654p:plain" class="hatena-fotolife" itemprop="image"></span></p>
 
 Additionally, if a transmission of custom metrics of a graph definition with wildcards isn't received within a specified time span (roughly 6 to 8 hours) the definition will automatically be deleted, so please use caution.
+
+----------------------------------------------
+
+<h2 id="delete-graphdef">Delete Graph Definitions</h2>
+
+This will remove a custom metric graph definition from Mackerel.
+
+<p class="type-delete">
+  <code>DELETE</code>
+  <code>/api/v0/graph-defs/delete</code>
+</p>
+
+### Required permissions for the API key
+
+<ul class="api-key">
+  <li class="label-read">Read</li>
+  <li class="label-write">Write</li>
+</ul>
+
+### Input
+
+| KEY    | TYPE     | DESCRIPTION |
+| ------ | -------- | ----------- |
+| `name` | *string* | The graph definition name, which is the part of the metric name before the last `.`. |
+
+#### Example Input
+
+```json
+{
+  "name": "custom.cpu.foo"
+}
+```
+
+
+### Response
+
+#### Success
+
+```json
+{
+  "success": true
+}
+```
+
+#### Error
+
+<table class="default api-error-table">
+  <thead>
+    <tr>
+      <th class="status-code">STATUS CODE</th>
+      <th class="description">DESCRIPTION</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>400</td>
+      <td>when the graph definition does not exist</td>
+    </tr>
+    <tr>
+      <td>403</td>
+      <td>when the API key doesn't have the required permissions / when accessing from outside the <a href="https://support.mackerel.io/hc/en-us/articles/360039701952" target="_blank">permitted IP address range</a></td>
+    </tr>
+  </tbody>
+</table>
