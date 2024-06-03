@@ -357,7 +357,7 @@ This will remove a custom metric graph definition from Mackerel.
 
 <p class="type-delete">
   <code>DELETE</code>
-  <code>/api/v0/graph-defs/delete</code>
+  <code>/api/v0/graph-defs</code>
 </p>
 
 ### Required permissions for the API key

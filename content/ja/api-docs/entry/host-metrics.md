@@ -358,7 +358,7 @@ APIに対して過去の値を送信した場合、Mackerel上の値は上書き
 
 <p class="type-delete">
   <code>DELETE</code>
-  <code>/api/v0/graph-defs/delete</code>
+  <code>/api/v0/graph-defs</code>
 </p>
 
 ### APIキーに必要な権限
