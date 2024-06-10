@@ -48,6 +48,11 @@ If the `--state-dir` option is not specified, a file in the format of `{monitore
 - Windows
   - `C:\Windows\Temp\check-log`
 
+<h3 id="rotation-method">Supported rotation methods of logfile</h3>
+
+The check-log plugin supports the create (create a new file with the same name after moving a file) method as a rotation method for logs to be monitored.  
+In the case of the copytruncate method (deletes the contents of the source file after copying the file), it does not track the copied file during rotation, but only checks the source file from the beginning where the contents have been deleted.
+
 <h2 id="config">Example configurations</h2>
 
 <h3 id="config-linux">for Linux</h3>
@@ -134,6 +139,10 @@ Please review your settings, etc., as the following cases are often seen.
   - The same applies to the initial check when a file is switched due to log rotation, etc.
 - Make sure that the detection pattern specified in the `--pattern` option is correct.
   - Since the detection pattern is evaluated as a regular expression, escape it if it contains characters that are interpreted as regular expression meta characters, such as half-width parentheses.
+- Make sure that the create method is used as the rotation method.
+  - If logs are rotated using the copytruncate method, it is not possible to check for logs added from the plugin is run before rotation to rotation is run.
+
+Also, if the file size when check-log is executed after rotation is larger than the file size when check-log is executed before rotation, rotation cannot be detected, and detection cannot be performed for logs written up to the size checked by check-log before rotation.
 
 ### "LOG UNKNOWN: unexpected end of JSON input" alert is issued
 

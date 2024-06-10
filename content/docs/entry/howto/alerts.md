@@ -32,7 +32,7 @@ With Mackerel it’s possible to monitor your registered hosts by receiving noti
 
 ### About alerts when a host retires or the host status changes
 
-When a host retires, alerts related to that host will automatically be closed.
+When a host retires, alerts related to that host will automatically be closed. Recovery notifications for this automatically closed alert will not be sent. 
 
 When a host status changes, automatic operations regarding the alert will not be performed.
 

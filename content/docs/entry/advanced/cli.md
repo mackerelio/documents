@@ -195,6 +195,57 @@ If not specified `--from` or `--to` options, `--from` is set to be 0, and `--to`
 ]
 ```
 
+### Post metrics
+
+With mkr, you can post a metric with the throw subcommand.  
+You can post a host metric by specifying a host ID or a service metric by specifying a service name.  
+The throw subcommand accepts metrics to be posted via standard input. For information on the format of the metric, see  [Posting metrics - Host Posting Custom Metrics - Mackerel Help](https://mackerel.io/docs/entry/advanced/custom-metrics#post-metric).
+
+The following is an example of posting the value 1 to the host metric `custom.example.throwA` for the host ID `2eQGEaLxibb`.
+
+```
+% echo -e "example.throwA\t1\t$(date +%s)" | mkr throw --host 2eQGEaLxibb
+```
+
+If successful, the following message will be displayed.
+
+```
+    thrown 54EwSZbNexW 'custom.example.throwA       1.000000        1711596750'
+```
+
+The following is an example of posting the value 2 to the service metric `example.throwB` for the service `myservice`.
+
+```
+% echo -e "example.throwB\t2\t$(date +%s)" | mkr throw --service myservice
+```
+
+If successful, the following message will be displayed.
+
+```
+    thrown myservice 'example.throwB   2.000000        1711596974'
+```
+
+You may submit multiple metrics at the same time.
+As an example, to post a value of 1 for `custom.example.throwC` and a value of 2 for `custom.example.throwD`, use `\n` to prepare output with line breaks as follows.
+
+```
+% echo -e "example.throwC\t1\t$(date +%s)\nexample.throwD\t2\t$(date +%s)"
+example.throwC  1       1713273764
+example.throwD  2       1713273764
+```
+
+By passing the result of this output to the standard input of the `mkr throw` command, two metrics, `custom.example.throwC` and `custom.example.throwD`, are posted simultaneously.
+
+```
+% echo -e "example.throwC\t1\t$(date +%s)\nexample.throwD\t2\t$(date +%s)" | mkr throw --host 2eQGEaLxibb
+```
+
+Metric plugins that can post metrics from mackerel-agent, such as the official metric plugins listed in  [Metric plugins list - Mackerel Docs](https://mackerel.io/docs/entry/plugins/metric-plugins-list), output metrics that conform to the format accepted by `mkr throw`,so you can submit it by passing the execution result to the standard input as shown below.
+
+```
+% mackerel-plugin-mysql | mkr throw --host 2eQGEaLxibb
+```
+
 ### Monitoring rule
 
 With mkr, monitoring rules can be operated with the `monitors` subcommand. This `mkr monitors` subcommand also comes with three subcommands, `pull`, `diff`, and `push`. If none of these subcommands are specified and the user simply types `mkr monitors`, the list of monitoring rules will be displayed.
