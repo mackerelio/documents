@@ -33,15 +33,18 @@ As of now, Mackerel and mackerel-agent have been verified to operate in the foll
   - [Microsoft Edge](https://www.microsoft.com/edge) (desktop version) latest version
 - mackerel-agent
     - Linux
-        - Red Hat Enterprise Linux 8/9, CentOS 7, MIRACLE LINUX 8/9, AlmaLinux 8/9, Rocky Linux 8/9, Oracle Linux 7/8/9
-        - CentOS Stream 8/9
-        - Ubuntu 20.04LTS/22.04LTS/24.04LTS, Debian 10/11/12
+        - Red Hat Enterprise Linux 8/9, MIRACLE LINUX 8/9, AlmaLinux 8/9, Rocky Linux 8/9, Oracle Linux 7/8/9
+        - CentOS Stream 9
+        - Ubuntu 20.04LTS/22.04LTS/24.04LTS, Debian 11/12
         - Amazon Linux 2, Amazon Linux 2023
         - x64 and arm64 processor architecture including AWS Graviton processors.
         - Aside from the above, the agent will probably be run on most Linux systems (kernel version 2.6.23 or later) or Red Hat Enterprise Linux derivatives, however we do not give official support for them at this time.
     - Windows
         - Windows Server 2016, 2019, 2022 (LTSC) for x64-based Systems
-    - Additionally, mackerel-agent is especially well suited for public IaaS cloud-based systems such as Amazon Web Services, Microsoft Azure and Google Compute Engine. (There may be reduced functionality on certain systems, such as those with specialized cloud network systems.)
+        - Windows Update (KB5022661) for "Windows support for the Trusted Signing program" released in September 2021 must be applied.
+        - "Microsoft Identity Verification Root Certificate Authority 2020" certificate authority (CA) must be installed to properly verify signed module.
+        - See [KB5022661—Windows support for the Trusted Signing (formerly Azure Code Signing) program](https://support.microsoft.com/topic/kb5022661-windows-support-for-the-azure-code-signing-program-4b505a31-fa1e-4ea6-85dd-6630229e8ef4) for more information.
+  - Additionally, mackerel-agent is especially well suited for public IaaS cloud-based systems such as Amazon Web Services, Microsoft Azure and Google Compute Engine. (There may be reduced functionality on certain systems, such as those with specialized cloud network systems.)
 
 <h3 id="tsdb-spec">Metric data retention</h3>
 

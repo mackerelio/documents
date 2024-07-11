@@ -1,6 +1,6 @@
 ---
 Title: Supported PromQL Features
-Date: 2024-02-02T16:07:16+09:00
+Date: 2024-06-27T00:00:00+09:00
 URL: https://mackerel.io/docs/entry/howto/labeled-metrics/promql
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/6801883189090642183
 ---
@@ -77,9 +77,10 @@ One-to-many correspondence using the `group_left` and `group_right` modifiers is
 
 ## Functions
 
-### Rate Functions
+### Counter Caluculation Functions
 
 - [`irate()`](https://prometheus.io/docs/prometheus/latest/querying/functions/#irate)
+- [`increase()`](https://prometheus.io/docs/prometheus/latest/querying/functions/#increase)
 
 ### `<aggregation>_over_time` Functions
 

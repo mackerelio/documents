@@ -34,14 +34,17 @@ Mackerelおよびmackerel-agentは、以下の環境で動作確認を行って�
   - [Microsoft Edge](https://www.microsoft.com/edge) (デスクトップ版) 最新版
 - mackerel-agent
     - Linux
-        - Red Hat Enterprise Linux 8/9、CentOS 7、MIRACLE LINUX 8/9、AlmaLinux 8/9、Rocky Linux 8/9、Oracle Linux 7/8/9
-        - CentOS Stream 8/9
-        - Ubuntu 20.04LTS/22.04LTS/24.04LTS、Debian 10/11/12
+        - Red Hat Enterprise Linux 8/9、MIRACLE LINUX 8/9、AlmaLinux 8/9、Rocky Linux 8/9、Oracle Linux 7/8/9
+        - CentOS Stream 9
+        - Ubuntu 20.04LTS/22.04LTS/24.04LTS、Debian 11/12
         - Amazon Linux 2、Amazon Linux 2023
         - x64 アーキテクチャおよび AWS Graviton シリーズを含む Arm v8 アーキテクチャをサポートしています。
         - その他、一般的なLinux環境(カーネルバージョン 2.6.23以降)や、上記以外のRed Hat Enterprise Linux派生ディストリビューションでも動作すると思われますが、現在のところサポート対象外です。
     - Windows
         - Windows Server 2016, 2019, 2022 (LTSC) の x64 ベースシステム
+        - 2021年9月にリリースされた「信頼された署名プログラムに対するWindowsサポート」のWindows Update（KB5022661）が適用されている必要があります。
+        - 署名されたモジュールを正しく検証するために、"Microsoft Identity Verification Root Certificate Authority 2020" 証明機関 (CA) がインストールされている必要があります。
+        - 詳細については [KB5022661 - 信頼された署名 (旧称 Azure Code Signing) プログラムに対する Windows サポート](https://support.microsoft.com/ja-jp/topic/kb5022661-%E4%BF%A1%E9%A0%BC%E3%81%95%E3%82%8C%E3%81%9F%E7%BD%B2%E5%90%8D-%E6%97%A7%E7%A7%B0-azure-code-signing-%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0%E3%81%AB%E5%AF%BE%E3%81%99%E3%82%8B-windows-%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88-4b505a31-fa1e-4ea6-85dd-6630229e8ef4) を参照してください。
     - またAmazon Web ServicesやMicrosoft Azure、Google Compute EngineなどのパブリックIaaSクラウド全般を動作対象としています。（ネットワーク環境が特殊なクラウドなどでは全ての機能が正常に動作しない可能性はあります。）
 
 <h3 id="tsdb-spec">メトリックの保持について</h3>

@@ -1,6 +1,6 @@
 ---
 Title: サポートされている PromQL の機能
-Date: 2024-02-02T16:07:16+09:00
+Date: 2024-06-27T00:00:00+09:00
 URL: https://mackerel.io/ja/docs/entry/howto/labeled-metrics/promql
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/6801883189090642496
 ---
@@ -77,9 +77,10 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 
 ## 関数
 
-### レート関数
+### カウンタ用の計算関数
 
 - [`irate()`](https://prometheus.io/docs/prometheus/latest/querying/functions/#irate)
+- [`increase()`](https://prometheus.io/docs/prometheus/latest/querying/functions/#increase)
 
 ### `<aggregation>_over_time` 関数
 
