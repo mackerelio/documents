@@ -3,7 +3,6 @@ Title: メトリックプラグイン - mackerel-plugin-accesslog
 Date: 2022-12-15T18:00:15+09:00
 URL: https://mackerel.io/ja/docs/entry/plugins/mackerel-plugin-accesslog
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/4207112889945342597
-CustomPath: plugins/mackerel-plugin-accesslog
 ---
 
 mackerel-plugin-accesslog は Web サーバーのアクセスログを毎分集計し、ステータスコード毎の件数などをメトリックとして監視できます。
@@ -24,11 +23,11 @@ mackerel-plugin-accesslog は Web サーバーのアクセスログを毎分集�
 
 | メトリック表示名 | メトリック名 | 差分 | 積み上げ表示 | 説明 |
 | --- | --- | --- | --- | --- |
-| Total Count | accesslog.access_num.total_count | - | - | アクセスの総数 |
-| HTTP 2xx Count | accesslog.access_num.2xx_count | - | ◯ | 2xx のアクセス数 |
-| HTTP 3xx Count | accesslog.access_num.3xx_count | - | ◯ | 3xx のアクセス数 |
-| HTTP 4xx Count | accesslog.access_num.4xx_count | - | ◯ | 4xx のアクセス数 |
-| HTTP 5xx Count | accesslog.access_num.5xx_count | - | ◯ | 5xx のアクセス数 |
+| Total Count | custom.accesslog.access_num.total_count | - | - | アクセスの総数 |
+| HTTP 2xx Count | custom.accesslog.access_num.2xx_count | - | ◯ | 2xx のアクセス数 |
+| HTTP 3xx Count | custom.accesslog.access_num.3xx_count | - | ◯ | 3xx のアクセス数 |
+| HTTP 4xx Count | custom.accesslog.access_num.4xx_count | - | ◯ | 4xx のアクセス数 |
+| HTTP 5xx Count | custom.accesslog.access_num.5xx_count | - | ◯ | 5xx のアクセス数 |
 
 ### Access Rates
 
@@ -36,10 +35,10 @@ mackerel-plugin-accesslog は Web サーバーのアクセスログを毎分集�
 
 | メトリック表示名 | メトリック名 | 差分 | 積み上げ表示 | 説明 |
 | --- | --- | --- | --- | --- |
-| HTTP 2xx Percentage | accesslog.access_rate.2xx_percentage | - | ◯ | 2xx の割合 |
-| HTTP 3xx Percentage | accesslog.access_rate.3xx_percentage | - | ◯ | 3xx の割合 |
-| HTTP 4xx Percentage | accesslog.access_rate.4xx_percentage | - | ◯ | 4xx の割合 |
-| HTTP 5xx Percentage | accesslog.access_rate.5xx_percentage | - | ◯ | 5xx の割合 |
+| HTTP 2xx Percentage | custom.accesslog.access_rate.2xx_percentage | - | ◯ | 2xx の割合 |
+| HTTP 3xx Percentage | custom.accesslog.access_rate.3xx_percentage | - | ◯ | 3xx の割合 |
+| HTTP 4xx Percentage | custom.accesslog.access_rate.4xx_percentage | - | ◯ | 4xx の割合 |
+| HTTP 5xx Percentage | custom.accesslog.access_rate.5xx_percentage | - | ◯ | 5xx の割合 |
 
 ### Latency（LTSV フォーマットのみ対応）
 
@@ -47,10 +46,10 @@ mackerel-plugin-accesslog は Web サーバーのアクセスログを毎分集�
 
 | メトリック表示名 | メトリック名 | 差分 | 積み上げ表示 | 説明 |
 | --- | --- | --- | --- | --- |
-| Average | accesslog.latency.average | - | - | 平均 |
-| 90 Percentile | accesslog.latency.90_percentile | - | - | 90 パーセンタイル |
-| 95 Percentile | accesslog.latency.95_percentile | - | - | 95 パーセンタイル |
-| 99 Percentile | accesslog.latency.99_percentile | - | - | 99 パーセンタイル |
+| Average | custom.accesslog.latency.average | - | - | 平均 |
+| 90 Percentile | custom.accesslog.latency.90_percentile | - | - | 90 パーセンタイル |
+| 95 Percentile | custom.accesslog.latency.95_percentile | - | - | 95 パーセンタイル |
+| 99 Percentile | custom.accesslog.latency.99_percentile | - | - | 99 パーセンタイル |
 
 
 <h2 id="options">指定可能なオプション</h2>
