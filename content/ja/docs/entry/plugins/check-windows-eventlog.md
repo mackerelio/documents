@@ -3,7 +3,6 @@ Title: チェックプラグイン - check-windows-eventlog
 Date: 2022-12-15T17:45:43+09:00
 URL: https://mackerel.io/ja/docs/entry/plugins/check-windows-eventlog
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/4207112889945338732
-CustomPath: plugins/check-windows-eventlog
 ---
 
 check-windows-eventlog は Windows イベントログの監視を行うプラグインです。指定したパターンに一致するイベントを検出した場合にアラートを発生させます。
@@ -56,7 +55,9 @@ check-windows-eventlog はイベントログの出力差分に対して監視を
 `--state-dir` オプションを指定しない場合、State ファイルは以下のフォルダに `{監視対象のイベントログの種類}-<hash文字列>` の形式で保存されます。
 
 - エージェント経由で実行した場合
-  - `C:\Windows\Temp\check-windows-eventlog`
+  - `C:\Windows\SystemTemp\check-windows-eventlog`
+  - mackerel-agent v0.80.0 以前
+    - `C:\Windows\Temp\check-windows-eventlog`
 - 手動実行した場合
   - ログインユーザの `Temp` フォルダ配下の `check-windows-eventlog` フォルダ（`Temp` フォルダの場所は Windows 環境変数の `TEMP` を確認）
 

@@ -3,7 +3,6 @@ Title: Check plugins - check-windows-eventlog
 Date: 2022-12-15T17:43:14+09:00
 URL: https://mackerel.io/docs/entry/plugins/check-windows-eventlog
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/4207112889945338246
-CustomPath: plugins/check-windows-eventlog
 ---
 
 check-windows-eventlog is a plugin that monitors Windows event logs. It raises an alert when it detects an event matching a specified pattern.
@@ -56,7 +55,9 @@ Since check-windows-eventlog monitors for differences in event log output, it re
 If the `--state-dir` option is not specified, the State file will be stored in the following folder in the format `{monitored event log type}-<hash string>`.
 
 - When executed via agent.
-  - `C:\Windows\Temp\check-windows-eventlog`
+  - `C:\Windows\SystemTemp\check-windows-eventlog`
+  - mackerel-agent v0.80.0 or earlier
+    - `C:\Windows\Temp\check-windows-eventlog`
 - When executed manually.
   - `check-windows-eventlog` folder under `Temp` folder of logged-in user. Check the Windows environment variable `TEMP` for the location of the `Temp` folder.
 
