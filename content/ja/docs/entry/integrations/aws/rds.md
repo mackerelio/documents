@@ -42,7 +42,7 @@ RDS、Aurora、Aurora Serverless v1で共通して取得できるメトリック
 |Database Connections|DatabaseConnections|rds.database_connections.used|float|Average|
 |BinLog Disk Usage|BinLogDiskUsage|rds.disk_usage.bin_log|bytes|Average|
 |Memory|FreeableMemory<br>SwapUsage|rds.memory.free<br>rds.memory.swap|bytes|Average|
-|Network Throughput|NetworkReceiveThroughput<br>NetworkTransmitThroughput|rds.network_throughput.read<br>rds.network_throughput.transmit|bytes/sec|Average|
+|Network Throughput|NetworkReceiveThroughput<br>NetworkTransmitThroughput|rds.network_throughput.receive<br>rds.network_throughput.transmit|bytes/sec|Average|
 |Disk IOPS|ReadIOPS<br>WriteIOPS|rds.diskiops.read<br>rds.diskiops.write|iops|Average|
 |gp2 Storage Burst Balance|BurstBalance|rds.burst_balance.balance|percentage|Average|
 |Maximum Used Transaction IDs|MaximumUsedTransactionIDs [*1](#common-postgres)|rds.maximum_used_transaction_ids.count|integer|Average|
