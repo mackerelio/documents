@@ -5,7 +5,7 @@ URL: https://mackerel.io/ja/docs/entry/howto/labeled-metrics/post-metrics
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/6801883189090642476
 ---
 
-ラベル付きメトリックは [OpenTelemetry](https://opentelemetry.io/) の仕様に準拠した機能です。OpenTelemetry のエコシステムを利用してメトリックを Mackerel に投稿することができます。**当機能は、有償オプションとなります。Freeプランでは利用できません。**
+ラベル付きメトリックは [OpenTelemetry](https://opentelemetry.io/) の仕様に準拠した機能です。OpenTelemetry のエコシステムを利用してメトリックを Mackerel に投稿することができます。
 
 OpenTelemetry は特定のベンダーに依存しない API を提供しているため、すでに OpenTelemetry ライブラリがアプリケーションやサービスに組み込まれている場合には、そのままの構成で監視バックエンドを Mackerel に切り替えることができます。
 

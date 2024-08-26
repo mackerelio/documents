@@ -5,7 +5,7 @@ URL: https://mackerel.io/ja/docs/entry/query-monitoring
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/6801883189090642574
 ---
 
-クエリによる監視は、Mackerel に投稿されたラベル付きメトリックに対しての監視を行う機能です。**当機能は、有償オプションとなります。Freeプランでは利用できません。**2024 年 2 月時点では、この機能はパブリックベータ版として提供されています。
+クエリによる監視は、Mackerel に投稿されたラベル付きメトリックに対しての監視を行う機能です。2024 年 2 月時点では、この機能はパブリックベータ版として提供されています。
 
 Mackerel にラベル付きメトリックを投稿する方法については、[Mackerel にラベル付きメトリックを投稿する](https://mackerel.io/ja/docs/entry/howto/labeled-metrics/post-metrics) をご覧ください。
 
