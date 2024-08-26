@@ -47,9 +47,6 @@ The following widgets can be arranged in Custom Dashboards. For more details, ch
     <dd>Display alert statuses for all the hosts belonging to a role.</dd>
 </dl>
 
-## Use regarding plans
-This feature can only be used with a paid plan or during a trial period.
-
 ## Precautions
 - There is limit on the maximum number of custom dashboards that can exist per organization (100 for the Standard plan). Check the number of custom dashboards that you can create in your organization [here](https://mackerel.io/my?tab=plan).
-- If your paid plan is downgraded to the free plan, any custom dashboards that have been created will become unavailable but will not be deleted.
+- If your paid plan is downgraded to the free plan, any custom dashboards exceeding the limit will become unavailable but will not be deleted.
