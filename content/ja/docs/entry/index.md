@@ -143,6 +143,8 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
     <li><a href="https://mackerel.io/ja/docs/entry/howto/MFA"><strong>2段階認証を利用する</strong><span>2段階認証を設定してセキュリティを強化します</span></a></li>
     <li><a href="https://mackerel.io/ja/docs/entry/howto/enforcing-MFA"><strong>2段階認証の設定を強制する</strong><span>2段階認証を必須化してセキュリティを強化します</span></a></li>
     <li><a href="https://mackerel.io/ja/docs/entry/advanced/cloudwatch-logs-aggregator"><strong>Amazon CloudWatch Logs のログを集計して Mackerel にメトリックを投稿する</strong><span>ログを活用してアプリケーションのメトリック監視を行えます</span></a></li>
+    <li><a href="https://mackerel.io/ja/docs/entry/advanced/saml-authentication"><strong>SAMLで認証する</strong><span>お使いのIDプロバイダーの資格情報を使用してMackerelにサインインする方法を解説します</span></a></li>
+    <li><a href="https://mackerel.io/ja/docs/entry/advanced/saml-settings"><strong>SAMLを設定する</strong><span>MackerelとIDプロバイダーの連携設定について解説します</span></a></li>
 </ul>
 </section>
 

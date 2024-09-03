@@ -141,6 +141,8 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackere
     <li><a href="https://mackerel.io/docs/entry/howto/MFA"><strong>Using 2-Step Authentication</strong><span>strengthen security by configuring 2-Step Authentication.</span></a></li>
     <li><a href="https://mackerel.io/docs/entry/howto/enforcing-MFA"><strong>Mandatory 2-Step Authentication</strong><span>strengthen security by requiring 2-Step Authentication</span></a></li>
     <li><a href="https://mackerel.io/docs/entry/advanced/cloudwatch-logs-aggregator"><strong>Aggregating Amazon CloudWatch Logs and posting the metrics to Mackerel</strong><span>utilize logs to monitor application metrics</span></a></li>
+    <li><a href="https://mackerel.io/docs/entry/advanced/saml-authentication"><strong>Authentication with SAML</strong><span>Explains how to sign in to Mackerel using your Identity provider credentials.</span></a></li>
+    <li><a href="https://mackerel.io/docs/entry/advanced/saml-settings"><strong>Setting up SAML</strong><span>Explains how to set up for linking Mackerel with an Identity Provider.</span></a></li>
 </ul>
 </section>
 
