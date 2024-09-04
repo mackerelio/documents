@@ -58,7 +58,7 @@ The organization group Manager can select an organization group from the [Organi
 | Attribute mapping             | When enabled, permissions are assigned based on [attribute mappings](https://mackerel.io/docs/entry/advanced/saml-attribute-mappings). You can only enable this setting when forced SAML authentication is enabled. |
 | Join all organizations as viewer by default | When enabled, SAML-authenticated users join as viewers of all organizations affiliated with the organization group. You can only enable this setting when attribute mapping is disabled.             |
 
-## Managing affiliated organizations
+<h2 id="managing-orgs">Managing affiliated organizations</h2>
 
 The organization group Manager can access the Manage Affiliated Organizations screen from Affiliated Organizations on the sidebar.
 
