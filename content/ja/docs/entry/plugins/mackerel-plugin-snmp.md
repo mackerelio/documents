@@ -3,7 +3,6 @@ Title: メトリックプラグイン - mackerel-plugin-snmp
 Date: 2022-11-21T18:10:43+09:00
 URL: https://mackerel.io/ja/docs/entry/plugins/mackerel-plugin-snmp
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/4207112889938595532
-CustomPath: plugins/mackerel-plugin-snmp
 ---
 
 mackerel-plugin-snmp はSNMPによりネットワーク機器から任意の数値のMIB情報を取得し、メトリックとして監視できます。
@@ -28,7 +27,7 @@ mackerel-plugin-snmp はSNMPによりネットワーク機器から任意の数�
 | -community | コミュニティ名                                                                                                                             | public    |
 | -tempfile  | 一時ファイルの保存先                                                                                                                       |           |
 
-取得するメトリックの定義は `OID:NAME[:DIFF?][:STACK?]` のように半角コロン(`:`)区切りで定義します。各項目はそれぞれ以下の通りです。
+取得するメトリックの定義は `OID:NAME[:DIFF?][:STACK?][:COUNTER?]` のように半角コロン(`:`)区切りで定義します。各項目はそれぞれ以下の通りです。
 
 | 項目  | 説明                                                        | 必須 | 初期値 |
 | ----- | ----------------------------------------------------------- | ---- | ------ |
@@ -36,6 +35,11 @@ mackerel-plugin-snmp はSNMPによりネットワーク機器から任意の数�
 | NAME  | メトリック名                                                | ◯    |        |
 | DIFF  | カウンター値として差分表示するか（`0:しない/1:する`で指定） |      | 0      |
 | STACK | 積み上げ表示とするか（`0:しない/1:する`で指定）             |      | 0      |
+| COUNTER | カウンターのビット数を uint32 もしくは uint64 で指定            |      |       |
+
+COUNTER の指定について
+
+- 監視対象のカウンターがオーバーフローした場合、前回との差分が正しく計算できず、グラフ描画の連続性が損なわれてしまうため、特に 32 ビットのカウンターを監視対象にする場合は指定することを推奨します。
 
 <h2 id="config">エージェントへの設定例</h2>
 

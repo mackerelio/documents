@@ -3,7 +3,6 @@ Title: Metric plugins - mackerel-plugin-snmp
 Date: 2022-11-21T18:10:43+09:00
 URL: https://mackerel.io/docs/entry/plugins/mackerel-plugin-snmp
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/4207112889938595528
-CustomPath: plugins/mackerel-plugin-snmp
 ---
 
 With mackerel-plugin-snmp it is possible to retrieve desired MIB data values from a network device via SNMP and monitor it as a metric.
@@ -28,7 +27,7 @@ The options which can be configured in the plugin are as follows.
 | -community | Community name                                                                                                                                                     | public        |
 | -tempfile  | Temporary file save location                                                                                                                                       |               |
 
-When defining the metric to be retrieved, use a colon (`:`) as a separator, e.g., `OID:NAME[:DIFF?][:STACK?]`. The items are as follows.
+When defining the metric to be retrieved, use a colon (`:`) as a separator, e.g., `OID:NAME[:DIFF?][:STACK?][:COUNTER?]`. The items are as follows.
 
 | Item  | Explanation                                                          | Required | Default Value |
 | ----- | -------------------------------------------------------------------- | -------- | ------------- |
@@ -36,6 +35,11 @@ When defining the metric to be retrieved, use a colon (`:`) as a separator, e.g.
 | NAME  | Metric Name                                                          | ✓        |               |
 | DIFF  | Difference display as a counter value (Specify with "0:No or 1:Yes") |          | 0             |
 | STACK | Stack display (Specify with "0:No or 1:Yes")                         |          | 0             |
+| COUNTER | Specify the number of bits in the counter as uint32 or uint64      |          |               |
+
+About specifying COUNTER
+
+- If the counter being monitored overflows, the difference from the previous value cannot be calculated correctly, and the continuity of the graph drawing is lost, so it is recommended that you specify this, especially when monitoring a 32-bit counter.
 
 <h2 id="config">Example configuration</h2>
 
