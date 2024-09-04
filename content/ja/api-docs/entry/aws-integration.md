@@ -317,6 +317,9 @@ Mackerel ではAWSのタグを指定して、登録するホストを絞り込�
 
 <i>`excludedMetrics`</i> と <i>`includedMetrics`</i> はAWSインテグレーション設定ごとに、全てのサービスを通してどちらか一方のみを指定できます。
 同一のAWSインテグレーション設定内で、サービスごとに <i>`excludedMetrics`</i> と <i>`includedMetrics`</i> を混在させることはできません。
+いずれの場合でも、監視が不要なサービスについてリクエストに含める必要はありません。
+
+Mackerel の AWS インテグレーション設定ページの「新規メトリックを自動追加する」には、 <i>`excludedMetrics`</i> を指定するとオン、 <i>`includedMetrics`</i> を指定するとオフとして反映されます。
 
 各AWSサービスで利用可能なメトリック名の一覧は、[こちら](https://mackerel.io/ja/docs/entry/integrations/aws) でご確認いただけます。
 

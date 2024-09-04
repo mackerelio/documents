@@ -316,7 +316,10 @@ The full name of a role is a string in the format of `<service name>:<role name>
 <i>`includedMetrics`</i> sets a list of metric names to be explicitly included monitoring for each AWS service.
 
 Only one or the other of <i>`excludedMetrics`</i> and <i>`includedMetrics`</i> can be set for each AWS integration settings across all services.
-Both <i>'excludedMetrics'</i> and <i>'includedMetrics'</i> can't coexist for each service within the same AWS integration settings.
+Both <i>`excludedMetrics`</i> and <i>`includedMetrics`</i> can't coexist for each service within the same AWS integration settings.
+In either case, it is unnecessary to include services in request that you do not want to monitor.
+
+On Mackerel's AWS integration settings page, "Add new metrics automatically" is enabled if you specify <i>`excludedMetrics`</i>, and is disabled if you specify <i>`includedMetrics`</i>.
 
 Refer [here](https://mackerel.io/docs/entry/integrations/aws) for a list of metrics that can be used for each AWS service.
 
