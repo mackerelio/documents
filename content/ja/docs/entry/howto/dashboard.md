@@ -9,11 +9,33 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 本機能では標準でご利用いただけるメインダッシュボードに追加する形で、ユーザー自身で独自にカスタマイズしたダッシュボードを作成できます。
 
 ## カスタムダッシュボードを作成する
-画面左側メニューにあるDashboardをクリックすると、右側メニューがダッシュボードの管理画面へと変わります。
+画面左側メニューにあるダッシュボードをクリックすると、右側メニューがダッシュボードの管理画面へと変わります。
 
-そこから「カスタムダッシュボードを追加」ボタンをクリックします。
+そこから「カスタムダッシュボード作成」ボタンをクリックします。
 
-[f:id:mackerelio:20181102170938p:plain]
+<p><span itemscope itemtype="http://schema.org/Photograph"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20240909/20240909103959.png" alt="f:id:mackerelio:20240909103959.:plain" title="f:id:mackerelio:20240909103959:plain" class="hatena-fotolife" itemprop="image"></span></p>
+
+### テンプレートから作成する
+
+「カスタムダッシュボードおまかせ生成」ボタンをクリックします。
+
+テンプレートからダッシュボードを作成するダイアログが表示されます。
+
+<p><span itemscope itemtype="http://schema.org/Photograph"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20240909/20240909143329.png" alt="f:id:mackerelio:20240909143329:plain" title="f:id:mackerelio:20240909143329:plain" class="hatena-fotolife" itemprop="image"></span></p>
+
+タイトルにはこれから作成するカスタムダッシュボードの名称を入力してください。
+
+作成したいダッシュボードに適したテンプレートを選択して、「次へ」ボタンをクリックしてください。
+利用可能なテンプレートとそれぞれの詳細は下記の [カスタムダッシュボードおまかせ生成で利用可能なテンプレート](#templates) をご参照ください。
+
+テンプレートごとに必要な項目を入力または選択して、「作成」ボタンをクリックしてください。
+設定した内容と投稿されているメトリックをもとに、生成されたダッシュボードのページに遷移します。
+
+生成されたダッシュボードを編集したい場合は、次項の [手動で作成する](#manual) を参照してください。
+
+<h3 id="manual">手動で作成する</h3>
+
+「任意で作成する」ボタンをクリックします。
 
 新しいダッシュボードを作成する画面に遷移します。
 
@@ -46,6 +68,29 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
     <dt><a href="https://mackerel.io/ja/docs/entry/howto/dashboard/alert-status">アラートステータスウィジェット</a></dt>
     <dd>あるロールに所属している全てのホストのアラートステータスを表示できます。</dd>
 </dl>
+
+<h2 id="templates">カスタムダッシュボードおまかせ生成で利用可能なテンプレート</h2>
+
+### 三層構造テンプレート
+
+Web アプリケーションに典型的な、Web サーバー・App サーバー・DB サーバーによる三層構造システムのダッシュボードです。
+
+Web・App・DB のロールを指定します。
+それぞれのロールに属するホストが、そのロールに対応したプラグインまたはクラウドインテグレーションのメトリックを投稿していることで、対象として選択されます。
+
+各ロールが現在対応しているプラグインとクラウドインテグレーションは以下の通りです。
+
+- Web ロール
+  - mackerel-plugin-accesslog
+  - mackerel-plugin-apache2
+  - mackerel-plugin-nginx
+- App ロール
+  - mackerel-plugin-gostats
+  - mackerel-plugin-jvm
+  - mackerel-plugin-jmx-jolokia
+- DB ロール
+  - mackerel-plugin-postgres
+  - mackerel-plugin-mysql
 
 ## 注意事項
 - 1つのオーガニゼーションにつき、作成できるカスタムダッシュボードの数には上限があります（Standardプランの場合、100個）。ご利用のオーガニゼーションで作成できるカスタムダッシュボードの数は[こちら](https://mackerel.io/my?tab=plan)からご確認ください。
