@@ -81,6 +81,7 @@ Web・App・DB のロールを指定します。
 各ロールが現在対応しているプラグインとクラウドインテグレーションは以下の通りです。
 
 - Web ロール
+  - AWSインテグレーション - API Gateway
   - mackerel-plugin-accesslog
   - mackerel-plugin-apache2
   - mackerel-plugin-nginx
