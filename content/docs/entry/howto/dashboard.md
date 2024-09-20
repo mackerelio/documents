@@ -82,6 +82,7 @@ Hosts that belong to each role and post metrics for the plugin or cloud integrat
 The plugins and cloud integrations currently supported by each role are as follows:
 
 - Web Role
+  - AWS Integration - ALB
   - AWS Integration - API Gateway
   - mackerel-plugin-accesslog
   - mackerel-plugin-apache2
