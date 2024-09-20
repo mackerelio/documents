@@ -73,3 +73,4 @@ You can add organizations with the Add Affiliated Organization button. You can a
 - Owner is not an [outside collaborator](https://mackerel.io/docs/entry/advanced/saml-outside-collaborators) of the organization group to which they are to be added.
 
 To remove an affiliated organization, click the Delete button to the right of the relevant organization's name.
+The members and permissions of the organization will remain the same.
