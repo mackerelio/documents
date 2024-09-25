@@ -43,7 +43,10 @@ For information on settings for a specific Identity Provider, please refer to th
 
 ## Basic setup for organization groups
 
-The organization group Manager can select an organization group from the [Organization Group List screen](https://mackerel.io/org-groups) and check/change the settings.
+The organization group Manager can access the Organization Group List screen from the User menu.  
+After that, the Manger can select an organization group from the Organization Group List screen to check or change its settings.
+
+![The User menu. From the top are “Account Settings”, “Organization Groups Settings”, and “Sign Out”.](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20240925/20240925112722.png)
 
 ![Edit Organization Group screen. Detailed information about the organization group is displayed in a table. At the top of the table is the organization group name. Following in order are the entry forms for Details, IdP Metadata XML, IdP Entity ID, Single Sign On URL, IdP X509 Certificate, Require SAML Authentication, Attribute Mappings, and Join all organizations as viewer by default, with an Update button and Cancel button at the end.](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20240822/20240822172822_original.png)
 
