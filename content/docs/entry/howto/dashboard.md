@@ -92,6 +92,7 @@ The plugins and cloud integrations currently supported by each role are as follo
   - mackerel-plugin-jvm
   - mackerel-plugin-jmx-jolokia
 - DB Role
+  - AWS Integration - RDS
   - mackerel-plugin-postgres
   - mackerel-plugin-mysql
 

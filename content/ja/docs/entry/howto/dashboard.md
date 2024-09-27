@@ -91,6 +91,7 @@ Web・App・DB のロールを指定します。
   - mackerel-plugin-jvm
   - mackerel-plugin-jmx-jolokia
 - DB ロール
+  - AWSインテグレーション - RDS
   - mackerel-plugin-postgres
   - mackerel-plugin-mysql
 
