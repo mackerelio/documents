@@ -77,24 +77,29 @@ The following widgets can be arranged in Custom Dashboards. For more details, ch
 This is a dashboard of a three-tier system consisting of web servers, app servers, and database servers, which is typical of a web application.
 
 Specify the roles of Web, App, and DB.
-Hosts that belong to each role and post metrics for the plugin or cloud integration corresponding to that role are selected for the target.
+If metrics supported by the template have been posted in each role, widgets are automatically created to display those metrics.
 
 The plugins and cloud integrations currently supported by each role are as follows:
 
 - Web Role
   - AWS Integration - ALB
   - AWS Integration - API Gateway
+  - AWS Integration - EC2
   - mackerel-plugin-accesslog
   - mackerel-plugin-apache2
   - mackerel-plugin-nginx
 - App Role
+  - AWS Integration - EC2
   - mackerel-plugin-gostats
   - mackerel-plugin-jvm
   - mackerel-plugin-jmx-jolokia
 - DB Role
   - AWS Integration - RDS
+  - AWS Integration - EC2
   - mackerel-plugin-postgres
   - mackerel-plugin-mysql
+
+In addition, if system metrics have been posted by mackerel-agent or mackerel-container-agent in each role, widgets are created to display them.
 
 ## Precautions
 - There is limit on the maximum number of custom dashboards that can exist per organization (100 for the Standard plan). Check the number of custom dashboards that you can create in your organization [here](https://mackerel.io/my?tab=plan).

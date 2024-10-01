@@ -76,24 +76,29 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 Web アプリケーションに典型的な、Web サーバー・App サーバー・DB サーバーによる三層構造システムのダッシュボードです。
 
 Web・App・DB のロールを指定します。
-それぞれのロールに属するホストが、そのロールに対応したプラグインまたはクラウドインテグレーションのメトリックを投稿していることで、対象として選択されます。
+各ロールにて、テンプレートが対応しているメトリックが投稿されている場合、そのメトリックを表示するウィジットが自動で作成されます。
 
 各ロールが現在対応しているプラグインとクラウドインテグレーションは以下の通りです。
 
 - Web ロール
   - AWSインテグレーション - ALB
   - AWSインテグレーション - API Gateway
+  - AWSインテグレーション - EC2
   - mackerel-plugin-accesslog
   - mackerel-plugin-apache2
   - mackerel-plugin-nginx
 - App ロール
+  - AWSインテグレーション - EC2
   - mackerel-plugin-gostats
   - mackerel-plugin-jvm
   - mackerel-plugin-jmx-jolokia
 - DB ロール
   - AWSインテグレーション - RDS
+  - AWSインテグレーション - EC2
   - mackerel-plugin-postgres
   - mackerel-plugin-mysql
+
+また、各ロールにてmackerel-agentやmackerel-container-agentによってシステムメトリックが投稿されている場合、システムメトリックを表示するウィジットが作成されます。
 
 ## 注意事項
 - 1つのオーガニゼーションにつき、作成できるカスタムダッシュボードの数には上限があります（Standardプランの場合、100個）。ご利用のオーガニゼーションで作成できるカスタムダッシュボードの数は[こちら](https://mackerel.io/my?tab=plan)からご確認ください。
