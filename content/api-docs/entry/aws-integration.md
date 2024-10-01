@@ -603,3 +603,4 @@ Here is a list of the AWS services and their corresponding identifiers (ID) used
 | `Connect`       | Amazon Connect                   |
 | `DocDB`         | Amazon DocumentDB                |
 | `CodeBuild`     | AWS CodeBuild                    |
+| `Athena`        | Amazon Athena                    |

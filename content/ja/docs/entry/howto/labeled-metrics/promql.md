@@ -16,8 +16,6 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
   - `!~`（否定正規表現ラベルマッチャ）
 - [範囲ベクトルセレクタ](https://prometheus.io/docs/prometheus/latest/querying/basics/#range-vector-selectors)
 
-なお、`__name__` ラベルを用いたメトリック名の指定には対応しておりません。
-
 ### 範囲ベクトルセレクタの制約事項
 
 範囲ベクトルセレクタで指定した期間とグラフの表示期間が大きく異なる場合、グラフの表示が正しく行われないことがあります。

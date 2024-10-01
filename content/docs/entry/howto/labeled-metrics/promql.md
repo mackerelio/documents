@@ -16,8 +16,6 @@ When using labeled metrics, you can display a graph using the PromQL query langu
   - `!~` (negative regular expression label matcher)
 - [Range vector selector](https://prometheus.io/docs/prometheus/latest/querying/basics/#range-vector-selectors)
 
-Note that specifying a metric name using the `__name__` label is not supported.
-
 ### Constraints on range vector selectors
 
 When the period specified in the range vector selector is significantly different from the graph display period, the graph display may be incorrect.

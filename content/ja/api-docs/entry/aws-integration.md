@@ -603,3 +603,4 @@ Mackerel で用いられる識別子（ID）とそれに対応するAWSサービ
 | `Connect`       | Amazon Connect                   |
 | `DocDB`         | Amazon DocumentDB                |
 | `CodeBuild`     | AWS CodeBuild                    |
+| `Athena`        | Amazon Athena                    |
