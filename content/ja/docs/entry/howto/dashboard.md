@@ -83,6 +83,7 @@ Web・App・DB のロールを指定します。
 - Web ロール
   - AWSインテグレーション - ALB
   - AWSインテグレーション - API Gateway
+  - AWSインテグレーション - CloudFront
   - AWSインテグレーション - EC2
   - mackerel-plugin-accesslog
   - mackerel-plugin-apache2

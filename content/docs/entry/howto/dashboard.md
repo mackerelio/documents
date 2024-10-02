@@ -84,6 +84,7 @@ The plugins and cloud integrations currently supported by each role are as follo
 - Web Role
   - AWS Integration - ALB
   - AWS Integration - API Gateway
+  - AWS Integration - CloudFront
   - AWS Integration - EC2
   - mackerel-plugin-accesslog
   - mackerel-plugin-apache2
