@@ -82,7 +82,10 @@ If metrics supported by the template have been posted in each role, widgets are 
 The plugins and cloud integrations currently supported by each role are as follows:
 
 - Web Role
+  - AWS Integration - ELB (CLB)
   - AWS Integration - ALB
+  - AWS Integration - NLB
+  - AWS Integration - Lambda
   - AWS Integration - API Gateway
   - AWS Integration - CloudFront
   - AWS Integration - EC2
@@ -90,6 +93,7 @@ The plugins and cloud integrations currently supported by each role are as follo
   - mackerel-plugin-apache2
   - mackerel-plugin-nginx
 - App Role
+  - AWS Integration - Lambda
   - AWS Integration - EC2
   - mackerel-plugin-gostats
   - mackerel-plugin-jvm

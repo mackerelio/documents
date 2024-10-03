@@ -81,7 +81,10 @@ Web・App・DB のロールを指定します。
 各ロールが現在対応しているプラグインとクラウドインテグレーションは以下の通りです。
 
 - Web ロール
+  - AWSインテグレーション - ELB (CLB)
   - AWSインテグレーション - ALB
+  - AWSインテグレーション - NLB
+  - AWSインテグレーション - Lambda
   - AWSインテグレーション - API Gateway
   - AWSインテグレーション - CloudFront
   - AWSインテグレーション - EC2
@@ -89,6 +92,7 @@ Web・App・DB のロールを指定します。
   - mackerel-plugin-apache2
   - mackerel-plugin-nginx
 - App ロール
+  - AWSインテグレーション - Lambda
   - AWSインテグレーション - EC2
   - mackerel-plugin-gostats
   - mackerel-plugin-jvm
