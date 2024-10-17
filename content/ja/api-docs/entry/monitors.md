@@ -58,7 +58,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 | `notificationInterval` | *number* | [optional] 通知の再送設定をするときの再送間隔 (分)。このフィールドを省略すると通知は再送されません。 |
 | `scopes`        | *array[string]* | [optional] 監視対象のサービス名またはロール詳細名。[*2](#service-name)  |
 | `excludeScopes` | *array[string]* | [optional] 監視除外対象のサービス名またはロール詳細名。[*2](#service-name)  |
-| `isMute`        | *boolean*       | [optional] 監視がミュート状態か否か [*3](#mute) |
+| `isMute`        | *boolean*       | [optional] 監視がミュート状態[*3](#mute)か否か。省略した場合はミュートしない設定となります。|
 
 ##### 入力例
 
@@ -206,7 +206,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 | `scopes`        | *array[string]* | [optional] 監視対象のサービス名またはロール詳細名。[*2](#service-name)  |
 | `excludeScopes` | *array[string]* | [optional] 監視除外対象のサービス名またはロール詳細名。[*2](#service-name)  |
 | `notificationInterval` | *number* | [optional] 通知の再送設定をするときの再送間隔 (分)。このフィールドを省略すると通知は再送されません。 |
-| `isMute`        | *boolean*       | [optional] 監視がミュート状態か否か |
+| `isMute`        | *boolean*       | [optional] 監視がミュート状態[*3](#mute)か否か。省略した場合はミュートしない設定となります。|
 
 ##### 入力例
 
@@ -307,7 +307,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 | `missingDurationWarning`  | *number*  | [optional] 途切れ監視のwarningのAlert発生閾値 (分)。                                                                 |
 | `missingDurationCritical` | *number*  | [optional] 途切れ監視のcriticalのAlert発生閾値 (分)。                                                                |
 | `notificationInterval`    | *number*  | [optional] 通知の再送設定をするときの再送間隔 (分)。このフィールドを省略すると通知は再送されません。                 |
-| `isMute`                  | *boolean* | [optional] 監視がミュート状態か否か                                                                                  |
+| `isMute`        | *boolean*       | [optional] 監視がミュート状態[*3](#mute)か否か。省略した場合はミュートしない設定となります。|
 
 ##### 入力例
 
@@ -424,7 +424,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 | `certificationExpirationWarning`  | *number*   | [optional] 証明書の有効期限切れ監視のWaning閾値。期限までの残り日数。 |
 | `certificationExpirationCritical` | *number*   | [optional] 証明書の有効期限切れ監視のCritical閾値。期限までの残り日数。 |
 | `skipCertificateVerification`     | *boolean*  | [optional] 証明書の照合を行わなわずに監視をおこなう。 |
-| `isMute`                          | *boolean*  | [optional] 監視がミュート状態か否か |
+| `isMute`        | *boolean*       | [optional] 監視がミュート状態[*3](#mute)か否か。省略した場合はミュートしない設定となります。|
 | `headers`                         | *array[object]* | [optional] HTTPリクエストヘッダとして設定されているべき値を`name`と`value`で指定。このフィールドを省略するとデフォルトのヘッダが設定されます。ヘッダを設定したくない場合は空の配列を指定してください。|
 | `requestBody`                     | *string*   | [optional] リクエスト時のメッセージボディ |
 | `followRedirect` | *boolean* | [optional] リダイレクト先のレスポンスを結果として評価する。このフィールドを省略するとレスポンスに含まれるリダイレクト先を追跡しません。 |
@@ -538,7 +538,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 | `warning`       | *number*   | [optional] warningのAlert発生の閾値。 |
 | `critical`      | *number*   | [optional] criticalのAlert発生の閾値。 |
 | `notificationInterval` | *number* | [optional] 通知の再送設定をするときの再送間隔 (分)。このフィールドを省略すると通知は再送されません。 |
-| `isMute`        | *boolean*       | [optional] 監視がミュート状態か否か [*3](#mute) |
+| `isMute`        | *boolean*       | [optional] 監視がミュート状態[*3](#mute)か否か。省略した場合はミュートしない設定となります。|
 
 ##### 入力例
 
@@ -627,7 +627,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 | `maxCheckAttempts`     | *number*  | [optional] 何回連続で Warning/Critical になったらアラートを発生させるか。デフォルトは3 (1~10)です。 |
 | `trainingPeriodFrom`   | *number*  | [optional] 再学習させる際に起点となる時刻(epoch秒)。 |
 | `notificationInterval` | *number*  | [optional] 通知の再送設定をするときの再送間隔 (分)。このフィールドを省略すると通知は再送されません。 |
-| `isMute`               | *boolean* | [optional] 監視がミュート状態か否か |
+| `isMute`        | *boolean*       | [optional] 監視がミュート状態[*3](#mute)か否か。省略した場合はミュートしない設定となります。|
 
 ##### 入力例
 
@@ -728,7 +728,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 | `warning`       | *number*   | warningのAlert発生の閾値。 |
 | `critical`      | *number*   | criticalのAlert発生の閾値。 |
 | `notificationInterval` | *number* | [optional] 通知の再送設定をするときの再送間隔（分）。このフィールドを省略すると通知は再送されません。 |
-| `isMute`        | *boolean*       | [optional] 監視がミュート状態か否か。 [*3](#mute) |
+| `isMute`        | *boolean*       | [optional] 監視がミュート状態[*3](#mute)か否か。省略した場合はミュートしない設定となります。|
 
 ##### 入力例
 
@@ -943,7 +943,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 </p>
 
 リクエストとレスポンスは[監視ルールの登録](#create)と同様です。不足している項目があると必須項目の場合はエラーとなります。
-`scopes`と`excludeScopes`の更新は、指定したJsonで完全に上書きされます。たとえば、`scopes`がすでに存在している場合に項目を省略すると、`scopes`は削除されます。
+`scopes`と`excludeScopes`、ならびに`isMute`の更新は、指定したJsonで完全に上書きされます。たとえば、`scopes`がすでに存在している場合に項目を省略すると`scopes`は削除され、ミュート状態の監視ルール更新時に`isMute`を省略するとデフォルトの挙動に従いミュートが解除されます。
 
 ### 死活監視
 

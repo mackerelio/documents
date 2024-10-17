@@ -59,7 +59,7 @@ The input procedure varies depending on the monitoring target.
 | `notificationInterval`       | *number*   | [optional] the time interval (in minutes) for re-sending notifications. If this field is omitted, notifications will not be re-sent. |
 | `scopes`        | *array[string]* | [optional] monitoring target’s service name or role details name  [*2](#service-name) |
 | `excludeScopes` | *array[string]* | [optional] monitoring exclusion target’s service name or role details name  [*2](#service-name) |
-| `isMute` | *boolean* | [optional] Whether monitoring is muted or not [*3](#muted-monitoring) |
+| `isMute` | *boolean* | [optional] Whether monitoring is muted[*3](#muted-monitoring) or not . If you omit this, the monitor will be unmuted. |
 
 
 ##### Example Input
@@ -207,7 +207,7 @@ This function disables notifications in monitoring. Alerts occur in response to 
 | `scopes`        | *array[string]* | [optional] The service name or role details name of the monitoring target. [*2](#service-name)  |
 | `excludeScopes` | *array[string]* | [optional] The service name or role details name of the monitoring exception. [*2](#service-name)  |
 | `notificationInterval` | *number* | [optional] the time interval (in minutes) for re-sending notifications. If this field is omitted, notifications will not be re-sent. |
-| `isMute`        | *boolean*       | [optional] whether monitoring is muted or not |
+| `isMute` | *boolean* | [optional] Whether monitoring is muted[*3](#muted-monitoring) or not . If you omit this, the monitor will be unmuted.|
 
 ##### Example Input
 
@@ -308,7 +308,7 @@ This function disables notifications in monitoring. Alerts occur in response to 
 | `missingDurationWarning`    | *number*   | [optional] the threshold (in minutes) to generate a warning alert for interruption monitoring                                                                |
 | `missingDurationCritical`   | *number*   | [optional] the threshold (in minutes) to generate a critical alert for interruption monitoring                                                                |
 | `notificationInterval`      | *number*   | [optional] the time interval (in minutes) for re-sending notifications. If this field is omitted, notifications will not be re-sent. |
-| `isMute` | *boolean* | [optional] Whether monitoring is muted or not [*3](#muted-monitoring) |
+| `isMute` | *boolean* | [optional] Whether monitoring is muted[*3](#muted-monitoring) or not . If you omit this, the monitor will be unmuted.|
 
 ##### Example Input
 
@@ -425,7 +425,7 @@ This function disables notifications in monitoring. Alerts occur in response to 
 | `certificationExpirationWarning`    | *number*   | [optional] certification expiration date monitor’s “Warning” threshold. number of days remaining until expiration. |
 | `certificationExpirationCritical`   | *number*   | [optional] certification expiration date monitor’s “Critical” threshold. number of days remaining until expiration. |
 | `skipCertificateVerification`       | *boolean*  | [optional] Whether or not to skip the verification of the certificate. |
-| `isMute`               | *boolean*  | [optional] Whether monitoring is muted or not [*3](#muted-monitoring) |
+| `isMute` | *boolean* | [optional] Whether monitoring is muted[*3](#muted-monitoring) or not . If you omit this, the monitor will be unmuted.|
 | `headers`              | *array[object]* | [optional] The values that should be configured as the HTTP request header specified by `name` and `value`. If this field is omitted, the default header will be configured. If you do not want to configure headers, specify an empty array. |
 | `requestBody`          | *string*   | [optional] HTTP request body |
 | `followRedirect` | *boolean* | [optional] Evaluates the response of the redirector as a result. If this field is omitted, the redirection destination in the response will not be tracked. |
@@ -539,7 +539,7 @@ In order to monitor the certification expiration date, it’s necessary to speci
 | `warning`       | *number*   | [optional] the threshold that generates a warning alert |
 | `critical`      | *number*   | [optional] the threshold that generates a critical alert |
 | `notificationInterval` | *number* | [optional] The time interval (in minutes) for re-sending notifications. If this field is omitted, notifications will not be re-sent. |
-| `isMute`        | *boolean*       | [optional] whether monitoring is muted or not  [*3](#mute) |
+| `isMute` | *boolean* | [optional] Whether monitoring is muted[*3](#muted-monitoring) or not . If you omit this, the monitor will be unmuted.|
 
 ##### Input example
 
@@ -628,7 +628,7 @@ In order to monitor the certification expiration date, it’s necessary to speci
 | `maxCheckAttempts`     | *number*  | [optional] number of consecutive Warning/Critical instances before an alert is made. Default setting is 3 (1-10) |
 | `trainingPeriodFrom`   | *number*  | [optional] Specified training period (Uses metric data starting from the specified time) |
 | `notificationInterval` | *number*  | [optional] the time interval (in minutes) for re-sending notifications. If this field is omitted, notifications will not be re-sent. |
-| `isMute`               | *boolean* | [optional] whether monitoring is muted or not |
+| `isMute` | *boolean* | [optional] Whether monitoring is muted[*3](#muted-monitoring) or not . If you omit this, the monitor will be unmuted.|
 
 ##### Example Input
 
@@ -729,7 +729,7 @@ In order to monitor the certification expiration date, it’s necessary to speci
 | `warning`              | _number_  | the threshold that generates a warning alert                                                                                                                                         |
 | `critical`             | _number_  | the threshold that generates a critical alert                                                                                                                                        |
 | `notificationInterval` | _number_  | [optional] the time interval (in minutes) for re-sending notifications. if this field is omitted, notifications will not be re-sent.                                                 |
-| `isMute`               | _boolean_ | [optional] whether monitoring is muted or not [\*3](#mute)                                                                                                                           |
+| `isMute` | *boolean* | [optional] Whether monitoring is muted[*3](#muted-monitoring) or not . If you omit this, the monitor will be unmuted.|
 
 ##### Example Input
 
@@ -945,7 +945,7 @@ In order to monitor the certification expiration date, it’s necessary to speci
 </p>
 
 As for requests and responses, just as when [create monitors](#create), every field must be specified. If there are any insufficient items that are required, an error will be generated.
-When `scopes` and `excludeScopes` are updated, the JSON which was designated will be completely overwritten. For example, by omitting an item in `scopes` when it has already been saved, `scopes` will be deleted.
+When `scopes`, `excludeScopes` or `isMute` is updated, the JSON which was designated will be completely overwritten. For example, by omitting an item in `scopes` when it has already been saved, `scopes` will be deleted, and omitting `isMute` when updating the muted monitor will unmute the monitor according to the default behavior.
 
 ### Connectivity Monitoring
 

@@ -31,3 +31,6 @@ The maximum number of metrics obtainable can be calculated using the formula `7 
 - Enter the name of the activity in place of ACTIVITY_NAME in "Metric name in Mackerel".
 - Enter the name of the Lambda function in place of LAMBDA_FUNCTION_NAME in "Metric name in Mackerel".
 - Enter the name of the service integration in place of SERVICE_INTEGRATION_NAME in "Metric name in Mackerel".
+
+<h2 id="notes">Notes</h2>
+- AWS Integration Step Functions support doesn't register a state machine that contains non-ASCII characters in its name as a host.
