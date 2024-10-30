@@ -28,12 +28,12 @@ Mackerelでは複数のオーガニゼーションからなるオーガニゼー
 
 お使いのIDプロバイダーには以下の表を参考に設定してください。
 
-| 設定項目        | 値                                      |
-| --------------- | --------------------------------------- |
-| SP Entity ID    | `https://mackerel.io/saml/metadata.xml` |
-| ACS URL         | `https://mackerel.io/saml/acs`          |
-| Request Binding | `POST`                                  |
-| NameIDPolicy    | `email`                                 |
+| 設定項目            | 値                                                       |
+| ------------------- | -------------------------------------------------------- |
+| SP Entity ID        | `https://mackerel.io/saml/metadata.xml`                  |
+| ACS URL             | `https://mackerel.io/saml/acs`                           |
+| Request Binding     | `POST`                                                   |
+| NameIDPolicy Format | `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress` |
 
 各IDプロバイダーの設定については、IDプロバイダーのドキュメントを参照してください。
 
