@@ -28,7 +28,7 @@ Set up is required for both your Identity Provider and Mackerel.
 
 Please refer to the table below for setting up your Identity Provider.
 
-| Setting       | Value                                      |
+| Setting         | Value                                   |
 | --------------- | --------------------------------------- |
 | SP Entity ID    | `https://mackerel.io/saml/metadata.xml` |
 | ACS URL         | `https://mackerel.io/saml/acs`          |
@@ -50,16 +50,16 @@ After that, the Manger can select an organization group from the Organization Gr
 
 ![Edit Organization Group screen. Detailed information about the organization group is displayed in a table. At the top of the table is the organization group name. Following in order are the entry forms for Details, IdP Metadata XML, IdP Entity ID, Single Sign On URL, IdP X509 Certificate, Require SAML Authentication, Attribute Mappings, and Join all organizations as viewer by default, with an Update button and Cancel button at the end.](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20240822/20240822172822_original.png)
 
-| Setting                               | Description                                                                                                                                                                                            |
-| -------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Details                                   | Freely configurable text that describes the organization group.                                                                                                                              |
-| IdP Metadata XML                     | XML provided by the Identity Provider. Uploading this will allow you to set up IdP Entity ID, Single Sign On URL, and IdP X509 Certificate.                                                                   |
-| IdP Entity ID                     | (Required) Identifier provided by the Identity Provider. You cannot specify an IdP Entity ID which has already been registered.                                                                                                          |
-| Single Sign On URL                     | Identity Provider endpoint used in the SP initiated flow.                                                                                                                          |
-| IdP X509 Certificate                        | (Required) Certificate provided by the Identity Provider.                                                                                                                                                     |
-| Require SAML authentication                       | When enabled, only users and [outside collaborators](https://mackerel.io/docs/entry/advanced/saml-outside-collaborators) authenticated with SAML can view the organization.                                                                                                                  |
-| Attribute mapping             | When enabled, permissions are assigned based on [attribute mappings](https://mackerel.io/docs/entry/advanced/saml-attribute-mappings). You can only enable this setting when forced SAML authentication is enabled. |
-| Join all organizations as viewer by default | When enabled, SAML-authenticated users join as viewers of all organizations affiliated with the organization group. You can only enable this setting when attribute mapping is disabled.             |
+| Setting                                     | Description                                                                                                                                                                                                         |
+| ------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Details                                     | Freely configurable text that describes the organization group.                                                                                                                                                     |
+| IdP Metadata XML                            | XML provided by the Identity Provider. Uploading this will allow you to set up IdP Entity ID, Single Sign On URL, and IdP X509 Certificate.                                                                         |
+| IdP Entity ID                               | (Required) Identifier provided by the Identity Provider. You cannot specify an IdP Entity ID which has already been registered.                                                                                     |
+| Single Sign On URL                          | Identity Provider endpoint used in the SP initiated flow.                                                                                                                                                           |
+| IdP X509 Certificate                        | (Required) Certificate provided by the Identity Provider.                                                                                                                                                           |
+| Require SAML authentication                 | When enabled, only users and [outside collaborators](https://mackerel.io/docs/entry/advanced/saml-outside-collaborators) authenticated with SAML can view the organization.                                         |
+| Attribute mapping                           | When enabled, permissions are assigned based on [attribute mappings](https://mackerel.io/docs/entry/advanced/saml-attribute-mappings). You can only enable this setting when forced SAML authentication is enabled. |
+| Join all organizations as viewer by default | When enabled, SAML-authenticated users join as viewers of all organizations affiliated with the organization group. You can only enable this setting when attribute mapping is disabled.                            |
 
 <h2 id="managing-orgs">Managing affiliated organizations</h2>
 
