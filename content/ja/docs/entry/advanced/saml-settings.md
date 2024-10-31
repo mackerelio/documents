@@ -28,12 +28,12 @@ Mackerelでは複数のオーガニゼーションからなるオーガニゼー
 
 お使いのIDプロバイダーには以下の表を参考に設定してください。
 
-| 設定項目        | 値                                      |
-| --------------- | --------------------------------------- |
-| SP Entity ID    | `https://mackerel.io/saml/metadata.xml` |
-| ACS URL         | `https://mackerel.io/saml/acs`          |
-| Request Binding | `POST`                                  |
-| NameIDPolicy    | `email`                                 |
+| 設定項目            | 値                                                       |
+| ------------------- | -------------------------------------------------------- |
+| SP Entity ID        | `https://mackerel.io/saml/metadata.xml`                  |
+| ACS URL             | `https://mackerel.io/saml/acs`                           |
+| Request Binding     | `POST`                                                   |
+| NameIDPolicy Format | `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress` |
 
 各IDプロバイダーの設定については、IDプロバイダーのドキュメントを参照してください。
 
@@ -53,13 +53,13 @@ Mackerelでは複数のオーガニゼーションからなるオーガニゼー
 | 設定項目                               | 説明                                                                                                                                                                                            |
 | -------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 詳細                                   | オーガニゼーショングループを説明するような、自由に設定可能な文章。                                                                                                                              |
-| IdP メタデータ XML                     | IDプロバイダーから提供される XML。アップロードすることで、IdP Entity ID、Single Sign On URL、IdP X509 証明書を設定できます。                                                                   |
-| IdP Entity ID                          | (必須)IDプロバイダーから提供される識別子。登録済みのIdP Entity IDは指定できません。                                                                                                          |
-| Single Sign On URL                     | SP initiatedフロー時に使用される、IDプロバイダー側のエンドポイント。                                                                                                                          |
-| IdP X509 証明書                        | (必須)IDプロバイダーから提供される証明書。                                                                                                                                                     |
-| SAML認証を強制                        | 有効な場合、SAML認証したユーザーまたは [外部コラボレーター](https://mackerel.io/ja/docs/entry/advanced/saml-outside-collaborators) のみがオーガニゼーションを閲覧可能になります。                                                                                                                  |
+| IdP メタデータ XML                     | IDプロバイダーから提供される XML。アップロードすることで、IdP Entity ID、Single Sign On URL、IdP X509 証明書を設定できます。                                                                    |
+| IdP Entity ID                          | (必須)IDプロバイダーから提供される識別子。登録済みのIdP Entity IDは指定できません。                                                                                                             |
+| Single Sign On URL                     | SP initiatedフロー時に使用される、IDプロバイダー側のエンドポイント。                                                                                                                            |
+| IdP X509 証明書                        | (必須)IDプロバイダーから提供される証明書。                                                                                                                                                      |
+| SAML認証を強制                         | 有効な場合、SAML認証したユーザーまたは [外部コラボレーター](https://mackerel.io/ja/docs/entry/advanced/saml-outside-collaborators) のみがオーガニゼーションを閲覧可能になります。               |
 | 属性マッピングを有効にする             | 有効な場合、[属性マッピング](https://mackerel.io/ja/docs/entry/advanced/saml-attribute-mappings) に基づいた権限割り当てが行われます。SAML認証の強制が有効な場合のみ、この設定を有効にできます。 |
-| デフォルトでユーザーを閲覧者として追加 | 有効な場合、SAML認証したユーザーはオーガニゼーショングループに所属するすべてのオーガニゼーション閲覧者として参加します。属性マッピングが無効な場合のみ、この設定を有効にできます。             |
+| デフォルトでユーザーを閲覧者として追加 | 有効な場合、SAML認証したユーザーはオーガニゼーショングループに所属するすべてのオーガニゼーション閲覧者として参加します。属性マッピングが無効な場合のみ、この設定を有効にできます。              |
 
 <h2 id="managing-orgs">所属オーガニゼーションの管理</h2>
 
