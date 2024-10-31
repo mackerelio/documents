@@ -28,12 +28,12 @@ Set up is required for both your Identity Provider and Mackerel.
 
 Please refer to the table below for setting up your Identity Provider.
 
-| Setting             | Value                                                    |
-| ------------------- | -------------------------------------------------------- |
-| SP Entity ID        | `https://mackerel.io/saml/metadata.xml`                  |
-| ACS URL             | `https://mackerel.io/saml/acs`                           |
-| Request Binding     | `POST`                                                   |
-| NameIDPolicy Format | `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress` |
+| Setting         | Value                                   |
+| --------------- | --------------------------------------- |
+| SP Entity ID    | `https://mackerel.io/saml/metadata.xml` |
+| ACS URL         | `https://mackerel.io/saml/acs`          |
+| Request Binding | `POST`                                  |
+| NameIDPolicy    | `email`                                 |
 
 For information on settings for a specific Identity Provider, please refer to the Identity Provider's documentation.
 
