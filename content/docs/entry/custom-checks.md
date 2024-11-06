@@ -138,7 +138,7 @@ Metric monitoring, such as the monitoring of host metrics and service metrics, d
   - The host where the check plugin is run will make an OK or CRITICAL, WARNING, UNKNOWN decision and send the result to Mackerel. Mackerel will alert you according to the results it receives.
   - No metrics are posts, so no graphs are plotted.
   - Monitoring rules are configured within the mackerel-agent configuration file, and no configuration may be added or modified via the Web Console.
-  -  Each check monitor item counts as one host metric. Please refer to [Pricing](https://mackerel.io/pricing) for more information on the maximum number of metrics allowed per host. Also, please refer to [Host conversion when plan limit is exceeded](https://support.mackerel.io/hc/en-us/articles/360040109431-%E3%83%97%E3%83%A9%E3%83%B3%E4%B8%8A%E9%99%90%E8%B6%85%E9%81%8E%E6%99%82%E3%81%AE%E3%83%9B%E3%82%B9%E3%83%88%E5%8F%B0%E6%95%B0%E6%8F%9B%E7%AE%97%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6) for more information on the specifications when the limit is exceeded.
+  -  Each check monitor item counts as one host metric. Please refer to [Pricing](https://mackerel.io/pricing) for more information on the maximum number of metrics allowed per host. Also, please refer to [How usage fees are calculated](https://support.mackerel.io/hc/en-us/articles/31304727432729) for more information on the specifications when the limit is exceeded.
 - Illustrations of monitoring
   -[Left] Metric monitoring / [Right] Check monitoring
   - ![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20200108/20200108154244.png)

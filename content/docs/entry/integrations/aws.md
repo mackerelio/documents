@@ -130,7 +130,7 @@ Mackerel may add new metrics as each AWS service is updated.
 
 By turning on "Add new metrics automatically", you can avoid having to select metrics for retrieval on the AWS integration settings page each time they are added.
 
-The usage fee for AWS integration is determined by the number of hosts calculated from the number of metrics acquired (Reference: [Handling of host conversion when plan limits are exceeded](https://support.mackerel.io/hc/en-us/articles/360040109431-Handling-of-host-conversion-when-plan-limits-are-exceeded)). Therefore, when a large number of metrics are added, the number of hosts will increase due to exceeding the upper limit, which may also affect usage charges.
+The fee for using AWS integration is determined by the number of hosts that are linked and the number of metrics that are posted in excess of the limit per host (see [How usage fees are calculated](https://support.mackerel.io/hc/en-us/articles/31304727432729) for details).
 
 If you want to avoid unexpected increases in usage charges, turn off "Add new metrics automatically". Metrics added thereafter will not be automatically acquired, so please select the required metrics individually.
 

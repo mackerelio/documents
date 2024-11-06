@@ -3,7 +3,6 @@ Title: What is a "host"?
 Date: 2020-09-02T12:44:26+09:00
 URL: https://mackerel.io/docs/entry/spec/about-host
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/26006613625783810
-CustomPath: spec/about-host
 ---
 
 In Mackerel, a host is "the smallest unit that makes up the system". It can be a physical server, a virtual server, or even a managed service.
@@ -54,13 +53,13 @@ A host registered in Mackerel is automatically classified as either a "Standard 
 <h3 id="billing-unit">Host features</h3>
 <h4 id="standard-host">Standard hosts</h4>
 - The cost of a "Standard host" is applied as listed in [pricing](https://mackerel.io/pricing/).
-- Up to 200 metrics can be registered for one standard host.
-	- See also [Host conversion when plan limits are exceeded](https://support.mackerel.io/hc/articles/360040109431).
+- The cost of 1 standard host includes 200 metrics associated with that host.
+	- See also [How usage fees are calculated](https://support.mackerel.io/hc/en-us/articles/31304727432729).
 
 <h4 id="micro-host">Micro hosts</h4>
 - The cost of a "Micro host" is applied as listed in [pricing](https://mackerel.io/pricing/).
-- Up to 30 metrics can be registered for one micro host.
-	- See also [Host conversion when plan limits are exceeded](https://support.mackerel.io/hc/articles/360040109431).
+- The cost of 1 micro host includes 30 metrics associated with that host.
+	- See also [How usage fees are calculated](https://support.mackerel.io/hc/en-us/articles/31304727432729).
 
 
 <h3 id="casestudy">Case studies</h3>

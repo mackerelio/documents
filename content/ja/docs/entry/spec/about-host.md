@@ -3,7 +3,6 @@ Title: 「ホスト」とは
 Date: 2020-09-02T12:44:26+09:00
 URL: https://mackerel.io/ja/docs/entry/spec/about-host
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/26006613625779272
-CustomPath: spec/about-host
 ---
 
 Mackerelでは、「そのシステムを構成する最小単位」をホストとして扱います。1台の物理サーバーであったり、1つの仮想サーバーであったり、ときにはマネージドサービスであることもあります。
@@ -54,13 +53,13 @@ Mackerel に登録されたホストは、自動的に「スタンダードホ�
 <h3 id="billing-unit">「スタンダードホスト」「マイクロホスト」の特徴</h3>
 <h4 id="standard-host">スタンダードホスト</h4>
 - [料金表](https://mackerel.io/ja/pricing/) の「スタンダードホスト」の価格が適用されます。
-- メトリック登録が200個までであれば、1つのスタンダードホストとして利用可能です。
-	- [プラン上限超過時のホスト台数換算について](https://support.mackerel.io/hc/ja/articles/360040109431) も参照してください。
+- スタンダードホスト1台の費用には、そのホストに紐づくメトリック200個ぶんが含まれます。
+	- [利用料金算出方法](https://support.mackerel.io/hc/ja/articles/31304727432729-%E5%88%A9%E7%94%A8%E6%96%99%E9%87%91%E7%AE%97%E5%87%BA%E6%96%B9%E6%B3%95-2024%E5%B9%B411%E6%9C%881%E6%97%A5%E4%BB%A5%E9%99%8D) も参照してください。
 
 <h4 id="micro-host">マイクロホスト</h4>
 - [料金表](https://mackerel.io/ja/pricing/) の「マイクロホスト」の価格が適用されます。
-- メトリック登録が30個までであれば、1つのマイクロホストとして利用可能です。
-	- [プラン上限超過時のホスト台数換算について](https://support.mackerel.io/hc/ja/articles/360040109431) も参照してください。
+- マイクロホスト1台の費用には、そのホストに紐づくメトリック30個ぶんが含まれます。
+	- [利用料金算出方法](https://support.mackerel.io/hc/ja/articles/31304727432729-%E5%88%A9%E7%94%A8%E6%96%99%E9%87%91%E7%AE%97%E5%87%BA%E6%96%B9%E6%B3%95-2024%E5%B9%B411%E6%9C%881%E6%97%A5%E4%BB%A5%E9%99%8D) も参照してください。
 
 
 <h3 id="casestudy">ケーススタディ</h3>

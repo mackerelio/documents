@@ -139,7 +139,7 @@ action = { command = "if not %MACKEREL_STATUS% == OK ( net start %SERVICE% )", e
   - チェックプラグインを実行するホスト内で OK / NG (`CRITICAL` / `WARNING` / `UNKNOWN`) の判定を行い、その結果を Mackerel に送信します。Mackerel は受け取った結果に応じてアラートを通知します。
   - メトリックが投稿されないためグラフは描画されません。
   - 監視ルールの設定は mackerel-agent の設定ファイルで行います。Web コンソールで設定の追加や変更はできません。
-  - 1 つあたり 1 ホストメトリックとしてカウントされます。1 ホストあたりのメトリック数の上限については [料金](https://mackerel.io/ja/pricing) を参照してください。また、上限超過時の仕様については [プラン上限超過時のホスト台数換算について](https://support.mackerel.io/hc/ja/articles/360040109431-%E3%83%97%E3%83%A9%E3%83%B3%E4%B8%8A%E9%99%90%E8%B6%85%E9%81%8E%E6%99%82%E3%81%AE%E3%83%9B%E3%82%B9%E3%83%88%E5%8F%B0%E6%95%B0%E6%8F%9B%E7%AE%97%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6) を参照してください。
+  - 1 つあたり 1 ホストメトリックとしてカウントされます。1 ホストあたりのメトリック数の上限については [料金](https://mackerel.io/ja/pricing) を参照してください。また、上限超過時の仕様については [利用料金算出方法](https://support.mackerel.io/hc/ja/articles/31304727432729-%E5%88%A9%E7%94%A8%E6%96%99%E9%87%91%E7%AE%97%E5%87%BA%E6%96%B9%E6%B3%95-2024%E5%B9%B411%E6%9C%881%E6%97%A5%E4%BB%A5%E9%99%8D) を参照してください。
 - 監視イメージ
   - 【左】メトリック監視【右】チェック監視
   - ![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20200108/20200108154244.png)
