@@ -31,7 +31,7 @@ Settings for posting service metrics with `fluent-plugin-mackerel` are as follow
 
 ```
 <match ...>
-  type mackerel
+  @type mackerel
   api_key <API key of the organization that will be posted to>
   service <name of the service that will be posted to>
   remove_prefix
@@ -50,7 +50,7 @@ If you will be writing the host ID [(view glossary)](https://mackerel.io/docs/en
 
 ```
 <match ...>
-  type mackerel
+  @type mackerel
   api_key <API key of the organization that will be posted to>
   hostid xyz
   metrics_name http_status.${out_key}
@@ -62,7 +62,7 @@ It's also possible to specify a file where the host ID is saved. This is conveni
 
 ```
 <match ...>
-  type mackerel
+  @type mackerel
   api_key <API key of the organization that will be posted to>
   hostid_path /var/lib/mackerel-agent/id
   metrics_name http_status.${out_key}
@@ -113,7 +113,7 @@ Then we will prepare the configurations for the fluentd that will read and aggre
 ```
 # Reads LTSV format logs
 <source>
-  type tail
+  @type tail
   format ltsv
   time_format %d/%b/%Y:%H:%M:%S %z
   path /var/log/nginx/access.log
@@ -123,7 +123,7 @@ Then we will prepare the configurations for the fluentd that will read and aggre
 
 # Aggregates for each status code with fluent-plugin-datacounter
 <match access.nginx>
-  type datacounter
+  @type datacounter
   count_interval 1m
   count_key status
   aggregate all
@@ -136,7 +136,7 @@ Then we will prepare the configurations for the fluentd that will read and aggre
 
 # Post to service metrics with fluent-plugin-mackerel
 <match nginx.status.**>
-  type mackerel
+  @type mackerel
   api_key <API key of the organization that will be posted to>
   service <name of the service that will be posted to>
   remove_prefix
@@ -166,7 +166,7 @@ Next we will prepare the configurations for the fluentd that will retrieve the E
 ```
 # Retrieves data from CloudWatch using fluent-plugin-cloudwatch
 <source>
-  type cloudwatch
+  @type cloudwatch
   tag  cloudwatch-latency.elb01
   aws_key_id <aws-key>
   aws_sec_key <aws-sec-key>
@@ -182,7 +182,7 @@ Next we will prepare the configurations for the fluentd that will retrieve the E
 </source>
 
 <source>
-  type cloudwatch
+  @type cloudwatch
   tag  cloudwatch-status.elb01
   aws_key_id <aws-key>
   aws_sec_key <aws-sec-key>
@@ -200,9 +200,9 @@ Next we will prepare the configurations for the fluentd that will retrieve the E
 
 # Post them to Mackerel as service metrics
 <match cloudwatch-status.*>
-  type copy
+  @type copy
   <store>
-    type             mackerel
+    @type            mackerel
     api_key          <api-key>
     service          <service name to post metrics>
     remove_prefix
@@ -210,7 +210,7 @@ Next we will prepare the configurations for the fluentd that will retrieve the E
     out_keys         HTTPCode_Backend_2XX,HTTPCode_Backend_3XX,HTTPCode_Backend_4XX,HTTPCode_Backend_5XX
   </store>
   <store>
-    type             mackerel
+    @type            mackerel
     api_key          <api-key>
     service          <service name to post metrics>
     remove_prefix
@@ -220,7 +220,7 @@ Next we will prepare the configurations for the fluentd that will retrieve the E
 </match>
 
 <match cloudwatch-latency.*>
-  type             mackerel
+  @type            mackerel
   api_key          <api-key>
   service          <service name to post metrics>
   remove_prefix

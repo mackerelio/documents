@@ -19,7 +19,7 @@ fluent-plugin-webhook-mackerelを利用することでMackerelからのイベン
 
 ```
 <source>
-  type webhook_mackerel
+  @type webhook_mackerel
   tag mackerel
 
   # optional (values are default)

@@ -31,7 +31,7 @@ $ gem install fluentd fluent-plugin-mackerel
 
 ```
 <match ...>
-  type mackerel
+  @type mackerel
   api_key <投稿先オーガニゼーションのAPIキー>
   service <投稿先のサービス名>
   remove_prefix
@@ -50,7 +50,7 @@ $ gem install fluentd fluent-plugin-mackerel
 
 ```
 <match ...>
-  type mackerel
+  @type mackerel
   api_key <投稿先オーガニゼーションのAPIキー>
   hostid xyz
   metrics_name http_status.${out_key}
@@ -62,7 +62,7 @@ $ gem install fluentd fluent-plugin-mackerel
 
 ```
 <match ...>
-  type mackerel
+  @type mackerel
   api_key <投稿先オーガニゼーションのAPIキー>
   hostid_path /var/lib/mackerel-agent/id
   metrics_name http_status.${out_key}
@@ -111,7 +111,7 @@ gem install fluent-plugin-datacounter
 ```
 # LTSV形式のログファイルを読み込む
 <source>
-  type tail
+  @type tail
   format ltsv
   time_format %d/%b/%Y:%H:%M:%S %z
   path /var/log/nginx/access.log
@@ -121,7 +121,7 @@ gem install fluent-plugin-datacounter
 
 # fluent-plugin-datacounterでステータスコード別に集計する
 <match access.nginx>
-  type datacounter
+  @type datacounter
   count_interval 1m
   count_key status
   aggregate all
@@ -134,7 +134,7 @@ gem install fluent-plugin-datacounter
 
 # fluent-plugin-mackerelによりサービスメトリックを投稿する
 <match nginx.status.**>
-  type mackerel
+  @type mackerel
   api_key <投稿先オーガニゼーションのAPIキー>
   service <投稿先サービス名>
   remove_prefix
@@ -163,7 +163,7 @@ gem install fluent-plugin-cloudwatch
 ```
 # fluent-plugin-cloudwatchでCloudWatchからデータを取得
 <source>
-  type cloudwatch
+  @type cloudwatch
   tag  cloudwatch-latency.elb01
   aws_key_id <aws-key>
   aws_sec_key <aws-sec-key>
@@ -179,7 +179,7 @@ gem install fluent-plugin-cloudwatch
 </source>
 
 <source>
-  type cloudwatch
+  @type cloudwatch
   tag  cloudwatch-status.elb01
   aws_key_id <aws-key>
   aws_sec_key <aws-sec-key>
@@ -197,9 +197,9 @@ gem install fluent-plugin-cloudwatch
 
 # Mackerelへサービスメトリックとして投稿する
 <match cloudwatch-status.*>
-  type copy
+  @type copy
   <store>
-    type             mackerel
+    @type            mackerel
     api_key          <api-key>
     service           <投稿先サービス名>
     remove_prefix
@@ -207,7 +207,7 @@ gem install fluent-plugin-cloudwatch
     out_keys         HTTPCode_Backend_2XX,HTTPCode_Backend_3XX,HTTPCode_Backend_4XX,HTTPCode_Backend_5XX
   </store>
   <store>
-    type             mackerel
+    @type            mackerel
     api_key          <api-key>
     service           <投稿先サービス名>
     remove_prefix
@@ -217,7 +217,7 @@ gem install fluent-plugin-cloudwatch
 </match>
 
 <match cloudwatch-latency.*>
-  type             mackerel
+  @type            mackerel
   api_key          <api-key>
   service         <投稿先サービス名>
   remove_prefix

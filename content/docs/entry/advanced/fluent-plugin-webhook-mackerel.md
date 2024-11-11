@@ -19,7 +19,7 @@ This is an example of a fluentd settings file.
 
 ```
 <source>
-  type webhook_mackerel
+  @type webhook_mackerel
   tag mackerel
 
   # optional (values are default)

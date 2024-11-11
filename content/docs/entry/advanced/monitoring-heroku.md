@@ -114,7 +114,7 @@ Refer to [Posting Service Metrics with fluentd](https://mackerel.io/docs/entry/a
 ```
 # /etc/td-agent/td-agent.conf
 <source>
-  type tail
+  @type tail
   path /var/log/heroku
   pos_file /var/log/td-agent/posfile_heroku.pos
   format /^(?<time>[^ ]*\s+[^ ]*\s+[^ ]*) (?<host>[^ ]*) (?<ident>[a-zA-Z0-9_\/\.\-]*)(?:\[(?<pid>[a-zA-Z0-9\.]+)\])? *(?<message>.*)$/
@@ -123,12 +123,12 @@ Refer to [Posting Service Metrics with fluentd](https://mackerel.io/docs/entry/a
 </source>
 
 <match heroku.syslog>
-  type rewrite_tag_filter
+  @type rewrite_tag_filter
   rewriterule1 message ^{" raw.heroku.access_log
 </match>
 
 <match raw.heroku.access_log>
-  type parser
+  @type parser
   remove_prefix raw
   key_name message
   format json
@@ -136,9 +136,9 @@ Refer to [Posting Service Metrics with fluentd](https://mackerel.io/docs/entry/a
 </match>
 
 <match heroku.access_log>
-  type copy
+  @type copy
   <store>
-    type numeric_monitor
+    @type numeric_monitor
     count_interval 60s
     monitor_key duration
     output_per_tag yes
@@ -147,7 +147,7 @@ Refer to [Posting Service Metrics with fluentd](https://mackerel.io/docs/entry/a
     input_tag_remove_prefix heroku
   </store>
   <store>
-    type datacounter
+    @type datacounter
     count_interval 60s
     count_key status
     output_per_tag yes
@@ -162,9 +162,9 @@ Refer to [Posting Service Metrics with fluentd](https://mackerel.io/docs/entry/a
 </match>
 
 <match status_aggregated.access_log>
-  type copy
+  @type copy
   <store>
-    type rewrite_tag_filter
+    @type rewrite_tag_filter
     capitalize_regex_backreference yes
     rewriterule1 2xx_count      .+ status_count.access_log
     rewriterule2 3xx_count      .+ status_count.access_log
@@ -172,7 +172,7 @@ Refer to [Posting Service Metrics with fluentd](https://mackerel.io/docs/entry/a
     rewriterule4 5xx_count      .+ status_count.access_log
   </store>
   <store>
-    type rewrite_tag_filter
+    @type rewrite_tag_filter
     capitalize_regex_backreference yes
     rewriterule3 4xx_percentage .+ error_status_percentage.access_log
     rewriterule4 5xx_percentage .+ error_status_percentage.access_log
@@ -180,7 +180,7 @@ Refer to [Posting Service Metrics with fluentd](https://mackerel.io/docs/entry/a
 </match>
 
 <match status_count.access_log>
-  type mackerel
+  @type mackerel
   flush_interval 60s
   api_key <API-KEY>
   out_keys 2xx_count,3xx_count,4xx_count,5xx_count
@@ -190,7 +190,7 @@ Refer to [Posting Service Metrics with fluentd](https://mackerel.io/docs/entry/a
 </match>
 
 <match aggregated.access_log>
-  type mackerel
+  @type mackerel
   flush_interval 60s
   api_key <API-KEY>
   out_keys avg,percentile_90,percentile_99
@@ -200,7 +200,7 @@ Refer to [Posting Service Metrics with fluentd](https://mackerel.io/docs/entry/a
 </match>
 
 <match error_status_percentage.access_log>
-  type mackerel
+  @type mackerel
   flush_interval 60s
   api_key <API-KEY>
   out_keys 4xx_percentage,5xx_percentage
