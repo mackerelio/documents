@@ -114,6 +114,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackere
     <li><a href="https://mackerel.io/docs/entry/spec/about-host"><strong>What is a "host"?</strong><span>regarding hosts in Mackerel</span></a></li>
     <li><a href="https://mackerel.io/docs/entry/spec/about-service-role"><strong>Services and Roles</strong><span>an explanation of "services" and "roles" in Mackerel</span></a></li>
     <li><a href="https://mackerel.io/api-docs/"><strong>API specs (v0)</strong><span>regarding API specifications for Mackerel</span></a></li>
+    <li><a href="https://mackerel.io/docs/entry/spec/metadata"><strong>Metadata API for Mackerel</strong><span>the specifications of the Metadata API about Mackerel information</span></a></li>
     <li><a href="https://mackerel.io/docs/entry/spec/metrics"><strong>Metrics specifications</strong><span>regarding the specs of the metric names drawn on graphs</span></a></li>
     <li><a href="https://mackerel.io/docs/entry/spec/agent"><strong>mackerel-agent specifications</strong><span>an explanation of mackerel-agent’s command options and settings</span></a></li>
     <li><a href="https://mackerel.io/docs/entry/spec/authority"><strong>User permissions</strong><span>about user permissions</span></a></li>
