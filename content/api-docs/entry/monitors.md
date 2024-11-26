@@ -724,10 +724,10 @@ In order to monitor the certification expiration date, it’s necessary to speci
 | `name`                 | _string_        | arbitrary name that can be referenced from the monitors list, etc.                                                                   |
 | `memo`                 | _string_        | [optional] notes for the monitoring configuration                                                                                    |
 | `query`                | _string_  | query of the monitoring target                                                                                           |
-| `legend`               | _string_  | graph legend for the alerts                                                                                           |
+| `legend`               | _string_  | [optional] graph legend for the alerts                                                                                           |
 | `operator`             | _string_  | determines the conditions that state whether the designated variable is greater (`>`) or less than (`<`). the observed value is on the left of ”>”or ”<” and the designated value is on the right |
-| `warning`              | _number_  | the threshold that generates a warning alert                                                                                                                                         |
-| `critical`             | _number_  | the threshold that generates a critical alert                                                                                                                                        |
+| `warning`              | _number_  | [optional] the threshold that generates a warning alert                                                                                                                                         |
+| `critical`             | _number_  | [optional] the threshold that generates a critical alert                                                                                                                                        |
 | `notificationInterval` | _number_  | [optional] the time interval (in minutes) for re-sending notifications. if this field is omitted, notifications will not be re-sent.                                                 |
 | `isMute` | *boolean* | [optional] Whether monitoring is muted[*3](#muted-monitoring) or not . If you omit this, the monitor will be unmuted.|
 

@@ -723,10 +723,10 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 | `name`          | *string*   | 監視一覧などで参照できる任意の名称。   |
 | `memo`          | *string*   | [optional] 監視ルールのメモ。 |
 | `query`         | *string*   | 監視対象のクエリ。 |
-| `legend`        | *string*   | アラート画面などで表示するグラフの凡例。 |
+| `legend`        | *string*   | [optional] アラート画面などで表示するグラフの凡例。 |
 | `operator`      | *string*   | 指定した数値より大きいか小さいかというアラート条件を指定。`">"` または `"<"`。左辺が観測値で右辺が設定値となります。|
-| `warning`       | *number*   | warningのAlert発生の閾値。 |
-| `critical`      | *number*   | criticalのAlert発生の閾値。 |
+| `warning`       | *number*   | [optional] warningのAlert発生の閾値。 |
+| `critical`      | *number*   | [optional] criticalのAlert発生の閾値。 |
 | `notificationInterval` | *number* | [optional] 通知の再送設定をするときの再送間隔（分）。このフィールドを省略すると通知は再送されません。 |
 | `isMute`        | *boolean*       | [optional] 監視がミュート状態[*3](#mute)か否か。省略した場合はミュートしない設定となります。|
 
