@@ -43,7 +43,7 @@ Mackerel の通知チャンネル設定画面から Microsoft Teams のチャン
 ### 【廃止】 Incoming Webhook で Microsoft Teams へのアラート通知を追加する
 
 **Microsoft は Incoming Webhook の段階的な廃止を発表し、2024年8月15日をもって新規に Incoming Webhook を作成することができなくなりました。**
-**以前からお使いの Incoming Webhook については、2024年12月31日までに Microsoft から案内される延長手続きを行うことで、2025年12月31日まで継続してご利用いただくことが可能です。**
+**以前からお使いの Incoming Webhook については、2025年1月31日までに Microsoft から案内される延長手続きを行うことで、2025年12月31日まで継続してご利用いただくことが可能です。**
 **詳細については [Retirement of Office 365 connectors within Microsoft Teams](https://devblogs.microsoft.com/microsoft365dev/retirement-of-office-365-connectors-within-microsoft-teams/) をご覧ください。**
 
 **またこちらの方式では、通知内で `<at>` を指定してもメンションを送ることはできません。**

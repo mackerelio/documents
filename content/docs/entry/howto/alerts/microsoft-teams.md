@@ -43,7 +43,7 @@ Also, you can send mentions by specifying a user identifier such as `<at>****@**
 ### [Deprecated] Add alert notifications for Microsoft Teams with Incoming Webhook
 
 **Microsoft has announced the phasing out of Incoming Webhooks, and as of August 15, 2024, you will no longer be able to create new Incoming Webhooks.**
-**If you have been using Incoming Webhooks, you can continue to use it until December 31, 2025 by completing the extension procedure provided by Microsoft by December 31, 2024.**
+**If you have been using Incoming Webhooks, you can continue to use it until December 31, 2025 by completing the extension procedure provided by Microsoft by January 31, 2025.**
 **For more information, see [Retirement of Office 365 connectors within Microsoft Teams](https://devblogs.microsoft.com/microsoft365dev/retirement-of-office-365-connectors-within-microsoft-teams/).**
 
 **Also, with this method, you can't send a mention even if you specify `<at>` in the notification.**
