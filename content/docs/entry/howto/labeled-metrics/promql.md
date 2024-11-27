@@ -16,14 +16,6 @@ When using labeled metrics, you can display a graph using the PromQL query langu
   - `!~` (negative regular expression label matcher)
 - [Range vector selector](https://prometheus.io/docs/prometheus/latest/querying/basics/#range-vector-selectors)
 
-### Constraints on range vector selectors
-
-When the period specified in the range vector selector is significantly different from the graph display period, the graph display may be incorrect.
-
-For example, if a 5-minute period is specified in PromQL (`sum(irate(nginx_http_requests_total[5m]))`), and the graph display period is 1 day, this applies.
-
-To avoid this limitation, specify a period in the range vector selector that is as close as possible to the graph display period.
-
 ### Modifiers
 
 - [`offset`](https://prometheus.io/docs/prometheus/latest/querying/basics/#offset-modifier)

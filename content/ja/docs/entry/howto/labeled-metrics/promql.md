@@ -16,14 +16,6 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
   - `!~`（否定正規表現ラベルマッチャ）
 - [範囲ベクトルセレクタ](https://prometheus.io/docs/prometheus/latest/querying/basics/#range-vector-selectors)
 
-### 範囲ベクトルセレクタの制約事項
-
-範囲ベクトルセレクタで指定した期間とグラフの表示期間が大きく異なる場合、グラフの表示が正しく行われないことがあります。
-
-これには、PromQL で 5 分間の期間を指定（`sum(irate(nginx_http_requests_total[5m]))`）し、グラフの表示期間が 1 日の場合等が該当します。
-
-この制限を回避するためには、範囲ベクトルセレクタで指定する期間でグラフの表示期間をできる限り近い値に指定してください。
-
 ### 修飾子
 
 - [`offset`](https://prometheus.io/docs/prometheus/latest/querying/basics/#offset-modifier)
