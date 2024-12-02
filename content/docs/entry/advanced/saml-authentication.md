@@ -11,7 +11,9 @@ For information on setting up SAML authentication, please see [Setting up SAML](
 
 When using SAML authentication, you can sign in to Mackerel using credentials from your Identity Provider.
 
-## SP initiated flow
+## Authentication flow
+
+### SP initiated flow
 
 In the SP initiated flow, start SAML authentication from the Mackerel [sign-in page](https://mackerel.io/signin/saml).
 
@@ -21,6 +23,16 @@ Enter the organization group name specified by the organization group Manager, c
 
 When authentication by the Identity Provider succeeds, you can sign in to Mackerel.
 
-## IdP initiated flow
+### IdP initiated flow
 
 In the IdP initiated flow, you can sign in to Mackerel by launching it from your Identity Provider's app drawer or app portal, etc.
+
+## JIT Provisioning
+
+Mackerel supports JIT Provisioning sign-up.
+You can start using Mackerel seamlessly through the SAML authentication flow.
+
+1. Refer to [Authentication Flow](#authentication-flow) for SAML authentication.
+2. The sign-up page will appear. If you agree to the Terms of Use and you are an adult or a minor with parental consent, please check two boxes.
+3. Click on Sign Up.
+4. An email will be sent to you to confirm your email address. Access the URL in the email to complete registration.

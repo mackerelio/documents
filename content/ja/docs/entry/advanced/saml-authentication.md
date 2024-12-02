@@ -11,7 +11,9 @@ SAML認証の設定については [SAMLを設定する](https://mackerel.io/ja/
 
 SAML認証を利用すると、お使いのIDプロバイダーの資格情報を使用してMackerelにサインインできます。
 
-## SP initiatedフロー
+## 認証フロー
+
+### SP initiatedフロー
 
 SP initiatedフローでは、Mackerelの [サインインページ](https://mackerel.io/signin/saml) からSAML認証を開始します。
 
@@ -21,6 +23,16 @@ SP initiatedフローでは、Mackerelの [サインインページ](https://mac
 
 IDプロバイダーでの認証が成功すると、Mackerelにサインインできます。
 
-## IdP initiatedフロー
+### IdP initiatedフロー
 
 IdP initiatedフローでは、お使いのIDプロバイダーのアプリドロワーやアプリポータルなどからMackerelを起動することで、Mackerelにサインインできます。
+
+## JIT Provisioning
+
+Mackerelでは、JIT Provisioningによるサインアップをサポートしています。
+SAML認証フローを通じてシームレスにMackerelの利用を開始できます。
+
+1. [認証フロー](#認証フロー)を参考に、SAML認証を行います。
+2. サインアップページが表示されます。利用規約に同意いただき、成人している方、もしくは未成年者の場合には親権者の同意を得ている場合は、2つのチェックボックスにチェックを入れます。
+3. 「サインアップ」をクリックします。
+4. メールアドレスを確認するためのメールが送信されます。メールに記載されているURLにアクセスすると登録が完了します。
