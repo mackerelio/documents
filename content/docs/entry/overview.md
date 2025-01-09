@@ -40,7 +40,7 @@ As of now, Mackerel and mackerel-agent have been verified to operate in the foll
         - x64 and arm64 processor architecture including AWS Graviton processors.
         - Aside from the above, the agent will probably be run on most Linux systems (kernel version 2.6.23 or later) or Red Hat Enterprise Linux derivatives, however we do not give official support for them at this time.
     - Windows
-        - Windows Server 2016, 2019, 2022 (LTSC) for x64-based Systems
+        - Windows Server 2016, 2019, 2022 (LTSC), 2025 (LTSC) for x64-based Systems
         - Windows Update (KB5022661) for "Windows support for the Trusted Signing program" released in September 2021 must be applied.
         - "Microsoft Identity Verification Root Certificate Authority 2020" certificate authority (CA) must be installed to properly verify signed module.
         - See [KB5022661—Windows support for the Trusted Signing (formerly Azure Code Signing) program](https://support.microsoft.com/topic/kb5022661-windows-support-for-the-azure-code-signing-program-4b505a31-fa1e-4ea6-85dd-6630229e8ef4) for more information.

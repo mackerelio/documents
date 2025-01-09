@@ -41,7 +41,7 @@ Mackerelおよびmackerel-agentは、以下の環境で動作確認を行って�
         - x64 アーキテクチャおよび AWS Graviton シリーズを含む Arm v8 アーキテクチャをサポートしています。
         - その他、一般的なLinux環境(カーネルバージョン 2.6.23以降)や、上記以外のRed Hat Enterprise Linux派生ディストリビューションでも動作すると思われますが、現在のところサポート対象外です。
     - Windows
-        - Windows Server 2016, 2019, 2022 (LTSC) の x64 ベースシステム
+        - Windows Server 2016, 2019, 2022 (LTSC), 2025 (LTSC) の x64 ベースシステム
         - 2021年9月にリリースされた「信頼された署名プログラムに対するWindowsサポート」のWindows Update（KB5022661）が適用されている必要があります。
         - 署名されたモジュールを正しく検証するために、"Microsoft Identity Verification Root Certificate Authority 2020" 証明機関 (CA) がインストールされている必要があります。
         - 詳細については [KB5022661 - 信頼された署名 (旧称 Azure Code Signing) プログラムに対する Windows サポート](https://support.microsoft.com/ja-jp/topic/kb5022661-%E4%BF%A1%E9%A0%BC%E3%81%95%E3%82%8C%E3%81%9F%E7%BD%B2%E5%90%8D-%E6%97%A7%E7%A7%B0-azure-code-signing-%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0%E3%81%AB%E5%AF%BE%E3%81%99%E3%82%8B-windows-%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88-4b505a31-fa1e-4ea6-85dd-6630229e8ef4) を参照してください。

@@ -11,8 +11,6 @@ This feature performs monitoring in http or https format.
 
 To create a new External URL monitor click on the New Monitor button in the upper right hand corner of the Monitors page. Under the External URL tab, the following items will be displayed. Complete the form as explained below and click Create.
 
-![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20201109/20201109170355.png)
-
 #### Scope
 
 |Configuration item|Description|
@@ -36,6 +34,7 @@ To create a new External URL monitor click on the New Monitor button in the uppe
 |Notification interval|If there has been no change to the alert’s condition, even if the designated time is surpassed, the notification will be sent again.|
 |HTTP Request Header|The HTTP Request Header can be specified. If User-Agent is not specified, `User-Agent: mackerel-http-checker/x.y.z` will be sent (`x.y.z` means version number). The default setting for the `Cache-Control` header is `no-cache`.|
 |Request body|Make http request with specified request body.|
+|Status Code Check|An alert is generated if the status code is not the specified code.|
 |Response Body Check|The response body will be checked to make sure a designated string is included. If one is not included, a notification will be sent.|
 |Certification expiration date monitoring|The SSL certificate’s expiration date will be monitored. An alert will be sent when the number of remaining days before the expiration date falls below the threshold.|
 |Do not perform certificate verification when requests are made|You can monitor without verifying the certificate when monitoring a server with a self-signed certificate.|
@@ -45,7 +44,7 @@ To create a new External URL monitor click on the New Monitor button in the uppe
 
 * Check intervals are fixed at 1 minute
 * An error is recognized and an alert notification issued under the following conditions
-    * 4xx or 5xx status codes 
+    * If the status code is in the 4xx or 5xx range, or if it is a code other than the one specified in the status code check (optional setting)
     * a 15-second timeout 
     * an invalid SSL certificate  
     * When response time exceeds the threshold (optional setting)
