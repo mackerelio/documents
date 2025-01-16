@@ -3,7 +3,6 @@ Title: Azure Integration - Azure Files
 Date: 2020-12-21T09:00:00+09:00
 URL: https://mackerel.io/docs/entry/integrations/azure/azure-files
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/26006613681092471
-CustomPath: integrations/azure/azure-files
 ---
 
 Mackerel supports obtaining and monitoring <a href="https://azure.microsoft.com/en-us/services/storage/files/" target="_blank">Azure Files</a> metrics in Azure Integration. Billable targets are determined using the conversion 1 File = 1 Micro Host. Depending on the number of metrics retrieved, additional charges may be incurred for exceeding the maximum number of metrics per micro host.
@@ -87,5 +86,11 @@ The "#" in 'Metric name in Mackerel' is a placeholder for one of the following.
   Indicates the type of Azure Files response for transactions.
     - Corresponding graphs
       - Transactions (ResponseType)
+
+## Metrics for which monitors do not work
+
+Mackerel's monitor do not work if the timestamp of the metric being monitored is more than 20 minutes old. Therefore, even if you set a monitor for a metric with a sampling interval (Time Grains) of 20 minutes or more, it will not work. For information about the sampling interval for metrics, see the following Azure Files documentation.
+
+[Azure Files monitoring data reference](https://learn.microsoft.com/en-us/azure/storage/files/storage-files-monitoring-reference)
 
 [^1]: The maximum number of metrics can differ depending on your Azure Files. Refer [here](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-monitoring-reference#metrics-dimensions) for more information.

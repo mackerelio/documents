@@ -3,7 +3,6 @@ Title: Azureインテグレーション - Azure Files
 Date: 2020-12-21T09:00:00+09:00
 URL: https://mackerel.io/ja/docs/entry/integrations/azure/azure-files
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/26006613681091351
-CustomPath: integrations/azure/azure-files
 ---
 
 MackerelはAzureインテグレーションにて<a href="https://azure.microsoft.com/ja-jp/services/storage/files/" target="_blank">Azure Files</a>のメトリック取得や監視に対応しています。課金対象として 1 Files = 1マイクロホスト と換算します。またそれに加えて、取得されるメトリックの数に応じて、1マイクロホストあたりのメトリック数上限の超過による請求が行われる場合があります。
@@ -88,5 +87,11 @@ Mackerel上のメトリック名の「#」には、以下のいずれかが格�
   トランザクションに対するAzure Filesの応答の種類を示します。
     - 該当グラフ
       - Transactions (ResponseType)
+
+## 監視ルールによって評価されないメトリック
+
+Mackerel の監視ルールは、監視対象のメトリックのタイムスタンプが現在時刻よりも 20 分以上古い場合に動作しない仕様のため、取得するメトリックのサンプリング間隔（Time Grains）が 20 分以上の場合は、監視ルールを設定しても動作しません。該当するメトリックに関しては、下記の Azure Files のドキュメントを参照してください。
+
+[Azure Files monitoring data reference](https://learn.microsoft.com/en-us/azure/storage/files/storage-files-monitoring-reference)
 
 [^1]: 最大メトリック数はご利用のAzure Filesによって異なります。詳しくは[こちら](https://docs.microsoft.com/ja-jp/azure/storage/files/storage-files-monitoring-reference#metrics-dimensions)をご覧ください。

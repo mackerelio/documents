@@ -5,96 +5,67 @@ URL: https://mackerel.io/ja/docs/entry/howto/install-agent/deb
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/8454420450070885544
 ---
 
-<p><a href="#kcps">KCPS版Mackerelをご利用の場合はこちら</a></p>
+<h2>パッケージをインストールする</h2>
 
-このページに記載の内容は、[Mackerel Web画面・新規ホスト登録画面](https://mackerel.io/my/instruction-agent)からも利用可能です。
+あらかじめ [エージェントのインストール時に発生する通信](https://mackerel.io/ja/docs/entry/howto/install-agent#install) を許可してください。
 
-<h2 id="v2">aptコマンドを使用する</h2>
+<h3 id="script">セットアップスクリプトを実行してインストールする</h2>
 
-以下のコマンドを実行してください:
+[新規ホストの登録](https://mackerel.io/my/instruction-agent) 画面で Ubuntu / Debian を選択し、表示されたコマンドを実行します。
 
 ```
 wget -q -O - https://mackerel.io/file/script/setup-all-apt-v2.sh | MACKEREL_APIKEY='<YOUR_API_KEY>' sh
 ```
 
-APIキーは[オーガニゼーションページ内・APIキータブ](https://mackerel.io/my?tab=apikeys)から確認できます。このAPIキーでオーガニゼーションを識別しますので、APIキーは外部に漏らさないようご注意ください。
+インストール完了後にエージェントは自動で起動します。エージェントが起動するとMackerelにホストとして登録されます。[ホスト一覧](https://mackerel.io/my/hosts) 画面を確認してください。
 
-アップデートの際は、`apt-get` コマンドからおこなうことができます。
+ホストが登録されない場合は、[FAQ：ホストが登録されない](https://support.mackerel.io/hc/ja/articles/30952244573337) の内容を確認してください。
+
+<h3 id="rpm">dpkgコマンドを使用してインストールする</h3>
+
+[GitHub の Release ページ](https://github.com/mackerelio/mackerel-agent/releases) で公開している最新版のパッケージを、dpkgコマンドを使用してインストールします。
+
+インストールが完了したら mackerel-agent.conf にAPIキーを設定し、エージェントの再起動を行います。APIキーは [WebコンソールのAPIキータブ](https://mackerel.io/my?tab=apikeys) から取得できます。
+
+```
+apikey = "<YOUR_API_KEY>"
+```
+
+<h2 id="start-agent">エージェントを再起動する</h2>
+
+エージェントを再起動する場合は以下のコマンドを実行します。
+
+```
+sudo systemctl restart mackerel-agent
+```
+
+<h2 id="log">エージェントのログを確認する</h2>
+
+エージェントのログはJournalに出力されます。以下のコマンドで確認できます。
+
+```
+sudo journalctl -u mackerel-agent.service
+```
+
+<h2 id="version-up">エージェントをバージョンアップする</h2>
+
+エージェントをバージョンアップする場合は以下のコマンドを実行します。
 
 ```
 sudo apt-get update
 sudo apt-get install mackerel-agent
 ```
 
-<h2 id="dpkg">dpkgコマンドを使用する</h2>
+<h2 id="uninstall">エージェントをアンインストールする</h2>
 
-まず、パッケージファイルをダウンロードします:
-
-```
-curl -LO https://mackerel.io/file/agent/deb/mackerel-agent_latest.all.deb
-```
-
-その後、`dpkg`コマンドを用いてインストールします:
-
-```
-sudo dpkg -i mackerel-agent_latest.all.deb
-```
-
-アップデートの際は、パッケージファイルをダウンロードしなおしてから同様の手順を実行してください。
-
-<h2 id="config">設定ファイルを編集する</h2>
-
-`/etc/mackerel-agent/mackerel-agent.conf` ファイルを編集して、APIキーを設定してください。
-
-```
-apikey = "<YOUR_API_KEY>"
-```
-
-APIキーは[オーガニゼーションページ内・APIキータブ](https://mackerel.io/my?tab=apikeys)から確認できます。このAPIキーでオーガニゼーションを識別しますので、APIキーは外部に漏らさないようご注意ください。
-
-詳細は[mackerel-agent仕様](https://mackerel.io/ja/docs/entry/spec/agent)をご覧ください。
-
-設定ファイルを利用して、以下のことを実現できます:
-
-- [サービス、ロールを設定する](https://mackerel.io/ja/docs/entry/spec/agent#setting-services-and-roles)
-- [カスタムメトリックを投稿する](https://mackerel.io/ja/docs/entry/advanced/custom-metrics)
-- [チェック監視項目を追加する](https://mackerel.io/ja/docs/entry/custom-checks)
-
-<h2 id="start-agent">エージェントを起動する</h2>
-
-以下のコマンドを実行することで、エージェントが起動します。
-
-```
-sudo systemctl start mackerel-agent
-```
-
-ログはJournalに出力されます。mackerel-agentのログの確認は以下のコマンドでおこなえます。
-
-```
-sudo journalctl -u mackerel-agent.service
-```
-
-エージェントが正しく動きはじめると、Mackerelにホストとして登録されます。[ダッシュボード](https://mackerel.io/my/dashboard)などでご確認ください。
-
-<h2 id="uninstall">エージェントのアンインストール</h2>
-
-mackerel-agentをアンインストールするには、以下のコマンドを実行してください。
-
-`apt-get`でインストールした場合:
+エージェントをアンインストールする場合は以下のコマンドを実行します。
 
 ```
 sudo apt-get remove mackerel-agent
 ```
 
-`dpkg`でインストールした場合:
+エージェントの設定ファイルや idファイルも含めて完全に削除する場合は以下のコマンドを実行します。
 
 ```
-sudo dpkg -r mackerel-agent
-```
-
-またその際、デフォルトでは `/var/lib/mackerel-agent/id` にホストIDの記録されたファイルが残っているため、これを削除してください。
-
-
-<h1 id="kcps">KCPS版mackerel-agentをdebパッケージでインストールする</h1>
-
-KCPS向けMackerelではdebパッケージはサポートしておりません。
+sudo apt-get purge mackerel-agent
+``

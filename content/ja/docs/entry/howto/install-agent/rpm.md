@@ -1,98 +1,69 @@
 ---
-Title: Red Hat Enterprise Linux派生OSにインストールする
+Title: CentOS / Red Hat Enterprise Linux派生OSにインストールする
 Date: 2014-10-28T17:08:02+09:00
 URL: https://mackerel.io/ja/docs/entry/howto/install-agent/rpm
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/8454420450070885613
 ---
 
-- <a href="./amazon-linux">Amazon Linuxをご利用の場合はこちら</a>
-- <a href="#kcps">KCPS版Mackerelをご利用の場合はこちら</a>
+<a href="#kcps">KCPS版Mackerelをご利用の場合はこちら</a>
 
-このページに記載の内容は、[Mackerel Web画面・新規ホスト登録画面](https://mackerel.io/my/instruction-agent)からも利用可能です。
+<h2>パッケージをインストールする</h2>
 
-<h2 id="v2">RHEL 8 以降の派生OSをご利用の場合</h2>
+あらかじめ [エージェントのインストール時に発生する通信](https://mackerel.io/ja/docs/entry/howto/install-agent#install) を許可してください。
 
-以下のコマンドを実行してください:
+<h3 id="script">セットアップスクリプトを実行してインストールする</h2>
+
+[新規ホストの登録](https://mackerel.io/my/instruction-agent) 画面で CentOS / Red Hat を選択し、表示されたコマンドを実行します。
 
 ```
 curl -fsSL https://mackerel.io/file/script/setup-all-yum-v2.sh | MACKEREL_APIKEY='<YOUR_API_KEY>' sh
 ```
 
-APIキーは[オーガニゼーションページ内・APIキータブ](https://mackerel.io/my?tab=apikeys)から確認できます。このAPIキーでオーガニゼーションを識別しますので、APIキーは外部に漏らさないようご注意ください。
+インストール完了後にエージェントは自動で起動します。エージェントが起動するとMackerelにホストとして登録されます。[ホスト一覧](https://mackerel.io/my/hosts) 画面を確認してください。
 
-アップデートの際は、`yum` コマンドからおこなうことができます。
+ホストが登録されない場合は、[FAQ：ホストが登録されない](https://support.mackerel.io/hc/ja/articles/30952244573337) の内容を確認してください。
 
-```
-sudo yum update mackerel-agent
-```
+<h3 id="rpm">rpmコマンドを使用してインストールする</h3>
 
-<h2 id="rpm">rpmコマンドを使用する</h2>
+[GitHub の Release ページ](https://github.com/mackerelio/mackerel-agent/releases) で公開している最新版のパッケージを、rpmコマンドを使用してインストールします。
 
-`rpm`コマンドでインストールするには、以下のコマンドを実行します:
-
-```
-sudo rpm -ivh https://mackerel.io/file/agent/rpm/mackerel-agent-latest.noarch.rpm
-```
-
-アップデートの際は、以下のコマンドを実行してください:
-
-```
-sudo rpm -Uvh https://mackerel.io/file/agent/rpm/mackerel-agent-latest.noarch.rpm
-```
-
-<h2 id="config">設定ファイルを編集</h2>
-
-`/etc/mackerel-agent/mackerel-agent.conf` ファイルを編集して、APIキーを設定してください。
+インストールが完了したら mackerel-agent.conf にAPIキーを設定し、エージェントの再起動を行います。APIキーは [WebコンソールのAPIキータブ](https://mackerel.io/my?tab=apikeys) から取得できます。
 
 ```
 apikey = "<YOUR_API_KEY>"
 ```
 
-APIキーは[オーガニゼーションページ内・APIキータブ](https://mackerel.io/my?tab=apikeys)から確認できます。このAPIキーでオーガニゼーションを識別しますので、APIキーは外部に漏らさないようご注意ください。
+<h2 id="start-agent">エージェントを再起動する</h2>
 
-詳細は[mackerel-agent仕様](https://mackerel.io/ja/docs/entry/spec/agent)をご覧ください。
-
-設定ファイルを利用して、以下のことを実現できます:
-
-- [サービス、ロールを設定する](https://mackerel.io/ja/docs/entry/spec/agent#setting-services-and-roles)
-- [カスタムメトリックを投稿する](https://mackerel.io/ja/docs/entry/advanced/custom-metrics)
-- [チェック監視項目を追加する](https://mackerel.io/ja/docs/entry/custom-checks)
-
-<h2 id="start-agent">エージェントを起動する</h2>
-<h3>RHEL 8 以降の派生OSをご利用の場合</h3>
-
-以下のコマンドを実行することで、エージェントが起動します。
+エージェントを再起動する場合は以下のコマンドを実行します。
 
 ```
-sudo systemctl start mackerel-agent
+sudo systemctl restart mackerel-agent
 ```
 
-ログはJournalに出力されます。mackerel-agentのログの確認は以下のコマンドでおこなえます。
+<h2 id="log">エージェントのログを確認する</h2>
+
+エージェントのログはJournalに出力されます。以下のコマンドで確認できます。
 
 ```
 sudo journalctl -u mackerel-agent.service
 ```
 
-エージェントが正しく動きはじめると、Mackerelにホストとして登録されます。[ダッシュボード](https://mackerel.io/my/dashboard)などでご確認ください。
+<h2 id="version-up">エージェントをバージョンアップする</h2>
 
+エージェントをバージョンアップする場合は以下のコマンドを実行します。
 
-<h2 id="uninstall">エージェントのアンインストール</h2>
+```
+sudo yum update mackerel-agent
+```
 
-mackerel-agentをアンインストールするには、以下のコマンドを実行してください。
+<h2 id="uninstall">エージェントをアンインストールする</h2>
 
-`yum`でインストールした場合:
+エージェントをアンインストールする場合は以下のコマンドを実行します。
 
 ```
 sudo yum erase mackerel-agent
 ```
-
-`rpm`でインストールした場合:
-
-```
-sudo rpm -e mackerel-agent
-```
-
-またその際、デフォルトでは `/var/lib/mackerel-agent/id` にホストIDの記録されたファイルが残っているため、これを削除してください。
 
 
 <h1 id="kcps">KCPS版mackerel-agentをRPMパッケージでインストールする</h1>
