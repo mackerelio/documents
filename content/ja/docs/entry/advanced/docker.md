@@ -8,9 +8,9 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 Docker( https://www.docker.com/ )をモニタリングする方法を紹介します。
 
 Dockerコンテナの消費リソースを把握するには、Dockerが利用しているリソースの統計情報を参照します。
-Dockerのリソースの統計情報はAPI( https://docs.docker.com/engine/reference/api/docker_remote_api/ )を利用して取得します。
+Dockerのリソースの統計情報はAPI( https://docs.docker.com/reference/api/engine/ )を利用して取得します。
 また後方互換性のためにcgroupのファイルシステム経由でメトリックすることもできますが、現在は非推奨です。
-技術的な詳細は公式ドキュメント(https://docs.docker.com/engine/admin/runmetrics/)を参照してください。
+技術的な詳細は公式ドキュメント( https://docs.docker.com/engine/containers/runmetrics/ )を参照してください。
 
 ## mackerel-plugin-dockerを利用する
 
@@ -28,7 +28,7 @@ command = ["mackerel-plugin-docker", "-name-format", "name"]
 
 コンテナを新規に起動すると自動的にグラフに項目が追加され、コンテナを終了すると数時間後に自動的にその項目が見れなくなります。
 
-mackerel-plugin-dockerでは、`-name-format`でコンテナごとのメトリック名を指定しています。上の例では`name`を指定しており、各コンテナのNameを利用します。Nameはいくつかの方法で指定できますが、典型的には`docker run`の`--name`オプションで指定します( https://docs.docker.com/engine/reference/run/#name-name )。
+mackerel-plugin-dockerでは、`-name-format`でコンテナごとのメトリック名を指定しています。上の例では`name`を指定しており、各コンテナのNameを利用します。Nameはいくつかの方法で指定できますが、典型的には`docker run`の`--name`オプションで指定します( https://docs.docker.com/reference/cli/docker/container/run/#name )。
 
 - -name-format
   - name .. コンテナのName
@@ -37,7 +37,7 @@ mackerel-plugin-dockerでは、`-name-format`でコンテナごとのメトリ�
   - image .. コンテナのイメージ名
   - image_id .. コンテナのイメージ名 + '_' + IDの先頭6文字
   - image_name .. コンテナのイメージ名 + '_' + コンテナのName
-  - label .. 指定したラベル( https://docs.docker.com/engine/reference/builder/#label )
+  - label .. 指定したラベル( https://docs.docker.com/reference/dockerfile/#label )
 
 `label` を指定した場合は、 `-label`オプションでどのkeyを利用するかを指定します。
 
@@ -84,7 +84,7 @@ docker run -h `hostname` \
 `link` オプションを利用することで他のコンテナのIPアドレスやポート番号を環境変数経由で取得できます。
 各環境変数は、prefixが `<name>_PORT_<port>_<protocol>` となり、prefixにIPアドレス(ADDR)、ポート番号(PORT)、プロトコル(PROTO)をそれぞれ加えた環境変数( `prefix_ADDR`, `prefix_PORT`, `prefix_PROTO` )で取得できます。
 
-`link` オプションの詳細はDockerのドキュメントをご参照ください。 (https://docs.docker.com/userguide/dockerlinks/)
+`link` オプションの詳細はDockerのドキュメントをご参照ください。 ( https://docs.docker.com/engine/network/links/ )
 
 
 ここではmemcachedの例を紹介します。

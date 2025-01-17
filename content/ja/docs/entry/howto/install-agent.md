@@ -17,20 +17,20 @@ Mackerelにユーザー登録し、オーガニゼーションを作成すると
 
 セットアップスクリプトを使用したエージェントのインストール時は下記への通信が行われます。インターネットへの通信が制限されている環境においては、あらかじめ通信を許可してからエージェントのインストールを行ってください。
 
-- https://mackerel.io/
+- `https://mackerel.io/`
   - 接続先の IP アドレスは [サービスがホストされているIPアドレスとポート番号を教えて下さい](https://support.mackerel.io/hc/ja/articles/360039633271) を参照してください
 - リポジトリ
   - Amazon Linux / CentOS / Red Hat Enterprise Linux 派生 OS の場合
-    - http://yum.mackerel.io/
+    - `http://yum.mackerel.io/`
   - Ubuntu / Debian の場合
-    - http://apt.mackerel.io/
+    - `http://apt.mackerel.io/`
   - リポジトリは Amazon S3 でホストされています。Amazon S3 が使用する IP アドレス範囲は [AWS IP アドレスの範囲](https://docs.aws.amazon.com/ja_jp/vpc/latest/userguide/aws-ip-ranges.html) を参照してください
 
 <h2 id="start">エージェントが動作する際に発生する通信</h2>
 
 エージェントのインストール後は下記への通信が行われます。通信できない場合にはエージェントが起動せず、メトリックの投稿が行えません。
 
-- https://api.mackerelio.com/
+- `https://api.mackerelio.com/`
   - 接続先の IP アドレスは [サービスがホストされているIPアドレスとポート番号を教えてください](https://support.mackerel.io/hc/ja/articles/360039633271) を参照してください
 
 インターネットへ直接通信できないサーバー向けに、エージェントでは [プロキシサーバー](https://mackerel.io/ja/docs/entry/spec/agent#config-file-proxy) の利用が可能となっています。

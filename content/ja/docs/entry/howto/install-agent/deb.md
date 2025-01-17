@@ -68,4 +68,4 @@ sudo apt-get remove mackerel-agent
 
 ```
 sudo apt-get purge mackerel-agent
-``
+```

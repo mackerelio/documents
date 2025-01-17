@@ -7,8 +7,8 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackere
 
 In this document we will be talking about how to monitor Docker ( https://www.docker.com/ ) with Mackerel.
 
-In order to understand Docker container's resource consumption, we will refer to the statistical data of the resource that Docker is using. The statistical data of Docker’s resource is obtained using the API (https://docs.docker.com/engine/reference/api/docker_remote_api/ ). Metrics can also be gathered through the cgroup’s file system for backward compatibility, but this way is deprecated. 
-For technical details please refer to the official documentation (https://docs.docker.com/articles/runmetrics/).
+In order to understand Docker container's resource consumption, we will refer to the statistical data of the resource that Docker is using. The statistical data of Docker’s resource is obtained using the API ( https://docs.docker.com/reference/api/engine/ ). Metrics can also be gathered through the cgroup’s file system for backward compatibility, but this way is deprecated. 
+For technical details please refer to the official documentation ( https://docs.docker.com/engine/containers/runmetrics/ ).
 
 ## Using mackerel-plugin-docker
 
@@ -26,7 +26,7 @@ By doing this, the CPU%, memory consumption, IO usage (IOPS, bytes transferred a
 
 When starting up the container anew, an entry will automatically be appended to the graph. If you close the container, that entry will automatically become unviewable after a few hours.
 
-In mackerel-plugin-docker, each container’s metrics are configured in `-name-format`. With `name` configured in the above example, each container’s Name will be used. There are a few ways to configure for Name, but typically the `--name` option of `docker run` is used. (https://docs.docker.com/engine/reference/run/#name-name )。
+In mackerel-plugin-docker, each container’s metrics are configured in `-name-format`. With `name` configured in the above example, each container’s Name will be used. There are a few ways to configure for Name, but typically the `--name` option of `docker run` is used. ( https://docs.docker.com/reference/cli/docker/container/run/#name )。
 
 - -name-format
   - name .. Name of container
@@ -35,7 +35,7 @@ In mackerel-plugin-docker, each container’s metrics are configured in `-name-f
   - image .. Container’s image Name
   - image_id .. Container’s image Name + '_' + the first six characters of the ID
   - image_name .. Container’s image Name + '_' + Name of container
-  - label .. Configured label(https://docs.docker.com/engine/reference/builder/#label )
+  - label .. Configured label( https://docs.docker.com/reference/dockerfile/#label )
 
 If `label` is configured, you can choose which key to use in the `-label` option. 
 
@@ -79,7 +79,7 @@ By using the `link` option we can obtain other containers’ IP addresses and po
 The prefix of each environment variable will be `<name>_PORT_<port>_<protocol>` and so by appending ADDR, PORT, or PROTO to the prefix, the IP address, port number, and protocol can be obtained (e.g. `prefix_ADDR`, `prefix_PORT`, `prefix_PROTO`).
 
 For details on the `link` option please refer to Docker’s documentation.
-(https://docs.docker.com/userguide/dockerlinks/)
+( https://docs.docker.com/engine/network/links/ )
 
 
 Here we will show an example with memcached.
