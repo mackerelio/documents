@@ -20,7 +20,7 @@ mackerel-container-agentの動作に問題がある場合、ご利用環境が�
 
 ## 課金に関する注意事項
 
-1つのタスクに対して1つのホストがMackerelに登録されます。有料プランの場合は課金が発生しますのでご注意ください。詳しくは[FAQ・ホスト数の計算方法について](https://support.mackerel.io/hc/ja/articles/360039702912-%E3%83%9B%E3%82%B9%E3%83%88%E6%95%B0%E3%81%AE%E8%A8%88%E7%AE%97%E6%96%B9%E6%B3%95%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6)をご覧ください
+1つのタスクに対して1つのマイクロホストがMackerelに登録されます。有料プランの場合は課金が発生しますのでご注意ください。詳しくは[FAQ・ホスト数の計算方法について](https://support.mackerel.io/hc/ja/articles/360039702912-%E3%83%9B%E3%82%B9%E3%83%88%E6%95%B0%E3%81%AE%E8%A8%88%E7%AE%97%E6%96%B9%E6%B3%95%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6)をご覧ください
 
 ## タスク定義にコンテナを追加する
 
@@ -31,7 +31,7 @@ mackerel-container-agentの動作に問題がある場合、ご利用環境が�
 | :-- | :-- |
 | コンテナ名| mackerel-container-agent |
 | イメージ|  mackerel/mackerel-container-agent:latest |
-| メモリ制限|  ハード制限: 128 |
+| メモリ制限|  ハード制限: 0.125 GB |
 | 環境変数(キー: 値) | MACKEREL_CONTAINER_PLATFORM: "ecs"<br>MACKEREL_APIKEY: Mackerel APIキー |
 
 cgourpfs, docker.sockのマウントは不要となりました。

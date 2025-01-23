@@ -3,7 +3,6 @@ Title: チェックプラグイン一覧
 Date: 2023-01-13T15:33:28+09:00
 URL: https://mackerel.io/ja/docs/entry/plugins/check-plugins-list
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/4207112889953808147
-CustomPath: plugins/check-plugins-list
 ---
 
 チェックプラグインの利用環境ごとの対応一覧です。[チェック監視に公式チェックプラグイン集を使う](https://mackerel.io/ja/docs/entry/howto/mackerel-check-plugins) に記載の手順でプラグインのインストールを行うと、○ の付いているプラグインが利用可能になります。
@@ -34,7 +33,7 @@ container-agent に関してはプラグインを同梱した Docker イメー�
 | check-mysql                        | [ヘルプ](https://mackerel.io/ja/docs/entry/plugins/check-mysql)<br>[README](https://github.com/mackerelio/go-check-plugins/tree/master/check-mysql)                       | ○     |         | ○    |
 | check-ntpoffset                    | [README](https://github.com/mackerelio/go-check-plugins/tree/master/check-ntpoffset)                                                                            | ○     |         |     |
 | check-ntservice                    | [ヘルプ](https://mackerel.io/ja/docs/entry/plugins/check-ntservice)<br>[README](https://github.com/mackerelio/go-check-plugins/tree/master/check-ntservice)               | ○     | ○       |     |
-| check-ping                         | [README](https://github.com/mackerelio/go-check-plugins/tree/master/check-ping)                                                                                 | ○     | ○      |     |
+| check-ping                         | [ヘルプ](https://mackerel.io/ja/docs/entry/plugins/check-ping)<br>[README](https://github.com/mackerelio/go-check-plugins/tree/master/check-ping)                                                                                 | ○     | ○      |     |
 | check-postgresql                   | [README](https://github.com/mackerelio/go-check-plugins/tree/master/check-postgresql)                                                                           | ○     |         | ○    |
 | check-procs                        | [ヘルプ](https://mackerel.io/ja/docs/entry/plugins/check-procs)<br>[README](https://github.com/mackerelio/go-check-plugins/tree/master/check-procs)                       | ○     | ○       |     |
 | check-redis                        | [README](https://github.com/mackerelio/go-check-plugins/tree/master/check-redis)                                                                                | ○     |         | ○    |

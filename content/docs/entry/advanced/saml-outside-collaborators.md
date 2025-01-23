@@ -3,7 +3,6 @@ Title: Managing outside collaborators
 Date: 2024-08-02T14:00:00+09:00
 URL: https://mackerel.io/docs/entry/advanced/saml-outside-collaborators
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/6802340630902355628
-CustomPath: advanced/saml-outside-collaborators
 ---
 
 **A contract for a higher-tier Mackerel plan which includes SAML authentication is required to use this feature.**
@@ -28,7 +27,7 @@ Enter the email address of the user you wish to invite, select the [user permiss
 If their email address falls under any of the following, they cannot be invited as an outside collaborator.
 
 - An email address not registered as a Mackerel user.
-- An email address that has already been added as an outside collaborator.
+- An email address that has already been added to the target organization group as an outside collaborator.
 - An email address of a user already SAML-authenticated by the relevant organization group.
 - An email address of the Owner of an affiliated organization of the relevant organization group.
 

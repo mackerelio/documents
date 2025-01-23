@@ -1,5 +1,5 @@
 ---
-Title: Setting up mackerel-container-agent in Amazon ECS
+Title: Setting up mackerel-container-agent less than v0.1.0 in Amazon ECS
 Date: 2019-05-20T15:49:56+09:00
 URL: https://mackerel.io/docs/entry/howto/install-agent/container/ecsv3
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/17680117127150854409
@@ -14,7 +14,7 @@ Please see [Setting up mackerel-container-agent on Amazon ECS](https://mackerel.
 
 ## Important points regarding billing
 
-In Mackerel, one task is registered as one host. Please note that charges will incur for paid plans. For more details, refer to [FAQ・Calculating the number of hosts](https://support.mackerel.io/hc/en-us/articles/360039702912).
+In Mackerel, one task is registered as one micro host. Please note that charges will incur for paid plans. For more details, refer to [FAQ・Calculating the number of hosts](https://support.mackerel.io/hc/en-us/articles/360039702912).
 
 ## Add containers to the task definitions
 
@@ -25,7 +25,7 @@ Add the mackerel-container-agent with the following configuration from the task 
 | :-- | :-- |
 | container name| mackerel-container-agent |
 | image|  mackerel/mackerel-container-agent:latest |
-| memory limit|  hard limit: 128 |
+| memory limit| hard limit: 0.125 GB |
 | environment variable (key: value) | MACKEREL_CONTAINER_PLATFORM: "ecs_v3"<br>MACKEREL_APIKEY: Mackerel API key |
 
 Refer to the 'Agent configuration' section [here](https://mackerel.io/docs/entry/howto/container-agent) when using roles and plugins.

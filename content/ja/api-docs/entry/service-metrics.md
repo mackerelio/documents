@@ -147,3 +147,58 @@ APIに対して過去の値を送信した場合、Mackerel上の値は上書き
     </tr>
   </tbody>
 </table>
+
+
+<h2 id="delete-graph-def">サービスメトリックのグラフ定義の削除</h2>
+
+サービスメトリックのグラフ定義を削除します。サービスメトリックを送ると、再度グラフが生成されます。
+
+<p class="type-delete">
+  <code>DELETE</code>
+  <code>/api/v0/services/<em>&lt;serviceName&gt;</em>/graph-defs/<em>&lt;graphName&gt;</em></code>
+</p>
+
+### APIキーに必要な権限
+
+<ul class="api-key">
+  <li class="label-read">Read</li>
+  <li class="label-write">Write</li>
+</ul>
+
+### 入力
+
+| KEY     | TYPE     | DESCRIPTION |
+| ------- | -------- | ----------- |
+| `serviceName`  | *string* | サービス名 |
+| `graphName`  | *string* | 削除するグラフの名前（`*`で終わるもの） |
+
+### 応答
+
+#### 成功時
+
+```json
+{
+  "success": true
+}
+```
+
+#### 失敗時
+
+<table class="default api-error-table">
+  <thead>
+    <tr>
+      <th class="status-code">STATUS CODE</th>
+      <th class="description">DESCRIPTION</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>404</td>
+      <td>サービスもしくはグラフ定義が存在しないとき</td>
+    </tr>
+    <tr>
+      <td>403</td>
+      <td>APIキーに書き込み権限がないとき / <a href="https://support.mackerel.io/hc/ja/articles/360039701952-%E3%82%AA%E3%83%BC%E3%82%AC%E3%83%8B%E3%82%BC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AB%E5%AF%BE%E3%81%99%E3%82%8B%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E3%82%92IP%E3%82%A2%E3%83%89%E3%83%AC%E3%82%B9%E3%82%92%E6%8C%87%E5%AE%9A%E3%81%97%E3%81%A6%E5%88%B6%E9%99%90%E3%81%97%E3%81%9F%E3%81%84" target="_blank">許可されたIPアドレス範囲</a>外からのアクセスの場合</td>
+    </tr>
+  </tbody>
+</table>

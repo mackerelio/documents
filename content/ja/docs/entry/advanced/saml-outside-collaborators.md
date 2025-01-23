@@ -3,7 +3,6 @@ Title: 外部コラボレーターを管理する
 Date: 2024-08-02T14:00:00+09:00
 URL: https://mackerel.io/ja/docs/entry/advanced/saml-outside-collaborators
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/6802340630902356592
-CustomPath: advanced/saml-outside-collaborators
 ---
 
 **本機能の利用にはSAML認証を含むMackerel上位プランのご契約が必要です。**
@@ -28,7 +27,7 @@ IDプロバイダーの管理外であるものの業務の都合上オーガニ
 メールアドレスが以下のいずれかに相当する場合、外部コラボレーターとして招待できません。
 
 - Mackerelにユーザー登録していないメールアドレスである。
-- 既に外部コラボレーターとして追加されているメールアドレスである。
+- 対象のオーガニゼーショングループに外部コラボレーターとして既に追加されているメールアドレスである。
 - 対象のオーガニゼーショングループで既にSAML認証しているユーザーのメールアドレスである。
 - 対象のオーガニゼーショングループの所属オーガニゼーションのオーナーのメールアドレスである。
 

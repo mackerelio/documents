@@ -148,3 +148,59 @@ With the following parameter, the metric name and time span to be collected will
     </tr>
   </tbody>
 </table>
+
+----------------------------------------------
+
+<h2 id="delete-graph-def">Delete Service Metrics Graph Definition</h2>
+
+This will remove a graph definition for service metrics from Mackerel. The graph will be regenerated when the service metrics are sent again.
+
+<p class="type-delete">
+  <code>DELETE</code>
+  <code>/api/v0/services/<em>&lt;serviceName&gt;</em>/graph-defs/<em>&lt;graphName&gt;</em></code>
+</p>
+
+### Required permissions for the API key
+
+<ul class="api-key">
+  <li class="label-read">Read</li>
+  <li class="label-write">Write</li>
+</ul>
+
+### Input
+
+| KEY     | TYPE     | DESCRIPTION |
+| ------- | -------- | ----------- |
+| `serviceName`  | *string* | service name |
+| `graphName`  | *string* | graph name to delete (ends with `*`) |
+
+### Response
+
+#### Success
+
+```json
+{
+  "success": true
+}
+```
+
+#### Error
+
+<table class="default api-error-table">
+  <thead>
+    <tr>
+      <th class="status-code">STATUS CODE</th>
+      <th class="description">DESCRIPTION</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>404</td>
+      <td>when the graph definition or service does not exist</td>
+    </tr>
+    <tr>
+      <td>403</td>
+      <td>when the API key doesn't have the required permissions / when accessing from outside the <a href="https://support.mackerel.io/hc/en-us/articles/360039701952" target="_blank">permitted IP address range</a></td>
+    </tr>
+  </tbody>
+</table>

@@ -31,7 +31,7 @@ Add the mackerel-container-agent with the following configuration from the task 
 | :-- | :-- |
 | container name| mackerel-container-agent |
 | image|  mackerel/mackerel-container-agent:latest |
-| memory limit|  hard limit: 128 |
+| memory limit| hard limit: 0.125 GB |
 | environment variable (key: value) | MACKEREL_CONTAINER_PLATFORM: "ecs"<br>MACKEREL_APIKEY: Mackerel API key |
 
 cgroupfs and docker.sock mounts are no longer required.
