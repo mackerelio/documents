@@ -8,6 +8,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 <ul class="internal-nav">
   <li><a href="#post">サービスメトリックの投稿</a></li>
   <li><a href="#get">サービスメトリックの値の取得</a></li>
+  <li><a href="#delete-graph-def">サービスメトリックのグラフ定義の削除</a></li>
 </ul>
 
 <h2 id="post">サービスメトリックの投稿</h2>

@@ -292,6 +292,15 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
         </a>
       </div>
     </div>
+    <div class="api">
+      <a href="entry/service-metrics#delete-graph-def">
+        <p>Delete Service Metrics Graph Definition</p>
+        <p class="type-delete">
+          <code>DELETE</code>
+          <code>/api/v0/services/<em>&lt;serviceName&gt;</em>/graph-defs/<em>&lt;graphName&gt;</em></code>
+        </p>
+      </a>
+    </div>
   </div>
   
   <div class="index-row">

@@ -8,6 +8,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
 <ul class="internal-nav">
   <li><a href="#post">Post Service Metrics</a></li>
   <li><a href="#get">Get Service Metrics</a></li>
+  <li><a href="#delete-graph-def">Delete Service Metrics Graph Definition</a></li>
 </ul>
 
 
