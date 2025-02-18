@@ -24,13 +24,13 @@ check-log プラグインは、監視対象となるログのローテーショ�
 
 <h2 id="options">指定可能なオプション</h2>
 
-| オプション            | 省略形 | 説明                                                                                      |  初期値  |
+| オプション            | 省略形 | 説明                                                                                      |  デフォルト値  |
 | --------------------- | ------ | ----------------------------------------------------------------------------------------- |  ------- |
 | --file                | -f     | 監視対象ファイルのパスを指定（glob形式での指定可）                                        |                   |
 | --pattern             | -p     | 検出したいパターンを正規表現で指定 *1                                                        |          |
 | --exclude             | -E     | 検出から除外するパターンを正規表現で指定 *1                                                  |          |
-| --warning-over        | -w     | 検出パターンにマッチする行数が指定値を超えたらWarningアラートを発生                       |                   |
-| --critical-over       | -c     | 検出パターンにマッチする行数が指定値を超えたらCriticalアラートを発生                      |                   |
+| --warning-over        | -w     | 検出パターンにマッチする行数が指定値を超えたらWarningアラートを発生                       | 0                  |
+| --critical-over       | -c     | 検出パターンにマッチする行数が指定値を超えたらCriticalアラートを発生                      | 0                  |
 | --warning-level       |        | 検出パターンで抽出した数値が指定値を超えたらWarningアラートを発生                         |                   |
 | --critical-level      |        | 検出パターンで抽出した数値が指定値を超えたらCriticalアラートを発生                        |                   |
 | --return              | -r     | パターンにマッチしたログ行をアラートで通知する *2                                         |                   |
@@ -159,6 +159,16 @@ Windows 環境において監視対象ファイルの指定に `--file-pattern` 
 ```
 [plugin.checks.access_log]
 command = ["check-log", "--search-in-directory", "C:\\log\\", "--file-pattern", "access.log.\\d{4}-\\d{2}-\\d{2}", "--pattern", "ERROR", "--return"]
+```
+
+### Warning アラートのみを発生させたい場合
+
+check-log ではデフォルトで `--warning-over` および `--critical-over` に 0 が指定されます。また、アラートレベルは Critical の方が優先されるため、これらのオプションの指定がない場合、1 行でも条件に一致するログを検出すると Critical アラートが発生します。
+
+もし、すべてのアラートを Warning で発生させたい場合は、`--critical-over` に絶対に超えない数値を指定することで実現できます。
+
+```
+command = ["check-log", "--file", "/var/log/access.log", "--pattern", "ERROR", "--critical-over", "9999", "--return"]
 ```
 
 <h2 id="troubleshoot">トラブルシューティング</h2>

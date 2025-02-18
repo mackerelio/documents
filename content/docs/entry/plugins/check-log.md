@@ -3,7 +3,6 @@ Title: Check plugins - check-log
 Date: 2023-01-27T09:08:26+09:00
 URL: https://mackerel.io/docs/entry/plugins/check-log
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/4207112889957873684
-CustomPath: plugins/check-log
 ---
 
 check-log is a plug-in that monitors log files on the server, including applications and middleware.
@@ -19,8 +18,8 @@ Pattern matching using regular expressions is performed on the output difference
 | --file                | -f    | Specify the path of the file to be monitored (can be specified in glob format)                                       |          |
 | --pattern             | -p    | Specify the pattern of error wording to be detected with a regular expression *1                                     |          |
 | --exclude             | -E    | Specify patterns to exclude from detection using regular expressions *1                                              |          |
-| --warning-over        | -w    | Raise a Warning alert if the number of rows matching the detection pattern exceeds the specified value               |          |
-| --critical-over       | -c    | Raise a Critical alert if the number of rows matching the detection pattern exceeds the specified value              |          |
+| --warning-over        | -w    | Raise a Warning alert if the number of rows matching the detection pattern exceeds the specified value               | 0        |
+| --critical-over       | -c    | Raise a Critical alert if the number of rows matching the detection pattern exceeds the specified value              | 0        |
 | --warning-level       |       | Raise a Warning alert if the value extracted by the detection pattern exceeds the specified value                    |          |
 | --critical-level      |       | Raise a Critical alert if the value extracted by the detection pattern exceeds the specified value                   |          |
 | --return              | -r    | Notify of log lines that match the pattern with an alert. *1                                                         |          |
@@ -126,6 +125,16 @@ For example, if you want to detect log lines containing `FATAL` or `ERROR`, spec
 ```
 [plugin.checks.access_log]
 command = ["check-log", "--file", "/var/log/access.log", "--pattern", "FATAL|ERROR"]
+```
+
+### If you only want to generate Warning alerts
+
+By default, check-log sets `--warning-over` and `--critical-over` to 0. Also, beause the alert level for Critical is higher than for Warning,, if these options are not specified, a Critical alert will be triggered if even a single log matching the conditions is detected.
+
+If you want all alerts to be generated as Warnings, you can do this by specifying a value that will never exceed `--critical-over`.
+
+```
+command = ["check-log", "--file", "/var/log/access.log", "--pattern", "ERROR", "--critical-over", "9999", "--return"]
 ```
 
 <h2 id="troubleshoot">Troubleshooting</h2>
