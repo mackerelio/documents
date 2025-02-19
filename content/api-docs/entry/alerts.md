@@ -10,6 +10,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
   <li><a href="#get">Get Alert</a></li>
   <li><a href="#update">Update Alert</a></li>
   <li><a href="#close">Close Alerts</a></li>
+  <li><a href="#logs">Get Alert Logs</a></li>
 </ul>
 
 
@@ -258,6 +259,98 @@ The response object includes the same keys as the `<alert>` object in [Getting A
     <tr>
       <td>403</td>
       <td>when the API key doesn't have the required permissions / when accessing from outside the <a href="https://support.mackerel.io/hc/en-us/articles/360039701952" target="_blank">permitted IP address range</a></td>
+    </tr>
+  </tbody>
+</table>
+
+
+----------------------------------------------
+
+<h2 id="logs">Get Alert Logs</h2>
+
+This will get the list of alert logs. 
+
+<p class="type-get">
+  <code>GET</code>
+  <code>/api/v0/alerts/<em>&lt;alertId&gt;</em>/logs</code>
+</p>
+
+### Required permissions for the API key
+
+<ul class="api-key">
+  <li class="label-read">Read</li>
+</ul>
+
+### Input (Query parameters)
+
+If `nextId` is not specified, alert logs will be returned in order of latest occurrence time.
+
+| PARAM     | TYPE   | DESCRIPTION |
+| -------- | ------ | ----------- |
+| `nextId` | *string* | [optional] If `nextId` is specified, alert logs older than the specified are retrieved. |
+| `limit` | *number* | [optional] The maximum number of alert logs to retrieve. When omitted, up to 100 logs are retrieved. The most that can be specified is 100. |
+
+
+### Response
+
+#### Success
+
+```json
+{
+  "logs": [<log>, <log>, ...],
+  "nextId": xxx
+}
+```
+
+The logs will be returned in order of occurrence time. `nextId` is returned when there are more than `limit` alerts.
+
+<i>`<log>`</i>: an object that holds the following keys. 
+
+| KEY      | TYPE            | DESCRIPTION                                       |
+| -------- | ------          | -----------                                       |
+| `id`     | *string*        | the alert log's ID                                      |
+| `status` | *string*        | the status of the alert at the time the log was generated:  `"OK"`, `"CRITICAL"`, `"WARNING"`, or `"UNKNOWN"`. |
+| `trigger`  | *string* | the type of reason why the log was created: monitoring rule (`"monitoring"`), manual (`"manual"`), monitoring rule deletion (`"monitorDelete"`), host retirement (`"hostRetire"`), service deletion (`"serviceDelete"`), manual retraining of anomaly detection for roles (`"anomalyDetectionManuallyRetraining"`), or change of service linked to external monitoring (`"externalMonitoringServiceChange"`). |
+| `monitorId`  | *string* / *null* | the ID of the monitoring rule that created the log. it will be `null` if the monitoring rule has been changed or deleted at the time of the request. |
+| `targetValue` | *number* / *null* | the observed value. if the alert is not from metric monitoring, it will be null. |
+| `statusDetail`  | *object* / *null* | detailed state of the monitored target. it only exists for check monitoring. [*1](#statusDetail) |
+| `createdAt`  | *number* | the creation date of the log (Unix time).|
+
+<h4 id="statusDetail">*1 statusDetail</h4>
+
+<i>`statusDetail`</i>: an object that holds the following keys.
+
+| KEY     | TYPE   | DESCRIPTION |
+| -------- | ------ | ----------- |
+| `type` | *string* | The type of monitoring rule. It will always be `check`. |
+| `detail` | *object* | Detailed information about the state. [*2](#statusDetail-detail)|
+
+<h4 id="statusDetail-detail">*2 detail</h4>
+
+<i>`detail`</i>: an object that holds the following keys.
+
+| KEY     | TYPE   | DESCRIPTION |
+| -------- | ------ | ----------- |
+| `message` | *string* | The result of the check monitoring posted to Mackerel. |
+| `memo` | *string* | The memo of the monitoring rule. |
+
+#### Error
+
+<table class="default api-error-table">
+  <thead>
+    <tr>
+      <th class="status-code">STATUS CODE</th>
+      <th class="description">DESCRIPTION</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>400</td>
+      <td>when <code>limit</code> value is larger than the maximum allowed value (100)</td>
+    </tr>
+    <tr>
+      <td>404</td>
+      <td>when the specified alert does not exist</td>
     </tr>
   </tbody>
 </table>

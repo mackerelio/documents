@@ -10,6 +10,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
   <li><a href="#get">アラートの取得</a></li>
   <li><a href="#update">アラートの更新</a></li>
   <li><a href="#close">アラートを閉じる</a></li>
+  <li><a href="#logs">アラートログの取得</a></li>
 </ul>
 
 <h2 id="list">アラートの一覧</h2>
@@ -257,6 +258,97 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
     <tr>
       <td>403</td>
       <td>APIキーに書き込み権限がないとき / <a href="https://support.mackerel.io/hc/ja/articles/360039701952-%E3%82%AA%E3%83%BC%E3%82%AC%E3%83%8B%E3%82%BC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AB%E5%AF%BE%E3%81%99%E3%82%8B%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E3%82%92IP%E3%82%A2%E3%83%89%E3%83%AC%E3%82%B9%E3%82%92%E6%8C%87%E5%AE%9A%E3%81%97%E3%81%A6%E5%88%B6%E9%99%90%E3%81%97%E3%81%9F%E3%81%84" target="_blank">許可されたIPアドレス範囲</a>外からのアクセスの場合</td>
+    </tr>
+  </tbody>
+</table>
+
+----------------------------------------------
+
+<h2 id="logs">アラートログの取得</h2>
+
+アラートログを取得します。
+
+<p class="type-get">
+  <code>GET</code>
+  <code>/api/v0/alerts/<em>&lt;alertId&gt;</em>/logs</code>
+</p>
+
+### APIキーに必要な権限
+
+<ul class="api-key">
+  <li class="label-read">Read</li>
+</ul>
+
+### 入力（クエリパラメータ）
+
+`nextId`が指定されていない場合は、直近のアラートの発生時刻の新しい順で返却されます。
+
+| PARAM     | TYPE   | DESCRIPTION |
+| -------- | ------ | ----------- |
+| `nextId` | *string* | [optional] `nextId` が指定された場合は、指定されたアラートログのidよりも以前のアラートを取得します。 |
+| `limit` | *number* | [optional] 取得するアラートログの上限数。省略時は100件まで取得します。指定できる最大は100です。 |
+
+
+### 応答
+
+#### 成功時
+
+```json
+{
+  "logs": [<log>, <log>, ...],
+  "nextId": xxx
+}
+```
+
+並び順は、アラートの発生時刻が新しい順です。 `nextId` はアラートが `limit` 件より多くあるときに取得されます。
+
+<i>`<log>`</i> は以下のキーを持つオブジェクトです。
+
+| KEY      | TYPE            | DESCRIPTION                                       |
+| -------- | ------          | -----------                                       |
+| `id`     | *string*        | アラートログのid。                                      |
+| `status` | *string*        | ログ発生時点でのアラートのステータス。 `"OK"`、 `"CRITICAL"`、 `"WARNING"`、 `"UNKNOWN"` のいずれかになります。 |
+| `trigger`  | *string* | ログが作成された理由の種別。監視ルール (`"monitoring"`)、手動 (`"manual"`)、監視ルールの削除 (`"monitorDelete"`)、ホストの退役 (`"hostRetire"`)、サービスの削除 (`"serviceDelete"`)、ロール内異常検知の手動による再学習 (`"anomalyDetectionManuallyRetraining"`)、外形監視に紐付くサービスの変更 (`"externalMonitoringServiceChange"`) のいずれかになります。 |
+| `monitorId`  | *string* / *null* | ログを作成した監視ルールのID。リクエスト時点で監視ルールが変更または削除されていると`null`になります。 |
+| `targetValue` | *number* / *null* | アラートログ発生時点での計測値。メトリック監視以外は`null`になります。 |
+| `statusDetail`  | *object* / *null* | 監視対象の状態の詳細。チェック監視の場合にのみ存在します。 [*1](#statusDetail) |
+| `createdAt`  | *number* | ログの作成日時(epoch秒)。|
+
+<h4 id="statusDetail">*1 statusDetail</h4>
+
+<i>`statusDetail`</i>は以下のキーを持つオブジェクトです。
+
+| KEY     | TYPE   | DESCRIPTION |
+| -------- | ------ | ----------- |
+| `type` | *string* | 監視ルールの種別。常に`check`になります。 |
+| `detail` | *object* | 状態の詳細情報。[*2](#statusDetail-detail)|
+
+<h4 id="statusDetail-detail">*2 detail</h4>
+
+<i>`detail`</i>は以下のキーを持つオブジェクトです。
+
+| KEY     | TYPE   | DESCRIPTION |
+| -------- | ------ | ----------- |
+| `message` | *string* | Mackerelに投稿されたチェック監視の結果。 |
+| `memo` | *string* | 監視ルールのメモ。 |
+
+#### 失敗時
+
+<table class="default api-error-table">
+  <thead>
+    <tr>
+      <th class="status-code">STATUS CODE</th>
+      <th class="description">DESCRIPTION</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>400</td>
+      <td><code>limit</code> の値が最大値（100）より大きい場合</td>
+    </tr>
+    <tr>
+      <td>404</td>
+      <td>指定されたIDのアラートがみつからないとき</td>
     </tr>
   </tbody>
 </table>
