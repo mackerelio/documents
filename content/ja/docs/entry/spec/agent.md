@@ -43,6 +43,8 @@ roles = [ "My-Service:app", "Another-Service:db" ]
 
 http_proxy = "http://localhost:8080"
 
+disable_http_keep_alive = false
+
 diagnostic = true
 
 include = "/etc/mackerel-agent/conf.d/*.conf"
@@ -174,6 +176,9 @@ https_proxy = "http://localhost:8081"
 
 - `http_proxy` のみ設定ファイルに記述していた場合、 `https_proxy` としてもその値を利用します。
 - HTTPSプロキシを利用しない場合は `https_proxy` に `direct` を指定します。
+
+<h4 id="config-file-disablehttpkeepalive">disable_http_keep_alive</h4>
+`disable_http_keep_alive = true` とすることで、エージェントとMackerelとの通信でHTTPキープアライブを無効にできます。
 
 <h4 id="config-file-diagnostic">diagnostic</h4>
 このオプションを指定することで、エージェント自身のメモリ使用状況を収集しカスタムメトリックとして投稿します（診断モード。デフォルトは `false` ）。

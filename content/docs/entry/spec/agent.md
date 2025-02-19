@@ -45,6 +45,8 @@ roles = [ "My-Service:app", "Another-Service:db" ]
 
 http_proxy = "http://localhost:8080"
 
+disable_http_keep_alive = false
+
 diagnostic = true
 
 include = "/etc/mackerel-agent/conf.d/*.conf"
@@ -186,6 +188,8 @@ The correspondence between the `http_proxy` / `https_proxy` settings and the pro
 - If only `http_proxy` is specified in the configuration file, the value will be used as `https_proxy` as well.
 - If you do not want to use HTTPS proxy, specify `direct` for `https_proxy`.
 
+<h4 id="config-file-disablehttpkeepalive">disable_http_keep_alive</h4>
+By setting `disable_http_keep_alive = true`, you can disable HTTP keep-alive in the communication between the agent and Mackerel.
 
 <h4 id="config-file-diagnostic">diagnostic</h4>
 By specifying this option, the agent’s memory usage is collected and posted as a custom metric (Diagnostic mode. Default is `false`).
