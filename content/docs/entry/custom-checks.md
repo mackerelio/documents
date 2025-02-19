@@ -22,6 +22,7 @@ Check monitoring settings are added to the [Agent configuration file](https://ma
 ```config
 [plugin.checks.ssh]
 command = ["ruby", "/path/to/check-ssh.rb"]
+user = "SOME_USER_NAME"
 check_interval = 5
 timeout_seconds = 45
 max_check_attempts = 3
@@ -40,6 +41,7 @@ As shown in the sample configuration for the agent, it should be followed by the
 |---|---|---|---|
 | [plugin.checks.XXX] | ✓ | Define the key values of the monitoring rules in the configuration file in three levels separated by dots . The second level, `plugin.checks.`, is fixed, and the third level, `XXX`, is used as the name of the monitoring rule. Dots are not allowed in `XXX`. The third level, `XXX`, will be used as the monitoring rule name. |  |
 | command | ✓ | This is executed by the agent periodically, and its exit status and standard output are used as the monitoring results. Users may also execute arbitrary commands and programs they have created, in addition to the official check plugin. |  |
+| user |  | The user to run command can be specified with `command`. If a user is not specified, the executing user of mackerel-agent will also be the executing user of command. Not yet supported for Windows environments. |  |
 | check_interval |  | Specifies the interval in minutes between check monitoring runs. If using an agent whose version is v0.67.0 or later, you may enter expressions such as `10m` or `1h`. Intervals allowed range from 1 minute to 60 minutes. Specified intervals under 1 minute will default to 1 minute, and intervals over 60 minutes will default to 60 minutes. | 1 minute |
 | timeout_seconds |  | The timeout period in seconds for the processing of the program specified by `command`. Set the value so that it does not exceed `check_interval`. | 30 seconds |
 | max_check_attempts |  | This specifies the maximum number of attempts. An alert will be generated in the event that a result besides OK is obtained for more times than the value specified here in succession. <br>**This defaults to `1` regardless of the value specified when used in conjunction with `prevent_alert_auto_close`.** | 1 |

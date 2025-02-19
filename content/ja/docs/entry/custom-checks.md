@@ -22,6 +22,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 ```config
 [plugin.checks.filecount]
 command = ["/path/filecount.sh"]
+user = "SOME_USER_NAME"
 check_interval = 5
 timeout_seconds = 45
 max_check_attempts = 3
@@ -40,6 +41,7 @@ memo = "This check monitor is ..."
 |---|---|---|---|
 | [plugin.checks.XXX] | ◯ | 監視ルールのキーとなる値をドット（.）区切りの 3 階層で、設定ファイル内で一意に定義します。2 階層目の `plugin.checks.` までは固定です。3 階層目の `XXX` に記述した文字列が監視ルール名として使用されます。`XXX` にドット（.）を含めることはできません。 |  |
 | command | ◯ | エージェントが定期的に実行し、その終了ステータスや標準出力内容を監視結果として使用します。公式チェックプラグインのほか、ユーザーが自作したプラグインや、任意のコマンドを実行できます。 |  |
+| user |  | `command` で指定したコマンドの実行ユーザーを指定できます。指定しない場合は mackerel-agent の実行ユーザーがコマンドの実行ユーザーとなります。Windows 環境には未対応のため、利用できません。 |  |
 | check_interval |  | チェック監視の実行間隔を分で指定します。エージェントのバージョンが v0.67.0 以降であれば `10m` や `1h` のような表現でも記述できます。設定可能な範囲は 1 分から 60 分です。1 分未満を指定した場合は 1 分、60 分以上を指定した場合は 60 分として扱われます。 | 1 分 |
 | timeout_seconds |  | `command` で指定したプラグインの処理におけるタイムアウト時間を秒で指定します。`check_interval` を超えないように設定してください。 | 30 秒 |
 | max_check_attempts |  | 最大試行回数を指定します。ここで指定した回数以上、OK 以外の結果が連続した場合にアラートが発生します。<br>**`prevent_alert_auto_close` と併用した場合、指定した数値に関わらず `1` として扱われます。** | 1 |
