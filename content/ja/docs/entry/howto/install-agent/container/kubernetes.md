@@ -13,9 +13,15 @@ Kubernetesにおけるmackerel-container-agentのセットアップ手順です�
 
 ## 動作条件
 
-mackerel-container-agentはデフォルトでkubeletのread-only-portにアクセスします。
+mackerel-container-agentはデフォルトでkubeletのread-only portにアクセスします。
 
-read-only-portが無効な環境(`--read-only-port=0`)では後述する環境変数やRoleの設定が必要となります。
+read-only portが無効な環境(`--read-only-port=0`)では後述する`MACKEREL_KUBERNETES_KUBELET_READ_ONLY_PORT`環境変数やClusterRoleの設定が必要となります。
+
+### Google Kubernetes Engine 1.32 以降の場合
+
+GKE (Google Kubernetes Engine) 1.32以降ではread-only portがデフォルトでは無効に設定されています。後述する`MACKEREL_KUBERNETES_KUBELET_READ_ONLY_PORT`環境変数やClusterRoleを設定してkubeletのデフォルトポートを利用してください。
+
+ただしAutopilotクラスターに対しては、mackerel-container-agentが必要とするClusterRoleを設定することができません。代わりにクラスターの`--autoprovisioning-enable-insecure-kubelet-readonly-port`オプションを設定してください。
 
 ## Pod Templateにコンテナを追加する
 
@@ -58,13 +64,13 @@ valueFrom:
 以下の項目は任意で設定します。
 
 - `MACKEREL_KUBERNETES_KUBELET_READ_ONLY_PORT`: ポート番号
-  - kubeletで--read-only-portフラグを指定してポート番号を変更している場合(デフォルト: 10255)
-  - 0 を設定するとkubeletのread-only portの利用を中止します
+  - kubeletで`--read-only-port`フラグを指定してポート番号を変更している場合(デフォルト: 10255)
+  - 0 を設定するとkubeletのread-only portの利用を中止し、kubeletのデフォルトポートを利用します。
 - `MACKEREL_KUBERNETES_KUBELET_PORT`: ポート番号
-  - kubeletで--portフラグを指定してポート番号を変更している場合(デフォルト: 10250)
+  - kubeletで`--port`フラグを指定してポート番号を変更している場合(デフォルト: 10250)
   - kubelet APIアクセスの際にCA証明書として `/var/run/secrets/kubernetes.io/serviceaccount/ca.crt` を、Bearerトークンとして `/var/run/secrets/kubernetes.io/serviceaccount/token` の内容を使用します。automountServiceAccountTokenをfalseに設定している場合はファイルが存在しないので注意してください(デフォルトはtrue)。
 - `MACKEREL_KUBERNETES_KUBELET_INSECURE_TLS`: 任意の値
-  - `MACKEREL_KUBERNETES_KUBELET_PORT` へのkubelet APIアクセスの際に証明書の検証を行いません
+  - `MACKEREL_KUBERNETES_KUBELET_PORT` へのkubelet APIアクセスの際に証明書の検証を行いません。
 
 ### マニフェスト例
 

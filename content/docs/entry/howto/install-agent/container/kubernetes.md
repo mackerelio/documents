@@ -13,9 +13,15 @@ For every one pod, a micro host will be registered in Mackerel. Please note that
 
 ## Operating conditions
 
-By default, mackerel-container-agent accesses the kubelet read-only-port.
+By default, mackerel-container-agent accesses the kubelet read-only port.
 
-In environments where read-only-port is disabled (`--read-only-port=0`), the environment variable and Role configurations described below are required.
+In environments where read-only port is disabled (`--read-only-port=0`), the `MACKEREL_KUBERNETES_KUBELET_READ_ONLY_PORT` environment variable and ClusterRole configurations described below are required.
+
+### Google Kubernetes Engine 1.32 and later
+
+In GKE (Google Kubernetes Engine) 1.32 and later, the read-only port is disabled by default. Configure the `MACKEREL_KUBERNETES_KUBELET_READ_ONLY_PORT` environment variable and ClusterRole as described below to use the kubelet default port.
+
+However, for Autopilot clusters, it is not possible to configure the ClusterRole required by mackerel-container-agent. Instead, set the cluster's `--autoprovisioning-enable-insecure-kubelet-readonly-port` option.
 
 ## Adding the container to the Pod Template
 
@@ -58,13 +64,13 @@ valueFrom:
 The following items are configured arbitrarily.
 
 - `MACKEREL_KUBERNETES_KUBELET_READ_ONLY_PORT`: Port number
-  - When changing the port number by specifying the --read-only-port flag in kubelet (Default: 10255)
-  - Setting 0 will stop the use of the kubelet read-only port
+  - When changing the port number by specifying the `--read-only-port` flag in kubelet (Default: 10255)
+  - Setting 0 will stop the use of the kubelet read-only port and use the kubelet default port.
 - `MACKEREL_KUBERNETES_KUBELET_PORT`: Port number
-  - When changing the port number by specifying the --port flag in kubelet (Default: 10250)
+  - When changing the port number by specifying the `--port` flag in kubelet (Default: 10250)
   - When accessing the kubelet API with `/var/run/secrets/kubernetes.io/serviceaccount/ca.crt` as the CA certificate, the content of `/var/run/secrets/kubernetes.io/serviceaccount/token` is used as the Bearer token. Please note that this field does not exist when automountServiceAccountToken is configured as false (true by default).
 - `MACKEREL_KUBERNETES_KUBELET_INSECURE_TLS`: Arbitrary value
-  - Certificates are not verified when accessing the kubelet API in `MACKEREL_KUBERNETES_KUBELET_PORT`
+  - Certificates are not verified when accessing the kubelet API in `MACKEREL_KUBERNETES_KUBELET_PORT`.
 
 ### Manifest example 
 
