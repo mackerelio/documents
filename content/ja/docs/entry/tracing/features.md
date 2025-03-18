@@ -1,0 +1,9 @@
+---
+Title: トレース - 機能
+Date: 2025-03-13T15:50:37+09:00
+URL: https://mackerel.io/ja/docs/entry/tracing/features
+EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/6802418398334514045
+---
+
+- [サービスを健全に保つ](https://mackerel.io/ja/docs/entry/tracing/features/keep-healthy)
+- [問題を素早く解決する](https://mackerel.io/ja/docs/entry/tracing/features/solve-issues)

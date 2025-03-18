@@ -20,6 +20,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
   <li><a href="#alerts">アラート通知</a></li>
   <li><a href="#specifications">仕様</a></li>
   <li><a href="#advanced">進んだ使い方</a></li>
+  <li><a href="#tracing">トレーシング</a></li>
 </ul>
 
 <div id="hot-entries">
@@ -94,7 +95,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
     <li><a href="https://mackerel.io/ja/docs/entry/custom-checks"><strong>チェック監視項目を追加する</strong><span>Nagiosのようなチェック監視をおこなう</span></a></li>
     <li><a href="https://mackerel.io/ja/docs/entry/external-monitoring"><strong>URL外形監視をおこなう</strong><span>URL外形監視を設定します</span></a></li>
     <li><a href="https://mackerel.io/ja/docs/entry/expression-monitoring"><strong>式による監視をおこなう</strong><span>式による監視を設定します</span></a></li>
-    <li><a href="https://mackere.io/ja/docs/entry/query-monitoring"><strong>クエリによる監視をおこなう</strong><span>PromQL クエリによりラベル付きメトリックを監視します</span></a></li>
+    <li><a href="https://mackerel.io/ja/docs/entry/query-monitoring"><strong>クエリによる監視をおこなう</strong><span>PromQL クエリによりラベル付きメトリックを監視します</span></a></li>
     <li><a href="https://mackerel.io/ja/docs/entry/howto/alerts/slack"><strong>Slackにアラートを通知する</strong><span>アラートをSlackへ通知します</span></a></li>
     <li><a href="https://mackerel.io/ja/docs/entry/howto/alerts/pagerduty"><strong>PagerDutyにアラートを通知する</strong><span>アラートをPagerDutyへ通知します</span></a></li>
     <li><a href="https://mackerel.io/ja/docs/entry/howto/alerts/chatwork"><strong>Chatworkにアラートを通知する</strong><span>アラートをChatworkへ通知します</span></a></li>
@@ -146,6 +147,19 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
     <li><a href="https://mackerel.io/ja/docs/entry/advanced/cloudwatch-logs-aggregator"><strong>Amazon CloudWatch Logs のログを集計して Mackerel にメトリックを投稿する</strong><span>ログを活用してアプリケーションのメトリック監視を行えます</span></a></li>
     <li><a href="https://mackerel.io/ja/docs/entry/advanced/saml-authentication"><strong>SAMLで認証する</strong><span>お使いのIDプロバイダーの資格情報を使用してMackerelにサインインする方法を解説します</span></a></li>
     <li><a href="https://mackerel.io/ja/docs/entry/advanced/saml-settings"><strong>SAMLを設定する</strong><span>MackerelとIDプロバイダーの連携設定について解説します</span></a></li>
+</ul>
+</section>
+
+<section id="section-tracing">
+<div id="tracing" class="fragment"></div>
+<h4>トレーシング</h4>
+<ul>
+    <li><a href="https://mackerel.io/ja/docs/entry/tracing/guide"><strong>トレーシング機能ガイド</strong><span>トレーシング機能目次</span></a></li>
+    <li><a href="https://mackerel.io/ja/docs/entry/tracing/guide/introduction"><strong>はじめに</strong><span>トレーシングの主な機能を紹介します</span></a></li>
+    <li><a href="https://mackerel.io/ja/docs/entry/tracing/guide/overview"><strong>トレーシング機能概要</strong><span>トレーシング機能を使い始めるために必要な情報を紹介します</span></a></li>
+    <li><a href="https://mackerel.io/ja/docs/entry/tracing/installations"><strong>インストール・実装</strong><span>アプリケーションへの計装方法を紹介します</span></a></li>
+    <li><a href="https://mackerel.io/ja/docs/entry/tracing/features"><strong>機能</strong><span>トレーシング機能ではエラーや速度低下など、ユーザー体験悪化の原因を発見し解決できます</span></a></li>
+    <li><a href="https://mackerel.io/ja/docs/entry/tracing/integrations/slack"><strong>Slackに通知する</strong><span>トレーシング機能ではアラートを Slack に送信できます</span></a></li>
 </ul>
 </section>
 
