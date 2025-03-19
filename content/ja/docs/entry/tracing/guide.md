@@ -5,7 +5,7 @@ URL: https://mackerel.io/ja/docs/entry/tracing/guide
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/6802418398333946217
 ---
 
-## Mackerelトレーシング機能（旧：Vaxila）について
+## Mackerelトレーシング機能について
 
 - [はじめに](https://mackerel.io/ja/docs/entry/tracing/guide/introduction)
 - [Mackerelトレーシング機能概要](https://mackerel.io/ja/docs/entry/tracing/guide/overview)
@@ -22,7 +22,6 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 - [.NETにOpenTelemetryを導入する](https://mackerel.io/ja/docs/entry/tracing/installations/dotnet)
 - [その他の言語にOpenTelemetryを導入する](https://mackerel.io/ja/docs/entry/tracing/installations/other-language)
 - [OpenTelemetry Collectorを導入する](https://mackerel.io/ja/docs/entry/tracing/installations/opentelemetry-collector)
-- [フロントエンド・アプリでのエラートラッキング](https://mackerel.io/ja/docs/entry/tracing/installations/frontend-or-app)
 
 ## 機能
 

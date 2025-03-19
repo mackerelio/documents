@@ -11,7 +11,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 
 ### サービスの状態を把握する
 
-SLOの状態を把握することで、ユーザー体験に問題が無いことを確認できます。\
+SLOの状態を把握することで、ユーザー体験に問題が無いことを確認できます。
 SLOはエラーの頻度やリクエスト遅延の閾値など、サービスの特性にあわせて設定することができます。
 
 <figure class="figure-image figure-image-fotolife" title="Dashboard 画面">[f:id:mackerelio:20250305173326p:plain]<figcaption>Dashboard 画面</figcaption></figure>
@@ -22,7 +22,7 @@ SLOはエラーの頻度やリクエスト遅延の閾値など、サービス�
 
 ### 問題を発見する
 
-エラーや遅いリクエストを自動的に発見し、Issueとして一覧に追加します。 \
+エラーや遅いリクエストを自動的に発見し、Issueとして一覧に追加します。
 Slackの通知を有効化することで、問題が発生した場合すぐに気づけるようになります。
 
 また、同じIssueはまとめられるので、大量のエラーに煩わせれることはありません。

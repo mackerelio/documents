@@ -109,13 +109,13 @@ service:
   * exportersに `otlphttp` を使用します。
   * endpointをMackerelのエンドポイント (**`https://otlp-vaxila.mackerelio.com`**) にします。
   * headersには **`Mackerel-Api-Key`** と **`Accept`** を設定します。
-    * **Mackerel-Api-Key:** Mackerel で発行した API キーを設定します。 \*1
+    * **Mackerel-Api-Key:** Mackerel で発行した API キーを設定します。*1
     * **Accept**: 常に `*/*` を設定します。 (Mackerelが内部でAWS Lambdaを使用しているために必要な設定です。)
 * service
   * pipelines の traces に作成したexporterを設定します。
 
 これらを設定することで、CollectorからMackerelへデータを送信するようになります。
 
-\*1 ：テレメトリデータを送信するための API キーは Mackerel のダッシュボードの API キータブで確認できます。 "Write" 権限が付与されている API キーを環境変数 `MACKEREL_APIKEY` にセットしてください。API キーの権限を変更した際は反映まで1分ほどお待ちください。
+*1 ：テレメトリデータを送信するための API キーは Mackerel のダッシュボードの API キータブで確認できます。 "Write" 権限が付与されている API キーを環境変数 `MACKEREL_APIKEY` にセットしてください。API キーの権限を変更した際は反映まで1分ほどお待ちください。
 
 <figure class="figure-image figure-image-fotolife" title="API キーを確認する方法">[f:id:mackerelio:20250307170201p:plain]<figcaption>API キーを確認する方法</figcaption></figure>

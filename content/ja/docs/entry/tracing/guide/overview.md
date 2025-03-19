@@ -5,7 +5,7 @@ URL: https://mackerel.io/ja/docs/entry/tracing/guide/overview
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/6802418398333958374
 ---
 
-このページではMackerelトレーシング機能（旧：Vaxila）を使い始めるために必要な情報を紹介します。
+このページではMackerelトレーシング機能を使い始めるために必要な情報を紹介します。
 
 [:contents]
 
@@ -54,11 +54,3 @@ OpenTelemetryのSDKを使用することは計装 (instrumentation) といわれ
 各言語の具体的な計装方法は以下のページを参考にしてください。
 
 [インストール・実装](https://mackerel.io/ja/docs/entry/tracing/installations)
-
-### Sentryのインストール方法
-
-Mackerelトレーシング機能はSentryのSDKを利用したエラートラッキングもサポートしています。
-
-フロントエンドやアプリなど、OpenTelemtryがサポートしていない場所ではSentryのSDKを利用することでエラーを収集することができます。
-
-[フロントエンド・アプリでのエラートラッキング](https://mackerel.io/ja/docs/entry/tracing/installations/frontend-or-app)

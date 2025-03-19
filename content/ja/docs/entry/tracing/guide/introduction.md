@@ -7,7 +7,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 
 [:contents]
 
-## Mackerelトレーシング機能（旧：Vaxila）とは
+## Mackerelトレーシング機能とは
 
 Mackerelトレーシング機能では、エラーや速度低下など、ユーザー体験の悪化原因を発見し、解決することができます。
 
