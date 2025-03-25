@@ -3,7 +3,6 @@ Title: チェックプラグイン - check-tcp
 Date: 2023-01-27T09:09:07+09:00
 URL: https://mackerel.io/ja/docs/entry/plugins/check-tcp
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/4207112889957873808
-CustomPath: plugins/check-tcp
 ---
 
 check-tcp はTCPによるサーバーとの接続監視を行うプラグインです。
@@ -23,6 +22,7 @@ check-tcp はTCPによるサーバーとの接続監視を行うプラグイン�
 | --ssl                  | -S     | TLS接続の要否                                                                                                                            | false    |
 | --unix-sock            | -U     | unixソケット                                                                                                                             |          |
 | --no-check-certificate |        | 証明書検証の実施要否                                                                                                                     | false    |
+| --status-as            |        | 監視ステータスの上書き。たとえば `UNKNOWN=CRITICAL` と記述した場合、監視ステータスが UNKNOWN のときは CRITICAL になる。カンマ区切りで複数指定が可能          |     |
 | --timeout              | -t     | 接続タイムアウト時間（秒）                                                                                                               | 10       |
 | --maxbytes             | -m     | 指定バイト数以上のデータを受信した場合にコネクションを切断                                                                               |          |
 | --delay                | -d     | データ送信してから応答をポーリングするまでの待ち時間（秒）                                                                               |          |

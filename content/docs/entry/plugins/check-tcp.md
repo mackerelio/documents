@@ -3,7 +3,6 @@ Title: Check plugins - check-tcp
 Date: 2023-01-27T09:09:06+09:00
 URL: https://mackerel.io/docs/entry/plugins/check-tcp
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/4207112889957873802
-CustomPath: plugins/check-tcp
 ---
 
 check-tcp is a plug-in that monitors connections to servers via TCP.
@@ -23,6 +22,7 @@ check-tcp is a plug-in that monitors connections to servers via TCP.
 | --ssl                  | -S     | TLS connection required or not                                                                                                                              | false         |
 | --unix-sock            | -U     | Unix socket                                                                                                                                                 |               |
 | --no-check-certificate |        | Whether or not certificate verification is required                                                                                                         | false         |
+| --status-as            |        | Overwrite the monitoring status. For Example, If you specify `UNKNOWN=CRITICAL`, the monitoring status will become CRITICAL when it is UNKNOWN. Multiple values can be specified, separated by commas. |          |
 | --timeout              | -t     | Connection timeout time (sec)                                                                                                                               | 10            |
 | --maxbytes             | -m     | Disconnects when more than the specified number of bytes of data is received                                                                                |               |
 | --delay                | -d     | Latency between sending data and polling for a response (sec)                                                                                               |               |
