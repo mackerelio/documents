@@ -425,6 +425,7 @@ This function disables notifications in monitoring. Alerts occur in response to 
 | `certificationExpirationWarning`    | *number*   | [optional] certification expiration date monitor’s “Warning” threshold. number of days remaining until expiration. |
 | `certificationExpirationCritical`   | *number*   | [optional] certification expiration date monitor’s “Critical” threshold. number of days remaining until expiration. |
 | `skipCertificateVerification`       | *boolean*  | [optional] Whether or not to skip the verification of the certificate. |
+| `expectedStatusCode`   | *number*   | [optional] Specify the status code that is judged as OK. If not specified, 2xx or 3xx will be judged as OK. |
 | `isMute` | *boolean* | [optional] Whether monitoring is muted[*3](#muted-monitoring) or not . If you omit this, the monitor will be unmuted.|
 | `headers`              | *array[object]* | [optional] The values that should be configured as the HTTP request header specified by `name` and `value`. If this field is omitted, the default header will be configured. If you do not want to configure headers, specify an empty array. |
 | `requestBody`          | *string*   | [optional] HTTP request body |

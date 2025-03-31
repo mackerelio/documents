@@ -7,3 +7,5 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 
 - [サービスを健全に保つ](https://mackerel.io/ja/docs/entry/tracing/features/keep-healthy)
 - [問題を素早く解決する](https://mackerel.io/ja/docs/entry/tracing/features/solve-issues)
+- [データベースのパフォーマンスを調査する](https://mackerel.io/ja/docs/entry/tracing/features/db-performance)
+- [HTTPサーバーのパフォーマンスを調査する](https://mackerel.io/ja/docs/entry/tracing/features/http-performance)

@@ -424,6 +424,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 | `certificationExpirationWarning`  | *number*   | [optional] 証明書の有効期限切れ監視のWaning閾値。期限までの残り日数。 |
 | `certificationExpirationCritical` | *number*   | [optional] 証明書の有効期限切れ監視のCritical閾値。期限までの残り日数。 |
 | `skipCertificateVerification`     | *boolean*  | [optional] 証明書の照合を行わなわずに監視をおこなう。 |
+| `expectedStatusCode`              | *number*   | [optional] OK と判定するステータスコードを指定。無指定の場合、2xxまたは3xxのときにOKと判定します。|
 | `isMute`        | *boolean*       | [optional] 監視がミュート状態[*3](#mute)か否か。省略した場合はミュートしない設定となります。|
 | `headers`                         | *array[object]* | [optional] HTTPリクエストヘッダとして設定されているべき値を`name`と`value`で指定。このフィールドを省略するとデフォルトのヘッダが設定されます。ヘッダを設定したくない場合は空の配列を指定してください。|
 | `requestBody`                     | *string*   | [optional] リクエスト時のメッセージボディ |
