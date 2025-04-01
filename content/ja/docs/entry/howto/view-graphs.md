@@ -72,7 +72,6 @@ Mackerel上から直接グラフURLを通知チャンネルに流すことがで
 この機能を利用するにはあらかじめ <a href="https://mackerel.io/my/channels/-/create" target="_blank">通知チャンネル</a> を設定する必要があります。現在投稿がサポートされている通知チャンネルは以下の通りです。
 
 * Slack
-* LINE
 * Chatwork
 * Typetalk
 * Microsoft Teams

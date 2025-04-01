@@ -73,7 +73,6 @@ If you select a metric to display ([Select a metric to display on the graph](htt
 To use this feature, you need to set a <a href="https://mackerel.io/my/channels/-/create" target="_blank">notification channel</a> in advance. The following notification channels are currently supported for submissions.
 
 * Slack
-* LINE
 * Chatwork
 * Typetalk
 * Microsoft Teams

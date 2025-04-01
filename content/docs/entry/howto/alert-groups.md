@@ -35,7 +35,7 @@ You can also check past alert groups from the [Alert groups list page](https://m
 By enabling alert group notifications in the [Channels List](https://mackerel.io/my/channels), alert group notifications will be sent.
 Alerts that are affiliated with the alert group will no longer be notified.
 If you want to receive affiliated alert notifications while also receiving alert group notifications, a separate channel needs to be created.
-Channels that can notify alert groups are: [Slack](https://mackerel.io/docs/entry/howto/alerts/slack), email, [Chatwork](https://mackerel.io/docs/entry/howto/alerts/chatwork), [LINE](https://mackerel.io/docs/entry/howto/alerts/line), [Typetalk](https://mackerel.io/docs/entry/howto/alerts/typetalk), [Microsoft Teams](https://mackerel.io/docs/entry/howto/alerts/microsoft-teams), and [Webhook](https://mackerel.io/docs/entry/howto/alerts/webhook).
+Channels that can notify alert groups are: [Slack](https://mackerel.io/docs/entry/howto/alerts/slack), email, [Chatwork](https://mackerel.io/docs/entry/howto/alerts/chatwork), [Typetalk](https://mackerel.io/docs/entry/howto/alerts/typetalk), [Microsoft Teams](https://mackerel.io/docs/entry/howto/alerts/microsoft-teams), and [Webhook](https://mackerel.io/docs/entry/howto/alerts/webhook).
 
 [f:id:mackerelio:20180627152007p:plain:w500]
 
