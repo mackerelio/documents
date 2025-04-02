@@ -541,6 +541,7 @@ In order to monitor the certification expiration date, it’s necessary to speci
 | `critical`      | *number*   | [optional] the threshold that generates a critical alert |
 | `notificationInterval` | *number* | [optional] The time interval (in minutes) for re-sending notifications. If this field is omitted, notifications will not be re-sent. |
 | `isMute` | *boolean* | [optional] Whether monitoring is muted[*3](#muted-monitoring) or not . If you omit this, the monitor will be unmuted.|
+| `evaluateBackwardMinutes` | *number* | [optional] Delay time until the expression result stabilizes (in minutes).  [*4](#delay-for-stability) The default is 2; (2-10). |
 
 ##### Input example
 
@@ -613,6 +614,10 @@ In order to monitor the certification expiration date, it’s necessary to speci
     </tr>
   </tbody>
 </table>
+
+<h4 id="delay-for-stability">*4 Delay time until the expression result stabilizes</h4>
+
+Specify the delay time until the metrics included in the expression are reflected in Mackerel. Generally, metrics may be delayed from collection to reflection. This delay can cause expression results to be unstable, potentially triggering unintentional alerts. This setting makes alert evaluations use metric data from the specified time in the past.
 
 <h3 id="create-anomaly-detection-monitoring">Monitoring with Anomaly Detection for Roles</h3>
 
@@ -731,6 +736,7 @@ In order to monitor the certification expiration date, it’s necessary to speci
 | `critical`             | _number_  | [optional] the threshold that generates a critical alert                                                                                                                                        |
 | `notificationInterval` | _number_  | [optional] the time interval (in minutes) for re-sending notifications. if this field is omitted, notifications will not be re-sent.                                                 |
 | `isMute` | *boolean* | [optional] Whether monitoring is muted[*3](#muted-monitoring) or not . If you omit this, the monitor will be unmuted.|
+| `evaluateBackwardMinutes` | *number* | [optional] Delay time until the expression result stabilizes (in minutes). [*4](#delay-for-stability) The default is 0; (0-10). |
 
 ##### Example Input
 

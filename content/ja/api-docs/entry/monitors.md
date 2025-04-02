@@ -540,6 +540,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 | `critical`      | *number*   | [optional] criticalのAlert発生の閾値。 |
 | `notificationInterval` | *number* | [optional] 通知の再送設定をするときの再送間隔 (分)。このフィールドを省略すると通知は再送されません。 |
 | `isMute`        | *boolean*       | [optional] 監視がミュート状態[*3](#mute)か否か。省略した場合はミュートしない設定となります。|
+| `evaluateBackwardMinutes` | *number* | [optional] 監視対象の式の値が安定するまでの遅延時間（分）[*4](#delay-for-stability)。 デフォルトは2（2〜10）です。 |
 
 ##### 入力例
 
@@ -612,6 +613,10 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
     </tr>
   </tbody>
 </table>
+
+<h4 id="delay-for-stability">*4 監視する式が安定するまでの遅延時間</h4>
+
+式やクエリに含まれるメトリックが Mackerel に反映されるまでの遅延時間を指定します。一般にメトリックは、収集から反映までに遅延が生じることがあります。この遅延により、式の計算結果が不安定になり、誤ったアラートが発報する可能性があります。この設定を使うことで、指定した時間だけ過去のデータを使ってアラート判定を行います。
 
 <h3 id="create-anomaly-detection-monitoring">ロール内異常検知による監視</h3>
 
@@ -730,6 +735,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 | `critical`      | *number*   | [optional] criticalのAlert発生の閾値。 |
 | `notificationInterval` | *number* | [optional] 通知の再送設定をするときの再送間隔（分）。このフィールドを省略すると通知は再送されません。 |
 | `isMute`        | *boolean*       | [optional] 監視がミュート状態[*3](#mute)か否か。省略した場合はミュートしない設定となります。|
+| `evaluateBackwardMinutes` | *number* | [optional] 監視対象のクエリが安定するまでの遅延時間（分）[*4](#delay-for-stability)。 デフォルトは0（0〜10）です。 |
 
 ##### 入力例
 
