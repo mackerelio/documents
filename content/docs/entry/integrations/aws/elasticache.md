@@ -65,3 +65,7 @@ The maximum number of metrics obtainable is 48 with Memcached, and 70 with Redis
 |Replication Lag|ReplicationLag|elasticache.redis.replication_lag.lag|float|Average|
 |Save In Progress|SaveInProgress|elasticache.redis.save_in_progress.bgsave|integer|Maximum|
 |Commands Latency|GetTypeCmdsLatency<br>SetTypeCmdsLatency<br>KeyBasedCmdsLatency<br>StringBasedCmdsLatency<br>HashBasedCmdsLatency<br>ListBasedCmdsLatency<br>SetBasedCmdsLatency<br>ClusterBasedCmdsLatency<br>SortedSetBasedCmdsLatency<br>EvalBasedCmdsLatency<br>GeoSpatialBasedCmdsLatency<br>HyperLogLogBasedCmdsLatency<br>PubSubBasedCmdsLatency<br>StreamBasedCmdsLatency|elasticache.redis.commands_latency.get_type<br>elasticache.redis.commands_latency.set_type<br>elasticache.redis.commands_latency.key_based<br>elasticache.redis.commands_latency.string_based<br>elasticache.redis.commands_latency.hash_based<br>elasticache.redis.commands_latency.list_based<br>elasticache.redis.commands_latency.set_based<br>elasticache.redis.commands_latency.cluster_based<br>elasticache.redis.commands_latency.sorted_set_based<br>elasticache.redis.commands_latency.eval_based<br>elasticache.redis.commands_latency.geo_spatial_based<br>elasticache.redis.commands_latency.hyper_log_log_based<br>elasticache.redis.commands_latency.pub_sub_based<br>elasticache.redis.commands_latency.stream_based|float|Average|
+
+<h2 id="notes">Precautions</h2>
+
+- Amazon ElastiCache Serverless is not supported.

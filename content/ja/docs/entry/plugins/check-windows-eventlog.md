@@ -14,7 +14,7 @@ check-windows-eventlog は Windows イベントログの監視を行うプラグ
 | オプション | 省略形 | 説明 | デフォルト値 |
 | --- | --- | --- | --- |
 | --log | | 検出したいイベントログの種類を指定<br>[監視可能なイベントログの種類](#log-type) を参照 | Application |
-| --type | | 検出したいイベントタイプを指定<br>[アラート対象のイベントタイプ](#event-type) を参照 |  |
+| --type | | 検出したいイベントレベルを指定<br>[アラート対象のイベントレベル](#event-type) を参照 |  |
 | --source-pattern | | 検出したいイベントソースの指定 |  |
 | --source-exclude | | 除外したいイベントソースの指定 |  |
 | --message-pattern | | 検出したい文字列パターンを正規表現で指定（AND 条件には非対応） *1 |  |
@@ -23,6 +23,7 @@ check-windows-eventlog は Windows イベントログの監視を行うプラグ
 | --event-id-exclude | | 除外したいイベント ID の指定（カンマ区切りで複数指定、ハイフンで範囲指定が可能） |  |
 | --warning-over | -w | 検出パターンにマッチする行が指定値を超えたら Warning アラートを発生 | 0 |
 | --critical-over | -c | 検出パターンにマッチする行が指定値を超えたら Critical アラートを発生 | 0 |
+| --status-as | | 監視ステータスの上書き。たとえば `UNKNOWN=CRITICAL` と記述した場合、監視ステータスが UNKNOWN のときは CRITICAL になる。カンマ区切りで複数指定が可能 |  |
 | --return | -r | パターンにマッチしたログ行をアラートで通知する（最大1024文字まで） |  |
 | --state-dir | -s | State ファイルの保存先ディレクトリパスを指定 | [Stateファイルについて](#state-file) を参照 |
 | --no-state | | Stateファイルを使用せず全てのログを対象とする |  |
@@ -38,15 +39,16 @@ check-windows-eventlog は Windows イベントログの監視を行うプラグ
 - Security
 - System
 
-<h3 id="event-type">アラート対象のイベントタイプ</h3>
+<h3 id="event-type">アラート対象のイベントレベル</h3>
 
-| イベントタイプ | アラートレベル |
+| イベントレベル | 監視ステータス |
 |---|---|
 | Error | Critical |
 | Audit Failure | Critical |
 | Warning | Warning |
+| Information | Warning |
 
-上記以外のイベントタイプには対応していません
+上記以外のイベントレベルには対応していません
 
 <h3 id="state-file">State ファイルについて</h3>
 

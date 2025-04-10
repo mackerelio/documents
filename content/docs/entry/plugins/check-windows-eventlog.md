@@ -14,7 +14,7 @@ check-windows-eventlog is a plugin that monitors Windows event logs. It raises a
 | Option | Abbreviation | Description | Default |
 | --- | --- | --- | --- |
 | --log | | Specify the type of event log you want to detect.<br>See the [Types of event logs that can be monitored](#log-type). | Application |
-| --type | | Specify the event type you want to detect.<br>See the [Event type to be alerted](#event-type). |  |
+| --type | | Specify the event level you want to detect.<br>See the [Event type to be alerted](#event-type). |  |
 | --source-pattern | | Specify the event source you want to detect. |  |
 | --source-exclude | | Specify the event sources you want to exclude. |  |
 | --message-pattern | | Specify the string pattern you want to detect with a regular expression. (AND conditions are not supported.) *1 |  |
@@ -23,6 +23,7 @@ check-windows-eventlog is a plugin that monitors Windows event logs. It raises a
 | --event-id-exclude | | Specify event IDs to exclude, Multiple specifications can be specified by separating them with commas, and ranges can be specified with hyphens. |  |
 | --warning-over | -w | Warning alert occurs if the number of lines matching the detection pattern exceeds the specified value. | 0 |
 | --critical-over | -c | Critical alert occurs if the number of lines matching the detection pattern exceeds the specified value. | 0 |
+| --status-as | | Overwrite the monitoring status. For Example, If you specify `UNKNOWN=CRITICAL`, the monitoring status will become CRITICAL when it is UNKNOWN. Multiple values can be specified, separated by commas. |  |
 | --return | -r | Alerts you to log lines that match the pattern, Up to 1024 characters. |  |
 | --state-dir | -s | Specify the directory path where the State file is to be saved. | See [About State File](#state-file). |
 | --no-state | | Target all logs without use State file. |  |
@@ -38,15 +39,16 @@ check-windows-eventlog is a plugin that monitors Windows event logs. It raises a
 - Security
 - System
 
-<h3 id="event-type">Event type to be alerted</h3>
+<h3 id="event-type">Event level to be alerted</h3>
 
-| Event Type | Alert Level |
+| Event Level | Monitoring Status |
 |---|---|
 | Error | Critical |
 | Audit Failure | Critical |
 | Warning | Warning |
+| Information | Warning |
 
-Event types other than those listed above are not supported.
+Event level other than those listed above are not supported.
 
 <h3 id="state-file">About State File</h3>
 
