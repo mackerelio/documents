@@ -16,7 +16,7 @@ OpenTelemetry には .NET用のSDKが用意されています。
 
 このSDKに加えて、ASP.NETやEntityFramework用のSDKを使用すると、色々な範囲を計装できます。
 
-[https://opentelemetry.io/ja/docs/languages/net/instrumentation/:embed:cite]
+[https://opentelemetry.io/ja/docs/languages/dotnet/instrumentation/:embed:cite]
 
 ### Collectorを使用するべきか
 
