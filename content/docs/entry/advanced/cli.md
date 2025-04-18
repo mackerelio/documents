@@ -538,3 +538,9 @@ For more information on the json format returned by each subcommand, please refe
 ```
 
 For more information please refer to https://github.com/mackerelio/mkr
+
+### Monitor command execution results
+
+With mkr, you can monitor the execution results of commands with the wrap subcommand. For details on how to use it, refer to the following help.
+
+[https://mackerel.io/docs/entry/howto/mkr/wrap:embed:cite]
