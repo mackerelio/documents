@@ -5,6 +5,7 @@ URL: https://mackerel.io/ja/docs/entry/tracing/features
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/6802418398334514045
 ---
 
+- [送信したトレースを確認する](https://mackerel.io/ja/docs/entry/tracing/features/trace-list)
 - [サービスを健全に保つ](https://mackerel.io/ja/docs/entry/tracing/features/keep-healthy)
 - [問題を素早く解決する](https://mackerel.io/ja/docs/entry/tracing/features/solve-issues)
 - [データベースのパフォーマンスを調査する](https://mackerel.io/ja/docs/entry/tracing/features/db-performance)
