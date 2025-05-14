@@ -5,7 +5,7 @@ URL: https://mackerel.io/ja/docs/entry/tracing/guide/pricing-mackerel
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/6802418398333959028
 ---
 
-Mackerel の 1 オーガニゼーションあたり月間 500 万スパンまで送信できます。Mackerel におけるトレース機能のベータ版という位置づけのため、無料でご利用いただけます。
+月初から月末までの1ヶ月間に投稿されたスパン数に対して費用が発生します。詳しくは [料金ページ](https://ja.mackerel.io/pricing) や [利用料金算出方法](https://support.mackerel.io/hc/ja/articles/31304727432729-%E5%88%A9%E7%94%A8%E6%96%99%E9%87%91%E7%AE%97%E5%87%BA%E6%96%B9%E6%B3%95) をご参照ください。
 
 [:contents]
 

@@ -47,8 +47,6 @@ Its also possible to register user-defined custom metrics using a simple Sensu p
 
 Labeled metrics are a feature that conforms to the [OpenTelemetry](https://opentelemetry.io/) specification. The OpenTelemetry ecosystem benefits from the ability to post metrics to Mackerel, which can also be displayed and monitored using the PromQL query language.
 
-As of February 2024, this feature is being provided as a public beta.
-
 - → [Posting labeled metrics to Mackerel](https://mackerel.io/docs/entry/howto/labeled-metrics/post-metrics)
 - → [Monitoring with queries](https://mackerel.io/docs/entry/query-monitoring)
 - → [Using Query Graph](https://mackerel.io/docs/entry/howto/labeled-metrics/query-graph)

@@ -5,7 +5,7 @@ URL: https://mackerel.io/ja/docs/entry/tracing/features/http-performance
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/6802418398338191359
 ---
 
-HTTPサーバーパフォーマンス画面では、アプリケーションのトレーススパンに含まれるHTTPリクエストのパフォーマンスに関する統計情報を一覧で確認できます。
+APMサービス画面のHTTPサーバータブでは、アプリケーションのトレーススパンに含まれるHTTPリクエストのパフォーマンスに関する統計情報を一覧で確認できます。
 
 <figure class="figure-image figure-image-fotolife" title="HTTPサーバーパフォーマンス画面">[f:id:mackerelio:20250317142308p:plain]<figcaption>HTTPサーバーパフォーマンス画面</figcaption></figure>
 
@@ -13,7 +13,7 @@ HTTPサーバーパフォーマンス画面では、アプリケーションの�
 
 HTTPサーバーパフォーマンス画面では、受信したリクエストに関するトレーススパンの情報が一覧で表示されます。送信時のトレーススパン（クライアントスパン）に関しては集計対象外です。
 
-各ルートの行には以下の情報が表示されます。リクエスト一覧は「フィルター」→「フィルター条件」で表示する期間を指定したり、「並べ替え」で項目をソートして表示したりできます。
+各ルートの行には以下の情報が表示されます。ルート以外の項目名をクリックすることで、その項目を基準に昇順と降順を切り替えられます。
 
 | 項目      | 内容                             |
 |-----------|---------------------------------|

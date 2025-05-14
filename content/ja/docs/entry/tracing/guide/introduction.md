@@ -29,7 +29,7 @@ Mackerelトレーシング機能の主な機能を紹介します
 
 <figure class="figure-image figure-image-fotolife" title="Trace List 画面">[f:id:mackerelio:20250305172303p:plain]<figcaption>Trace List 画面</figcaption></figure>
 
-* Mackerelトレーシング機能ではトレースを3日間保管しています。
+* Mackerelトレーシング機能ではトレースを14日間保管しています。
 
 <figure class="figure-image figure-image-fotolife" title="Trace List 画面">[f:id:mackerelio:20250305172333p:plain]<figcaption>Trace List 画面</figcaption></figure>
 
@@ -38,18 +38,6 @@ Mackerelトレーシング機能の主な機能を紹介します
 <figure class="figure-image figure-image-fotolife" title="Trace 画面">[f:id:mackerelio:20250305172406p:plain]<figcaption>Trace 画面</figcaption></figure>
 
 * トレースには発生時刻やSpanの内容が記録されています。
-
-### SLOの管理 <a href="#slo_management" id="slo_management"></a>
-
-<figure class="figure-image figure-image-fotolife" title="Dashboard 画面">[f:id:mackerelio:20250305172420p:plain]<figcaption>Dashboard 画面</figcaption></figure>
-
-* SLOを管理し、一覧することができます
-
-<figure class="figure-image figure-image-fotolife" title="SLO 画面">[f:id:mackerelio:20250305172452p:plain]<figcaption>SLO 画面</figcaption></figure>
-
-* SLOのバジェットや推移を見ることができます
-
-
 
 具体的な機能の詳細は、以下のページを参照してください
 
