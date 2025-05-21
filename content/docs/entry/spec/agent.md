@@ -285,6 +285,17 @@ ignore = "bond.*"
 
 For Windows, specify a regular expression that corresponds to the interface name displayed in Windows Device Manager.
 
+<h5>use_adapter</h5>
+In Windows, when using Multiplexor virtual adapters created by teaming or external virtual network adapters created by Hyper-V, the mackerel-agent cannot obtain the metric using the normal interface query method.
+
+In such cases, setting `use_adapter = true` will enable the adapter and allow the mackerel-agent to obtain the metric (metrics for other normal interfaces not bound to the adapter will continue to be obtained as usual).
+
+```config
+# /etc/mackerel-agent/mackerel-agent.conf
+[interfaces]
+use_adapter = true
+```
+
 <h4 id="config-file-custommetrics">[plugin.metrics.{name}]</h4>
 In the section `plugin.metrics. {name}`, you can write configurations to retrieve and post arbitrary metrics.
 

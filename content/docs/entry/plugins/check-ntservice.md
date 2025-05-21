@@ -3,7 +3,6 @@ Title: Check plugins - check-ntservice
 Date: 2022-12-15T16:23:56+09:00
 URL: https://mackerel.io/docs/entry/plugins/check-ntservice
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/4207112889945319222
-CustomPath: plugins/check-ntservice
 ---
 
 check-ntservice is a plugin that monitors whether Windows services are running.
@@ -19,9 +18,12 @@ check-ntservice is a plugin that monitors whether Windows services are running.
 | --exclude-service | -x     |          | Exclude from monitoring if the specified string is contained |
 | --list-service    | -l     |          | Displays a list of service names                             |
 | --exact           |        |          | Check the service name for exact match                       |
+| --status-as       |        |          | Overwrite the monitoring status. For Example, if you specify `CRITICAL=WARNING`, the monitoring status will become WARNING when it is CRITICAL. Multiple values can be specified, separated by commas      |
+
 
 - Multiple specification of options and specification by regular expressions are not supported.
 - `--exact` has been enabled for plugins shipped with mackerel-agent v0.78.0 and later.
+- `--status-as` has been enabled for plugins shipped with mackerel-agent v0.85.0 and later.
 
 <h2 id="config">Example configuration</h2>
 

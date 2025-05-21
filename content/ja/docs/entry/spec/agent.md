@@ -274,6 +274,17 @@ ignore = "bond.*"
 
 Windows の場合、インターフェース名は Windows の デバイスマネージャー で表示されるインターフェース名に対応する正規表現を指定してください。
 
+<h5>use_adapter</h5>
+Windows において、チーミングで作成される Multiplexor 仮想アダプタや、Hyper-V で作成する外部仮想ネットワークアダプタを利用した場合、通常のインターフェースでの取得方法ではそのメトリックを取得できません。
+
+このようなときには `use_adapter = true` を設定すると、アダプタに対応し、メトリックを取得できるようになります（アダプタにバインドされていない他の通常のインターフェースのメトリックも変わらず取得できます）。
+
+```config
+# /etc/mackerel-agent/mackerel-agent.conf
+[interfaces]
+use_adapter = true
+```
+
 <h4 id="config-file-custommetrics">[plugin.metrics.{name}]</h4>
 `plugin.metrics.{name}` セクションで、任意のメトリックを取得、投稿するための設定を記述できます。
 

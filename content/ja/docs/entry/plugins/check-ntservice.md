@@ -3,7 +3,6 @@ Title: チェックプラグイン - check-ntservice
 Date: 2022-12-15T16:23:57+09:00
 URL: https://mackerel.io/ja/docs/entry/plugins/check-ntservice
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/4207112889945319240
-CustomPath: plugins/check-ntservice
 ---
 
 check-ntservice はWindowsサービスが起動しているかを監視するプラグインです。
@@ -18,9 +17,11 @@ check-ntservice はWindowsサービスが起動しているかを監視するプ
 | --exclude-service | -x     |      | 指定した文字列を含む場合は監視の対象から除外します |
 | --list-service    | -l     |      | サービス名の一覧を表示します                       |
 | --exact           |        |      | --service-nameに完全一致するサービスを監視します |
+| --status-as           |        |      | 監視ステータスを上書きします。たとえば `CRITICAL=WARNING` と記述した場合、監視ステータスが CRITICAL のときは WARNING になります。カンマ区切りで複数指定が可能です |
 
 - オプションの複数指定、正規表現による指定には対応していません。
 - `--exact`は mackerel-agent v0.78.0 以降に同梱されているプラグインで有効です。
+- `--status-as`は mackerel-agent v0.85.0 以降に同梱されているプラグインで有効です。
 
 <h2 id="config">エージェントへの設定例</h2>
 
