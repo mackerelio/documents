@@ -3,6 +3,7 @@ Title: Check plugins - check-ntservice
 Date: 2022-12-15T16:23:56+09:00
 URL: https://mackerel.io/docs/entry/plugins/check-ntservice
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/4207112889945319222
+CustomPath: plugins/check-ntservice
 ---
 
 check-ntservice is a plugin that monitors whether Windows services are running.

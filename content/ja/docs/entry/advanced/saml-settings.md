@@ -40,6 +40,8 @@ Mackerelでは複数のオーガニゼーションからなるオーガニゼー
 - [Entra ID](https://learn.microsoft.com/ja-jp/entra/identity-platform/single-sign-on-saml-protocol)
 - [Okta](https://help.okta.com/oie/ja-jp/content/topics/apps/apps_app_integration_wizard_saml.htm)
 - [Keycloak](https://www.keycloak.org/docs/latest/server_admin/index.html#assembly-managing-clients_server_administration_guide)
+- [GMOトラスト・ログイン](https://support.trustlogin.com/hc/ja/articles/46796345053977)
+  - [JIT Provisioning設定方法](https://support.trustlogin.com/hc/ja/articles/46936046284697)
 
 ### オーガニゼーショングループの基本設定
 

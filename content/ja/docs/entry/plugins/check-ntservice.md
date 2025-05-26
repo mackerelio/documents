@@ -3,6 +3,7 @@ Title: チェックプラグイン - check-ntservice
 Date: 2022-12-15T16:23:57+09:00
 URL: https://mackerel.io/ja/docs/entry/plugins/check-ntservice
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/4207112889945319240
+CustomPath: plugins/check-ntservice
 ---
 
 check-ntservice はWindowsサービスが起動しているかを監視するプラグインです。
