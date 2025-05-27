@@ -143,6 +143,7 @@ Some services offer the option to retire hosts from Mackerel upon removal of AWS
 Automatic retirement of AWS integration provides automatic retirement of the associated host when it is determined that a resource linked to Mackerel has been deleted. Therefore, automatic retirement will not occur in the following cases:
 
 - Resources that had already been excluded by the tag filter deleted
+  - Exception: if the target service is EC2, it will be retired even if it has already been excluded by the tag
 - The service was linked in the past, but is now disabled in the integration settings
 - The service was linked in the past, but now the entire integration setup has been deleted
 

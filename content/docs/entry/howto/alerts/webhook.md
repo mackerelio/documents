@@ -47,6 +47,7 @@ The JSON that will be sent contains the following. (Items may be added at any ti
     "openedAt": 1473129912,
     "closedAt": 1473130092,
     "createdAt": 1473129912693,
+    "statusChangedAt": 1473130092,
     "criticalThreshold": 1.9588528112516932,
     "duration": 5,
     "isOpen": true,
@@ -127,6 +128,7 @@ The JSON that will be sent contains the following. (Items may be added at any ti
 | url               | string  | URL of the alert details                                                                                 |
 | openedAt          | number  | time the alert occurred (epoch seconds)                                                                  |
 | closedAt          | number  | time the alert resolved (epoch seconds)                                                                  |
+| statusChangedAt   | number  | time the alert status changed (epoch seconds)                                                            |
 | createdAt         | number  | time the alert occurred (epoch milliseconds). A deprecated item and not recommended. Please use openedAt |
 | monitorName       | string  | name of the monitoring item that detected the alert                                                      |
 | metricLabel       | string  | title of the monitoring target's metrics etc.                                                            |

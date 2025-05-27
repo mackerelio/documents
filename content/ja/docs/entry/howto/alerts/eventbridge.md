@@ -67,6 +67,7 @@ Mackerelでの設定が完了したら、Amazon EventBridgeでイベントバス
     "openedAt": 1473129912,
     "closedAt": 1473130092,
     "createdAt": 1473129912693, 
+    "statusChangedAt": 1473130092,
     "criticalThreshold": 1.9588528112516932, 
     "duration": 5, 
     "isOpen": true, 
@@ -152,6 +153,7 @@ Mackerelでの設定が完了したら、Amazon EventBridgeでイベントバス
 |url|string|アラート詳細のURL|
 |openedAt|number|アラートの発生時刻（エポック秒）|
 |closedAt|number|アラートの解決時刻（エポック秒）|
+|statusChangedAt|number|アラートのステータスが変わった時刻(エポック秒)|
 |createdAt|number|アラートの発生時刻（エポックミリ秒）。非推奨で廃止予定。openedAtをご利用ください|
 |monitorName|string|アラートを検知した監視項目名|
 |metricLabel|string|監視対象のメトリックなどの名称|
