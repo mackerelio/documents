@@ -51,7 +51,7 @@ PHPには複数のWebフレームワークが存在しますが、このペー�
 PECL を使用して OpenTelemetry 用の拡張ライブラリをインストールします。
 
 ```bash
-pecl install opentelemetry-beta
+pecl install opentelemetry
 ```
 
 その後、インストールした拡張を `php.ini` に追加します。
@@ -86,19 +86,20 @@ composer require open-telemetry/api \
 
 ### 3. 環境変数の設定
 
-パッケージのインストール後、以下の環境変数を設定するとデータがCollectorへ送信されるようになります。
+パッケージのインストール後、Mackerelにデータを送信するための環境変数を設定します。以下はプロジェクト内の`.env`ファイルを利用して設定する例です。
 
 ```
-OTEL_PHP_AUTOLOAD_ENABLED: true
-OTEL_SERVICE_NAME: "acme_service"
-OTEL_TRACES_EXPORTER: otlp
+OTEL_PHP_AUTOLOAD_ENABLED=true
+OTEL_SERVICE_NAME=your-service-name
+OTEL_TRACES_EXPORTER=otlp
 # デバッグ時にはconsoleと設定すると便利
-# OTEL_TRACES_EXPORTER: console
-OTEL_EXPORTER_OTLP_PROTOCOL: http/protobuf
-OTEL_EXPORTER_OTLP_TRACES_ENDPOINT: 'http://localhost:4318/v1/traces'
-OTEL_METRICS_EXPORTER: none
-OTEL_LOGS_EXPORTER: none
-OTEL_PROPAGATORS: baggage,tracecontext
+# OTEL_TRACES_EXPORTER=console
+OTEL_EXPORTER_OTLP_PROTOCOL=http/protobuf
+OTEL_EXPORTER_OTLP_TRACES_ENDPOINT=https://otlp-vaxila.mackerelio.com/v1/traces
+OTEL_EXPORTER_OTLP_TRACES_HEADERS="Accept=*/*,Mackerel-Api-Key=${MACKEREL_APIKEY}"
+OTEL_METRICS_EXPORTER=none
+OTEL_LOGS_EXPORTER=none
+OTEL_PROPAGATORS=baggage,tracecontext
 ```
 
 これらの環境変数を、オートロードが開始する前に設定してください。

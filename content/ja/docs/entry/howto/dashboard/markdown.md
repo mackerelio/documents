@@ -24,4 +24,10 @@ Markdownウィジェットのアイコンをドラッグ&amp;ドロップして�
 ## Markdown記法について
 - [Markdown](http://daringfireball.net/projects/markdown/)記法を利用できます。
 - 表組み・コードのシンタックスハイライトなど、一部[GitHub Flavored Markdown](https://help.github.com/categories/writing-on-github/)やその他の拡張記法にも対応しています。
-- 一部のHTMLタグ・属性がご利用いただけます。ただし `<img>` `<iframe>` についてはMackerelの外部のリソースを表示することはできません。
+- 一部のHTMLタグ・属性がご利用いただけます。
+  - 任意の要素のstyle属性で以下のプロパティが利用できます。
+    - color
+    - background-color
+    - text-decoration
+  - `<img>`タグはMackerelの外部の画像URLを表示できます。
+  - `<iframe>`タグはMackerelの外部のURLを表示できません。

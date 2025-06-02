@@ -24,4 +24,10 @@ Once writing is completed, create the widget by clicking the Create button.
 ## Markdown notation
 - [Markdown](http://daringfireball.net/projects/markdown/) notation can be used.
 - Some extended notations of [GitHub Flavored Markdown](https://help.github.com/categories/writing-on-github/) and/or other Markdown variants, such as tables and code blocks with syntax highlighting, are also supported.
-- Some HTML tags / attributes are available. However, you can not display resources outside of Mackerel regarding `<img>` `<iframe>`.
+- Some HTML tags / attributes are available.
+- The following properties can be used in the style attribute of any element.
+  - color
+  - background-color
+  - text-decoration
+- The `<img>` tag can display external image URLs.
+- The `<iframe>` tag cannot display external URLs outside of Mackerel.

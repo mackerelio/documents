@@ -47,6 +47,7 @@ npm install @opentelemetry/api \
   @opentelemetry/exporter-trace-otlp-proto \
   @opentelemetry/resources \
   @opentelemetry/sdk-node \
+  @opentelemetry/sdk-trace-node \
   @opentelemetry/semantic-conventions
 ```
 
@@ -70,9 +71,16 @@ OpenTelemetryのデータをMackerelに送信するためには、以下の項�
 ```javascript
 const { Resource, processDetector, hostDetector } = require('@opentelemetry/resources');
 const { OTLPTraceExporter } = require("@opentelemetry/exporter-trace-otlp-proto");
-const { SemanticResourceAttributes } = require("@opentelemetry/semantic-conventions");
+const { ConsoleSpanExporter } = require('@opentelemetry/sdk-trace-node');
 const { NodeSDK } = require('@opentelemetry/sdk-node');
 const { getNodeAutoInstrumentations } = require('@opentelemetry/auto-instrumentations-node');
+const {
+  ATTR_SERVICE_NAME,
+  ATTR_SERVICE_VERSION,
+} = require("@opentelemetry/semantic-conventions");
+
+// ATTR_DEPLOYMENT_ENVIRONMENT_NAME は個別に定義
+ATTR_DEPLOYMENT_ENVIRONMENT_NAME = 'deployment.environment.name';
 
 const exporter = new OTLPTraceExporter({
   maxQueueSize: 1000,
@@ -87,7 +95,7 @@ const exporter = new OTLPTraceExporter({
 
 const sdk = new NodeSDK({
   traceExporter: exporter,
-  instrumentations: instrumentations: [    
+  instrumentations: [
     getNodeAutoInstrumentations({
       // fsの計装はスタートアップ時に大量のトレースを作り出すので、必要がなければ外したほうが便利です。
       '@opentelemetry/instrumentation-fs': {
@@ -96,9 +104,9 @@ const sdk = new NodeSDK({
     }),
   ],
   resource: Resource.default().merge(new Resource({
-    [SemanticResourceAttributes.SERVICE_NAME]: "acme_service",
-    [SemanticResourceAttributes.SERVICE_VERSION]: "vX.Y.Z",
-    [SemanticResourceAttributes.DEPLOYMENT_ENVIRONMENT]: "production"
+    [ATTR_SERVICE_NAME]: "acme_service",
+    [ATTR_SERVICE_VERSION]: "vX.Y.Z",
+    [ATTR_DEPLOYMENT_ENVIRONMENT_NAME]: "production"
   })),
   resourceDetectors: [processDetector, hostDetector]
 });
@@ -118,6 +126,7 @@ sdk.start()
     * Collectorを利用する場合、ヘッダーは必要ないでしょう。
 * resource & resourceDetectors
   * NodeSDKのresourceを設定することで、データがどこから来たかわかるようになります。
+  * `ATTR_DEPLOYMENT_ENVIRONMENT_NAME` は2025年5月時点で `@opentelemetry/semantic-conventions/incubating` に含まれますが、このパッケージは不安定であるため、[Unstable SemConv](https://www.npmjs.com/package/@opentelemetry/semantic-conventions#unstable-semconv) で推奨されるように、import せず個別に定義しています。将来的には `@opentelemetry/semantic-conventions` で使用できるようになると思われます。
 
 ### 3. 独自の計装の追加 (任意)
 

@@ -120,11 +120,11 @@ def instrument():
 * Compression
   * データを送信する時にデータの圧縮方法を指定することができます。指定しなかった場合は圧縮されません。
 
-### 3. Gunicornの設定
+### 3. HTTPサーバーの設定
 
 `Gunicorn` のようにプロセスをフォークして動くサーバーの場合、フォークした後にOpenTelemetryを設定する必要があります。
 
-そのため、 `gunicorn.conf.py` などGunicornの設定ファイルで先ほど作成した関数を呼び出します。
+そのため、`gunicorn.conf.py` などGunicornの設定ファイルで先ほど作成した関数を呼び出します。
 
 ```python
 def post_fork(server, worker):
@@ -139,7 +139,15 @@ def init_tracing():
     instrument()
 ```
 
-ちなみに、Djangoの`manage.py` を使用している場合は `main` の中で呼び出せば十分です。
+他にも `wsgi.py` で呼び出すことが可能です。
+
+```python
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mysite.settings')
+
+instrument()
+```
+
+Django 内蔵の `manage.py` を使用している場合は `main` の中で呼び出します。
 
 ```python
 def main():
