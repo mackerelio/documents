@@ -69,7 +69,7 @@ OpenTelemetryのデータをMackerelに送信するためには、以下の項�
 例えば、以下のようにすると、SDKから直接Mackerelに送信することができます。
 
 ```javascript
-const { Resource, processDetector, hostDetector } = require('@opentelemetry/resources');
+const { resourceFromAttributes, processDetector, hostDetector } = require('@opentelemetry/resources');
 const { OTLPTraceExporter } = require("@opentelemetry/exporter-trace-otlp-proto");
 const { ConsoleSpanExporter } = require('@opentelemetry/sdk-trace-node');
 const { NodeSDK } = require('@opentelemetry/sdk-node');
@@ -103,11 +103,11 @@ const sdk = new NodeSDK({
       },
     }),
   ],
-  resource: Resource.default().merge(new Resource({
+  resource: resourceFromAttributes({
     [ATTR_SERVICE_NAME]: "acme_service",
     [ATTR_SERVICE_VERSION]: "vX.Y.Z",
     [ATTR_DEPLOYMENT_ENVIRONMENT_NAME]: "production"
-  })),
+  }),
   resourceDetectors: [processDetector, hostDetector]
 });
 
