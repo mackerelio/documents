@@ -88,7 +88,7 @@ This <i>`role`</i> is the same as the <i>`role`</i> in [Register AWS Integration
 
 Only one or the other of <i>`excludedMetrics`</i> and <i>`includedMetrics`</i> will be returned for each AWS integration settings across all services.
 
-With EC2, RDS and ElastiCache, the following additional keys are configured.
+With EC2, RDS, ElastiCache and Lambda, the following additional keys are configured.
 
 | KEY                   | TYPE              | DESCRIPTION                              |
 | --------              | ------            | -----------                              |
