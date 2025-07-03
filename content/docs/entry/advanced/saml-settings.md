@@ -48,7 +48,7 @@ After that, the Manger can select an organization group from the Organization Gr
 
 ![The User menu. From the top are “Account Settings”, “Organization Groups Settings”, and “Sign Out”.](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20240925/20240925112722.png)
 
-![Edit Organization Group screen. Detailed information about the organization group is displayed in a table. At the top of the table is the organization group name. Following in order are the entry forms for Details, IdP Metadata XML, IdP Entity ID, Single Sign On URL, IdP X509 Certificate, Require SAML Authentication, Attribute Mappings, and Join all organizations as viewer by default, with an Update button and Cancel button at the end.](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20240822/20240822172822_original.png)
+![Edit Organization Group screen. Detailed information about the organization group is displayed in a table. The organization group's name is at the top of the table. Following in order are the entry forms for Details, IdP Metadata XML, IdP Entity ID, Single Sign On URL, IdP X509 Certificate, Require SAML Authentication, Attribute Mappings, and Join all organizations as viewer by default, with an Update button and Cancel button at the end.](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20250702/20250702182410.png)
 
 | Setting                                     | Description                                                                                                                                                                                                         |
 | ------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -65,7 +65,7 @@ After that, the Manger can select an organization group from the Organization Gr
 
 The organization group Manager can access the Manage Affiliated Organizations screen from Affiliated Organizations on the sidebar.
 
-![Affiliated Organizations List screen. Displays a list of organizations in table format. There is an Add Affiliated Organization button at the top right of the screen. There is a Delete button on the right end of the row for each organization.](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20240822/20240822182811_original.png)
+![Affiliated Organizations List screen. Displays a list of organizations in table format. There is an Add Affiliated Organization button at the top right of the screen. There is a Delete button on the right end of the row for each organization.](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20250702/20250702182415.png)
 
 On the Manage Affiliated Organizations screen, the organizations affiliated with the organization group are displayed.
 
@@ -77,3 +77,21 @@ You can add organizations with the Add Affiliated Organization button. You can a
 
 To remove an affiliated organization, click the Delete button to the right of the relevant organization's name.
 The members and permissions of the organization will remain the same.
+
+## Removing users from an organization group
+
+To remove a SAML user from an organization group, you must first deactivate the user on the identity provider side, and then manually remove the user from the Mackerel organization group (if SCIM integration is not used).
+
+The organization group Manager can access the member management screen from SAML Members on the sidebar.
+
+![Member management screen. Displays a list of users related to the organization group in table format. For users who are not the owner or managers, there is a Delete button at the right end of the row.](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20250702/20250702182404.png)
+
+The member management screen displays a list of the organization group’s owner, managers, and users who have logged in with SAML.
+
+To remove a user from the organization group, click the Delete button to the right of the user’s name. However, the following users cannot be removed:
+
+- The owner of the organization group
+- Managers of the organization group
+- Users using SCIM integration
+
+If “Require SAML authentication” and “Enable attribute mapping” are both enabled in the organization group settings, users removed from the organization group will also be automatically removed from all affiliated organizations. In other cases, to remove SAML users from an organization, you must manually remove the users from each organizations after removing them from the organization group.
