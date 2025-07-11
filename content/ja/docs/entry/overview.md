@@ -34,7 +34,7 @@ Mackerelおよびmackerel-agentは、以下の環境で動作確認を行って�
   - [Microsoft Edge](https://www.microsoft.com/edge) (デスクトップ版) 最新版
 - mackerel-agent
     - Linux
-        - Red Hat Enterprise Linux 8/9、MIRACLE LINUX 8/9、AlmaLinux 8/9、Rocky Linux 8/9、Oracle Linux 8/9
+        - Red Hat Enterprise Linux 8/9/10、MIRACLE LINUX 8/9、AlmaLinux 8/9/10、Rocky Linux 8/9/10、Oracle Linux 8/9
         - CentOS Stream 9
         - Ubuntu 22.04LTS/24.04LTS、Debian 11/12
         - Amazon Linux 2、Amazon Linux 2023
