@@ -53,7 +53,7 @@ npm install @opentelemetry/api \
 
 上のコマンドで追加した `auto-instrumentations-node` は多くのパッケージを内包しているため、Expressやhttpのように人気のライブラリは自動で計装されます。
 
-含まれているパッケージは[GitHubのページ](https://github.com/open-telemetry/opentelemetry-js-contrib/tree/main/metapackages/auto-instrumentations-node#supported-instrumentations)を参照してください。
+含まれているパッケージは[GitHubのページ](https://github.com/open-telemetry/opentelemetry-js-contrib/tree/main/packages/auto-instrumentations-node#supported-instrumentations)を参照してください。
 
 また、足りない場合はOpenTelemetryのページからパッケージを探すことができます。
 

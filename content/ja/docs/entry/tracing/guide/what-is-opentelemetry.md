@@ -34,7 +34,7 @@ SDKを使用することで、下図のようにリクエストにどのよう�
 
 例えば、以下のフレームワークに対応しています
 
-* [Ruby On Rails](https://rubygems.org/gems/opentelemetry-instrumentation-rails) (ruby)
+* [Ruby on Rails](https://rubygems.org/gems/opentelemetry-instrumentation-rails) (ruby)
 * [Django](https://pypi.org/project/opentelemetry-instrumentation-django/) (Python)
 * [Gin](https://pkg.go.dev/go.opentelemetry.io/contrib/instrumentation/github.com/gin-gonic/gin/otelgin) (Go)
 * [Express](https://www.npmjs.com/package/@opentelemetry/instrumentation-express) (Node.js)

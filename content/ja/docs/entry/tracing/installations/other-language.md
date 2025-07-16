@@ -71,7 +71,7 @@ SDKの導入は以下のステップになります。
 
     * サービス名 (`service.name`)
     * サービスのバージョン (`service.version`)
-    * 環境名 (`deployment.environment`)
+    * 環境名 (`deployment.environment.name`)
 
 ### 3. エラーの補足
 

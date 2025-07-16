@@ -20,6 +20,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackere
   <li><a href="#alerts">Alerts</a></li>
   <li><a href="#specifications">Specifications</a></li>
   <li><a href="#advanced">Advanced</a></li>
+  <li><a href="#tracing">Tracing</a></li>
 </ul>
 
 <div id="hot-entries">
@@ -143,6 +144,19 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackere
     <li><a href="https://mackerel.io/docs/entry/advanced/cloudwatch-logs-aggregator"><strong>Aggregating Amazon CloudWatch Logs and posting the metrics to Mackerel</strong><span>utilize logs to monitor application metrics</span></a></li>
     <li><a href="https://mackerel.io/docs/entry/advanced/saml-authentication"><strong>Authentication with SAML</strong><span>Explains how to sign in to Mackerel using your Identity provider credentials.</span></a></li>
     <li><a href="https://mackerel.io/docs/entry/advanced/saml-settings"><strong>Setting up SAML</strong><span>Explains how to set up for linking Mackerel with an Identity Provider.</span></a></li>
+</ul>
+</section>
+
+<section id="section-tracing">
+<div id="tracing" class="fragment"></div>
+<h4>Tracing</h4>
+<ul>
+    <li><a href="https://mackerel.io/docs/entry/tracing/guide"><strong>Mackerel's tracing feature guide</strong><span>A comprehensive guide to Mackerel's tracing feature</span></a></li>
+    <li><a href="https://mackerel.io/docs/entry/tracing/guide/introduction"><strong>Introduction</strong><span>An introduction of tracing's main features</span></a></li>
+    <li><a href="https://mackerel.io/docs/entry/tracing/guide/overview"><strong>Mackerel's tracing feature overview</strong><span>Essential information to get started with the tracing feature</span></a></li>
+    <li><a href="https://mackerel.io/docs/entry/tracing/installations"><strong>Installation and implementation</strong><span>Learn how to instrument your applications</span></a></li>
+    <li><a href="https://mackerel.io/docs/entry/tracing/features"><strong>Feature</strong><span>Identify and resolve issues that cause degraded user experience, such as errors and slow performance</span></a></li>
+    <li><a href="https://mackerel.io/docs/entry/tracing/integrations/slack"><strong>Notify Slack</strong><span>Send tracing alerts to Slack</span></a></li>
 </ul>
 </section>
 

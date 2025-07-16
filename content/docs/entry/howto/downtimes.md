@@ -5,15 +5,21 @@ URL: https://mackerel.io/docs/entry/howto/downtimes
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/26006613439795642
 ---
 
-You can temporarily pause monitoring for specified times or periods, preventing alerts from being issued for anticipated events such as batch processing or maintenance periods.
+The downtime feature suppresses alerts that match specified conditions during a specified period. This is useful for suppressing alerts that would otherwise be generated due to planned server maintenance, for example.
 
 [:contents]
 
 ## Specifications
 
-- During the downtime period, no alerts will be generated or notified for monitoring rules that match the specified conditions.
-  - This feature does not inhibit the operations of agents, such as posting metrics or executing check monitoring; these activities will continue throughout the downtime period.
-- There is no limit to the number of downtime configurations.
+- During the downtime period, alerts won't be generated for hosts or monitors that match the specified "filter" conditions.
+- Alerts suppressed during downtime won't be triggered even after the downtime period ends.
+  - For example, when using host metric monitoring, alerts won't be triggered in the following scenarios:
+    - If a threshold is exceeded during downtime and remains exceeded when the downtime period concludes.
+    - If a threshold is exceeded during downtime, then falls below it while downtime is still active.
+    - If a threshold is exceeded during downtime and then falls below it after the downtime period concludes.
+  - For uptime monitoring only, if communication with a host is lost during downtime and remains lost after the downtime period ends, an alert will be triggered.
+- If a monitor has a interval of notification retransmissions, notifications will be paused during the downtime period, even if the alert was triggered before downtime began.
+- There's no upper limit to the number of downtime settings you can create.
 
 ## Configuring downtime
 
@@ -43,19 +49,22 @@ When repeat setting is set to `Enabled`, the following items can be specified:
 | Every | Specify the interval at which the downtime repeats as `hour`, `day`, `week`, `month`, `year`.<br />If `week` is selected, please check the specific days of the week. |
 | End date and time of the downtime | Specify the end date and time for the downtime. Select `Disabled` for indefinite repetition. |
 
+#### Notes
+
+- If a downtime period is 24 hours or longer and spans from Sunday to Monday, a portion of the downtime will become invalid, depending on the start time. The invalid portion will be either after 24 hours from the start, or after Monday 0:00 (midnight), whichever comes first based on the start day.
+  - If the downtime starts on a Sunday, the downtime after 24 hours will be invalid.
+    - Example: If downtime begins at 7:00 AM on Sunday and the duration is 25 hours, the period from Monday 7:00 AM onwards (7:00 AM to 8:00 AM) will be invalid.
+  - If the downtime starts from Monday to Saturday, the period from Monday 0:00 AM (midnight) onwards will be invalid.
+    - Example: If downtime begins at 7:00 AM on Saturday and the duration is 49 hours, the period from Monday 0:00 AM (midnight) onwards (0:00 AM to 8:00 AM) will be invalid.
+  - If your downtime duration exceeds 24 hours, please be careful to avoid having it span from Sunday to Monday.
+
 ### Scope refinement
 
 | Configuration item | Description |
 | --- | --- |
 | Services / Roles | Specify the services / roles to be included or excluded from the downtime. |
-| Monitors | Specify the monitoring rules to be included or excluded from the downtime. |
+| Monitors | Specify the monitors to be included or excluded from the downtime. |
 
-Specifying refinement settings are AND conditions.
+Specifying refinement settings are AND conditions. 
 
-## Notes
-
-- Monitoring matching the conditions will be completely halted during the downtime period. No alerts will be issued or notified retrospectively after the period ends.
-  - Even if events related to suppressed alerts are resolved after the downtime period, no notification to close the alert will be issued since no alert was raised.
-- Please note that due to Mackerel specifications, if downtime starts on Sunday and exceeds 24 hours, downtime will be ignored after 24 hours.
-  - For example, if the downtime start time is set to Sunday `00:00` and the downtime period is set to `24 hours and 30 minutes`, monitoring will not stop on Monday from 00:00 to 00:30. The same is true for a repeating setting.
-  - For downtime beginning on Sunday, the duration should not exceed 24 hours.
+Filter conditions are applied with an "AND" logic. For monitoring types such as Expression Monitoring or External URL Monitoring not linked to a service, please ensure that you do not specify both a service and a role simultaneously.
