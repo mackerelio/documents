@@ -1,9 +1,8 @@
 ---
-Title: AWSインテグレーション - Connect
+Title: AWSインテグレーション - Amazon Connect
 Date: 2021-03-09T10:00:00+09:00
 URL: https://mackerel.io/ja/docs/entry/integrations/aws/connect
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/26006613703992932
-CustomPath: integrations/aws/connect
 ---
 
 MackerelはAWSインテグレーションにて<a href="https://aws.amazon.com/jp/connect/" target="_blank">Amazon Connect</a>のメトリック取得や監視に対応しています。AWSインテグレーションで連携を行なった場合、課金対象として1インスタンス = 1マイクロホストと換算します。またそれに加えて、取得されるメトリックの数に応じて、1マイクロホストあたりのメトリック数上限の超過による請求が行われる場合があります。

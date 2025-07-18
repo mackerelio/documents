@@ -1,5 +1,5 @@
 ---
-Title: AWSインテグレーション - ECS
+Title: AWSインテグレーション - ECS Cluster
 Date: 2019-03-14T18:00:00+09:00
 URL: https://mackerel.io/ja/docs/entry/integrations/aws/ecs
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/17680117126999837445
@@ -11,7 +11,7 @@ AWSインテグレーションの設定方法や対応AWSサービス一覧に�
 <a href="https://mackerel.io/ja/docs/entry/integrations/aws">AWSインテグレーション</a>
 
 ## 取得メトリック
-AWSインテグレーションのECS対応で取得できるメトリックは以下の通りです。`メトリック`の説明に関しては<a href="https://docs.aws.amazon.com/ja_jp/AmazonECS/latest/developerguide/cloudwatch-metrics.html" target="_blank">AWSのヘルプ</a>をご確認ください。
+AWSインテグレーションのECS Cluster連携で取得できるメトリックは以下の通りです。`メトリック`の説明に関しては<a href="https://docs.aws.amazon.com/ja_jp/AmazonECS/latest/developerguide/cloudwatch-metrics.html" target="_blank">AWSのヘルプ</a>をご確認ください。
 
 最大で `12 + 7 × (サービス数)` 個のメトリックが取得されます。
 
@@ -23,7 +23,7 @@ AWSインテグレーションのECS対応で取得できるメトリックは�
 |Service CPU Utilization|CPUUtilization|ecs.service_cpu_utilization.#.minimum<br>ecs.service_cpu_utilization.#.average<br>ecs.service_cpu_utilization.#.maximum|percentage|Minimum<br>Average<br>Maximum|
 |Service Memory Utilization|MemoryUtilization|ecs.service_memory_utilization.#.minimum<br>ecs.service_memory_utilization.#.average<br>ecs.service_memory_utilization.#.maximum|percentage|Minimum<br>Average<br>Maximum|
 
-- "Mackerel上のメトリック名"の#には、ECSのサービス名が入ります。
+- "Mackerel上のメトリック名"の#には、ECS Cluster内のサービス名が入ります。
 - ecs.running_task.#.count は実行中のタスクが存在しない場合に投稿されません。
   - このメトリックに監視ルールを設定する場合、Mackerel の監視ルールは監視対象のメトリックが投稿された時に動作する仕様のため、実行中のタスクが存在しない状態を検知できない点にはご留意ください。
 

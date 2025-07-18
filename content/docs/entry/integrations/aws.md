@@ -23,8 +23,34 @@ Additionally, the API of AWS will be called every 5 minutes for each targeted me
 
 Currently, the following AWS cloud products are supported. For information on obtaining metrics, please refer to each individual document.
 
-[EC2](https://mackerel.io/docs/entry/integrations/aws/ec2)・[ELB (CLB)](https://mackerel.io/docs/entry/integrations/aws/elb)・[ALB](https://mackerel.io/docs/entry/integrations/aws/alb)・[NLB](https://mackerel.io/docs/entry/integrations/aws/nlb)・[RDS](https://mackerel.io/docs/entry/integrations/aws/rds)・[ElastiCache](https://mackerel.io/docs/entry/integrations/aws/elasticache)・[Redshift](https://mackerel.io/docs/entry/integrations/aws/redshift)・[Lambda](https://mackerel.io/docs/entry/integrations/aws/lambda)・[SQS](https://mackerel.io/docs/entry/integrations/aws/sqs)・[DynamoDB](https://mackerel.io/docs/entry/integrations/aws/dynamodb)・[CloudFront](https://mackerel.io/docs/entry/integrations/aws/cloudfront)・[API Gateway](https://mackerel.io/docs/entry/integrations/aws/apigateway)・[Kinesis Data Streams](https://mackerel.io/docs/entry/integrations/aws/kinesis)・[S3](https://mackerel.io/docs/entry/integrations/aws/s3)・[OpenSearch Service](https://mackerel.io/docs/entry/integrations/aws/es)・[ECS](https://mackerel.io/docs/entry/integrations/aws/ecs)・[SES](https://mackerel.io/docs/entry/integrations/aws/ses)・[Step Functions](https://mackerel.io/docs/entry/integrations/aws/states)・[EFS](https://mackerel.io/docs/entry/integrations/aws/efs)・[Kinesis Data Firehose](https://mackerel.io/docs/entry/integrations/aws/firehose)・[Batch](https://mackerel.io/docs/entry/integrations/aws/batch)・[WAF](https://mackerel.io/docs/entry/integrations/aws/waf)・[Billing](https://mackerel.io/docs/entry/integrations/aws/billing)・[Route 53](https://mackerel.io/docs/entry/integrations/aws/route53)・[Connect](https://mackerel.io/docs/entry/integrations/aws/connect)・[DocumentDB](https://mackerel.io/docs/entry/integrations/aws/docdb)・[CodeBuild](https://mackerel.io/docs/entry/integrations/aws/codebuild)・[Athena](https://mackerel.io/docs/entry/integrations/aws/athena)
-
+* [EC2](https://mackerel.io/docs/entry/integrations/aws/ec2)
+* [CLB (ELB)](https://mackerel.io/docs/entry/integrations/aws/elb)
+* [ALB](https://mackerel.io/docs/entry/integrations/aws/alb)
+* [NLB](https://mackerel.io/docs/entry/integrations/aws/nlb)
+* [RDS](https://mackerel.io/docs/entry/integrations/aws/rds)
+* [ElastiCache](https://mackerel.io/docs/entry/integrations/aws/elasticache)
+* [Redshift](https://mackerel.io/docs/entry/integrations/aws/redshift)
+* [Lambda](https://mackerel.io/docs/entry/integrations/aws/lambda)
+* [SQS](https://mackerel.io/docs/entry/integrations/aws/sqs)
+* [DynamoDB](https://mackerel.io/docs/entry/integrations/aws/dynamodb)
+* [CloudFront](https://mackerel.io/docs/entry/integrations/aws/cloudfront)
+* [API Gateway](https://mackerel.io/docs/entry/integrations/aws/apigateway)
+* [Kinesis Data Streams](https://mackerel.io/docs/entry/integrations/aws/kinesis)
+* [S3](https://mackerel.io/docs/entry/integrations/aws/s3)
+* [OpenSearch Service](https://mackerel.io/docs/entry/integrations/aws/es)
+* [ECS Cluster](https://mackerel.io/docs/entry/integrations/aws/ecs)
+* [SES](https://mackerel.io/docs/entry/integrations/aws/ses)
+* [Step Functions](https://mackerel.io/docs/entry/integrations/aws/states)
+* [EFS](https://mackerel.io/docs/entry/integrations/aws/efs)
+* [Kinesis Data Firehose](https://mackerel.io/docs/entry/integrations/aws/firehose)
+* [AWS Batch](https://mackerel.io/docs/entry/integrations/aws/batch)
+* [WAF](https://mackerel.io/docs/entry/integrations/aws/waf)
+* [Billing](https://mackerel.io/docs/entry/integrations/aws/billing)
+* [Route 53](https://mackerel.io/docs/entry/integrations/aws/route53)
+* [Amazon Connect](https://mackerel.io/docs/entry/integrations/aws/connect)
+* [DocumentDB](https://mackerel.io/docs/entry/integrations/aws/docdb)
+* [CodeBuild](https://mackerel.io/docs/entry/integrations/aws/codebuild)
+* [Athena](https://mackerel.io/docs/entry/integrations/aws/athena)
 
 <h2 id="setting">Integration method</h2>
 There are two ways to integrate AWS integration: by IAM role with authentication by AssumeRole, or by Access Key ID and Secret Access Key.
@@ -80,7 +106,7 @@ If you want to configure all the permissions used in AWS Integration, please ref
 | AWS Cloud Products | Policy / Action | Note |
 | :--- | :--- | :--- |
 | EC2 |  AmazonEC2ReadOnlyAccess  |  |
-| ELB (CLB) |  AmazonEC2ReadOnlyAccess  |  |
+| CLB (ELB) |  AmazonEC2ReadOnlyAccess  |  |
 | ALB | AmazonEC2ReadOnlyAccess |  |
 | NLB | AmazonEC2ReadOnlyAccess |  |
 | RDS | AmazonRDSReadOnlyAccess |  |
@@ -94,16 +120,16 @@ If you want to configure all the permissions used in AWS Integration, please ref
 | Kinesis Data Streams [*1](#single-product) | AmazonKinesisReadOnlyAccess |  |
 | S3 [*1](#single-product) | AmazonS3ReadOnlyAccess | Request metrics must be enabled in the S3 configuration.<br>See <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/configure-request-metrics-bucket.html">Creating a CloudWatch metrics configuration for all the objects in your bucket</a> and set the filter name as `EntireBucket`. |
 | OpenSearch Service [*1](#single-product) [*2](#opensearch-service) | AmazonOpenSearchServiceReadOnlyAccess |  |
-| ECS [*1](#single-product) | `ecs:Describe*` <br> `ecs:List*` |  |
+| ECS Cluster [*1](#single-product) | `ecs:Describe*` <br> `ecs:List*` |  |
 | SES [*1](#single-product) | AmazonSESReadOnlyAccess <br> `ses:Describe*` |  |
 | Step Functions [*1](#single-product) | AWSStepFunctionsReadOnlyAccess |  |
 | EFS [*1](#single-product) | AmazonElasticFileSystemReadOnlyAccess |  |
 | Kinesis Data Firehose [*1](#single-product) | AmazonKinesisFirehoseReadOnlyAccess |  |
-| Batch [*1](#single-product) | `batch:Describe*` <br> `batch:List*` |  |
+| AWS Batch [*1](#single-product) | `batch:Describe*` <br> `batch:List*` |  |
 | WAF [*1](#single-product) | AWSWAFReadOnlyAccess |  |
 | Billing [*1](#single-product) | AWSBudgetsReadOnlyAccess |  |
 | Route 53 [*1](#single-product) | AmazonRoute53ReadOnlyAccess |  |
-| Connect [*1](#single-product) | AmazonConnectReadOnlyAccess |  |
+| Amazon Connect [*1](#single-product) | AmazonConnectReadOnlyAccess |  |
 | DocumentDB | AmazonRDSReadOnlyAccess |  |
 | CodeBuild [*1](#single-product) | `codebuild:BatchGetProjects` <br> `codebuild:ListProjects` |  |
 | Athena [*1](#single-product) | `athena:ListWorkGroups` <br> `athena:ListTagsForResource` |  |

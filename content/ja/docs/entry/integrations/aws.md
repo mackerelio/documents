@@ -23,9 +23,34 @@ AWSクラウド製品のうち、EC2についてはスタンダードホスト�
 
 AWSインテグレーションでは、以下のAWSクラウド製品に対応しています。取得するメトリックなど詳細については各製品のドキュメントを参照ください。
 
-[EC2](https://mackerel.io/ja/docs/entry/integrations/aws/ec2)・[ELB (CLB)](https://mackerel.io/ja/docs/entry/integrations/aws/elb)・[ALB](https://mackerel.io/ja/docs/entry/integrations/aws/alb)・[NLB](https://mackerel.io/ja/docs/entry/integrations/aws/nlb)・[RDS](https://mackerel.io/ja/docs/entry/integrations/aws/rds)・[ElastiCache](https://mackerel.io/ja/docs/entry/integrations/aws/elasticache)・[Redshift](https://mackerel.io/ja/docs/entry/integrations/aws/redshift)・[Lambda](https://mackerel.io/ja/docs/entry/integrations/aws/lambda)・[SQS](https://mackerel.io/ja/docs/entry/integrations/aws/sqs)・[DynamoDB](https://mackerel.io/ja/docs/entry/integrations/aws/dynamodb)・[CloudFront](https://mackerel.io/ja/docs/entry/integrations/aws/cloudfront)
-・[API Gateway](https://mackerel.io/ja/docs/entry/integrations/aws/apigateway)
-・[Kinesis Data Streams](https://mackerel.io/ja/docs/entry/integrations/aws/kinesis)・[S3](https://mackerel.io/ja/docs/entry/integrations/aws/s3)・[OpenSearch Service](https://mackerel.io/ja/docs/entry/integrations/aws/es)・[ECS](https://mackerel.io/ja/docs/entry/integrations/aws/ecs)・[SES](https://mackerel.io/ja/docs/entry/integrations/aws/ses)・[Step Functions](https://mackerel.io/ja/docs/entry/integrations/aws/states)・[EFS](https://mackerel.io/ja/docs/entry/integrations/aws/efs)・[Kinesis Data Firehose](https://mackerel.io/ja/docs/entry/integrations/aws/firehose)・[Batch](https://mackerel.io/ja/docs/entry/integrations/aws/batch)・[WAF](https://mackerel.io/ja/docs/entry/integrations/aws/waf)・[Billing](https://mackerel.io/ja/docs/entry/integrations/aws/billing)・[Route 53](https://mackerel.io/ja/docs/entry/integrations/aws/route53)・[Connect](https://mackerel.io/ja/docs/entry/integrations/aws/connect)・[DocumentDB](https://mackerel.io/ja/docs/entry/integrations/aws/docdb)・[CodeBuild](https://mackerel.io/ja/docs/entry/integrations/aws/codebuild)・[Athena](https://mackerel.io/ja/docs/entry/integrations/aws/athena)
+* [EC2](https://mackerel.io/ja/docs/entry/integrations/aws/ec2)
+* [CLB (ELB)](https://mackerel.io/ja/docs/entry/integrations/aws/elb)
+* [ALB](https://mackerel.io/ja/docs/entry/integrations/aws/alb)
+* [NLB](https://mackerel.io/ja/docs/entry/integrations/aws/nlb)
+* [RDS](https://mackerel.io/ja/docs/entry/integrations/aws/rds)
+* [ElastiCache](https://mackerel.io/ja/docs/entry/integrations/aws/elasticache)
+* [Redshift](https://mackerel.io/ja/docs/entry/integrations/aws/redshift)
+* [Lambda](https://mackerel.io/ja/docs/entry/integrations/aws/lambda)
+* [SQS](https://mackerel.io/ja/docs/entry/integrations/aws/sqs)
+* [DynamoDB](https://mackerel.io/ja/docs/entry/integrations/aws/dynamodb)
+* [CloudFront](https://mackerel.io/ja/docs/entry/integrations/aws/cloudfront)
+* [API Gateway](https://mackerel.io/ja/docs/entry/integrations/aws/apigateway)
+* [Kinesis Data Streams](https://mackerel.io/ja/docs/entry/integrations/aws/kinesis)
+* [S3](https://mackerel.io/ja/docs/entry/integrations/aws/s3)
+* [OpenSearch Service](https://mackerel.io/ja/docs/entry/integrations/aws/es)
+* [ECS Cluster](https://mackerel.io/ja/docs/entry/integrations/aws/ecs)
+* [SES](https://mackerel.io/ja/docs/entry/integrations/aws/ses)
+* [Step Functions](https://mackerel.io/ja/docs/entry/integrations/aws/states)
+* [EFS](https://mackerel.io/ja/docs/entry/integrations/aws/efs)
+* [Kinesis Data Firehose](https://mackerel.io/ja/docs/entry/integrations/aws/firehose)
+* [AWS Batch](https://mackerel.io/ja/docs/entry/integrations/aws/batch)
+* [WAF](https://mackerel.io/ja/docs/entry/integrations/aws/waf)
+* [Billing](https://mackerel.io/ja/docs/entry/integrations/aws/billing)
+* [Route 53](https://mackerel.io/ja/docs/entry/integrations/aws/route53)
+* [Amazon Connect](https://mackerel.io/ja/docs/entry/integrations/aws/connect)
+* [DocumentDB](https://mackerel.io/ja/docs/entry/integrations/aws/docdb)
+* [CodeBuild](https://mackerel.io/ja/docs/entry/integrations/aws/codebuild)
+* [Athena](https://mackerel.io/ja/docs/entry/integrations/aws/athena)
 
 <h2 id="setting">連携方法</h2>
 
@@ -83,7 +108,7 @@ AWSインテグレーションで使用する全ての権限を設定する場�
 | AWS製品 | 必要なポリシー／アクション | 備考 |
 | :--- | :--- | :--- |
 | EC2 |  AmazonEC2ReadOnlyAccess  |  |
-| ELB (CLB) |  AmazonEC2ReadOnlyAccess  |  |
+| CLB (ELB) |  AmazonEC2ReadOnlyAccess  |  |
 | ALB | AmazonEC2ReadOnlyAccess |  |
 | NLB | AmazonEC2ReadOnlyAccess |  |
 | RDS | AmazonRDSReadOnlyAccess |  |
@@ -97,16 +122,16 @@ AWSインテグレーションで使用する全ての権限を設定する場�
 | Kinesis Data Streams [*1](#single-product) | AmazonKinesisReadOnlyAccess |  |
 | S3 [*1](#single-product) | AmazonS3ReadOnlyAccess | S3側でバケットのリクエストメトリックを有効にする必要があります。<br><a href="https://docs.aws.amazon.com/ja_jp/AmazonS3/latest/userguide/configure-request-metrics-bucket.html">S3バケットにリクエストメトリックを設定する方法</a>を参考に`EntireBucket`というフィルタ名で設定してください。 |
 | OpenSearch Service [*1](#single-product) [*2](#opensearch-service) | AmazonOpenSearchServiceReadOnlyAccess |  |
-| ECS [*1](#single-product) | `ecs:Describe*` <br> `ecs:List*` |  |
+| ECS Cluster [*1](#single-product) | `ecs:Describe*` <br> `ecs:List*` |  |
 | SES [*1](#single-product) | AmazonSESReadOnlyAccess <br> `ses:Describe*` |  |
 | Step Functions [*1](#single-product) | AWSStepFunctionsReadOnlyAccess |  |
 | EFS [*1](#single-product) | AmazonElasticFileSystemReadOnlyAccess |  |
 | Kinesis Data Firehose [*1](#single-product) | AmazonKinesisFirehoseReadOnlyAccess |  |
-| Batch [*1](#single-product) | `batch:Describe*` <br> `batch:List*` |  |
+| AWS Batch [*1](#single-product) | `batch:Describe*` <br> `batch:List*` |  |
 | WAF [*1](#single-product) | AWSWAFReadOnlyAccess |  |
 | Billing [*1](#single-product) | AWSBudgetsReadOnlyAccess |  |
 | Route 53 [*1](#single-product) | AmazonRoute53ReadOnlyAccess |  |
-| Connect [*1](#single-product) | AmazonConnectReadOnlyAccess |  |
+| Amazon Connect [*1](#single-product) | AmazonConnectReadOnlyAccess |  |
 | DocumentDB | AmazonRDSReadOnlyAccess |  |
 | CodeBuild [*1](#single-product) | `codebuild:BatchGetProjects` <br> `codebuild:ListProjects` |  |
 | Athena [*1](#single-product) | `athena:ListWorkGroups` <br> `athena:ListTagsForResource` |  |

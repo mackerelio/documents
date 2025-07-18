@@ -1,5 +1,5 @@
 ---
-Title: AWSインテグレーション - Batch
+Title: AWSインテグレーション - AWS Batch
 Date: 2020-01-10T10:00:00+09:00
 URL: https://mackerel.io/ja/docs/entry/integrations/aws/batch
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/26006613498446796

@@ -224,7 +224,7 @@ You can add custom spans to instrument any range.
 
 Instrumentation makes it possible to record variable values and processing times.
 
-You can add instrumentation by enclosing it with `Tarcer.Start()` and `Span.End()`, as shown below.
+You can add instrumentation by enclosing it with `Tracer.Start()` and `Span.End()`, as shown below.
 
 ```go
 const (

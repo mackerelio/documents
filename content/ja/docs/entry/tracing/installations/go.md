@@ -224,7 +224,7 @@ func recordError(ctx context.Context, err error) {
 
 計装することで、変数の値や処理時間を記録することができます。
 
-具体的には、下のように `Tarcer.Start()` と `Span.End()` で囲むと計装を追加できます。
+具体的には、下のように `Tracer.Start()` と `Span.End()` で囲むと計装を追加できます。
 
 ```go
 const (

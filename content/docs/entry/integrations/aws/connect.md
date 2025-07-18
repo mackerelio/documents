@@ -1,9 +1,8 @@
 ---
-Title: AWS Integration - Connect
+Title: AWS Integration - Amazon Connect
 Date: 2021-03-09T10:00:00+09:00
 URL: https://mackerel.io/docs/entry/integrations/aws/connect
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/26006613703992830
-CustomPath: integrations/aws/connect
 ---
 
 Mackerel supports obtaining and monitoring <a href="https://aws.amazon.com/connect/" target="_blank">Amazon Connect</a> metrics in AWS Integration. When integrating with AWS Integration, billable targets are determined using the conversion 1 Instance = 1 Micro Host. In addition to this, depending on the number of metrics retrieved, you may be charged for exceeding the maximum number of metrics per micro host.

@@ -1,5 +1,5 @@
 ---
-Title: AWS Integration - ECS
+Title: AWS Integration - ECS Cluster
 Date: 2019-03-14T18:00:00+09:00
 URL: https://mackerel.io/docs/entry/integrations/aws/ecs
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/17680117126999845154
@@ -12,7 +12,7 @@ Please refer to the following page for AWS Integration configuration methods and
 <a href="https://mackerel.io/docs/entry/integrations/aws">AWS Integration</a>
 
 ## Obtaining metrics
-The metrics obtainable with AWS Integration's support for ECS are as follows. For `Metric` explanations, refer to the <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cloudwatch-metrics.html" target="_blank">AWS help page</a>.
+The metrics obtainable with AWS Integration's support for ECS Cluster are as follows. For `Metric` explanations, refer to the <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cloudwatch-metrics.html" target="_blank">AWS help page</a>.
 
 The maximum number of metrics obtainable is `12 + 7 × (number of Services)`.
 
@@ -24,7 +24,7 @@ The maximum number of metrics obtainable is `12 + 7 × (number of Services)`.
 |Service CPU Utilization|CPUUtilization|ecs.service_cpu_utilization.#.minimum<br>ecs.service_cpu_utilization.#.average<br>ecs.service_cpu_utilization.#.maximum|percentage|Minimum<br>Average<br>Maximum|
 |Service Memory Utilization|MemoryUtilization|ecs.service_memory_utilization.#.minimum<br>ecs.service_memory_utilization.#.average<br>ecs.service_memory_utilization.#.maximum|percentage|Minimum<br>Average<br>Maximum|
 
-- Enter the ECS service name in place of the # in "Metric name in Mackerel".
+- The # part of “Mackerel metric name” is replaced with the service name in the ECS Cluster.
 - ecs.running_task.#.count will not be posted if there are no running tasks.
   - When setting monitor for this metric, please note that Mackerel's monitor only work when the metric being monitored is posted, so it is not possible to detect the absence of a running task.
 

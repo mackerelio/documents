@@ -1,5 +1,5 @@
 ---
-Title: AWSインテグレーション - ELB (CLB)
+Title: AWSインテグレーション - CLB (ELB)
 Date: 2016-12-28T11:38:03+09:00
 URL: https://mackerel.io/ja/docs/entry/integrations/aws/elb
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/10328749687201699111
