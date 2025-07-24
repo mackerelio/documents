@@ -1,5 +1,5 @@
 ---
-Title: Setting up mackerel-container-agent for Amazon EKS on AWS Fargate (beta version)
+Title: Setting up mackerel-container-agent for Amazon EKS on AWS Fargate
 Date: 2020-02-12T11:08:21+09:00
 URL: https://mackerel.io/docs/entry/howto/install-agent/container/eks-on-fargate
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/26006613510289856
@@ -7,10 +7,6 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackere
 
 This document details the setup process for mackerel-container-agent on Amazon EKS on AWS Faragte（hereinafter EKS on Fargate).
 
-## Point to note
-
-Please note that the operation of mackerel-container-agent for EKS on Fargate is still a beta feature.
-Some operating conditions and retrieved data may change upon its official release.
 
 ## Regarding billing
 

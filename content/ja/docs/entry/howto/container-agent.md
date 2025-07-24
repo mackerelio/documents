@@ -34,11 +34,21 @@ mackerel-container-agentを利用すると、1つのタスクやPodに対して1
 
 mackerel-container-agentでサポートするコンテナオーケストレーションプラットフォームはつぎのとおりです。
 
-- Amazon Elastic Container Service(ECS)
+- Amazon Elastic Container Service (ECS)
   - EC2起動タイプ
+    - ECS container agent 1.26.1 以降
   - Fargate起動タイプ
+    - プラットフォームバージョン 1.3.0 以降
   - **Windowsコンテナは対象外となります**
 - Kubernetes
+  - 1.31
+  - 1.32
+  - 1.33
+  - **Amazon EKSにて動作確認を行っています**
+  - **Windowsコンテナは対象外となります**
+- Amazon Elastic Kubernetes Service (EKS)
+  - EC2
+  - Fargate
 
 ## セットアップ
 
@@ -47,7 +57,7 @@ mackerel-container-agentのセットアップ手順です。
 
 - [ECS](https://mackerel.io/ja/docs/entry/howto/install-agent/container/ecs)
 - [Kubernetes](https://mackerel.io/ja/docs/entry/howto/install-agent/container/kubernetes)
-- [EKS on Fargate(ベータ版機能)](https://mackerel.io/ja/docs/entry/howto/install-agent/container/eks-on-fargate)
+- [EKS on Fargate](https://mackerel.io/ja/docs/entry/howto/install-agent/container/eks-on-fargate)
 
 mackerel-container-agent v0.1.0以降では、下記の手順は非推奨となります。
 ご注意ください。

@@ -34,11 +34,21 @@ With the use of mackerel-container-agent, for every task or Pod, one host will b
 
 The following container orchestration platforms are supported with mackerel-container-agent.
 
-- Amazon Elastic Container Service(ECS)
+- Amazon Elastic Container Service (ECS)
   - EC2 Launch Type
+    - ECS container agent 1.26.1 or later
   - Fargate Launch Type
+    - platform version 1.3.0 or later
   - **Windows containers not supported**
 - Kubernetes
+  - 1.31
+  - 1.32
+  - 1.33
+  - **Tested compatibility with Amazon EKS**
+  - **Windows containers not supported**
+- Amazon Elastic Kubernetes Service (EKS)
+  - EC2
+  - Fargate
 
 ## Setup
 
@@ -46,7 +56,7 @@ The setup process for mackerel-container-agent varies for each container orchest
 
 - [ECS](https://mackerel.io/docs/entry/howto/install-agent/container/ecs)
 - [Kubernetes](https://mackerel.io/docs/entry/howto/install-agent/container/kubernetes)
-- [EKS on Fargate(BETA)](https://mackerel.io/docs/entry/howto/install-agent/container/eks-on-fargate)
+- [EKS on Fargate](https://mackerel.io/docs/entry/howto/install-agent/container/eks-on-fargate)
 
 Please note that the following processes are deprecated for mackerel-container-agent v0.1.0 or later.
 
