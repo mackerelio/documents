@@ -13,4 +13,4 @@ You can configure Slack settings from the “Add Slack” button shown below in 
 
 Use the [Slack's incoming webhooks](https://api.slack.com/messaging/webhooks) to send alerts. Enter the URL of the Incoming Webhook issued by Slack into the Slack Webhook URL field.
 
-<figure class="figure-image figure-image-fotolife" title="Screen for entering the Incoming Webhook URL for Slack notifications">[f:id:mackerelio:20250305173656p:plain]<figcaption>Screen for entering the Incoming Webhook URL for Slack notifications</figcaption></figure>
+<figure class="figure-image figure-image-fotolife" title="Screen for entering the Incoming Webhook URL for Slack notifications">[f:id:mackerelio:20250724142129p:plain]<figcaption>Screen for entering the Incoming Webhook URL for Slack notifications</figcaption></figure>

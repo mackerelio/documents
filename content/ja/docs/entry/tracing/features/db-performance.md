@@ -1,15 +1,16 @@
 ---
 Title: トレース - データベースのパフォーマンスを調査する
+Date: 2025-03-19T16:34:24+09:00
 URL: https://mackerel.io/ja/docs/entry/tracing/features/db-performance
-EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/6802418398336431372
-PreviewURL: https://mackerel.io/draft/entry/OnMEzQh5_5JBMD2Ho2DvJjM8BXQ
+EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/6802418398337749793
 ---
 
 APMサービス画面のデータベースタブでは、アプリケーションのトレーススパンに含まれるデータベースクエリを一覧で確認できます。
 
 この画面を活用することで、パフォーマンスを低下させる遅いクエリや、頻繁に呼び出されていて改善が必要なクエリを簡単に特定できます。
 
-<figure class="figure-image figure-image-fotolife" title="データベースパフォーマンス画面">[f:id:mackerelio:20250317111400p:plain]<figcaption>データベースパフォーマンス画面</figcaption></figure>
+<figure class="figure-image figure-image-fotolife" title="データベースタブ">[f:id:mackerelio:20250724141734p:plain]<figcaption>データベースタブ</figcaption></figure>
+
 
 ## クエリの一覧を確認する
 

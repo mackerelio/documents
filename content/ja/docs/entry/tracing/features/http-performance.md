@@ -7,7 +7,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 
 APMサービス画面のHTTPサーバータブでは、アプリケーションのトレーススパンに含まれるHTTPリクエストのパフォーマンスに関する統計情報を一覧で確認できます。
 
-<figure class="figure-image figure-image-fotolife" title="HTTPサーバーパフォーマンス画面">[f:id:mackerelio:20250317142308p:plain]<figcaption>HTTPサーバーパフォーマンス画面</figcaption></figure>
+<figure class="figure-image figure-image-fotolife" title="HTTPサーバータブ">[f:id:mackerelio:20250724141643p:plain]<figcaption>HTTPサーバータブ</figcaption></figure>
 
 ## リクエストの一覧を確認する
 

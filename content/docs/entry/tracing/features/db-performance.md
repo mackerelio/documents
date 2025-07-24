@@ -9,7 +9,8 @@ In the Database tab of the APM service screen, you can view a list of database q
 
 By utilizing this screen, you can easily identify slow queries that are causing performance degradation and queries that are frequently called and need to be improved.
 
-<figure class="figure-image figure-image-fotolife" title="Database Performance Screen">[f:id:mackerelio:20250317111400p:plain]<figcaption>Database Performance Screen</figcaption></figure>
+<figure class="figure-image figure-image-fotolife" title="Database Tab">[f:id:mackerelio:20250724141945p:plain]<figcaption>Database Tab</figcaption></figure>
+
 
 ## Viewing the query list
 

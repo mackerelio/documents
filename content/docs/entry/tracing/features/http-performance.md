@@ -7,7 +7,8 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackere
 
 The HTTP Server tab of the APM service screen displays a list of statistical information about the performance of HTTP requests included in the application trace spans.
 
-<figure class="figure-image figure-image-fotolife" title="HTTP Server Performance Screen">[f:id:mackerelio:20250317142308p:plain]<figcaption>HTTP Server Performance Screen</figcaption></figure>
+<figure class="figure-image figure-image-fotolife" title="HTTP Server Tab">[f:id:mackerelio:20250724141857p:plain]<figcaption>HTTP Server Tab</figcaption></figure>
+
 
 ## Viewing the list of requests
 

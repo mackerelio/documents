@@ -13,7 +13,7 @@ The Trace List screen displays a list of traces sent for each service within the
 
 The Trace List screen displays a list of traces that match the conditions specified in the “Service” filter and the ‘Conditions’ filter, such as the occurrence date and time. The trace list can be sorted by occurrence order or latency using the “Sort by” option.
 
-<figure class="figure-image figure-image-fotolife" title="Filter">[f:id:mackerelio:20250410144820p:plain]<figcaption>Filter</figcaption></figure>
+<figure class="figure-image figure-image-fotolife" title="Filter">[f:id:mackerelio:20250724142254p:plain]<figcaption>Filter</figcaption></figure>
 
 Filter conditions can be specified using simple time specifications such as “Occurred in the last 1 hour” or detailed conditions based on the following items.
 
@@ -37,8 +37,7 @@ The latency distribution is displayed as a heat map. The horizontal axis represe
 
 The approximate number of traces present in the time period and latency on the heatmap is displayed as shown in the legend in the upper right corner. Hovering over the heatmap reveals the actual number. You can also drag to select a range and drill down to investigate that range.
 
-<figure class="figure-image figure-image-fotolife" title="Latency Distribution">[f:id:mackerelio:20250410144835p:plain]<figcaption>Latency Distribution</figcaption></figure>
-
+<figure class="figure-image figure-image-fotolife" title="Latency Distribution">[f:id:mackerelio:20250724142313p:plain]<figcaption>Latency Distribution</figcaption></figure>
 
 ## Trace List
 
@@ -54,7 +53,8 @@ The trace list displays the following information.
 | Service Occurred Time | Date and time when the span of the service used as a filter condition occurred |
 | Service Latency | Total time of the span of the service used as a filter condition |
 
-<figure class="figure-image figure-image-fotolife" title="Trace list">[f:id:mackerelio:20250410144857p:plain]<figcaption>Trace list</figcaption></figure>
+<figure class="figure-image figure-image-fotolife" title="Trace list">[f:id:mackerelio:20250724142341p:plain]<figcaption>Trace list</figcaption></figure>
+
 
 ### Trace Aggregation
 
@@ -62,7 +62,7 @@ Click the “Aggregate” button at the top right of the trace list to display t
 
 For example, the `http.route` attribute indicates the request path, and the `http.status_code` attribute indicates the response status code, allowing you to see which request paths are most common and the error rate of responses.
 
-<figure class="figure-image figure-image-fotolife" title="Aggregation">[f:id:mackerelio:20250410144914p:plain]<figcaption>Aggregation</figcaption></figure>
+<figure class="figure-image figure-image-fotolife" title="Aggregation">[f:id:mackerelio:20250724142404p:plain]<figcaption>Aggregation</figcaption></figure>
 
 
 ## Trace Details Screen
@@ -75,4 +75,4 @@ If the trace contains the `service.name` attribute or the `host.id` or `host.nam
 
 ※`host.id` takes precedence over `host.name`. Additionally, if the `service.namespace` attribute exists, it will also be included in the filtering conditions.
 
-<figure class="figure-image figure-image-fotolife" title="Trace Details Screen">[f:id:mackerelio:20250410144942p:plain]<figcaption>Trace Details Screen</figcaption></figure>
+<figure class="figure-image figure-image-fotolife" title="Trace Details Screen">[f:id:mackerelio:20250724142424p:plain]<figcaption>Trace Details Screen</figcaption></figure>
