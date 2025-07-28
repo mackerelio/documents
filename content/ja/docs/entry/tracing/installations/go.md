@@ -36,7 +36,7 @@ Goには複数のWebフレームワークが存在しますが、このページ
 1. go get
 2. 初期設定
 3. ミドルウェアの挿入
-4. エラーを補足
+4. エラーを捕捉
 5. 独自の計装の追加 (任意)
 
 ### 1. go get
@@ -184,15 +184,15 @@ func awesomeActionHandler(w http.ResponseWriter, r *http.Request) {
 
 [https://opentelemetry.io/ecosystem/registry/?language=go&component=instrumentation:embed:cite]
 
-### 4. エラーを補足
+### 4. エラーを捕捉
 
-Goの言語制約上、エラーを自動で補足することはできないため、エラーが発生した場合にエラーをSpanに追加するコードを書く必要があります。
+Goの言語制約上、エラーを自動で捕捉することはできないため、エラーが発生した場合にエラーをSpanに追加するコードを書く必要があります。
 
 
 
 エラーの追加には `Span.RecordError()` 関数を使用します。 また、`WithStackTrace()` を使うとスタックトレースを記録することもできます。
 
-例えば、前節で作成したハンドラー (`awesomeActionHandler`) で発生したエラーを補足するには以下のようにします。
+例えば、前節で作成したハンドラー (`awesomeActionHandler`) で発生したエラーを捕捉するには以下のようにします。
 
 ```go
 import (

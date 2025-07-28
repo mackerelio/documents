@@ -6,29 +6,44 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackere
 ---
 
 This feature allows you to monitor metrics calculated by an expression.
-**This feature is a paid option. It is not available with the Free plan.** Additionally, as of April 2018, this feature has become an [experimental feature](https://mackerel.io/docs/entry/advanced/experimental-features). 
+**This feature is a paid option. It is not available with the Free plan.** Also, it is currently an [experimental feature](https://mackerel.io/docs/entry/advanced/experimental-features).
 
 ![](https://cdn-ak.f.st-hatena.com/images/fotolife/a/andyyk/20160801/20160801115334.png)
 
-## Configuring expression monitoring 
-Click the “New Monitor” button located on the right-hand side of the Monitors menu screen. By clicking on the “Expression monitoring” tab, the following items will be displayed. Fill out the value and title for each item, then click the “Create” button. 
+## Expression monitoring specifications
 
-- Monitoring target: Enter the expression for calculating the target metrics in the expression editor. If the expression is read correctly and the target metrics are obtained, then a graph will be drawn up in the right side preview.  
-- Alert conditions：Configure the thresholds for Warning and Critical.
-- Notification interval：If the alert conditions’ designated time is surpassed and no change is made, then a notification will be sent again.
-- Monitor Name：Enter the name of the monitor. 
+- Metrics from two minutes prior to the current time will be monitored.
+- The monitoring interval is every 5 minutes.
+- Expressions configurable as monitoring items are limited to those that end up as a graph with a single line.
+- If the metric used in the expression cannot be obtained, an Unknown alert will be generated.
+- The maximum number of monitoring items is 20.
+- Only available with the trial and paid plans.
 
-Please refer here for available functions in the monitoring settings.
+
+## Configuring expression monitoring
+
+Click the “New Monitor” button located on the right-hand side of the Monitors menu screen. By clicking on the “Expression monitoring”, the following items will be displayed. Enter each item and click the “Create” button.
+
+- Scope
+  - Expression
+    - Enter the expression for calculating the monitored metric in the expression editor. If the expression is interpreted correctly, a graph will be drawn in the preview on the right.
+  - Threshold
+    - Configure the thresholds for Warning and Critical.
+- Basic Settings
+  - Monitor Name
+    - Enter the name of the monitor.
+  - Monitor Memo
+    - You can freely describe the purpose of monitoring rules and how to respond when an alert occurs. This information will be displayed in the alert details screen and alert notifications.
+- Options
+  - Notification interval
+    - If the alert conditions’ designated time is surpassed and no change is made, then a notification will be sent again.
+  - Delay time until the expression result stabilizes
+    - Monitors metrics from the specified time in the past.
+
+Please refer to the following help for functions available in monitoring rules.
 
 [https://mackerel.io/docs/entry/advanced/advanced-graph#functions:embed:cite]
 
-## Expression monitoring specifications
-
-- The monitoring interval is every 5 minutes 
-- Expressions configurable as monitoring items are limited to those that end up as a graph with a single line
-- If the expression metric values can’t be obtained or a time-out occurs because the expression is too complex etc., an alert will occur with the status as Unknown
-- The maximum number of monitoring items is 20
-- Only available with the trial and paid plans
 
 <h2 id="future-predictions">Monitoring example：Monitoring the days remaining until the file system capacity is insufficient based on future prediction</h2>
 
