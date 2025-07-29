@@ -116,6 +116,6 @@ service:
 
 これらを設定することで、CollectorからMackerelへデータを送信するようになります。
 
-*1 ：テレメトリデータを送信するための API キーは Mackerel のダッシュボードの API キータブで確認できます。 "Write" 権限が付与されている API キーを環境変数 `MACKEREL_APIKEY` にセットしてください。API キーの権限を変更した際は反映まで1分ほどお待ちください。
+*1 ：テレメトリデータを送信するための API キーは Mackerel のダッシュボードの [API キータブ](https://mackerel.io/my?tab=apikeys) で確認できます。 "Write" 権限が付与されている API キーを環境変数 `MACKEREL_APIKEY` にセットしてください。API キーの権限を変更した際は反映まで1分ほどお待ちください。
 
 <figure class="figure-image figure-image-fotolife" title="API キーを確認する方法">[f:id:mackerelio:20250307170201p:plain]<figcaption>API キーを確認する方法</figcaption></figure>

@@ -116,6 +116,6 @@ In this example, the following items are set.
 
 With these settings, data will be sent from Collector to Mackerel.
 
-*1: You can find the API key for sending telemetry data in the API key tab of the Mackerel dashboard. Set the API key with “Write” permission to the environment variable `MACKEREL_APIKEY`. It may take about a minute for changes to take effect after modifying the API key permissions.
+*1: You can find the API key for sending telemetry data in the [API key tab](https://mackerel.io/my?tab=apikeys) of the Mackerel dashboard. Set the API key with “Write” permission to the environment variable `MACKEREL_APIKEY`. It may take about a minute for changes to take effect after modifying the API key permissions.
 
-<figure class="figure-image figure-image-fotolife" title="How to check the API key">[f:id:mackerelio:20250307170201p:plain]<figcaption>How to check the API key</figcaption></figure>
+<figure class="figure-image figure-image-fotolife" title="How to check the API key">[f:id:mackerelio:20250729130053p:plain]<figcaption>How to check the API key</figcaption></figure>
