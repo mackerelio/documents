@@ -938,6 +938,20 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
       </div>
     </div>
   </div>
+  <div class="index-row">
+    <h3><a href="entry/traces">Traces</a></h3>
+    <div class="apis">
+      <div class="api">
+        <a href="entry/traces#get">
+          <p>Get Trace</p>
+          <p class="type-get">
+            <code>GET</code>
+            <code>/api/v0/traces/<em>&lt;traceId&gt;</em></code>
+          </p>
+        </a>
+      </div>
+    </div>
+  </div>
 
 </div>
 
