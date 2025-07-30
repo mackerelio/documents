@@ -937,7 +937,20 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
       </div>
     </div>
   </div>
-
+  <div class="index-row">
+    <h3><a href="entry/traces">トレース</a></h3>
+    <div class="apis">
+      <div class="api">
+        <a href="entry/traces#get">
+          <p>トレースの取得</p>
+          <p class="type-get">
+            <code>GET</code>
+            <code>/api/v0/traces/<em>&lt;traceId&gt;</em></code>
+          </p>
+        </a>
+      </div>
+    </div>
+  </div>
 </div>
 
 <h2 id="data-types">データの種類</h2>
