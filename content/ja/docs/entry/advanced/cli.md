@@ -111,6 +111,12 @@ mkr hosts --service My-Service --role proxy
 mkr update --st working $(mkr hosts -s My-Service -r proxy | jq -r '.[].id')
 ```
 
+そのほか、任意のスタンダードホストを作成することもできます。例えばmackerel-agentやクラウドインテグレーションなどが利用できないネットワーク機器をホストとして作成し、別途APIを使ってそのホストのメトリックやチェック監視の結果を投稿するといった使い方が考えられます。
+
+```
+mkr create --status working --roleFullname 'My-Service:Router' --memo 'ゲートウェイルーター。外部から mkr を利用してメトリック投稿している' MyServiceRouter01
+```
+
 ### メトリックの名前の取得
 
 ホストやサービスが提供するメトリックの名前は、metric-namesサブコマンドで取得できます。

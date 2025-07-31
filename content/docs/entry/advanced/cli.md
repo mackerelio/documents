@@ -109,6 +109,12 @@ By putting these together, it's possible to change the status of all hosts in th
 mkr update --st working $(mkr hosts -s My-Service -r proxy | jq -r '.[].id')
 ```
 
+In addition, you can create standard host as need. For example, you can create network devices that cannot use mackerel-agent or cloud integration as hosts, and then use the API to post metrics and check monitoring results for those hosts.
+
+```
+mkr create --status working --roleFullname 'My-Service:Router' --memo 'Gateway router. Metrics are posted from outside using mkr.' MyServiceRouter01
+```
+
 ### Get metric names
 
 The name of the metric a host or service has can be obtained by the `metric-names` subcommand.
