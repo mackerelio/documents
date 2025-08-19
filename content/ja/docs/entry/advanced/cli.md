@@ -390,6 +390,80 @@ Summary: 1 modify, 1 append, 1 remove
  },
 ```
 
+### アラート関連
+
+`mkr alerts` サブコマンドでは、アラートに関する操作が可能です。
+
+`mkr alerts` および `mkr alerts list` では、デフォルトでは発生中のアラートを、`--with-closed` (`-w`) オプションを利用することで発生中だけのアラートだけでなくクローズ済みのアラートも含めた一覧を取得できます。サービスやホストステータスによるフィルターも可能です。  
+`mkr alerts` と `mkr alerts list` の違いはその表示形式です。 `mkr alerts` ではAPI同様にホストIDや監視ルールIDなどを含めたjson形式で出力され、`mkr alerts list` ではホスト名や監視ルール名などが展開された Human-Readable な形式で表示されます。
+
+```
+% mkr alerts -w
+[
+    {
+        "id": "5uN9FBr6JVw",
+        "status": "WARNING",
+        "monitorId": "4TG6xGK64PW",
+        "type": "host",
+        "hostId": "4RXBJ9SQw67",
+        "value": 73.68399467417471,
+        "openedAt": 1750675925
+    },
+    {
+        "id": "5pjkT5GqhPs",
+        "status": "CRITICAL",
+        "monitorId": "4TG93ajat7Q",
+        "type": "check",
+        "hostId": "4RNuLWQKJh1",
+        "message": "Procs CRITICAL: \nFound 0 matching processes; cmd /w3wp/",
+        "openedAt": 1740972447
+    }
+]
+
+% mkr alerts list -w
+5uN9FBr6JVw 2025-06-23 19:52:05 WARNING  Windows メモリ割合監視 memory% 73.68 > 70.00 EC2AMAZ-1S800NC standby [Win-Demo:DB]
+5pjkT5GqhPs 2025-03-03 12:27:27 CRITICAL  Procs CRITICAL: ... EC2AMAZ-GELUS5G working [Win-Demo:Web]
+```
+
+`mkr alerts` および `mkr alerts list` のデフォルト設定では、最新から最大100件までのアラートを取得できますが、
+`mkr alerts -l 300` のように `-l` (`--limit`) オプションを利用することで、より多くのアラートを取得できます。
+
+`mkr alerts close` コマンドでは、発生中のアラートをクローズできます。  
+`--reason` (`-r`) オプションを利用することで、コンソール上からクローズする際と同様にメモを追加できます。
+
+```
+% mkr alerts close 5wfKdWBXT8W --reason "前回の対応時のクローズ漏れのため手動クローズ"
+Alert closed 5wfKdWBXT8W
+```
+
+`mkr alerts logs` コマンドでは、指定したIDのアラートに関する詳細情報を取得できます。
+結果はjson形式で返ります。`--jq` オプションを使うと、jq文法で出力のフィルタリング・整形が可能です。
+
+```
+% mkr alerts logs 5wDea1jMahU
+[
+    {
+        "id": "5wDeJ8m839Q",
+        "createdAt": 1753945570,
+        "status": "OK",
+        "trigger": "monitoring",
+        "monitorId": "45VugCVZyZw",
+        "targetValue": 31
+    },
+    {
+        "id": "5wDea1kw9W5",
+        "createdAt": 1753945269,
+        "status": "WARNING",
+        "trigger": "monitoring",
+        "monitorId": "45VugCVZyZw",
+        "targetValue": 52.4
+    }
+]
+% mkr alerts logs 5wDea1jMahU --jq '.[].id'
+5wDeJ8m839Q
+5wDea1kw9W5
+```
+
 ### カスタムダッシュボード
 
 mkrではdashboardsサブコマンドでカスタムダッシュボードを操作できます。サブコマンドはpull/pushの2種類あります。サブコマンドを指定しない場合、カスタムダッシュボード一覧が表示されます。
