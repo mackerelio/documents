@@ -390,6 +390,80 @@ Summary: 1 modify, 1 append, 1 remove
  },
 ```
 
+### Alerts
+
+The `mkr alerts` subcommand allows you to perform operations related to alerts.
+
+`mkr alerts` and `mkr alerts list` display alerts that are currently occurring by default, but you can use the `--with-closed` (`-w`) option to list not only alerts that are currently occurring but also closed alerts. You can also filter by service or host status.
+  
+The difference between `mkr alerts` and `mkr alerts list` is the display format. `mkr alerts` outputs in JSON format, including host IDs and monitoring rule IDs, similar to the API, while `mkr alerts list` displays in a human-readable format with host names and monitoring rule names expanded.
+
+```
+% mkr alerts -w
+[
+    {
+        "id": "5uN9FBr6JVw",
+        "status": "WARNING",
+        "monitorId": "4TG6xGK64PW",
+        "type": "host",
+        "hostId": "4RXBJ9SQw67",
+        "value": 73.68399467417471,
+        "openedAt": 1750675925
+    },
+    {
+        "id": "5pjkT5GqhPs",
+        "status": "CRITICAL",
+        "monitorId": "4TG93ajat7Q",
+        "type": "check",
+        "hostId": "4RNuLWQKJh1",
+        "message": "Procs CRITICAL: \nFound 0 matching processes; cmd /w3wp/",
+        "openedAt": 1740972447
+    }
+]
+
+% mkr alerts list -w
+5uN9FBr6JVw 2025-06-23 19:52:05 WARNING  Windows memory-percentage monitor memory% 73.68 > 70.00 EC2AMAZ-1S800NC standby [Win-Demo:DB]
+5pjkT5GqhPs 2025-03-03 12:27:27 CRITICAL  Procs CRITICAL: ... EC2AMAZ-GELUS5G working [Win-Demo:Web]
+```
+
+By default, `mkr alerts` and `mkr alerts list` retrieve up to 100 alerts from the latest ones, but
+you can retrieve more alerts by using the `-l` (`--limit`) option, such as `mkr alerts -l 300`.
+
+The `mkr alerts close` command allows you to close alerts that are currently occurring. Using the `--reason` (`-r`) option allows you to add a memo, similar to closing from the console.
+
+```
+% mkr alerts close 5wfKdWBXT8W --reason "Closing manually due to a missed close during the previous response"
+Alert closed 5wfKdWBXT8W
+```
+
+The `mkr alerts logs` command allows you to retrieve detailed information about an alert by its ID.
+The results are returned in JSON format. Using the `--jq` option allows you to filter and format the output using jq syntax.
+
+```
+% mkr alerts logs 5wDea1jMahU
+[
+    {
+        "id": "5wDeJ8m839Q",
+        "createdAt": 1753945570,
+        "status": "OK",
+        "trigger": "monitoring",
+        "monitorId": "45VugCVZyZw",
+        "targetValue": 31
+    },
+    {
+        "id": "5wDea1kw9W5",
+        "createdAt": 1753945269,
+        "status": "WARNING",
+        "trigger": "monitoring",
+        "monitorId": "45VugCVZyZw",
+        "targetValue": 52.4
+    }
+]
+% mkr alerts logs 5wDea1jMahU --jq '.[].id'
+5wDeJ8m839Q
+5wDea1kw9W5
+```
+
 ### Custom Dashboards
 
 mkr lets you manage custom dashboards with the dashboards subcommand. There are two types of subcommands: pull / push. If a subcommand is not specified, the custom dashboard list is displayed.
