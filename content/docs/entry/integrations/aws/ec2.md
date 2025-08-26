@@ -41,18 +41,16 @@ Among the graphs/metrics obtainable with AWS Integration, metrics included in th
 * Disk IO
 * Network Traffic
 * Network Packets
-* Status Check Failed
 * EBS Operation
 * EBS Bytes Used
 * EBS Burst Bucket Balance
 
-By enabling <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch-new.html">detailed monitoring</a>, the metrics in the graph below will be obtained in 1-minute intervals.
+By enabling <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-detailed-monitoring.html">detailed monitoring</a>, the metrics in the graph below will be obtained in 1-minute intervals.
 
 * CPU
 * Disk OPS
 * Disk IO
 * Network Traffic
-* Status Check Failed
 * EBS Operation
 * EBS Bytes Used
 

@@ -42,18 +42,16 @@ AWSインテグレーションにより取得可能な上記のグラフ・メ�
 * Disk IO
 * Network Traffic
 * Network Packets
-* Status Check Failed
 * EBS Operation
 * EBS Bytes Used
 * EBS Burst Bucket Balance
 
-<a href="https://docs.aws.amazon.com/ja_jp/AWSEC2/latest/UserGuide/using-cloudwatch-new.html">詳細モニタリング</a>を有効化することで、下記のグラフに含まれるメトリックについては1分間隔粒度でのメトリックが取得されます。
+<a href="https://docs.aws.amazon.com/ja_jp/AWSEC2/latest/UserGuide/manage-detailed-monitoring.html">詳細モニタリング</a>を有効化することで、下記のグラフに含まれるメトリックについては1分間隔粒度でのメトリックが取得されます。
 
 * CPU
 * Disk OPS
 * Disk IO
 * Network Traffic
-* Status Check Failed
 * EBS Operation
 * EBS Bytes Used
 
