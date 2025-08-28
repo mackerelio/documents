@@ -27,15 +27,15 @@ Mackerel does not store all the buckets of a histogram. Instead, it stores only 
 - `sum`: The sum of the values
 - `min`: The minimum value
 - `max`: The maximum value
-- `99`: The 99th percentile value
-- `95`: The 95th percentile value
-- `90`: The 90th percentile value
+- `p99`: The 99th percentile value
+- `p95`: The 95th percentile value
+- `p90`: The 90th percentile value
 
-You can obtain these representative values by adding a suffix to the metric name, such as `.99`. For example, if you have a histogram metric named `http.server.request.duration`, you can obtain the following metrics:
+You can obtain these representative values by adding a suffix to the metric name, such as `.p99`. For example, if you have a histogram metric named `http.server.request.duration`, you can obtain the following metrics:
 
-- `http.server.request.duration.99`
-- `http.server.request.duration.95`
-- `http.server.request.duration.90`
+- `http.server.request.duration.p99`
+- `http.server.request.duration.p95`
+- `http.server.request.duration.p90`
 - `http.server.request.duration.max`
 - `http.server.request.duration.min`
 - `http.server.request.duration.sum`
@@ -48,7 +48,7 @@ If the result of the representative value calculation is one of the following, t
 - `-inf`
 - `NaN`
 
-For example, if the 99th percentile value of `http.server.request.duration` is `inf`, the metric `http.server.request.duration.99` does not exist.
+For example, if the 99th percentile value of `http.server.request.duration` is `inf`, the metric `http.server.request.duration.p99` does not exist.
 
 In addition, depending on the configuration of the instrumentation, you may not be able to obtain the following representative values:
 
