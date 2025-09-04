@@ -35,7 +35,7 @@ As of now, Mackerel and mackerel-agent have been verified to operate in the foll
     - Linux
         - Red Hat Enterprise Linux 8/9/10, MIRACLE LINUX 8/9, AlmaLinux 8/9/10, Rocky Linux 8/9/10, Oracle Linux 8/9
         - CentOS Stream 9
-        - Ubuntu 22.04LTS/24.04LTS, Debian 11/12
+        - Ubuntu 22.04LTS/24.04LTS, Debian 11/12/13
         - Amazon Linux 2, Amazon Linux 2023
         - x64 and arm64 processor architecture including AWS Graviton processors.
         - Aside from the above, the agent will probably be run on most Linux systems (kernel version 3.2 or later) or Red Hat Enterprise Linux derivatives, however we do not give official support for them at this time.
