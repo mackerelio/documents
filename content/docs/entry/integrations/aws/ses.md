@@ -13,7 +13,7 @@ Please refer to the following page for AWS Integration configuration methods and
 
 
 ## Obtaining metrics
-The metrics obtainable with AWS Integration's support for SES are as follows. For `Metric` explanations, refer to the AWS help page.<br><a href="https://docs.aws.amazon.com/us_en/ses/latest/DeveloperGuide/monitor-sending-activity.html" target="_blank">Monitoring Your Amazon SES Sending Activity</a><br><a href="https://docs.aws.amazon.com/us_en/ses/latest/DeveloperGuide/receiving-email-metrics.html" target="_blank">Viewing Metrics for Amazon SES Email Receiving</a>
+The metrics obtainable with AWS Integration's support for SES are as follows. For `Metric` explanations, refer to the AWS help page.<br><a href="https://docs.aws.amazon.com/ses/latest/dg/monitor-sending-activity.html" target="_blank">Monitoring your Amazon SES sending activity</a><br><a href="https://docs.aws.amazon.com/ses/latest/dg/receiving-email-metrics.html" target="_blank">Viewing metrics for Amazon SES email receiving</a>
 
 The maximum number of metrics obtainable is `10 + 2 × (number of rules) + 1 × (number of CloudWatch event destination configurations)`.
 

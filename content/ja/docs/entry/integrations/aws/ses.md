@@ -11,7 +11,7 @@ AWSインテグレーションの設定方法や対応AWSサービス一覧に�
 <a href="https://mackerel.io/ja/docs/entry/integrations/aws">AWSインテグレーション</a>
 
 ## 取得メトリック
-AWSインテグレーションのSES対応で取得できるメトリックは以下の通りです。`メトリック`の説明に関してはAWSのヘルプをご確認ください。<br><a href="https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/monitor-sending-activity.html" target="_blank">Amazon SES 送信アクティビティのモニタリング</a><br><a href="https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/receiving-email-metrics.html" target="_blank">Amazon SES によるメール受信のメトリクスの表示</a>
+AWSインテグレーションのSES対応で取得できるメトリックは以下の通りです。`メトリック`の説明に関してはAWSのヘルプをご確認ください。<br><a href="https://docs.aws.amazon.com/ja_jp/ses/latest/dg/monitor-sending-activity.html" target="_blank">Amazon SES 送信アクティビティのモニタリング</a><br><a href="https://docs.aws.amazon.com/ja_jp/ses/latest/dg/receiving-email-metrics.html" target="_blank">Amazon SES によるメール受信のメトリクスの表示</a>
 
 最大で `10 + 2 × (ルール数) + 1 × (CloudWatchイベント送信先の設定数)` のメトリックが取得されます。
 
