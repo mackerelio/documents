@@ -12,7 +12,7 @@ The HTTP Server tab of the APM service screen displays a list of statistical inf
 
 ## Viewing the list of requests
 
-The HTTP Server screen displays a list of trace spans information for received requests. Trace spans at the time of transmission (client spans) are not included in the aggregation.
+The HTTP Server screen displays a list of trace spans information for received requests. Trace spans at the time of transmission (client spans, i.e., spans with `span.kind` set to `CLIENT`) are not included in the aggregation.
 
 The following information is displayed in each route row. Clicking on a field name other than the route allows you to switch between ascending and descending order based on that field.
 
