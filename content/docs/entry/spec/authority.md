@@ -42,6 +42,8 @@ The operations that are possible / impossible for each permission are as follows
 | Create/edit/delete monitor rules and downtime                |       ○|        ○|             ○|       ×|
 | Create/edit/delete notification channels                     |       ○|        ○|             ○|       ×|
 | Make a note to alert, Close alerts                           |       ○|        ○|             ○|       ×|
+| Write notes to APM                                           |       ○|        ○|             ○|       ×|
+| Comment/react on issues and change assignees                |       ○|        ○|             ○|       ×|
 | Create/edit/delete custom dashboards                         |       ○|        ○|             ○|       ×|
 | Edit graph settings, Delete graph                            |       ○|        ○|             ○|       ×|
 | Create/edit/delete graph annotations                         |       ○|        ○|             ○|       ×|
