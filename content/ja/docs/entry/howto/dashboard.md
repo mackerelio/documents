@@ -88,12 +88,14 @@ Web・App・DB のロールを指定します。
   - AWSインテグレーション - API Gateway
   - AWSインテグレーション - CloudFront
   - AWSインテグレーション - EC2
+  - AWSインテグレーション - ECS Cluster
   - mackerel-plugin-accesslog
   - mackerel-plugin-apache2
   - mackerel-plugin-nginx
 - App ロール
   - AWSインテグレーション - Lambda
   - AWSインテグレーション - EC2
+  - AWSインテグレーション - ECS Cluster
   - mackerel-plugin-gostats
   - mackerel-plugin-jvm
   - mackerel-plugin-jmx-jolokia

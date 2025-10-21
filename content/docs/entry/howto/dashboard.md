@@ -89,12 +89,14 @@ The plugins and cloud integrations currently supported by each role are as follo
   - AWS Integration - API Gateway
   - AWS Integration - CloudFront
   - AWS Integration - EC2
+  - AWS Integration - ECS Cluster
   - mackerel-plugin-accesslog
   - mackerel-plugin-apache2
   - mackerel-plugin-nginx
 - App Role
   - AWS Integration - Lambda
   - AWS Integration - EC2
+  - AWS Integration - ECS Cluster
   - mackerel-plugin-gostats
   - mackerel-plugin-jvm
   - mackerel-plugin-jmx-jolokia
