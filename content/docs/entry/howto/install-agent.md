@@ -42,6 +42,3 @@ Please do not forget to delete the file `/var/lib/mackerel-agent/id` which by de
 
 [mackerel-agent install page]: https://mackerel.io/my/instruction-agent
 
--
-
-If you have any questions please contact our support team at support@mackerel.io

@@ -182,7 +182,3 @@ With this plugin you can create a graph like the one shown here.
   - Item name in “configuration” changed from “sensu.checks” to “plugin.metrics”.
   - Update "Posting metrics" to meet the specification change where metric names are given the "custom." prefix.
 
-
--
-
-If you have any questions please contact our support team at support@mackerel.io

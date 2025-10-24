@@ -10,6 +10,4 @@ The im.kayac.com service ended on October 31st 2017 and its alert notification f
 [https://mackerel.io/blog/entry/announcement/20171017:embed:cite]
 
 Please use other notification channels.
--
 
-If you have any questions please contact our support team at support@mackerel.io

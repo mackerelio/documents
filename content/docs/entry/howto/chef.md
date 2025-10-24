@@ -46,6 +46,3 @@ For information about host custom metrics please refer to the following entry.
 
 [https://mackerel.io/docs/entry/advanced/custom-metrics:embed:title]
 
--
-
-If you have any questions please contact our support team at support@mackerel.io

@@ -30,4 +30,3 @@ URLには、以下のドキュメント（英語）を参考に取得した Inco
 
 Slack互換のソフトウェアに関しても、こちらのSlackチャンネルをご利用いただけます（動作保証対象外）。Slack互換のソフトウェアには例えば <a href="https://mattermost.com/" target="_blank">Mattermost</a> があります。
 
-どうぞご利用下さい。

@@ -179,6 +179,3 @@ sudo rpm -e mackerel-agent-kcps
 
 Lastly, please do not forget to delete the file `/var/lib/mackerel-agent-kcps/id` which by default contains the host ID.
 
--
-
-If you have any questions please contact our support team at support@mackerel.io

@@ -166,7 +166,3 @@ If `Critical only` is On, Warning notifications will not be sent. Detailed notif
 - Notifications will be sent for error levels of Critical or higher (Critical, Unknown)
 - OK notifications will be sent for alerts that have previously exceeded Critical
 
-
--
-
-If you have any questions please contact our support team at support@mackerel.io

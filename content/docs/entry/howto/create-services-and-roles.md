@@ -29,6 +29,3 @@ Roles can alternatively be created from any service page by clicking the "New Ro
 
 For more information on assigning roles to hosts within a service, please refer to [Assigning roles to hosts](https://mackerel.io/docs/entry/howto/assign-roles-to-hosts).
 
--
-
-If you have any questions please contact our support team at support@mackerel.io

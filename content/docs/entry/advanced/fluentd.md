@@ -228,6 +228,4 @@ Next we will prepare the configurations for the fluentd that will retrieve the E
   out_keys         Latency
 </match>
 ```
--
 
-If you have any questions please contact our support team at support@mackerel.io

@@ -13,6 +13,3 @@ To assign a role that you have created to a host, first log into Mackerel and ac
 
 By editing the agent’s configuration file, you can have the agent automatically assign services and roles when it boots up. For more information please refer to the [agent specifications documentation](https://mackerel.io/docs/entry/spec/agent#setting-services-and-roles).
 
--
-
-If you have any questions please contact our support team at support@mackerel.io

@@ -58,6 +58,3 @@ For example, if you configure your Prefix settings like shown above…
 
 Your notifications will look like this!
 
--
-
-If you have any questions please contact our support team at support@mackerel.io

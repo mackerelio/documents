@@ -60,7 +60,3 @@ The following items are included in the notification content only when using API
 
 In the PagerDuty channel settings screen, you can select which version of the Events API to use, but we recommend using API v2 for new configurations. As of November 2017 there are no significant differences between the contents, but there is a possibility that notification parameters that can only be used with Events API v2 will be added in the future.
 
-
--
-
-If you have any questions please contact our support team at support@mackerel.io

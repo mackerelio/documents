@@ -28,4 +28,3 @@ For the URL, enter the Incoming Webhook URL you can obtain by referring to the f
 - In the “Mentions” drop down menu, you can decide what types of alerts you would like to be notified of and who can see notifications.
 - Click “Create” to complete set-up. To test the new notification channel, go back to the “Channels” page and click the “Test” button next to the Slack channel. If everything was configured correctly, you should receive a notification in Slack instantly.
 
-If you have any questions please contact our support team at support@mackerel.io

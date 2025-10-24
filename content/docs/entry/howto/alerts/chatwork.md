@@ -36,6 +36,3 @@ To register the channel, other than giving the channel a name you will need to o
 - The string of digits at the end of the URL following `rid` is the ROOM ID.
   - ![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20190123/20190123181957.png)
 
--
-
-If you have any questions please contact our support team at support@mackerel.io

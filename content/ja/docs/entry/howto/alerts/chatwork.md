@@ -34,4 +34,3 @@ Chatworkへの通知には、[Chatwork API](https://developer.chatwork.com/docs)
 - URL末尾、`rid`に続く数字がROOM IDとなります
   - ![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20190123/20190123181957.png)
 
-どうぞご利用下さい。
