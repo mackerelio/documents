@@ -19,7 +19,7 @@ Users may also use programs they have created as check plugins. Such programs mu
 
 Check monitoring settings are added to the [Agent configuration file](https://mackerel.io/docs/entry/spec/agent#config-file). The following is a sample monitor configuration using a selfmade program named `check-ssh.rb`. Please refer to [Configuration items](#items) for a description of each item. Please set the non-required fields as needed.
 
-```config
+```toml
 [plugin.checks.ssh]
 command = ["ruby", "/path/to/check-ssh.rb"]
 user = "SOME_USER_NAME"

@@ -3,7 +3,6 @@ Title: メトリックプラグイン - mackerel-plugin-multicore
 Date: 2023-03-29T18:31:12+09:00
 URL: https://mackerel.io/ja/docs/entry/plugins/mackerel-plugin-multicore
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/4207112889975939714
-CustomPath: plugins/mackerel-plugin-multicore
 ---
 
 mackerel-plugin-multicore はマルチコアの CPU を監視するためのプラグインです。[システムメトリック](https://mackerel.io/ja/docs/entry/spec/metrics) の一つである cpu の値はすべてのコアの合計値ですが、このプラグインではコアごとの使用状況をメトリックとして投稿できます。
@@ -52,7 +51,7 @@ mackerel-plugin-multicore はマルチコアの CPU を監視するためのプ�
 
 <h2 id="config">エージェントへの設定例</h2>
 
-```
+```toml
 [plugin.metrics.multicore]
 command = ["mackerel-plugin-multicore"]
 ```

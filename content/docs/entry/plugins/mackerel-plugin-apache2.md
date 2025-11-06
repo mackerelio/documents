@@ -3,7 +3,6 @@ Title: Metric plugins - mackerel-plugin-apache2
 Date: 2022-12-15T16:26:11+09:00
 URL: https://mackerel.io/docs/entry/plugins/mackerel-plugin-apache2
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/4207112889945319728
-CustomPath: plugins/mackerel-plugin-apache2
 ---
 
 mackerel-plugin-apache2 provides a way to monitor statistics about Apache2 as a metric.
@@ -86,7 +85,7 @@ The options which can be configured in the plugin are as follows.
 
 <h2 id="config">Example configuration</h2>
 
-```
+```toml
 [plugin.metrics.apache2]
 command = ["mackerel-plugin-apache2", "-p", "1080"]
 ```

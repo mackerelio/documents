@@ -3,7 +3,6 @@ Title: Metric plugins - mackerel-plugin-mysql
 Date: 2023-07-26T17:10:46+09:00
 URL: https://mackerel.io/docs/entry/plugins/mackerel-plugin-mysql
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/820878482952941545
-CustomPath: plugins/mackerel-plugin-mysql
 ---
 
 mackerel-plugin-mysql can monitor various metrics about MySQL, such as the number of queries executed.  
@@ -530,7 +529,7 @@ The options that can be specified for the plugin are as follows
 
 To monitor MySQL running on port 3306 on the localhost, configure as follows.
 
-```
+```toml
 [plugin.metrics.mysql]
 command = ["mackerel-plugin-mysql", "--host", "localhost", "--port", "3306"]
 ```

@@ -19,11 +19,11 @@ To add a new Slack notification channel, click on “Monitors,” then “Channe
 
 ![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20190204/20190204181054.png)
 
-[Incoming Webhooks](https://my.slack.com/services/new/incoming-webhook), one of Slack's APIs, are used to send notifications to the Slack channel.
+Use Incoming Webhooks for notifications to Slack channels.
 
 For the URL, enter the Incoming Webhook URL you can obtain by referring to the following document.
 
-- [Sending messages using Incoming Webhooks | Slack](https://api.slack.com/messaging/webhooks)
+- [Sending messages using incoming webhooks | Slack Developer Docs](https://docs.slack.dev/messaging/sending-messages-using-incoming-webhooks/)
 
 - In the “Mentions” drop down menu, you can decide what types of alerts you would like to be notified of and who can see notifications.
 - Click “Create” to complete set-up. To test the new notification channel, go back to the “Channels” page and click the “Test” button next to the Slack channel. If everything was configured correctly, you should receive a notification in Slack instantly.

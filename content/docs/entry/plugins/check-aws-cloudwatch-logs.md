@@ -3,7 +3,6 @@ Title: Check plugins - check-aws-cloudwatch-logs
 Date: 2023-04-19T12:10:37+09:00
 URL: https://mackerel.io/docs/entry/plugins/check-aws-cloudwatch-logs
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/4207112889982640479
-CustomPath: plugins/check-aws-cloudwatch-logs
 ---
 
 check-aws-cloudwatch-logs is a plugin that monitors log group of CloudWatch Logs. This plugin will generate an alert when it detects logs that match the conditions described in the CloudWatch Logs [filter and pattern syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html). This plugin requires configuration to run FilterLogEvents API of CloudWatch Logs. See [Authentication and required policies](#policy) for more information.
@@ -43,7 +42,7 @@ If more than one hour has passed since the last execution, logs up to 1 minute b
 
 The following is a configuration for detecting logs containing the word "Error" in the CloudWatch Logs log group `/aws/lambda/sample_log_group`.
 
-```
+```toml
 [plugin.checks.aws-cloudwatch-logs-sample]
 command = ["check-aws-cloudwatch-logs", "--log-group-name", "/aws/lambda/sample_log_group", "--pattern", "Error"]
 env = { AWS_REGION = "ap-northeast-1" }

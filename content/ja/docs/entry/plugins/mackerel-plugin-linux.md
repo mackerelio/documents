@@ -3,7 +3,6 @@ Title: メトリックプラグイン - mackerel-plugin-linux
 Date: 2023-04-10T18:21:37+09:00
 URL: https://mackerel.io/ja/docs/entry/plugins/mackerel-plugin-linux
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/4207112889979931444
-CustomPath: plugins/mackerel-plugin-linux
 ---
 
 mackerel-plugin-linux は Linux の情報を毎分集計し、メトリックとして投稿するプラグインです。
@@ -110,7 +109,7 @@ tempfile には集計結果が記録されます。デフォルトでは `/var/t
 
 <h2 id="config">エージェントへの設定例</h2>
 
-```
+```toml
 [plugin.metrics.linux]
 command = ["mackerel-plugin-linux"]
 ```

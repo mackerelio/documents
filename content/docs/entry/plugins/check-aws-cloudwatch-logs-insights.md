@@ -3,7 +3,6 @@ Title: Check plugins - check-aws-cloudwatch-logs-insights
 Date: 2023-04-25T18:23:06+09:00
 URL: https://mackerel.io/docs/entry/plugins/check-aws-cloudwatch-logs-insights
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/4207112889984434834
-CustomPath: plugins/check-aws-cloudwatch-logs-insights
 ---
 
 check-aws-cloudwatch-logs-insights is a plugin that monitors log group of CloudWatch Logs. To run this plugin, you must be authorized to run the CloudWatch Logs Insights API. For more information, see [Authentication and Required Policies](#policy). See [difference from check-aws-cloudwatch-logs](#difference) for the difference from check-aws-cloudwatch-logs.
@@ -79,7 +78,7 @@ If the `--state-dir` option is not specified, the State file will be saved in th
 
 In the following configuration, a Warning alert is detected when one or more logs containing the word `ERROR` are output to the log group `/aws/lambda/some-lambda-function` in CloudWatch Logs, and a Critical alert is detected when 10 or more logs containing the word `ERROR` are output.
 
-```
+```toml
 [plugin.checks.aws-cloudwatch-logs-insights-sample]
 command = ["check-aws-cloudwatch-logs-insights", "--log-group-name", "/aws/lambda/some-lambda-function", "--filter", "filter @message like /ERROR/", "--warning-over", "1", "--critical-over", "10"]
 env = { AWS_REGION = "ap-northeast-1" }

@@ -51,7 +51,7 @@ If you specify the corresponding service name in the `--service` option, the che
 
 The following is a configuration that checks for connections on port `4224` of `localhost`, and if the connection takes more than 3 seconds, it is set to Warning, and if it takes more than 5 seconds, it is set to Critical.
 
-```
+```toml
 [plugin.checks.check-tcp-sample]
 command = ["check-tcp", "-H", "localhost", "-p", "4224", "-w", "3", "-c", "5"]
 ```
@@ -64,7 +64,7 @@ check-tcp -H localhost -p 4224 -w 3 -c 5
 
 To specify an IPv6 address, enclose it in single-byte brackets `[]` like `[::1]`.
 
-```
+```toml
 [plugin.checks.check-tcp-v6-sample]
 command = ["check-tcp", "-H", "[::1]", "-p", "4224", "-w", "3", "-c", "5"]
 ```
@@ -77,7 +77,7 @@ The `--service` option checks messages according to the supported protocols, but
 
 For example, to check that the reason phrase in the HTTP response status line is the expected message, the following configuration can be used.
 
-```
+```toml
 [plugin.checks.tcp_http404]
 command = ["check-tcp", "-H", "localhost", "-p", "80", "-s", "GET / HTTP/1.1\\r\\n\\r\\n", "-e", "HTTP/1.1 404 Bad Request", "-E"]
 ```

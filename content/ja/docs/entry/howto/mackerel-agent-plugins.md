@@ -63,7 +63,7 @@ sudo apt-get install mackerel-agent-plugins
 各プラグインは`/usr/bin`にインストールされていますので、mackerel-agentの設定ファイルに利用するプラグインに合わせて以下のような設定を追加してください。設定の反映には、mackerel-agentの再起動が必要です。
 
 Apache2用プラグインの場合
-```
+```toml
 [plugin.metrics.apache2]
 command = ["mackerel-plugin-apache2"]
 ```
@@ -75,7 +75,7 @@ command = ["mackerel-plugin-apache2"]
 
 「mackerel-plugin-mssql」プラグインを使う場合は以下のようになります。
 
-```
+```toml
 [plugin.metrics.mssql]
 command = ["mackerel-plugin-mssql"]
 ```

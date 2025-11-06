@@ -3,7 +3,6 @@ Title: メトリックプラグイン - mackerel-plugin-mssql
 Date: 2023-04-07T11:05:31+09:00
 URL: https://mackerel.io/ja/docs/entry/plugins/mackerel-plugin-mssql
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/4207112889978758853
-CustomPath: plugins/mackerel-plugin-mssql
 ---
 
 mackerel-plugin-mssql は Microsoft SQL Server の情報をメトリックとして投稿するプラグインです。
@@ -72,7 +71,7 @@ tempfile はデフォルトでは `C:\Windows\Temp` 配下に `mackerel-plugin-m
 
 下記はインスタンス名が SQLEXPRESS の場合の設定例です。
 
-```
+```toml
 [plugin.metrics.mssql]
 command = ["mackerel-plugin-mssql", "-instance", "SQLEXPRESS"]
 ```

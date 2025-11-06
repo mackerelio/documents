@@ -11,7 +11,7 @@ With `check-aws-cloudwatch-logs` included in the official check plugin pack, you
 
 To monitor CloudWatch Logs with `check-aws-cloudwatch-logs`, write the following for example in mackerel-agent.conf and restart mackerel-agent.
 
-```config
+```toml
 [plugin.checks.aws-cloudwatch-logs-sample]
 command = ["check-aws-cloudwatch-logs", "--log-group-name", "/aws/lambda/sample_log_group", "--pattern", "Error", "--critical-over", "5", "--warning-over", "3"]
 env = { AWS_REGION = "ap-northeast-1" }

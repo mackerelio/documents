@@ -47,14 +47,14 @@ In this plugin, the options must be configured before defining metrics.
 
 The following is the configuration to post with `public` for the community, the OID `.1.2.3.4.5.6.7` for the MIB, `foo` for the graph name, `bar` for the metric name, and difference/stack display both set to "No".
 
-```
+```toml
 [plugin.metrics.snmp]
 command = ["mackerel-plugin-snmp", "-name", "foo", "-community", "public", ".1.2.3.4.5.6.7:bar:0:0"]
 ```
 
 It is possible to post multiple metrics to the same graph by listing multiple metric definitions.
 
-```
+```toml
 [plugin.metrics.snmp]
 command = ["mackerel-plugin-snmp", "-name", "foo", "-community", "public", ".1.2.3.4.5.6.7:bar:0:0", ".1.2.3.4.5.6.8:fuga:0:0"]
 ```

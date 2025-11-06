@@ -5,98 +5,120 @@ URL: https://mackerel.io/ja/docs/entry/howto/check/log
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/6653458415126986600
 ---
 
-公式チェックプラグイン集の `check-log` を使ってログ監視をおこなえます。公式チェックプラグイン集のインストールは、[チェック監視に公式チェックプラグイン集を使う](https://mackerel.io/ja/docs/entry/howto/mackerel-check-plugins) をごらんください。
+Mackerelでは公式チェックプラグインを利用することで、以下のようなログを監視できます。
 
-## `check-log` の使い方
+- ログファイル
+- Windowsのイベントログ
+- Amazon CloudWatch Logsのログ
 
-`check-log`を使ってログ監視をおこなうためには例えば以下のように mackerel-agent.conf に記述し、mackerel-agentを再起動します。
+このページでは、チェックプラグインの導入からログの種類に応じたシンプルな監視設定までをご案内します。詳細な設定については、別途利用するプラグインのヘルプをご確認ください。  
 
-```config
-[plugin.checks.access_log]
-command = ["check-log", "--file", "/var/log/access.log", "--pattern", "FATAL"]
+[:contents]
+
+## ログ監視の始め方
+
+### 1. 公式チェックプラグイン集をインストールする
+
+[チェック監視に公式チェックプラグイン集を使う](https://mackerel.io/ja/docs/entry/howto/mackerel-check-plugins) を参照し、公式チェックプラグイン集を導入します。
+
+### 2. チェック監視の設定を追加する
+
+ログ監視の対象となるサーバの mackerel-agent.conf の末尾に、監視したいログに合わせたチェック監視の設定をおこないます。
+追加する設定は、以下のようなフォーマットになっています。
+
+```toml
+[plugin.checks.<監視ルール名>]
+command = ["実行したいコマンド", "引数", "引数"...]
 ```
 
-Windows Server 環境の場合は、以下のように記述します（ログファイル `C:\log\access.log` を対象にログ監視する場合。対象ログファイルにBOM（バイトオーダーマーク）が付与されていると監視をおこなえませんのでご注意ください）。
+追記が完了したら、mackerel-agent を再起動（Linux の場合は reload でも可）することで、監視が開始されます。  
+設定が正常に反映された場合、設定で指定した監視ルール名が対象ホストの Monitors に表示されます。
 
-```config
-[plugin.checks.access_log]
-command = ["check-log", "--file", "C:\\log\\access.log", "--pattern", "FATAL"]
+<figure class="figure-image figure-image-fotolife" title="ホスト詳細画面の Monitors に log-sample や aws-cloudwatch-logs-sample という名前のログ監視設定が表示されている様子">[f:id:mackerelio:20251024231326p:plain]<figcaption>ホスト詳細画面の Monitors に log-sample や aws-cloudwatch-logs-sample という名前のログ監視設定が表示されている様子</figcaption></figure>
+
+設定後は、監視対象のログにエラー文字列を追記してアラートが発報するかといった動作確認をおすすめいたします。
+
+以下に監視したいログ別の設定例を示します。
+
+#### ログファイルの監視（check-log）
+
+以下は、`log-sample` という監視ルール名で、`/var/log/messages` に `ERROR` が出力されたらCRITICALアラートを発報する例です。
+
+```toml
+[plugin.checks.log-sample]
+command = ["check-log", "--file", "/var/log/messages", "--pattern", "ERROR"]
 ```
 
-`--file` オプションに監視対象のファイルを、`--pattern` オプションに、エラー文言を検出したいパターンを正規表現で指定します。この場合、ログファイルに "FATAL" という文字列が出現した場合にアラートが発生します。
+<figure class="figure-image figure-image-fotolife" title="上記設定にてアラートが発生した例">[f:id:mackerelio:20251024230354p:plain]<figcaption>上記設定にてアラートが発生した例</figcaption></figure>
 
-初回のチェックは、設定追加後に出力された差分に対してのみおこなわれます。初回チェックのタイミングで既に存在するファイルの内容全てに対してチェックをおこないたい場合は、`--check-first` オプションを指定してください。
+そのほか監視目的に合わせて、パターンにマッチしたログの件数をアラートの条件にしたり、複数のファイルを対象に監視したりといった設定も可能です。
+詳しくは [チェックプラグイン - check-log - Mackerel ヘルプ](https://mackerel.io/ja/docs/entry/plugins/check-log) をご確認ください。
 
-```config
-[plugin.checks.access_log]
-command = ["check-log", "--file", "/var/log/access.log", "--pattern", "FATAL", "--check-first"]
+#### Windowsのイベントログの監視（check-windows-eventlog）
+
+Windowsのイベントログはcheck-windows-eventlogプラグインを利用することで監視できます。  
+
+以下は、`windows-eventlog-sample` という監視ルール名で、`Application` ログに、イベントレベルが `Error` でイベントのメッセージに `ERROR` という文字列が含まれていたらアラートを発報する例です。
+
+```toml
+[plugin.checks.windows-eventlog-sample]
+command = ["check-windows-eventlog", "--log", "Application", "--type", "Error", "--message-pattern", "ERROR"]
 ```
 
-`--pattern` オプションは複数指定することができ、その場合 AND 条件（指定された全てのパターンを満たすログ出力行のみ検出）として扱われます。以下の例は、 "PRODUCTION" と "FATAL" という2つの文字列が含まれるログ出力行が出現した場合にアラートを発生させる場合の設定例です。
+上記設定でアラートが発生した際は、`Event Log CRITICAL: 0 warnings, 1 criticals.` のようなログがMackerelのアラート詳細画面に表示されます。
 
-```config
-[plugin.checks.access_log]
-command = ["check-log", "--file", "/var/log/access.log", "--pattern", "PRODUCTION", "--pattern", "FATAL"]
+
+そのほか、Systemログを監視対象にしたり、特定のイベントIDやイベントソースを対象にしたりもできます。詳しくは [check-windows-eventlogのヘルプ](https://mackerel.io/ja/docs/entry/plugins/check-windows-eventlog) をご確認ください。
+
+#### Amazon CloudWatch Logsの監視（check-aws-cloudwatch-log）
+
+Amazon CloudWatch Logsのログは、check-aws-cloudwatch-logsプラグインを利用して監視できます。検出したい文字列の条件にはAmazon CloudWatch Logsのフィルターパターンを利用します。
+
+以下は、`aws-cloudwatch-logs-sample` という監視ルール名で、ロググループ `/aws/lambda/sample_log_group` に `Error` を含む文字列が出力されたらCRITICALアラートを発報する例です。
+
+```toml
+[plugin.checks.aws-cloudwatch-logs-sample]
+command = ["check-aws-cloudwatch-logs", "--log-group-name", "/aws/lambda/sample_log_group", "--pattern", "Error"]
 ```
 
-`--pattern` には、日本語（マルチバイト文字）を指定することもできますが、その場合には conf ファイルの文字コード（エンコーディング）が `UTF-8` である必要があります。
+上記設定でアラートが発生した際は、`CloudWatch Logs CRITICAL: 1 > 0 messages for pattern /Error/ ` のようなログがアラート詳細画面に表示されます。
 
-`--file` オプションには、glob形式でチェック対象を指定することもできます。
+そのほか、対象のログストリームをプレフィックスで絞り込んだり、パターンにマッチしたログの件数をアラートの条件にしたりもできます。
+詳しくは [チェックプラグイン - check-aws-cloudwatch-logs - Mackerel ヘルプ](https://mackerel.io/ja/docs/entry/plugins/check-aws-cloudwatch-logs) をご確認ください。
 
-```config
-[plugin.checks.access_log]
-command = ["check-log", "--file", "/var/log/*.log", "--pattern", "FATAL"]
+また、別途 check-aws-cloudwatch-logs-insightsプラグインを導入することで、CloudWatch Logs Insights の構文を利用した監視が可能です。  
+check-aws-cloudwatch-logsプラグインとの違いや、導入方法については、[チェックプラグイン - check-aws-cloudwatch-logs-insights - Mackerel ヘルプ](https://mackerel.io/ja/docs/entry/plugins/check-aws-cloudwatch-logs-insights)をご確認ください。
+
+### 3. チェック監視の動作を変更する
+
+必要に応じて、チェック監視の実行間隔や、何回連続で異常を検知したらアラート発報するかなどの設定が可能です。
+以下はデフォルトでは実行間隔が1分のチェック監視を10分間隔に変更し、さらに3回実行した結果がすべて異常だった場合にアラートを発報する例です。
+
+```toml
+[plugin.checks.messages_error]
+command = ["check-log", "--file", "/var/log/messages", "--pattern", "ERROR"]
+check_interval = 10m
+max_check_attempts = 3
 ```
 
+そのほか、チェック監視に設定可能な項目については、[チェック監視項目を追加する - Mackerel ヘルプ](https://mackerel.io/ja/docs/entry/custom-checks#items) をご参照ください。
 
-また、`--file-pattern` オプションにより監視対象としたいファイル名の条件を正規表現で指定することも可能です。
+## 実験的提供プラグインを利用した監視
 
-```config
-[plugin.checks.access_log]
-command = ["check-log", "--file-pattern", "/var/log/access.log.\\d{4}-\\d{2}-\\d{2}", "--pattern", "FATAL"]
-```
+公式チェックプラグイン集には同梱されていませんが、Mackerelではそのほかのログ監視の用途に向けたプラグインを[Mackerel Labs](https://github.com/mackerelio-labs)にて実験提供しています。
 
-Windows Server環境では、ディレクトリの区切り文字 `\` と正規表現が競合するため、 `--search-in-directory` オプション、 `--file-pattern` オプションの両方を使用して、ログファイルが存在するディレクトリとファイル名の条件を個別に指定することをおすすめします。
+cloudwatch-logs-aggregatorでは、Amazon CloudWatch Logsのログを集計し、メトリックとして投稿できます。
 
-```config
-[plugin.checks.access_log]
-command = ["check-log", "--search-in-directory", "C:\\log\\", "--file-pattern", "access.log.\\d{4}-\\d{2}-\\d{2}", "--pattern", "FATAL"]
-```
+- [Amazon CloudWatch Logs のログを集計して Mackerel にメトリックを投稿する - Mackerel ヘルプ](https://mackerel.io/ja/docs/entry/advanced/cloudwatch-logs-aggregator)
+- [cloudwatch-logs-aggregator で Amazon CloudWatch Logs のログのメトリック化を実践する](https://mackerel.io/ja/blog/entry/cloudwatch-logs-aggregator)
 
-mackerel-agentは定期的にcheck-logを実行しますが、前回実行時までにチェックした行はスキップされます。実行間隔は `check_interval` （[参照](https://mackerel.io/ja/docs/entry/custom-checks)）で指定された間隔(デフォルト1分)です。
+mackerel-sql-metric-collectorでは、MySQL や Athena などさまざまなデータベースへのクエリ結果をメトリックとして投稿できます。
 
-ログローテーションが発生した場合、ログは冒頭から読み直されます。正確には、前回チェック時よりもファイルサイズが小さくなっている場合にログローテーションが発生したとみなし、冒頭から読み直す挙動となっています。
+- [mackerel-sql-metric-collector - README](https://github.com/mackerelio-labs/mackerel-sql-metric-collector/blob/main/README_ja.md)
+- [各種のデータベースから自由にクエリした結果をMackerelに投稿できるツール「mackerel-sql-metric-collector」を紹介します](https://mackerel.io/ja/blog/entry/meetup14-7)
 
-## 検出されたログ出力行の内容をMackerel上で確認したい
+check-systemd-journalでは、journaldに投稿されたログを対象に監視できます。
 
-コマンドに `--return` オプションを付加することで、検出されたログ出力行の内容が標準出力に出すことができます。その出力はMackerelに送信され、ホスト詳細画面やアラート画面に可視化されるようになりますので、このオプションをご利用の際には秘匿情報などが意図せず送信されないようにご注意下さい。
+- [mackerelio-labs/check-systemd-journal](https://github.com/mackerelio-labs/check-systemd-journal?tab=readme-ov-file#%E8%AA%AC%E6%98%8E)
 
-また、送信内容のサイズが大きい場合、表示が切り詰められることがあります。仕様の詳細については[チェックプラグイン仕様](https://mackerel.io/ja/docs/entry/custom-checks#plugin)をご確認ください。
-
-## 発生頻度に対する閾値や除外パターンを指定する
-
-エラー文言が1回だけ出る分には問題ないが、頻発した場合にアラートを上げたいケースに対しては以下のオプションが有用です。
-
-- `-w`, `--warning-over`
-  - 設定値より多くエラー行が検出された場合にwarning
-- `-c`, `--critical-over`
-  - 設定値より多くエラー行が検出された場合にcritical
-
-また `--exclude` オプションを指定することで、除外パターンを指定することが可能です。
-
-例えば以下の設定ではNginxのアクセスログを監視して、4xxや5xxのエラーの発生をチェックしています。
-
-`--exclude` を指定することで"robots.txt"へのアクセスは除外するようにしています。また、 `--warning-over`, `--critical-over` を指定することで、1分間に3回より多く出現したらWarning、10回より多く出現したらCriticalになるように設定しています。
-
-```config
-[plugin.checks.access_status]
-command = ["check-log", "--file", "/var/log/nginx/access.log", "--pattern", "HTTP/1\.[01]\" [45][0-9][0-9] ", "--exclude", "GET .*?robots\.txt HTTP/1\.[01]", "--warning-over", "3", "--critical-over", "10", "--return"]
-```
-
-その他のオプションに関しては、[チェックプラグイン - check-log - Mackerel ヘルプ](https://mackerel.io/ja/docs/entry/plugins/check-log)や、`check-log --help`、[README](https://github.com/mackerelio/go-check-plugins/blob/master/check-log/README.md)をご確認下さい。
-
-## ソースコードについて
-
-`check-log`のソースコードは以下に公開されています。
-
-<https://github.com/mackerelio/go-check-plugins/tree/master/check-log>
+Mackerel Labsで公開されているソフトウェアは実験的なものであるため、サポートの対象外となります。お問い合わせをいただいても基本的には対応いたしかねますのであらかじめご理解のほどお願いいたします。  

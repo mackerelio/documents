@@ -13,7 +13,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 
 また、接続にかかった秒数に対して閾値が設定でき、下記の場合だと、3秒以上かかった場合にWarning、10秒以上の場合にCriticalが発生します。
 
-```config
+```toml
 [plugin.checks.tcp_app]
 command = ["check-tcp", "--hostname", "localhost", "--port", "5000", "--send", "GET / HTTP/1.0\r\n\r\n", "--escape", "--expect-pattern", "OK Farm", "--warning", "3", "--critical", "10"]
 ```
@@ -22,14 +22,14 @@ command = ["check-tcp", "--hostname", "localhost", "--port", "5000", "--send", "
 
 もちろん、HTTP以外のサーバーのチェックも可能です。いくつかのサービスに関しては `--service` オプションを指定することで、複雑な指定すること無しに標準的なチェックをおこなえるようになっています。例えばFTPの場合だと以下のようになります。
 
-```config
+```toml
 [plugin.checks.ftp]
 command = ["check-tcp", "--service", "ftp", "-H", "localhost"]
 ```
 
 これは以下と等価の設定になっています。
 
-```config
+```toml
 [plugin.checks.ftp]
 command = ["check-tcp", "-H", "localhost", "--port", "21", "--expect-pattern", "^200", "--quit", "QUIT"]
 ```

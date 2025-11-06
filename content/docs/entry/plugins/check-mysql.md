@@ -3,7 +3,6 @@ Title: Check plugins - check-mysql
 Date: 2023-04-14T12:03:17+09:00
 URL: https://mackerel.io/docs/entry/plugins/check-mysql
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/4207112889981070025
-CustomPath: plugins/check-mysql
 ---
 
 check-mysql is a check plugin for monitoring MySQL. It can perform check monitoring based on the conditions of the subcommands used.
@@ -53,7 +52,7 @@ The following options for threshold values have different conditions depending o
 
 The following configuration will generate a Warning alert when the number of MYSQL connections exceeds 250 and a Critical alert when the number exceeds 280.
 
-```
+```toml
 [plugin.checks.check-mysql-sample]
 command = ["check-mysql", "connection", "--host", "127.0.0.1", "--port", "3306", "--user", "USER", "--password", "PASSWORD", "--warning", "250", "--critical", "280"]
 ```

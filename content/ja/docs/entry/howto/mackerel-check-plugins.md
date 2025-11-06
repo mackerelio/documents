@@ -64,7 +64,7 @@ sudo apt-get install mackerel-check-plugins
 
 プロセス監視プラグインを使ってcrondの監視を行いたい場合は以下のようになります。
 
-```config
+```toml
 [plugin.checks.check_cron]
 command = ["check-procs", "-p", "crond"]
 ```
@@ -75,7 +75,7 @@ command = ["check-procs", "-p", "crond"]
 
 プロセス監視プラグインを使ってプロセス名「foobar」の監視を行いたい場合は以下のようになります。
 
-```config
+```toml
 [plugin.checks.check_foobar]
 command = ["check-procs", "-p", "foobar"]
 ```

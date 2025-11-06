@@ -3,7 +3,6 @@ Title: Check plugins - check-http
 Date: 2022-11-21T18:09:14+09:00
 URL: https://mackerel.io/docs/entry/plugins/check-http
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/4207112889938595168
-CustomPath: plugins/check-http
 ---
 
 The check-http plugin performs monitoring of a desired server via HTTP connection. 
@@ -52,21 +51,21 @@ The monitoring results for each HTTP response code can be configured via the `--
 
 To monitor `https://mackerel.io/`, use the following configuration.
 
-```
+```toml
 [plugin.checks.https-mackerelio]
 command = ["check-http", "-u", "https://mackerel.io"]
 ```
 
 To set the monitoring result for the HTTP response of 404 to `OK`, use the following configuration.
 
-```
+```toml
 [plugin.checks.https-mackerelio]
 command = ["check-http", "-u", "https://mackerel.io", "--status", "404=OK"]
 ```
 
 It is also possible to designate the HTTP status code in the format `200-404`.
 
-```
+```toml
 [plugin.checks.https-mackerelio]
 command = ["check-http", "-u", "https://mackerel.io", "--status", "200-404=OK"]
 ```

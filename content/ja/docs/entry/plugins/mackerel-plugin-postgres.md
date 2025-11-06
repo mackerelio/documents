@@ -3,7 +3,6 @@ Title: メトリックプラグイン - mackerel-plugin-postgres
 Date: 2023-04-28T11:41:53+09:00
 URL: https://mackerel.io/ja/docs/entry/plugins/mackerel-plugin-postgres
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/4207112889985220876
-CustomPath: plugins/mackerel-plugin-postgres
 ---
 
 mackerel-plugin-postgres は PostgreSQL の統計状態をメトリックとして投稿するプラグインです。監視対象の PostgreSQL のバージョンによっては、実行するユーザに権限を与える必要があります。詳しくは [プラグインの実行に必要なユーザ権限](https://mackerel.io/ja/docs/entry/plugins/mackerel-plugin-postgres#role) を参照してください。
@@ -137,7 +136,7 @@ WAL に関する情報を投稿します。このメトリックを投稿する�
 
 <h2 id="config">エージェントへの設定例</h2>
 
-```
+```toml
 [plugin.metrics.postgres]
 command = ["mackerel-plugin-postgres", "-user", "username", "-password", "password"]
 ```
@@ -164,7 +163,7 @@ mackerel-plugin-postgres の実行に必要な接続情報を -password オプ�
 文字列で記述した場合 command の内容はシェル経由の実行となるので、引数にパスワードを出力するコマンドが指定できます。
 
 mackerel-agent.conf の内容
-```
+```toml
 [plugin.metrics.postgres]
 command = "mackerel-plugin-postgres -user username -password パスワードを出力するコマンド"
 ```
@@ -174,7 +173,7 @@ command = "mackerel-plugin-postgres -user username -password パスワードを�
 チェック監視の env を利用すれば環境変数として記述できます。env についてはチェック監視の [設定項目](https://mackerel.io/ja/docs/entry/custom-checks#items) を参照してください。
 
 mackerel-agent.conf の内容
-```
+```toml
 [plugin.metrics.postgres]
 command = "mackerel-plugin-postgres -user username -password $PG_PASSWORD"
 env = { "PG_PASSWORD" = "password" }
@@ -192,7 +191,7 @@ PG_PASSWORD=password
 ```
 
 mackerel-agent.conf の内容
-```
+```toml
 [plugin.metrics.postgres]
 command = "mackerel-plugin-postgres -user username -password $PG_PASSWORD"
 ```

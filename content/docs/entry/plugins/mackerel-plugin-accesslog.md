@@ -70,7 +70,7 @@ Latency.
 
 To monitor the access log `/path/to/access.log`, do the following.
 
-```
+```toml
 [plugin.metrics.accesslog]
 command = ["mackerel-plugin-accesslog", "/path/to/access.log"]
 ```

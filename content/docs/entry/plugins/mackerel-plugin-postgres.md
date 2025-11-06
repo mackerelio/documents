@@ -3,7 +3,6 @@ Title: Metric plugins - mackerel-plugin-postgres
 Date: 2023-05-02T12:15:46+09:00
 URL: https://mackerel.io/docs/entry/plugins/mackerel-plugin-postgres
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/4207575160645264248
-CustomPath: plugins/mackerel-plugin-postgres
 ---
 
 mackerel-plugin-postgres is a plugin that posts PostgreSQL statistical status as a metric.
@@ -143,7 +142,7 @@ The value of the metric is calculated by the following query.
 
 <h2 id="config">Example configuration</h2>
 
-```
+```toml
 [plugin.metrics.postgres]
 command = ["mackerel-plugin-postgres", "-user", "username", "-password", "password"]
 ```
@@ -169,7 +168,7 @@ If you want to avoid putting the connection information needed to run mackerel-p
 If you specify a string, the contents of command will be executed via the shell, so you can use the command to output the password.
 
 mackerel-agent.conf
-```
+```toml
 [plugin.metrics.postgres]
 command = "mackerel-plugin-postgres -user username -password <command to output password>"
 ```
@@ -179,7 +178,7 @@ command = "mackerel-plugin-postgres -user username -password <command to output 
 If an environment variable is defined in the env of check monitoring, the password can be written to the environment variable. For more information on env, see [Configuration items](https://mackerel.io/docs/entry/custom-checks#items).
 
 mackerel-agent.conf
-```
+```toml
 [plugin.metrics.postgres]
 command = "mackerel-plugin-postgres -user username -password $PG_PASSWORD"
 env = { "PG_PASSWORD" = "password" }
@@ -197,7 +196,7 @@ PG_PASSWORD=password
 ```
 
 mackerel-agent.conf
-```
+```toml
 [plugin.metrics.postgres]
 command = "mackerel-plugin-postgres -user username -password $PG_PASSWORD"
 ```

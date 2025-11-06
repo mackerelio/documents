@@ -3,7 +3,6 @@ Title: Metric plugins - mackerel-plugin-jvm
 Date: 2023-02-16T16:20:47+09:00
 URL: https://mackerel.io/docs/entry/plugins/mackerel-plugin-jvm
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/4207112889963699303
-CustomPath: plugins/mackerel-plugin-jvm
 ---
 
 mackerel-plugin-jvm retrieves various metrics about the JVM from commands such as jstat, jinfo and jps.
@@ -136,7 +135,7 @@ The options that can be specified for the plug-ins are as follows.
 
 <h2 id="config">Example configuration</h2>
 
-```
+```toml
 [plugin.metrics.jvm-tomcat]
 command = [ "mackerel-plugin-jvm", "--javaname", "tomcat", "--jstatpath", "/usr/bin/jstat", "--jpspath", "/usr/bin/jps", "--jinfopath", "/usr/bin/jinfo"]
 ```
@@ -144,7 +143,7 @@ command = [ "mackerel-plugin-jvm", "--javaname", "tomcat", "--jstatpath", "/usr/
 If you have multiple JVMs running on the same host and wish to monitor each one individually, specify different values for `[plugin.metrics.xxxxxx]` as follows
 
 
-```
+```toml
 [plugin.metrics.jvm-app01]
 command = [ "mackerel-plugin-jvm", "--jstatpath", "/usr/bin/jstat", "--jpspath", "/usr/bin/jps", "--jinfopath", "/usr/bin/jinfo", "--javaname", "app01", "--pidfile", "/path/to/app01pidfile" ]
 

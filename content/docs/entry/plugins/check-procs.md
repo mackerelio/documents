@@ -3,7 +3,6 @@ Title: Check plugins - check-procs
 Date: 2022-12-16T15:58:02+09:00
 URL: https://mackerel.io/docs/entry/plugins/check-procs
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/4207112889945587636
-CustomPath: plugins/check-procs
 ---
 
 check-procs is a check plugin that monitors the number of processes. It counts the number of processes that match specified conditions and raises an alert if the number is less than or greater than a threshold.
@@ -70,14 +69,14 @@ The sources of process information that can be specified in the options are as f
 
 The configuration to generate an alert when none of the processes to be monitored exist is as follows.
 
-```
+```toml
 [plugin.checks.check-procs-sample]
 command = ["check-procs", "--pattern", "PROCESS_NAME"]
 ```
 
 In the following example, if the number of monitored processes is less than 5, it becomes Warning, and if it is more than 10, it becomes Critical.
 
-```
+```toml
 [plugin.checks.check-procs-sample]
 command = ["check-procs", "--pattern", "PROCESS_NAME", "--warning-under", "5", "--critical-over", "10"]
 ```
@@ -90,7 +89,7 @@ If you want to be alerted when one or more processes are present, but no process
 
 In the example below, the number of processes to be monitored is 0, 1 or more is Warning, and 2 or more is Critical.
 
-```
+```toml
 [plugin.checks.check-procs-sample]
 command = ["check-procs", "--pattern", "PROCESS_NAME", "--warning-under", "0", "--critical-under", "0", "--warning-over", "0", "--critical-over", "1"]
 ```
@@ -101,7 +100,7 @@ Specify 0 for `--critical-under` if you do not want Critical alerts to be genera
 
 In the example below, only a Warning alert is generated when none of the monitored processes exist.
 
-```
+```toml
 [plugin.checks.check-procs-sample]
 command = ["check-procs", "--pattern", "PROCESS_NAME", "--warning-under", "1", "--critical-under", "0"]
 ```
@@ -110,7 +109,7 @@ If you do not want a Critical alert to be generated when the number of monitored
 
 In the example below, only Warning alerts are generated when there is more than one process to be monitored. The value of `--critical-over` should be adjusted according to your environment.
 
-```
+```toml
 [plugin.checks.check-procs-sample]
 command = ["check-procs", "--pattern", "PROCESS_NAME", "--warning-over", "0", "--critical-over", "9999"]
 ```

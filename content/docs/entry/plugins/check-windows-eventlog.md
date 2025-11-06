@@ -11,6 +11,8 @@ check-windows-eventlog is a plugin that monitors Windows event logs. It raises a
 
 <h2 id="options">Configurable options</h2>
 
+Some options have priority. See [Option Priority](#option-priority) for details.
+
 | Option | Abbreviation | Description | Default |
 | --- | --- | --- | --- |
 | --log | | Specify the type of event log you want to detect.<br>See the [Types of event logs that can be monitored](#log-type). | Application |
@@ -50,6 +52,26 @@ check-windows-eventlog is a plugin that monitors Windows event logs. It raises a
 
 Event level other than those listed above are not supported.
 
+<h3 id="option-priority">Option Priority</h3>
+
+The options for specifying monitoring conditions are processed in the following order.
+
+1. `--event-id-pattern`
+2. `--event-id-exclude`
+3. `--type`
+4. `--source-pattern`
+5. `--source-exclude`
+6. `--message-pattern`
+7. `--message-exclude`
+
+If an event matches a higher-priority exclusion setting, all lower-priority options are ignored. Exclusion settings cannot be combined using an AND condition.
+
+The specific behavior is as follows:
+
+- If `--event-id-exclude` is specified, all events with the specified ID will be ignored.
+- If `--event-id-exclude` is not specified and `--source-exclude` is specified, the settings for `--event-id-pattern` and `--type` will be effective.
+- If both `--event-id-exclude` and `--source-exclude` are not specified, the settings for `--event-id-pattern`, --type, `--source-pattern`, and either `--message-pattern` or `--message-exclude` will be effective.
+
 <h3 id="state-file">About State File</h3>
 
 Since check-windows-eventlog monitors for differences in event log output, it records the last read EventRecordID in the State file.
@@ -67,21 +89,21 @@ If the `--state-dir` option is not specified, the State file will be stored in t
 
 Target Error events in the Application log that contain the string foo and do not contain bar.
 
-```
+```toml
 [plugin.checks.check-windows-eventlog-sample]
 command = ["check-windows-eventlog", "--log", "Application", "--type", "Error", "--message-pattern", "foo, "--message-exclude", "bar"]
 ```
 
 Target the Event IDs 900 and 901 in the Error event in the Application log.
 
-```
+```toml
 [plugin.checks.check-windows-eventlog-sample]
 command = ["check-windows-eventlog", "--log", "Application", "--type", "Error", "--event-id-pattern", "900,901"]
 ```
 
 Among the Error events in the Application log, event IDs 900 through 1200 are targeted, and only 1101 is excluded.
 
-```
+```toml
 [plugin.checks.check-windows-eventlog-sample]
 command = ["check-windows-eventlog", "--log", "Application", "--type", "Error", "--event-id-pattern", "900-1200", "--event-id-exclude", "1101"]
 ```

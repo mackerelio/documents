@@ -47,14 +47,14 @@ COUNTER の指定について
 
 コミュニティが`public`で、OIDが`.1.2.3.4.5.6.7`のMIBを、グラフ名`foo`に`bar`というメトリック名で、差分/積み上げ表示をともに`しない`投稿する設定は以下のようになります。
 
-```
+```toml
 [plugin.metrics.snmp]
 command = ["mackerel-plugin-snmp", "-name", "foo", "-community", "public", ".1.2.3.4.5.6.7:bar:0:0"]
 ```
 
 同じグラフに複数のメトリックを投稿する場合、メトリックの定義を複数並べることで対応できます。
 
-```
+```toml
 [plugin.metrics.snmp]
 command = ["mackerel-plugin-snmp", "-name", "foo", "-community", "public", ".1.2.3.4.5.6.7:bar:0:0", ".1.2.3.4.5.6.8:fuga:0:0"]
 ```

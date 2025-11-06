@@ -11,7 +11,7 @@ Processes can be monitored using `check-procs` from the official check plugins p
 
 To monitor cron, first write the following item in mackerel-agent.conf and then restart mackerel-agent.
 
-```config
+```toml
 [plugin.checks.check_cron]
 command = ["check-procs", "--pattern", "crond"]
 ```
@@ -25,7 +25,7 @@ The same description can be used for Windows Servers, but note the following reg
 - Specify a process name that can be obtained with the command `tasklist`.
     - If the `tasklist` command output includes an extension such as `foobar.exe`, remove the extension and specify.
 
-```config
+```toml
 [plugin.checks.check_foobar]
 command = ["check-procs","--pattern","foobar"]
 ```

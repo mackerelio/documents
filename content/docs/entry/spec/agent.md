@@ -29,7 +29,7 @@ You can check your hosts’ and resources’ posted data on Mackerel’s web int
 
 The configuration file is located here `/etc/mackerel-agent/mackerel-agent.conf`  by default. Description examples follow below.
 
-```conf
+```toml
 apikey = "APIKEY"
 pidfile = "/path/to/pidfile"
 root = "/var/lib/mackerel-agent"
@@ -137,7 +137,7 @@ The host's service and role can be configured. If the service or role specified 
 
 **Example: Linking the “app” role of “My-Service” as well as the “db” role of “Another-Service”**
 
-```config
+```toml
 # /etc/mackerel-agent/mackerel-agent.conf
 roles = [ "My-Service:app", "Another-Service:db" ]
 ```
@@ -148,7 +148,7 @@ By specifying this option, you can set an HTTP/HTTPS Proxy for the agent to use 
 
 **Example: When a proxy server that you want to go through is provided with localhost:8080**
 
-```config
+```toml
 # /etc/mackerel-agent/mackerel-agent.conf
 http_proxy = "http://localhost:8080"
 ```
@@ -169,7 +169,7 @@ By writing `https_proxy` in the same format as `http_proxy` in the configuration
 
 **Example: When a proxy server that you want to go through is provided with localhost:8080 and localhost:8081**
 
-```config
+```toml
 # /etc/mackerel-agent/mackerel-agent.conf
 http_proxy = "http://localhost:8080"
 https_proxy = "http://localhost:8081"
@@ -228,7 +228,7 @@ A host's status can be set upon startup of the agent. You can assign different s
 
 A host's status will be set to `working` when the agent boots up, and to `poweroff` when the agent successfully shuts down.
 
-```config
+```toml
 # /etc/mackerel-agent/mackerel-agent.conf
 [host_status]
 on_start = "working"
@@ -244,7 +244,7 @@ Metric collection can be excluded from specific file systems.
 
 By designating a regular expression like shown below, metrics from the designated file system will no longer be collected.
 
-```config
+```toml
 # /etc/mackerel-agent/mackerel-agent.conf
 [filesystems]
 ignore = "/dev/ram.*"
@@ -253,7 +253,7 @@ ignore = "/dev/ram.*"
 <h5>use_mountpoint</h5>
 You can obtain filesystem metrics for each mount point by specifying the following in the configuration file.
 
-```config
+```toml
 # /etc/mackerel-agent/mackerel-agent.conf
 [filesystems]
 use_mountpoint = true
@@ -265,7 +265,7 @@ Metric collection can be excluded from specific disk devices.
 
 By designating a regular expression like shown below, metrics from the designated disk device will no longer be collected.
 
-```config
+```toml
 # /etc/mackerel-agent/mackerel-agent.conf
 [disks]
 ignore = "loop"
@@ -277,7 +277,7 @@ Metric collection can be excluded from specific interfaces.
 
 Using a regular expression like shown below, metrics will not be collected from the specified interface.
 
-```config
+```toml
 # /etc/mackerel-agent/mackerel-agent.conf
 [interfaces]
 ignore = "bond.*"
@@ -290,7 +290,7 @@ In Windows, when using Multiplexor virtual adapters created by teaming or extern
 
 In such cases, setting `use_adapter = true` will enable the adapter and allow the mackerel-agent to obtain the metric (metrics for other normal interfaces not bound to the adapter will continue to be obtained as usual).
 
-```config
+```toml
 # /etc/mackerel-agent/mackerel-agent.conf
 [interfaces]
 use_adapter = true

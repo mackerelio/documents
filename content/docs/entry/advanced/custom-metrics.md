@@ -17,7 +17,7 @@ Additionally, for more information on how to develop a plugin using [github.com/
 
 Add the below item to the [agent configuration file](https://mackerel.io/docs/entry/spec/agent#config-file) like the example below.
 
-```config
+```toml
 [plugin.metrics.vmstat]
 command = [ "ruby", "/path/to/vmstat-metrics.rb" ]
 user = "SOME_USER_NAME" # optional

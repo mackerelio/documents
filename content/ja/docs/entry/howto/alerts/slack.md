@@ -9,7 +9,6 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 
 通知のSlackチャンネルを利用すると、Mackerelからのアラート通知をSlackのチャットへ直接送れます。Slackを利用されている方は、普段のコミュニケーションの中でMackerelからのアラート通知を閲覧できます。
 
-
 <p><span itemscope itemtype="http://schema.org/Photograph"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20150409/20150409174311.png" alt="f:id:mackerelio:20150409174311p:plain" title="f:id:mackerelio:20150409174311p:plain" class="hatena-fotolife cboxElement" itemprop="image"></span></p>
 
 通知内容には、アラートへのリンクだけでなく、原因となるホストの属するサービスやロールへのリンクや関連するグラフも含まれます。
@@ -20,11 +19,11 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 
 <p><span itemscope itemtype="http://schema.org/Photograph"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20190204/20190204181058.png" alt="f:id:mackerelio:20190129183300p:plain" title="f:id:mackerelio:20190129183300p:plain" class="hatena-fotolife" itemprop="image"></span></p>
 
-Slackチャンネルへの通知には、Slack APIの1つである[Incoming Webhooks](https://my.slack.com/services/new/incoming-webhook)を利用しています。
+Slackチャンネルへの通知には、Incoming Webhookを使用します。
 
 URLには、以下のドキュメント（英語）を参考に取得した Incoming Webhook URL を入力して下さい。
 
-- [Sending messages using Incoming Webhooks | Slack](https://api.slack.com/messaging/webhooks)
+- [Sending messages using incoming webhooks | Slack Developer Docs](https://docs.slack.dev/messaging/sending-messages-using-incoming-webhooks/)
 
 また、MackerelからSlackへのアラート通知を送る際に、監視のステータスに応じて自由にテキストを追記する事も可能です。@channel/@group/@here/@everyoneはSlack向けのコマンドに変換されます。メンションを含んだテキストを送るように設定しておくと、Slackアプリなどですぐに通知を受信する事が出来ます。
 

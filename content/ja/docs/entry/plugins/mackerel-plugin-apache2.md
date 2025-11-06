@@ -3,7 +3,6 @@ Title: メトリックプラグイン - mackerel-plugin-apache2
 Date: 2022-12-15T16:26:12+09:00
 URL: https://mackerel.io/ja/docs/entry/plugins/mackerel-plugin-apache2
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/4207112889945319738
-CustomPath: plugins/mackerel-plugin-apache2
 ---
 
 mackerel-plugin-apache2 は Apache2 に関する統計情報をメトリックとして監視するためのプラグインです。
@@ -86,7 +85,7 @@ httpdプロセスのCPU使用率を監視できます。
 
 <h2 id="config">エージェントへの設定例</h2>
 
-```
+```toml
 [plugin.metrics.apache2]
 command = ["mackerel-plugin-apache2", "-p", "1080"]
 ```

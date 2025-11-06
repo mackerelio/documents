@@ -3,7 +3,6 @@ Title: チェックプラグイン - check-ntservice
 Date: 2022-12-15T16:23:57+09:00
 URL: https://mackerel.io/ja/docs/entry/plugins/check-ntservice
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/4207112889945319240
-CustomPath: plugins/check-ntservice
 ---
 
 check-ntservice はWindowsサービスが起動しているかを監視するプラグインです。
@@ -28,7 +27,7 @@ check-ntservice はWindowsサービスが起動しているかを監視するプ
 
 W3SVCサービスの稼働状況を監視するには、以下のように設定します。
 
-```
+```toml
 [plugin.checks.ntsvc_w3svc]
 command = ["check-ntservice", "--service-name", "W3SVC"]
 ```
@@ -57,14 +56,14 @@ check-ntserviceは `--service-name` オプションに指定した文字列を�
 
 例えば`foo`と`foobar`というサービスが稼働していて`foo`の監視を行いたい場合は、`--exact`オプションを指定することで簡単に監視対象にできます。
 
-```
+```toml
 [plugin.checks.ntsvc_w3svc]
 command = ["check-ntservice", "--service-name", "foo", "--exact"]
 ```
 
 また`--exclude-service`オプションを指定して、次のように除外することもできます。
 
-```
+```toml
 [plugin.checks.ntsvc_w3svc]
 command = ["check-ntservice", "--service-name", "foo", "--exclude-service", "foobar"]
 ```

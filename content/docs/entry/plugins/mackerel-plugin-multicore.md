@@ -3,7 +3,6 @@ Title: Metric plugins - mackerel-plugin-multicore
 Date: 2023-04-25T18:43:53+09:00
 URL: https://mackerel.io/docs/entry/plugins/mackerel-plugin-multicore
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/4207112889984439235
-CustomPath: plugins/mackerel-plugin-multicore
 ---
 
 Mackerel-plugin-multicore is a plugin for monitoring multi-core CPUs. In the [system metrics](https://mackerel.io/docs/entry/spec/metrics), the cpu value is the sum of all cores. In contrast, this plugin posts usage per core as a metric.
@@ -51,7 +50,7 @@ Post the value of loadavg5 in /proc/loadavg.
 
 <h2 id="config">Example configuration</h2>
 
-```
+```toml
 [plugin.metrics.multicore]
 command = ["mackerel-plugin-multicore"]
 ```

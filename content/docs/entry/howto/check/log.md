@@ -11,14 +11,14 @@ Logs can be monitored in Mackerel with `check-log` from the official check plugi
 
 To monitor logs using `check-log`, write a command similar to the following example in mackerel-agent.conf and restart mackerel-agent.
 
-```config
+```toml
 [plugin.checks.access_log]
 command = ["check-log", "--file", "/var/log/access.log", "--pattern", "FATAL"]
 ```
 
 For Windows Server environments, use the following example (Please note that monitoring cannot be performed for log file `C:\log\access.log` if the target is given a BOM (byte order mark)).
 
-```config
+```toml
 [plugin.checks.access_log]
 command = ["check-log", "--file", "C:\\log\\access.log", "--pattern", "FATAL"]
 ```
@@ -27,14 +27,14 @@ Specify the target file in the `--file` option, and specify the error message pa
 
 The initial check is only done for the diff output after settings are added. If you want to check all of the contents of an existing file at the time of the initial check, specify the `--check-first` option.
 
-```config
+```toml
 [plugin.checks.access_log]
 command = ["check-log", "--file", "/var/log/access.log", "--pattern", "FATAL", "--check-first"]
 ```
 
 Multiple `--pattern` options can be specified, in which case, they are treated with the AND operator (only log output lines that satisfy all specified patterns are detected). The following is a configuration example to have alerts occur when a log output line that includes the two strings "PRODUCTION" and "FATAL" appears.
 
-```config
+```toml
 [plugin.checks.access_log]
 command = ["check-log", "--file", "/var/log/access.log", "--pattern", "PRODUCTION", "--pattern", "FATAL"]
 ```
@@ -43,21 +43,21 @@ Multibyte characters can be specified in `--pattern`, but in such cases, the con
 
 Check targets can be specified in glob format with the `--file` option.
 
-```config
+```toml
 [plugin.checks.access_log]
 command = ["check-log", "--file", "/var/log/*.log", "--pattern", "FATAL"]
 ```
 
 Furthermore, you can specify the filename of the monitoring target with regular expressions using the `--file-pattern` option.
 
-```config
+```toml
 [plugin.checks.access_log]
 command = ["check-log", "--file-pattern", "/var/log/access.log.\\d{4}-\\d{2}-\\d{2}", "--pattern", "FATAL"]
 ```
 
 In a Windows Server environment, it is recommended to use both `--search-in-directory` and `--file-pattern` options to specify a directory in which log files are located and a file name condition, because the directory delimiter `\` conflicts with regular expressions in the pattern.
 
-```config
+```toml
 [plugin.checks.access_log]
 command = ["check-log", "--search-in-directory", "C:\\log\\", "--file-pattern", "access.log.\\d{4}-\\d{2}-\\d{2}", "--pattern", "FATAL"]
 ```
@@ -88,7 +88,7 @@ The following configuration, for example, will monitor the Nginx access log, and
 
 With the `--exclude` option we have excluded access to "robots.txt". Also, with `--warning-over` and `--critical-over` we've set it up so that if there are 3 or more occurrences within 1 minute a Warning alert will be raised, and 10 or more occurrences will result in a Critical alert.
 
-```config
+```toml
 [plugin.checks.access_status]
 command = ["check-log", "--file", "/var/log/nginx/access.log", "--pattern", "HTTP/1\.[01]\" [45][0-9][0-9] ", "--exclude", "GET .*?robots\.txt HTTP/1\.[01]", "--warning-over", "3", "--critical-over", "10", "--return"]
 ```

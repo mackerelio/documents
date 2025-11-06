@@ -17,7 +17,7 @@ mackerel-plugin-docker is included in the official plugin pack so let’s go ahe
 
 Once the official plugin pack has finished installing we will append the following configuration to `/etc/mackerel-agent/mackerel-agent.conf`.
 
-```
+```toml
 [plugin.metrics.docker]
 command = ["mackerel-plugin-docker", "-name-format", "name"]
 ```

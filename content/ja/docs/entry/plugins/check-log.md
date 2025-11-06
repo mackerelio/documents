@@ -26,34 +26,39 @@ check-log プラグインは、監視対象となるログのローテーショ�
 
 | オプション            | 省略形 | 説明                                                                                      |  デフォルト値  |
 | --------------------- | ------ | ----------------------------------------------------------------------------------------- |  ------- |
-| --file                | -f     | 監視対象ファイルのパスを指定（glob形式での指定可）                                        |                   |
-| --pattern             | -p     | 検出したいパターンを正規表現で指定 [*1](#annotation1)                                                        |          |
-| --exclude             | -E     | 検出から除外するパターンを正規表現で指定 [*1](#annotation1)                                                  |          |
+| --file                | -f     | 監視対象ファイルのパスを指定（glob形式での指定可）[*1](#annotation1)                                          |                   |
+| --pattern             | -p     | 検出したいパターンを正規表現で指定 [*2](#annotation2)                                                        |          |
+| --exclude             | -E     | 検出から除外するパターンを正規表現で指定 [*2](#annotation2)                                                  |          |
 | --warning-over        | -w     | 検出パターンにマッチする行数が指定値を超えたらWarningアラートを発生                       | 0                  |
 | --critical-over       | -c     | 検出パターンにマッチする行数が指定値を超えたらCriticalアラートを発生                      | 0                  |
 | --warning-level       |        | 検出パターンで抽出した数値が指定値を超えたらWarningアラートを発生                         |                   |
 | --critical-level      |        | 検出パターンで抽出した数値が指定値を超えたらCriticalアラートを発生                        |                   |
-| --return              | -r     | パターンにマッチしたログ行をアラートで通知する [*2](#annotation2)                                         |                   |
+| --return              | -r     | パターンにマッチしたログ行をアラートで通知する [*3](#annotation3)                                         |                   |
 | --search-in-directory |        | 監視対象ファイルがあるディレクトリパスを指定（Windows環境において`--file-pattern`と併用） |                   |
-| --file-pattern        | -F     | 監視対象ファイルを正規表現で指定                                                          |                   |
+| --file-pattern        | -F     | 監視対象ファイルを正規表現で指定[*4](#annotation4)                                                          |                   |
 | --icase               | -i     | 大小文字を区別せずにマッチングを行う                                                      |                   |
 | --state-dir           | -s     | Stateファイルの保存先ディレクトリパスを指定                                               |                   |
 | --no-state            |        | Stateファイルを使用せず全てのログを対象とする                                             |                   |
 | --encoding            |        | 監視対象ファイルの文字エンコーディングを指定                                              |                   |
-| --missing             |        | 監視対象ファイルが存在しなかった場合のアラートレベルを指定 [*3](#annotation3)                                |           UNKNOWN |
-| --check-first         |        | ファイルの初回チェック時に内容のチェックを行う [*4](#annotation4)                     |                   |
+| --missing             |        | 監視対象ファイルが存在しなかった場合のアラートレベルを指定 [*5](#annotation5)                                |           UNKNOWN |
+| --check-first         |        | ファイルの初回チェック時に内容のチェックを行う [*6](#annotation6)                     |                   |
 | --suppress-pattern    |        | 検出パターンをホスト詳細画面に表示しない                                                  |                   |
 
 - <span id="annotation1">*1</span>
+  - コマンドラインでの実行時、あるいは mackerel-agent.conf において command 指定で文字列形式を利用している場合は、`--file '/var/log/*.log'` のように glob 形式での指定をシングルクォートで囲む必要があります。
+- <span id="annotation2">*2</span>
   - 複数指定すると AND 条件になります。[AND条件で複数のパターンにマッチする場合にアラートを発報する](#AND条件で複数のパターンにマッチする場合にアラートを発報する) もあわせてご覧ください。
   - 正規表現におけるメタ文字を文字列として扱う場合は、メタ文字にエスケープが必要です。詳しくは [正規表現のメタ文字を文字列として扱う](#正規表現のメタ文字を文字列として扱う) をご覧ください。
-- <span id="annotation2">*2</span>
+  - パターンとして日本語（マルチバイト文字）を指定することもできますが、その場合には conf ファイルの文字コード（エンコーディング）が UTF-8 である必要があります。
+- <span id="annotation3">*3</span>
   - 検知したログ行をアラートで通知する場合は `--return` オプションを付与します。
   - 1024 文字を超えた内容は mackerel-agent によって切り詰め処理されます。
-- <span id="annotation3">*3</span>
-  - 監視対象の指定に`--search-in-directory`および`--file-pattern`を使用している場合は無視されます。
 - <span id="annotation4">*4</span>
-  - このオプションが付与されていない場合、監視対象ファイルの初回チェック時（ログローテーション直後など）はファイルサイズの記録のみを行い、内容のチェックを行いません。
+  - ディレクトリパスを正規表現で指定することはできません。
+- <span id="annotation5">*5</span>
+  - 監視対象の指定に`--search-in-directory`および`--file-pattern`を使用している場合は無視されます。
+- <span id="annotation6">*6</span>
+  - このオプションが付与されていない場合、監視対象ファイルの初回チェック時（ログローテーション直後など）はファイルサイズのみを記録し、内容のチェックをおこないません。
   - [条件にマッチするログ行が出力されたのに検知されない](#条件にマッチするログ行が出力されたのに検知されない) もあわせてご覧ください。
 
 <h3 id="state-file">Stateファイルについて</h3>
@@ -77,7 +82,7 @@ check-log プラグインは、監視対象となるログのローテーショ�
 
 `/var/log/access.log` に ERROR という文字列を含むログが出力されたことを検知する設定は以下のようになります。
 
-```
+```toml
 [plugin.checks.access_log]
 command = ["check-log", "--file", "/var/log/access.log", "--pattern", "ERROR", "--return"]
 ```
@@ -92,7 +97,7 @@ check-log --file /var/log/access.log --pattern "ERROR" --return --no-state
 
 `C:\log\access.log` に ERROR という文字列を含むログが出力されたことを検知する設定は以下のようになります。Windows 環境のパス区切り文字 `\` は本来 1 つですが、mackerel-agent.conf に設定する際は 2 つ記述する必要があります。
 
-```
+```toml
 [plugin.checks.access_log]
 command = ["check-log", "--file", "C:\\log\\access.log", "--pattern", "ERROR", "--return"]
 ```
@@ -103,8 +108,26 @@ command = ["check-log", "--file", "C:\\log\\access.log", "--pattern", "ERROR", "
 check-log --file "C:\log\access.log" --pattern "ERROR" --return --no-state
 ```
 
-
 <h2 id="tips">Tips</h2>
+
+### 発生頻度に対する閾値や除外パターンを指定する
+
+`--warning-over` や `--critical-over` を利用すると、前回の実行からの差分に、指定した行数以上のログが出力された場合にのみアラートを発報できます。
+以下は、`/var/log/nginx/error.log` に `ERROR` という文字列が3行以上出力されたらWARNINGに、10行以上出力されたらCRITICALになります。
+
+```toml
+[plugin.checks.access_status]
+command = ["check-log", "--file", "/var/log/nginx/error.log", "--pattern", "ERROR","--warning-over", "3", "--critical-over", "10", "--return"]
+```
+
+また `--exclude` オプションを指定することで、除外パターンを指定することが可能です。
+例えば以下の設定ではNginxのアクセスログを監視して、4xxや5xxのエラーの発生をチェックしています。
+`--exclude` を指定することで"robots.txt"へのアクセスは除外するようにしています。
+
+```toml
+[plugin.checks.access_status]
+command = ["check-log", "--file", "/var/log/nginx/access.log", "--pattern", "HTTP/1\.[01]\" [45][0-9][0-9] ", "--exclude", "GET .*?robots\.txt HTTP/1\.[01]", "--return"]
+```
 
 ### AND条件で複数のパターンにマッチする場合にアラートを発報する
 
@@ -112,7 +135,7 @@ check-log --file "C:\log\access.log" --pattern "ERROR" --return --no-state
 
 以下は PRODUCTION と ERROR という文字列を含むログが検出された場合にアラートが発生します。
 
-```
+```toml
 [plugin.checks.access_log]
 command = ["check-log", "--file", "/var/log/access.log", "--pattern", "PRODUCTION", "--pattern", "ERROR", "--return"]
 ```
@@ -123,7 +146,7 @@ command = ["check-log", "--file", "/var/log/access.log", "--pattern", "PRODUCTIO
 
 以下は FATAL もしくは ERROR という文字列を含むログが検出された場合にアラートが発生します。
 
-```
+```toml
 [plugin.checks.access_log]
 command = ["check-log", "--file", "/var/log/access.log", "--pattern", "FATAL|ERROR", "--return"]
 ```
@@ -152,13 +175,27 @@ command = ["check-log", "--file", "/var/log/access.log", "--pattern", "\\[ERROR\
 command = ["check-log", "--file", "/var/log/access.log", "--pattern", "\\\"ERROR\\\"", "--return"]
 ```
 
-### Windows 環境において監視対象ファイルを正規表現で指定する場合の注意点
+### 複数のログファイルを対象とする
+
+単一のファイルではなく複数のファイルを対象としたい場合、`--file` オプションでは glob 形式での指定が、`--file-pattern` オプションでは正規表現での指定ができます。  
+以下は `/var/log/*.log` に該当するログファイルを対象とする例です。
+
+```toml
+[plugin.checks.access_log]
+command = ["check-log", "--file", "/var/log/*.log", "--pattern", "FATAL"]
+```
+
+また、`--file-pattern` オプションにより監視対象としたいファイル名の条件を正規表現で指定することも可能です。なお、ディレクトリパスを正規表現で指定することはできません。ディレクトリごとに監視ルールを設定してください。  
+以下は `/var/log/access.log.\\d{4}-\\d{2}-\\d{2}` という正規表現に合致する (`/var/log/access.log.2014-09-17` のような) ファイルを対象とする例です。
+
+```toml
+[plugin.checks.access_log]
+command = ["check-log", "--file-pattern", "/var/log/access.log.\\d{4}-\\d{2}-\\d{2}", "--pattern", "FATAL"]
+```
 
 Windows 環境において監視対象ファイルの指定に `--file-pattern` による正規表現を用いる場合、ディレクトリの区切り文字 `\` と正規表現のエスケープ処理との競合を回避するために、`--search-in-directory` オプションを併用してください。
 
-たとえば `C:\log\access.log.{yyyy}-{mm}-{dd}`のような形式のファイルを正規表現で指定する場合は以下のようになります。なお、ディレクトリパスを正規表現で指定することはできません。ディレクトリごとに監視ルールを設定してください。
-
-```
+```toml
 [plugin.checks.access_log]
 command = ["check-log", "--search-in-directory", "C:\\log\\", "--file-pattern", "access.log.\\d{4}-\\d{2}-\\d{2}", "--pattern", "ERROR", "--return"]
 ```

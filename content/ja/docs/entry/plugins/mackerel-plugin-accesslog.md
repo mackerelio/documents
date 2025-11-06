@@ -69,7 +69,7 @@ mackerel-plugin-accesslog は Web サーバーのアクセスログを毎分集�
 
 アクセスログ `/path/to/access.log` を監視する場合は以下のようになります。
 
-```
+```toml
 [plugin.metrics.accesslog]
 command = ["mackerel-plugin-accesslog", "/path/to/access.log"]
 ```

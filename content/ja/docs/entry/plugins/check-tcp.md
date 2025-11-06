@@ -51,7 +51,7 @@ check-tcp はTCPによるサーバーとの接続監視を行うプラグイン�
 
 `localhost`の`4224`番ポートの接続をチェックし、接続に3秒以上かかる場合はWarning、5秒以上かかる場合はCriticalとする設定は以下のようになります。
 
-```
+```toml
 [plugin.checks.check-tcp-sample]
 command = ["check-tcp", "-H", "localhost", "-p", "4224", "-w", "3", "-c", "5"]
 ```
@@ -64,7 +64,7 @@ check-tcp -H localhost -p 4224 -w 3 -c 5
 
 IPv6アドレスを指定する場合は`[::1]`のように半角括弧`[]`で囲む形式で指定します。
 
-```
+```toml
 [plugin.checks.check-tcp-v6-sample]
 command = ["check-tcp", "-H", "[::1]", "-p", "4224", "-w", "3", "-c", "5"]
 ```
@@ -77,7 +77,7 @@ check-tcpプラグインは接続チェックの際に、簡易的なメッセ�
 
 例えばHTTPレスポンスのステータスラインのリーズンフレーズが想定したメッセージであることをチェックするには、以下のような設定ができます。
 
-```
+```toml
 [plugin.checks.tcp_http404]
 command = ["check-tcp", "-H", "localhost", "-p", "80", "-s", "GET / HTTP/1.1\\r\\n\\r\\n", "-e", "HTTP/1.1 404 Bad Request", "-E"]
 ```

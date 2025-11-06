@@ -11,7 +11,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 
 cronの監視をおこなうには以下のように mackerel-agent.conf に記述し、mackerel-agentを再起動します。
 
-```config
+```toml
 [plugin.checks.check_cron]
 command = ["check-procs", "--pattern", "crond"]
 ```
@@ -25,7 +25,7 @@ Windows Server の場合でも同様に記述することができますが、`-
 - コマンド `tasklist` で取得できるプロセス名を指定してください。
     - `tasklist` コマンドの出力が `foobar.exe` のように拡張子を含んでいる場合は、以下のように拡張子を取り除いて指定してください。
 
-```config
+```toml
 [plugin.checks.check_foobar]
 command = ["check-procs","--pattern","foobar"]
 ```

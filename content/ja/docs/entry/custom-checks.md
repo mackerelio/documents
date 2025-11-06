@@ -19,7 +19,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 
 チェック監視の設定は [エージェントの設定ファイル](https://mackerel.io/ja/docs/entry/spec/agent#config-file) に追加します。以下は [チェックプラグインのサンプル](#example) で紹介しているシェルスクリプトを使用した監視の設定例です。各項目の意味は [設定項目](#items) を参照してください。必須項目以外は必要に応じて設定してください。
 
-```config
+```toml
 [plugin.checks.filecount]
 command = ["/path/filecount.sh"]
 user = "SOME_USER_NAME"
@@ -174,7 +174,7 @@ fi
 ```
 
 mackerel-agent.conf に記述する内容
-```
+```toml
 [plugin.checks.filecount]
 command = ["/path/filecount.sh", "/path"]
 ```
@@ -197,7 +197,7 @@ if($FILECOUNT -gt 100) {
 ```
 
 mackerel-agent.conf に記述する内容
-```
+```toml
 [plugin.checks.filecount]
 command = ["powershell", "-File", "C:\\path\\filecount.ps1", "C:\\path"]
 ```
@@ -222,7 +222,7 @@ if %FILECOUNT% gtr 100 (
 ```
 
 mackerel-agent.conf に記述する内容
-```
+```toml
 [plugin.checks.filecount]
 command = ["C:\\path\\filecount.bat", "C:\\path"]
 ```

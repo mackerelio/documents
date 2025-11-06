@@ -13,7 +13,7 @@ Below are configurations for an HTTP application server that will send the reque
 
 Additionally, it it is possible to configure thresholds for how many seconds it takes to connect, and with the example below, a Warning alert will be created if connection takes more than 3 seconds, and a Critical alert if it takes more than 10 seconds.
 
-```config
+```toml
 [plugin.checks.tcp_app]
 command = ["check-tcp", "--hostname", "localhost", "--port", "5000", "--send", "GET / HTTP/1.0\r\n\r\n", "--escape", "--expect-pattern", "OK Farm", "--warning", "3", "--critical", "10"]
 ```
@@ -22,14 +22,14 @@ command = ["check-tcp", "--hostname", "localhost", "--port", "5000", "--send", "
 
 Of course it's also possible to check servers that aren't HTTP servers. By assigning the `--service` option for several services, you can run standard checks without doing any complicated configurations. For example FTP would be configured as shown below.
 
-```config
+```toml
 [plugin.checks.ftp]
 command = ["check-tcp", "--service", "ftp", "-H", "localhost"]
 ```
 
 This is equivalent to the configuration below.
 
-```config
+```toml
 [plugin.checks.ftp]
 command = ["check-tcp", "-H", "localhost", "--port", "21", "--expect-pattern", "^200", "--quit", "QUIT"]
 ```

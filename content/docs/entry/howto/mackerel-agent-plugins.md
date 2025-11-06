@@ -62,7 +62,7 @@ Plugins that are not included are not officially supported and must be built by 
 Each plugin has been installed in `/usr/bin` ,so please configure the mackerel-agent settings file to meet with the plugin which you will be using as shown below.
 
 if using plugin for Apache2
-```
+```toml
 [plugin.metrics.apache2]
 command = ["mackerel-plugin-apache2"]
 ```
@@ -75,7 +75,7 @@ Each plugin is stored in the agent's installation folder and has its own path. a
 
 When using the "mackerel-plugin-mssql" plugin, the description is as follows.
 
-```
+```toml
 [plugin.metrics.mssql]
 command = ["mackerel-plugin-mssql"]
 ```

@@ -3,7 +3,6 @@ Title: チェックプラグイン - check-http
 Date: 2022-11-21T18:10:13+09:00
 URL: https://mackerel.io/ja/docs/entry/plugins/check-http
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/4207112889938595393
-CustomPath: plugins/check-http
 ---
 
 check-http は任意のサーバーに対してHTTP接続による監視を行うプラグインです。
@@ -52,21 +51,21 @@ check-http は任意のサーバーに対してHTTP接続による監視を行�
 
 `https://mackerel.io/`を監視するには以下のように設定します。
 
-```
+```toml
 [plugin.checks.https-mackerelio]
 command = ["check-http", "-u", "https://mackerel.io"]
 ```
 
 HTTPレスポンスが`404`の監視結果を`OK`とする場合は以下のように設定します。
 
-```
+```toml
 [plugin.checks.https-mackerelio]
 command = ["check-http", "-u", "https://mackerel.io", "--status", "404=OK"]
 ```
 
 HTTPステータスコードを`200-404`のように指定することも可能です。
 
-```
+```toml
 [plugin.checks.https-mackerelio]
 command = ["check-http", "-u", "https://mackerel.io", "--status", "200-404=OK"]
 ```

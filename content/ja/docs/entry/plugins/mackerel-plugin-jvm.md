@@ -136,14 +136,14 @@ mackerel-plugin-jvm は jstat/jinfo/jps などのコマンドからJVMに関す�
 
 <h2 id="config">エージェントへの設定例</h2>
 
-```
+```toml
 [plugin.metrics.jvm-tomcat]
 command = [ "mackerel-plugin-jvm", "--javaname", "tomcat", "--jstatpath", "/usr/bin/jstat", "--jpspath", "/usr/bin/jps", "--jinfopath", "/usr/bin/jinfo"]
 ```
 
 同一ホスト上の名前が重複する複数のアプリケーションを監視する場合は、以下のように設定します。
 
-```
+```toml
 [plugin.metrics.app01]
 command = ["mackerel-plugin-jvm", "--javaname", "app", "--pidfile", "/path/to/app01/app.pid", "--metric-key", "app01", "--metric-label", "app01"]
 

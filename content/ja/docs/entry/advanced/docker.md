@@ -19,7 +19,7 @@ mackerel-plugin-dockerは公式プラグイン集に含まれていますので�
 
 公式プラグイン集がインストールできたら、以下の設定を`/etc/mackerel-agent/mackerel-agent.conf`に追記します。
 
-```
+```toml
 [plugin.metrics.docker]
 command = ["mackerel-plugin-docker", "-name-format", "name"]
 ```

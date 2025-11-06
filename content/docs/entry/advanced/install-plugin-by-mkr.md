@@ -144,7 +144,7 @@ Currently, because the mkr.exe included in the mackerel-agent installer (msi fil
 
 The plugin installation path will be under the mackerel-agent installation directory `plugins\bin`. Therefore, Windows administrative authority is required to run mkr.exe for deployment. In addition, please describe the following in the mackerel-agent.conf when using the installed plugin.
 
-```
+```toml
 [plugin.metrics.sample]
 command = ["plugins/bin/mackerel-plugin-sample"]
 ```

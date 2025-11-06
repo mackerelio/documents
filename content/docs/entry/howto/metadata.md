@@ -15,7 +15,7 @@ Metadata can be posted by adding configurations to mackerel-agent or by using th
 
 This section explains how to post metadata from mackerel-agent. Add the following items to the [mackerel-agent configuration file](https://mackerel.io/docs/entry/spec/agent#config-file). This sample registers the version and architecture of the installed Debian package as host metadata.
 
-```config
+```toml
 [plugin.metadata.packages]
 command = ["perl", "/path/to/packages.pl"]
 execution_interval = 60

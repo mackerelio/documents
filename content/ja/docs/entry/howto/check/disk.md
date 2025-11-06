@@ -13,14 +13,14 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 
 以下の例では、`/tmp` のディスク容量が10%以下の場合にWarning、5%以下の場合にCriticalが発生します。
 
-```config
+```toml
 [plugin.checks.disk]
 command = ["check-disk", "--path", "/tmp", "--warning", "10%", "--critical", "5%"]
 ```
 
 Windows Server 環境の場合は、以下のように記述します（Cドライブのディスク容量が10%以下の場合にWarning、5%以下の場合にCritical を発生させる場合）。
 
-```config
+```toml
 [plugin.checks.disk]
 command = ["check-disk", "--path", "C:", "--warning", "10%", "--critical", "5%"]
 ```
@@ -30,7 +30,7 @@ command = ["check-disk", "--path", "C:", "--warning", "10%", "--critical", "5%"]
 
 以下の例では、 "/tmp" と "/var" という2つのパーティションをチェックし、いずれかのパーティションで容量が10GBを下回った場合にWarning、5GBを下回った場合にCriticalが発生します。
 
-```config
+```toml
 [plugin.checks.disk]
 command = ["check-disk", "--path", "/tmp", "--path", "/var", "--warning", "10", "--critical", "5", "--units", "GB"]
 ```
@@ -63,7 +63,7 @@ command = ["check-disk", "--path", "/tmp", "--path", "/var", "--warning", "10", 
 
 以下の例では、ファイルシステムタイプが"none"で"/tmp"以外のデバイスを監視しています。
 
-```config
+```toml
 [plugin.checks.disk]
 command = ["check-disk", "--include-type", "none", "--exclude-device", "/tmp", "--warning", "10%", "--critical", "5%"]
 ```

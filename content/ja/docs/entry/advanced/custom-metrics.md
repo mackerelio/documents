@@ -17,7 +17,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 
 [エージェントの設定ファイル](https://mackerel.io/ja/docs/entry/spec/agent#config-file)に、以下のような項目を追加します（例）:
 
-```config
+```toml
 [plugin.metrics.vmstat]
 command = [ "ruby", "/path/to/vmstat-metrics.rb" ]
 user = "SOME_USER_NAME" # optional

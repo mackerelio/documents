@@ -3,7 +3,6 @@ Title: チェックプラグイン - check-aws-cloudwatch-logs-insights
 Date: 2023-01-18T17:56:49+09:00
 URL: https://mackerel.io/ja/docs/entry/plugins/check-aws-cloudwatch-logs-insights
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/4207112889955367034
-CustomPath: plugins/check-aws-cloudwatch-logs-insights
 ---
 
 check-aws-cloudwatch-logs-insights は CloudWatch Logs のログデータの監視を行うプラグインです。このプラグインを実行するには CloudWatch Logs Insights の API を利用するための設定が必要です。詳細は [認証と必要なポリシーについて](#policy) を参照してください。check-aws-cloudwatch-logs との使い分けについては [check-aws-cloudwatch-logs との違い](#difference) を参照してください。
@@ -77,7 +76,7 @@ CloudWatch Logs Insights のクエリ構文で記述します。記述方法は 
 
 `/aws/lambda/some-lambda-function` ログストリームに `ERROR` という文字列を含むログが 1 件以上見つかった場合に Warning、10件以上見つかった場合に Critical を検知する設定は以下のようになります。
 
-```
+```toml
 [plugin.checks.aws-cloudwatch-logs-insights-sample]
 command = ["check-aws-cloudwatch-logs-insights", "--log-group-name", "/aws/lambda/some-lambda-function", "--filter", "filter @message like /ERROR/", "--warning-over", "1", "--critical-over", "10"]
 env = { AWS_REGION = "ap-northeast-1" }

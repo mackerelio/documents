@@ -11,7 +11,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 
 `check-aws-cloudwatch-logs`を使ってCloudWatch Logsの監視をおこなうためには、例えば以下のように mackerel-agent.conf に記述し、mackerel-agentを再起動します。
 
-```config
+```toml
 [plugin.checks.aws-cloudwatch-logs-sample]
 command = ["check-aws-cloudwatch-logs", "--log-group-name", "/aws/lambda/sample_log_group", "--pattern", "Error", "--critical-over", "5", "--warning-over", "3"]
 env = { AWS_REGION = "ap-northeast-1" }

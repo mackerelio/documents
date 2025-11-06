@@ -11,6 +11,8 @@ check-windows-eventlog は Windows イベントログの監視を行うプラグ
 
 <h2 id="options">指定可能なオプション</h2>
 
+一部のオプションには優先度があります。詳しくは [オプションの優先度](#option-priority) を参照してください。
+
 | オプション | 省略形 | 説明 | デフォルト値 |
 | --- | --- | --- | --- |
 | --log | | 検出したいイベントログの種類を指定<br>[監視可能なイベントログの種類](#log-type) を参照 | Application |
@@ -50,6 +52,26 @@ check-windows-eventlog は Windows イベントログの監視を行うプラグ
 
 上記以外のイベントレベルには対応していません
 
+<h3 id="option-priority">オプションの優先度</h3>
+
+監視条件を指定するオプションは以下の順番で処理されます。
+
+1. `--event-id-pattern`
+2. `--event-id-exclude`
+3. `--type`
+4. `--source-pattern`
+5. `--source-exclude`
+6. `--message-pattern`
+7. `--message-exclude`
+
+優先度の高い除外指定に一致した場合、それより優先度の低いすべてのオプションは無視されます。除外指定をAND条件にはできません。
+
+具体的には以下のような動作になります。
+
+- `--event-id-exclude` の指定がある場合、指定したIDのイベントはすべて無視されます。
+- `--event-id-exclude` の指定がなく、`--source-exclude` の指定がある場合、`--event-id-pattern`、`--type` の指定が有効です。
+- `--event-id-exclude` および `--source-exclude` の指定がない場合、`--event-id-pattern`、`--type`、`--source-pattern`、`--message-pattern` もしくは `--message-exclude` の指定が有効です。
+
 <h3 id="state-file">State ファイルについて</h3>
 
 check-windows-eventlog はイベントログの出力差分に対して監視を行うため、最後に読み込んだ EventRecordID を State ファイルに記録しています。
@@ -67,21 +89,21 @@ check-windows-eventlog はイベントログの出力差分に対して監視を
 
 Application ログの Error イベントのうち、文字列 foo を含み bar を含まないイベントを対象にする。
 
-```
+```toml
 [plugin.checks.check-windows-eventlog-sample]
 command = ["check-windows-eventlog", "--log", "Application", "--type", "Error", "--message-pattern", "foo, "--message-exclude", "bar"]
 ```
 
 Application ログの Error イベントのうち、イベント ID 900 と 901 を対象にする。
 
-```
+```toml
 [plugin.checks.check-windows-eventlog-sample]
 command = ["check-windows-eventlog", "--log", "Application", "--type", "Error", "--event-id-pattern", "900,901"]
 ```
 
 Application ログの Error イベントのうち、イベント ID 900 〜 1200 を対象に、1101 のみ除外する。
 
-```
+```toml
 [plugin.checks.check-windows-eventlog-sample]
 command = ["check-windows-eventlog", "--log", "Application", "--type", "Error", "--event-id-pattern", "900-1200", "--event-id-exclude", "1101"]
 ```

@@ -13,14 +13,14 @@ To monitor disks using `check-disk`, write a command similar to the following ex
 
 In the following example, Warning occurs when the `/tmp` disk capacity is 10% or less, and Critical when the disk capacity is 5% or less.
 
-```config
+```toml
 [plugin.checks.disk]
 command = ["check-disk", "--path", "/tmp", "--warning", "10%", "--critical", "5%"]
 ```
 
 For Windows Server environments, use the following example (Warning occurs when the C drive disk capacity is 10% or less, and Critical when the disk capacity is 5% or less).
 
-```config
+```toml
 [plugin.checks.disk]
 command = ["check-disk", "--path", "C:", "--warning", "10%", "--critical", "5%"]
 ```
@@ -29,7 +29,7 @@ The options `--warning` and `--critical` can be specified by disk capacity inste
 
 In the following example, the two partitions "/tmp" and "/var" are checked and if the capacity of either partition falls below 10 GB, Warning will occur. If the capacity falls below 5 GB, Critical will occur.
 
-```config
+```toml
 [plugin.checks.disk]
 command = ["check-disk", "--path", "/tmp", "--path", "/var", "--warning", "10", "--critical", "5", "--units", "GB"]
 ```
@@ -64,7 +64,7 @@ By default, `check-disk` monitors all devices, but you can also specify the file
 
 In the following example, all devices excluding “/tmp” type are monitored.
 
-```config
+```toml
 [plugin.checks.disk]
 command = ["check-disk", "--include-type", "none", "--exclude-device", "/tmp", "--warning", "10%", "--critical", "5%"]
 ```

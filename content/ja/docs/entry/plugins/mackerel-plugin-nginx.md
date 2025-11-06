@@ -3,7 +3,6 @@ Title: メトリックプラグイン - mackerel-plugin-nginx
 Date: 2023-08-30T16:25:17+09:00
 URL: https://mackerel.io/ja/docs/entry/plugins/mackerel-plugin-nginx
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/820878482963047227
-CustomPath: plugins/mackerel-plugin-nginx
 ---
 
 mackerel-plugin-nginxは、nginxのstub_statusを元にnginxの状態を可視化するプラグインです。
@@ -54,7 +53,7 @@ mackerel-plugin-nginxは、nginxのstub_statusを元にnginxの状態を可視�
 
 ローカルホスト上で、8081番ポートで `/stub_status` として stub_status を提供している nginx を監視するには次のように設定します。
 
-```
+```toml
 [plugin.metrics.nginx]
 command = ["/path/to/mackerel-plugin-nginx","--port","8081","--path","/stab_status"]
 ```

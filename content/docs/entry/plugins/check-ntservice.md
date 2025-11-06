@@ -3,7 +3,6 @@ Title: Check plugins - check-ntservice
 Date: 2022-12-15T16:23:56+09:00
 URL: https://mackerel.io/docs/entry/plugins/check-ntservice
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/4207112889945319222
-CustomPath: plugins/check-ntservice
 ---
 
 check-ntservice is a plugin that monitors whether Windows services are running.
@@ -30,7 +29,7 @@ check-ntservice is a plugin that monitors whether Windows services are running.
 
 To monitor the availability of the W3SVC service, configure as follows.
 
-```
+```toml
 [plugin.checks.ntsvc_w3svc]
 command = ["check-ntservice", "--service-name", "W3SVC"]
 ```
@@ -61,14 +60,14 @@ In this case, use the `--exact` or `--exclude-service` option to identify the ta
 
 For example, if you have two services running, `foo` and `foobar`, and you want to monitor `foo`, you can simply specify the `--exact` option as follows.
 
-```
+```toml
 [plugin.checks.ntsvc_w3svc]
 command = ["check-ntservice", "--service-name", "foo", "--exact"]
 ```
 
 It may also be excluded by specifying the `--exclude-service` option as follows.
 
-```
+```toml
 [plugin.checks.ntsvc_w3svc]
 command = ["check-ntservice", "--service-name", "foo", "--exclude-service", "foobar"]
 ```

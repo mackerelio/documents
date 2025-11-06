@@ -3,7 +3,6 @@ Title: チェックプラグイン - check-procs
 Date: 2022-12-16T15:58:07+09:00
 URL: https://mackerel.io/ja/docs/entry/plugins/check-procs
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/4207112889945587655
-CustomPath: plugins/check-procs
 ---
 
 check-procs は プロセスの数を監視するチェックプラグインです。指定した条件に一致するプロセス数をカウントし、その数が閾値よりも少ないか多い場合にアラートを発生させます。
@@ -70,14 +69,14 @@ check-procs は プロセスの数を監視するチェックプラグインで�
 
 監視対象のプロセスが 1 つも存在しない場合にアラートを発生させる設定は以下です。
 
-```
+```toml
 [plugin.checks.check-procs-sample]
 command = ["check-procs", "--pattern", "PROCESS_NAME"]
 ```
 
 下記の例では監視対象のプロセスの数が 5 個を下回ると Warning、10 個を上回ると Critical になります。
 
-```
+```toml
 [plugin.checks.check-procs-sample]
 command = ["check-procs", "--pattern", "PROCESS_NAME", "--warning-under", "5", "--critical-over", "10"]
 ```
@@ -90,7 +89,7 @@ command = ["check-procs", "--pattern", "PROCESS_NAME", "--warning-under", "5", "
 
 下記の例では監視対象のプロセスの数が 0 個の時に OK、1 個以上で Warning、2 個以上で Critical になります。
 
-```
+```toml
 [plugin.checks.check-procs-sample]
 command = ["check-procs", "--pattern", "PROCESS_NAME", "--warning-under", "0", "--critical-under", "0", "--warning-over", "0", "--critical-over", "1"]
 ```
@@ -101,7 +100,7 @@ command = ["check-procs", "--pattern", "PROCESS_NAME", "--warning-under", "0", "
 
 下記の例では監視対象のプロセスが 1 個も存在しない場合に Warning アラートのみ発生します。
 
-```
+```toml
 [plugin.checks.check-procs-sample]
 command = ["check-procs", "--pattern", "PROCESS_NAME", "--warning-under", "1", "--critical-under", "0"]
 ```
@@ -110,7 +109,7 @@ command = ["check-procs", "--pattern", "PROCESS_NAME", "--warning-under", "1", "
 
 下記の例では監視対象のプロセスが 1 個以上存在する場合に Warning アラートのみ発生します。`--critical-over` の値は環境に合わせて調整してください。
 
-```
+```toml
 [plugin.checks.check-procs-sample]
 command = ["check-procs", "--pattern", "PROCESS_NAME", "--warning-over", "0", "--critical-over", "9999"]
 ```

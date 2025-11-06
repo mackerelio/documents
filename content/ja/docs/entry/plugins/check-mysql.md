@@ -3,7 +3,6 @@ Title: チェックプラグイン - check-mysql
 Date: 2022-04-26T11:53:19+09:00
 URL: https://mackerel.io/ja/docs/entry/plugins/check-mysql
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/13574176438086440922
-CustomPath: plugins/check-mysql
 ---
 
 check-mysql は MySQL の監視を行うチェックプラグインです。使用するサブコマンドに応じた条件でチェック監視が可能です。
@@ -52,7 +51,7 @@ check-mysql は MySQL の監視を行うチェックプラグインです。使�
 
 MySQL のコネクション数が 250 を上回る場合に Warning、280 を上回る場合に Critical のアラートを発生させる設定は以下のようになります。
 
-```
+```toml
 [plugin.checks.check-mysql-sample]
 command = ["check-mysql", "connection", "--host", "127.0.0.1", "--port", "3306", "--user", "USER", "--password", "PASSWORD", "--warning", "250", "--critical", "280"]
 ```

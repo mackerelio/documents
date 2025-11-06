@@ -60,7 +60,7 @@ Each plugin will be installed in `/usr/bin`, so you will need to add the item sh
 
 If you wanted to, for example, use the process monitoring plugin to monitor crond, you would add the following item.
 
-```config
+```toml
 [plugin.checks.check_cron]
 command = ["check-procs", "-p", "crond"]
 ```
@@ -71,7 +71,7 @@ Each plugin is stored in the agent's installation folder and has its own path. a
 
 To monitor the process "foobar" using the process monitoring plugin, use the following description.
 
-```config
+```toml
 [plugin.checks.check_foobar]
 command = ["check-procs", "-p", "foobar"]
 ```

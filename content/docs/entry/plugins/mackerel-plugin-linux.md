@@ -3,7 +3,6 @@ Title: Metric plugins - mackerel-plugin-linux
 Date: 2023-04-10T18:21:21+09:00
 URL: https://mackerel.io/docs/entry/plugins/mackerel-plugin-linux
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/4207112889979931357
-CustomPath: plugins/mackerel-plugin-linux
 ---
 
 mackerel-plugin-linux is a plugin that aggregates Linux information every minute and posts it as a metric.
@@ -111,7 +110,7 @@ The tempfile contains the aggregated results. By default, it is created under `/
 
 <h2 id="config">Example configuration</h2>
 
-```
+```toml
 [plugin.metrics.linux]
 command = ["mackerel-plugin-linux"]
 ```

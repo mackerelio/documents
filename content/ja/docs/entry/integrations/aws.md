@@ -356,7 +356,7 @@ mackerel-agent のカスタムメトリックとチェック監視の plugin 設
 
 ひとつめの例は、Amazon RDS に対する [mackerel-plugin-mysql](https://github.com/mackerelio/mackerel-plugin-mysql) プラグインを用いた MySQL 監視です。mackerel-agent.conf の設定に以下のように `custom_identifier` を含むプラグイン設定を追加することで、プラグインで取得したメトリックをRDSホストのカスタムメトリックとして集約できます。
 
-```
+```toml
 [plugin.metrics.mysql]
 command = ["mackerel-plugin-mysql", "-host", "RDSのエンドポイント", "-username", "user", "-password", "pass"]
 custom_identifier = "RDSのエンドポイント"
@@ -364,7 +364,7 @@ custom_identifier = "RDSのエンドポイント"
 
 ふたつめの例は、 Amazon OpenSearch Service と [check-elasticsearch](https://github.com/mackerelio/go-check-plugins/tree/master/check-elasticsearch) プラグインを用いた OpenSearch 監視です。mackerel-agent.conf の設定に以下のように `custom_identifier` を含むプラグイン設定を追加することで、 OpenSearch Service クラスターのヘルスチェックを OpenSearch Service ホストのチェック監視として集約できます。
 
-```
+```toml
 [plugin.checks.elasticsearch]
 command = ["check-elasticsearch", "-s", "https", "-H", "OpenSearch Service のエンドポイント", "-p", "443"]
 custom_identifier = "OpenSearch Service の ARN"

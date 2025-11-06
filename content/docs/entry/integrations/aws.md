@@ -350,7 +350,7 @@ Here are two example uses. In either case, the agent needs to be restarted after
 
 The first example is of MySQL monitoring using the [mackerel-plugin-mysql](https://github.com/mackerelio/mackerel-plugin-mysql) plugin for Amazon RDS. Metrics retrieved by the plugin can be aggregated as custom metrics for the RDS host by adding the plugin configuration which includes the `custom_identifier` as shown below to the mackerel-agent.conf.
 
-```
+```toml
 [plugin.metrics.mysql]
 command = ["mackerel-plugin-mysql", "-host", "<RDS endpoint>", "-username", "user", "-password", "pass"]
 custom_identifier = "<RDS endpoint>"
@@ -358,7 +358,7 @@ custom_identifier = "<RDS endpoint>"
 
 The second example is of OpenSearch monitoring using the Amazon OpenSearch Service and the [check-elasticsearch](https://github.com/mackerelio/go-check-plugins/tree/master/check-elasticsearch) plugin. OpenSearch Service Cluster Health Checks can be aggregated as check monitoring for OpenSearch Service hosts by adding the plugin configuration which includes the `custom_identifier` as shown below to the mackerel-agent.conf.
 
-```
+```toml
 [plugin.checks.elasticsearch]
 command = ["check-elasticsearch", "-s", "https", "-H", "<OpenSearch Service endpoint>", "-p", "443"]
 custom_identifier = "<OpenSearch Service domain ARN>"

@@ -3,7 +3,6 @@ Title: Metric plugins - mackerel-plugin-mssql
 Date: 2023-04-07T11:04:57+09:00
 URL: https://mackerel.io/docs/entry/plugins/mackerel-plugin-mssql
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/4207112889978758667
-CustomPath: plugins/mackerel-plugin-mssql
 ---
 
 mackerel-plugin-mssql is a plugin that posts Microsoft SQL Server information as a metric.
@@ -72,7 +71,7 @@ The tempfile is created by default under `C:\Windows\Temp` in the format `macker
 
 The following is an example configuration for an instance name of SQLEXPRESS.
 
-```
+```toml
 [plugin.metrics.mssql]
 command = ["mackerel-plugin-mssql", "-instance", "SQLEXPRESS"]
 ```

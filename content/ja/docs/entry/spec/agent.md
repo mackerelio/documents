@@ -27,7 +27,7 @@ mackerel-agent [-conf <config-file>] [options]
 
 設定ファイルはデフォルトで `/etc/mackerel-agent/mackerel-agent.conf` が参照されます。記述例としては以下のようになります。
 
-```conf
+```toml
 apikey = "APIKEY"
 pidfile = "/path/to/pidfile"
 root = "/var/lib/mackerel-agent"
@@ -136,7 +136,7 @@ Dockerコンテナを利用する場合など、一つのIaaSインスタンス�
 
 **例: My-ServiceサービスのappロールおよびAnother-Serviceサービスのdbロールを紐付けたい場合**
 
-```config
+```toml
 # /etc/mackerel-agent/mackerel-agent.conf
 roles = [ "My-Service:app", "Another-Service:db" ]
 ```
@@ -147,7 +147,7 @@ roles = [ "My-Service:app", "Another-Service:db" ]
 
 **例: 経由させたいプロキシサーバーが localhost:8080 で提供されている場合**
 
-```config
+```toml
 # /etc/mackerel-agent/mackerel-agent.conf
 http_proxy = "http://localhost:8080"
 ```
@@ -158,7 +158,7 @@ http_proxy = "http://localhost:8080"
 
 **例: 経由させたいプロキシサーバーが localhost:8080, localhost:8081 で提供されている場合**
 
-```config
+```toml
 # /etc/mackerel-agent/mackerel-agent.conf
 http_proxy = "http://localhost:8080"
 https_proxy = "http://localhost:8081"
@@ -217,7 +217,7 @@ mackerel-agent 設定項目を他の設定ファイルに記述し、それを `
 
 例えば以下のように指定することで、エージェントが起動したときに、ホストのステータスが `working` に設定され、エージェントが正常終了した際に `poweroff` に設定されます。
 
-```config
+```toml
 # /etc/mackerel-agent/mackerel-agent.conf
 [host_status]
 on_start = "working"
@@ -233,7 +233,7 @@ on_stop  = "poweroff"
 
 以下のように正規表現を用いて指定することで、指定されたファイルシステムからのメトリックは収集されなくなります。
 
-```config
+```toml
 # /etc/mackerel-agent/mackerel-agent.conf
 [filesystems]
 ignore = "/dev/ram.*"
@@ -242,7 +242,7 @@ ignore = "/dev/ram.*"
 <h5>use_mountpoint</h5>
 設定ファイルに以下のように指定することで、マウントポイントごとに filesystem メトリックを取得することが可能です。
 
-```config
+```toml
 # /etc/mackerel-agent/mackerel-agent.conf
 [filesystems]
 use_mountpoint = true
@@ -254,7 +254,7 @@ use_mountpoint = true
 
 以下のように正規表現を用いて指定することで、指定されたディスクデバイスからのメトリックは収集されなくなります。
 
-```config
+```toml
 # /etc/mackerel-agent/mackerel-agent.conf
 [disks]
 ignore = "loop"
@@ -266,7 +266,7 @@ ignore = "loop"
 
 以下のように正規表現を用いて指定することで、指定されたインターフェイスからのメトリックは収集されなくなります。
 
-```config
+```toml
 # /etc/mackerel-agent/mackerel-agent.conf
 [interfaces]
 ignore = "bond.*"
@@ -279,7 +279,7 @@ Windows において、チーミングで作成される Multiplexor 仮想ア�
 
 このようなときには `use_adapter = true` を設定すると、アダプタに対応し、メトリックを取得できるようになります（アダプタにバインドされていない他の通常のインターフェースのメトリックも変わらず取得できます）。
 
-```config
+```toml
 # /etc/mackerel-agent/mackerel-agent.conf
 [interfaces]
 use_adapter = true

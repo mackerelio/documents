@@ -3,7 +3,6 @@ Title: チェックプラグイン - check-aws-cloudwatch-logs
 Date: 2023-01-18T17:57:11+09:00
 URL: https://mackerel.io/ja/docs/entry/plugins/check-aws-cloudwatch-logs
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/4207112889955367136
-CustomPath: plugins/check-aws-cloudwatch-logs
 ---
 
 check-aws-cloudwatch-logs は CloudWatch Logs のロググループの監視を行うプラグインです。CloudWatch Logs のフィルターとパターンの構文で記述した条件に一致するログが検出された場合にアラートが発生します。このプラグインを実行するには CloudWatch Logs の FilterLogEvents API を利用するための設定が必要です。詳細は [認証と必要なポリシーについて](#policy) を参照してください。
@@ -42,7 +41,7 @@ check-aws-cloudwatch-logs は初回実行時、現在時刻から 1 分前まで
 
 CloudWatch Logs のロググループ `/aws/lambda/sample_log_group` に Error が出力されたことを検知する設定は以下のようになります。
 
-```
+```toml
 [plugin.checks.aws-cloudwatch-logs-sample]
 command = ["check-aws-cloudwatch-logs", "--log-group-name", "/aws/lambda/sample_log_group", "--pattern", "Error"]
 env = { AWS_REGION = "ap-northeast-1" }

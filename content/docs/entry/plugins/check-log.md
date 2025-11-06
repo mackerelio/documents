@@ -58,21 +58,21 @@ In the case of the copytruncate method (deletes the contents of the source file 
 
 The configuration for detecting `ERROR` output to /var/log/access.log is as follows
 
-```
+```toml
 [plugin.checks.access_log]
 command = ["check-log", "--file", "/var/log/access.log", "--pattern", "ERROR"]
 ```
 
 Specify the `--return` option to be notified with an alert of detected log lines.
 
-```
+```toml
 [plugin.checks.access_log]
 command = ["check-log", "--file", "/var/log/access.log", "--pattern", "ERROR", "--return"]
 ```
 
 When a monitored file is checked for the first time, no content check (matching detection patterns) is performed. If you want to check the contents of the file for the first time, use the `--check-first` option.
 
-```
+```toml
 [plugin.checks.access_log]
 command = ["check-log", "--file", "/var/log/access.log", "--pattern", "ERROR", "--return", "--check-first"]
 ```
@@ -87,7 +87,7 @@ check-log --file /var/log/access.log --pattern "ERROR" --return --check-first
 
 The configuration for detecting `ERROR` output to C:\log\access.log is as follows
 
-```
+```toml
 [plugin.checks.access_log]
 command = ["check-log", "--file", "C:\\log\\access.log", "--pattern", "ERROR"]
 ```
@@ -96,7 +96,7 @@ If you use regular expressions to specify files with `--file-pattern` on Windows
 
 If you want to specify a file of the form `C:\log\access.log.{yyyyy}-{mm}-{dd}` with a regular expression, it will look like this.
 
-```
+```toml
 [plugin.checks.access_log]
 command = ["check-log", "--search-in-directory", "C:\\log\\", "--file-pattern", "access.log.\\d{4}-\\d{2}-\\d{2}", "--pattern", "ERROR"]
 ```
@@ -111,7 +111,7 @@ Multiple `--pattern` options will trigger an alert when log lines containing all
 
 The following is a condition that must contain `PRODUCTION` and `ERROR`.
 
-```
+```toml
 [plugin.checks.access_log]
 command = ["check-log", "--file", "/var/log/access.log", "--pattern", "PRODUCTION", "--pattern", "ERROR"]
 ```
@@ -122,7 +122,7 @@ The condition specified in the `--pattern` option is evaluated as a regular expr
 
 For example, if you want to detect log lines containing `FATAL` or `ERROR`, specify them separated by pipe `|` as follows
 
-```
+```toml
 [plugin.checks.access_log]
 command = ["check-log", "--file", "/var/log/access.log", "--pattern", "FATAL|ERROR"]
 ```
