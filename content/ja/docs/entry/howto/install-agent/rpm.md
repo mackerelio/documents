@@ -62,7 +62,7 @@ sudo yum update mackerel-agent
 エージェントをアンインストールする場合は以下のコマンドを実行します。
 
 ```
-sudo yum erase mackerel-agent
+sudo yum remove mackerel-agent
 ```
 
 
@@ -140,7 +140,7 @@ mackerel-agentをアンインストールするには、以下のコマンドを
 `yum`でインストールした場合:
 
 ```
-sudo yum erase mackerel-agent-kcps
+sudo yum remove mackerel-agent-kcps
 ```
 
 `rpm`でインストールした場合:

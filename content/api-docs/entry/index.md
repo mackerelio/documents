@@ -952,6 +952,20 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
       </div>
     </div>
   </div>
+  <div class="index-row">
+    <h3><a href="entry/db-query-stats">Database Query Statistics</a></h3>
+    <div class="apis">
+      <div class="api">
+        <a href="entry/db-query-stats#list">
+          <p>Get Database Query Statistics</p>
+          <p class="type-get">
+            <code>GET</code>
+            <code>/api/v0/db-query-stats</code>
+          </p>
+        </a>
+      </div>
+    </div>
+  </div>
 
 </div>
 

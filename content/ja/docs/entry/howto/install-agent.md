@@ -7,13 +7,17 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 
 Mackerelにユーザー登録し、オーガニゼーションを作成すると、エージェントをインストールしてホストを登録できるようになります。エージェントのインストール手順については、お使いの OS ごとのヘルプを参照してください。なお、動作をサポートする環境については [対応環境](https://mackerel.io/ja/docs/entry/overview#support-environments) を参照してください。
 
+<h2 id="install">インストール手順</h2>
+
+インストール手順についてはOSごとのヘルプを参照してください。
+
 - [Amazon Linuxにインストールする](./install-agent/amazon-linux)
 - [CentOS / Red Hat Enterprise Linux派生OSにインストールする](./install-agent/rpm)
 - [Ubuntu / Debian にインストールする](./install-agent/deb)
 - [Linuxでバイナリファイルを直接使用する](./install-agent/binary)
 - [Windows Serverにインストールする](./install-agent/msi)
 
-<h2 id="install">エージェントをインストールする際に発生する通信</h2>
+<h2 id="communication">エージェントをインストールする際に発生する通信</h2>
 
 セットアップスクリプトを使用したエージェントのインストール時は下記への通信が行われます。インターネットへの通信が制限されている環境においては、あらかじめ通信を許可してからエージェントのインストールを行ってください。
 
@@ -48,7 +52,7 @@ Mackerelにユーザー登録し、オーガニゼーションを作成すると
 
 <h2 id="uninstall">エージェントのアンインストール</h2>
 
-エージェントのアンインストールはお使いのパッケージングシステムにあわせて行ってください。
+アンインストール方法はOSごとの[インストール手順](#install)のヘルプに記載があります。
 
 <h3 id="uninstall-files">エージェントのアンインストール時に削除されないファイル</h3>
 

@@ -82,7 +82,7 @@ To uninstall Mackerel-agent run one of the following commands:
 If the agent was installed with `yum`:
 
 ```
-sudo yum erase mackerel-agent
+sudo yum remove mackerel-agent
 ```
 
 If the agent was installed with `rpm`:
@@ -168,7 +168,7 @@ To uninstall Mackerel-agent run one of the following commands:
 If the agent was installed with `yum`:
 
 ```
-sudo yum erase mackerel-agent-kcps
+sudo yum remove mackerel-agent-kcps
 ```
 
 If the agent was installed with `rpm`:

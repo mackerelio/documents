@@ -79,7 +79,7 @@ To uninstall mackerel-agent, run the following command.
 
 
 ```
-sudo yum erase mackerel-agent
+sudo yum remove mackerel-agent
 ```
 
 By doing so, a file with the host ID documented will remain (at `/var/lib/mackerel-agent/id` under default settings), so please make sure to delete it.
