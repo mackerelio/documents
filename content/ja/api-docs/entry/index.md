@@ -951,20 +951,6 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
       </div>
     </div>
   </div>
-  <div class="index-row">
-    <h3><a href="entry/db-query-stats">データベースクエリ統計情報</a></h3>
-    <div class="apis">
-      <div class="api">
-        <a href="entry/db-query-stats#list">
-          <p>データベースクエリ統計情報の取得</p>
-          <p class="type-get">
-            <code>GET</code>
-            <code>/api/v0/db-query-stats</code>
-          </p>
-        </a>
-      </div>
-    </div>
-  </div>
 </div>
 
 <h2 id="data-types">データの種類</h2>
