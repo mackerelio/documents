@@ -1,5 +1,5 @@
-Title: Mackerel API Documents (v0)
 ---
+Title: Mackerel API Documents (v0)
 Date: 2016-02-12T19:23:55+09:00
 URL: https://mackerel.io/api-docs/entry/index
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel.io/atom/entry/6653586347157001366
@@ -952,6 +952,21 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
       </div>
     </div>
   </div>
+  <div class="index-row">
+    <h3><a href="entry/db-query-stats">Database Query Statistics</a></h3>
+    <div class="apis">
+      <div class="api">
+        <a href="entry/db-query-stats#list">
+          <p>Get Database Query Statistics</p>
+          <p class="type-get">
+            <code>GET</code>
+            <code>/api/v0/db-query-stats</code>
+          </p>
+        </a>
+      </div>
+    </div>
+  </div>
+
 </div>
 
 <h2 id="data-types">Data types</h2>
