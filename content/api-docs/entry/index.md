@@ -952,6 +952,21 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
       </div>
     </div>
   </div>
+  <div class="index-row">
+    <h3><a href="entry/apm">APM</a></h3>
+    <div class="apis">
+      <div class="api">
+        <a href="entry/apm#http-server-stats">
+          <p>Get HTTP Server Statistics</p>
+          <p class="type-get">
+            <code>GET</code>
+            <code>/api/v0/apm/http-server-stats</code>
+          </p>
+        </a>
+      </div>
+    </div>
+  </div>
+
 </div>
 
 <h2 id="data-types">Data types</h2>

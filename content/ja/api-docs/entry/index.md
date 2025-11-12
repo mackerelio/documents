@@ -951,6 +951,20 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
       </div>
     </div>
   </div>
+  <div class="index-row">
+    <h3><a href="entry/apm">APM</a></h3>
+    <div class="apis">
+      <div class="api">
+        <a href="entry/apm#http-server-stats">
+          <p>HTTPサーバー統計情報の取得</p>
+          <p class="type-get">
+            <code>GET</code>
+            <code>/api/v0/apm/http-server-stats</code>
+          </p>
+        </a>
+      </div>
+    </div>
+  </div>
 </div>
 
 <h2 id="data-types">データの種類</h2>
