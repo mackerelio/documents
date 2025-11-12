@@ -963,6 +963,15 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
           </p>
         </a>
       </div>
+      <div class="api">
+        <a href="entry/apm#db-query-stats">
+          <p>データベースクエリ統計情報の取得</p>
+          <p class="type-get">
+            <code>GET</code>
+            <code>/api/v0/apm/db-query-stats</code>
+          </p>
+        </a>
+      </div>
     </div>
   </div>
 </div>
