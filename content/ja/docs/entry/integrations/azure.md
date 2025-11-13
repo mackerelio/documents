@@ -187,3 +187,19 @@ Mackerelの設定画面にてテナントID、クライアントID、シーク�
 Mackerelの設定画面でタグを指定します。連携ホスト数を確認し、保存してください。
 
 タグを `service:foo, service:bar` のように指定すると、キーがserviceで値がfooまたはキーがserviceで値がbarであるタグが付与されているインスタンスが対象となります。 キーや値にカンマ `,` などを含む場合は、クォート ( `"` または `'` ) で囲ってください。例えば、キーが `service,role` で値が `foo,bar` である場合は、 `"service,role": "foo,bar"` のように指定します。
+
+## 新規メトリックの自動追加を設定する
+
+Azureインテグレーションでは、Azureサービスのアップデートや新機能追加時に新たなメトリックが追加された場合、Mackerelが自動的にそのメトリックを検出し、監視対象に追加します。
+
+この「新規メトリックを自動的に追加する」オプションをオンにすると、追加されたメトリックが自動的に取得対象となり、手動で設定を変更する手間を省けます。
+
+<p><span itemscope itemtype="http://schema.org/Photograph"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20251030/20251030151129.png" width="1277" height="249" loading="lazy" title="" class="hatena-fotolife" itemprop="image"></span></p>
+
+## 取得するメトリックを制限する
+
+MackerelのAzureインテグレーション設定画面で取得するメトリックを選択します。不要なメトリックのチェックを外して、保存してください。
+
+例えば`virtual_machine.cpu.percent`を取得しないようにする場合には以下のようにチェックボックスを外します。
+
+<p><span itemscope itemtype="http://schema.org/Photograph"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20251030/20251030151102.png" width="525" height="638" loading="lazy" title="" class="hatena-fotolife" itemprop="image"></span></p>

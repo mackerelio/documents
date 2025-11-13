@@ -185,3 +185,19 @@ After confirming the hosts to integrate, save the settings. After a while, the h
 Specify the tag from Mackerel’s configuration screen. Confirm the number of integration hosts and save.
 
 If you specify the tag like `service: foo, service: bar`, instances that allow tags with a key of service and value of foo or tags with a key of service and value of bar will be targeted. If the key or value includes a comma `,` etc., enclose it with quotations (`"`or `'`). For example, if the key is `service, role` and the value is `foo, bar`, specify `"service, role": "foo,bar”`.
+
+## Configure automatic new metrics addition
+
+Mackerel may add new metrics as each Azure service is updated.
+
+By turning on "Add new metrics automatically", you can avoid having to select metrics for retrieval on the Azure integration settings page each time they are added.
+
+<p><span itemscope itemtype="http://schema.org/Photograph"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20251030/20251030151120.png" width="1627" height="213" loading="lazy" title="" class="hatena-fotolife" itemprop="image"></span></p>
+
+## Limit metrics retrieved
+
+Select the metrics you wish to retrieve in the Mackerel Azure integration configuration page. Uncheck any unwanted metrics and save them.
+
+For example, to exclude `virtual_machine.cpu.percent` from being retrieved, simply uncheck the corresponding checkbox as shown below.
+
+<p><span itemscope itemtype="http://schema.org/Photograph"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20251030/20251030151159.png" width="526" height="641" loading="lazy" title="" class="hatena-fotolife" itemprop="image"></span></p>
