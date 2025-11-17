@@ -42,6 +42,8 @@ Mackerelでは複数のオーガニゼーションからなるオーガニゼー
 - [Keycloak](https://www.keycloak.org/docs/latest/server_admin/index.html#assembly-managing-clients_server_administration_guide)
 - [GMOトラスト・ログイン](https://support.trustlogin.com/hc/ja/articles/46796345053977)
   - [JIT Provisioning設定方法](https://support.trustlogin.com/hc/ja/articles/46936046284697)
+- [OneLogin](https://support.onelogin.jp/hc/ja/articles/51320185812761-Mackerel-SAML%E8%AA%8D%E8%A8%BC)
+  - [SCIM連携設定方法](https://support.onelogin.jp/hc/ja/articles/51343766412569-Mackerel-%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%83%97%E3%83%AD%E3%83%93%E3%82%B8%E3%83%A7%E3%83%8B%E3%83%B3%E3%82%B0)
 
 ### オーガニゼーショングループの基本設定
 
