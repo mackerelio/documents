@@ -24,7 +24,7 @@ AWSインテグレーションのEFS対応で取得できるメトリックは�
 |Data IO Count|DataReadIOBytes<br>DataWriteIOBytes<br>MetadataIOBytes<br>TotalIOBytes<br>MeteredIOBytes|efs.data_io_count.read<br>efs.data_io_count.write<br>efs.data_io_count.metadata<br>efs.data_io_count.total<br>efs.data_io_count.metered|integer|SampleCount|
 |Data IO Sum Bytes|DataReadIOBytes<br>DataWriteIOBytes<br>MetadataIOBytes<br>TotalIOBytes<br>MeteredIOBytes|efs.data_io_sum_bytes.read<br>efs.data_io_sum_bytes.write<br>efs.data_io_sum_bytes.metadata<br>efs.data_io_sum_bytes.total<br>efs.data_io_sum_bytes.metered|bytes|Sum|
 |Data IO Bytes|DataReadIOBytes<br>DataWriteIOBytes<br>MetadataIOBytes<br>TotalIOBytes<br>MeteredIOBytes|efs.data_io_bytes.Read.minimum<br>efs.data_io_bytes.Read.average<br>efs.data_io_bytes.Read.maximum<br>efs.data_io_bytes.Write.minimum<br>efs.data_io_bytes.Write.average<br>efs.data_io_bytes.Write.maximum<br>efs.data_io_bytes.Metadata.minimum<br>efs.data_io_bytes.Metadata.average<br>efs.data_io_bytes.Metadata.maximum<br>efs.data_io_bytes.Total.minimum<br>efs.data_io_bytes.Total.average<br>efs.data_io_bytes.Total.maximum<br>efs.data_io_bytes.Metered.minimum<br>efs.data_io_bytes.Metered.average<br>efs.data_io_bytes.Metered.maximum|bytes|Minimum<br>Average<br>Maximum|
-|Storage|StorageBytes|efs.storage.standard<br>efs.storage.ia<br>efs.storage.total|bytes|Sum|
+|Storage|StorageBytes|efs.storage.standard<br>efs.storage.ia<br>efs.storage.total|bytes|Average|
 
 <h2 id="notes">注意事項</h2>
 

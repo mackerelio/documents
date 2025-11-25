@@ -34,8 +34,8 @@ check-log プラグインは、監視対象となるログのローテーショ�
 | --warning-level       |        | 検出パターンで抽出した数値が指定値を超えたらWarningアラートを発生                         |                   |
 | --critical-level      |        | 検出パターンで抽出した数値が指定値を超えたらCriticalアラートを発生                        |                   |
 | --return              | -r     | パターンにマッチしたログ行をアラートで通知する [*3](#annotation3)                                         |                   |
-| --search-in-directory |        | 監視対象ファイルがあるディレクトリパスを指定（Windows環境において`--file-pattern`と併用） |                   |
-| --file-pattern        | -F     | 監視対象ファイルを正規表現で指定[*4](#annotation4)                                                          |                   |
+| --search-in-directory |        | 監視対象ファイルがあるディレクトリパスを指定。このオプションを使う場合、監視対象ファイルの指定には`--file`ではなく`--file-pattern`を使用すること |                   |
+| --file-pattern        | -F     | 監視対象ファイルを正規表現で指定[*4](#annotation4)<br>Windows環境では`--search-in-directory`との併用を推奨（[設定例](#windows-file-pattern)）                                                          |                   |
 | --icase               | -i     | 大小文字を区別せずにマッチングを行う                                                      |                   |
 | --state-dir           | -s     | Stateファイルの保存先ディレクトリパスを指定                                               |                   |
 | --no-state            |        | Stateファイルを使用せず全てのログを対象とする                                             |                   |
@@ -177,6 +177,8 @@ command = ["check-log", "--file", "/var/log/access.log", "--pattern", "\\\"ERROR
 
 ### 複数のログファイルを対象とする
 
+<h4 id="linux-file-pattern">Linux環境</h4>
+
 単一のファイルではなく複数のファイルを対象としたい場合、`--file` オプションでは glob 形式での指定が、`--file-pattern` オプションでは正規表現での指定ができます。  
 以下は `/var/log/*.log` に該当するログファイルを対象とする例です。
 
@@ -192,6 +194,8 @@ command = ["check-log", "--file", "/var/log/*.log", "--pattern", "FATAL"]
 [plugin.checks.access_log]
 command = ["check-log", "--file-pattern", "/var/log/access.log.\\d{4}-\\d{2}-\\d{2}", "--pattern", "FATAL"]
 ```
+
+<h4 id="windows-file-pattern">Windows環境</h4>
 
 Windows 環境において監視対象ファイルの指定に `--file-pattern` による正規表現を用いる場合、ディレクトリの区切り文字 `\` と正規表現のエスケープ処理との競合を回避するために、`--search-in-directory` オプションを併用してください。
 
