@@ -6,8 +6,190 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 ---
 
 <ul class="internal-nav">
+  <li><a href="#list">トレース一覧の取得</a></li>
   <li><a href="#get">トレースの取得</a></li>
 </ul>
+
+<h2 id="list">トレース一覧の取得</h2>
+
+指定された条件でトレースの一覧を取得します。
+
+<p class="type-post">
+  <code>POST</code>
+  <code>/api/v0/traces</code>
+</p>
+
+### APIキーに必要な権限
+
+<ul class="api-key">
+  <li class="label-read">Read</li>
+</ul>
+
+### 入力
+
+| KEY                    | TYPE             | DESCRIPTION                                                                 |
+| ---------------------- | ---------------- | --------------------------------------------------------------------------- |
+| `serviceName`          | *string*         | サービス名                                                                  |
+| `serviceNamespace`     | *string*         | [optional] サービスの名前空間                                               |
+| `from`                 | *number*         | トレース検索開始時刻(epoch秒)                                         |
+| `to`                   | *number*         | トレース検索終了時刻(epoch秒)                                         |
+| `environment`          | *string*         | [optional] 環境名                                                           |
+| `traceId`              | *string*         | [optional] トレースID(16進数文字列32桁)                                    |
+| `spanName`             | *string*         | [optional] スパン名                                                         |
+| `version`              | *string*         | [optional] バージョン                                                       |
+| `issueFingerprint`     | *string*         | [optional] Issueのフィンガープリント                                        |
+| `minLatencyMillis`     | *number*         | [optional] 最小レイテンシー(ミリ秒)                                         |
+| `maxLatencyMillis`     | *number*         | [optional] 最大レイテンシー(ミリ秒)                                         |
+| `attributes`           | *array[object]*  | [optional] 属性フィルタ条件のリスト                                         |
+| `resourceAttributes`   | *array[object]*  | [optional] リソース属性フィルタ条件のリスト                                 |
+| `page`                 | *number*         | [optional] ページ番号(1から始まる)。デフォルトは1                          |
+| `perPage`              | *number*         | [optional] 1ページあたりの件数(1~100)。デフォルトは20                      |
+| `order`                | *object*         | [optional] ソート条件                                                       |
+
+属性フィルタオブジェクトは以下のキーを持ちます。
+
+| KEY        | TYPE     | DESCRIPTION                                                                                     |
+| ---------- | -------- | ----------------------------------------------------------------------------------------------- |
+| `key`      | *string* | 属性のキー                                                                                      |
+| `value`    | *string* | 属性の値(文字列として指定)                                                                     |
+| `operator` | *string* | 比較演算子。`EQ`, `NE`, `GT`, `GTE`, `LT`, `LTE`, `STARTS_WITH` のいずれか             |
+| `type`     | *string* | 属性値の型。`string`, `int`, `double`, `bool` のいずれか                                       |
+
+属性の `type` によって利用可能な `operator` が異なります。
+
+| operator      | string | int | double | bool |
+| ------------- | ------ | --- | ------ | ---- |
+| `EQ`          | ○      | ○   | ○      | ○    |
+| `NE`          | ○      | ×   | ×      | ○    |
+| `GT`          | ×      | ○   | ○      | ×    |
+| `GTE`         | ×      | ○   | ○      | ×    |
+| `LT`          | ×      | ○   | ○      | ×    |
+| `LTE`         | ×      | ○   | ○      | ×    |
+| `STARTS_WITH` | ○      | ×   | ×      | ×    |
+
+ソート条件オブジェクトは以下のキーを持ちます。
+
+| KEY         | TYPE     | DESCRIPTION                                                  |
+| ----------- | -------- | ------------------------------------------------------------ |
+| `column`    | *string* | [optional] ソート列。`LATENCY` または `START_AT`。デフォルトは `START_AT` |
+| `direction` | *string* | [optional] ソート順。`ASC` または `DESC`。デフォルトは `DESC`            |
+
+#### 入力例
+
+```json
+{
+  "serviceName": "shoppingcart",
+  "serviceNamespace": "shop",
+  "from": 1718802000,
+  "to": 1718888400,
+  "environment": "production",
+  "minLatencyMillis": 1000,
+  "maxLatencyMillis": 5000,
+  "attributes": [
+    {
+      "key": "http.status_code",
+      "value": "500",
+      "operator": "EQ",
+      "type": "int"
+    },
+    {
+      "key": "http.method",
+      "value": "GET",
+      "operator": "EQ",
+      "type": "string"
+    }
+  ],
+  "resourceAttributes": [
+    {
+      "key": "host.name",
+      "value": "server",
+      "operator": "CONTAINS",
+      "type": "string"
+    }
+  ],
+  "page": 1,
+  "perPage": 20,
+  "order": {
+    "column": "START_AT",
+    "direction": "DESC"
+  }
+}
+```
+
+### 応答
+
+#### 成功時
+
+```json
+{
+  "results": [
+    {
+      "traceId": "550e8400e29b41d4a716446655440000",
+      "serviceName": "shoppingcart",
+      "serviceNamespace": "shop",
+      "environment": "production",
+      "title": "GET /api/users",
+      "traceStartAt": 1718802000,
+      "traceLatencyMillis": 1234,
+      "serviceStartAt": 1718802100,
+      "serviceLatencyMillis": 567
+    }
+  ],
+  "hasNextPage": true
+}
+```
+
+レスポンスは以下のキーを持ちます。
+
+| KEY           | TYPE    | DESCRIPTION                      |
+| ------------- | ------- | -------------------------------- |
+| `results`     | *array* | トレースのリスト                 |
+| `hasNextPage` | *boolean* | 次のページが存在するか         |
+
+トレースオブジェクトは以下のキーを持ちます。
+
+| KEY                     | TYPE     | DESCRIPTION                                    |
+| ----------------------- | -------- | ---------------------------------------------- |
+| `traceId`               | *string* | トレースID(16進数文字列32桁)                  |
+| `serviceName`           | *string* | サービス名                                     |
+| `serviceNamespace`      | *string* | サービスの名前空間                             |
+| `environment`           | *string* | 環境名                                         |
+| `title`                 | *string* | トレースのタイトル(ルートスパンの名前など)    |
+| `traceStartAt`          | *number* | トレース開始時刻(epoch秒)                |
+| `traceLatencyMillis`    | *number* | トレース全体のレイテンシー(ミリ秒)            |
+| `serviceStartAt`        | *number* | サービスのスパン開始時刻(epoch秒)        |
+| `serviceLatencyMillis`  | *number* | サービスのスパンレイテンシー(ミリ秒)          |
+
+#### 失敗時
+
+<table class="default api-error-table">
+  <thead>
+    <tr>
+      <th class="status-code">STATUS CODE</th>
+      <th class="description">DESCRIPTION</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>400</td>
+      <td>無効なリクエストのとき</td>
+    </tr>
+    <tr>
+      <td>401</td>
+      <td>APIキーが無効なとき</td>
+    </tr>
+    <tr>
+      <td>403</td>
+      <td><a href="https://support.mackerel.io/hc/ja/articles/360039701952-%E3%82%AA%E3%83%BC%E3%82%AC%E3%83%8B%E3%82%BC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AB%E5%AF%BE%E3%81%99%E3%82%8B%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E3%82%92IP%E3%82%A2%E3%83%89%E3%83%AC%E3%82%B9%E3%82%92%E6%8C%87%E5%AE%9A%E3%81%97%E3%81%A6%E5%88%B6%E9%99%90%E3%81%97%E3%81%9F%E3%81%84" target="_blank">許可されたIPアドレス範囲</a>外からのアクセスの場合</td>
+    </tr>
+    <tr>
+      <td>429</td>
+      <td>レート制限を超過したとき（1秒あたり1リクエスト）</td>
+    </tr>
+  </tbody>
+</table>
+
+----------------------------------------------
 
 <h2 id="get">トレースの取得</h2>
 

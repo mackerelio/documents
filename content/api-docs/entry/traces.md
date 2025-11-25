@@ -6,8 +6,190 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
 ---
 
 <ul class="internal-nav">
+  <li><a href="#list">List Traces</a></li>
   <li><a href="#get">Get Trace</a></li>
 </ul>
+
+<h2 id="list">List Traces</h2>
+
+Retrieve a list of traces based on specified conditions.
+
+<p class="type-post">
+  <code>POST</code>
+  <code>/api/v0/traces</code>
+</p>
+
+### Required permissions for the API key
+
+<ul class="api-key">
+  <li class="label-read">Read</li>
+</ul>
+
+### Input
+
+| KEY                    | TYPE             | DESCRIPTION                                                                 |
+| ---------------------- | ---------------- | --------------------------------------------------------------------------- |
+| `serviceName`          | *string*         | Service name                                                                |
+| `serviceNamespace`     | *string*         | [optional] Service namespace                                                |
+| `from`                 | *number*         | Trace search start time (epoch seconds)                               |
+| `to`                   | *number*         | Trace search end time (epoch seconds)                                 |
+| `environment`          | *string*         | [optional] Environment name                                                 |
+| `traceId`              | *string*         | [optional] Trace ID (32-digit hexadecimal string)                          |
+| `spanName`             | *string*         | [optional] Span name                                                        |
+| `version`              | *string*         | [optional] Version                                                          |
+| `issueFingerprint`     | *string*         | [optional] Issue fingerprint                                                |
+| `minLatencyMillis`     | *number*         | [optional] Minimum latency (milliseconds)                                   |
+| `maxLatencyMillis`     | *number*         | [optional] Maximum latency (milliseconds)                                   |
+| `attributes`           | *array[object]*  | [optional] List of attribute filter conditions                              |
+| `resourceAttributes`   | *array[object]*  | [optional] List of resource attribute filter conditions                     |
+| `page`                 | *number*         | [optional] Page number (starts from 1). Default is 1                       |
+| `perPage`              | *number*         | [optional] Number of items per page (1-100). Default is 20                 |
+| `order`                | *object*         | [optional] Sort condition                                                   |
+
+Attribute filter objects have the following keys.
+
+| KEY        | TYPE     | DESCRIPTION                                                                                     |
+| ---------- | -------- | ----------------------------------------------------------------------------------------------- |
+| `key`      | *string* | Attribute key                                                                                   |
+| `value`    | *string* | Attribute value (specified as string)                                                          |
+| `operator` | *string* | Comparison operator. One of `EQ`, `NEQ`, `GT`, `GTE`, `LT`, `LTE`, `STARTS_WITH`        |
+| `type`     | *string* | Attribute value type. One of `string`, `int`, `double`, `bool`                                 |
+
+The available `operator` values vary depending on the attribute `type`.
+
+| operator      | string | int | double | bool |
+| ------------- | ------ | --- | ------ | ---- |
+| `EQ`          | ✓      | ✓   | ✓      | ✓    |
+| `NEQ`         | ✓      |     |        | ✓    |
+| `GT`          |        | ✓   | ✓      |      |
+| `GTE`         |        | ✓   | ✓      |      |
+| `LT`          |        | ✓   | ✓      |      |
+| `LTE`         |        | ✓   | ✓      |      |
+| `STARTS_WITH` | ✓      |     |        |      |
+
+Sort condition objects have the following keys.
+
+| KEY         | TYPE     | DESCRIPTION                                                       |
+| ----------- | -------- | ----------------------------------------------------------------- |
+| `column`    | *string* | [optional] Sort column. `LATENCY` or `START_AT`. Default is `START_AT` |
+| `direction` | *string* | [optional] Sort order. `ASC` or `DESC`. Default is `DESC`               |
+
+#### Input example
+
+```json
+{
+  "serviceName": "shoppingcart",
+  "serviceNamespace": "shop",
+  "from": 1718802000,
+  "to": 1718888400,
+  "environment": "production",
+  "minLatencyMillis": 1000,
+  "maxLatencyMillis": 5000,
+  "attributes": [
+    {
+      "key": "http.status_code",
+      "value": "500",
+      "operator": "EQ",
+      "type": "int"
+    },
+    {
+      "key": "http.method",
+      "value": "GET",
+      "operator": "EQ",
+      "type": "string"
+    }
+  ],
+  "resourceAttributes": [
+    {
+      "key": "host.name",
+      "value": "server",
+      "operator": "CONTAINS",
+      "type": "string"
+    }
+  ],
+  "page": 1,
+  "perPage": 20,
+  "order": {
+    "column": "START_AT",
+    "direction": "DESC"
+  }
+}
+```
+
+### Response
+
+#### Success
+
+```json
+{
+  "results": [
+    {
+      "traceId": "550e8400e29b41d4a716446655440000",
+      "serviceName": "shoppingcart",
+      "serviceNamespace": "shop",
+      "environment": "production",
+      "title": "GET /api/users",
+      "traceStartAt": 1718802000,
+      "traceLatencyMillis": 1234,
+      "serviceStartAt": 1718802100,
+      "serviceLatencyMillis": 567
+    }
+  ],
+  "hasNextPage": true
+}
+```
+
+The response has the following keys.
+
+| KEY           | TYPE      | DESCRIPTION                            |
+| ------------- | --------- | -------------------------------------- |
+| `results`     | *array*   | List of traces                         |
+| `hasNextPage` | *boolean* | Whether the next page exists           |
+
+Trace objects have the following keys.
+
+| KEY                     | TYPE     | DESCRIPTION                                         |
+| ----------------------- | -------- | --------------------------------------------------- |
+| `traceId`               | *string* | Trace ID (32-digit hexadecimal string)             |
+| `serviceName`           | *string* | Service name                                        |
+| `serviceNamespace`      | *string* | Service namespace                                   |
+| `environment`           | *string* | Environment name                                    |
+| `title`                 | *string* | Trace title (such as root span name)               |
+| `traceStartAt`          | *number* | Trace start time (epoch seconds)              |
+| `traceLatencyMillis`    | *number* | Overall trace latency (milliseconds)               |
+| `serviceStartAt`        | *number* | Service span start time (epoch seconds)       |
+| `serviceLatencyMillis`  | *number* | Service span latency (milliseconds)                |
+
+#### Error
+
+<table class="default api-error-table">
+  <thead>
+    <tr>
+      <th class="status-code">STATUS CODE</th>
+      <th class="description">DESCRIPTION</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>400</td>
+      <td>when the request is invalid</td>
+    </tr>
+    <tr>
+      <td>401</td>
+      <td>when the API key is invalid</td>
+    </tr>
+    <tr>
+      <td>403</td>
+      <td>when accessed from outside the <a href="https://support.mackerel.io/hc/en/articles/360039701952-Restricting-access-to-your-organization-by-specifying-IP-addresses" target="_blank">permitted IP address range</a></td>
+    </tr>
+    <tr>
+        <td>429</td>
+        <td>when the rate limit is exceeded (1 request per second)</td>
+    </tr>
+  </tbody>
+</table>
+
+----------------------------------------------
 
 <h2 id="get">Get Trace</h2>
 
