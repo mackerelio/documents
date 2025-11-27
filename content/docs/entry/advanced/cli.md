@@ -252,6 +252,33 @@ Metric plugins that can post metrics from mackerel-agent, such as the official m
 % mackerel-plugin-mysql | mkr throw --host 2eQGEaLxibb
 ```
 
+### Getting the Service List
+
+With mkr, you can get a list of services using the services subcommand.
+
+```
+mkr services
+```
+
+Example
+
+```
+% mkr services
+[
+    {
+        "name": "sample-service",
+        "memo": "",
+        "roles": [
+            "web",
+            "db"
+        ]
+    },
+    ...
+]
+```
+
+For information on what can be retrieved, please refer to the [List Services section of the API specifications](https://mackerel.io/api-docs/entry/services#list).
+
 ### Monitoring rule
 
 With mkr, monitoring rules can be operated with the `monitors` subcommand. This `mkr monitors` subcommand also comes with three subcommands, `pull`, `diff`, and `push`. If none of these subcommands are specified and the user simply types `mkr monitors`, the list of monitoring rules will be displayed.
@@ -617,7 +644,25 @@ For more information on the json format returned by each subcommand, please refe
 }
 ```
 
-For more information please refer to https://github.com/mackerelio/mkr
+### Get Organization Information
+
+With mkr, you can retrieve organization information using the org subcommand.
+
+```
+mkr org
+```
+
+Example
+
+```
+% mkr org
+{
+    "name": "sample-org",
+    "displayName": "Sample Org"
+}
+```
+
+For information on what can be retrieved, please refer to the [Get Organization Information section of the API specifications](https://mackerel.io/api-docs/entry/organizations#get).
 
 ### Monitor command execution results
 

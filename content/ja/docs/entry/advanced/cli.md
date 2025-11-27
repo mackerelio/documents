@@ -251,6 +251,32 @@ example.throwD  2       1713273764
 % mackerel-plugin-mysql | mkr throw --host 2eQGEaLxibb
 ```
 
+### サービス一覧の取得
+
+mkrではservicesサブコマンドでサービスの一覧を取得できます。
+
+```
+mkr services
+```
+
+実行例
+
+```
+% mkr services
+[
+    {
+        "name": "sample-service",
+        "memo": "",
+        "roles": [
+            "web",
+            "db"
+        ]
+    },
+    ...
+]
+```
+
+取得可能な情報については、[API仕様の「サービスの一覧」](https://mackerel.io/ja/api-docs/entry/services#list)を参照してください。
 
 ### 監視ルール
 
@@ -615,6 +641,26 @@ mkrでは、annotationsサブコマンドでグラフアノテーションに関
     ]
 }
 ```
+
+### オーガニゼーション情報の取得
+
+mkrではorgサブコマンドでオーガニゼーションの情報を取得できます。
+
+```
+mkr org
+```
+
+実行例
+
+```
+% mkr org
+{
+    "name": "sample-org",
+    "displayName": "Sample Org"
+}
+```
+
+取得可能な情報については、[API仕様の「オーガニゼーションの情報を取得」](https://mackerel.io/ja/api-docs/entry/organizations#get)を参照してください。
 
 ### プラグイン
 mkrでは、pluginサブコマンドでmackerelプラグインやcheckプラグインの管理を行えます。
