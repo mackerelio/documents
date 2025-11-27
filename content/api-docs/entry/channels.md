@@ -6,12 +6,13 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
 ---
 
 <ul class="internal-nav">
-  <li><a href="#get">Get Notification Channels</a></li>
-  <li><a href="#create">Register Notification Channels</a></li>
-  <li><a href="#delete">Delete Notification Channels</a></li>
+  <li><a href="#get">List Notification Channels</a></li>
+  <li><a href="#create">Register Notification Channel</a></li>
+  <li><a href="#update">Update Notification Channel</a></li>
+  <li><a href="#delete">Delete Notification Channel</a></li>
 </ul>
 
-<h2 id="get">Get Notification channel list</h2>
+<h2 id="get">List Notification Channels</h2>
 
 <p class="type-get">
   <code>GET</code>
@@ -72,7 +73,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
 
 ----------------------------------------------
 
-<h2 id="create">Register Notification Channels</h2>
+<h2 id="create">Register Notification Channel</h2>
 
 ※Currently supported for email, Slack, and Webhook.
 
@@ -261,7 +262,68 @@ The object contains the following keys
 
 ----------------------------------------------
 
-<h2 id="delete">Delete Notification Channels</h2>
+<h2 id="update">Update Notification Channel</h2>
+
+Update a notification channel.
+
+※Currently supported for email, Slack, and Webhook.
+
+<p class="type-put">
+  <code>PUT</code>
+  <code>/api/v0/channels/<em>&lt;channelId&gt;</em></code>
+</p>
+
+### Required permissions for the API key
+
+<ul class="api-key">
+  <li class="label-read">Read</li>
+  <li class="label-write">Write</li>
+</ul>
+
+### Input
+
+The format for the update is the same as [Register Notification Channel](#create).
+
+However, the `type` cannot be changed.
+
+### Response
+
+#### Success
+
+The updated notification channel is returned. The response format is the same as that which can be obtained with [Register Notification Channel](#create).
+
+#### Error
+
+<table class="default api-error-table">
+  <thead>
+    <tr>
+      <th class="status-code">STATUS CODE</th>
+      <th class="description">DESCRIPTION</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>400</td>
+      <td>when the JSON format is incorrect</td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td>when attempting to change the channel type</td>
+    </tr>
+    <tr>
+      <td>404</td>
+      <td>when the channel corresponding to <code><em>&lt;channelId&gt;</em></code> cannot be found</td>
+    </tr>
+    <tr>
+      <td>403</td>
+      <td>when the API key doesn't have write permissions / when accessing from outside the <a href="https://support.mackerel.io/hc/en-us/articles/360039701952" target="_blank">permitted IP address range</a></td>
+    </tr>
+  </tbody>
+</table>
+
+----------------------------------------------
+
+<h2 id="delete">Delete Notification Channel</h2>
 
 Delete the channel
 
