@@ -551,7 +551,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
             <p>Update Notification Channel</p>
             <p class="type-put">
                 <code>PUT</code>
-                <code>/api/v0/channels<em>&lt;channelId&gt;</em></code>
+                <code>/api/v0/channels/<em>&lt;channelId&gt;</em></code>
             </p>
         </a>
       </div>

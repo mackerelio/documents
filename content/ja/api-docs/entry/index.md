@@ -547,11 +547,11 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
         </a>
       </div>
       <div class="api">
-        <a href="entry/channels#update`">
+        <a href="entry/channels#update">
             <p>通知チャンネルの更新</p>
             <p class="type-put">
                 <code>PUT</code>
-                <code>/api/v0/channels<em>&lt;channelId&gt;</em></code>
+                <code>/api/v0/channels/<em>&lt;channelId&gt;</em></code>
             </p>
         </a>
       </div>
