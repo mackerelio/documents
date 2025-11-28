@@ -52,7 +52,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 | ---------- | -------- | ----------------------------------------------------------------------------------------------- |
 | `key`      | *string* | 属性のキー                                                                                      |
 | `value`    | *string* | 属性の値(文字列として指定)                                                                     |
-| `operator` | *string* | 比較演算子。`EQ`, `NE`, `GT`, `GTE`, `LT`, `LTE`, `STARTS_WITH` のいずれか             |
+| `operator` | *string* | 比較演算子。`EQ`, `NEQ`, `GT`, `GTE`, `LT`, `LTE`, `STARTS_WITH` のいずれか            |
 | `type`     | *string* | 属性値の型。`string`, `int`, `double`, `bool` のいずれか                                       |
 
 属性の `type` によって利用可能な `operator` が異なります。
@@ -60,7 +60,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 | operator      | string | int | double | bool |
 | ------------- | ------ | --- | ------ | ---- |
 | `EQ`          | ○      | ○   | ○      | ○    |
-| `NE`          | ○      | ×   | ×      | ○    |
+| `NEQ`         | ○      | ×   | ×      | ○    |
 | `GT`          | ×      | ○   | ○      | ×    |
 | `GTE`         | ×      | ○   | ○      | ×    |
 | `LT`          | ×      | ○   | ○      | ×    |
