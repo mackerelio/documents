@@ -669,3 +669,44 @@ For information on what can be retrieved, please refer to the [Get Organization 
 With mkr, you can monitor the execution results of commands with the wrap subcommand. For details on how to use it, refer to the following help.
 
 [https://mackerel.io/docs/entry/howto/mkr/wrap:embed:cite]
+
+### Getting a List of AWS Integration Settings
+
+With mkr, you can get a list of AWS integration settings using the aws-integrations subcommand.
+
+```
+mkr aws-integrations
+```
+
+Example
+
+```
+% mkr aws-integrations
+[
+    {
+        "id": "4jhJ7RqieYU",
+        "name": "sample-aws-integration",
+        "memo": "",
+        "roleArn": "<roleArn>",
+        "externalId": "<externalId>",
+        "region": "ap-northeast-1",
+        "includedTags": "",
+        "excludedTags": "",
+        "services": {
+            "ALB": {
+                "enable": true,
+                "role": null,
+                "excludedMetrics": []
+            },
+            "APIGateway": {
+                "enable": false,
+                "role": null,
+                "excludedMetrics": []
+            },
+            ...
+    },
+    ...
+]
+```
+
+For information on what can be retrieved, please refer to the [List AWS Integration Settings section of the API specifications](https://mackerel.io/api-docs/entry/aws-integration#list).

@@ -673,3 +673,44 @@ Githubに置かれたプラグインや[プラグインレジストリ](https://
 mkrではwrapサブコマンドでコマンドの実行結果を監視できます。詳しくは下記のヘルプを参照してください。
 
 [https://mackerel.io/ja/docs/entry/howto/mkr/wrap:embed:cite]
+
+### AWSインテグレーション設定の一覧を取得
+
+mkrではaws-integrationsサブコマンドでAWSインテグレーション設定の一覧を取得できます。
+
+```
+mkr aws-integrations
+```
+
+実行例
+
+```
+% mkr aws-integrations
+[
+    {
+        "id": "4jhJ7RqieYU",
+        "name": "sample-aws-integration",
+        "memo": "",
+        "roleArn": "<roleArn>",
+        "externalId": "<externalId>",
+        "region": "ap-northeast-1",
+        "includedTags": "",
+        "excludedTags": "",
+        "services": {
+            "ALB": {
+                "enable": true,
+                "role": null,
+                "excludedMetrics": []
+            },
+            "APIGateway": {
+                "enable": false,
+                "role": null,
+                "excludedMetrics": []
+            },
+            ...
+    },
+    ...
+]
+```
+
+取得可能な情報については、[API仕様の「AWSインテグレーション設定の一覧」](https://mackerel.io/ja/api-docs/entry/aws-integration#list)を参照してください。

@@ -41,7 +41,6 @@ The following container orchestration platforms are supported with mackerel-cont
     - platform version 1.3.0 or later
   - **Windows containers not supported**
 - Kubernetes
-  - 1.31
   - 1.32
   - 1.33
   - **Tested compatibility with Amazon EKS**

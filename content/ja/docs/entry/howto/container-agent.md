@@ -41,7 +41,6 @@ mackerel-container-agentでサポートするコンテナオーケストレー�
     - プラットフォームバージョン 1.3.0 以降
   - **Windowsコンテナは対象外となります**
 - Kubernetes
-  - 1.31
   - 1.32
   - 1.33
   - **Amazon EKSにて動作確認を行っています**

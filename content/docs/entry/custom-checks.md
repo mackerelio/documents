@@ -13,15 +13,15 @@ Check monitoring is a feature to monitor the execution results of a check plugin
 
 A program that performs the desired monitoring process is required for check monitoring. We have released an official check plugin pack that can be used for this purpose. Please refer to [Using the official check plugin pack for check monitoring](https://mackerel.io/docs/entry/howto/mackerel-check-plugins) for more information.
 
-Users may also use programs they have created as check plugins. Such programs must perform the desired monitoring process and return an exit status based on the monitoring results. Please refer to [Check plugin specs](#specification) for more information.
+In addition to the official check plugins, you can create custom check plugins following the [check plugin specification](#specification). The [Sample check plugin](#example) section below provides sample check plugins written in shell script, PowerShell, and Windows batch file.
 
 <h2 id="setting">Sample agent configuration</h2>
 
-Check monitoring settings are added to the [Agent configuration file](https://mackerel.io/docs/entry/spec/agent#config-file). The following is a sample monitor configuration using a selfmade program named `check-ssh.rb`. Please refer to [Configuration items](#items) for a description of each item. Please set the non-required fields as needed.
+Check monitoring settings are added to the [Agent configuration file](https://mackerel.io/docs/entry/spec/agent#config-file). The following is a sample monitor configuration using the shell script from the [Examples](#example) section. Please refer to [Configuration items](#items) for a description of each item. Please set the non-required fields as needed.
 
 ```toml
-[plugin.checks.ssh]
-command = ["ruby", "/path/to/check-ssh.rb"]
+[plugin.checks.filecount]
+command = ["/path/filecount.sh"]
 user = "SOME_USER_NAME"
 check_interval = 5
 timeout_seconds = 45
@@ -45,9 +45,9 @@ As shown in the sample configuration for the agent, it should be followed by the
 | check_interval |  | Specifies the interval in minutes between check monitoring runs. If using an agent whose version is v0.67.0 or later, you may enter expressions such as `10m` or `1h`. Intervals allowed range from 1 minute to 60 minutes. Specified intervals under 1 minute will default to 1 minute, and intervals over 60 minutes will default to 60 minutes. | 1 minute |
 | timeout_seconds |  | The timeout period in seconds for the processing of the program specified by `command`. Set the value so that it does not exceed `check_interval`. | 30 seconds |
 | max_check_attempts |  | This specifies the maximum number of attempts. An alert will be generated in the event that a result besides OK is obtained for more times than the value specified here in succession. <br>**This defaults to `1` regardless of the value specified when used in conjunction with `prevent_alert_auto_close`.** | 1 |
-| prevent_alert_auto_close |  | Normally, if the result of monitoring after an alert occurs is OK, the alert is automatically closed, but if this is true, it remains opend. <br>**`max_check_attempts` will always default to `1` when this is used in conjunction with `max_check_attempts`.** | false |
+| prevent_alert_auto_close |  | Normally, if the result of monitoring after an alert occurs is OK, the alert is automatically closed, but if this is true, it remains opened. <br>**`max_check_attempts` will always default to `1` when this is used in conjunction with `max_check_attempts`.** | false |
 | notification_interval |  | Specifies the alert notification retransmission interval in minutes. If the agent version is v0.67.0 or later, it can be expressed as `10m` or `1h`. If less than 10 minutes is specified, it is treated as 10 minutes. If not set, the notification will not be resent. | null |
-| custom_identifier |  | This monitoring rule is treated as monitoring the host specified in `custom_identifier`, not the host running mackerel-agent. If the result of the monitoring is not OK, an alert will be issued for the host specified here. The `custom_identifier` can be found in the API [Get Host Information](https://mackerel.io/api-docs/entry/hosts#get). <br>This is useful when performing check monitoring on hosts where agents cannot be installed, such as hosts linked with AWS / Azure / Google Cloud integration. See [AWS Integration Documentation](https://mackerel.io/docs/entry/integrations/aws#plugin-custom-identifier) for more information. | null |
+| custom_identifier |  | This monitoring rule is treated as monitoring the host specified in `custom_identifier`, not the host running mackerel-agent. If the result of the monitoring is not OK, an alert will be issued for the host specified here. The `custom_identifier` can be found in the host details screen. <br>This is useful when performing check monitoring on hosts where agents cannot be installed, such as hosts linked with AWS / Azure / Google Cloud integration. See [AWS Integration Documentation](https://mackerel.io/docs/entry/integrations/aws#plugin-custom-identifier) for more information. | null |
 | env |  | You can set environment variables. This is only valid for the `command` of the monitoring rule you set. | null |
 | action |  | The action entered in this item will be executed after each execution of the command set in `command`. Please refer to [How to write an action](#action-setting) for more information. | null |
 | memo |  | This allows a note to be set for the check monitor. You will see the string specified here in alert notifications as well as on the Alert Details screen and the Host Details screen. Up to 250 characters. | null |
@@ -110,7 +110,7 @@ Alert levels are returned as follows based on the exit status of `command`.
 | 2 | CRITICAL |
 | Any value besides 0, 1, or 2 | UNKNOWN |
 
-A supplementary message may also be added to the standard output. The length of this message may not exceed 1024 characters. The output will be sent to Mackerel and displayed on the Host Details screen and the Alert Details screen. Therefore, please make sure that no confidential information, such as passwords, is sent.
+The content written by the plugin to standard output will be displayed on the Host Details screen and the Alert Details screen. Please ensure that you do not include sensitive information such as passwords. The maximum message length is 1024 characters.
 
 For more information on how to develop check plugins using [github.com/mackerelio/checkers](https://github.com/mackerelio/checkers), the utility library used for the official check plugin, please refer to [Creating a check plugin using checkers](https://mackerel.io/docs/entry/advanced/checkers).
 
@@ -145,24 +145,98 @@ Metric monitoring, such as the monitoring of host metrics and service metrics, d
   -[Left] Metric monitoring / [Right] Check monitoring
   - ![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20200108/20200108154244.png)
 
-<h3 id="example-ruby">An example in Ruby</h3>
+<h2 id="example">Sample check plugin</h2>
 
-This is a check plugin that takes the values of a six-sided die as messages, 4 and 5 being a WARNING and 6 being a CRITICAL, and posts them to Mackerel.
+The following examples demonstrate a check plugin that counts the number of files (excluding directories) in a directory passed as an argument and raises alerts when the file count exceeds defined thresholds.
 
+- Issues a WARNING alert when the number of files exceeds 50, and a CRITICAL alert when it exceeds 100.
+- A message such as "file counts: 51 (current file count) over 50" will be displayed in the Alert Details screen.
+- When specifying paths in mackerel-agent.conf on Windows, backslashes (`\`) used as path separators must be escaped with an additional backslash. For example, `C:\` should be written as `C:\\`.
 
-```ruby
-#!/usr/bin/env ruby
-dice = rand(6)+1
-puts "value is #{dice}"
-exit (dice >= 6 ? 2 : dice >= 4 ? 1 : 0)
+<h3 id="example-shell">Shell script</h3>
+
+```
+#!/bin/bash
+FILECOUNT=$(ls -1 $1 | wc -l)
+
+if [ "$FILECOUNT" -gt 100 ]; then
+    echo "file counts: $FILECOUNT over 100"
+    exit 2
+elif [ "$FILECOUNT" -gt 50 ]; then
+    echo "file counts: $FILECOUNT over 50"
+    exit 1
+else
+    echo "file counts: $FILECOUNT"
+    exit 0
+fi
 ```
 
-By executing the agent configured with a check plugin, an item showing that monitoring is active will be displayed in the host details page as shown below.
+Configuration in mackerel-agent.conf
+```toml
+[plugin.checks.filecount]
+command = ["/path/filecount.sh", "/path"]
+```
 
-![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20230125/20230125174429.png)
+<h3 id="example-powershell">PowerShell</h3>
 
-If an alert is raised it will be displayed as shown below and can be confirmed in the alert details page.
+```
+$FILECOUNT =  (Get-ChildItem -Path $Args[0] | Where-Object { ! $_.PSIsContainer }).Count
 
-![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20230125/20230125174450.png)
+if($FILECOUNT -gt 100) {
+    Write-Host "file counts: $FILECOUNT over 100"
+    exit 2
+} elseif($FILECOUNT -gt 50) {
+    Write-Host "file counts: $FILECOUNT over 50"
+    exit 1
+} else {
+    Write-Host "file counts: $FILECOUNT"
+    exit 0
+}
+```
 
-![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20230125/20230125174337.png)
+Configuration in mackerel-agent.conf
+```toml
+[plugin.checks.filecount]
+command = ["powershell", "-File", "C:\\path\\filecount.ps1", "C:\\path"]
+```
+
+<h3 id="example-bat">Windows batch file</h3>
+
+```
+@echo off
+setlocal
+for /f "usebackq" %%i in (`dir %1 /a-d /b ^| find /c /v ""`) do set FILECOUNT=%%i
+
+if %FILECOUNT% gtr 100 (
+    echo file counts: %FILECOUNT% over 100
+    exit /b 2
+) else if %FILECOUNT% gtr 50 (
+    echo file counts: %FILECOUNT% over 50
+    exit /b 1
+) else (
+    echo file counts: %FILECOUNT%
+    exit /b 0
+)
+```
+
+Configuration in mackerel-agent.conf
+```toml
+[plugin.checks.filecount]
+command = ["C:\\path\\filecount.bat", "C:\\path"]
+```
+
+<h2 id="confirmation">How to confirm</h2>
+
+Check monitoring will be displayed in the host details screen as shown below.
+
+<figure class="figure-image figure-image-fotolife" title="Normal display"><center>[f:id:mackerelio:20240501122238p:plain:w320]</center><figcaption>Normal display</figcaption></figure>
+
+When an alert is raised, the display will change as shown below. Clicking on it will take you to the Alert Details screen.
+
+<figure class="figure-image figure-image-fotolife" title="Display when alert is raised"><center>[f:id:mackerelio:20240501122311p:plain:w320]</center><figcaption>Display when alert is raised</figcaption></figure>
+
+<figure class="figure-image figure-image-fotolife" title="Alert Details screen"><center>[f:id:mackerelio:20240501122712p:plain]</center><figcaption>Alert Details screen</figcaption></figure>
+
+
+[Table]: https://github.com/toml-lang/toml#table
+[Inline Table]: https://github.com/toml-lang/toml#inline-table
