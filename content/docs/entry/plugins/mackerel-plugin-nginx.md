@@ -43,7 +43,7 @@ The options that can be specified for the plugin are as follows.
 | -scheme   |   | HTTP scheme for connection (http or https)                                                                    | http          |
 | -host     |   | hostname of the connection destination                                                                        | localhost     |
 | -port     |   | port of the connection destination                                                                            | 8080          |
-| -path     |   | path where stab_status is provided                                                                            | /nginx_status |
+| -path     |   | path where stub_status is provided                                                                            | /nginx_status |
 | -tempfile |   | path to save temporary files                                                                                  |               |
 | -header   |   | Additional headers to be given when connecting (`-header` is required for each if more than one is specified) |               |
 
@@ -53,13 +53,13 @@ To monitor nginx serving stub_status as `/stub_status` on port 8081 on the local
 
 ```toml
 [plugin.metrics.nginx]
-command = ["/path/to/mackerel-plugin-nginx","--port","8081","--path","/stab_status"]
+command = ["/path/to/mackerel-plugin-nginx","--port","8081","--path","/stub_status"]
 ```
 
 In the above configuration, you can verify the operation by executing the following:
 
 ```
-$ mackerel-plugin-nginx --port 8081 --path /stab_status
+$ mackerel-plugin-nginx --port 8081 --path /stub_status
 ```
 
 <h2 id="repository">Repository</h2>

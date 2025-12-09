@@ -44,7 +44,7 @@ mackerel-plugin-nginxは、nginxのstub_statusを元にnginxの状態を可視�
 | -scheme   |   | 接続する際のHTTPスキーム(http か https)                                    | http         |
 | -host     |   | 接続先のホスト名                                                          | localhost     |
 | -port     |   | 接続先のポート番号                                                         | 8080         |
-| -path     |   | stab_status が提供されているパス                                           | /nginx_status |
+| -path     |   | stub_status が提供されているパス                                           | /nginx_status |
 | -tempfile |   | 一時ファイルの保存先パス                                                    |               |
 | -header   |   | 接続時に付与する追加のヘッダー (2つ以上指定する場合はそれぞれに `-header` が必要) |               |
 
@@ -55,13 +55,13 @@ mackerel-plugin-nginxは、nginxのstub_statusを元にnginxの状態を可視�
 
 ```toml
 [plugin.metrics.nginx]
-command = ["/path/to/mackerel-plugin-nginx","--port","8081","--path","/stab_status"]
+command = ["/path/to/mackerel-plugin-nginx","--port","8081","--path","/stub_status"]
 ```
 
 上記設定の場合、次のように実行して動作確認できます。
 
 ```
-$ mackerel-plugin-nginx --port 8081 --path /stab_status
+$ mackerel-plugin-nginx --port 8081 --path /stub_status
 ```
 
 <h2 id="repository">リポジトリ</h2>
