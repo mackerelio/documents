@@ -99,7 +99,6 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
     <li><a href="https://mackerel.io/ja/docs/entry/howto/alerts/slack"><strong>Slackにアラートを通知する</strong><span>アラートをSlackへ通知します</span></a></li>
     <li><a href="https://mackerel.io/ja/docs/entry/howto/alerts/pagerduty"><strong>PagerDutyにアラートを通知する</strong><span>アラートをPagerDutyへ通知します</span></a></li>
     <li><a href="https://mackerel.io/ja/docs/entry/howto/alerts/chatwork"><strong>Chatworkにアラートを通知する</strong><span>アラートをChatworkへ通知します</span></a></li>
-    <li><a href="https://mackerel.io/ja/docs/entry/howto/alerts/typetalk"><strong>TypeTalkにアラートを通知する</strong><span>アラートをTypeTalkへ通知します</span></a></li>
     <li><a href="https://mackerel.io/ja/docs/entry/howto/alerts/OpsGenie"><strong>Opsgenieにアラートを通知する</strong><span>アラートをOpsgenieへ通知します</span></a></li>
     <li><a href="https://mackerel.io/ja/docs/entry/howto/alerts/jira-service-management"><strong>Jira Service Managementにアラートを通知する</strong><span>アラートをJira Service Managementへ通知します</span></a></li>
     <li><a href="https://mackerel.io/ja/docs/entry/howto/alerts/webhook"><strong>Webhookにアラートを通知する</strong><span>アラートをWebhookへ通知します</span></a></li>

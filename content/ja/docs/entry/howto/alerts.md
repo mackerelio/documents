@@ -175,7 +175,7 @@ Mackerelでは、登録しているホストを監視し、状況に応じてア
 
 Mackerelは、アラートが生成された際・アラートの状態に変化があった際・閉じられた際に通知をおこないます。
 
-[通知チャンネルの設定][channels-settings]より、アラートの通知チャンネルを編集できます。対応している通知チャンネルはEメールとWebhookの他に、Slack、TypeTalk、Chatwork、PagerDuty など多くのWebサービスと連携可能になっています。対応チャンネルは随時追加していきます。
+[通知チャンネルの設定][channels-settings]より、アラートの通知チャンネルを編集できます。対応している通知チャンネルはEメールとWebhookの他に、Slack、Chatwork、PagerDuty など多くのWebサービスと連携可能になっています。対応チャンネルは随時追加していきます。
 
 [channels-settings]: https://mackerel.io/my/channels/-/create
 [alerts-settings]: https://mackerel.io/my/monitors

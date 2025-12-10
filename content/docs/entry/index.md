@@ -98,7 +98,6 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackere
     <li><a href="https://mackerel.io/docs/entry/howto/alerts/slack"><strong>Slack notifications</strong><span>sending alert notifications to Slack</span></a></li>
     <li><a href="https://mackerel.io/docs/entry/howto/alerts/pagerduty"><strong>PagerDuty notifications</strong><span>sending alert notifications to PagerDuty</span></a></li>
     <li><a href="https://mackerel.io/docs/entry/howto/alerts/chatwork"><strong>Chatwork notifications</strong><span>sending alert notifications to Chatwork</span></a></li>
-    <li><a href="https://mackerel.io/docs/entry/howto/alerts/typetalk"><strong>Typetalk notifications</strong><span>sending alert notifications to Typetalk</span></a></li>
     <li><a href="https://mackerel.io/docs/entry/howto/alerts/OpsGenie"><strong>Opsgenie notifications</strong><span>sending alert notifications to Opsgenie</span></a></li>
     <li><a href="https://mackerel.io/docs/entry/howto/alerts/jira-service-management"><strong>Jira Service Management notifications</strong><span>sending alert notifications to Jira Service Management</span></a></li>
     <li><a href="https://mackerel.io/docs/entry/howto/alerts/webhook"><strong>Webhook notifications</strong><span>sending alert notifications to Webhook</span></a></li>

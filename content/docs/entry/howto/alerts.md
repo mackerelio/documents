@@ -112,7 +112,7 @@ Please refer to the document below about the Alert group feature that lets you c
 
 Mackerel will notify you in the event that an alert has been raised, resolved/closed, or if the host status of an alert has changed.
 
-Notification settings can be edited in [Channels Settings][channels-settings]. Supported notification channels other than email and Webhook include Slack, Typetalk, Chatwork, PagerDuty and many more. We will continue to add more supported notification channels as need dictates.
+Notification settings can be edited in [Channels Settings][channels-settings]. Supported notification channels other than email and Webhook include Slack, Chatwork, PagerDuty and many more. We will continue to add more supported notification channels as need dictates.
 
 [channels-settings]: https://mackerel.io/my/channels/-/create
 [alerts-settings]: https://mackerel.io/my/monitors

@@ -74,7 +74,6 @@ To use this feature, you need to set a <a href="https://mackerel.io/my/channels/
 
 * Slack
 * Chatwork
-* Typetalk
 * Microsoft Teams
 
 <h2 id="graph-share">Sharing graphs</h2>

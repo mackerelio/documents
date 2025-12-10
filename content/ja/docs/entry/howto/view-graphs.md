@@ -73,7 +73,6 @@ Mackerel上から直接グラフURLを通知チャンネルに流すことがで
 
 * Slack
 * Chatwork
-* Typetalk
 * Microsoft Teams
 
 <h2 id="graph-share">グラフを共有する</h2>
