@@ -5,98 +5,120 @@ URL: https://mackerel.io/docs/entry/howto/check/log
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/6653458415127142958
 ---
 
-Logs can be monitored in Mackerel with `check-log` from the official check plugin pack. For more on how to install the official check plugin pack, refer to [Using the official check plugin pack for check monitoring](https://mackerel.io/docs/entry/howto/mackerel-check-plugins).
+With Mackerel, you can monitor logs such as the following using official check plugins.
 
-## Using `check-log`
+- Log files
+- Windows Event Log
+- Amazon CloudWatch Logs
 
-To monitor logs using `check-log`, write a command similar to the following example in mackerel-agent.conf and restart mackerel-agent.
-
-```toml
-[plugin.checks.access_log]
-command = ["check-log", "--file", "/var/log/access.log", "--pattern", "FATAL"]
-```
-
-For Windows Server environments, use the following example (Please note that monitoring cannot be performed for log file `C:\log\access.log` if the target is given a BOM (byte order mark)).
-
-```toml
-[plugin.checks.access_log]
-command = ["check-log", "--file", "C:\\log\\access.log", "--pattern", "FATAL"]
-```
-
-Specify the target file in the `--file` option, and specify the error message pattern that you want to be detected using a regular expression in the `--pattern` option. In the example above,  an alert will be triggered if the string “FATAL” appears in the targeted log file. 
-
-The initial check is only done for the diff output after settings are added. If you want to check all of the contents of an existing file at the time of the initial check, specify the `--check-first` option.
-
-```toml
-[plugin.checks.access_log]
-command = ["check-log", "--file", "/var/log/access.log", "--pattern", "FATAL", "--check-first"]
-```
-
-Multiple `--pattern` options can be specified, in which case, they are treated with the AND operator (only log output lines that satisfy all specified patterns are detected). The following is a configuration example to have alerts occur when a log output line that includes the two strings "PRODUCTION" and "FATAL" appears.
-
-```toml
-[plugin.checks.access_log]
-command = ["check-log", "--file", "/var/log/access.log", "--pattern", "PRODUCTION", "--pattern", "FATAL"]
-```
-
-Multibyte characters can be specified in `--pattern`, but in such cases, the conf file character code (encoding) must be `UTF-8`.
-
-Check targets can be specified in glob format with the `--file` option.
-
-```toml
-[plugin.checks.access_log]
-command = ["check-log", "--file", "/var/log/*.log", "--pattern", "FATAL"]
-```
-
-Furthermore, you can specify the filename of the monitoring target with regular expressions using the `--file-pattern` option.
-
-```toml
-[plugin.checks.access_log]
-command = ["check-log", "--file-pattern", "/var/log/access.log.\\d{4}-\\d{2}-\\d{2}", "--pattern", "FATAL"]
-```
-
-In a Windows Server environment, it is recommended to use both `--search-in-directory` and `--file-pattern` options to specify a directory in which log files are located and a file name condition, because the directory delimiter `\` conflicts with regular expressions in the pattern.
-
-```toml
-[plugin.checks.access_log]
-command = ["check-log", "--search-in-directory", "C:\\log\\", "--file-pattern", "access.log.\\d{4}-\\d{2}-\\d{2}", "--pattern", "FATAL"]
-```
-
-The log file will be checked periodically and any lines that have already been checked will be skipped. The execution interval is specified by `check_interval` ([reference](https://mackerel.io/docs/entry/custom-checks)) with the default set at 1 minute.
-
-
-If log rotation occurs, the log is read over from the beginning. To be exact, if the file size has decreased since the previous check, it is considered a log rotation and a read-over from the beginning occurs.  
-
-## Checking detected log output in Mackerel
-
-By adding the `--return` option to the command, you can output the contents of detected log output in stdout which will be sent to Mackerel and visualized in the host's details and the Alerts screen. When using this option, please use caution so that sensitive information does not get transmitted unintentionally.
-
-Furthermore, if the size of the transmitted contents is too large, the display may be trimmed down. For more details regarding specifications, refer to the [Check plugin specs](https://mackerel.io/docs/entry/custom-checks#plugin).
-
-## Assigning a threshold and exclusion pattern for event frequency
-
-The following option is useful in situations where if an error message appears just once it’s ok, but when frequent appearances occur you want an alert to be raised.
-
-- `-w`, `--warning-over`
-  - a warning alert will be created if the number of error appearances exceeds the configured value
-- `-c`, `--critical-over`
-  - a critical alert will be created if the number of error appearances exceeds the configured value
+This page guides you through installing check plugins and setting up simple monitoring configurations based on log types. For detailed settings, please refer to the help documentation for the specific plugins you use.
   
-Additionally, by designating the `--exclude` option, it's possible to assign an exclusion pattern.
+[:contents]
 
-The following configuration, for example, will monitor the Nginx access log, and check the occurrence of 4xx and 5xx errors.
+## Getting Started with Log Monitoring
 
-With the `--exclude` option we have excluded access to "robots.txt". Also, with `--warning-over` and `--critical-over` we've set it up so that if there are 3 or more occurrences within 1 minute a Warning alert will be raised, and 10 or more occurrences will result in a Critical alert.
+### 1. Install the Official Check Plugin Pack
+
+Refer to [Using the official check plugin pack for check monitoring](https://mackerel.io/docs/entry/howto/mackerel-check-plugins) to install the official check plugin pack.
+
+### 2. Add Check Monitoring Configuration
+
+Add the check monitoring configuration for the logs you want to monitor to the end of the `mackerel-agent.conf` file on the target server.
+
+The format for the settings to be added is as follows:
 
 ```toml
-[plugin.checks.access_status]
-command = ["check-log", "--file", "/var/log/nginx/access.log", "--pattern", "HTTP/1\.[01]\" [45][0-9][0-9] ", "--exclude", "GET .*?robots\.txt HTTP/1\.[01]", "--warning-over", "3", "--critical-over", "10", "--return"]
+[plugin.checks.<monitoring_rule_name>]
+command = ["command_to_execute", "argument", "argument", ...]
 ```
 
-For more information regarding other options, please refer to [Check plugins - check-log - Mackerel Docs](https://mackerel.io/docs/entry/plugins/check-log) and `check-log --help` and the [README](https://github.com/mackerelio/go-check-plugins/blob/master/check-log/README.md).
+After appending the configuration, restart the mackerel-agent (or use `reload` on Linux) to start monitoring.  
+The specified monitor name will appear under Monitors for the target host if the configuration is successfully applied.
 
-## Source code
+<figure class="figure-image figure-image-fotolife" title="The host details screen showing log monitoring configurations named log-sample and aws-cloudwatch-logs-sample displayed under Monitors">[f:id:mackerelio:20251024231326p:plain]<figcaption>Example of log monitoring configurations named "log-sample" or "aws-cloudwatch-logs-sample" displayed in the Monitors section of the host details screen</figcaption></figure>
 
-The source code for `check-log` is publicly available via the URL below.
+After configuration, verify functionality by appending an error string to the monitored log to confirm alerts are triggered.
 
-<https://github.com/mackerelio/go-check-plugins/tree/master/check-log>
+Below are configuration examples for different logs you may want to monitor.
+
+#### Monitoring Log File (check-log)
+
+The following example uses the monitor name `log-sample` to trigger a CRITICAL alert when `ERROR` is output to `/var/log/messages`.
+
+```toml
+[plugin.checks.log-sample]
+command = ["check-log", "--file", "/var/log/messages", "--pattern", "ERROR"]
+```
+
+<figure class="figure-image figure-image-fotolife" title="Example of an alert triggered by the above configuration">[f:id:mackerelio:20251024230354p:plain]<figcaption>Example of an alert triggered by the above configuration</figcaption></figure>
+
+Additionally, depending on your monitoring objectives, you can configure settings such as using the number of logs matching a pattern as an alert condition or monitoring multiple files.
+For details, please refer to [Check plugins - check-log - Mackerel Docs](https://mackerel.io/docs/entry/plugins/check-log).
+
+#### Monitoring Windows Event Log (check-windows-eventlog)
+
+Windows Event Log can be monitored using the `check-windows-eventlog` plugin.  
+
+Below is an example using the monitor name `windows-eventlog-sample`. It triggers an alert if an event in the `Application` log has an event level of `Error` and the event message contains the string `ERROR`.
+
+```toml
+[plugin.checks.windows-eventlog-sample]
+command = ["check-windows-eventlog", "--log", "Application", "--type", "Error", "--message-pattern", "ERROR"]
+```
+
+When an alert is triggered with the above configuration, a log like `Event Log CRITICAL: 0 warnings, 1 criticals.` will appear in the Mackerel alert details screen.
+
+Additionally, you can monitor the System log or target specific event IDs and event sources. For details, refer to the [Check plugins - check-windows-eventlog - Mackerel Docs](https://mackerel.io/docs/entry/plugins/check-windows-eventlog).
+
+#### Monitoring Amazon CloudWatch Logs (check-aws-cloudwatch-log)
+
+Amazon CloudWatch Logs can be monitored using the `check-aws-cloudwatch-logs` plugin. Use Amazon CloudWatch Logs filter patterns to define the string conditions you want to detect.
+
+Below is an example with the monitor name `aws-cloudwatch-logs-sample`. It triggers a CRITICAL alert if a string containing `Error` is output to the log group `/aws/lambda/sample_log_group`.
+
+```toml
+[plugin.checks.aws-cloudwatch-logs-sample]
+command = ["check-aws-cloudwatch-logs", "--log-group-name", "/aws/lambda/sample_log_group", "--pattern", "Error"]
+```
+
+When an alert is triggered with the above configuration, a log like `CloudWatch Logs CRITICAL: 1 > 0 messages for pattern /Error/` will appear on the alert details screen.
+
+Additionally, you can narrow down the target log stream using a prefix or set the number of logs matching the pattern as an alert condition.
+For details, please refer to [Check plugins - check-aws-cloudwatch-logs - Mackerel Docs](https://mackerel.io/docs/entry/plugins/check-aws-cloudwatch-logs).
+
+Besides, by installing the separate check-aws-cloudwatch-logs-insights plugin, you can enable monitoring using CloudWatch Logs Insights syntax.  
+For differences from the check-aws-cloudwatch-logs plugin and installation instructions, see [Check plugins - check-aws-cloudwatch-logs-insights - Mackerel Docs](https://mackerel.io/docs/entry/plugins/check-aws-cloudwatch-logs-insights).
+
+### 3. Modifying Check Monitoring Behavior
+
+You can configure settings such as the check monitoring execution interval and the number of consecutive abnormal detections required to trigger an alert, as needed.
+The following example changes the default 1-minute execution interval to 10 minutes and triggers an alert only if all results from three consecutive executions are abnormal.
+
+```toml
+[plugin.checks.messages_error]
+command = ["check-log", "--file", "/var/log/messages", "--pattern", "ERROR"]
+check_interval = 10m
+max_check_attempts = 3
+```
+
+For other configurable items for check monitoring, refer to [Adding monitors for script checks - Mackerel Docs](https://mackerel.io/docs/entry/custom-checks#items).
+
+## Monitoring Using Experimental Plugins
+
+While not included in the official check plugin pack, Mackerel offers experimental plugins for other log monitoring purposes via [Mackerel Labs](https://github.com/mackerelio-labs).
+
+The `cloudwatch-logs-aggregator` plugin aggregates logs from Amazon CloudWatch Logs and posts them as metrics.
+
+- [Aggregate Amazon CloudWatch Logs and Post Metrics to Mackerel - Mackerel Help](https://mackerel.io/docs/entry/advanced/cloudwatch-logs-aggregator)
+- [Practical Implementation of Metricization for Amazon CloudWatch Logs Using cloudwatch-logs-aggregator](https://mackerel.io/blog/entry/cloudwatch-logs-aggregator)
+
+mackerel-sql-metric-collector allows you to post query results from various databases, including MySQL and Athena, as metrics.
+
+- [mackerel-sql-metric-collector - README](https://github.com/mackerelio-labs/mackerel-sql-metric-collector/blob/main/README_ja.md) (in Japanese)
+- [Introducing "mackerel-sql-metric-collector": A tool to freely post query results from various databases to Mackerel](https://mackerel.io/ja/blog/entry/meetup14-7) (in Japanese)
+
+check-systemd-journal enables monitoring of journald logs.
+
+- [mackerelio-labs/check-systemd-journal](https://github.com/mackerelio-labs/check-systemd-journal)
+
+Software released by Mackerel Labs is experimental and therefore not covered by our official support. Please understand that we generally cannot respond to inquiries regarding these tools.
