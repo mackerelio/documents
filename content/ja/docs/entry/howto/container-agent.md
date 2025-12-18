@@ -43,6 +43,7 @@ mackerel-container-agentでサポートするコンテナオーケストレー�
 - Kubernetes
   - 1.32
   - 1.33
+  - 1.34
   - **Amazon EKSにて動作確認を行っています**
   - **Windowsコンテナは対象外となります**
 - Amazon Elastic Kubernetes Service (EKS)
