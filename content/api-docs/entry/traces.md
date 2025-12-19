@@ -38,6 +38,7 @@ Retrieve a list of traces based on specified conditions.
 | `spanName`             | *string*         | [optional] Span name                                                        |
 | `version`              | *string*         | [optional] Version                                                          |
 | `issueFingerprint`     | *string*         | [optional] Issue fingerprint                                                |
+| `statusCode`           | *string*         | [optional] Code for Span's status. `OK` or `ERROR`                     |
 | `minLatencyMillis`     | *number*         | [optional] Minimum latency (milliseconds)                                   |
 | `maxLatencyMillis`     | *number*         | [optional] Maximum latency (milliseconds)                                   |
 | `attributes`           | *array[object]*  | [optional] List of attribute filter conditions                              |
@@ -83,6 +84,7 @@ Sort condition objects have the following keys.
   "from": 1718802000,
   "to": 1718888400,
   "environment": "production",
+  "statusCode": "ERROR",
   "minLatencyMillis": 1000,
   "maxLatencyMillis": 5000,
   "attributes": [

@@ -38,6 +38,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 | `spanName`             | *string*         | [optional] スパン名                                                         |
 | `version`              | *string*         | [optional] バージョン                                                       |
 | `issueFingerprint`     | *string*         | [optional] Issueのフィンガープリント                                        |
+| `statusCode`           | *string*         | [optional] Spanのステータスのコード。 `ERROR`または`OK` のどちらか             |
 | `minLatencyMillis`     | *number*         | [optional] 最小レイテンシー(ミリ秒)                                         |
 | `maxLatencyMillis`     | *number*         | [optional] 最大レイテンシー(ミリ秒)                                         |
 | `attributes`           | *array[object]*  | [optional] 属性フィルタ条件のリスト                                         |
@@ -83,6 +84,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
   "from": 1718802000,
   "to": 1718888400,
   "environment": "production",
+  "statusCode": "ERROR",
   "minLatencyMillis": 1000,
   "maxLatencyMillis": 5000,
   "attributes": [
