@@ -16,7 +16,7 @@ AWSインテグレーションの設定方法や対応AWSサービス一覧に�
 ## 取得メトリック
 AWSインテグレーションのALB対応で取得できるメトリックは以下の通りです。 `メトリック` の説明に関しては<a href="https://docs.aws.amazon.com/ja_jp/elasticloadbalancing/latest/application/load-balancer-cloudwatch-metrics.html" target="_blank">AWSのヘルプ</a>をご確認ください。
 
-最大で `18 + 13 × (ターゲットグループ数)` 個のメトリックが取得されます。
+最大で `21 + 13 × (ターゲットグループ数)` 個のメトリックが取得されます。
 
 ### ロードバランサーごとのグラフ
 |グラフ名|メトリック|Mackerel上のメトリック名|単位|Statistics|
@@ -29,6 +29,8 @@ AWSインテグレーションのALB対応で取得できるメトリックは�
 |Target Response Time|TargetResponseTime|alb.response.time<br>alb.response.time_p90<br>alb.response.time_p95<br>alb.response.time_p99|float|Average<br>p90<br>p95<br>p99|
 |TLS Negotiation Error Count|ClientTLSNegotiationErrorCount<br>TargetTLSNegotiationErrorCount|alb.tls_negotiation_error_count.client<br>alb.tls_negotiation_error_count.target|integer|Sum|
 |Target Connection Error Count|TargetConnectionErrorCount|alb.connection_error_count.target|integer|Sum|
+|Consumed LCUs|ConsumedLCUs|alb.consumed_lcus.all|float|Sum|
+|Peak LCUs|PeakLCUs|alb.peak_lcus.maximum<br>alb.peak_lcus.sum|float|Maximum<br>Sum|
 
 ### ターゲットグループごとのグラフ
 Application Load Balancerではロードバランサーごとに複数のターゲットグループを持つことができるので、それぞれのメトリックは以下のようにグルーピングされます。メトリック名の `TARGET_GROUP_NAME` にターゲットグループの名前が入ります。

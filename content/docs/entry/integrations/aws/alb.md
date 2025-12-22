@@ -17,7 +17,7 @@ In addition, you can take a look at the help pages for other supported Load Bala
 
 The metrics obtainable with AWS Integration’s ALB support are as follows. For `Metric` explanations, refer to the <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-cloudwatch-metrics.html" target="_blank">AWS help page</a>.
 
-The maximum number of metrics obtainable is `18 + 13 × (number of target groups)`.
+The maximum number of metrics obtainable is `21 + 13 × (number of target groups)`.
 
 ### Graph per Load Balancer
 |Graph name|Metric|Metric name in Mackerel|Unit|Statistics|
@@ -30,6 +30,8 @@ The maximum number of metrics obtainable is `18 + 13 × (number of target groups
 |Target Response Time|TargetResponseTime|alb.response.time<br>alb.response.time_p90<br>alb.response.time_p95<br>alb.response.time_p99|float|Average<br>p90<br>p95<br>p99|
 |TLS Negotiation Error Count|ClientTLSNegotiationErrorCount<br>TargetTLSNegotiationErrorCount|alb.tls_negotiation_error_count.client<br>alb.tls_negotiation_error_count.target|integer|Sum|
 |Target Connection Error Count|TargetConnectionErrorCount|alb.connection_error_count.target|integer|Sum|
+|Consumed LCUs|ConsumedLCUs|alb.consumed_lcus.all|float|Sum|
+|Peak LCUs|PeakLCUs|alb.peak_lcus.maximum<br>alb.peak_lcus.sum|float|Maximum<br>Sum|
 
 ### Graph per Target Group
 
