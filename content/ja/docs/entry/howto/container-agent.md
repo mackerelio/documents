@@ -39,6 +39,8 @@ mackerel-container-agentでサポートするコンテナオーケストレー�
     - ECS container agent 1.26.1 以降
   - Fargate起動タイプ
     - プラットフォームバージョン 1.3.0 以降
+  - マネージドインスタンスタイプ
+  - 外部起動タイプ（Amazon ECS Anywhere） **ベータ版機能**
   - **Windowsコンテナは対象外となります**
 - Kubernetes
   - 1.32

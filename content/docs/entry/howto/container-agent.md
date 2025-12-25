@@ -39,6 +39,8 @@ The following container orchestration platforms are supported with mackerel-cont
     - ECS container agent 1.26.1 or later
   - Fargate Launch Type
     - platform version 1.3.0 or later
+  - Managed Instances Type
+  - External Type (Amazon ECS Anywhere)  **beta feature**
   - **Windows containers not supported**
 - Kubernetes
   - 1.32
