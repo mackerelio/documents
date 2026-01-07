@@ -41,7 +41,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
 | ------------    | -------- | -------------------------------- |
 | `id`            | *string* | the notification channel ID               |
 | `name`          | *string* | the name of the notification channel             |
-| `type`          | *string* | the type of notification channel (`"email"`, `"slack"`, `"line"`, `"chatwork"`, `"twilio"`, `"pagerduty"`, `"opsgenie"`, `"jira-service-management"`, `"microsoft-teams`, `"webhook"`, `"amazon-event-bridge"`) |
+| `type`          | *string* | the type of notification channel (`"email"`, `"email-broadcast"`, `"slack"`, `"line"`, `"chatwork"`, `"twilio"`, `"pagerduty"`, `"opsgenie"`, `"jira-service-management"`, `"microsoft-teams`, `"webhook"`, `"amazon-event-bridge"`) |
 | `suspendedAt`   | *number* / *null* | the notification channel suspended timestamp (in epoch seconds)<br />`null` when not suspended |
 
  In addition to that above, the following detailed information returns if the `type` is `"email"`, `"slack"`, or `"webhook"`,
