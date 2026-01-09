@@ -11,7 +11,7 @@ Azureインテグレーションの設定方法や対応Azureサービス一覧�
 <a href="https://mackerel.io/ja/docs/entry/integrations/azure">Azureインテグレーション</a>
 
 ## 取得メトリック
-AzureインテグレーションのCache for Redis対応で取得できるメトリックは以下の通りです。 `メトリック` の説明に関しては<a href="https://docs.microsoft.com/ja-jp/azure/redis-cache/cache-how-to-monitor#available-metrics-and-reporting-intervals" target="_blank">Azureのドキュメント</a>をご確認ください。
+AzureインテグレーションのCache for Redis対応で取得できるメトリックは以下の通りです。 `メトリック` の説明に関しては<a href="https://learn.microsoft.com/ja-jp/azure/azure-monitor/reference/supported-metrics/microsoft-cache-redis-metrics" target="_blank">Azureのドキュメント</a>をご確認ください。
 
 最大で `23 + 23 × (シャード数)` 個のメトリックが取得されます。
 

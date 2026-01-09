@@ -14,7 +14,7 @@ Please refer to the following page for Azure Integration configuration methods a
 
 ## Obtaining metrics
 
-The metrics obtainable with Azure Integration’s Cache for Redis support are as follows. For `Metric` explanations, refer to the <a href="https://docs.microsoft.com/en-us/azure/redis-cache/cache-how-to-monitor#available-metrics-and-reporting-intervals" target="_blank">Azure help page</a>.
+The metrics obtainable with Azure Integration’s Cache for Redis support are as follows. For `Metric` explanations, refer to the <a href="https://learn.microsoft.com/en-us/azure/azure-monitor/reference/supported-metrics/microsoft-cache-redis-metrics" target="_blank">Azure help page</a>.
 
 The maximum number of metrics obtainable is `23 + 23 × (number of Shards)`.
 
