@@ -1,5 +1,5 @@
 ---
-Title: Chatworkに通知を表示する
+Title: Chatworkにアラートを通知する
 Date: 2014-12-04T14:38:13+09:00
 URL: https://mackerel.io/ja/docs/entry/howto/alerts/chatwork
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/8454420450076028632

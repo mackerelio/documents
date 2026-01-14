@@ -1,5 +1,5 @@
 ---
-Title: Send Notifications in Twilio
+Title: Twilio notifications 
 Date: 2016-11-11T17:02:37+09:00
 URL: https://mackerel.io/docs/entry/howto/alerts/twilio
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/10328749687193932961

@@ -1,5 +1,5 @@
 ---
-Title: ラベル付きメトリックを Mackerel に投稿する
+Title: ラベル付きメトリックを投稿する
 Date: 2024-02-02T16:07:16+09:00
 URL: https://mackerel.io/ja/docs/entry/howto/labeled-metrics/post-metrics
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/6801883189090642476

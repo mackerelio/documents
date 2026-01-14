@@ -1,5 +1,5 @@
 ---
-Title: ダウンタイム
+Title: ダウンタイムを設定する
 Date: 2019-07-16T13:00:00+09:00
 URL: https://mackerel.io/ja/docs/entry/howto/downtimes
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/26006613422755482

@@ -1,5 +1,5 @@
 ---
-Title: Sending alerts to Amazon EventBridge
+Title: Amazon EventBridge notifications
 Date: 2020-01-22T00:00:00+09:00
 URL: https://mackerel.io/docs/entry/howto/alerts/eventbridge
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/26006613498452685

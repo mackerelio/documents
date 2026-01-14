@@ -84,7 +84,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackere
   <li><a href="https://mackerel.io/docs/entry/howto/auto-scaling"><strong>Using Mackerel in Auto Scaling environments</strong><span>how to best use Mackerel in Auto Scaling environments</span></a></li>
   <li><a href="https://mackerel.io/docs/entry/advanced/docker"><strong>Monitoring Docker</strong><span>monitor Docker hosts using the mackerel-agent Docker image</span></a></li>
   <li><a href="https://mackerel.io/docs/entry/howto/container-agent"><strong>Monitoring Containers</strong><span>using mackerel-container-agent to monitor containers</span></a></li>
-  <li><a href="https://mackerel.io/docs/entry/howto/labeled-metrics/post-metrics"><strong>Posting Labeled Metrics to Mackerel</strong><span>post metrics compliant with OpenTelemetry</span></a></li>
+  <li><a href="https://mackerel.io/docs/entry/howto/labeled-metrics/post-metrics"><strong>Posting Labeled Metrics</strong><span>post metrics compliant with OpenTelemetry</span></a></li>
 </ul>
 </section>
 

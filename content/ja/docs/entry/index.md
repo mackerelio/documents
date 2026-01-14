@@ -78,7 +78,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
                 <li><a href="https://mackerel.io/ja/docs/entry/howto/auto-scaling"><strong>Auto Scaling環境で使う</strong><span>自動的に台数増減する環境に対応します</span></a></li>
                 <li><a href="https://mackerel.io/ja/docs/entry/advanced/docker"><strong>Dockerをモニタリングする</strong><span>mackerel-agentのDockerイメージを利用してDockerホストをモニタリングできます</span></a></li>
                 <li><a href="https://mackerel.io/ja/docs/entry/howto/container-agent"><strong>コンテナを監視する</strong><span>コンテナの監視にはmackerel-container-agentを利用します</span></a></li>
-                <li><a href="https://mackerel.io/ja/docs/entry/howto/labeled-metrics/post-metrics"><strong>ラベル付きメトリックを Mackerel に投稿する</strong><span>OpenTelemetryに準拠したメトリックを投稿できます</span></a></li>
+                <li><a href="https://mackerel.io/ja/docs/entry/howto/labeled-metrics/post-metrics"><strong>ラベル付きメトリックを投稿する</strong><span>OpenTelemetryに準拠したメトリックを投稿できます</span></a></li>
             </ul>
         </section>
         <section id="section-monitoring-notifications">
@@ -97,15 +97,15 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
                 <li><a href="https://mackerel.io/ja/docs/entry/query-monitoring"><strong>クエリによる監視をおこなう</strong><span>PromQL クエリによりラベル付きメトリックを監視します</span></a></li>
                 <li><a href="https://mackerel.io/ja/docs/entry/howto/alerts/email"><strong>メールにアラートを通知する</strong><span>アラートをメールで通知します</span></a></li>
                 <li><a href="https://mackerel.io/ja/docs/entry/howto/alerts/slack"><strong>Slackにアラートを通知する</strong><span>アラートをSlackへ通知します</span></a></li>
-                <li><a href="https://mackerel.io/ja/docs/entry/howto/alerts/chatwork"><strong>Chatworkに通知を通知する</strong><span>アラートをChatworkへ通知します</span></a></li>
+                <li><a href="https://mackerel.io/ja/docs/entry/howto/alerts/chatwork"><strong>Chatworkにアラートを通知する</strong><span>アラートをChatworkへ通知します</span></a></li>
                 <li><a href="https://mackerel.io/ja/docs/entry/howto/alerts/twilio"><strong>Twilio にアラートを通知する</strong><span>アラートをTwilioへ通知します</span></a></li>
                 <li><a href="https://mackerel.io/ja/docs/entry/howto/alerts/pagerduty"><strong>PagerDutyにアラートを通知する</strong><span>アラートをPagerDutyへ通知します</span></a></li>
-                <li><a href="https://mackerel.io/ja/docs/entry/howto/alerts/OpsGenie"><strong>Opsgenieに通知を通知する</strong><span>アラートをOpsgenieへ通知します</span></a></li>
+                <li><a href="https://mackerel.io/ja/docs/entry/howto/alerts/OpsGenie"><strong>Opsgenieにアラートを通知する</strong><span>アラートをOpsgenieへ通知します</span></a></li>
                 <li><a href="https://mackerel.io/ja/docs/entry/howto/alerts/jira-service-management"><strong>Jira Service Managementにアラートを通知する</strong><span>アラートをJira Service Managementへ通知します</span></a></li>
                 <li><a href="https://mackerel.io/ja/docs/entry/howto/alerts/microsoft-teams"><strong>Microsoft Teamsにアラートを通知する</strong><span>アラートをMicrosoft Teamsへ通知します</span></a></li>
                 <li><a href="https://mackerel.io/ja/docs/entry/howto/alerts/webhook"><strong>Webhookにアラートを通知する</strong><span>アラートをWebhookへ通知します</span></a></li>
                 <li><a href="https://mackerel.io/ja/docs/entry/howto/alerts/eventbridge"><strong>Amazon EventBridgeにアラートを通知する</strong><span>アラートをAmazon EventBridgeへ通知します</span></a></li>
-                <li><a href="https://mackerel.io/ja/docs/entry/howto/downtimes"><strong>ダウンタイム</strong><span>定期的な監視の停止を設定します</span></a></li>
+                <li><a href="https://mackerel.io/ja/docs/entry/howto/downtimes"><strong>ダウンタイムを設定する</strong><span>定期的な監視の停止を設定します</span></a></li>
                 <li><a href="https://mackerel.io/ja/docs/entry/howto/alert-groups"><strong>アラートグループでアラートをまとめる</strong><span>アラートをまとめるアラートグループを設定します</span></a></li>
             </ul>
         </section>

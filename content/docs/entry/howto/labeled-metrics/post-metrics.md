@@ -1,5 +1,5 @@
 ---
-Title: Posting labeled metrics to Mackerel
+Title: Posting labeled metrics
 Date: 2024-02-02T16:07:16+09:00
 URL: https://mackerel.io/docs/entry/howto/labeled-metrics/post-metrics
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/6801883189090642139

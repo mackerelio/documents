@@ -1,5 +1,5 @@
 ---
-Title: Jira Service Managementにアラートを表示する
+Title: Jira Service Managementにアラートを通知する
 Date: 2025-09-30T15:46:12+09:00
 URL: https://mackerel.io/ja/docs/entry/howto/alerts/jira-service-management
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/6802888565263923197

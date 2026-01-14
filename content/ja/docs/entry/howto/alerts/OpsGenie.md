@@ -1,5 +1,5 @@
 ---
-Title: Opsgenieに通知を表示する
+Title: Opsgenieにアラートを通知する
 Date: 2015-07-10T14:15:21+09:00
 URL: https://mackerel.io/ja/docs/entry/howto/alerts/OpsGenie
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/8454420450100794470

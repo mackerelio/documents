@@ -1,5 +1,5 @@
 ---
-Title: ロール内異常検知による監視を行なう
+Title: ロール内異常検知による監視をおこなう
 Date: 2018-05-21T14:23:05+09:00
 URL: https://mackerel.io/ja/docs/entry/howto/anomaly-detection-for-roles
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/17391345971647518265

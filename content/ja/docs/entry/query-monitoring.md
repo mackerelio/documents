@@ -1,5 +1,5 @@
 ---
-Title: クエリによる監視を行う
+Title: クエリによる監視をおこなう
 Date: 2024-02-05T16:07:16+09:00
 URL: https://mackerel.io/ja/docs/entry/query-monitoring
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/6801883189090642574

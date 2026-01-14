@@ -1,5 +1,5 @@
 ---
-Title: TCPサーバーの確認を行う
+Title: TCPサーバーの確認をおこなう
 Date: 2015-11-23T18:02:07+09:00
 URL: https://mackerel.io/ja/docs/entry/howto/check/tcp
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/6653586347146220004

@@ -1,5 +1,5 @@
 ---
-Title: 式による監視を行う
+Title: 式による監視をおこなう
 Date: 2016-07-28T14:23:05+09:00
 URL: https://mackerel.io/ja/docs/entry/expression-monitoring
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/10328749687176424135
