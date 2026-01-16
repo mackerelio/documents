@@ -1,54 +1,40 @@
 ---
-Title: トレース - PHPにOpenTelemetryを導入する
+Title: PHPのアプリケーションからMackerelにトレースを送信する
 Date: 2025-03-13T16:38:43+09:00
 URL: https://mackerel.io/ja/docs/entry/tracing/installations/php
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/6802418398333960649
 ---
 
-MackerelはOpenTelemetryの仕組み (計装)を利用してデータを取得しています。
-
-このページではPHPのデータをMackerelに送信する方法を解説します。
+このページでは、PHPのアプリケーションからMackerelにトレースを送信する方法を解説します。
 
 [:contents]
 
-## PHP向けOpenTelemetry
+## 概要
 
-OpenTelemetryにはPHP用のSDKが用意されています。
+MackerelはOpenTelemetryの仕組み（計装）を利用してトレースを取得します。OpenTelemetryに対応したトレースはさまざまな方法で取得できますが、今回はゼロコード計装と呼ばれる、アプリケーションの実装を変更せずにトレースを送信する方法を解説します。
 
-このSDKに加えて、LaravelやPDO用のSDKを使用すると、既存の実装を変更せずに計装することができます。
+<div class="note">
+  <p>📝 補足</p>
+  <p>PHPのゼロコード計装は、ライブラリ等で計装対象となるメソッドの実行前後に観測用関数を実行することで実現されています。詳しくは<a href="https://opentelemetry.io/ja/docs/zero-code/php/">PHP zero-code instrumentation</a>をご確認ください。</p>
+</div>
 
-[https://opentelemetry.io/ja/docs/languages/php/instrumentation/:embed:cite]
+## 動作要件
 
-### Collectorを使用するべきか
+OpenTelemetryの[動作要件](https://opentelemetry.io/ja/docs/zero-code/php/#requirements)として、PHPが指定されたバージョン以上である必要があります。
 
-データをMackerelに送信する際に、SDKから直接送信するだけではなく、Collectorを使うこともできます。
-
-しかし、PHPの多くのランタイムは全ての処理が終わるまでリクエストをブロッキングするため、直接Mackerelにデータを送信すると、Mackerelに送信している時間の分だけリクエストも遅くなってしまいます。
-
-そのため、Collectorを使用して、ユーザーへの返答をできるだけ速くすることを推奨しています。
-
-ただし、`fastcgi` の `fastcgi_finish_request()` を使用すると、Mackerelへの送信を待つことなくユーザーにレスポンスを返すことができます。その場合は、直接Mackerelにデータを送信しても問題になることはないでしょう。
-
-Collectorを使用する方法は、以下のページを参照してください。
-
-[https://mackerel.io/ja/docs/entry/tracing/installations/opentelemetry-collector:embed:cite]
+- PHP8.0以上
 
 ## 導入方法
 
-PHPには複数のWebフレームワークが存在しますが、このページでは `Laravel` への導入方法を説明します。
+アプリケーションからMackerelへトレースを送信するために、以下をおこないます。
 
-他のフレームワークを使っている場合もほぼ同じ方法で計装することができます。
-
-以下のステップでMackerelトレーシング機能を導入できます。
-
-1. 拡張ライブラリ (PECL) の追加
-2. パッケージの追加
+1. 拡張ライブラリ（PECL）の追加
+2. パッケージのインストール
 3. 環境変数の設定
-4. 独自の計装 (任意)
 
-### 1. 拡張ライブラリ (PECL) の追加
+### 1. 拡張ライブラリ（PECL）の追加
 
-PECL を使用して OpenTelemetry 用の拡張ライブラリをインストールします。
+PECLを使用してPHPにOpenTelemetry用の拡張ライブラリをインストールします。
 
 ```bash
 pecl install opentelemetry
@@ -61,9 +47,9 @@ pecl install opentelemetry
 extension=opentelemetry.so
 ```
 
-### 2. パッケージの追加
+### 2. パッケージのインストール
 
-Laravel や PDO用のパッケージを追加します。
+composerを使用してアプリケーションにOpenTelemetryの導入に必要なパッケージをインストールします。
 
 ```bash
 composer require open-telemetry/api \
@@ -78,21 +64,26 @@ composer require open-telemetry/api \
   open-telemetry/sdk
 ```
 
-#### ⚠️ 他のフレームワークを使用している場合
+`open-telemetry/opentelemetry-auto-laravel`がLaravel向けのパッケージです。たとえばslim向けには`open-telemetry/opentelemetry-auto-slim`というパッケージが提供されています。
 
-このページではLaravelを例にするため `opentelemetry-auto-laravel` を使用しています。SlimやSymfonyなど別のフレームワークを使用している場合、それぞれにあったパッケージを、以下のページから検索することができます。
+提供されているパッケージは以下のページで検索できます。
 
 [https://opentelemetry.io/ecosystem/registry/?language=php&component=instrumentation:embed:cite]
 
+<div class="note">
+  <p>📝 補足</p>
+  <p>お使いのフレームワークやアプリケーション向けの計測ライブラリが存在しない場合は、独自に計装することもできます。詳しくはOpenTelemetry公式ドキュメントの <a href="https://opentelemetry.io/ja/docs/zero-code/php/#how-it-works">PHP zero-code instrumentation | How it works</a> をご確認ください。</p>
+</div>
+
 ### 3. 環境変数の設定
 
-パッケージのインストール後、Mackerelにデータを送信するための環境変数を設定します。以下はプロジェクト内の`.env`ファイルを利用して設定する例です。
+パッケージのインストール後、Mackerelにトレースを送信するための環境変数を設定します。以下はLaravelプロジェクト内の`.env`ファイルを利用して設定する例です。
 
 ```
 OTEL_PHP_AUTOLOAD_ENABLED=true
-OTEL_SERVICE_NAME=your-service-name
 OTEL_TRACES_EXPORTER=otlp
-# デバッグ時にはconsoleと設定すると便利
+OTEL_SERVICE_NAME=my-sample-app
+# 標準出力に出力する場合
 # OTEL_TRACES_EXPORTER=console
 OTEL_EXPORTER_OTLP_PROTOCOL=http/protobuf
 OTEL_EXPORTER_OTLP_TRACES_ENDPOINT=https://otlp-vaxila.mackerelio.com/v1/traces
@@ -102,38 +93,26 @@ OTEL_LOGS_EXPORTER=none
 OTEL_PROPAGATORS=baggage,tracecontext
 ```
 
-これらの環境変数を、オートロードが開始する前に設定してください。
+- `OTEL_TRACES_EXPORTER`を`console`にするとトレースが標準出力に出力されます。
+- `OTEL_SERVICE_NAME`はトレースのサービス名（`service.name`属性の値）になります。
+- `OTEL_EXPORTER_OTLP_TRACES_ENDPOINT`はトレースの送信先の指定です。
+  - Mackerelに直接送信する場合は`https://otlp-vaxila.mackerelio.com/v1/traces`を指定します。
+  - Collectorを利用して送信する場合は`http://<Collectorのアドレス:ポート>/v1/traces`を指定します。
+- `${MACKEREL_APIKEY}`はMackerelのAPIキーの指定です。[APIキーの一覧](https://mackerel.io/my?tab=apikeys)から、Write権限のあるAPIキーをアプリケーションが動作するシステム内の環境変数に定義してください。
+  - 環境変数ではなくAPIキーを直接記述しても動作します。
 
-** `OTEL_SERVICE_NAME` と `OTEL_EXPORTER_OTLP_TRACES_ENDPOINT` の値は各環境にあわせた値へ変更してください。 また、`OTEL_TRACES_EXPORTER` を `console` に設定すると、データがログに出力されるようになるので、送信が動かない時のデバッグに便利です。 **
+環境変数の設定後、アプリケーションを起動するとトレースが送信されます。
 
-以上で、インストールが完了し、Collectorを通して、Mackerelにデータが送られるようになりました。
+## トレースを確認する
 
-### 4. 独自の計装 (任意)
+送信されたトレースは以下の手順で確認できます。
 
-独自のSpanを追加することで、任意の範囲を計装することができます。
+1. メニューの「[APM](https://mackerel.io/my/apm)」を選択<br>
+2. サービス名を選択
+  [f:id:mackerelio:20251224180534j:plain]
+3. 「トレース」タブを選択
+  [f:id:mackerelio:20251224180530j:plain]
+4. トレース一覧からトレースを選択すると詳細が確認できます
+  [f:id:mackerelio:20251224180525p:plain]
 
-計装によって、変数の値や処理時間を記録することができるようになります。
-
-具体的には、下のように `startSpan` を使用すると計装が追加できます。
-
-```php
-use OpenTelemetry\API\Globals;
-
-function awesomeFunction(string $arg) {
-  $tracer = Globals::tracerProvider()->getTracer("...");
-  $childSpan = $tracer->spanBuilder('Awesome span name')->startSpan();
-  $childSpan->setAttribute('arg', $arg);
-  $scope = $childSpan->activate();
-
-  try {
-    // 計装対象の処理
-  } finally {
-    $childSpan->end();
-    $scope->detach();
-  }
-}
-```
-
-計装の方法は他にも用意されています。詳細はOpenTelemetryのドキュメントを参照してください。
-
-[https://opentelemetry.io/ja/docs/languages/php/instrumentation/:embed:cite]
+以上、PHPで作成されたアプリケーションにゼロコード計装をおこなって、Mackerelへトレースを投稿する方法のご紹介でした。

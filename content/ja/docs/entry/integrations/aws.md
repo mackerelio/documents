@@ -77,7 +77,7 @@ AWSインテグレーションの連携方法には、IAMロールで連携（As
 
 ![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20190528/20190528124822.png)
 
-[MackerelのAWSインテグレーション設定のページ](https://mackerel.io/my?tab=awsIntegration)から作成ボタンを押して、External IDを取得してください。許可するAccount IDには `217452466226` を入力してください。また、`Require external ID` のオプションを選択した上で、External IDにはMackerelの設定作成ページで取得したExternal IDを指定して下さい。このアカウントはMackerelのシステムがユーザーのロールにアクセスする際に利用するアカウントです。この設定により、作成されたロールにはMackerelのアカウントしかアクセスできない状態になります。`Require MFA` はチェックせずに次の設定ページに移動してください。
+[MackerelのAWSインテグレーション設定のページ](https://mackerel.io/my?tab=awsIntegration)から作成ボタンを押して、External IDを取得してください。許可するAccount IDには `217452466226` を入力してください。また、`Require external ID` のオプションを選択した上で、External IDにはMackerelの設定作成ページで取得したExternal IDを指定してください。このアカウントはMackerelのシステムがユーザーのロールにアクセスする際に利用するアカウントです。この設定により、作成されたロールにはMackerelのアカウントしかアクセスできない状態になります。`Require MFA` はチェックせずに次の設定ページに移動してください。
 
 続いて<a href="#setting_policy">ポリシーの付与</a>を行います。
 
@@ -97,13 +97,21 @@ AWSインテグレーションの連携方法には、IAMロールで連携（As
 
 
 <h3 id="setting_policy">2. ポリシーを付与する</h3>
-作成したIAMロールもしくはIAMユーザーに、連携に必要なポリシーを付与します。
 
-必ず以下に列挙されたポリシーやアクションを使用し、FullAccess権限などを付与しないようにご注意ください。
+作成したIAMロールもしくはIAMユーザーには、後述の表に記載の製品ごとに必要なポリシー／アクションを付与してください。FullAccess権限など必要以上に強い権限が付与されている場合、AWSインテグレーションが正常に動作しません。
 
-またAWSの仕様で、ひとつのIAMロール／IAMユーザーに対してアタッチ可能なポリシーの上限は10個に制限されています。必要に応じて、AWSに対して上限緩和申請をおこなってください。
+* Mackerelにおける権限チェックは、後述の[アクセスキーの権限チェックと CreateInternetGateway に関して](#permission-check)に記載の方法で行っています。
 
-AWSインテグレーションで使用する全ての権限を設定する場合、<a href="#iam_policy">AWSインテグレーションで使用するIAMポリシー</a> の項目を参照下さい。
+表の「AWS製品」の列に *1 が付いた製品については、AWSインテグレーション設定でその製品だけを対象にする場合に、CloudWatchReadOnlyAccessが追加で必要です。
+
+* *1 の付いていない製品もあわせて対象にする場合は不要です。
+
+SQS、OpenSearch Service、Step Functionsで以下の設定を利用する場合は、表の「必要なポリシー／アクション」の列にある *2 の付いたアクションが追加で必要です。
+
+* [タグを指定して登録するホストを絞り込む](#tag)
+* [取得するメトリックを指定する](#select-metric)
+
+#### 製品ごとに必要なポリシー／アクション
 
 | AWS製品 | 必要なポリシー／アクション | 備考 |
 | :--- | :--- | :--- |
@@ -114,38 +122,42 @@ AWSインテグレーションで使用する全ての権限を設定する場�
 | RDS | AmazonRDSReadOnlyAccess |  |
 | ElastiCache | AmazonElastiCacheReadOnlyAccess |  |
 | Redshift | AmazonRedshiftReadOnlyAccess |  |
-| Lambda [*1](#single-product) | AWSLambda_ReadOnlyAccess |  |
-| SQS | AmazonSQSReadOnlyAccess |  |
+| Lambda *1 | AWSLambda_ReadOnlyAccess |  |
+| SQS | AmazonSQSReadOnlyAccess<br>`sqs:ListQueueTags` *2 |  |
 | DynamoDB | AmazonDynamoDBReadOnlyAccess |  |
-| CloudFront [*1](#single-product) | CloudFrontReadOnlyAccess |  |
-| API Gateway [*1](#single-product) | `apigateway:GET` | リソースポリシーは`arn:aws:apigateway:ap-northeast-1::/*`などのように指定します。<br>リソースポリシーで連携対象を制限することはできません。 |
-| Kinesis Data Streams [*1](#single-product) | AmazonKinesisReadOnlyAccess |  |
-| S3 [*1](#single-product) | AmazonS3ReadOnlyAccess | S3側でバケットのリクエストメトリックを有効にする必要があります。<br><a href="https://docs.aws.amazon.com/ja_jp/AmazonS3/latest/userguide/configure-request-metrics-bucket.html">S3バケットにリクエストメトリックを設定する方法</a>を参考に`EntireBucket`というフィルタ名で設定してください。 |
-| OpenSearch Service [*1](#single-product) [*2](#opensearch-service) | AmazonOpenSearchServiceReadOnlyAccess |  |
-| ECS Cluster [*1](#single-product) | `ecs:Describe*` <br> `ecs:List*` |  |
-| SES [*1](#single-product) | AmazonSESReadOnlyAccess <br> `ses:Describe*` |  |
-| Step Functions [*1](#single-product) | AWSStepFunctionsReadOnlyAccess |  |
-| EFS [*1](#single-product) | AmazonElasticFileSystemReadOnlyAccess |  |
-| Kinesis Data Firehose [*1](#single-product) | AmazonKinesisFirehoseReadOnlyAccess |  |
-| AWS Batch [*1](#single-product) | `batch:Describe*` <br> `batch:List*` |  |
-| WAF [*1](#single-product) | AWSWAFReadOnlyAccess |  |
-| Billing [*1](#single-product) | AWSBudgetsReadOnlyAccess |  |
-| Route 53 [*1](#single-product) | AmazonRoute53ReadOnlyAccess |  |
-| Amazon Connect [*1](#single-product) | AmazonConnectReadOnlyAccess |  |
+| CloudFront *1 | CloudFrontReadOnlyAccess |  |
+| API Gateway *1 | `apigateway:GET` | リソースポリシーは`arn:aws:apigateway:ap-northeast-1::/*`などのように指定します。<br>リソースポリシーで連携対象を制限することはできません。 |
+| Kinesis Data Streams *1 | AmazonKinesisReadOnlyAccess |  |
+| S3 *1 | AmazonS3ReadOnlyAccess | S3側でバケットのリクエストメトリックを有効にする必要があります。<br><a href="https://docs.aws.amazon.com/ja_jp/AmazonS3/latest/userguide/configure-request-metrics-bucket.html">S3バケットにリクエストメトリックを設定する方法</a>を参考に`EntireBucket`というフィルタ名で設定してください。 |
+| OpenSearch Service *1 | AmazonOpenSearchServiceReadOnlyAccess<br>`elasticache:ListTagsForResource` *2 | AmazonESReadOnlyAccessでも利用可能です。 |
+| ECS Cluster *1 | `ecs:Describe*` <br> `ecs:List*` |  |
+| SES *1 | AmazonSESReadOnlyAccess <br> `ses:Describe*` |  |
+| Step Functions *1 | AWSStepFunctionsReadOnlyAccess<br>`states:ListTagsForResource` *2 |  |
+| EFS *1 | AmazonElasticFileSystemReadOnlyAccess |  |
+| Kinesis Data Firehose *1 | AmazonKinesisFirehoseReadOnlyAccess |  |
+| AWS Batch *1 | `batch:Describe*` <br> `batch:List*` |  |
+| WAF *1 | AWSWAFReadOnlyAccess |  |
+| Billing *1 | AWSBudgetsReadOnlyAccess |  |
+| Route 53 *1 | AmazonRoute53ReadOnlyAccess |  |
+| Amazon Connect *1 | AmazonConnectReadOnlyAccess |  |
 | DocumentDB | AmazonRDSReadOnlyAccess |  |
-| CodeBuild [*1](#single-product) | `codebuild:BatchGetProjects` <br> `codebuild:ListProjects` |  |
-| Athena [*1](#single-product) | `athena:ListWorkGroups` <br> `athena:ListTagsForResource` |  |
+| CodeBuild *1 | `codebuild:BatchGetProjects` <br> `codebuild:ListProjects` |  |
+| Athena *1 | `athena:ListWorkGroups` <br> `athena:ListTagsForResource` |  |
 
-<p id="single-product">*1 該当のAWS製品を単一で連携させる場合、必要なポリシー／アクションに加えて<code>CloudWatchReadOnlyAccess</code>が必要となります。</p>
-<p id="opensearch-service">*2 以前のElasticsearch Serviceから<code>AmazonESReadOnlyAccess</code>を継続してご利用が可能です。</p>
+AWSの仕様で、ひとつのIAMロール／IAMユーザーに対してアタッチ可能なポリシーのクォータは10個に制限されています。必要に応じて、AWSに対してクォータの引き上げをリクエストしてください。
 
-また、AWSインテグレーションでは後述するようにタグによって絞り込みを行うことが出来ますが、ElastiCacheやSQSでタグによる絞り込みを行う場合は追加のポリシーを付与する必要があります。
-詳しくは<a href="#tag">タグで絞り込む</a> の項目を参照してください。
+* [サービスクォータの引き上げをリクエストします。 - AWS サポート](https://docs.aws.amazon.com/ja_jp/awssupport/latest/user/create-service-quota-increase.html)
 
-メトリックの除外を行う場合もAWSのタグを参照するため、タグで絞り込む機能と同様に追加のポリシーを付与する必要があります。
-詳しくは<a href="#select-metric">取得するメトリックを制限する</a> の項目を参照してください。
+AWSインテグレーションで使用する全ての権限を設定する場合、<a href="#iam_policy">AWSインテグレーションで使用するIAMポリシー</a> の項目を参照してください。
+
+参考：ポリシーの付与
 
 ![](https://cdn-ak2.f.st-hatena.com/images/fotolife/m/mackerelio/20170912/20170912165028.png)
+
+参考：アクションの付与（Inline Policies）
+
+![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20160616/20160616150058.png)
+![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20160616/20160616150059.png)
 
 <h3 id="setting_check_host">3. ホストを確認する</h3>
 しばらくすると、ご利用のAWSクラウド製品がMackerelにホストとして登録され、メトリックが投稿されます。
@@ -178,26 +190,15 @@ AWSインテグレーションにおける自動退役は、Mackerelと連携し
 
 また、AWSインテグレーションがAWSリソースの削除を検出した時点で1回だけ判定を行うため、削除の検出後に連携を有効にしても自動退役の対象となりません。複数のインテグレーション設定で同じホストを連携している場合は、どれか1つの設定で削除と判断された時点で自動退役します。
 
-<h2 id="select-metric">取得するメトリックを制限する</h2>
+<h2 id="select-metric">取得するメトリックを指定する</h2>
 
-一部のメトリックを取得しないように設定して、ホスト数を削減したりCloudWatch APIの料金を減らす事ができます。
+一部のメトリックを取得しないように設定して、メトリック料金を削減したり、CloudWatch APIのリクエスト回数を減らしたりできます。
 
-<h3>1. 取得するメトリックを制限するための権限を付与する</h3>
-取得するメトリックを制限するためには、AWSインテグレーションの設定のために付与したポリシー以外に、以下のアクションに対する権限が追加で必要になります。
+<h3>1. 取得するメトリックを指定するための権限を付与する（一部の製品のみ）</h3>
 
-- `elasticache:ListTagsForResource`
-- `sqs:ListQueueTags`
-- `states:ListTagsForResource`
+一部の製品は、取得するメトリックを指定するために追加のアクションが必要になります。詳しくは[ポリシーを付与する](#setting_policy)を参照してください。
 
-これらのポリシーの付与は、Inline Policiesにて行ってください。
-
-![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20160616/20160616150058.png)
-
-![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20160616/20160616150059.png)
-
-<h3>2. 取得するメトリックを制限する設定を行う</h3>
-
-ホスト台数は過去一ヶ月分の移動平均での算出となります。詳しくは[ホスト数の計算方法について](https://support.mackerel.io/hc/ja/articles/360039702912-%E3%83%9B%E3%82%B9%E3%83%88%E6%95%B0%E3%81%AE%E8%A8%88%E7%AE%97%E6%96%B9%E6%B3%95%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6)をご確認ください。
+<h3>2. 取得するメトリックを指定する設定を行う</h3>
 
 Mackerelの設定画面で取得するメトリックを選択します。不要なメトリックのチェックを外して、保存してください。
 
@@ -205,21 +206,12 @@ Mackerelの設定画面で取得するメトリックを選択します。不要
 
 ![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20200129/20200129193706.png)
 
-<h2 id="tag">タグで絞り込む</h2>
+<h2 id="tag">タグを指定して登録するホストを絞り込む</h2>
 ホストとして登録してメトリックを取得するAWSクラウド製品を、AWSで付与しているタグで絞り込めます。
 
-<h3>1. タグを取得するための権限を付与する</h3>
-AWSのタグで絞り込むには、AWSインテグレーションの設定のために付与したポリシー以外に、以下のアクションに対する権限が追加で必要になります。
+<h3>1. タグを取得するための権限を付与する（一部の製品のみ）</h3>
 
-- `elasticache:ListTagsForResource`
-- `sqs:ListQueueTags`
-- `states:ListTagsForResource`
-
-これらのポリシーの付与は、Inline Policiesにて行ってください。
-
-![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20160616/20160616150058.png)
-
-![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20160616/20160616150059.png)
+一部の製品は、タグで登録するホストを絞り込むために追加のアクションが必要になります。詳しくは[ポリシーを付与する](#setting_policy)を参照してください。
 
 <h3>2. タグで絞り込む設定を行う</h3>
 Mackerelの設定画面でタグを指定します。連携ホスト数を確認し、保存してください。
@@ -239,9 +231,7 @@ Mackerelの設定画面でタグを指定します。連携ホスト数を確認
 
 ![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20220204/20220204114346.png)
 
-ElastiCache、SQSでタグによるサービス・ロール割り当てを行う場合は追加のポリシーを付与する必要があります。詳しくは<a href="#tag">タグで絞り込む</a>の「タグを取得するための権限を付与する」を参照してください。
-
-また、`mackerel-integration` タグを設定したホストでは、MackerelのWebコンソールで設定したデフォルトロールの割り当ては行われません。
+ なお、`mackerel-integration` タグを設定したホストでは、MackerelのWebコンソールで設定したデフォルトロールの割り当ては行われません。
 
 ### タグの設定が反映されない場合
 
@@ -333,9 +323,11 @@ ElastiCache、SQSでタグによるサービス・ロール割り当てを行う
 
 <h2 id="faq">よくある質問</h2>
 
-### アクセスキーの権限チェックと CreateInternetGateway に関して
+<h3 id="permission-check">アクセスキーの権限チェックと CreateInternetGateway に関して</h3>
 
-ユーザーが登録したアクセスキーが不必要に強い権限を持っていないかチェックするために、AWSインテグレーションは定期的に CreateInternetGateway API を dry-run にて実行しています。アクセスキーが必要以上の権限を持っていた場合には、メトリックの収集と投稿は行われませんのでご注意ください。チェックを登録後にも定期的におこなう理由は、アクセスキーに対してポリシーが追加され、権限が強くなってしまう可能性があるためです。
+ユーザーが登録したアクセスキーが不必要に強い権限を持っていないかチェックするために、AWSインテグレーションは定期的に CreateInternetGateway API を dry-run にて実行しています。アクセスキーが必要以上の権限を持っていた場合には、メトリックの収集と投稿は行われませんのでご注意ください。
+
+定期的にチェックを行う理由は、アクセスキーに対してポリシーが追加され、権限が強くなってしまう可能性があるためです。これに伴い、お使いのAWS環境にCreateInternetGatewayに関するログが出力されることがあります。
 
 ### AWSインテグレーションにより連携したホストの退役について
 

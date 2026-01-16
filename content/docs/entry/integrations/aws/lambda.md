@@ -11,6 +11,12 @@ In addition to this, depending on the number of metrics retrieved, you may be ch
 Please refer to the following page for AWS Integration configuration methods and a list of supported AWS services. <br>
 <a href="https://mackerel.io/docs/entry/integrations/aws">AWS Integration</a>
 
+## Notes on metric retrieval
+
+* The timestamp of Lambda metrics is the time when the function was invoked, so metrics are recorded in Mackerel graphs at the function invocation time.
+  * Reference: [Viewing metrics for Lambda functions - AWS Lambda](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-view.html)
+* AWS Integration can only retrieve metrics with timestamps within the past 10 minutes, so if a function's execution time exceeds 10 minutes, that function's metrics will not be retrieved by Mackerel.
+
 ## Obtaining metrics
 
 The metrics obtainable with AWS Integration’s Lambda support are as follows. For `Metric` explanations, refer to the <a href="https://docs.aws.amazon.com/lambda/latest/dg/monitoring-functions-metrics.html" target="_blank">AWS help page</a>.

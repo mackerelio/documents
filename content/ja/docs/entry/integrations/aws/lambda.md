@@ -11,6 +11,12 @@ AWSインテグレーションで連携をおこなった場合、課金対象�
 AWSインテグレーションの設定方法や対応AWSサービス一覧についてはこちらのページをご確認ください。<br>
 <a href="https://mackerel.io/ja/docs/entry/integrations/aws">AWSインテグレーション</a>
 
+## メトリックの取得に関する注意事項
+
+* Lambdaのメトリックのタイムスタンプは、関数が呼び出された時刻になるため、Mackerelのグラフにおいても、関数の呼び出し時刻でメトリックが記録されます。
+  * 参考：[Lambda 関数のメトリクスの表示 - AWS Lambda](https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/monitoring-metrics-view.html)
+* AWSインテグレーションはタイムスタンプが過去10分以内のメトリックのみ取得可能なため、関数の実行時間が10分を超える場合、その関数のメトリックはMackerelに取得されません。
+
 ## 取得メトリック
 AWSインテグレーションのLambda対応で取得できるメトリックは以下の通りです。 `メトリック` の説明に関しては<a href="https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/monitoring-functions-metrics.html" target="_blank">AWSのヘルプ</a>をご確認ください。
 

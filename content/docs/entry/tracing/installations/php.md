@@ -1,54 +1,40 @@
 ---
-Title: Tracing - Introducing OpenTelemetry to PHP
+Title: Sending traces from PHP applications to Mackerel
 Date: 2025-07-11T16:27:38+09:00
 URL: https://mackerel.io/docs/entry/tracing/installations/php
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/6802418398507892445
 ---
 
-Mackerel uses the OpenTelemetry mechanism (instrumentation) to collect data.
-
-This page explains how to send data from PHP to Mackerel.
+This page explains how to send traces from PHP applications to Mackerel.
 
 [:contents]
 
-## OpenTelemetry for PHP
+## Overview
 
-OpenTelemetry provides an SDK for PHP.
+Mackerel collects traces using the OpenTelemetry mechanism (instrumentation). While there are various ways to collect OpenTelemetry-compatible traces, this page explains zero-code instrumentation, a method that allows you to send traces without modifying your application's implementation.
 
-In addition to this SDK, you can use SDKs for Laravel and PDO to instrument your application without modifying your existing implementation.
+<div class="note">
+  <p>📝 Note</p>
+  <p>PHP zero-code instrumentation is implemented by executing observation functions before and after the execution of methods targeted for instrumentation in libraries, etc. For more details, see <a href="https://opentelemetry.io/docs/zero-code/php/">PHP zero-code instrumentation</a>.</p>
+</div>
 
-[https://opentelemetry.io/docs/languages/php/instrumentation/:embed:cite]
+## Requirements
 
-### Is it appropriate to use a Collector?
+According to the OpenTelemetry [requirements](https://opentelemetry.io/docs/zero-code/php/#requirements), PHP must be the specified version or higher.
 
-When sending data to Mackerel, you can use Collector instead of sending it directly from the SDK.
+- PHP 8.0 or higher
 
-However, many PHP runtimes block requests until all processing is complete, so sending data directly to Mackerel will delay requests by the amount of time it takes to send the data to Mackerel.
+## Installation
 
-Therefore, we recommend using Collector to respond to users as quickly as possible.
-
-Alternatively, if you use `fastcgi_finish_request()` in `fastcgi`, you can return a response to the user without waiting for the data to be sent to Mackerel. In that case, sending data directly to Mackerel should not cause any issues.
-
-For instructions on how to use Collector, please refer to the following page.
-
-[https://mackerel.io/docs/entry/tracing/installations/opentelemetry-collector:embed:cite]
-
-## How to get started
-
-There are several web frameworks for PHP, but this page explains how to get started with Laravel.
-
-You can use almost the same approaches to instrument other frameworks.
-
-You can implement the Mackerel's tracing feature by following the steps below.
+To send traces from your application to Mackerel, do the following:
 
 1. Add the extension library (PECL)
-2. Add the package
-3. Set the environment variables
-4. Custom instrumentation (optional)
+2. Install packages
+3. Set environment variables
 
 ### 1. Add the extension library (PECL)
 
-Install the extension library for OpenTelemetry using PECL.
+Install the extension library for OpenTelemetry to PHP using PECL.
 
 ```bash
 pecl install opentelemetry
@@ -61,9 +47,9 @@ Then, add the installed extension to `php.ini`.
 extension=opentelemetry.so
 ```
 
-### 2. Add packages
+### 2. Install packages
 
-Add packages for Laravel and PDO.
+Use composer to install the packages required to enable OpenTelemetry to your application.
 
 ```bash
 composer require open-telemetry/api \
@@ -78,21 +64,26 @@ composer require open-telemetry/api \
   open-telemetry/sdk
 ```
 
-#### ⚠️ If you are using another framework
+`open-telemetry/opentelemetry-auto-laravel` is specific to Laravel. If you are using Slim, use `open-telemetry/opentelemetry-auto-slim` instead. 
 
-This page uses `opentelemetry-auto-laravel` as an example for Laravel. If you are using a different framework such as Slim or Symfony, you can search for the appropriate package from the following page.
+Available packages can be searched on the following page.
 
 [https://opentelemetry.io/ecosystem/registry/?language=php&component=instrumentation:embed:cite]
 
+<div class="note">
+  <p>📝 Note</p>
+  <p>If there is no instrumentation library for your framework or application, you can implement manual instrumentation. For more details, see <a href="https://opentelemetry.io/docs/zero-code/php/#how-it-works">PHP zero-code instrumentation | How it works</a> in the official OpenTelemetry documentation.</p>
+</div>
+
 ### 3. Set environment variables
 
-After installing the package, set the environment variables to send data to Mackerel. The following is an example of setting the variables in the `.env` file in the project.
+After installing the package, set the environment variables to send traces to Mackerel. The following is an example of setting the variables using the `.env` file in a Laravel project.
 
 ```
 OTEL_PHP_AUTOLOAD_ENABLED=true
-OTEL_SERVICE_NAME=your-service-name
 OTEL_TRACES_EXPORTER=otlp
-# Set to console for debugging
+OTEL_SERVICE_NAME=my-sample-app
+# To output to standard output
 # OTEL_TRACES_EXPORTER=console
 OTEL_EXPORTER_OTLP_PROTOCOL=http/protobuf
 OTEL_EXPORTER_OTLP_TRACES_ENDPOINT=https://otlp-vaxila.mackerelio.com/v1/traces
@@ -102,38 +93,26 @@ OTEL_LOGS_EXPORTER=none
 OTEL_PROPAGATORS=baggage,tracecontext
 ```
 
-Set these environment variables before autoloading starts.
+- Setting `OTEL_TRACES_EXPORTER` to `console` will output traces to standard output.
+- `OTEL_SERVICE_NAME` is the service name of the trace (the value of the `service.name` attribute).
+- `OTEL_EXPORTER_OTLP_TRACES_ENDPOINT` specifies the destination for sending traces.
+  - To send directly to Mackerel, specify `https://otlp-vaxila.mackerelio.com/v1/traces`.
+  - To send via a Collector, specify `http://<Collector address:port>/v1/traces`.
+- `${MACKEREL_APIKEY}` specifies the Mackerel API key. Define an API key with Write permission from the [API key list](https://mackerel.io/my?tab=apikeys) as an environment variable in the system where the application runs.
+  - It will work if you write the API key directly instead of using an environment variable.
 
-** Change the values of `OTEL_SERVICE_NAME` and `OTEL_EXPORTER_OTLP_TRACES_ENDPOINT` to values appropriate for your environment. Also, setting `OTEL_TRACES_EXPORTER` to `console` will output data to the log, which is useful for debugging when transmission does not work. **
+After setting the environment variables, traces will be sent when you start the application.
 
-That completes the installation, and data will now be sent to Mackerel through the Collector.
+## Verifying sent traces
 
-### 4. Custom instrumentation (optional)
+Sent traces can be verified by following these steps:
 
-You can add custom spans to instrument any range you want.
+1. Select "[APM](https://mackerel.io/my/apm)" from the menu<br>
+2. Select the service name
+  [f:id:mackerelio:20260109153548j:plain]
+3. Select the "Traces" tab
+  [f:id:mackerelio:20260109153629j:plain]
+4. Select a trace from the trace list to view its details
+  [f:id:mackerelio:20260109153349p:plain]
 
-Instrumentation makes it possible to record variable values and processing times.
-
-You can add instrumentation using `startSpan`, as shown below.
-
-```php
-use OpenTelemetry\API\Globals;
-
-function awesomeFunction(string $arg) {
-  $tracer = Globals::tracerProvider()->getTracer("...");
-  $childSpan = $tracer->spanBuilder('Awesome span name')->startSpan();
-  $childSpan->setAttribute('arg', $arg);
-  $scope = $childSpan->activate();
-
-  try {
-    // 計装対象の処理
-  } finally {
-    $childSpan->end();
-    $scope->detach();
-  }
-}
-```
-
-There are other ways to instrument. For details, refer to the OpenTelemetry documentation.
-
-[https://opentelemetry.io/docs/languages/php/instrumentation/:embed:cite]
+This completes the guide on how to perform zero-code instrumentation for PHP applications and send traces to Mackerel.

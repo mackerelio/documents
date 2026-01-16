@@ -96,14 +96,22 @@ Register the Access Key ID and Secret Access Key (displayed on the screen when c
 
 <h3 id="setting_policy">2. Grant policies</h3>
 
-Grant the policies listed below for the role.
-Be sure to use the policies and actions listed below and be careful not to grant FullAccess permission.
+Grant the IAM role or IAM user you created the required policies/actions for each product listed in the table below. If permissions that are stronger than necessary, such as FullAccess permissions, are granted, AWS integration will not work properly.
 
-Also, the maximum number of policies that can be attached to one IAM role is limited to 10. This is a specification of AWS. If necessary, you can apply to AWS for an upper limit extension.
+* Mackerel checks permissions as described in [Regarding the access key's authority check and CreateInternetGateway](#permission-check) below.
 
-If you want to configure all the permissions used in AWS Integration, please refer this list of <a href="#iam_policy">IAM policies used in AWS Integration</a>.
+For products marked with *1 in the "AWS Products" column of the table, CloudWatchReadOnlyAccess is additionally required when targeting only that product in the AWS integration settings.
 
-| AWS Cloud Products | Policy / Action | Note |
+* This is not required if you are also targeting products without *1.
+
+For SQS, OpenSearch Service, and Step Functions, the actions marked with *2 in the "Required Policies/Actions" column are additionally required when using the following settings.
+
+* [Specify tags to filter hosts to register](#tag)
+* [Specify metrics to retrieve](#select-metric)
+
+#### Required policies/actions for each product
+
+| AWS Products | Policy / Action | Note |
 | :--- | :--- | :--- |
 | EC2 |  AmazonEC2ReadOnlyAccess  |  |
 | CLB (ELB) |  AmazonEC2ReadOnlyAccess  |  |
@@ -112,38 +120,42 @@ If you want to configure all the permissions used in AWS Integration, please ref
 | RDS | AmazonRDSReadOnlyAccess |  |
 | ElastiCache | AmazonElastiCacheReadOnlyAccess |  |
 | Redshift | AmazonRedshiftReadOnlyAccess |  |
-| Lambda [*1](#single-product) | AWSLambda_ReadOnlyAccess |  |
-| SQS | AmazonSQSReadOnlyAccess |  |
+| Lambda *1 | AWSLambda_ReadOnlyAccess |  |
+| SQS | AmazonSQSReadOnlyAccess<br>`sqs:ListQueueTags` *2 |  |
 | DynamoDB | AmazonDynamoDBReadOnlyAccess |  |
-| CloudFront [*1](#single-product) | CloudFrontReadOnlyAccess |  |
-| API Gateway [*1](#single-product) | `apigateway:GET` | Specify a resource policy like so `arn:aws:apigateway:ap-northeast-1::/*`.<br> You can not limit integration targets by resource policy. |
-| Kinesis Data Streams [*1](#single-product) | AmazonKinesisReadOnlyAccess |  |
-| S3 [*1](#single-product) | AmazonS3ReadOnlyAccess | Request metrics must be enabled in the S3 configuration.<br>See <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/configure-request-metrics-bucket.html">Creating a CloudWatch metrics configuration for all the objects in your bucket</a> and set the filter name as `EntireBucket`. |
-| OpenSearch Service [*1](#single-product) [*2](#opensearch-service) | AmazonOpenSearchServiceReadOnlyAccess |  |
-| ECS Cluster [*1](#single-product) | `ecs:Describe*` <br> `ecs:List*` |  |
-| SES [*1](#single-product) | AmazonSESReadOnlyAccess <br> `ses:Describe*` |  |
-| Step Functions [*1](#single-product) | AWSStepFunctionsReadOnlyAccess |  |
-| EFS [*1](#single-product) | AmazonElasticFileSystemReadOnlyAccess |  |
-| Kinesis Data Firehose [*1](#single-product) | AmazonKinesisFirehoseReadOnlyAccess |  |
-| AWS Batch [*1](#single-product) | `batch:Describe*` <br> `batch:List*` |  |
-| WAF [*1](#single-product) | AWSWAFReadOnlyAccess |  |
-| Billing [*1](#single-product) | AWSBudgetsReadOnlyAccess |  |
-| Route 53 [*1](#single-product) | AmazonRoute53ReadOnlyAccess |  |
-| Amazon Connect [*1](#single-product) | AmazonConnectReadOnlyAccess |  |
+| CloudFront *1 | CloudFrontReadOnlyAccess |  |
+| API Gateway *1 | `apigateway:GET` | Specify a resource policy like `arn:aws:apigateway:ap-northeast-1::/*`.<br>You cannot limit integration targets by resource policy. |
+| Kinesis Data Streams *1 | AmazonKinesisReadOnlyAccess |  |
+| S3 *1 | AmazonS3ReadOnlyAccess | Request metrics must be enabled in S3.<br>See <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/configure-request-metrics-bucket.html">Creating a CloudWatch metrics configuration for all the objects in your bucket</a> and set the filter name as `EntireBucket`. |
+| OpenSearch Service *1 | AmazonOpenSearchServiceReadOnlyAccess<br>`elasticache:ListTagsForResource` *2 | You can also use AmazonESReadOnlyAccess. |
+| ECS Cluster *1 | `ecs:Describe*` <br> `ecs:List*` |  |
+| SES *1 | AmazonSESReadOnlyAccess <br> `ses:Describe*` |  |
+| Step Functions *1 | AWSStepFunctionsReadOnlyAccess<br>`states:ListTagsForResource` *2 |  |
+| EFS *1 | AmazonElasticFileSystemReadOnlyAccess |  |
+| Kinesis Data Firehose *1 | AmazonKinesisFirehoseReadOnlyAccess |  |
+| AWS Batch *1 | `batch:Describe*` <br> `batch:List*` |  |
+| WAF *1 | AWSWAFReadOnlyAccess |  |
+| Billing *1 | AWSBudgetsReadOnlyAccess |  |
+| Route 53 *1 | AmazonRoute53ReadOnlyAccess |  |
+| Amazon Connect *1 | AmazonConnectReadOnlyAccess |  |
 | DocumentDB | AmazonRDSReadOnlyAccess |  |
-| CodeBuild [*1](#single-product) | `codebuild:BatchGetProjects` <br> `codebuild:ListProjects` |  |
-| Athena [*1](#single-product) | `athena:ListWorkGroups` <br> `athena:ListTagsForResource` |  |
+| CodeBuild *1 | `codebuild:BatchGetProjects` <br> `codebuild:ListProjects` |  |
+| Athena *1 | `athena:ListWorkGroups` <br> `athena:ListTagsForResource` |  |
 
-<p id="single-product">*1 <code>CloudWatchReadOnlyAccess</code> is required in addition to the required policies/actions for a single linkage of the relevant AWS products.</p>
-<p id="opensearch-service">*2 You can continue to use <code>AmazonESReadOnlyAccess</code> from the former Elasticsearch Service.</p>
+Due to AWS specifications, the quota for the number of policies that can be attached to a single IAM role/IAM user is limited to 10. If necessary, please request a quota increase from AWS.
 
-Furthmore, AWS Integration lets you filter using tags. However, additional policies need to be added to use this function with ElastiCache, SQS or Step Functions.
-For more details, refer to <a href="#tag">Filter by tag</a>.
+* [Request a service quota increase - AWS Support](https://docs.aws.amazon.com/awssupport/latest/user/create-service-quota-increase.html)
 
-If you exclude a metric, you will still need to grant an additional policy as well as the ability to filter by tag, as it refers to AWS tags.
-See the <a href="#select-metric">Restrict which metrics to retrieve</a> section for more information.
+If you want to configure all the permissions used in AWS Integration, please refer to the <a href="#iam_policy">IAM policies used in AWS Integration</a> section.
 
-![](https://cdn-ak.f.st-hatena.com/images/fotolife/a/andyyk/20171025/20171025153435.png)
+Reference: Granting policies
+
+![](https://cdn-ak2.f.st-hatena.com/images/fotolife/m/mackerelio/20170912/20170912165028.png)
+
+Reference: Granting actions (Inline Policies)
+
+![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20160616/20160616150058.png)
+![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20160616/20160616150059.png)
 
 <h3 id="setting_check_host">3. Confirm the host</h3>
 After a short while, your AWS cloud product will be registered as a host in Mackerel and begin posting metrics. By creating monitoring rules, you can also be notified of alerts. For more information, see [Setting up monitoring and alerts](https://mackerel.io/docs/entry/howto/alerts).
@@ -174,51 +186,33 @@ Automatic retirement of AWS integration provides automatic retirement of the ass
 
 In addition, AWS integration check only once when it detects the deletion of an AWS resource, so those that have enabled link after the detection of a deletion are not automatically retired. If the same host is linked to multiple integration settings, it will be automatically retired when any one of the settings is determined to be deleted.
 
-<h2 id="select-metric">Limit metrics retrieved</h2>
+<h2 id="select-metric">Specify metrics to retrieve</h2>
 
-You can reduce the number of hosts and cost of the CloudWatch API by limiting the metrics to be retrieved.
+You can reduce metric charges and the number of CloudWatch API requests by configuring the system to exclude certain metrics.
 
-<h3>1. Grant permissions to limit the metrics to be retrieved</h3>
-In order to restrict the metrics to be retrieved, additional permissions for the following actions are required in addition to the policies granted for the AWS Integration setup.
+<h3>1. Grant permissions to specify the metrics to be retrieved (for some products only)</h3>
 
-- `elasticache:ListTagsForResource`
-- `sqs:ListQueueTags`
-- `states:ListTagsForResource`
+Some products require additional actions to specify the metrics to be retrieved. For details, refer to [Grant policies](#setting_policy).
 
-To add policies, use the Inline Policies process.
+<h3>2. Configure settings to specify the metrics to be retrieved</h3>
 
-![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20160616/20160616150058.png)
-![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20160616/20160616150059.png)
+Select the metrics you wish to retrieve in the Mackerel configuration page. Uncheck any unwanted metrics and save your settings.
 
-<h3>2. Configure settings to limit the metrics to be retrieved</h3>
-
-The number of hosts is calculated using a moving average of the past month. For more information about that, refer to the FAQ page [Calculating the number of hosts](https://support.mackerel.io/hc/en-us/articles/360039702912).
-
-Select the metrics you wish to retrieve in the Mackerel configuration page. Uncheck any unwanted metrics and save them.
-
-For example, you can specify to not retrieve a metric like `kinesis.latency.#.minimum` by simply unchecking the box as shown in the image below. This configuration limits the minimum for `GetRecords.Latency`,`PutRecord.Latency`, and `PutRecords.Latency` and reduces a maximum of 3 metrics.
+For example, to not retrieve `kinesis.latency.#.minimum` for Kinesis Data Streams, uncheck the box as shown below. This configuration limits the minimum for `GetRecords.Latency`, `PutRecord.Latency`, and `PutRecords.Latency`, reducing up to 3 metrics.
 
 ![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20200217/20200217172630.png)
 
-<h2 id="tag">Filter by tag</h2>
+<h2 id="tag">Specify tags to filter hosts to register</h2>
 AWS cloud products to be registered as hosts and retrieve metrics can be filtered based on the tags appended by AWS.
 
-<h3>1. Grant permissions for tag retrieval</h3>
-In order to filter using an AWS tag, permission for the following actions is required in addition to the policies that were granted to configure AWS integration.
+<h3>1. Grant permissions to retrieve tags (for some products only)</h3>
 
-- `elasticache:ListTagsForResource`
-- `sqs:ListQueueTags`
-- `states:ListTagsForResource`
+Some products require additional actions to filter hosts to register by tags. For details, refer to [Grant policies](#setting_policy).
 
-To add policies, use the Inline Policies process.
+<h3>2. Configure settings to filter by tags</h3>
+Specify tags in the Mackerel configuration page. Confirm the number of linked hosts and save your settings.
 
-![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20160616/20160616150058.png)
-![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20160616/20160616150059.png)
-
-<h3>2. Tag filtering settings</h3>
-You can specify tags from the Mackerel settings screen. Confirm the number of linked hosts and save your changes.
-
-By specifying the tag as `service:foo, service:bar`, instances tagged with a key of `service` and value of `foo` or a key of `service` and value of `bar` will be targeted. If the key or value contains characters such as a colon `:` or comma `,`, enclose it with quotation marks (`"` or `'`). For example, if the key is `service:role` and the value is `foo,bar`, specify it as `"service:role":"foo,bar"`.
+By specifying the tag as `service:foo, service:bar`, instances tagged with a key of `service` and value of `foo` or a key of `service` and value of `bar` will be targeted. If the key or value contains characters such as a colon `:` or comma `,`, enclose it with quotation marks (`"` or `'`). For example, if the key is `service:role` and the value is `foo,bar`, specify it as `"service:role": "foo,bar"`.
 
 ![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20160622/20160622115520.png)
 
@@ -230,14 +224,10 @@ The tag format is described as follows:
 
 * Key: `mackerel-integration`
 * Value: `<Service>:<Role> [ / <Service>:<Role> ...]`
-  * Service: `/^[a-zA-Z0-9_-]+$/`
-  * Role: `/^[a-zA-Z0-9_-]+$/`
 
 To assign multiple roles to a host, specify them by separating with `/`. If a specified Mackerel service and role doesn’t exist, it will be automatically created for you.
 
 ![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20220215/20220215164116.png)
-
-Additional policies need to be added to use this feature with ElastiCache, SQS or Step Functions. For more details, refer to **Grant permissions for tag retrieval** section of <a href="#tag">Filter by tag</a>.
 
 Please note that hosts registered with the `mackerel-integration` tag will not be assigned the default roles specified in the AWS Integration settings of the web console.
 
@@ -327,9 +317,11 @@ Create and attach your own policies or specify them in Inline Policies.
 
 <h2 id="faq">FAQ</h2>
 
-### Regarding the access key’s authority check and CreateInternetGateway
+<h3 id="permission-check">Regarding the access key's authority check and CreateInternetGateway</h3>
 
-In order to check whether or not the access key registered by the user has an unnecessarily strong authority, AWS Integration periodically calls the CreateInternetGateway API in dry-run. Metrics will not be obtained or posted if the access key has an authority more than necessary so be careful. The reason why checks still periodically occur after registration is because there is a possibility that policies will get added to the access key, resulting in a key with stronger authority.
+To check whether the access key registered by the user has unnecessarily strong permissions, AWS integration periodically executes the CreateInternetGateway API in dry-run mode. If the access key has more permissions than necessary, metrics will not be collected and posted, so please be careful.
+
+The reason for periodic checks is that policies may be added to the access key, resulting in stronger permissions. As a result, logs related to CreateInternetGateway may be output to your AWS environment.
 
 ### Regarding retiring hosts linked with AWS Integration
 
