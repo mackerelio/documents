@@ -13,6 +13,6 @@ Mackerelからのアラート通知は、メールとして送ることができ
 
 通知の設定は、[チャンネルページ](https://mackerel.io/my/channels/)の「メール通知」フォームから、新しいチャンネルを追加してください。
 
-<p><span itemscope itemtype="http://schema.org/Photograph"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20251022/20251022165227.png" alt="f:id:mackerelio:20251022165227:plain" title="f:id:mackerelio:20251022165227:plain" class="hatena-fotolife" itemprop="image"></span></p>
+<p><span itemscope itemtype="http://schema.org/Photograph"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20260119/20260119181120.png" alt="f:id:mackerelio:20260119181120p:plain" title="f:id:mackerelio:20260119181120p:plain" class="hatena-fotolife" itemprop="image"></span></p>
 
 メールの宛先には、個別のメールアドレスのほかに、オーガニゼーションに所属しているユーザーを選択することもできます。

@@ -416,6 +416,41 @@ Summary: 1 modify, 1 append, 1 remove
  },
 ```
 
+### チャンネル一覧の取得
+
+mkrではchannelsサブコマンドで通知チャンネルの一覧を取得できます。
+
+```
+mkr channels
+```
+
+実行例
+
+```
+% mkr channels
+
+[
+    {
+        "id": "4iy7Ng6SRsY",
+        "name": "Email Broadcast",
+        "type": "email-broadcast",
+        "mentions": {}
+    },
+    ...
+]
+```
+
+channelsサブコマンドの後にpullコマンドを追加して実行すると、取得した情報をローカルファイルに保存します。
+
+実行例
+
+```
+% mkr channels pull
+      info Channels are saved to 'channels.json' (12 rules).
+```
+
+取得可能な情報については、[API仕様の「通知チャンネルの一覧」](https://mackerel.io/ja/api-docs/entry/channels#get)を参照してください。
+
 ### アラート関連
 
 `mkr alerts` サブコマンドでは、アラートに関する操作が可能です。

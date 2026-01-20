@@ -1,11 +1,17 @@
 ---
-Title: Monitoring batch jobs that use cron etc. with mkr wrap
+Title: Monitoring batch jobs using cron etc.
 Date: 2019-02-19T12:22:14+09:00
 URL: https://mackerel.io/docs/entry/howto/mkr/wrap
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/17680117126970795193
 ---
 
-Using `mkr wrap`, you can monitor the success or failure of a program that is executed in fixed intervals by cron etc. 
+Batch jobs executed at fixed intervals by cron etc. can be monitored with `mkr wrap`.
+
+## Prerequisites
+
+To use `mkr wrap`, you need to install mkr first. For installation instructions, see [Using the mkr CLI tool](https://mackerel.io/docs/entry/advanced/cli).
+
+## Usage
 
 ```
 % mkr wrap -- /path/to/your-batch ...

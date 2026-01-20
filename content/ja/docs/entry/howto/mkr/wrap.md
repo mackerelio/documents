@@ -1,11 +1,17 @@
 ---
-Title: mkr wrapでcronなどのバッチジョブを監視する
+Title: cronなどのバッチジョブを監視する
 Date: 2019-01-16T02:38:48+09:00
 URL: https://mackerel.io/ja/docs/entry/howto/mkr/wrap
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/10257846132706042215
 ---
 
-`mkr wrap` を使うことで、cronなどで定期実行されるプログラムの成否を監視できます。
+cronなどで定期実行されるバッチジョブの監視は、`mkr wrap` で行えます。
+
+## 事前準備
+
+`mkr wrap` を利用するには、事前に mkr のインストールが必要です。インストール方法については [CLIツール mkr を使う](https://mackerel.io/ja/docs/entry/advanced/cli) をご覧ください。
+
+## 使い方　
 
 ```
 % mkr wrap -- /path/to/your-batch ...

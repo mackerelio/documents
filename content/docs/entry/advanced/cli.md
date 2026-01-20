@@ -417,6 +417,41 @@ Summary: 1 modify, 1 append, 1 remove
  },
 ```
 
+### Getting the Channel List
+
+With mkr, you can get a list of channels using the channels subcommand.
+
+```
+mkr channels
+```
+
+Example
+
+```
+% mkr channels
+
+[
+    {
+        "id": "4iy7Ng6SRsY",
+        "name": "Email Broadcast",
+        "type": "email-broadcast",
+        "mentions": {}
+    },
+    ...
+]
+```
+
+Adding the `pull` command after the `channels` subcommand and executing it saves the retrieved information to a local file.
+
+Example
+
+```
+% mkr channels pull
+      info Channels are saved to 'channels.json' (12 rules).
+```
+
+For information on what can be retrieved, please refer to the [List Notification Channels](https://mackerel.io/api-docs/entry/channels#get).
+
 ### Alerts
 
 The `mkr alerts` subcommand allows you to perform operations related to alerts.
@@ -663,6 +698,12 @@ Example
 ```
 
 For information on what can be retrieved, please refer to the [Get Organization Information section of the API specifications](https://mackerel.io/api-docs/entry/organizations#get).
+
+### Plugin
+With mkr, you can manage both metric plugins and check plugins with the plugin subcommand.
+
+#### install
+You can install plugins hosted on GitHub or registered in the [plugin registry](https://github.com/mackerelio/plugin-registry). For details, please refer to [Using mkr plugin install](https://mackerel.io/docs/entry/advanced/install-plugin-by-mkr).
 
 ### Monitor command execution results
 

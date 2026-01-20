@@ -65,7 +65,7 @@ Mackerel上から直接グラフURLを通知チャンネルに流すことがで
 
 <p><span itemscope itemtype="http://schema.org/Photograph"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20220906/20220906110717.png" alt="f:id:mackerelio:20161007115204p:plain" title="f:id:mackerelio:20220906110717p:plain" class="hatena-fotolife" itemprop="image" width="300"></span></p>
 
-<p><span itemscope itemtype="http://schema.org/Photograph"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20161007/20161007115204.png" alt="f:id:mackerelio:20161007115204p:plain" title="f:id:mackerelio:20161007115204p:plain" class="hatena-fotolife" itemprop="image" width="500"></span></p>
+<p><span itemscope itemtype="http://schema.org/Photograph"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20260119/20260119183855.png" alt="f:id:mackerelio:20260119183855p:plain" title="f:id:mackerelio:20260119183855p:plain" class="hatena-fotolife" itemprop="image" width="500"></span></p>
 
 [表示するメトリックの選択](https://mackerel.io/ja/docs/entry/howto/view-graphs#select-metrics) をしている場合はその状態を反映したグラフが共有されます。アラートグラフ、ダッシュボードなどの埋め込みグラフ、式による監視のプレビューグラフは未対応です。
 

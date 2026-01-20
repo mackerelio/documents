@@ -66,7 +66,7 @@ Graph URLs can be posted to notification channels directly from Mackerel. From t
 
 <p><span itemscope itemtype="http://schema.org/Photograph"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20220906/20220906183654.png" alt="f:id:mackerelio:20220906183654p:plain" title="f:id:mackerelio:20220906183654p:plain" class="hatena-fotolife" itemprop="image" width="300"></span></p>
 
-![](https://cdn-ak.f.st-hatena.com/images/fotolife/a/andyyk/20161017/20161017170856.png)
+<p><span itemscope itemtype="http://schema.org/Photograph"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20260119/20260119183851.png" alt="f:id:mackerelio:20260119183851p:plain" title="f:id:mackerelio:20260119183851p:plain" class="hatena-fotolife" itemprop="image" width="500"></span></p>
 
 If you select a metric to display ([Select a metric to display on the graph](https://mackerel.io/docs/entry/howto/view-graphs#select-metrics)), it will share a graph showing the status of that metric. This does not yet support embedded graphs like alert graphs, dashboards, etc., and preview graphs for monitoring with expressions are not currently supported.
 
