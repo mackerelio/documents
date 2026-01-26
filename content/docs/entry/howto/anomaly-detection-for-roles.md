@@ -28,6 +28,7 @@ Go to the Monitors screen, located on the left side menu, and click the “Add M
     - Select this option if you do not want the training starting point to change when adjusting the sensitivity
   - Specified training period (Uses metric data starting from the specified time)
     - Select this option if a trend has changed significantly from the latest deployment
+- Training cycle of Anomaly detection model: Training is performed periodically (every few days)
 
 <img src="https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20190228/20190228114828_original.png" class="hatena-fotolife" itemprop="image" width=457>
 

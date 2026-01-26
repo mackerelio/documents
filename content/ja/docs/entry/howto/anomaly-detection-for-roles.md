@@ -28,6 +28,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
     - Sensitivityを変更するのみで学習の開始時点を変更したくない場合はこちらを選択してください
   - 指定時刻以降
     - 直近のデプロイから大きく傾向が変わった場合などはこちらを選択してください
+- 異常検知モデルの学習周期: 定期的(数日程度の周期)に学習を行います
 
 <img src="https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20190228/20190228114822_original.png" class="hatena-fotolife" itemprop="image" width=457>
 
