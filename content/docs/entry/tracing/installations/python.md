@@ -1,185 +1,96 @@
 ---
-Title: Tracing - Introducing OpenTelemetry to Python
+Title: Sending traces from Python applications to Mackerel
 Date: 2025-07-11T16:34:11+09:00
 URL: https://mackerel.io/docs/entry/tracing/installations/python
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/6802418398507896178
 ---
 
-Mackerel uses the OpenTelemetry mechanism (instrumentation) to acquire data.
-
-This page explains how to send data from Python to Mackerel.
+This page explains how to send traces from Python applications to Mackerel.
 
 [:contents]
 
-## OpenTelemetry for Python
+## Overview
 
-OpenTelemetry provides an SDK for Python.
+Mackerel collects traces using the OpenTelemetry mechanism (instrumentation). While there are various ways to collect OpenTelemetry-compatible traces, this page explains zero-code instrumentation, a method that allows you to send traces without modifying your application's implementation.
 
-In addition to this SDK, you can use SDKs for Django and AWS to instrument various areas.
+<div class="note">
+  <p>📝 Note</p>
+  <p>Python zero-code instrumentation is achieved by using an agent that modifies library functions at runtime, allowing you to collect telemetry data such as traces without changing your code. For more details, see <a href="https://opentelemetry.io/docs/zero-code/python/">Python zero-code instrumentation</a>.</p>
+</div>
 
-[https://opentelemetry.io/docs/languages/python/instrumentation/:embed:cite]
+## Requirements
 
-### Is it appropriate to use a Collector?
+According to the OpenTelemetry [Version support](https://opentelemetry.io/docs/languages/python/#version-support), Python must be the specified version or higher.
 
-When sending data to Mackerel, you can either send it directly from the SDK or use a Collector.
+- Python 3.9 or higher
 
-Refer to the following page to decide whether to use a Collector.
+## Installation
 
-[Deciding whether to use Collector](https://mackerel.io/docs/entry/tracing/guide/what-is-opentelemetry#using-collector-or-not)
+To send traces from your application to Mackerel, do the following:
 
-## How to get started
+1. Install packages
+2. Run your application through the agent
 
-There are multiple web frameworks and servers available for Python, but this page explains how to get started with `Django` and `Gunicorn`. You can instrument other frameworks such as Flask and FastAPI using almost the same approaches.
+### 1. Install packages
 
-You can implement Mackerel's tracing feature by following the steps below.
-
-1. Add packages
-2. Initial setup
-3. Gunicorn settings
-4. Add custom instrumentation (optional)
-
-### 1. Add packages
-
-Use the following packages.
+Run the following command to install the necessary packages for using OpenTelemetry for Python.
 
 ```bash
-pip install opentelemetry-api \
-  opentelemetry-exporter-otlp-proto-http \
-  opentelemetry-instrumentation-django \
-  opentelemetry-instrumentation-dbapi \
-  opentelemetry-sdk
+pip install opentelemetry-distro opentelemetry-exporter-otlp
 ```
 
-This command installs packages for instrumenting Django and the database.
+Next, use the `opentelemetry-bootstrap` command to install the instrumentation libraries that match the packages in your site-packages folder.
 
-There are also packages for various other libraries such as AWS, Jinja, and Redis, which can be found on the OpenTelemetry website.
+```bash
+opentelemetry-bootstrap -a install
+```
+
+OpenTelemetry supports many Python packages and provides individual instrumentation libraries for each of them. Available packages can be searched on the following page.
 
 [https://opentelemetry.io/ecosystem/registry/?language=python&component=instrumentation:embed:cite]
 
-### 2. Initial setup
 
-To send OpenTelemetry data to Mackerel, you need to configure the following items.
+<div class="note">
+  <p>📝 Note</p>
+  <p>If there is no instrumentation library for your framework or application, you can implement manual instrumentation. For more details, see <a href="https://opentelemetry.io/docs/languages/python/instrumentation/">Instrumentation | OpenTelemetry</a> in the official OpenTelemetry documentation.</p>
+</div>
 
-* Resource
-* SpanProcessor
+### 2. Run your application through the agent
 
-For example, the following configuration allows you to send data directly from the SDK to Mackerel.
+When using zero-code instrumentation, you can automatically send traces from your application by running it through `opentelemetry-instrument`.
 
-```python
-import os
-import socket
-import MySQLdb
-from opentelemetry import trace
-from opentelemetry.exporter.otlp.proto.http import Compression
-from opentelemetry.exporter.otlp.proto.http.trace_exporter import OTLPSpanExporter
-from opentelemetry.instrumentation.django import DjangoInstrumentor
-from opentelemetry.instrumentation.dbapi import trace_integration
-from opentelemetry.sdk.resources import Resource
-from opentelemetry.sdk.trace import TracerProvider
-from opentelemetry.sdk.trace.export import BatchSpanProcessor, ConsoleSpanExporter
-from opentelemetry.semconv.resource import ResourceAttributes
+By setting your Mackerel API key with write permissions in the `MACKEREL_APIKEY` environment variable and executing the command below, you can send your traces on Mackerel under the service name `my-sample-app`.
 
-def instrument():
-    tracer_provider = TracerProvider(resource=Resource.create({
-        ResourceAttributes.SERVICE_NAME: "acme_service",
-        ResourceAttributes.SERVICE_VERSION: "vX.Y.Z",
-        ResourceAttributes.DEPLOYMENT_ENVIRONMENT: "production",
-        ResourceAttributes.HOST_NAME: socket.gethostname(),
-        ResourceAttributes.PROCESS_PID: os.getpid(),
-    }))
-    tracer_provider.add_span_processor(
-        # ConsoleSpanExporter is useful during debugging.
-        # BatchSpanProcessor(ConsoleSpanExporter())
-
-        BatchSpanProcessor(OTLPSpanExporter(
-            endpoint="https://otlp-vaxila.mackerelio.com/v1/traces",
-            headers={
-              "Mackerel-Api-Key": os.environ["MACKEREL_API_KEY"],
-              "Accept": "*/*",
-            },
-            compression=Compression.Gzip
-        ))
-    )
-    trace.set_tracer_provider(tracer_provider)
-
-    DjangoInstrumentor().instrument()
-    trace_integration(MySQLdb, "connect", "mysql")
+```sh
+opentelemetry-instrument \
+    --traces_exporter otlp \
+    --metrics_exporter none \
+    --logs_exporter none \
+    --service_name my-sample-app \
+    --exporter_otlp_traces_endpoint https://otlp-vaxila.mackerelio.com/v1/traces \
+    --exporter_otlp_traces_headers "Mackerel-Api-Key=${MACKEREL_APIKEY},Accept='*/*'" \
+    --exporter_otlp_traces_protocol http/protobuf \
+    python myapp.py  # Replace this line with your application's startup command.
 ```
 
-In this example, the following items are set.
+- Setting `--traces_exporter` to `console` will output traces to standard output.
+- `--service_name` is the service name of the trace (the value of the `service.name` attribute).
+- `--exporter_otlp_traces_endpoint` specifies the destination for sending traces.
+  - To send directly to Mackerel, specify `https://otlp-vaxila.mackerelio.com/v1/traces`.
+  - To send via a Collector, specify `http://<Collector address:port>/v1/traces`.
+- `${MACKEREL_APIKEY}` specifies the Mackerel API key. Define an API key with Write permission from the [API key list](https://mackerel.io/my?tab=apikeys) as an environment variable in the system where the application runs.
+  - It will work if you write the API key directly instead of using an environment variable.
 
-* Resource
-  * By setting the Resource of TracerProvider, you can identify where the data came from.
-* Endpoint
-  * By setting `https://otlp-vaxila.mackerelio.com/v1/traces`, the data will be sent directly to Mackerel.
-  * If using a Collector, set the Collector's endpoint (e.g., `http://localhost:4318/v1/traces`).
-* Headers
-  * Setting the `Mackerel-Api-Key` and `Accept` headers enables communication with Mackerel.
-  * Set the `Mackerel-Api-Key` header to the API key with write permissions issued by Mackerel. It may take about a minute for changes to take effect after modifying the API key permissions.
-  * When using Collector, headers are not required.
-* Compression
-  * You can specify the data compression method when sending data. If not specified, data will not be compressed.
+## Viewing sent traces
 
-### 3. Configuring the HTTP server
+Sent traces can be verified by following these steps:
 
-For servers that fork processes like `Gunicorn`, you need to configure OpenTelemetry after forking.
+1. Select "[APM](https://mackerel.io/my/apm)" from the menu<br>
+2. Select the service name
+  [f:id:mackerelio:20260109153548j:plain]
+3. Select the "Traces" tab
+  [f:id:mackerelio:20260109153629j:plain]
+4. Select a trace from the trace list to view its details
+  [f:id:mackerelio:20260109153349p:plain]
 
-To do this, call the function you created earlier in the Gunicorn configuration file, such as `gunicorn.conf.py`.
-
-```python
-def post_fork(server, worker):
-    instrument()
-```
-
-If you are using `uWSGI`, call it within `@postfork`.
-
-```python
-@postfork
-def init_tracing():
-    instrument()
-```
-
-It can also be called from `wsgi.py`.
-
-```python
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mysite.settings')
-
-instrument()
-```
-
-If you are using Django's built-in `manage.py`, call it in `main`.
-
-```python
-def main():
-    """Run administrative tasks."""
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'message.settings')
-
-    # Add the following line
-    instrument()
-
-    try:
-        from django.core.management import execute_from_command_line
-    ...
-```
-
-### 4. Adding custom instrumentation (optional)
-
-By adding custom instrumentation, you can instrument any range.
-
-Instrumentation makes it possible to record variable values and processing times.
-
-you can add instrumentation using `start_as_current_span`, as shown below.
-
-```python
-tracer = trace.get_tracer("my.tracer.name")
-
-def awesome_action(id: int):
-    with tracer.start_as_current_span("awesome_action") as span:
-        span.set_attribute("id", id)
-
-        # ... existing processing
-```
-
-Other instrumentation approaches are available. For details, refer to the OpenTelemetry documentation.
-
-[https://opentelemetry.io/docs/languages/python/instrumentation/:embed:cite]
+That’s a wrap on setting up zero-code instrumentation and sending traces of your Python applications to Mackerel.

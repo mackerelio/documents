@@ -1,185 +1,97 @@
 ---
-Title: トレース - PythonにOpenTelemetryを導入する
+Title: PythonのアプリケーションからMackerelにトレースを送信する
 Date: 2025-03-13T16:40:22+09:00
 URL: https://mackerel.io/ja/docs/entry/tracing/installations/python
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/6802418398333960658
 ---
 
-MackerelはOpenTelemetryの仕組み (計装)を利用してデータを取得しています。
-
-このページではPythonのデータをMackerelに送信する方法を解説します。
+このページでは、PythonのアプリケーションからトレースをMackerelに送信する方法を解説します。
 
 [:contents]
 
-## Python向けOpenTelemetry
+## 概要
 
-OpenTelemetry には Python用のSDKが用意されています。
+MackerelはOpenTelemetryの仕組み（計装）を利用してトレースを取得します。OpenTelemetryに対応したトレースはさまざまな方法で取得できますが、今回はゼロコード計装と呼ばれる、アプリケーションの実装を変更せずにトレースを送信する方法を解説します。
 
-このSDKに加えて、DjangoやAWS用のSDKを使用すると、色々な範囲を計装できます。
+<div class="note">
+<p>📝 補足</p>
+<p>Pythonのゼロコード計装は、実行時にライブラリ関数を変更するエージェントを利用して、トレースといったテレメトリーデータを取得できるようにすることで実現されています。</p>
+<p>詳しくはOpenTelemetry公式ドキュメントの <a href="https://opentelemetry.io/ja/docs/zero-code/python/">Pythonゼロコード・計装 | OpenTelemetry</a> をご確認ください。</p>
+</div>
 
-[https://opentelemetry.io/ja/docs/languages/python/instrumentation/:embed:cite]
+## 動作要件
 
-### Collectorを使用するべきか
+OpenTelemetryの[動作要件](https://opentelemetry.io/ja/docs/languages/python/#version-support)として、Pythonが指定されたバージョン以上である必要があります。
 
-データをMackerelに送信する際に、SDKから直接送信するだけではなく、Collectorを使うこともできます。
-
-Collectorを使うかどうかを決める際は以下のページを参考にしてください。
-
-[Collectorを使うかどうかの判断について](https://mackerel.io/ja/docs/entry/tracing/guide/what-is-opentelemetry#using-collector-or-not)
+- Python 3.9以上
 
 ## 導入方法
 
-Pythonには複数のWebフレームワークやサーバーが存在しますが、このページでは `Django` と `Gunicorn` を使っている場合の導入方法を説明します。 FlaskやFastAPIなど、他のフレームワークを使っている場合もほぼ同じ方法で計装することができます。
+アプリケーションからMackerelへトレースを送信するために、以下をおこないます。
 
-以下のステップでMackerelトレーシング機能を導入できます。
+1. パッケージのインストール
+2. エージェントを経由してアプリケーションを実行
 
-1. パッケージ追加
-2. 初期設定
-3. Gunicornの設定
-4. 独自の計装の追加 (任意)
+### 1. パッケージのインストール
 
-### 1. パッケージ追加
-
-以下のパッケージを使用します。
+以下のコマンドで、PythonでのOpenTelemetry利用に必要なパッケージをインストールします。
 
 ```bash
-pip install opentelemetry-api \
-  opentelemetry-exporter-otlp-proto-http \
-  opentelemetry-instrumentation-django \
-  opentelemetry-instrumentation-dbapi \
-  opentelemetry-sdk
+pip install opentelemetry-distro opentelemetry-exporter-otlp
 ```
 
-このコマンドでは DjangoとDBを計装をするパッケージをインストールしています。
+つづいて、`opentelemetry-bootstrap` コマンドを利用して、site-packages フォルダに存在するパッケージに対応する計装ライブラリをインストールします。
 
-他にもAWSやJinja、Redis用など色々なライブラリに対応したパッケージがあり、OpenTelemetryのサイトで見つけることができます。
-
-[https://opentelemetry.io/ecosystem/registry/?language=python&component=instrumentatio:embed:cite]
-
-### 2. 初期設定
-
-OpenTelemetryのデータをMackerelに送信するためには、以下の項目を設定する必要があります。
-
-* Resource
-* SpanProcessor
-
-例えば、以下のようにすると、SDKから直接Mackerelに送信することができます。
-
-```python
-import os
-import socket
-import MySQLdb
-from opentelemetry import trace
-from opentelemetry.exporter.otlp.proto.http import Compression
-from opentelemetry.exporter.otlp.proto.http.trace_exporter import OTLPSpanExporter
-from opentelemetry.instrumentation.django import DjangoInstrumentor
-from opentelemetry.instrumentation.dbapi import trace_integration
-from opentelemetry.sdk.resources import Resource
-from opentelemetry.sdk.trace import TracerProvider
-from opentelemetry.sdk.trace.export import BatchSpanProcessor, ConsoleSpanExporter
-from opentelemetry.semconv.resource import ResourceAttributes
-
-def instrument():
-    tracer_provider = TracerProvider(resource=Resource.create({
-        ResourceAttributes.SERVICE_NAME: "acme_service",
-        ResourceAttributes.SERVICE_VERSION: "vX.Y.Z",
-        ResourceAttributes.DEPLOYMENT_ENVIRONMENT: "production",
-        ResourceAttributes.HOST_NAME: socket.gethostname(),
-        ResourceAttributes.PROCESS_PID: os.getpid(),
-    }))
-    tracer_provider.add_span_processor(
-        # デバッグ時にはConsoleSpanExporterが便利
-        # BatchSpanProcessor(ConsoleSpanExporter())
-
-        BatchSpanProcessor(OTLPSpanExporter(
-            endpoint="https://otlp-vaxila.mackerelio.com/v1/traces",
-            headers={
-              "Mackerel-Api-Key": os.environ["MACKEREL_API_KEY"],
-              "Accept": "*/*",
-            },
-            compression=Compression.Gzip
-        ))
-    )
-    trace.set_tracer_provider(tracer_provider)
-
-    DjangoInstrumentor().instrument()
-    trace_integration(MySQLdb, "connect", "mysql")
+```bash
+opentelemetry-bootstrap -a install
 ```
 
-この例では次の項目を設定しています。
+OpenTelemetryはPythonのさまざまなパッケージをサポートしており、パッケージごとに個別の計装ライブラリが用意されています。提供されているパッケージは以下のページで検索できます。
 
-* Resource
-  * TracerProviderのResourceを設定することで、データがどこから来たかわかるようになります。
-* Endpoint
-  * `https://otlp-vaxila.mackerelio.com/v1/traces` と設定することで、データを直接Mackerelに送信するようになります。
-  * Collectorを利用する場合は、Collectorのエンドポイント (`http://localhost:4318/v1/traces` など) を設定してください。
-* Headers
-  * `Mackerel-Api-Key` と `Accept` のヘッダーを設定することでMackerelと通信することができます。
-  * `Mackerel-Api-Key` には、Mackerelで発行された書き込み権限のあるAPIキーを設定してください。APIキーの権限を変更した際は反映まで1分ほどお待ちください。
-  * Collectorを利用する場合、ヘッダーは必要ないでしょう。
-* Compression
-  * データを送信する時にデータの圧縮方法を指定することができます。指定しなかった場合は圧縮されません。
+[https://opentelemetry.io/ecosystem/registry/?language=python&component=instrumentation:embed:cite]
 
-### 3. HTTPサーバーの設定
+<div class="note">
+<p>📝 補足</p>
+<p>お使いのフレームワークやアプリケーション向けの計測ライブラリが存在しない場合は、独自に計装することもできます。</p>
+<p>詳しくはOpenTelemetry公式ドキュメントの <a href="https://opentelemetry.io/ja/docs/languages/python/instrumentation/">Instrumentation | OpenTelemetry</a>をご確認ください。</p>
+</div>
 
-`Gunicorn` のようにプロセスをフォークして動くサーバーの場合、フォークした後にOpenTelemetryを設定する必要があります。
+### 2. エージェントを経由してアプリケーションを実行
 
-そのため、`gunicorn.conf.py` などGunicornの設定ファイルで先ほど作成した関数を呼び出します。
+ゼロコード計装を利用する場合、`opentelemetry-instrument` を経由してPythonアプリケーションを実行することで、アプリケーションから自動でトレースを送信できます。
 
-```python
-def post_fork(server, worker):
-    instrument()
+環境変数 `MACKEREL_APIKEY` にMackerelのWrite権限を持つAPIキーを設定した状態で以下のように実行することで、`my-sample-app` というサービス名でMackerelにトレースが送信されます。
+
+```sh
+opentelemetry-instrument \
+    --traces_exporter otlp \
+    --metrics_exporter none \
+    --logs_exporter none \
+    --service_name my-sample-app \
+    --exporter_otlp_traces_endpoint https://otlp-vaxila.mackerelio.com/v1/traces \
+    --exporter_otlp_traces_headers "Mackerel-Api-Key=${MACKEREL_APIKEY},Accept='*/*'" \
+    --exporter_otlp_traces_protocol http/protobuf \
+    python myapp.py  # この行は起動したいアプリケーションの起動コマンドに置き換えてください
 ```
 
-`uWSGI` を使っている場合は `@postfork` の中で呼び出します。
+- `--traces_exporter` を `console` にするとトレースが標準出力に出力されます。
+- `--service_name` はトレースのサービス名（`service.name`属性の値）になります。
+- `--exporter_otlp_traces_endpoint` はトレースの送信先の指定です。
+  - Mackerelに直接送信する場合は `https://otlp-vaxila.mackerelio.com/v1/traces` を指定します。
+  - Collectorを利用して送信する場合は `http://<Collectorのアドレス:ポート>/v1/traces` を指定します。
+- `${MACKEREL_APIKEY}` はMackerelのAPIキーの指定です。[APIキーの一覧](https://mackerel.io/my?tab=apikeys)から、Write権限のあるAPIキーをアプリケーションが動作するシステム内の環境変数に定義してください。
+  - 環境変数ではなくAPIキーを直接記述しても動作します。
 
-```python
-@postfork
-def init_tracing():
-    instrument()
-```
+## トレースを確認する
 
-他にも `wsgi.py` で呼び出すことが可能です。
+送信されたトレースは以下の手順で確認できます。
 
-```python
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mysite.settings')
+1. メニューの「[APM](https://mackerel.io/my/apm)」を選択<br>
+2. サービス名を選択
+  [f:id:mackerelio:20251224180534j:plain]
+3. 「トレース」タブを選択
+  [f:id:mackerelio:20251224180530j:plain]
+4. トレース一覧からトレースを選択すると詳細が確認できます
+  [f:id:mackerelio:20251224180525p:plain]
 
-instrument()
-```
-
-Django 内蔵の `manage.py` を使用している場合は `main` の中で呼び出します。
-
-```python
-def main():
-    """Run administrative tasks."""
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'message.settings')
-
-    # ↓の行を追加
-    instrument()
-
-    try:
-        from django.core.management import execute_from_command_line
-    ...
-```
-
-### 4. 独自の計装の追加 (任意)
-
-独自の計装を追加することで、任意の範囲を計装することができます。
-
-計装によって、変数の値や処理時間を記録することが出来るようになります。
-
-具体的には、下のように `start_as_current_span` を使うと計装が追加できます。
-
-```python
-tracer = trace.get_tracer("my.tracer.name")
-
-def awesome_action(id: int):
-    with tracer.start_as_current_span("awesome_action") as span:
-        span.set_attribute("id", id)
-
-        # ... 既存の処理
-```
-
-計装の方法は他にも用意されています。詳細はOpenTelemetryのドキュメントを参照してください。
-
-[https://opentelemetry.io/ja/docs/languages/python/instrumentation/:embed:cite]
+以上、Pythonで作成されたアプリケーションにゼロコード計装をおこなって、Mackerelへトレースを投稿する方法のご紹介でした。
