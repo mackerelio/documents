@@ -166,3 +166,16 @@ If `Critical only` is On, Warning notifications will not be sent. Detailed notif
 - Notifications will be sent for error levels of Critical or higher (Critical, Unknown)
 - OK notifications will be sent for alerts that have previously exceeded Critical
 
+## Channel Suspension
+
+When notification failures to a specific notification channel continue for a certain period of time, that notification channel will be put into a **suspended** state. Notifications to suspended notification channels will not be sent.
+
+When there are suspended notification channels, a warning will be displayed in the "Channels" section of the side menu and on the channel list page.
+
+![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20260120/20260120124009.png)
+
+To unsuspend, click the ⚠️ icon next to the notification channel.
+
+![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20260120/20260120124107.png)
+
+**Note**: If you unsuspend without resolving the cause of the notification failure, it will be suspended again. Be sure to resolve the cause of the notification failure before unsuspending.

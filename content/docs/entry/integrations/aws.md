@@ -266,6 +266,7 @@ Create and attach your own policies or specify them in Inline Policies.
                 "codebuild:BatchGetProjects",
                 "codebuild:ListProjects",
                 "connect:ListInstances",
+                "connect:ListTagsForResource",
                 "dynamodb:Describe*",
                 "dynamodb:List*",
                 "ds:DescribeDirectories",

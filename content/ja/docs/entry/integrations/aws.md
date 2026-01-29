@@ -270,6 +270,7 @@ Mackerelの設定画面でタグを指定します。連携ホスト数を確認
                 "codebuild:BatchGetProjects",
                 "codebuild:ListProjects",
                 "connect:ListInstances",
+                "connect:ListTagsForResource",
                 "dynamodb:Describe*",
                 "dynamodb:List*",
                 "ds:DescribeDirectories",

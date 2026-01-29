@@ -203,6 +203,62 @@ mkr metrics --host <hostId> --name <name> --from <epoch seconds> --to <epoch sec
 ]
 ```
 
+### メトリックの最新値の取得
+
+mkrではfetchサブコマンドでメトリックの最新値を取得できます。このコマンドを実行するためには、ホストIDと、`--name`オプションに対象のメトリック名を指定する必要があります。指定可能なメトリック名が不明な場合は、[メトリックの名前の取得](#メトリックの名前の取得)を確認してください。
+
+以下は、ホストID `5edmqp8NvZ3`の`loadavg1`の最新値を取得する例です。
+
+```
+% mkr fetch --name loadavg1 5edmqp8NvZ3
+{
+    "5edmqp8NvZ3": {
+        "loadavg1": {
+            "time": 1768544400,
+            "value": 0
+        }
+    }
+}
+```
+
+複数のメトリックを対象にする場合は、`--name`を複数指定します。以下は、`loadavg1`と`loadavg5`を対象にする例です。
+
+```
+% mkr fetch --name loadavg1 --name loadavg5 5edmqp8NvZ3
+{
+    "5edmqp8NvZ3": {
+        "loadavg1": {
+            "time": 1768544400,
+            "value": 0
+        },
+        "loadavg5": {
+            "time": 1768544400,
+            "value": 0
+        }
+    }
+}
+```
+
+複数のホストを対象にする場合は、ホストIDをスペース区切りで記述します。以下は、ホストID`5edmqp8NvZ3`と`4SCeyNhtR8f`を対象にする例です。
+
+```
+% mkr fetch --name loadavg1 5edmqp8NvZ3 4SCeyNhtR8f
+{
+    "4SCeyNhtR8f": {
+        "loadavg1": {
+            "time": 1768547400,
+            "value": 0
+        }
+    },
+    "5edmqp8NvZ3": {
+        "loadavg1": {
+            "time": 1768547400,
+            "value": 0.06666666666666667
+        }
+    }
+}
+```
+
 ### メトリック投稿
 
 mkrではthrowサブコマンドでメトリックを投稿できます。ホストIDを指定することでホストメトリックを、サービス名を指定することでサービスメトリックを投稿できます。
@@ -250,6 +306,25 @@ example.throwD  2       1713273764
 ```
 % mackerel-plugin-mysql | mkr throw --host 2eQGEaLxibb
 ```
+
+### ホストの退役
+
+mkrではretireサブコマンドでホストを退役できます。
+
+以下は、ホストID `5EorDTfWivs`を退役する例です。
+
+```
+% mkr retire 5EorDTfWivs
+Retire following hosts.
+  5EorDTfWivs
+Are you sure? (y/n) [y]: y
+   retired 5EorDTfWivs
+```
+
+⚠️ 注意事項
+
+* 「Are you sure?」に対し、yを入力してEnterを押すと実行されます。この操作は取り消せないので注意してください。
+* mackerel-agentがインストールされた環境で、ホストIDを指定せずに実行すると自身が対象になります。
 
 ### サービス一覧の取得
 
@@ -749,3 +824,26 @@ mkr aws-integrations
 ```
 
 取得可能な情報については、[API仕様の「AWSインテグレーション設定の一覧」](https://mackerel.io/ja/api-docs/entry/aws-integration#list)を参照してください。
+
+### チェック監視のテスト実行
+
+mkrでは、checksサブコマンドでチェック監視のテスト実行ができます。テスト実行では、チェック監視の結果がCRITICALやWARNINGであってもアラートは発生しません。
+
+実行例
+
+```
+% mkr checks run
+TAP version 13
+1..1
+not ok 1 - check-log
+  ---
+  command: [check-log, --file, /var/log/test.log, --pattern, ERROR, --check-first, --return]
+  status: CRITICAL
+  stdout: |-
+    LOG CRITICAL: 1 warnings, 1 criticals for pattern /ERROR/.
+    [/var/log/test.log]
+    ERROR
+  exitCode: 2
+  ...
+     error Failed 1/1 tests, 0.00% okay
+```

@@ -33,8 +33,8 @@ The check-log plugin supports the create method (creating a new file with the sa
 | --warning-level       |       | Raise a Warning alert if the value extracted by the detection pattern exceeds the specified value                    |          |
 | --critical-level      |       | Raise a Critical alert if the value extracted by the detection pattern exceeds the specified value                   |          |
 | --return              | -r    | Notify of log lines that match the pattern with an alert [*3](#annotation3)                                                         |          |
-| --search-in-directory |       | Specify the directory path where the monitored files are located (in Windows environment, use with `--file-pattern`) |          |
-| --file-pattern        | -F    | Specify files to be monitored by regular expression [*4](#annotation4)                                                                  |          |
+| --search-in-directory |       | Specify the directory path where the files to be monitored are located. When using this option, use `--file-pattern` instead of `--file` to specify the monitored files |          |
+| --file-pattern        | -F    | Specify monitored files using a regular expression [*4](#annotation4). On Windows, it is recommended to use this in conjunction with `--search-in-directory` ([Example](#windows-file-pattern)) |          |
 | --icase               | -i    | Case-insensitive matching                                                                                            |          |
 | --state-dir           | -s    | Specify the directory path where the State file is to be saved                                                       |          |
 | --no-state            |       | All logs are checked without State file                                                                              |          |
@@ -177,6 +177,8 @@ command = ["check-log", "--file", "/var/log/access.log", "--pattern", "\\\"ERROR
 
 ### Targeting multiple log files
 
+<h4 id="linux-file-pattern">for Linux</h4>
+
 When targeting multiple files instead of a single file, the `--file` option supports glob patterns, while the `--file-pattern` option supports regular expressions.
 The following example targets log files matching `/var/log/*.log`.
 
@@ -193,6 +195,8 @@ The following example targets files matching the regular expression `/var/log/ac
 [plugin.checks.access_log]
 command = ["check-log", "--file-pattern", "/var/log/access.log.\\d{4}-\\d{2}-\\d{2}", "--pattern", "FATAL"]
 ```
+
+<h4 id="windows-file-pattern">for Windows</h4>
 
 When using regular expressions with the `--file-pattern` option to specify files to monitor in a Windows environment, use the `--search-in-directory` option to avoid conflicts between the directory separator `\` and regular expression escaping.
 

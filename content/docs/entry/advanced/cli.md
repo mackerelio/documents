@@ -201,6 +201,62 @@ If not specified `--from` or `--to` options, `--from` is set to be 0, and `--to`
 ]
 ```
 
+### Fetch latest metric
+
+With mkr, you can get the latest metric values using the fetch subcommand. To execute this command, you need to specify a host ID and the target metric name using the `--name` option. If you are unsure of the available metric names, please refer to [Get metric names](#Get-metric-names).
+
+The following is an example of getting the latest value of `loadavg1` for host ID `5edmqp8NvZ3`.
+
+```
+% mkr fetch --name loadavg1 5edmqp8NvZ3
+{
+    "5edmqp8NvZ3": {
+        "loadavg1": {
+            "time": 1768544400,
+            "value": 0
+        }
+    }
+}
+```
+
+To target multiple metrics, specify multiple `--name` options. The following is an example of targeting `loadavg1` and `loadavg5`.
+
+```
+% mkr fetch --name loadavg1 --name loadavg5 5edmqp8NvZ3
+{
+    "5edmqp8NvZ3": {
+        "loadavg1": {
+            "time": 1768544400,
+            "value": 0
+        },
+        "loadavg5": {
+            "time": 1768544400,
+            "value": 0
+        }
+    }
+}
+```
+
+To target multiple hosts, specify the host IDs separated by spaces. The following is an example of targeting host IDs `5edmqp8NvZ3` and `4SCeyNhtR8f`.
+
+```
+% mkr fetch --name loadavg1 5edmqp8NvZ3 4SCeyNhtR8f
+{
+    "4SCeyNhtR8f": {
+        "loadavg1": {
+            "time": 1768547400,
+            "value": 0
+        }
+    },
+    "5edmqp8NvZ3": {
+        "loadavg1": {
+            "time": 1768547400,
+            "value": 0.06666666666666667
+        }
+    }
+}
+```
+
 ### Post metrics
 
 With mkr, you can post a metric with the throw subcommand.  
@@ -251,6 +307,25 @@ Metric plugins that can post metrics from mackerel-agent, such as the official m
 ```
 % mackerel-plugin-mysql | mkr throw --host 2eQGEaLxibb
 ```
+
+### Retiring Hosts
+
+With mkr, you can retire hosts using the retire subcommand.
+
+The following is an example of retiring a host with host ID `5EorDTfWivs`.
+
+```
+% mkr retire 5EorDTfWivs
+Retire following hosts.
+  5EorDTfWivs
+Are you sure? (y/n) [y]: y
+   retired 5EorDTfWivs
+```
+
+⚠️ Notes
+
+* When you enter y and press Enter in response to "Are you sure?", the operation will be executed. Please note that this operation is irreversible.
+* If you run this command without specifying a host ID in an environment where mackerel-agent is installed, the agent's own host will be targeted.
 
 ### Getting the Service List
 
@@ -751,3 +826,26 @@ Example
 ```
 
 For information on what can be retrieved, please refer to the [List AWS Integration Settings section of the API specifications](https://mackerel.io/api-docs/entry/aws-integration#list).
+
+### Test Execution for Check Monitoring
+
+With mkr, you can perform test execution of check monitoring using the checks subcommand. During test execution, alerts will not be generated even if the check monitoring result is CRITICAL or WARNING.
+
+Example
+
+```
+% mkr checks run
+TAP version 13
+1..1
+not ok 1 - check-log
+  ---
+  command: [check-log, --file, /var/log/test.log, --pattern, ERROR, --check-first, --return]
+  status: CRITICAL
+  stdout: |-
+    LOG CRITICAL: 1 warnings, 1 criticals for pattern /ERROR/.
+    [/var/log/test.log]
+    ERROR
+  exitCode: 2
+  ...
+     error Failed 1/1 tests, 0.00% okay
+```
