@@ -149,7 +149,7 @@ Mackerelでの設定が完了したら、Amazon EventBridgeでイベントバス
 |id|string|アラートのID|
 |status|string|アラートのステータス（`ok`, `warning`, `critical`, `unknown`）|
 |isOpen|boolean|アラートのオープンの状態|
-|trigger|string|通知が送信されたトリガー（`monitoring`（監視）, `manual`（手動操作）, `monitorDelete`（監視ルール削除）, `hostRetire`（ホスト退役））|
+|trigger|string|通知が送信されたトリガー（`monitoring`（監視ルール）, `manual close`（手動操作）, `delete monitor`（監視ルール削除）, `retire host`（ホスト退役）, `delete service`（サービス削除）, `anomaly detection manually retraining`（ロール内異常検知の手動による再学習）, `attach external monitoring to a different service`（外形監視に紐付くサービスの変更）)|
 |url|string|アラート詳細のURL|
 |openedAt|number|アラートの発生時刻（エポック秒）|
 |closedAt|number|アラートの解決時刻（エポック秒）|

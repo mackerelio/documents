@@ -29,14 +29,16 @@ To create a new External URL monitor click on the New Monitor button in the uppe
 
 |Configuration item|Description|
 |-----|-----|
-|An alert will be generated if the response time is over the threshold|This External URL monitoring rule can be applied to any service to visualize its response time in the form of a service metrics graph. You can also monitor its response time by specifying a threshold value. <br>`Warning / Critical Threshold`: Even if a value greater than 15 seconds (15,000 ms) is specified, a timeout will occur when there is no response after 15 seconds. <br> `Duration`: This monitors the average value of the response times generated within the past 1 to 10 minutes as specified.|
+|An alert will be generated if the response time is over the threshold|By linking this External URL monitoring to any service, you can set an arbitrary threshold for the response time. See also [About response time service metrics](#responsetime).<br>**Note**: When this option is enabled, the response time will be posted as a service metric for the linked service, and a fee for 1 metric will be charged.|
+|Warning / Critical Threshold|An alert is generated when the response time exceeds the specified number of seconds. Even if a value greater than 15,000 ms (15 seconds) is specified, a timeout will occur when there is no response after 15,000 ms.<br>**Note**: Can be configured when linked to a service.|
+|Duration|This monitors the average value of the response times generated within the past 1 to 10 minutes as specified.<br>**Note**: Can be configured when linked to a service.|
 |Max number of attempts before an alert is triggered|An alert is triggered when an abnormal event equivalent to a Warning/Critical alert occurs a specified number of times consecutively.|
-|Notification interval|If there has been no change to the alert’s condition, even if the designated time is surpassed, the notification will be sent again.|
+|Notification interval|If there has been no change to the alert's condition, even if the designated time is surpassed, the notification will be sent again.|
 |HTTP Request Header|The HTTP Request Header can be specified. If User-Agent is not specified, `User-Agent: mackerel-http-checker/x.y.z` will be sent (`x.y.z` means version number). The default setting for the `Cache-Control` header is `no-cache`.|
 |Request body|Make http request with specified request body.|
 |Status Code Check|An alert is generated if the status code is not the specified code.|
 |Response Body Check|The response body will be checked to make sure a designated string is included. If one is not included, a notification will be sent.|
-|Certification expiration date monitoring|The SSL certificate’s expiration date will be monitored. An alert will be sent when the number of remaining days before the expiration date falls below the threshold.|
+|Certification expiration date monitoring|The SSL certificate's expiration date will be monitored. An alert will be sent when the number of remaining days before the expiration date falls below the threshold.|
 |Do not perform certificate verification when requests are made|You can monitor without verifying the certificate when monitoring a server with a self-signed certificate.|
 |Redirect according to response header|Assess the redirected response as a result.|
 
@@ -63,6 +65,31 @@ To create a new External URL monitor click on the New Monitor button in the uppe
       * Enter the base64-encoded string for the "user:password" (a combination of the credentials) in "xxxxx"
   * Include the credentials in the target URL to be monitored in the form "https://user:password@example.com/"
 
+<h2 id="responsetime">About response time service metrics</h2>
+
+When linked to a service with the "An alert will be generated if the response time is over the threshold" option enabled, the response time will be posted as a service metric for that service.
+
+### How to check service metrics
+
+1. Select the linked service from the [Service list](https://mackerel.io/my/services)
+2. Select the "Service Metrics" tab
+
+The metrics are posted to a graph called "HTTP Response Time". The metric names displayed in the graph are the names of the External URL monitor rules. If some are displayed as alphanumeric strings instead of names, these are metrics from External URL monitors that have already been deleted. If necessary, delete them from the graph definition as described in [About service metric names](#about-service-metric-names) below.
+
+![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20260123/20260123173607.png)
+
+### About service metric names
+
+Response time service metrics can also be used in expressions. When using them in expressions, the service metric name follows this format:
+
+`__externalhttp.responcetime.<monitoring rule ID>`
+
+- The monitoring rule ID is the string at the end of the URL on the External URL monitor edit screen.
+
+You can also check the metric name by clicking the gear icon (graph definition) at the top right of the "HTTP Response Time" graph and hovering over the metric name in the displayed modal.
+
+![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20260123/20260123173741.png)
+
 ## Monitoring source IP addresses of External URL monitors
 This is the same as the source IP address range for Mackerel notification requests. For more information check our [FAQ page](https://support.mackerel.io/hc/en-us/articles/360039701332).
 
@@ -70,9 +97,8 @@ This is the same as the source IP address range for Mackerel notification reques
 This feature can only be used with a paid subscription or in the free trial.
 
 ## Usage Fees
-* Up to 20 monitoring rules are available at no additional charge when there is at least one active standard host
-* If there are no active standard hosts, a fee for one standard host will be charged per unit of 20 monitoring rules
-* If the number of monitoring rules exceeds 20, an additional fee of one standard host will be charged for each additional 20 rules.
+
+Please refer to [How usage fees are calculated](https://support.mackerel.io/hc/en-us/articles/31304727432729).
 
 ## Sample Alert
 When a new monitor has been added it will be displayed in the list in the Monitors page.

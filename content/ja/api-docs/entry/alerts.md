@@ -308,7 +308,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 | -------- | ------          | -----------                                       |
 | `id`     | *string*        | アラートログのid。                                      |
 | `status` | *string*        | ログ発生時点でのアラートのステータス。 `"OK"`、 `"CRITICAL"`、 `"WARNING"`、 `"UNKNOWN"` のいずれかになります。 |
-| `trigger`  | *string* | ログが作成された理由の種別。監視ルール (`"monitoring"`)、手動 (`"manual"`)、監視ルールの削除 (`"monitorDelete"`)、ホストの退役 (`"hostRetire"`)、サービスの削除 (`"serviceDelete"`)、ロール内異常検知の手動による再学習 (`"anomalyDetectionManuallyRetraining"`)、外形監視に紐付くサービスの変更 (`"externalMonitoringServiceChange"`) のいずれかになります。 |
+| `trigger`  | *string* | ログが作成された理由の種別。監視ルール (`"monitoring"`)、手動操作 (`"manual"`)、監視ルール削除 (`"monitorDelete"`)、ホスト退役 (`"hostRetire"`)、サービス削除 (`"serviceDelete"`)、ロール内異常検知の手動による再学習 (`"anomalyDetectionManuallyRetraining"`)、外形監視に紐付くサービスの変更 (`"externalMonitoringServiceChange"`) のいずれかになります。 |
 | `monitorId`  | *string* / *null* | ログを作成した監視ルールのID。リクエスト時点で監視ルールが変更または削除されていると`null`になります。 |
 | `targetValue` | *number* / *null* | アラートログ発生時点での計測値。メトリック監視以外は`null`になります。 |
 | `statusDetail`  | *object* / *null* | 監視対象の状態の詳細。チェック監視の場合にのみ存在します。 [*1](#statusDetail) |

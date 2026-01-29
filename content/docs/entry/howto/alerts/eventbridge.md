@@ -148,7 +148,7 @@ The JSON that will be sent contains the following. (Items may be added at any ti
 |id|string|alert ID|
 |status|string|alert status (`ok`, `warning`, `critical`, `unknown`)|
 |isOpen|boolean|whether or not the alert is open|
-|trigger|string|what triggered the notification (`monitoring`, `manual`, `monitorDelete`, `hostRetire`)|
+|trigger|string|what triggered the notification (`monitoring`, `manual close`, `delete monitor`, `retire host`, `delete service`, `anomaly detection manually retraining`, `attach external monitoring to a different service`)|
 |url|string|URL of the alert details|
 |openedAt|number|time the alert occurred (epoch seconds)|
 |closedAt|number|time the alert resolved (epoch seconds)|
