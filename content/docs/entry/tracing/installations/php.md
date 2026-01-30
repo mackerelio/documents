@@ -103,7 +103,7 @@ OTEL_PROPAGATORS=baggage,tracecontext
 
 After setting the environment variables, traces will be sent when you start the application.
 
-## Verifying sent traces
+## Viewing sent traces
 
 Sent traces can be verified by following these steps:
 
@@ -115,4 +115,4 @@ Sent traces can be verified by following these steps:
 4. Select a trace from the trace list to view its details
   [f:id:mackerelio:20260109153349p:plain]
 
-This completes the guide on how to perform zero-code instrumentation for PHP applications and send traces to Mackerel.
+That’s a wrap on setting up zero-code instrumentation and sending traces of your PHP applications to Mackerel.
