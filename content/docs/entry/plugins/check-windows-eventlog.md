@@ -26,7 +26,7 @@ Some options have priority. See [Option Priority](#option-priority) for details.
 | --warning-over | -w | Warning alert occurs if the number of lines matching the detection pattern exceeds the specified value. | 0 |
 | --critical-over | -c | Critical alert occurs if the number of lines matching the detection pattern exceeds the specified value. | 0 |
 | --status-as | | Overwrite the monitoring status. For Example, If you specify `UNKNOWN=CRITICAL`, the monitoring status will become CRITICAL when it is UNKNOWN. Multiple values can be specified, separated by commas. |  |
-| --return | -r | Alerts you to log lines that match the pattern, Up to 1024 characters. |  |
+| --return | -r | Alerts you to log lines that match the pattern, Up to 1024 characters.<br>See [--return option format specification](#return-format). |  |
 | --state-dir | -s | Specify the directory path where the State file is to be saved. | See [About State File](#state-file). |
 | --no-state | | Target all logs without use State file. |  |
 | --fail-first | | Alerts on first check immediately after setting up the plugin. |  |
@@ -51,6 +51,29 @@ Some options have priority. See [Option Priority](#option-priority) for details.
 | Information | Warning |
 
 Event level other than those listed above are not supported.
+
+<h3 id="return-format">--return option format specification</h3>
+
+The `--return` option allows you to alert log lines that match the pattern.
+
+- When `-r` is specified alone: The output will be in the format `{{source}}:{{message}}`
+- When specified like `-r="format"`: The placeholders will be replaced with actual values
+
+Available placeholders:
+
+- `{{source}}`: Event source
+- `{{id}}`: Event ID
+- `{{message}}`: Event message
+
+Example:
+```
+-r="Source: {{source}}, ID: {{id}}, Message: {{message}}"
+```
+
+The output will look like this:
+```
+Source: mackerel-agent, ID: 1, Message: 2026/01/28 06:38:26 command.go:363: DEBUG <command> Posting metrics succeeded.
+```
 
 <h3 id="option-priority">Option Priority</h3>
 

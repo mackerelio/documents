@@ -26,7 +26,7 @@ check-windows-eventlog は Windows イベントログの監視を行うプラグ
 | --warning-over | -w | 検出パターンにマッチする行が指定値を超えたら Warning アラートを発生 | 0 |
 | --critical-over | -c | 検出パターンにマッチする行が指定値を超えたら Critical アラートを発生 | 0 |
 | --status-as | | 監視ステータスの上書き。たとえば `UNKNOWN=CRITICAL` と記述した場合、監視ステータスが UNKNOWN のときは CRITICAL になる。カンマ区切りで複数指定が可能 |  |
-| --return | -r | パターンにマッチしたログ行をアラートで通知する（最大1024文字まで） |  |
+| --return | -r | パターンにマッチしたログ行をアラートで通知する（最大1024文字まで）<br>[--returnオプションのフォーマット指定](#return-format) を参照 |  |
 | --state-dir | -s | State ファイルの保存先ディレクトリパスを指定 | [Stateファイルについて](#state-file) を参照 |
 | --no-state | | Stateファイルを使用せず全てのログを対象とする |  |
 | --fail-first | | プラグインの設定直後の初回チェック時にアラートを発生させる |  |
@@ -51,6 +51,29 @@ check-windows-eventlog は Windows イベントログの監視を行うプラグ
 | Information | Warning |
 
 上記以外のイベントレベルには対応していません
+
+<h3 id="return-format">--returnオプションのフォーマット指定</h3>
+
+`--return` オプションを使用することで、パターンにマッチしたログ行をアラートで通知できます。
+
+- `-r` のみを指定した場合：`{{source}}:{{message}}` の形式で出力されます
+- `-r="フォーマット"` のように指定した場合：プレースホルダーが実際の値に置き換えられて出力されます
+
+利用可能なプレースホルダー：
+
+- `{{source}}`：イベントソース
+- `{{id}}`：イベントID
+- `{{message}}`：イベントメッセージ
+
+例：
+```
+-r="Source: {{source}}, ID: {{id}}, Message: {{message}}"
+```
+
+このように出力されます：
+```
+Source: mackerel-agent, ID: 1, Message: 2026/01/28 06:38:26 command.go:363: DEBUG <command> Posting metrics succeeded.
+```
 
 <h3 id="option-priority">オプションの優先度</h3>
 
