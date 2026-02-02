@@ -38,9 +38,15 @@ When a host status changes, automatic operations regarding the alert will not be
 
 Notifications will not be sent for alerts that occur when the host status is “standby”, even if the host status is changed to “working”. In this case, either the host status of the alert has changed afterward or the re-sending interval has been configured and a notification will be sent if the interval is passed.
 
-In the event that a host status is changed to “maintenance” or “poweroff”, alerts that have already occurred will not close automatically, even if threshold abnormalities and communications are restored. Returning the host status to “working” or “standby”, alerts will automatically close once the abnormal state recovers.
+In the event that a host status is changed to "maintenance" or "poweroff", alerts that have already occurred will not close automatically, even if threshold abnormalities and communications are restored. Returning the host status to "working" or "standby", alerts will automatically close once the abnormal state recovers.
 
-## Connectivity Monitoring
+## Creating monitors
+
+You can view a list of monitors in the [Monitors][monitors] page. To create a new monitor, click the "New Monitor" button in the upper right corner.
+
+[monitors]: https://mackerel.io/my/monitors
+
+### Connectivity monitor
 
 Once [mackerel-agent](https://mackerel.io/docs/entry/howto/install-agent) has been installed and launched, connectivity monitoring of hosts will be done automatically.
 
@@ -48,47 +54,117 @@ Connectivity monitoring works by looking at intervals of metric data from macker
 
 [install-agent]: https://mackerel.io/docs/entry/howto/install-agent
 
-## Metric monitoring
+### Host metric monitor and Service metric monitor
 
-Metric data (including custom metrics) can be monitored by setting thresholds, which are configured in two levels: warning and critical.
-
-A threshold is generally configured as a limit greater than/less than a designated value, while CPU usage and memory usage thresholds will be set in relation to the percentage of the total value.
-
-## Monitors
+You can monitor metrics posted to hosts or services by setting thresholds, which are configured in two levels: Warning and Critical.
 
 The following items are included in monitoring rules.
 
-- Name
-- Metric targeted by monitoring
-- Warning parameters
-  - Greater than/less than value
-  - Threshold
-- Critical parameters
-  - Greater than/less than value
-  - Threshold
-- Average value monitoring
-  - Monitor the average value of multiple metric values
-- Services and roles to which the host being monitored belongs
-- Number of maximum attempts
-  - Have an alert will occur when the threshold is continously exceeded. The alert will close if the current state falls below the threshold even once.
-- Notes
-  - Write memos describing the intent of certain monitoring settings or how to deal with an alert when it occurs.
-- Interval of notification retransmissions
-  - Continue to have notifications sent at a set time interval while the alert is still occurring.
+- Metric
+  - Specify the metric to be monitored.
+    - For metric types, see [Metric specifications](https://mackerel.io/docs/entry/spec/metrics).
+    - The target metric cannot be changed after creating the monitoring rule.
+  - Some metrics can be monitored by usage rate.
+    - [About "metric rate monitors"](https://support.mackerel.io/hc/en-us/articles/360040107951)
+- Threshold
+  - Warning condition and Critical condition
+    - Specify the comparison operator and threshold. If Warning and Critical are set to the same condition, a Critical alert will occur.
+  - Average value monitoring
+    - Monitor the average value from the latest metric value, going back the specified number of points in the past. If you specify 1 point, it will monitor the latest metric value.
+    - For details, see [How to calculate average values in average value monitoring](#calculate-average-value).
+- Maximum number of attempts before alert occurs
+  - An alert will occur when the metric value continuously exceeds the threshold. The alert will close if the value falls below the threshold even once.
+- Filter (Host metric monitoring only)
+  - Specify the services and roles to which the monitored host belongs. If none are specified, all hosts will be monitored.
+- Interruption monitoring (Service metric monitoring only)
+  - An alert will occur when the specified time elapses after metric posting is interrupted.
+- Basic settings
+  - Monitor name
+    - The name of the monitoring rule. Duplicates are allowed.
+  - Monitor memo
+    - You can freely describe the intent of the monitoring rule or how to respond when an alert occurs. This content will be displayed on the alert details screen and in alert notifications.
+- Options
+  - Notification re-sending interval
+    - While the alert is still occurring, you can continue to send notifications at the set time interval.
 
-- A few things to keep in mind:
-  - Monitoring threshold values can be changed at any time, but the target metric cannot be changed.
+- Notes:
+  - Monitoring rules are applied to hosts where the target metric has been posted. They will not be applied to hosts where the target metric has never been posted.
+    - If average value monitoring is specified, the rule will be applied when the specified number of metrics have been posted.
   - If a threshold is changed, alerts which were already raised will not be closed automatically, so it is necessary to close those alerts manually.
-  - Hosts can be assigned to multiple services and roles. If no services or roles are designated, all hosts will be targeted by monitoring.
-  - In the case that all roles to which a monitor’s target have been designated are deleted, the monitor’s target will become all hosts.
   - In the case of one metric being targeted by multiple monitors, each monitor will operate individually with its respective parameters.
   - If the timestamp of the latest metric is more than 20 minutes older than the current time or if metrics with a timestamp even older than previously sent metrics are sent, monitoring will not be carried out.
 
-### Creating monitors
+<h4 id="calculate-average-value">How to calculate average values in average value monitoring</h4>
 
-The list of all monitors can be viewed in the [Monitors][monitors] page. To create a new monitor, click the “New Monitor” button in the upper right hand corner, enter the new monitor’s parameters and then click “Create”.
+The average value is calculated from the total value of the most recent specified number of metrics, including the latest metric. Note that it is not based on the specified time (in minutes).
 
-[monitors]: https://mackerel.io/my/monitors
+The following is an example showing which timestamp values are used by average value monitoring to calculate the average when the timestamp of the latest metric is 15:10.
+
+| Timestamp | Value | 3-points avg | 5-points avg | 10-points avg |
+|-----------|-------|-------------|-------------|--------------|
+| 15:00     | 1     |             |             | ✓            |
+| 15:01     | 1     |             |             | ✓            |
+| 15:02     | 1     |             |             | ✓            |
+| 15:03     | 1     |             |             | ✓            |
+| 15:04     | 1     |             |             | ✓            |
+| 15:05     | 1     |             | ✓           | ✓            |
+| 15:06     | No post |           |             |              |
+| 15:07     | 1     |             | ✓           | ✓            |
+| 15:08     | 1     | ✓           | ✓           | ✓            |
+| 15:09     | 1     | ✓           | ✓           | ✓            |
+| 15:10     | 1     | ✓           | ✓           | ✓            |
+
+Additionally, when the timestamp of the latest metric becomes 15:11 at the next monitoring timing, the average value will be calculated from the values at the following timestamps.
+
+- 3-points average
+  - 15:11, 15:10, 15:09
+- 5-points average
+  - 15:11, 15:10, 15:09, 15:08, 15:07
+- 10-points average
+  - 15:11, 15:10, 15:09, 15:08, 15:07, 15:05, 15:04, 15:03, 15:02, 15:01
+
+**Note**
+
+Even if the metric timestamps are not at 1-minute intervals, the calculation method is the same, but if the specified number of metrics do not exist within 24 hours, the average value cannot be calculated. For example, if a metric is posted only once a day, average value monitoring of 2 or more points will not work.
+
+#### Behavior when multiple metrics with different timestamps are posted simultaneously
+
+When multiple metrics with different timestamps are posted simultaneously via cloud integration or the metric posting API, the monitoring rule monitors the value of the latest metric at that time.
+
+For example, when 5 minutes of metrics are posted simultaneously as shown below, the monitoring rule operates on the value at 15:05. Even if values before 15:05 exceed the monitoring condition threshold, an alert will not occur.
+
+| Timestamp | Value |
+|-----------|-------|
+| 15:01     | 1     |
+| 15:02     | 2     |
+| 15:03     | 3     |
+| 15:04     | 4     |
+| 15:05     | 0     |
+
+Average value monitoring and the maximum number of attempts before alert occurs also operate based on the latest metric value.
+
+- When average value monitoring is 3 points, it is calculated from the values at 15:03, 15:04, and 15:05.
+  - Even if the average value exceeds the threshold before 15:05, an alert will not occur if the average value including 15:05 is below the threshold.
+- When the maximum number of attempts before alert occurs is 3 times, it determines whether the values at 15:03, 15:04, and 15:05 continuously exceed the threshold.
+  - Even if the threshold is continuously exceeded before 15:05, an alert will not occur if the value at 15:05 is below the threshold.
+
+Please note that due to this specification, there may be cases where an alert does not occur even though it appears on the graph that an alert should occur.
+
+### External URL monitor
+
+See [External URL monitoring](https://mackerel.io/docs/entry/external-monitoring).
+
+### Expression monitor
+
+See [Expression monitoring](https://mackerel.io/docs/entry/expression-monitoring).
+
+### Anomaly Detection for roles
+
+See [Anomaly detection for roles](https://mackerel.io/docs/entry/howto/anomaly-detection-for-roles).
+
+### Query monitor
+
+See [Query monitoring](https://mackerel.io/docs/entry/query-monitoring).
 
 ## Checking alerts
 
