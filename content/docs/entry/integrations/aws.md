@@ -61,26 +61,44 @@ You are required to set up one of them, but from a security standpoint, we stron
   <li><a href="#setting_aws">1. Choose one of the following methods to configure integration.</a></li>
   <ul>
       <li><a href="#setting_aws_iam_role">1-a. Configure the IAM role</a></li>
-      <li><a href="#setting_aws_access_key">1-b. Configure the Access Key ID and Secret Access Key</a></li>
+      <li><a href="#setting_aws_access_key">1-b. Configure the Access Key ID and Secret Access Key (not recommended)</a></li>
   </ul>
   <li><a href="#setting_policy">2. Grant policies</a></li>
-  <li><a href="#setting_check_host">3. Confirm the host</a></li>
+  <li><a href="#setting_integration">3. Configure AWS integration</a></li>
+  <li><a href="#setting_check_host">4. Confirm the host</a></li>
 </ul>
 
 <h3 id="setting_aws">1. Create an IAM role or IAM user for integration</h3>
 
 <h4 id="setting_aws_iam_role">1-a. Configure the IAM role</h4>
-<h5>Creating a role with the IAM Management Console</h5>
-Create a new role with the <a href="https://console.aws.amazon.com/iam" target="_blank">IAM Management Console</a>.
-Select `Another AWS account` from the role types.
 
-![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20190528/20190528124827.png)
+##### Get an External ID
 
-Click the 'Create' button in the [Mackerel AWS Integration Settings page](https://mackerel.io/my?tab=awsIntegration) to get an External ID. Enter `217452466226` as the authorized Account ID. Select the `Require external ID` option and specify the External ID obtained from Mackerel's configuration page. The Mackerel system uses the account to access the user’s role. With this configuration, only the Mackerel account can access the created role. Create the role without checking `Require MFA`.
+1. Access the [Mackerel AWS Integration Settings page](https://mackerel.io/my?tab=awsIntegration).
+2. Click "Add new AWS Integrationo settings".
+3. Copy the External ID displayed in the "AWS Account" section.
 
-The next step is to <a href="#setting_policy">grant policies</a>.
+⚠️ The External ID value will change when you close the screen, so please do not close the screen until you have completed the AWS integration configuration.
 
-<h4 id="setting_aws_access_key">1-b. Configure the Access Key ID and Secret Access Key</h4>
+![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20260129/20260129175339.png)
+
+<h5>Create a role</h5>
+
+Create a new role in the [IAM Management Console](https://console.aws.amazon.com/iam). Configure the following items.
+
+- **Trusted entity type**
+  - Select "AWS account".
+- **An AWS account**
+  - Select "Another AWS account".
+  - Enter `217452466226` in "Account ID".
+    - Note: The Mackerel system uses the account to access the user’s role. With this configuration, only the Mackerel account can access the created role.
+  - Options
+    - Check "Require external ID".
+    - Enter the External ID you obtained earlier in "External ID".
+
+![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20260202/20260202141001.png)
+
+<h4 id="setting_aws_access_key">1-b. Configure the Access Key ID and Secret Access Key (not recommended)</h4>
 The following method is NOT recommended for security protection reasons.
 
 <h5>Creating a user with the IAM Management Console</h5>
@@ -150,15 +168,45 @@ If you want to configure all the permissions used in AWS Integration, please ref
 
 Reference: Granting policies
 
-![](https://cdn-ak2.f.st-hatena.com/images/fotolife/m/mackerelio/20170912/20170912165028.png)
+![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20260129/20260129175417.png)
 
 Reference: Granting actions (Inline Policies)
 
 ![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20160616/20160616150058.png)
 ![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20160616/20160616150059.png)
 
-<h3 id="setting_check_host">3. Confirm the host</h3>
-After a short while, your AWS cloud product will be registered as a host in Mackerel and begin posting metrics. By creating monitoring rules, you can also be notified of alerts. For more information, see [Setting up monitoring and alerts](https://mackerel.io/docs/entry/howto/alerts).
+<h3 id="setting_integration">3. Configure AWS integration</h3>
+
+Configure each item in the AWS integration settings page.
+
+- **Federation Name**
+  - Name
+    - This will be the name of this AWS integration setting.
+  - Note
+    - You can write a note for this AWS integration. It will be displayed on the [AWS Integration Settings page](https://mackerel.io/my?tab=awsIntegration).
+- **AWS account**
+  - Enter the ARN of the role you created.
+  - Select a region.
+- **Metric collecting service**
+  - Add new metrics automatically
+    - See [Configure automatic new metrics addition](https://mackerel.io/docs/entry/integrations/aws#auto-new-metrics-addition).
+  - Metric collecting service
+    - Check the services you want to monitor. Change the following items as needed.
+    - Default Role
+      - If you specify a Default Role, the hosts registered by this AWS integration will be automatically associated with the specified Service/Role.
+    - Enable automatic retirement (available for some services only)
+      - When enabled, hosts in Mackerel will be automatically retired when resources are deleted on the AWS side.
+    - Specify the metrics to be retrieve
+      - If you want to reduce metric charges, uncheck unnecessary metrics.
+- **Filter hosts by specifying a tag**
+  - See [Specify tags to filter hosts to register](https://mackerel.io/docs/entry/integrations/aws#tag).
+
+<h3 id="setting_check_host">4. Confirm the host</h3>
+After a short while, AWS resources that are targeted for integration will be registered as hosts in Mackerel and metrics will be posted.
+
+If hosts are not registered or metrics are not posted, please check for insufficient permissions by referring to the following page.
+
+- [The host is not registered with AWS integration](https://support.mackerel.io/hc/en-us/articles/360045504491-Hosts-are-not-registered-AWS-integration)
 
 <h2 id="auto-new-metrics-addition">Configure automatic new metrics addition</h2>
 

@@ -5,7 +5,7 @@ URL: https://mackerel.io/docs/entry/howto/anomaly-detection-for-roles
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/10257846132619083809
 ---
 
-With this feature, hosts can be monitored using anomaly detection.
+"Anomaly Detection for roles" is a feature that learns the trend of past metrics in a specific role and issues an alert when a newly posted metric deviates from past trends.
 
 ## Anomaly detection with machine learning
 If the system administrator is familiar with server monitoring, [monitoring features](https://mackerel.io/docs/entry/howto/alerts) can be used to set a static monitor for server metrics (eg: a Warning alert occurs when loadavg5 exceeds 1). However, setting a monitor for individual metrics requires a certain amount of effort, and false alerts may occur unless periodically adjusted. Monitoring using machine learning can lower the cost of creating and maintaining monitors. Even if you’re not familiar with server monitoring, monitoring with anomaly detection is effective. With the anomaly detection feature, machine learning is used to train from past data to identify what kind of metric is normal/abnormal and automatically judge whether the newly sent metric is abnormal or not. If the metric is determined to be abnormal, an alert can be issued.
@@ -14,38 +14,53 @@ With the anomaly detection feature, metrics are judged to be abnormal or not bas
 
 In alerts for anomaly detection within the role, a graph is displayed that shows the most differential metrics of the corresponding host. This graph will be displayed in every type of notification and can be used for the initial stage response to a failure (This does not necessarily signify the root cause of the failure).
 
+For more information about anomaly detection for roles, please refer to the following blog post.
+
+[https://mackerel.io/blog/entry/anomaly-detection-for-roles/about:embed:cite]
+
 ## Configure a monitor for anomaly detection for roles
-Go to the Monitors screen, located on the left side menu, and click the “Add Monitor” button. Open the "Anomaly Detection for roles" tab and the following items will be displayed. Fill in a value/name for each item and click “Create”.
+On the [Monitor Settings screen](https://mackerel.io/my/monitors), click the "Add Monitor" button. On the screen to select the type of monitoring rule, click "Anomaly Detection for roles".
 
-- Target role: Select the Service or Role you would like to monitor
-- Sensitivity: `sensitive` will react to small changes and an alert will be reported. Set the sensitive value to `insensitive` if you only want alerts for large changes
-- Monitor name：Enter a name for this monitor
-- Monitor memo：Leave an optional note
-- Notification interval：Alerts will be resent, even if the specified time is exceeded, if the status of the alert does not change
-- Anomaly detection model training period: The anomaly detection model is trained using past metric data (about several weeks). Updating the training period when changes in trends occur as with deployment etc., may reduce false positives (eg: CPU utilization decreasing due to improvements in performance). The following three training period options are available.
-  - Default training period (Uses metric data starting from past few weeks)
-  - Keep the last specified training period (Uses metric data starting from the previously specified time)
-    - Select this option if you do not want the training starting point to change when adjusting the sensitivity
-  - Specified training period (Uses metric data starting from the specified time)
-    - Select this option if a trend has changed significantly from the latest deployment
-- Training cycle of Anomaly detection model: Training is performed periodically (every few days)
+The following items can be configured when creating a monitoring rule:
 
-<img src="https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20190228/20190228114828_original.png" class="hatena-fotolife" itemprop="image" width=457>
+- Target role
+  - Select the Service and Role you would like to monitor
+  - **Note**: Multiple anomaly detection monitors cannot be configured for a single role
+- Sensitivity
+  - Changes will be more reactive in the order of sensitive > normal > insensitive. If you only want alerts for large changes, set this to insensitive
+- Monitor name
+  - Enter a name for this monitor
+- Monitor memo
+  - Leave an optional note for this monitor. This will be displayed on the alert details screen and in alert notifications
+- Notification interval
+  - While an alert is occurring, notifications will be resent at the specified interval
+
+### About the Anomaly detection model training period
+
+This option cannot be selected when creating a monitoring rule. By default, "Use the default period" is configured.
+
+After creating the monitoring rule, you can select from the following options on the edit screen:
+
+- Use the default period
+  - Training will begin a few days after configuration
+- Data starting from the specified time will be used for training
+  - Training will be conducted on the period from the specified date and time to the present (immediate execution)
+  - When trends in metrics change significantly due to deployment etc., specifying a date after deployment as the training period target may reduce false positives
+    - Example: CPU utilization decreased due to performance improvements
+
+![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20260202/20260202143611.png)
 
 <h2 id="hosttype">Monitoring specifications with anomaly detection for roles</h2>
 
-- The following types of hosts are subject to anomaly detection for roles.
-  - Linux hosts running mackerel-agent
-  - Windows hosts running mackerel-agent (experimental feature)
-- System metrics collected from mackerel-agent are used ([reference](https://mackerel.io/docs/entry/spec/metrics). Custom metrics and service metrics are not.
-- Training may fail when the role has hosts unavailable for anomaly detection.
-- If a role contains multiple types of hosts, training will only be conducted for one type.
-  - **To use anomaly detection with multiple types of hosts, we recommend assigning a role for each host type**
-- Multiple monitors with anomaly detection can not be specified for the same role.
-- Monitoring will not continue until the anomaly detection training has completed.
-- Only available for the Trial and Paid plans
-  - Every 5 hosts targeted for monitoring will count as 1 Standard host.
-  - The same host will be counted multiple times if it is monitored through multiple roles.
-  - A usage charge will incur starting with one monitored host.
-- Anomaly detection for roles for Windows hosts is currently offered as an [experimental feature](https://mackerel.io/docs/entry/advanced/experimental-features).
-  - During its period as an experimental feature, Windows hosts will be excluded from the usage calculation mentioned above and charges will not incur.
+- Available only for the Trial period and Paid plans
+  - For usage fees, please refer to the "Anomaly Detection for roles" section of [How usage fees are calculated](https://support.mackerel.io/hc/en-us/articles/31304727432729-How-usage-fees-are-calculated)
+- Hosts running mackerel-agent are subject to anomaly detection for roles
+  - **Windows hosts are offered as an experimental feature.** During its period as an experimental feature, they will not be counted in the number of hosts
+- The anomaly detection model learns trends from past metrics
+  - [System metrics](https://mackerel.io/docs/entry/spec/metrics#system-metric) collected from mackerel-agent are used for learning and detection. Custom metrics and service metrics are not used
+  - Training is performed periodically (every few days) after configuring the monitoring rule
+    - Monitoring will not be performed until the initial training is completed
+    - By hovering over the icon next to the monitoring rule name, you can check the current status. When monitoring is ready, it will be displayed as follows:
+    ![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20260202/20260202143602.png)
+  - Training data older than several tens of days will no longer be used
+- If a role contains hosts with different functions (such as applications and databases), anomalies may not be detected correctly. **When using anomaly detection for roles, we recommend assigning roles for each host function**

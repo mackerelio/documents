@@ -7,44 +7,68 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackere
 
 In addition to standard host metrics which are automatically posted to Mackerel by the agent such as loadavg5, cpu.user, etc., any user-defined values or "custom metrics" can be configured to be periodically posted to Mackerel.
 
-By entering a measured value output command in a format compatible with [sensu][] (a plugin which will be mentioned later), that output will be sent together with default metrics to Mackerel and will be displayed in a separate graph. 
+By registering a command that outputs in the format described in [Posting metrics](#post-metric), that output will be sent together with default metrics to Mackerel and will be displayed in a separate graph.
 
 We also offer an official plugin pack which you can learn more about here: [Using the official plugin pack to visualize middleware metrics](https://mackerel.io/docs/entry/howto/mackerel-agent-plugins)
 
 Additionally, for more information on how to develop a plugin using [github.com/mackerelio/go-mackerel-plugin](https://github.com/mackerelio/go-mackerel-plugin) (a helper library that is used in our official plugins), please refer to [Using go-mackerel-plugin to create a custom metric plugin](https://mackerel.io/docs/entry/advanced/go-mackerel-plugin).
 
-<h2 id="setting">Configuration</h2>
+<h2 id="post-metric">Posting metrics</h2>
 
-Add the below item to the [agent configuration file](https://mackerel.io/docs/entry/spec/agent#config-file) like the example below.
+The command specified in the configuration file is expected to output in the following format for each line of standard output (`\t` is the tab character):
+
+```
+{metric name}\t{metric value}\t{epoch seconds}
+```
+
+- `{metric name}`: Metric name
+  - Characters which can be used in metric names include any alphanumeric characters as well as hyphens (`-`), underscores (`_`), and dots (`.`).
+    - Regular expression: `/^[-a-zA-Z0-9_.]+$/`
+  - All metric names are automatically given the prefix `custom.`.
+  - Metrics whose names are the same up to the last dot (`.`) will be grouped together and charted in one graph.
+    - Example: If posting metrics named `example.foo` and `example.bar`, they will be displayed in a graph named `custom.example.*`.
+- `{metric value}`: Metric value
+  - Output the value to post.
+- `{epoch seconds}`: Metric timestamp
+  - Specify in epoch seconds.
+  - Metrics with timestamps more than 24 hours in the past or future from the current time will not be posted.
+
+**Output example**: When posting a metric named `example.foo`
+
+```
+example.foo\t100\t1769544774
+```
+
+<h2 id="setting">Agent configuration example</h2>
+
+Add the below item to the [agent configuration file](https://mackerel.io/docs/entry/spec/agent#config-file). The following is a configuration example for monitoring using a program called `vmstat-metrics.rb`. Refer to [Configuration items](#items) for the meaning of each item. Configure items other than the required ones as needed.
 
 ```toml
 [plugin.metrics.vmstat]
 command = [ "ruby", "/path/to/vmstat-metrics.rb" ]
-user = "SOME_USER_NAME" # optional
-custom_identifier = "SOME_IDENTIFIER" # optional
-include_pattern = 'cpu' # optional
-exclude_pattern = 'waiting$' # optional
-timeout_seconds = 45 # optional
-env = { SAMPLE_KEY = "VALUE" } # optional
+timeout_seconds = 45
+custom_identifier = "SOME_IDENTIFIER"
+include_pattern = 'cpu'
+exclude_pattern = 'waiting$'
+user = "SOME_USER_NAME"
+env = { SAMPLE_KEY = "VALUE" }
 ```
 
-The configuration item name enclosed by `[]` in the first line must begin with "plugin.metrics." and contain exactly two dots. When specifying more than one plugin, please specify a different name for each.
+<h3 id="items">Configuration items</h3>
 
-Descriptions for each configuration item on and after the second line are listed below. The only mandatory item is `command`, all other items are optional.
+| Configuration item   | Required | Description                                                                                                                                                                                                                                                         | Default value |
+|----------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|
+| [plugin.metrics.XXX] | ✓        | The configuration item name enclosed by `[]` in the first line must begin with "plugin.metrics." and contain exactly two dots. When specifying more than one plugin, please specify a different name for each plugin.                                                |               |
+| command              | ✓        | A command which mackerel-agent runs periodically and whose stdout is used as metric data. This command must follow the specifications described in [Posting metrics](#post-metric).*1                                                                              |               |
+| timeout_seconds      |          | Specify the plugin timeout in seconds.                                                                                                                                                                                                                               | 30 seconds    |
+| custom_identifier    |          | Sends the resulting metrics as metrics of the specified identifier, and not as metrics of the host on which the agent is running.<br>This is useful for adding metrics to hosts integrated with AWS / Azure / Google Cloud integration. Reference the [AWS Integration document](https://mackerel.io/docs/entry/integrations/aws#plugin-custom-identifier) for details. |               |
+| include_pattern      |          | Only metrics whose name matches the specified regular expression are posted.*2                                                                                                                                                                                      |               |
+| exclude_pattern      |          | Only metrics whose name does not match the specified regular expression are posted.*2                                                                                                                                                                               |               |
+| user                 |          | The user to run command can be specified with `command`. If a user is not specified, the executing user of mackerel-agent will also be the executing user of command. Not yet supported for Windows environments.                                                   |               |
+| env                  |          | Environment variables can be specified to pass to command.                                                                                                                                                                                                          |               |
 
-- `command`: A command which mackerel-agent runs periodically and whose stdout is used as metric data. This command must follow the <a href="#post-metric">specifications</a> mentioned below.
-    - It is also possible to transfer a string to `command`. As shown in the example above, you can specify command as: `command = "ruby /path/to/vmstat-metrics.rb"`
-        - If a string is transferred, it will run via a shell and escaping will be necessary.
-        - If an array is transferred, it will not run via a shell and escaping will be unnecessary.
-- user: The user to run command can be specified with `command`. If a user is not specified, the executing user of mackerel-agent will also be the executing user of command. Not yet supported for Windows environments.
-- custom_identifier: Sends the resulting metrics as metrics of the specified identifier, and not as metrics of the host on which the agent is running.
-    - This is useful for adding metrics to hosts integrated with AWS / Azure / Google Cloud integration. Reference the [AWS Integration document](https://mackerel.io/docs/entry/integrations/aws#plugin-custom-identifier) for details.
-- include_pattern / exclude_pattern: Regular expressions can be written to post specific metrics of the execution result to Mackerel.
-    - If include_pattern is specified, only metrics with a name that matches the specified regular expression are posted.
-    - If exclude_pattern is specified, only metrics whose metric name does not match the specified regular expression are posted.
-    - Metrics with a name that matches both include_pattern and exclude_pattern will not be posted.
-- timeout_seconds: Specify the plugin timeout in seconds. The default value is 30 seconds. Since simultaneous activation for each plugin is not controlled, we recommend that the plugin execution interval not be exceeded.
-- env: Environment variables can be specified to pass to command. Specify with TOML [Table](https://github.com/toml-lang/toml#table) or [Inline Table](https://github.com/toml-lang/toml#inline-table).
+- *1 It is also possible to pass a string to `command`. As shown in the example above, you can specify command as: `command = "ruby /path/to/vmstat-metrics.rb"`. If a string is passed, it will run via a shell.
+- *2 Metrics with a name that matches both include_pattern and exclude_pattern will not be posted.
 
 **Caution: Using PowerShell Script**
 
@@ -57,23 +81,6 @@ cd %~dp0
 powershell Set-ExecutionPolicy RemoteSigned
 powershell .\sample-plugin.ps1
 ```
-<h2 id="post-metric">Posting metrics</h2>
-
-The command should output in the following format (\t is the tab character):
-
-```
-{metric name}\t{metric value}\t{epoch seconds}
-```
-
-- Metrics whose names are the same up to the last dot (`.`) will be grouped together and charted in one graph.
-- All custom metrics are given the prefix "custom." automatically.
-- Characters which can be used in custom metric names include any alphanumeric characters as well as hyphens (`-`), underscores (`_`), and dots (`.`).
-
-**Example: if posting metrics named `example.foo` and `example.bar`:**
-
-A graph named `custom.example.*` will appear in the host details page displaying data from both `example.foo` and `example.bar`.
-
-[sensu]: http://sensuapp.org/
 
 <h2 id="graph-schema">Defining Graph Schema</h2>
 
@@ -113,7 +120,7 @@ The following is a description of each item.
 
 | Key | Description |
 | ---- | ---- |
-| `graphs.{graph}` | The name for the graph corresponding to custom metrics {graph}.* . {graph} may contain dots (`.`). Additionally, wildcard characters (`*` and `#`) can also be used. For more details, refer to the [API specs (v0) / Posting Graph Definitions help page.](https://mackerel.io/api-docs/entry/host-metrics#post-graphdef) |
+| `graphs.{graph}` | The name for the graph corresponding to custom metrics {graph}.* . {graph} may contain dots (`.`). Additionally, wildcard characters (`*` and `#`) can also be used. For more details, refer to the [API specs (v0) / Posting Graph Definitions help page.](https://mackerel.io/api-docs/entry/host-metrics#post-graphdef)<br>**Note**: Graphs of custom metrics that include wildcards will be automatically deleted if no metrics are sent for a certain period of time (approximately 6-8 hours or more). |
 | `graphs.{graph}.label` | The label for the graph corresponding to custom metrics {graph}.* . |
 | `graphs.{graph}.unit` | The type of value displayed in the graph corresponding to custom metrics {graph}.* . Must be one of the following: "float", "integer", "percentage", "seconds", "milliseconds", "bytes", "bytes/sec", "bits/sec", or "iops". |
 | `graphs.{graph}.metrics` | An array of metric definitions of custom metrics {graph}.* . |

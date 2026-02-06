@@ -62,26 +62,44 @@ AWSインテグレーションの連携方法には、IAMロールで連携（As
   <li><a href="#setting_aws">1. インテグレーション用のIAMロールもしくはIAMユーザーを追加する（以下のいずれかを設定してください。）</a></li>
   <ul>
       <li><a href="#setting_aws_iam_role">1-a. IAMロールを設定する方法</a></li>
-      <li><a href="#setting_aws_access_key">1-b. Access Key IDとSecret Access Keyを設定する方法</a></li>
+      <li><a href="#setting_aws_access_key">1-b. Access Key IDとSecret Access Keyを設定する方法（非推奨）</a></li>
   </ul>
   <li><a href="#setting_policy">2. ポリシーを付与する</a></li>
-  <li><a href="#setting_check_host">3. ホストを確認する</a></li>
+  <li><a href="#setting_integration">3. AWSインテグレーションを設定する</a></li>
+  <li><a href="#setting_check_host">4. ホストを確認する</a></li>
 </ul>
 
 <h3 id="setting_aws">1. インテグレーション用のIAMロールもしくはIAMユーザーを追加する</h3>
 
 <h4 id="setting_aws_iam_role">1-a. IAMロールを設定する方法</h4>
-<h5>IAM Management Consoleにてロールを作成する</h5>
-<a href="https://console.aws.amazon.com/iam" target="_blank">IAM Management Console</a>にて新しいロールを作成します。
-ロールのタイプを選択する画面では「別のAWSアカウント」 (`Another AWS account`) を選択します。
 
-![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20190528/20190528124822.png)
+##### 外部IDを取得する
 
-[MackerelのAWSインテグレーション設定のページ](https://mackerel.io/my?tab=awsIntegration)から作成ボタンを押して、External IDを取得してください。許可するAccount IDには `217452466226` を入力してください。また、`Require external ID` のオプションを選択した上で、External IDにはMackerelの設定作成ページで取得したExternal IDを指定してください。このアカウントはMackerelのシステムがユーザーのロールにアクセスする際に利用するアカウントです。この設定により、作成されたロールにはMackerelのアカウントしかアクセスできない状態になります。`Require MFA` はチェックせずに次の設定ページに移動してください。
+1. Mackerelの[AWSインテグレーション設定画面](https://mackerel.io/my?tab=awsIntegration)にアクセスします。
+2. 「新しいAWSインテグレーション設定を登録」をクリックします。
+3. 「AWSアカウント」の項目に表示された外部IDをコピーします。
 
-続いて<a href="#setting_policy">ポリシーの付与</a>を行います。
+⚠️ 外部IDは画面を閉じると値が変わってしまうため、AWSインテグレーションの設定が完了するまでは、画面を閉じないでください。
 
-<h4 id="setting_aws_access_key">1-b. Access Key IDとSecret Access Keyを設定する方法</h4>
+![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20260129/20260129175343.png)
+
+<h5>ロールを作成する</h5>
+
+[IAM Management Console](https://console.aws.amazon.com/iam)にて新しいロールを作成します。以下の項目を設定してください。
+
+- **信頼されたエンティティタイプ**
+  - 「AWSアカウント」を選択します。
+- **AWSアカウント**
+  - 「別のAWSアカウント」を選択します。
+  - 「アカウントID」に`217452466226`を入力します。
+    - 補足：このアカウントはMackerelのシステムがユーザーのロールにアクセスする際に利用するアカウントです。この設定により、作成されたロールにはMackerelのアカウントしかアクセスできない状態になります。
+  - オプション
+    - 「外部IDを要求する」にチェックします。
+    - 「外部ID」には先ほど取得した外部IDを入力します。
+
+![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20260129/20260129175443.png)
+
+<h4 id="setting_aws_access_key">1-b. Access Key IDとSecret Access Keyを設定する方法（非推奨）</h4>
 以下の方法はセキュリティー保全の観点から推奨しておりません。
 <h5>IAM Management Consoleにてユーザーを作成する</h5>
 <a href="https://console.aws.amazon.com/iam" target="_blank">IAM Management Console</a>にて新しいユーザーを作成します。
@@ -152,17 +170,45 @@ AWSインテグレーションで使用する全ての権限を設定する場�
 
 参考：ポリシーの付与
 
-![](https://cdn-ak2.f.st-hatena.com/images/fotolife/m/mackerelio/20170912/20170912165028.png)
+![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20260129/20260129175427.png)
 
 参考：アクションの付与（Inline Policies）
 
 ![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20160616/20160616150058.png)
 ![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20160616/20160616150059.png)
 
-<h3 id="setting_check_host">3. ホストを確認する</h3>
-しばらくすると、ご利用のAWSクラウド製品がMackerelにホストとして登録され、メトリックが投稿されます。
-監視ルールを作成し、アラートを通知することもできます。
-詳しくは[監視・通知を設定する](https://mackerel.io/ja/docs/entry/howto/alerts)をご覧ください。
+<h3 id="setting_integration">3. AWSインテグレーションを設定する</h3>
+
+AWSインテグレーションの設定画面で各項目を設定します。
+
+- **連携名**
+  - 名前  
+    - このAWSインテグレーション設定の名前になります。
+  - メモ
+    - このAWSインテグレーションにメモを書けます。[AWSインテグレーション設定画面](https://mackerel.io/my?tab=awsIntegration)に表示されます。
+- **AWSアカウント**
+  - 作成したロールのARNを入力します。
+  - リージョンを選択します。
+- **メトリックを収集するサービス**
+  - 新規メトリックを自動的に追加する
+    - [新規メトリックの自動追加を設定する](https://mackerel.io/ja/docs/entry/integrations/aws#auto-new-metrics-addition)を参照してください。
+  - メトリックを収集するサービス
+    - 監視したいサービスにチェックします。以下の項目は必要に応じて変更します。
+    - デフォルトロール
+      - デフォルトロールを指定した場合、このAWSインテグレーションによって登録されたホストに、自動的に指定したサービス/ロールを紐づけます。
+    - 自動退役（一部のサービスのみ利用可能）
+      - 有効にした場合、AWS側でリソースが削除された際に、自動的にMackerelのホストを退役します。
+    - 取得するメトリックを指定する
+      - メトリック料金を抑えたい場合などに、不要なメトリックのチェックを外します。
+- **タグを指定して登録するホストを絞り込む**
+  - [タグを指定して登録するホストを絞り込む](https://mackerel.io/ja/docs/entry/integrations/aws#tag)を参照してください
+
+<h3 id="setting_check_host">4. ホストを確認する</h3>
+しばらくすると、AWSインテグレーション設定の連携対象になったリソースが、Mackerelにホストとして登録され、メトリックが投稿されます。
+
+ホストが登録されなかったり、メトリックが投稿されなかったりする場合は、以下のページを参考に権限不足などがないかを確認してください。
+
+- [ホストが登録されない（AWSインテグレーション）](https://support.mackerel.io/hc/ja/articles/360045504491-%E3%83%9B%E3%82%B9%E3%83%88%E3%81%8C%E7%99%BB%E9%8C%B2%E3%81%95%E3%82%8C%E3%81%AA%E3%81%84-AWS%E3%82%A4%E3%83%B3%E3%83%86%E3%82%B0%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3)
 
 <h2 id="auto-new-metrics-addition">新規メトリックの自動追加を設定する</h2>
 
