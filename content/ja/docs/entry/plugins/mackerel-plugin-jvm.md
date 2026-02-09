@@ -61,8 +61,8 @@ mackerel-plugin-jvm は jstat/jinfo/jps などのコマンドからJVMに関す�
 | New max        | custom.jvm.<javaname\>.new_space.NGCMX | -    | -          | New世代の最大容量（KB）        |
 | New current    | custom.jvm.<javaname\>.new_space.NGC   | -    | -          | New世代の現在の容量（KB）      |
 | Eden used      | custom.jvm.<javaname\>.new_space.EU    | -    | -          | Eden領域の使用量（KB）         |
-| Survivor0 used | custom.jvm.<javaname\>.new_space.S0U   | -    | -          | Survivor領域0の現在の容量（B） |
-| Survivor1 used | custom.jvm.<javaname\>.new_space.S1U   | -    | -          | Survivor領域1の現在の容量（KB） |
+| Survivor0 used | custom.jvm.<javaname\>.new_space.S0U   | -    | -          | Survivor領域0の現在の使用量（KB） |
+| Survivor1 used | custom.jvm.<javaname\>.new_space.S1U   | -    | -          | Survivor領域1の現在の使用量（KB） |
 
 
 ### JVM <javaname\> Old Space memory
