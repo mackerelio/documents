@@ -75,7 +75,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
                 <li><a href="https://mackerel.io/ja/docs/entry/integrations/azure"><strong>Azureインテグレーション</strong><span>Azureクラウド製品をMackerelのホストとして管理、監視します</span></a></li>
                 <li><a href="https://mackerel.io/ja/docs/entry/integrations/gcp"><strong>Google Cloudインテグレーション</strong><span>Google Cloudのクラウド製品をMackerelのホストとして管理、監視します</span></a></li>
                 <li><a href="https://mackerel.io/ja/docs/entry/howto/host-retirement"><strong>登録されたホストを Mackerel の管理対象から外す</strong><span>監視が不要になったホストを、Mackerel の管理対象から外します</span></a></li>
-                <li><a href="https://mackerel.io/ja/docs/entry/howto/auto-scaling"><strong>Auto Scaling環境で使う</strong><span>自動的に台数増減する環境に対応します</span></a></li>
+                <li><a href="https://mackerel.io/ja/docs/entry/howto/auto-scaling"><strong>オートスケーリング環境で使う</strong><span>自動的に台数増減する環境に対応します</span></a></li>
                 <li><a href="https://mackerel.io/ja/docs/entry/advanced/docker"><strong>Dockerをモニタリングする</strong><span>mackerel-agentのDockerイメージを利用してDockerホストをモニタリングできます</span></a></li>
                 <li><a href="https://mackerel.io/ja/docs/entry/howto/container-agent"><strong>コンテナを監視する</strong><span>コンテナの監視にはmackerel-container-agentを利用します</span></a></li>
                 <li><a href="https://mackerel.io/ja/docs/entry/howto/labeled-metrics/post-metrics"><strong>ラベル付きメトリックを投稿する</strong><span>OpenTelemetryに準拠したメトリックを投稿できます</span></a></li>
