@@ -15,7 +15,6 @@ Please refer to the following page for AWS Integration configuration methods and
 
 * The timestamp of Lambda metrics is the time when the function was invoked, so metrics are recorded in Mackerel graphs at the function invocation time.
   * Reference: [Viewing metrics for Lambda functions - AWS Lambda](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-view.html)
-* AWS Integration can only retrieve metrics with timestamps within the past 10 minutes, so if a function's execution time exceeds 10 minutes, that function's metrics will not be retrieved by Mackerel.
 
 ## Obtaining metrics
 
