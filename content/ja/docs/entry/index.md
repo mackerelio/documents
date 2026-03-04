@@ -54,6 +54,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
                 <li><a href="https://mackerel.io/ja/docs/entry/tracing/installations"><strong>インストール・実装</strong><span>アプリケーションへの計装方法を紹介します</span></a></li>
                 <li><a href="https://mackerel.io/ja/docs/entry/tracing/features"><strong>機能</strong><span>トレーシング機能ではエラーや速度低下など、ユーザー体験悪化の原因を発見し解決できます</span></a></li>
                 <li><a href="https://mackerel.io/ja/docs/entry/tracing/integrations/slack"><strong>Slackに通知する</strong><span>トレーシング機能ではアラートを Slack に送信できます</span></a></li>
+                <li><a href="https://mackerel.io/ja/docs/entry/advanced/estimated-usage-metrics"><strong>概算使用量メトリック</strong><span>トレーシング機能におけるスパンの投稿量を概算使用量メトリックとして観測・監視できます</span></a></li>
             </ul>
         </section>
         <section id="section-infra-hosts">

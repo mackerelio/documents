@@ -59,6 +59,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackere
   <li><a href="https://mackerel.io/docs/entry/tracing/installations"><strong>Installation and implementation</strong><span>learn how to instrument your applications</span></a></li>
   <li><a href="https://mackerel.io/docs/entry/tracing/features"><strong>Feature</strong><span>identify and resolve issues that cause degraded user experience, such as errors and slow performance</span></a></li>
   <li><a href="https://mackerel.io/docs/entry/tracing/integrations/slack"><strong>Notify Slack</strong><span>send tracing alerts to Slack</span></a></li>
+  <li><a href="https://mackerel.io/docs/entry/advanced/estimated-usage-metrics"><strong>Estimated Usage Metrics</strong><span>observe and monitor number of spans posted for the tracing feature as estimated usage metrics</span></a></li>
 </ul>
 </section>
 

@@ -876,6 +876,42 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
           </p>
         </a>
       </div>
+      <div class="api">
+        <a href="entry/organizations#ip-restriction-webconsole-post">
+          <p>Register Access Restriction of Web console Configurations</p>
+          <p class="type-post">
+            <code>POST</code>
+            <code>/api/v0/settings/ip-restriction/web</code>
+          </p>
+        </a>
+      </div>
+      <div class="api">
+        <a href="entry/organizations#ip-restriction-webconsole-get">
+          <p>Get Access Restriction of Web console Configurations</p>
+          <p class="type-get">
+            <code>GET</code>
+            <code>/api/v0/settings/ip-restriction/web</code>
+          </p>
+        </a>
+      </div>
+      <div class="api">
+        <a href="entry/organizations#ip-restriction-api-post">
+          <p>Register Access Restriction of API Configurations</p>
+          <p class="type-post">
+            <code>POST</code>
+            <code>/api/v0/settings/ip-restriction/api</code>
+          </p>
+        </a>
+      </div>
+      <div class="api">
+        <a href="entry/organizations#ip-restriction-api-get">
+          <p>Get Access Restriction of API Configurations</p>
+          <p class="type-get">
+            <code>GET</code>
+            <code>/api/v0/settings/ip-restriction/api</code>
+          </p>
+        </a>
+      </div>
     </div>
   </div>
 
