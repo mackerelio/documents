@@ -23,7 +23,7 @@ Then select the type of graph to display in the widget. Choose from following gr
 - Role graph
 - Service graph
 - Expression graph[^1]
-- Query graph[^2]
+- Query graph
 
 [f:id:mackerelio:20181113152442p:plain]
 
@@ -41,4 +41,3 @@ Next, select the graph display range. Choose from the following.
 After your selections are complete, create the widget by clicking the Create button.
 
 [^1]: Specifying graphs using expressions is an [experimental feature](https://mackerel.io/docs/entry/advanced/experimental-features).
-[^2]: Query graph is currently a public beta feature.

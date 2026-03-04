@@ -23,7 +23,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 - ロールグラフ
 - サービスグラフ
 - 式グラフ[^1]
-- クエリグラフ[^2]
+- クエリグラフ
 
 のいずれかです。
 
@@ -43,4 +43,3 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 選択が完了したら作成ボタンでウィジェットを作成します。
 
 [^1]: 式グラフは[実験的機能](https://mackerel.io/ja/docs/entry/advanced/experimental-features)となっています。
-[^2]: クエリグラフはパブリックベータ機能です。

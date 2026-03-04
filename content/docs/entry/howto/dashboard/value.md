@@ -26,7 +26,7 @@ Next, select the type of metric to display in the widget. The following metrics 
 - Host metrics
 - Service metrics
 - Expression[^1]
-- Query[^2]
+- Query
 
 Other settings that can be made are listed below.
 
@@ -37,12 +37,11 @@ Other settings that can be made are listed below.
 | Format Rule - Rule Name       | Rule name for value highlighting (specify up to 32 characters)                                                                                                                                                                                                   |
 | Format Rule - Reference Value | Criterion value for highlighting or not highlighting a value                                                                                                                                                                                                     |
 | Value to display              | If enabled, the value of the endpoint in the display period of the dashboard (calculated based on this endpoint in the case of moving average or linear regression) is displayed. If disabled, displays the latest posted value regardless of the display period |
-| Metric trend                  | If enabled, displays the average of the relevant metric for the display period and the difference between the average and the latest value (available only if the "Value to display" setting is enabled [^3])                                                    |
+| Metric trend                  | If enabled, displays the average of the relevant metric for the display period and the difference between the average and the latest value (available only if the "Value to display" setting is enabled [^2])                                                    |
 
 [f:id:mackerelio:20231211203945p:plain]
 
 Once you've finished selecting, complete the process by clicking the create button.
 
 [^1]: Specifying metrics using expressions is an [experimental feature](https://mackerel.io/docs/entry/advanced/experimental-features).
-[^2]: Query is currently a public beta feature.
-[^3]: The Metric trend function is an experimental feature.
+[^2]: The Metric trend function is an experimental feature.

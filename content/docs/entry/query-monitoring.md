@@ -5,7 +5,7 @@ URL: https://mackerel.io/docs/entry/query-monitoring
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/6801883189090642255
 ---
 
-Query monitoring is a feature that allows you to monitor labeled metrics posted to Mackerel. **This feature is a paid option. It is not available with the Free plan.** As of February 2024, this feature is provided as a public beta.
+Query monitoring is a feature that allows you to monitor labeled metrics posted to Mackerel.
 
 For information on how to post labeled metrics to Mackerel, see [Posting metrics to Mackerel](https://mackerel.io/docs/entry/howto/post-metrics).
 
