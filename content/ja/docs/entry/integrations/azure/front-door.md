@@ -1,9 +1,12 @@
 ---
 Title: Azureインテグレーション - Front Door
+Date: 2026-03-12T17:10:26+09:00
 URL: https://mackerel.io/ja/docs/entry/integrations/azure/front-door
+EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/17179246901364099106
+CustomPath: integrations/azure/front-door
 ---
 
-MackerelはAzureインテグレーションにて<a href="https://azure.microsoft.com/ja-jp/products/frontdoor" target="_blank">Front Door</a>(Standard/Premiumレベル)のメトリック取得や監視に対応しています。Azureインテグレーションで連携をおこなった場合、課金対象として 1CDNプロファイル = 1マイクロホスト と換算します。またそれに加えて、取得されるメトリックの数に応じて、1マイクロホストあたりのメトリック数上限の超過による請求が行われる場合があります。
+MackerelはAzureインテグレーションにて<a href="https://azure.microsoft.com/ja-jp/products/frontdoor" target="_blank">Front Door</a>（Standard/Premiumレベル）のメトリック取得や監視に対応しています。Azureインテグレーションで連携をおこなった場合、課金対象として 1プロファイル = 1マイクロホスト と換算します。またそれに加えて、取得されるメトリックの数に応じて、1マイクロホストあたりのメトリック数上限の超過による請求が行われる場合があります。
 
 Azureインテグレーションの設定方法や対応Azureサービス一覧についてはこちらのページをご確認ください。<br>
 <a href="https://mackerel.io/ja/docs/entry/integrations/azure">Azureインテグレーション</a>

@@ -1,9 +1,12 @@
 ---
 Title: Azure Integration - Front Door
+Date: 2026-03-12T17:10:12+09:00
 URL: https://mackerel.io/docs/entry/integrations/azure/front-door
+EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/17179246901364099052
+CustomPath: integrations/azure/front-door
 ---
 
-Mackerel supports obtaining and monitoring <a href="https://azure.microsoft.com/en-us/products/frontdoor" target="_blank">Front Door</a> (Standard/Premium tier) metrics in Azure Integration. When integrating with Azure Integration, billable targets are determined using the conversion 1 CDN profile = 1 Micro Host. In addition to this, depending on the number of metrics retrieved, you may be charged for exceeding the maximum number of metrics per micro host.
+Mackerel supports obtaining and monitoring <a href="https://azure.microsoft.com/en-us/products/frontdoor" target="_blank">Front Door</a> (Standard/Premium tier) metrics in Azure Integration. When integrating with Azure Integration, billable targets are determined using the conversion 1 profile = 1 Micro Host. In addition to this, depending on the number of metrics retrieved, you may be charged for exceeding the maximum number of metrics per micro host.
 
 Please refer to the following page for Azure Integration configuration methods and a list of supported Azure services.<br>
 <a href="https://mackerel.io/docs/entry/integrations/azure">Azure Integration</a>
