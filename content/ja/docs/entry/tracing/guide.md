@@ -11,6 +11,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 - [Mackerelトレーシング機能概要](https://mackerel.io/ja/docs/entry/tracing/guide/overview)
 - [OpenTelemetryとは](https://mackerel.io/ja/docs/entry/tracing/guide/what-is-opentelemetry)
 - [料金](https://mackerel.io/ja/docs/entry/tracing/guide/pricing-mackerel)
+- [クライアントトークン](https://mackerel.io/ja/docs/entry/tracing/guide/client-token)
 
 ## インストール・計装
 
@@ -22,6 +23,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 - [.NETにOpenTelemetryを導入する](https://mackerel.io/ja/docs/entry/tracing/installations/dotnet)
 - [その他の言語にOpenTelemetryを導入する](https://mackerel.io/ja/docs/entry/tracing/installations/other-language)
 - [OpenTelemetry Collectorを導入する](https://mackerel.io/ja/docs/entry/tracing/installations/opentelemetry-collector)
+- [ブラウザにOpenTelemetryを導入する](https://mackerel.io/ja/docs/entry/tracing/installations/browser)
 
 ## 機能
 

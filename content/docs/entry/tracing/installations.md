@@ -13,3 +13,4 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackere
 - [Introducing OpenTelemetry to .NET](https://mackerel.io/docs/entry/tracing/installations/dotnet)
 - [Introducing OpenTelemetry to other languages](https://mackerel.io/docs/entry/tracing/installations/other-language)
 - [Introducing OpenTelemetry Collector](https://mackerel.io/docs/entry/tracing/installations/opentelemetry-collector)
+- [Introducing OpenTelemetry to Browser](https://mackerel.io/docs/entry/tracing/installations/browser)

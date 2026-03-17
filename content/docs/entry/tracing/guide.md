@@ -11,6 +11,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackere
 - [Mackerel's Tracing Feature Overview](https://mackerel.io/docs/entry/tracing/guide/overview)
 - [What is OpenTelemetry](https://mackerel.io/docs/entry/tracing/guide/what-is-opentelemetry)
 - [Pricing](https://mackerel.io/docs/entry/tracing/guide/pricing-mackerel)
+- [Client Token](https://mackerel.io/docs/entry/tracing/guide/client-token)
 
 ## Installation and implementation
 
@@ -22,6 +23,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackere
 - [Introducing OpenTelemetry to .NET](https://mackerel.io/docs/entry/tracing/installations/dotnet)
 - [Introducing OpenTelemetry to other languages](https://mackerel.io/docs/entry/tracing/installations/other-language)
 - [Introducing OpenTelemetry Collector](https://mackerel.io/docs/entry/tracing/installations/opentelemetry-collector)
+- [Introducing OpenTelemetry to Browser](https://mackerel.io/docs/entry/tracing/installations/browser)
 
 ## Feature
 
