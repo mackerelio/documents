@@ -44,6 +44,7 @@ npm install @opentelemetry/api \
   @opentelemetry/sdk-trace-web \
   @opentelemetry/sdk-trace-base \
   @opentelemetry/exporter-trace-otlp-proto \
+  @opentelemetry/instrumentation \
   @opentelemetry/instrumentation-document-load \
   @opentelemetry/instrumentation-fetch \
   @opentelemetry/context-zone \
@@ -68,6 +69,7 @@ import { DocumentLoadInstrumentation } from '@opentelemetry/instrumentation-docu
 import { FetchInstrumentation } from '@opentelemetry/instrumentation-fetch';
 import { ZoneContextManager } from '@opentelemetry/context-zone';
 import { resourceFromAttributes } from '@opentelemetry/resources';
+import { registerInstrumentations } from '@opentelemetry/instrumentation';
 import {
   ATTR_SERVICE_NAME,
   ATTR_SERVICE_VERSION,
@@ -78,7 +80,7 @@ const ATTR_DEPLOYMENT_ENVIRONMENT_NAME = 'deployment.environment.name';
 
 // Exporter configuration using Client Token
 const exporter = new OTLPTraceExporter({
-  url: 'https://otlp.mackerelio.com/v1/traces',
+  url: 'https://otlp-vaxila.mackerelio.com/v1/traces',
   headers: {
     'X-Mackerel-Client-Token': 'YOUR_CLIENT_TOKEN_HERE',
   },
