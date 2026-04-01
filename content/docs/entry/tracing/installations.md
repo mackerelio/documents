@@ -9,7 +9,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackere
 - [Introducing OpenTelemetry to Node.js](https://mackerel.io/docs/entry/tracing/installations/nodejs)
 - [Introducing OpenTelemetry to PHP](https://mackerel.io/docs/entry/tracing/installations/php)
 - [Introducing OpenTelemetry to Python](https://mackerel.io/docs/entry/tracing/installations/python)
-- [Introducing OpenTelemetry to Ruby](https://mackerel.io/docs/entry/tracing/installations/ruby)
+- [Sending traces from Ruby applications to Mackerel](https://mackerel.io/docs/entry/tracing/installations/ruby)
 - [Introducing OpenTelemetry to .NET](https://mackerel.io/docs/entry/tracing/installations/dotnet)
 - [Sending traces from Java applications to Mackerel](https://mackerel.io/docs/entry/tracing/installations/java)
 - [Introducing OpenTelemetry to other languages](https://mackerel.io/docs/entry/tracing/installations/other-language)

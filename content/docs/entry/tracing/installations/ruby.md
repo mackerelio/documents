@@ -1,46 +1,46 @@
 ---
-Title: Tracing - Introducing OpenTelemetry to Ruby
+Title: Sending traces from Ruby applications to Mackerel
 Date: 2025-07-11T16:36:22+09:00
 URL: https://mackerel.io/docs/entry/tracing/installations/ruby
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/6802418398507896762
 ---
 
-Mackerel uses the OpenTelemetry mechanism (instrumentation) to collect data.
-
-This page explains how to send data from Ruby to Mackerel.
+This page explains how to send traces from Ruby applications to Mackerel.
 
 [:contents]
 
-## OpenTelemetry for Ruby
+## Overview
 
-OpenTelemetry provides an SDK for Ruby.
+Mackerel collects traces using the OpenTelemetry mechanism (instrumentation). By using the [instrumentation libraries](https://opentelemetry.io/docs/languages/ruby/libraries/) provided for major frameworks and libraries such as Ruby on Rails and ActiveRecord, you can send traces without significantly modifying your existing implementation.
 
-In addition to this SDK, you can use SDKs for Ruby on Rails and ActiveRecord to instrument your application without modifying your existing implementation.
+There are several web frameworks available for Ruby, but this page explains how to get started with Ruby on Rails.
 
-[https://opentelemetry.io/docs/languages/ruby/instrumentation/:embed:cite]
+<div class="note">
+<p>📝 Note</p>
+<p>Available instrumentation libraries can be searched in the <a href="https://opentelemetry.io/ecosystem/registry/?language=ruby&component=instrumentation">registry</a>. If there is no instrumentation library for your framework or application, you can implement manual instrumentation. For more details, see <a href="https://opentelemetry.io/docs/languages/ruby/instrumentation/">Instrumentation</a> in the official OpenTelemetry documentation.</p>
+</div>
 
-### Is it appropriate to use a Collector?
+## Requirements
 
-When sending data to Mackerel, you can use a Collector instead of sending directly from the SDK.
+According to the OpenTelemetry [prerequisites](https://opentelemetry.io/docs/languages/ruby/getting-started/#prerequisites), the following must be installed.
 
-Refer to the following page when deciding whether to use a Collector.
+- One of the following:
+  - CRuby 3.1 or higher
+  - JRuby 9.3.2.0 or higher
+  - TruffleRuby 22.1 or higher
+- Bundler
 
-[Deciding whether to use Collector](https://mackerel.io/docs/entry/tracing/guide/what-is-opentelemetry#using-collector-or-not)
+## Installation
 
-## How to get started
+To send traces from your application to Mackerel, do the following:
 
-There are several frameworks available for Ruby, but this page explains how to get started with Ruby on Rails.
-
-You can implement Mackerel's tracing feature by following the steps below.
-
-1. Add the gem
+1. Add the gems
 2. Initialize settings in initializers
-3. Add error handling
-4. Add custom instrumentation (optional)
+3. Catch error details (optional)
 
 ### 1. Add the gems
 
-The following gems automatically instrument around requests to Ruby on Rails and queries to the database.
+The following gems automatically instrument requests to Ruby on Rails and queries to the database.
 
 ```ruby
 gem 'opentelemetry-sdk'
@@ -57,51 +57,39 @@ gem 'opentelemetry-instrumentation-rack'
 gem 'opentelemetry-instrumentation-rails'
 ```
 
-If it’s missing, you can find the gem on the OpenTelemetry page.
+### 2. Initialize settings in initializers
 
-[https://opentelemetry.io/ecosystem/registry/?language=ruby&component=instrumentation:embed:cite]
-
-### 2. Initial settings in initializers
-
-In order to send OpenTelemetry data to Mackerel, you need to configure settings in initializers.
-
-In `OpenTelemetry::SDK.configure`, you can configure the following items.
-
-* service_name
-* service_version
-* resource
-* span_processor
-
-For example, setting the following in `config/initializers/opentelemetry.rb` will allow the SDK to send data directly to Mackerel.
+Configure settings in initializers to send traces. Place the following in `config/initializers/opentelemetry.rb` and start the application to send traces.
 
 ```ruby
+require 'socket'
 require 'opentelemetry/sdk'
 require 'opentelemetry/exporter/otlp'
 require 'opentelemetry/instrumentation/all'
 
 OpenTelemetry::SDK.configure do |c|
-  c.service_name = "acme_service"
+  c.service_name = "my-sample-app"
   c.service_version = "vX.Y.Z"
   c.resource = OpenTelemetry::SDK::Resources::Resource.create(
     OpenTelemetry::SemanticConventions::Resource::DEPLOYMENT_ENVIRONMENT => Rails.env.to_s,
     OpenTelemetry::SemanticConventions::Resource::HOST_NAME => Socket.gethostname
   )
 
+  # exporter settings
   exporter = OpenTelemetry::Exporter::OTLP::Exporter.new(
     endpoint: "https://otlp-vaxila.mackerelio.com/v1/traces",
     headers: {
       "Accept" => "*/*",
-      "Mackerel-Api-Key" => ENV["MACKEREL_API_KEY"]
+      "Mackerel-Api-Key" => ENV["MACKEREL_APIKEY"]
     }
   )
-  # ConsoleSpanExporter is useful during debugging.
   # exporter = OpenTelemetry::SDK::Trace::Export::ConsoleSpanExporter.new
   
   c.add_span_processor(
     OpenTelemetry::SDK::Trace::Export::BatchSpanProcessor.new(exporter)
   )
 
-  # c.use_all is used, the Gem to be used is automatically determined.
+  # When using c.use_all, the gems to use are automatically determined.
   c.use_all
 
   # You can also explicitly specify the instrumentation target using c.use(...).
@@ -112,33 +100,33 @@ OpenTelemetry::SDK.configure do |c|
 end
 ```
 
-In this example, the following items are set.
+- `service_name` is the service name of the trace (the value of the `service.name` attribute).
+- `service_version` can include version information (optional).
+- `resource` can specify attributes based on the OpenTelemetry [semantic conventions](https://opentelemetry.io/docs/specs/semconv/resource/). This allows for detailed identification of the trace source (optional).
+  - `DEPLOYMENT_ENVIRONMENT`: Specifies the deployment environment (development, staging, production, etc.). This example uses the Rails environment name (`Rails.env`).
+  - `HOST_NAME`: Specifies the hostname where the application is running. This example uses `Socket.gethostname` to automatically retrieve the hostname.
+  - For other attributes, see [OpenTelemetry::SemanticConventions::Resource](https://open-telemetry.github.io/opentelemetry-ruby/opentelemetry-semantic_conventions/v1.8.0/OpenTelemetry/SemanticConventions/Resource.html).
+- `exporter`
+  - `endpoint` specifies the destination for sending traces.
+    - To send directly to Mackerel, specify `https://otlp-vaxila.mackerelio.com/v1/traces`.
+    - To send via a Collector, specify `http://<Collector address:port>/v1/traces`.
+  - `${MACKEREL_APIKEY}` specifies the Mackerel API key. Define an API key with Write permission from the [API key list](https://mackerel.io/my?tab=apikeys) as an environment variable in the system where the application runs.
+    - It will work if you write the API key directly instead of using an environment variable.
+  - Specifying `ConsoleSpanExporter` will output traces to standard output.
 
-* service_name, service_version, resource
-  * Setting these items allows you to identify the source of the data.
-* endpoint
-  * Setting this to `https://otlp-vaxila.mackerelio.com/v1/traces` will send the data directly to Mackerel.
-  * If using a Collector, set the Collector's endpoint (e.g., `http://localhost:4318/v1/traces`).
-* headers
-  * Setting the `Mackerel-Api-Key` and `Accept` headers enables communication with Mackerel.
-  * Set the `Mackerel-Api-Key` header to the API key with write permissions issued by Mackerel. It may take about a minute for changes to take effect after modifying the API key permissions.
-  * When using Collector, headers are not required.
-
-### 3. Catch error details
+### 3. Catch error details (optional)
 
 Mackerel can track errors, but Ruby's OpenTelemetry does not send error details by default.
 
-To send error details, you need to do one of the following.
+To send error details, you need to catch errors and record them in a span using one of the following methods.
 
-1. Catch error details using `rescue_from`
-2. Catch error details using Middleware
-
-The location where error details are caught will change, but in either case, you only need to add the caught error to Span.
+1. Catch errors using `rescue_from`
+2. Catch errors using Middleware
 
 For example, if you use `rescue_from`, you would do the following.
 
 ```ruby
-class ApplicationController < ActionController
+class ApplicationController < ActionController::API
   rescue_from Exception do |e|
     OpenTelemetry::Trace.current_span.record_exception(e)
 
@@ -147,22 +135,16 @@ class ApplicationController < ActionController
 end
 ```
 
-### 4. Adding custom instrumentation (optional)
+## Viewing sent traces
 
-By adding custom spans, you can instrument any range.
+Sent traces can be verified by following these steps:
 
-Instrumentation makes it possible to record variable values and processing times.
+1. Select "[APM](https://mackerel.io/my/apm)" from the menu<br>
+2. Select the service name
+  [f:id:mackerelio:20260109153548j:plain]
+3. Select the "Traces" tab
+  [f:id:mackerelio:20260109153629j:plain]
+4. Select a trace from the trace list to view its details
+  [f:id:mackerelio:20260109153349p:plain]
 
-You can add instrumentation by enclosing it in `in_span` as shown below.
-
-```ruby
-def awesome_action(arg)
-  OpenTelemetry.tracer_provider.tracer.in_span("awesome_action", attributes: {"arg" => arg}) do |span|
-    # ... existing processing
-  end
-end
-```
-
-Other instrumentation approaches are available. For details, refer to the OpenTelemetry documentation.
-
-[https://opentelemetry.io/docs/languages/ruby/instrumentation/:embed:cite]
+That's a wrap on setting up OpenTelemetry in your Ruby application and sending traces to Mackerel.

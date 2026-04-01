@@ -1,42 +1,42 @@
 ---
-Title: トレース - RubyにOpenTelemetryを導入する
+Title: RubyのアプリケーションからMackerelにトレースを送信する
 Date: 2025-03-13T16:40:53+09:00
 URL: https://mackerel.io/ja/docs/entry/tracing/installations/ruby
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/6802418398333960676
 ---
 
-MackerelはOpenTelemetryの仕組み (計装)を利用してデータを取得しています。
-
-このページではRuby のデータをMackerelに送信する方法を解説します。
+このページでは、RubyのアプリケーションからMackerelにトレースを送信する方法を解説します。
 
 [:contents]
 
-## Ruby向けOpenTelemetry
+## 概要
 
-OpenTelemetry には Ruby用のSDKが用意されています。
+MackerelはOpenTelemetryの仕組み（計装）を利用してトレースを取得します。Ruby on RailsやActiveRecordなど、主要なフレームワークやライブラリ向けに提供された[計装ライブラリ](https://opentelemetry.io/ja/docs/languages/ruby/libraries/)を使用することで、既存の実装を大きく変更せずにトレースを送信できます。
 
-このSDKに加えて、RubyOnRailsやActiveRecord用のSDKを使用すると、既存の実装を変更せずに計装することができます。
+RubyにはいくつかのWebフレームワークが存在しますが、このページではRuby on Railsへの導入方法を説明します。
 
-[https://opentelemetry.io/ja/docs/languages/ruby/instrumentation/:embed:cite]
+<div class="note">
+<p>📝 補足</p>
+<p>提供されている計装ライブラリは<a href="https://opentelemetry.io/ecosystem/registry/?language=ruby&component=instrumentation">レジストリ</a>で検索できます。お使いのフレームワークやアプリケーション向けの計装ライブラリが存在しない場合は、独自に計装することもできます。詳しくはOpenTelemetry公式ドキュメントのRubyの<a href="https://opentelemetry.io/ja/docs/languages/ruby/instrumentation/">計装</a>ページをご確認ください。</p>
+</div>
 
-### Collectorを使用するべきか
+## 動作要件
 
-データをMackerelに送信する際に、SDKから直接送信するだけではなく、Collectorを使うこともできます。
+RubyにおけるOpenTelemetryの[動作要件](https://opentelemetry.io/ja/docs/languages/ruby/getting-started/#prerequisites)として、以下がインストールされている必要があります。
 
-Collectorを使うかどうかを決める際は以下のページを参考にしてください。
-
-[Collectorを使うかどうかの判断について](https://mackerel.io/ja/docs/entry/tracing/guide/what-is-opentelemetry#using-collector-or-not)
+- 下記のいずれか
+  - CRuby3.1以上
+  - JRuby9.3.2.0以上
+  - TruffleRuby22.1以上
+- Bundler
 
 ## 導入方法
 
-Rubyにはいくつかのフレームワークが存在しますが、このページでは `Ruby on Rails` を使っている場合の導入方法を説明します。
-
-以下のステップでMackerelトレーシング機能を導入できます。
+アプリケーションからMackerelへトレースを送信するために、以下をおこないます。
 
 1. Gemの追加
-2. initializers 内での初期設定
-3. エラーを捕捉
-4. 独自の計装の追加 (任意)
+2. initializersでの初期設定
+3. エラーの捕捉（任意）
 
 ### 1. Gemの追加
 
@@ -48,7 +48,7 @@ gem 'opentelemetry-exporter-otlp'
 gem 'opentelemetry-instrumentation-all'
 ```
 
-また、 `opentelemetry-instrumentation-all` は多くのGemを内包しているため、下のように個別のGemだけを利用することもできます。
+また、`opentelemetry-instrumentation-all`は多くのGemを内包しているため、下のように個別のGemだけを利用することもできます。
 
 ```ruby
 gem 'opentelemetry-instrumentation-active_support'
@@ -57,44 +57,32 @@ gem 'opentelemetry-instrumentation-rack'
 gem 'opentelemetry-instrumentation-rails'
 ```
 
-足りない場合は、OpenTelemetryのページからGemを探すことができます。
+### 2. initializersでの初期設定
 
-[https://opentelemetry.io/ecosystem/registry/?language=ruby&component=instrumentation:embed:cite]
-
-### 2. initializers 内での初期設定
-
-OpenTelemetryのデータをMackerelに送信するためには、initializer内で設定をする必要があります。
-
-`OpenTelemetry::SDK.configure` 内では、以下の項目を設定をすることができます。
-
-* service\_name
-* service\_version
-* resource
-* span\_processor
-
-例えば、 `config/initializers/opentelemetry.rb` で以下のように設定するとSDKから直接Mackerelに送信することができます。
+initializerでトレースを送信するための設定をおこないます。以下の内容を`config/initializers/opentelemetry.rb`として配置し、アプリケーションを起動するとトレースが送信されます。
 
 ```ruby
+require 'socket'
 require 'opentelemetry/sdk'
 require 'opentelemetry/exporter/otlp'
 require 'opentelemetry/instrumentation/all'
 
 OpenTelemetry::SDK.configure do |c|
-  c.service_name = "acme_service"
+  c.service_name = "my-sample-app"
   c.service_version = "vX.Y.Z"
   c.resource = OpenTelemetry::SDK::Resources::Resource.create(
     OpenTelemetry::SemanticConventions::Resource::DEPLOYMENT_ENVIRONMENT => Rails.env.to_s,
     OpenTelemetry::SemanticConventions::Resource::HOST_NAME => Socket.gethostname
   )
 
+  # exporterの設定
   exporter = OpenTelemetry::Exporter::OTLP::Exporter.new(
     endpoint: "https://otlp-vaxila.mackerelio.com/v1/traces",
     headers: {
       "Accept" => "*/*",
-      "Mackerel-Api-Key" => ENV["MACKEREL_API_KEY"]
+      "Mackerel-Api-Key" => ENV["MACKEREL_APIKEY"]
     }
   )
-  # デバッグ時にはConsoleSpanExporterが便利
   # exporter = OpenTelemetry::SDK::Trace::Export::ConsoleSpanExporter.new
   
   c.add_span_processor(
@@ -112,33 +100,33 @@ OpenTelemetry::SDK.configure do |c|
 end
 ```
 
-この例では次の項目を設定しています。
+- `service_name`はトレースのサービス名（`service.name`属性の値）になります。
+- `service_version`にはバージョン情報を記載できます（任意）。
+- `resource`にはOpenTelemetryの[セマンティック規約](https://opentelemetry.io/docs/specs/semconv/resource/)に基づいた属性を指定できます。トレースの送信元を詳細に識別できるようになります（任意）。
+  - `DEPLOYMENT_ENVIRONMENT`：デプロイ環境（development、staging、productionなど）を指定します。この例ではRailsの環境名（`Rails.env`）を使用しています。
+  - `HOST_NAME`：アプリケーションが動作しているホスト名を指定します。この例では`Socket.gethostname`でホスト名を自動取得しています。
+  - その他の属性については[OpenTelemetry::SemanticConventions::Resource](https://open-telemetry.github.io/opentelemetry-ruby/opentelemetry-semantic_conventions/v1.8.0/OpenTelemetry/SemanticConventions/Resource.html)をご確認ください。
+- `exporter`
+  - `endpoint`はトレースの送信先の指定です。
+    - Mackerelに直接送信する場合は`https://otlp-vaxila.mackerelio.com/v1/traces`を指定します。
+    - Collectorを利用して送信する場合は`http://<Collectorのアドレス:ポート>/v1/traces`を指定します。
+  - `${MACKEREL_APIKEY}`はMackerelのAPIキーの指定です。[APIキーの一覧](https://mackerel.io/my?tab=apikeys)から、Write権限のあるAPIキーをアプリケーションが動作するシステム内の環境変数に定義してください。
+    - 環境変数ではなくAPIキーを直接記述しても動作します。
+  - `ConsoleSpanExporter`を指定するとトレースが標準出力に出力されます。
 
-* service\_name, service\_version, resource
-  * これらの項目を設定することでデータがどこから来たかわかるようになります。
-* endpoint
-  * `https://otlp-vaxila.mackerelio.com/v1/traces` と設定することで、データを直接Mackerelに送信するようになります。
-  * Collectorを利用する場合は、Collectorのエンドポイント (`http://localhost:4318/v1/traces` など)を設定してください。
-* headers
-  * `Mackerel-Api-Key` と `Accept` のヘッダーを設定することでMackerelと通信することができます。
-  * `Mackerel-Api-Key` には、Mackerelで発行された書き込み権限のあるAPIキーを設定してください。APIキーの権限を変更した際は反映まで1分ほどお待ちください。
-  * Collectorを利用する場合、ヘッダーは必要ないでしょう。
+### 3. エラーの捕捉（任意）
 
-### 3. エラーを捕捉
+Mackerelはエラーをトラッキングできますが、RubyのOpenTelemetryは初期状態ではエラー内容を送信しません。
 
-Mackerelはエラーをトラッキングすることができますが、RubyのOpenTelemetryはインストールしただけではエラー内容を送信しません。
+エラー内容を送信するには、以下のどちらかの方法でエラーを捕捉し、スパンに記録する必要があります。
 
-エラー内容も送信するため、以下のどちらかの作業が必要です。
-
-1. `rescue_from` でエラーを捕捉する
+1. `rescue_from`でエラーを捕捉する
 2. Middlewareでエラーを捕捉する
 
-エラーの捕捉場所は変わりますが、どちらの場合であっても、捕捉したエラーをSpanに追加するだけで良いことは変わりません。
-
-具体的に、例えば `resuce_from` を使用する場合には以下のようにします。
+例えば、`rescue_from`を使用する場合は以下のようにします。
 
 ```ruby
-class ApplicationController < ActionController
+class ApplicationController < ActionController::API
   rescue_from Exception do |e|
     OpenTelemetry::Trace.current_span.record_exception(e)
 
@@ -147,22 +135,16 @@ class ApplicationController < ActionController
 end
 ```
 
-### 4. 独自の計装の追加 (任意)
+## トレースを確認する
 
-独自のSpanを追加することで、任意の範囲を計装することができます。
+送信されたトレースは以下の手順で確認できます。
 
-計装によって、変数の値や処理時間を記録することが出来るようになります。
+1. メニューの「[APM](https://mackerel.io/my/apm)」を選択<br>
+2. サービス名を選択
+  [f:id:mackerelio:20251224180534j:plain]
+3. 「トレース」タブを選択
+  [f:id:mackerelio:20251224180530j:plain]
+4. トレース一覧からトレースを選択すると詳細が確認できます
+  [f:id:mackerelio:20251224180525p:plain]
 
-具体的には、下のように `in_span` で囲むと計装が追加できます。
-
-```ruby
-def awesome_action(arg)
-  OpenTelemetry.tracer_provider.tracer.in_span("awesome_action", attributes: {"arg" => arg}) do |span|
-    # ... 既存の処理
-  end
-end
-```
-
-計装の方法は他にも用意されています。詳細はOpenTelemetryのドキュメントを参照してください。
-
-[https://opentelemetry.io/ja/docs/languages/ruby/instrumentation/:embed:cite]
+以上、RubyアプリケーションにOpenTelemetryを導入して、Mackerelへトレースを送信する方法のご紹介でした。
