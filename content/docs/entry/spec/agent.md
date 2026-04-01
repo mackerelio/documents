@@ -242,13 +242,15 @@ Possible statuses are `working` , `standby` , `maintenance` , and `poweroff`. Fo
 <h5>ignore</h5>
 Metric collection can be excluded from specific file systems.
 
-By designating a regular expression like shown below, metrics from the designated file system will no longer be collected.
+By designating a regular expression like shown below, metrics from the designated file system will no longer be collected. Note that metric collection only targets file systems whose names start with `/dev/`, so file systems that do not meet this criterion do not need to be excluded.
 
 ```toml
 # /etc/mackerel-agent/mackerel-agent.conf
 [filesystems]
 ignore = "/dev/ram.*"
 ```
+
+**Note**: The "File System" information in the "Host Info" on the host details screen will not be hidden.
 
 <h5>use_mountpoint</h5>
 You can obtain filesystem metrics for each mount point by specifying the following in the configuration file.

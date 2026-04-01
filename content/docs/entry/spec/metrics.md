@@ -72,6 +72,7 @@ The sources for each of the above metrics when using mackerel-agent are as follo
   * Obtained by parsing the contents of `/proc/net/dev`
 * filesystem
   * Obtained by parsing the execution results of the `df` command
+  * File systems that start with `/dev/` are targeted
 
 ### Windows
 

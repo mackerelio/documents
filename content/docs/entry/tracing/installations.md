@@ -11,6 +11,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackere
 - [Introducing OpenTelemetry to Python](https://mackerel.io/docs/entry/tracing/installations/python)
 - [Introducing OpenTelemetry to Ruby](https://mackerel.io/docs/entry/tracing/installations/ruby)
 - [Introducing OpenTelemetry to .NET](https://mackerel.io/docs/entry/tracing/installations/dotnet)
+- [Sending traces from Java applications to Mackerel](https://mackerel.io/docs/entry/tracing/installations/java)
 - [Introducing OpenTelemetry to other languages](https://mackerel.io/docs/entry/tracing/installations/other-language)
 - [Introducing OpenTelemetry Collector](https://mackerel.io/docs/entry/tracing/installations/opentelemetry-collector)
 - [Introducing OpenTelemetry to Browser](https://mackerel.io/docs/entry/tracing/installations/browser)

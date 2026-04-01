@@ -11,6 +11,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 - [PythonにOpenTelemetryを導入する](https://mackerel.io/ja/docs/entry/tracing/installations/python)
 - [RubyにOpenTelemetryを導入する](https://mackerel.io/ja/docs/entry/tracing/installations/ruby)
 - [.NETにOpenTelemetryを導入する](https://mackerel.io/ja/docs/entry/tracing/installations/dotnet)
+- [JavaのアプリケーションからMackerelにトレースを送信する](https://mackerel.io/ja/docs/entry/tracing/installations/java)
 - [その他の言語にOpenTelemetryを導入する](https://mackerel.io/ja/docs/entry/tracing/installations/other-language)
 - [OpenTelemetry Collectorを導入する](https://mackerel.io/ja/docs/entry/tracing/installations/opentelemetry-collector)
 - [ブラウザにOpenTelemetryを導入する](https://mackerel.io/ja/docs/entry/tracing/installations/browser)
