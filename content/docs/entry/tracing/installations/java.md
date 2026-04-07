@@ -57,8 +57,6 @@ You can also download it from the [opentelemetry-java-instrumentation releases p
 
 ### 2. Run your application using the Java Agent
 
-Add the Java Agent (opentelemetry-javaagent.jar) and other settings to your application's startup command, then run the application.
-
 Specify the Java Agent (opentelemetry-javaagent.jar) with `-javaagent` in the startup options, add other settings, and start the application.
 
 By setting your Mackerel API key with write permissions in the `MACKEREL_APIKEY` environment variable and executing the command below, traces will be sent to Mackerel under the service name `my-sample-app`:

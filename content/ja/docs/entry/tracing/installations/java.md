@@ -57,8 +57,6 @@ curl -L -O https://github.com/open-telemetry/opentelemetry-java-instrumentation/
 
 ### 2. Javaエージェントを指定してアプリケーションを起動
 
-アプリケーションの起動コマンドに、Javaエージェント（opentelemetry-javaagent.jar）の指定やその他の設定を追加し、アプリケーションを実行します。
-
 起動オプションに `-javaagent` でJavaエージェント（opentelemetry-javaagent.jar）を指定し、その他の設定を追加してアプリケーションを起動します。
 
 環境変数 `MACKEREL_APIKEY` にMackerelのWrite権限を持つAPIキーを設定した状態で以下のように起動することで、`my-sample-app` というサービス名でMackerelにトレースが送信されます。
