@@ -1,152 +1,91 @@
 ---
-Title: トレース - Node.jsにOpenTelemetryを導入する
+Title: Node.jsのアプリケーションからMackerelにトレースを送信する
 Date: 2025-03-13T16:38:05+09:00
 URL: https://mackerel.io/ja/docs/entry/tracing/installations/nodejs
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/6802418398333960594
 ---
 
-MackerelはOpenTelemetryの仕組み (計装)を利用してデータを取得しています。
-
-このページではNode.jsのデータをMackerelに送信する方法を解説します。
+このページでは、Node.jsのアプリケーションからトレースをMackerelに送信する方法を解説します。
 
 [:contents]
 
-## Node.js向けOpenTelemetry
+## 概要
 
-OpenTelemetry には Node.js用のSDKが用意されています。
+MackerelはOpenTelemetryの仕組み（計装）を利用してトレースを取得します。OpenTelemetryに対応したトレースはさまざまな方法で取得できますが、今回はゼロコード計装と呼ばれる、アプリケーションの実装を変更せずにトレースを送信する方法を解説します。
 
-このSDKに加えて、ExpressやAWS用のSDKを使用すると、色々な範囲を計装することができます。
+<div class="note">
+<p>📝 補足</p>
+<p>Node.jsのゼロコード計装は、nodeコマンドによるアプリケーション実行時に @opentelemetry/auto-instrumentations-node パッケージにて提供されるファイルをrequireし、トレースなどのテレメトリーデータを取得できるようにすることで実現されています。</p>
+<p>詳しくはOpenTelemetry公式ドキュメントの <a href="https://opentelemetry.io/ja/docs/zero-code/js/">Node.jsゼロコード・計装 | OpenTelemetry</a> をご確認ください。</p>
+</div>
 
-[https://opentelemetry.io/ja/docs/languages/js/getting-started/nodejs/:embed:cite]
+## 動作要件
 
-### Collectorを使用するべきか
+OpenTelemetryの[動作要件](https://github.com/open-telemetry/opentelemetry-js/tree/main?tab=readme-ov-file#supported-runtimes)として、Node.jsが指定されたバージョン以上である必要があります。
 
-データをMackerelに送信する際に、SDKから直接送信するだけではなく、Collectorを使うこともできます。
-
-Collectorを使うかどうかを決める際は以下のページを参考にしてください。
-
-[Collectorを使うかどうかの判断について](https://mackerel.io/ja/docs/entry/tracing/guide/what-is-opentelemetry#using-collector-or-not)
+- Node.js v18以上
 
 ## 導入方法
 
-Node.jsには複数のWebフレームワークが存在しますが、このページでは `Express` への導入方法を説明します。 他のフレームワークを使っている場合もほぼ同じ方法で計装することができます。
+アプリケーションからMackerelへトレースを送信するために、以下をおこないます。
 
-以下のステップでMackerelトレーシング機能を導入できます。
+1. パッケージのインストール
+2. インストールされたファイルをrequireする設定とともにアプリケーションを起動
 
-1. パッケージ追加
-2. 初期設定
-3. 独自の計装の追加 (任意)
+### 1. パッケージのインストール
 
-### 1. パッケージ追加
-
-以下のパッケージを使用します。
+以下のコマンドで、Node.jsでのOpenTelemetry利用に必要なパッケージをインストールします。
 
 ```bash
-npm install @opentelemetry/api \
-  @opentelemetry/auto-instrumentations-node \
-  @opentelemetry/exporter-trace-otlp-proto \
-  @opentelemetry/resources \
-  @opentelemetry/sdk-node \
-  @opentelemetry/sdk-trace-node \
-  @opentelemetry/semantic-conventions
+npm install --save @opentelemetry/api @opentelemetry/auto-instrumentations-node
 ```
 
-上のコマンドで追加した `auto-instrumentations-node` は多くのパッケージを内包しているため、Expressやhttpのように人気のライブラリは自動で計装されます。
-
-含まれているパッケージは[GitHubのページ](https://github.com/open-telemetry/opentelemetry-js-contrib/tree/main/packages/auto-instrumentations-node#supported-instrumentations)を参照してください。
-
-また、足りない場合はOpenTelemetryのページからパッケージを探すことができます。
+OpenTelemetryはNode.jsのさまざまなライブラリをサポートしており、ライブラリごとに個別の計装ライブラリが用意されています。計装ライブラリを導入することで、対象となるライブラリからテレメトリーが取得できます。提供されているパッケージは以下のページで検索できます。
 
 [https://opentelemetry.io/ecosystem/registry/?language=js&component=instrumentation:embed:cite]
 
-### 2. 初期設定
+<div class="note">
+<p>📝 補足</p>
+<p>お使いのフレームワークやアプリケーション向けの計装ライブラリが存在しない場合は、独自に計装することもできます。</p>
+<p>詳しくはOpenTelemetry公式ドキュメントの <a href="https://opentelemetry.io/ja/docs/languages/js/instrumentation/">計装 | OpenTelemetry</a>をご確認ください。</p>
+</div>
 
-OpenTelemetryのデータをMackerelに送信するためには、以下の項目を設定する必要があります。
+### 2. インストールされたファイルを require する設定とともにアプリケーションを起動
 
-* Exporter
-* resource
+ゼロコード計装を利用する場合、`@opentelemetry/auto-instrumentations-node/register` を起動時にrequireしつつNode.jsアプリケーションを実行することで、アプリケーションから自動でトレースを送信できます。
 
-例えば、以下のようにすると、SDKから直接Mackerelに送信することができます。
+環境変数 `MACKEREL_APIKEY` にMackerelのWrite権限を持つAPIキーを設定した状態で、以下のようにそのほか取得・投稿に必要な環境変数を指定し起動することで、`my-sample-app` というサービス名でMackerelにトレースが送信されます。
 
-```javascript
-const { resourceFromAttributes, processDetector, hostDetector } = require('@opentelemetry/resources');
-const { OTLPTraceExporter } = require("@opentelemetry/exporter-trace-otlp-proto");
-const { ConsoleSpanExporter } = require('@opentelemetry/sdk-trace-node');
-const { NodeSDK } = require('@opentelemetry/sdk-node');
-const { getNodeAutoInstrumentations } = require('@opentelemetry/auto-instrumentations-node');
-const {
-  ATTR_SERVICE_NAME,
-  ATTR_SERVICE_VERSION,
-} = require("@opentelemetry/semantic-conventions");
-
-// ATTR_DEPLOYMENT_ENVIRONMENT_NAME は個別に定義
-ATTR_DEPLOYMENT_ENVIRONMENT_NAME = 'deployment.environment.name';
-
-const exporter = new OTLPTraceExporter({
-  maxQueueSize: 1000,
-  url: "https://otlp-vaxila.mackerelio.com/v1/traces",
-  headers: {
-    "Accept": "*/*",
-    "Mackerel-Api-Key": process.env.MACKEREL_API_KEY,
-  }
-})
-// デバッグ時にはConsoleSpanExporterが便利
-// const exporter = new ConsoleSpanExporter()
-
-const sdk = new NodeSDK({
-  traceExporter: exporter,
-  instrumentations: [
-    getNodeAutoInstrumentations({
-      // fsの計装はスタートアップ時に大量のトレースを作り出すので、必要がなければ外したほうが便利です。
-      '@opentelemetry/instrumentation-fs': {
-        enabled: false,
-      },
-    }),
-  ],
-  resource: resourceFromAttributes({
-    [ATTR_SERVICE_NAME]: "acme_service",
-    [ATTR_SERVICE_VERSION]: "vX.Y.Z",
-    [ATTR_DEPLOYMENT_ENVIRONMENT_NAME]: "production"
-  }),
-  resourceDetectors: [processDetector, hostDetector]
-});
-
-sdk.start()
+```sh
+env OTEL_TRACES_EXPORTER=otlp \
+OTEL_METRICS_EXPORTER=none \
+OTEL_LOGS_EXPORTER=none \
+OTEL_SERVICE_NAME=my-sample-app \
+OTEL_EXPORTER_OTLP_TRACES_ENDPOINT=https://otlp-vaxila.mackerelio.com/v1/traces \
+OTEL_EXPORTER_OTLP_TRACES_HEADERS=Mackerel-Api-Key=${MACKEREL_APIKEY},Accept='*/*' \
+OTEL_EXPORTER_TOLP_TRACES_PROTOCOL=http/protobuf \
+NODE_OPTIONS="--require @opentelemetry/auto-instrumentations-node/register" \
+node app.js # app.js は起動するアプリケーションファイルに置き換えてください。
 ```
 
-この例では次の項目を設定しています。
+- `OTEL_TRACES_EXPORTER` を `console` にするとトレースが標準出力に出力されます。
+- `OTEL_SERVICE_NAME` はトレースのサービス名（`service.name`属性の値）になります。
+- `OTEL_EXPORTER_OTLP_TRACES_ENDPOINT` はトレースの送信先の指定です。
+  - Mackerelに直接送信する場合は `https://otlp-vaxila.mackerelio.com/v1/traces` を指定します。
+  - Collectorを利用して送信する場合は `http://<Collectorのアドレス:ポート>/v1/traces` を指定します。
+- `${MACKEREL_APIKEY}` はMackerelのAPIキーの指定です。[APIキーの一覧](https://mackerel.io/my?tab=apikeys)から、Write権限のあるAPIキーをアプリケーションが動作するシステム内の環境変数に定義してください。
+  - 環境変数ではなくAPIキーを直接記述しても動作します。
 
-* Exporter
-  * url
-    * `https://otlp-vaxila.mackerelio.com/v1/traces` と設定することで、データを直接Mackerelに送信するようになります。
-    * Collectorを利用する場合は、Collectorのエンドポイント (`http://localhost:4318/v1/traces` など) を設定してください。
-  * headers
-    * `Mackerel-Api-Key` と `Accept` のヘッダーを設定することでMackerelと通信することができます。
-    * `Mackerel-Api-Key` には、Mackerelで発行された書き込み権限のあるAPIキーを設定してください。APIキーの権限を変更した際は反映まで1分ほどお待ちください。
-    * Collectorを利用する場合、ヘッダーは必要ないでしょう。
-* resource & resourceDetectors
-  * NodeSDKのresourceを設定することで、データがどこから来たかわかるようになります。
-  * `ATTR_DEPLOYMENT_ENVIRONMENT_NAME` は2025年5月時点で `@opentelemetry/semantic-conventions/incubating` に含まれますが、このパッケージは不安定であるため、[Unstable SemConv](https://www.npmjs.com/package/@opentelemetry/semantic-conventions#unstable-semconv) で推奨されるように、import せず個別に定義しています。将来的には `@opentelemetry/semantic-conventions` で使用できるようになると思われます。
+## トレースを確認する
 
-### 3. 独自の計装の追加 (任意)
+送信されたトレースは以下の手順で確認できます。
 
-独自のSpanを追加することで、任意の範囲を計装することができます。
+1. メニューの「[APM](https://mackerel.io/my/apm)」を選択<br>
+2. サービス名を選択
+  [f:id:mackerelio:20251224180534j:plain]
+3. 「トレース」タブを選択
+  [f:id:mackerelio:20251224180530j:plain]
+4. トレース一覧からトレースを選択すると詳細が確認できます
+  [f:id:mackerelio:20251224180525p:plain]
 
-計装によって、変数の値や処理時間を記録することができるようになります。
-
-具体的には、下のように `startActiveSpan` で囲むと計装が追加できます。
-
-```javascript
-const tracer = opentelemetry.trace.getTracer(
-  'my-service-tracer'
-);
-tracer.startActiveSpan('awesome_action', (span) => {
-  // ... 既存の処理
-
-  span.end();
-});
-```
-
-計装の方法は他にも用意されています。詳細はOpenTelemetryのドキュメントを参照してください。
-
-[https://opentelemetry.io/ja/docs/languages/js/instrumentation/:embed:cite]
+以上、Node.jsで作成されたアプリケーションにゼロコード計装をおこなって、Mackerelへトレースを投稿する方法のご紹介でした。
