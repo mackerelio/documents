@@ -43,7 +43,6 @@ The following container orchestration platforms are supported with mackerel-cont
   - External Type (Amazon ECS Anywhere)  **beta feature**
   - **Windows containers not supported**
 - Kubernetes
-  - 1.32
   - 1.33
   - 1.34
   - 1.35
