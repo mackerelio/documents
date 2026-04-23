@@ -3,7 +3,6 @@ Title: Setting up SAML
 Date: 2024-08-02T14:00:00+09:00
 URL: https://mackerel.io/docs/entry/advanced/saml-settings
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/6802340630902355647
-CustomPath: advanced/saml-settings
 ---
 
 **A contract for a higher-tier Mackerel plan which includes SAML authentication is required to use this feature.**
@@ -48,7 +47,7 @@ After that, the Manger can select an organization group from the Organization Gr
 
 ![The User menu. From the top are “Account Settings”, “Organization Groups Settings”, and “Sign Out”.](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20240925/20240925112722.png)
 
-![Edit Organization Group screen. Detailed information about the organization group is displayed in a table. The organization group's name is at the top of the table. Following in order are the entry forms for Details, IdP Metadata XML, IdP Entity ID, Single Sign On URL, IdP X509 Certificate, Require SAML Authentication, Attribute Mappings, and Join all organizations as viewer by default, with an Update button and Cancel button at the end.](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20250702/20250702182410.png)
+![Edit Organization Group screen. Detailed information about the organization group is displayed in a table. The organization group's name is at the top of the table. Following in order are the entry forms for Details, IdP Metadata XML, IdP Entity ID, Single Sign On URL, IdP X509 Certificate, Require SAML Authentication, Attribute Mappings, Join all organizations as viewer by default, and Session validity period (Hours) with an Update button and Cancel button at the end.](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20260422/20260422160959.png)
 
 | Setting                                     | Description                                                                                                                                                                                                         |
 | ------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -60,6 +59,7 @@ After that, the Manger can select an organization group from the Organization Gr
 | Require SAML authentication                 | When enabled, only users and [outside collaborators](https://mackerel.io/docs/entry/advanced/saml-outside-collaborators) authenticated with SAML can view the organization.                                         |
 | Attribute mapping                           | When enabled, permissions are assigned based on [attribute mappings](https://mackerel.io/docs/entry/advanced/saml-attribute-mappings). You can only enable this setting when forced SAML authentication is enabled. |
 | Join all organizations as viewer by default | When enabled, SAML-authenticated users join as viewers of all organizations affiliated with the organization group. You can only enable this setting when attribute mapping is disabled.                            |
+| Session validity period (Hours)             | Set the authenticated session validity period between 1 and 720 hours. If not specified, the default is 24 hours. Even if specified, the validity period set by the IdP takes precedence. Changing this value will invalidate the sessions of all users logged in via SAML. |
 
 <h2 id="managing-orgs">Managing affiliated organizations</h2>
 
