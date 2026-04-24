@@ -148,7 +148,7 @@ For SQS, OpenSearch Service, and Step Functions, the actions marked with *2 in t
 | OpenSearch Service *1 | AmazonOpenSearchServiceReadOnlyAccess<br>`elasticache:ListTagsForResource` *2 | You can also use AmazonESReadOnlyAccess. |
 | ECS Cluster *1 | `ecs:Describe*` <br> `ecs:List*` |  |
 | SES *1 | AmazonSESReadOnlyAccess <br> `ses:Describe*` |  |
-| Step Functions *1 | AWSStepFunctionsReadOnlyAccess<br>`states:ListTagsForResource` *2 |  |
+| Step Functions *1 | AWSStepFunctionsReadOnlyAccess<br>`tag:GetResources` *2 | If `tag:GetResources` is not available, `states:ListTagsForResource`, which has stricter rate limits, will be used as an alternative. |
 | EFS *1 | AmazonElasticFileSystemReadOnlyAccess |  |
 | Kinesis Data Firehose *1 | AmazonKinesisFirehoseReadOnlyAccess |  |
 | AWS Batch *1 | `batch:Describe*` <br> `batch:List*` |  |
@@ -350,6 +350,7 @@ Create and attach your own policies or specify them in Inline Policies.
                 "sqs:List*",
                 "states:DescribeStateMachine",
                 "states:List*",
+                "tag:GetResources",
                 "waf-regional:Get*",
                 "waf-regional:List*",
                 "waf:Get*",

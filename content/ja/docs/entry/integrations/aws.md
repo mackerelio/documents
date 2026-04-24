@@ -150,7 +150,7 @@ SQS、OpenSearch Service、Step Functionsで以下の設定を利用する場合
 | OpenSearch Service *1 | AmazonOpenSearchServiceReadOnlyAccess<br>`elasticache:ListTagsForResource` *2 | AmazonESReadOnlyAccessでも利用可能です。 |
 | ECS Cluster *1 | `ecs:Describe*` <br> `ecs:List*` |  |
 | SES *1 | AmazonSESReadOnlyAccess <br> `ses:Describe*` |  |
-| Step Functions *1 | AWSStepFunctionsReadOnlyAccess<br>`states:ListTagsForResource` *2 |  |
+| Step Functions *1 | AWSStepFunctionsReadOnlyAccess<br>`tag:GetResources` *2 | `tag:GetResources`が利用できない場合、レート制限の厳しい`states:ListTagsForResource`が代替利用されます |
 | EFS *1 | AmazonElasticFileSystemReadOnlyAccess |  |
 | Kinesis Data Firehose *1 | AmazonKinesisFirehoseReadOnlyAccess |  |
 | AWS Batch *1 | `batch:Describe*` <br> `batch:List*` |  |
@@ -352,6 +352,7 @@ Mackerelの設定画面でタグを指定します。連携ホスト数を確認
                 "sqs:List*",
                 "states:DescribeStateMachine",
                 "states:List*",
+                "tag:GetResources",
                 "waf-regional:Get*",
                 "waf-regional:List*",
                 "waf:Get*",
