@@ -89,3 +89,19 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 
 - [`vector()`](https://prometheus.io/docs/prometheus/latest/querying/functions/#vector)
 - [`scalar()`](https://prometheus.io/docs/prometheus/latest/querying/functions/#scalar)
+
+## 変数
+
+表示範囲に関する変数が利用できます。
+
+### 範囲を表す変数
+
+- `$__interval`は表示範囲から決定されるグラフ上の点の間隔です。`<aggregation>_over_time`関数と併用することで隣の点との計算を表現できます。
+- `$__rate_interval`は表示範囲から決定される間隔です。点の間隔である`$__interval`以上の値が設定されるため、`irate()`や`increase()`と組み合わせると有用です。
+- `$__range`は表示範囲です。
+
+範囲を表す変数はデフォルトでは秒数に展開されます。`${<変数名>:milliseconds}`のように表記することでミリ秒表記で展開されます。
+
+### 時刻を表す変数
+
+`$__from`、`$__to`はそれぞれ表示範囲の開始時刻と終了時刻を表すUNIX秒に展開されます。

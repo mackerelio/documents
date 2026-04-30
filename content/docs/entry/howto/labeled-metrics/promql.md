@@ -89,3 +89,19 @@ One-to-many correspondence using the `group_left` and `group_right` modifiers is
 
 - [`vector()`](https://prometheus.io/docs/prometheus/latest/querying/functions/#vector)
 - [`scalar()`](https://prometheus.io/docs/prometheus/latest/querying/functions/#scalar)
+
+## Variables
+
+Variables related to the display time range are supported.
+
+### Range variables
+
+- `$__interval` is the interval between points on the graph, determined by the display time range. It can be used with `<aggregation>_over_time` functions to express calculations between adjacent points.
+- `$__rate_interval` is an interval determined by the display time range. Since it is set to a value greater than or equal to the point interval `$__interval`, it is useful when combined with `irate()` or `increase()`.
+- `$__range` is the display time range.
+
+Range variables expand to seconds by default. They can be expanded in milliseconds using the `${<variable name>:milliseconds}` syntax.
+
+### Time variables
+
+`$__from` and `$__to` expand to the UNIX timestamp in seconds representing the start time and end time of the display time range, respectively.
