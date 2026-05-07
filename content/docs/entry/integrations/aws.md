@@ -122,7 +122,7 @@ For products marked with *1 in the "AWS Products" column of the table, CloudWatc
 
 * This is not required if you are also targeting products without *1.
 
-For SQS, OpenSearch Service, and Step Functions, the actions marked with *2 in the "Required Policies/Actions" column are additionally required when using the following settings.
+For Elasticache and Step Functions, the actions marked with *2 in the "Required Policies/Actions" column are additionally required when using the following settings.
 
 * [Specify tags to filter hosts to register](#tag)
 * [Specify metrics to retrieve](#select-metric)
@@ -136,16 +136,16 @@ For SQS, OpenSearch Service, and Step Functions, the actions marked with *2 in t
 | ALB | AmazonEC2ReadOnlyAccess |  |
 | NLB | AmazonEC2ReadOnlyAccess |  |
 | RDS | AmazonRDSReadOnlyAccess |  |
-| ElastiCache | AmazonElastiCacheReadOnlyAccess |  |
+| ElastiCache | AmazonElastiCacheReadOnlyAccess<br>`elasticache:ListTagsForResource` *2 |  |
 | Redshift | AmazonRedshiftReadOnlyAccess |  |
 | Lambda *1 | AWSLambda_ReadOnlyAccess |  |
-| SQS | AmazonSQSReadOnlyAccess<br>`sqs:ListQueueTags` *2 |  |
+| SQS | AmazonSQSReadOnlyAccess |  |
 | DynamoDB | AmazonDynamoDBReadOnlyAccess |  |
 | CloudFront *1 | CloudFrontReadOnlyAccess |  |
 | API Gateway *1 | `apigateway:GET` | Specify a resource policy like `arn:aws:apigateway:ap-northeast-1::/*`.<br>You cannot limit integration targets by resource policy. |
 | Kinesis Data Streams *1 | AmazonKinesisReadOnlyAccess |  |
 | S3 *1 | AmazonS3ReadOnlyAccess | Request metrics must be enabled in S3.<br>See <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/configure-request-metrics-bucket.html">Creating a CloudWatch metrics configuration for all the objects in your bucket</a> and set the filter name as `EntireBucket`. |
-| OpenSearch Service *1 | AmazonOpenSearchServiceReadOnlyAccess<br>`elasticache:ListTagsForResource` *2 | You can also use AmazonESReadOnlyAccess. |
+| OpenSearch Service *1 | AmazonOpenSearchServiceReadOnlyAccess | You can also use AmazonESReadOnlyAccess. |
 | ECS Cluster *1 | `ecs:Describe*` <br> `ecs:List*` |  |
 | SES *1 | AmazonSESReadOnlyAccess <br> `ses:Describe*` |  |
 | Step Functions *1 | AWSStepFunctionsReadOnlyAccess<br>`tag:GetResources` *2 | If `tag:GetResources` is not available, `states:ListTagsForResource`, which has stricter rate limits, will be used as an alternative. |

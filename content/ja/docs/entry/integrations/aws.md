@@ -124,7 +124,7 @@ AWSインテグレーションの連携方法には、IAMロールで連携（As
 
 * *1 の付いていない製品もあわせて対象にする場合は不要です。
 
-SQS、OpenSearch Service、Step Functionsで以下の設定を利用する場合は、表の「必要なポリシー／アクション」の列にある *2 の付いたアクションが追加で必要です。
+ElastiCache、Step Functionsで以下の設定を利用する場合は、表の「必要なポリシー／アクション」の列にある *2 の付いたアクションが追加で必要です。
 
 * [タグを指定して登録するホストを絞り込む](#tag)
 * [取得するメトリックを指定する](#select-metric)
@@ -138,16 +138,16 @@ SQS、OpenSearch Service、Step Functionsで以下の設定を利用する場合
 | ALB | AmazonEC2ReadOnlyAccess |  |
 | NLB | AmazonEC2ReadOnlyAccess |  |
 | RDS | AmazonRDSReadOnlyAccess |  |
-| ElastiCache | AmazonElastiCacheReadOnlyAccess |  |
+| ElastiCache | AmazonElastiCacheReadOnlyAccess<br>`elasticache:ListTagsForResource` *2 |  |
 | Redshift | AmazonRedshiftReadOnlyAccess |  |
 | Lambda *1 | AWSLambda_ReadOnlyAccess |  |
-| SQS | AmazonSQSReadOnlyAccess<br>`sqs:ListQueueTags` *2 |  |
+| SQS | AmazonSQSReadOnlyAccess |  |
 | DynamoDB | AmazonDynamoDBReadOnlyAccess |  |
 | CloudFront *1 | CloudFrontReadOnlyAccess |  |
 | API Gateway *1 | `apigateway:GET` | リソースポリシーは`arn:aws:apigateway:ap-northeast-1::/*`などのように指定します。<br>リソースポリシーで連携対象を制限することはできません。 |
 | Kinesis Data Streams *1 | AmazonKinesisReadOnlyAccess |  |
 | S3 *1 | AmazonS3ReadOnlyAccess | S3側でバケットのリクエストメトリックを有効にする必要があります。<br><a href="https://docs.aws.amazon.com/ja_jp/AmazonS3/latest/userguide/configure-request-metrics-bucket.html">S3バケットにリクエストメトリックを設定する方法</a>を参考に`EntireBucket`というフィルタ名で設定してください。 |
-| OpenSearch Service *1 | AmazonOpenSearchServiceReadOnlyAccess<br>`elasticache:ListTagsForResource` *2 | AmazonESReadOnlyAccessでも利用可能です。 |
+| OpenSearch Service *1 | AmazonOpenSearchServiceReadOnlyAccess | AmazonESReadOnlyAccessでも利用可能です。 |
 | ECS Cluster *1 | `ecs:Describe*` <br> `ecs:List*` |  |
 | SES *1 | AmazonSESReadOnlyAccess <br> `ses:Describe*` |  |
 | Step Functions *1 | AWSStepFunctionsReadOnlyAccess<br>`tag:GetResources` *2 | `tag:GetResources`が利用できない場合、レート制限の厳しい`states:ListTagsForResource`が代替利用されます |
