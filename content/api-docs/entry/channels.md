@@ -105,6 +105,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
 | `emails`        | *array[string]* | email addresses specified to receive notifications           |
 | `userIds`       | *array[string]* | user IDs specified to receive notifications                |
 | `events`        | *array[string]*        | notification events (`"alert"`, `"alertGroup"`, `"hostStatus"`, `"hostRegister"`, `"hostRetire"`, or `"monitor"`) |
+| `addToDefaultNotificationGroup` | *boolean* | add to the default notification group |
 
 #### Response(email notifications)
 
@@ -164,6 +165,7 @@ The object contains the following keys
 | `mentions`          | *hash[string]*  | the key is the condition (`ok`, `warning`, or `critical`), the value is the text accompanying the alert notification  |
 | `enabledGraphImage` | *boolean*       | whether or not the corresponding graph is posted to Slack |
 | `events`            | *array[string]*        | notification events (`"alert"`, `"alertGroup"`, `"hostStatus"`, `"hostRegister"`, `"hostRetire"`, or `"monitor"`) |
+| `addToDefaultNotificationGroup` | *boolean* | add to the default notification group |
 
 #### Response(Slack)
 
@@ -219,6 +221,7 @@ The object contains the following keys
 | `url`           | *string*        | URL that will receive HTTP request            |
 | `enabledGraphImage` | *boolean*       | whether or not the URL of the corresponding graph is included in the notification content |
 | `events`        | *array[string]*        | notification events (`"alert"`, `"alertGroup"`, `"hostStatus"`, `"hostRegister"`, `"hostRetire"`, or `"monitor"`) |
+| `addToDefaultNotificationGroup` | *boolean* | add to the default notification group |
 
 #### Response(Webhook)
 
@@ -284,7 +287,7 @@ Update a notification channel.
 
 The format for the update is the same as [Register Notification Channel](#create).
 
-However, the `type` cannot be changed.
+However, the `type` cannot be changed. Also, `addToDefaultNotificationGroup` cannot be set.
 
 ### Response
 

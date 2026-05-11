@@ -105,6 +105,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 | `emails`        | *array[string]* | 通知先に指定するEmailアドレス           |
 | `userIds`       | *array[string]* | 通知先に指定するユーザーID                |
 | `events`        | *array[string]*        | 通知するイベント(`"alert"`, `"alertGroup"`, `"hostStatus"`, `"hostRegister"`, `"hostRetire"`, `"monitor"` のいずれか) |
+| `addToDefaultNotificationGroup` | *boolean* | デフォルト通知グループに追加する |
 
 #### 応答(メール通知)
 
@@ -164,6 +165,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 | `mentions`          | *hash[string]*  | キーは状態(`ok`, `warning`, `critical`のいずれか)、値はアラート通知の際に添えるテキストです  |
 | `enabledGraphImage` | *boolean*       | 関連するグラフをSlackに投稿するか否か |
 | `events`            | *array[string]*        | 通知するイベント(`"alert"`, `"alertGroup"`, `"hostStatus"`, `"hostRegister"`, `"hostRetire"`, `"monitor"` のいずれか) |
+| `addToDefaultNotificationGroup` | *boolean* | デフォルト通知グループに追加する |
 
 #### 応答(Slack)
 
@@ -222,6 +224,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 | `url`               | *string*        |  HTTPリクエストを受け取るURL      |
 | `enabledGraphImage` | *boolean*       | 関連するグラフのURLを通知内容に含めるか否か |
 | `events`            | *array[string]*        | 通知するイベント(`"alert"`, `"alertGroup"`, `"hostStatus"`, `"hostRegister"`, `"hostRetire"`, `"monitor"` のいずれか) |
+| `addToDefaultNotificationGroup` | *boolean* | デフォルト通知グループに追加する |
 
 #### 応答(Webhook)
 
@@ -287,7 +290,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 
 更新内容は [チャンネルの作成](#create) と同じ形式で指定します。
 
-ただし、`type` は変更できません。
+ただし、`type` は変更できません。また、`addToDefaultNotificationGroup` の指定はできません。
 
 ### 応答
 
