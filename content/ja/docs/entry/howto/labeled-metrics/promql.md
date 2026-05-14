@@ -45,7 +45,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 
 - [`+`（加算）](https://prometheus.io/docs/prometheus/latest/querying/operators/#arithmetic-binary-operators)
 - [`-`（減算）](https://prometheus.io/docs/prometheus/latest/querying/operators/#arithmetic-binary-operators)
-- [`\*`（乗算）](https://prometheus.io/docs/prometheus/latest/querying/operators/#arithmetic-binary-operators)
+- [`*`（乗算）](https://prometheus.io/docs/prometheus/latest/querying/operators/#arithmetic-binary-operators)
 - [`/`（除算）](https://prometheus.io/docs/prometheus/latest/querying/operators/#arithmetic-binary-operators)
 - [`%`（剰余算）](https://prometheus.io/docs/prometheus/latest/querying/operators/#arithmetic-binary-operators)
 - [`^`（冪乗）](https://prometheus.io/docs/prometheus/latest/querying/operators/#arithmetic-binary-operators)
