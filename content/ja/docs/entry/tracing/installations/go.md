@@ -1,253 +1,85 @@
 ---
-Title: トレース - GoにOpenTelemetryを導入する
+Title: GoのアプリケーションからMackerelにトレースを送信する
 Date: 2025-03-13T16:34:45+09:00
 URL: https://mackerel.io/ja/docs/entry/tracing/installations/go
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/6802418398333960398
 ---
 
-MackerelはOpenTelemetryの仕組み (計装)を利用してデータを取得しています。
-
-このページではGoのデータをMackerelに送信する方法を解説します。
+このページでは、GoのアプリケーションからトレースをMackerelに送信する方法を解説します。
 
 [:contents]
 
-## Go向けOpenTelemetry
+## 概要
 
-OpenTelemetry には Go用のSDKが用意されています。
+MackerelはOpenTelemetryの仕組み（計装）を利用してトレースを取得します。OpenTelemetryに対応したトレースはさまざまな方法で取得できますが、今回はゼロコード計装と呼ばれる、アプリケーションの実装を変更せずにトレースを送信する方法を解説します。
 
-このSDKに加えて、GinやGorm用のSDKを使用すると、色々な範囲を計装することができます。
+<div class="note">
+<p>📝 補足</p>
+<p>Goのゼロコード計装は、起動中のアプリケーションとは別にeBPFを利用する自動計装エージェントを起動し、トレースといったテレメトリーデータを取得できるようにすることで実現されています。</p>
+<p>詳しくは <a href="https://github.com/open-telemetry/opentelemetry-go-instrumentation/blob/main/docs/how-it-works.md">opentelemetry-go-instrumentation/docs/how-it-works.md</a> をご確認ください。</p>
+</div>
 
-[https://opentelemetry.io/ja/docs/languages/go/instrumentation/:embed:cite]
+## 動作要件
 
-### Collectorを使用するべきか
+OpenTelemetryの[動作要件](https://github.com/open-telemetry/opentelemetry-go-instrumentation/#compatibility)として、動作環境のLinux Kernelが指定されたバージョン以上である必要があります。
 
-データをMackerelに送信する際に、SDKから直接送信するだけではなく、Collectorを使うこともできます。
-
-Collectorを使うかどうかを決める際は以下のページを参考にしてください。
-
-[Collectorを使うかどうかの判断について](https://mackerel.io/ja/docs/entry/tracing/guide/what-is-opentelemetry#using-collector-or-not)
+- Linux Kernel 4.4以上
 
 ## 導入方法
 
-Goには複数のWebフレームワークが存在しますが、このページでは最も基本的な `net/http`への導入方法を説明します。 他のフレームワークを使っている場合も以下とほぼ同じ方法で計装することができます。
+アプリケーションからMackerelへトレースを送信するために、以下をおこないます。
 
-以下のステップでMackerelトレーシング機能を導入できます。
+1. 自動計装エージェントの用意
+2. アプリケーションを起動
+3. 自動計装エージェントを起動
 
-1. go get
-2. 初期設定
-3. ミドルウェアの挿入
-4. エラーを捕捉
-5. 独自の計装の追加 (任意)
+### 1. 自動計装エージェントの用意
 
-### 1. go get
+[open-telemetry/opentelemetry-go-instrumentation: OpenTelemetry Auto Instrumentation using eBPF](https://github.com/open-telemetry/opentelemetry-go-instrumentation)リポジトリをクローンし、自動計装エージェントをビルドします。
 
-以下のモジュールをインストールします。
+```bash
+git clone https://github.com/open-telemetry/opentelemetry-go-instrumentation.git
+cd opentelemetry-go-instrumentation
+make build
+```
+
+### 2. アプリケーションを起動
+
+計装をおこないたいアプリケーションを通常通り起動してください。
+
+### 3. 自動計装エージェントを起動
+
+「1.」でビルドして用意した自動計装エージェントを、設定用の環境変数を指定のうえroot権限で起動します。
+
+以下は、対象アプリケーションが `/usr/local/bin/app` に配置されている場合に、`my-sample-app` というサービス名でMackerelにトレースを送信する例です。
 
 ```sh
-go get go.opentelemetry.io/otel \
-	go.opentelemetry.io/otel/trace \
-	go.opentelemetry.io/otel/exporters/otlp/otlptrace
+sudo OTEL_GO_AUTO_TARGET_EXE=/usr/local/bin/app \
+     OTEL_SERVICE_NAME=my-sample-app \
+     OTEL_EXPORTER_OTLP_TRACES_ENDPOINT=https://otlp-vaxila.mackerelio.com/v1/traces \
+     OTEL_EXPORTER_OTLP_TRACES_HEADERS="Accept=*/*,Mackerel-Api-Key=${MACKEREL_APIKEY}" \
+     ./otel-go-instrumentation
 ```
 
-このコマンドでは基本的なモジュールのみインストールしています。
+- `OTEL_GO_AUTO_TARGET_EXE`は計装対象とするアプリケーションのバイナリが配置されているパスを指定します。
+- `OTEL_SERVICE_NAME`はトレースのサービス名（`service.name`属性の値）になります。
+- `OTEL_EXPORTER_OTLP_TRACES_ENDPOINT`はトレースの送信先の指定です。
+  - Mackerelに直接送信する場合は`https://otlp-vaxila.mackerelio.com/v1/traces`を指定します。
+  - Collectorを利用して送信する場合は`http://<Collectorのアドレス:ポート>/v1/traces`を指定します。
+- `${MACKEREL_APIKEY}`はMackerelのAPIキーの指定です。[APIキーの一覧](https://mackerel.io/my?tab=apikeys)から、Write権限のあるAPIキーを自動計装エージェントが動作するシステム内の環境変数に定義してください。
+  - 環境変数ではなくAPIキーを直接記述しても動作します。
+- `OTEL_TRACES_EXPORTER=console`を追加付与することで、トレースが標準出力に出力されます。
 
-しかし、OpenTelemetryにはGinやGorm、AWSなど色々な用途似対応したモジュールがあり、アプリケーションに合わせて追加することでより詳細に計装することが出来るようになります。
+## トレースを確認する
 
-各モジュールは、OpenTelemetryのページから見つけることができます。
+送信されたトレースは以下の手順で確認できます。
 
-[https://opentelemetry.io/ecosystem/registry/?language=go&component=instrumentation:embed:cite]
+1. メニューの「[APM](https://mackerel.io/my/apm)」を選択<br>
+2. サービス名を選択
+  [f:id:mackerelio:20251224180534j:plain]
+3. 「トレース」タブを選択
+  [f:id:mackerelio:20251224180530j:plain]
+4. トレース一覧からトレースを選択すると詳細が確認できます
+  [f:id:mackerelio:20251224180525p:plain]
 
-### 2. 初期設定
-
-OpenTelemetryのデータをMackerelに送信するためには、TracerProviderに以下の項目を設定する必要があります。
-
-* Exporter
-* Resource
-
-例えば、以下のようにすると、SDKから直接Mackerelへ送信することができます。
-
-```go
-import (
-  ...
-  "go.opentelemetry.io/otel/exporters/otlp/otlptrace"
-  "go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracehttp"
-  "go.opentelemetry.io/otel/exporters/stdout/stdouttrace"
-  "go.opentelemetry.io/otel/sdk/trace"
-  "go.opentelemetry.io/otel/attribute"
-  semconv "go.opentelemetry.io/otel/semconv/v1.20.0"
-)
-
-func initTracerProvider(ctx context.Context) (func(context.Context) error, error) {
-  client := otlptracehttp.NewClient(
-    otlptracehttp.WithEndpoint("otlp-vaxila.mackerelio.com"),
-    otlptracehttp.WithHeaders(map[string]string{
-      "Accept":         "*/*",
-      "Mackerel-Api-Key": os.Getenv("MACKEREL_API_KEY"),
-    }),
-    otlptracehttp.WithCompression(otlptracehttp.GzipCompression),
-  )
-  exporter, err := otlptrace.New(ctx, client)
-  // デバッグ時にはstdouttraceが便利
-  // exporter, err := stdouttrace.New()
-  if err != nil {
-    return nil, err
-  }
-  
-  resources, err := resource.New(
-    ctx,
-    resource.WithProcessPID(),
-    resource.WithHost(),
-    resource.WithAttributes(
-      semconv.ServiceName("acme_service"),
-      semconv.ServiceVersion("vX.Y.Z"),
-      semconv.DeploymentEnvironment("production"),
-    ),
-  )
-  if err != nil {
-    return nil, err
-  }
-  
-  tp := trace.NewTracerProvider(
-    trace.WithBatcher(exporter),
-    trace.WithResource(resources),
-  )
-  otel.SetTracerProvider(tp)
-  otel.SetTextMapPropagator(propagation.TraceContext{})
-
-  return tp.Shutdown, nil
-}
-```
-
-この例では次の項目を設定しています。
-
-* Exporter
-  * Endpoint & Path
-    * Endpoint を `otlp-vaxila.mackerelio.com` と設定することで、データをMackerelに送信するようになります。
-    * Collectorを利用する場合は、Collectorのエンドポイント(localhost:4318 など) を設定してください
-  * Headers
-    * `Mackerel-Api-Key` と `Accept` のヘッダーを設定することでMackerelと通信することができます。
-    * `Mackerel-Api-Key` には、Mackerelで発行された書き込み権限のあるAPIキーを設定してください。APIキーの権限を変更した際は反映まで1分ほどお待ちください。
-    * Collectorを利用する場合、ヘッダーは必要ないでしょう。
-  * Compression
-    * データを送信する時にデータの圧縮方法を指定することができます。指定しなかった場合は圧縮されません。
-* Resource
-  * TracerProviderのResourceを設定することで、データがどこから来たかわかるようになります。
-
-### 3. ミドルウェアの挿入
-
-HTTPサーバーを建てている場合、各リクエストの情報を収集するために専用のミドルウェアを挿入する必要があります。
-
-`net/http` を使用している場合には `otelhttp` を利用できます。
-
-例えば、前節で作った `initTracerProvider` 関数を使用すると、以下のようにできます。
-
-```go
-import (
-  ...
-  "go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp"
-)
-
-func main() {
-  ctx := context.Background()
-  shutdown, err := initTracerProvider(ctx)
-  if err != nil {
-    panic(err)
-  }
-  defer shutdown(ctx)
-
-  otelHandler := otelhttp.NewHandler(
-    http.HandlerFunc(awesomeActionHandler),
-    "awesome_span_name",
-  )
-  http.Handle("/awesome_path/", otelHandler)
-  http.ListenAndServe(":80", nil)
-}
-
-func awesomeActionHandler(w http.ResponseWriter, r *http.Request) {
-  ...
-}
-```
-
-#### ⚠️ 他のフレームワークを使用している場合
-
-このページでは `net/http` への計装方法を解説していますが、GinやEchoなどを使用する場合であっても、類似したインターフェースを持っているため、基本的に `net/http` と変わりません。
-
-つまり、以下のステップで計装できます。
-
-1. go get でフレームワークに対応したモジュールを取得する
-2. 初期設定をする
-3. ミドルウェアを挿入してトレースを開始する
-
-また、ルーティング周りが整備されている関係上、一般的に `net/http` よりも計装が簡単です。
-
-各フレームワークに対応したモジュールは以下のページから検索できます。
-
-[https://opentelemetry.io/ecosystem/registry/?language=go&component=instrumentation:embed:cite]
-
-### 4. エラーを捕捉
-
-Goの言語制約上、エラーを自動で捕捉することはできないため、エラーが発生した場合にエラーをSpanに追加するコードを書く必要があります。
-
-
-
-エラーの追加には `Span.RecordError()` 関数を使用します。 また、`WithStackTrace()` を使うとスタックトレースを記録することもできます。
-
-例えば、前節で作成したハンドラー (`awesomeActionHandler`) で発生したエラーを捕捉するには以下のようにします。
-
-```go
-import (
-  ...
-  "go.opentelemetry.io/otel/trace"
-  semconv "go.opentelemetry.io/otel/semconv/v1.17.0"
-)
-
-func awesomeActionHandler(w http.ResponseWriter, r *http.Request) {
-  err := someAction()
-  if err != nil {
-    recordError(r.Context(), err)
-    w.WriteHeader(500)
-    return
-  }
-
-  ...
-}
-
-func recordError(ctx context.Context, err error) {
-  span := trace.SpanFromContext(ctx)
-  span.RecordError(err, trace.WithStackTrace(true))
-}
-```
-
-### 5. 独自の計装の追加 (任意)
-
-独自のSpanを追加することで、任意の範囲を計装することができます。
-
-計装することで、変数の値や処理時間を記録することができます。
-
-具体的には、下のように `Tracer.Start()` と `Span.End()` で囲むと計装を追加できます。
-
-```go
-const (
-  instrumentationName    = "my-instrumentron"
-  instrumentationVersion = "v0.1.0"
-)
-
-var (
-  tracer = otel.GetTracerProvider().Tracer(
-  instrumentationName,
-    trace.WithInstrumentationVersion(instrumentationVersion),
-    trace.WithSchemaURL(semconv.SchemaURL),
-  )
-)
-
-func awesomeActionHandler(w http.ResponseWriter, r *http.Request) {
-  ctx, span := tracer.Start(r.Context(), "awesome_action")
-  defer span.End()
-
-  ...
-}
-```
-
-計装の方法は他にも用意されています。詳細はOpenTelemetryのドキュメントを参照してください。
-
-[https://opentelemetry.io/ja/docs/languages/go/instrumentation/:embed:cite]
+以上、Goで作成されたアプリケーションにゼロコード計装をおこなって、Mackerelへトレースを投稿する方法のご紹介でした。
