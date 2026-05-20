@@ -15,12 +15,12 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 
 ## インストール・計装
 
-- [GoにOpenTelemetryを導入する](https://mackerel.io/ja/docs/entry/tracing/installations/go)
-- [Node.jsにOpenTelemetryを導入する](https://mackerel.io/ja/docs/entry/tracing/installations/nodejs)
-- [PHPにOpenTelemetryを導入する](https://mackerel.io/ja/docs/entry/tracing/installations/php)
-- [PythonにOpenTelemetryを導入する](https://mackerel.io/ja/docs/entry/tracing/installations/python)
-- [RubyにOpenTelemetryを導入する](https://mackerel.io/ja/docs/entry/tracing/installations/ruby)
-- [.NETにOpenTelemetryを導入する](https://mackerel.io/ja/docs/entry/tracing/installations/dotnet)
+- [GoのアプリケーションからMackerelにトレースを送信する](https://mackerel.io/ja/docs/entry/tracing/installations/go)
+- [Node.jsのアプリケーションからMackerelにトレースを送信する](https://mackerel.io/ja/docs/entry/tracing/installations/nodejs)
+- [PHPのアプリケーションからMackerelにトレースを送信する](https://mackerel.io/ja/docs/entry/tracing/installations/php)
+- [PythonのアプリケーションからMackerelにトレースを送信する](https://mackerel.io/ja/docs/entry/tracing/installations/python)
+- [RubyのアプリケーションからMackerelにトレースを送信する](https://mackerel.io/ja/docs/entry/tracing/installations/ruby)
+- [.NETのアプリケーションからMackerelにトレースを送信する](https://mackerel.io/ja/docs/entry/tracing/installations/dotnet)
 - [その他の言語にOpenTelemetryを導入する](https://mackerel.io/ja/docs/entry/tracing/installations/other-language)
 - [OpenTelemetry Collectorを導入する](https://mackerel.io/ja/docs/entry/tracing/installations/opentelemetry-collector)
 - [ブラウザにOpenTelemetryを導入する](https://mackerel.io/ja/docs/entry/tracing/installations/browser)

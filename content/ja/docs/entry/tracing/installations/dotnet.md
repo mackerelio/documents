@@ -1,169 +1,132 @@
 ---
-Title: トレース - .NETにOpenTelemetryを導入する
+Title: .NETのアプリケーションからMackerelにトレースを送信する
+Date: 2025-03-18T17:13:48+09:00
 URL: https://mackerel.io/ja/docs/entry/tracing/installations/dotnet
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/6802418398337498206
 ---
 
-MackerelはOpenTelemetryの仕組み (計装)を利用してデータを取得しています。
-
-このページでは.NET のデータをMackerelに送信する方法を解説します。
+このページでは、.NETのアプリケーションからMackerelにトレースを送信する方法を解説します。
 
 [:contents]
 
-## .NET向けOpenTelemetry
+## 概要
 
-OpenTelemetry には .NET用のSDKが用意されています。
+MackerelはOpenTelemetryの仕組み（計装）を利用してトレースを取得します。OpenTelemetryに対応したトレースはさまざまな方法で取得できますが、今回はゼロコード計装と呼ばれる、アプリケーションの実装を変更せずにトレースを送信する方法を解説します。
 
-このSDKに加えて、ASP.NETやEntityFramework用のSDKを使用すると、色々な範囲を計装できます。
+<div class="note">
+  <p>📝 補足</p>
+  <p>.NETのゼロコード計装は、プログラムが実行される直前（JITコンパイル時）に、CLRの機能を使ってメソッドのIL（中間言語）を書き換えることで実現されています。.NETのゼロコード計装について詳しく知りたい場合は、<a href="https://opentelemetry.io/ja/docs/zero-code/dotnet/">.NET zero-code instrumentation
+</a>をご確認ください。</p>
+</div>
 
-[https://opentelemetry.io/ja/docs/languages/dotnet/instrumentation/:embed:cite]
+## 動作要件
 
-### Collectorを使用するべきか
+.NETのゼロコード計装は以下の[動作要件](https://opentelemetry.io/ja/docs/zero-code/dotnet/#compatibility)を満たす必要があります。
 
-データをMackerelに送信する際に、SDKから直接送信するだけではなく、Collectorを使うこともできます。
-
-Collectorを使うかどうかを決める際は以下のページを参考にしてください。
-
-[Collectorを使うかどうかの判断について](https://mackerel.io/ja/docs/entry/tracing/guide/what-is-opentelemetry#using-collector-or-not)
+- .NET 8以上
+- .NET Framework 4.6.2以上
+- プロセッサー
+  - x86
+  - AMD64（x86-64）
+  - ARM64（[Experimental](https://opentelemetry.io/docs/specs/otel/versioning-and-stability/)）
 
 ## 導入方法
 
-.NETにはいくつかのWebフレームワークが存在しますが、このページでは `ASP.NET` への導入方法を説明します。 他のフレームワークを使っている場合もほぼ同じ方法で計装することができます。
+アプリケーションからMackerelへトレースを送信するために、以下をおこないます。Windowsの場合はPowerShellでコマンドを実行します。実行には管理者権限が必要です。
 
-以下のステップでMackerelトレーシング機能を導入できます。
+1. インストールスクリプトのダウンロード
+2. 計装用ツールのインストール
+3. 計装用ツールの実行
 
-1. NuGetパッケージの追加
-2. 初期設定
-3. 独自の計装の追加 (任意)
+### 1. インストールスクリプトのダウンロード
 
-### 1. NuGetパッケージの追加
+以下のコマンドで、OpenTelemetryの計装に必要なツールのインストールスクリプトをダウンロードします。
 
-以下のパッケージを使用します。
+**Linuxの場合**
 
-```console
-dotnet add package OpenTelemetry.Instrumentation.AspNetCore
-dotnet add package OpenTelemetry.Exporter.OpenTelemetryProtocol
-dotnet add package OpenTelemetry.Extensions.Hosting
+```
+curl -L -O https://github.com/open-telemetry/opentelemetry-dotnet-instrumentation/releases/latest/download/otel-dotnet-auto-install.sh
 ```
 
-このコマンドでは基本的なパッケージのみインストールしています。
+**Windowsの場合**
 
-後述するように、HTTPクライアントの計装やコンソールへの出力などをしたい場合は、以下のパッケージも追加します。
-
-```console
-dotnet add package OpenTelemetry.Instrumentation.Http
-dotnet add package OpenTelemetry.Exporter.Console
+```
+$module_url = "https://github.com/open-telemetry/opentelemetry-dotnet-instrumentation/releases/latest/download/OpenTelemetry.DotNet.Auto.psm1"
+$download_path = Join-Path $env:temp "OpenTelemetry.DotNet.Auto.psm1"
+Invoke-WebRequest -Uri $module_url -OutFile $download_path -UseBasicParsing
 ```
 
-OpenTelemetryには他にもEntityFrameworkやAzureなど色々な用途に対応したパッケージがあり、アプリケーションに合わせて追加することで、より詳細に計装できるようになります。
+### 2. 計装用ツールのインストール
 
-各パッケージは、OpenTelemetryのページから見つけることができます。
+以下のコマンドで、OpenTelemetryの計装に必要なツールをインストールします。
 
-[https://opentelemetry.io/ecosystem/registry/?language=dotnet&component=instrumentation:embed:cite]
+**Linuxの場合**
 
-### 2. 初期設定
-
-OpenTelemetryのデータをMackerelに送信するためには、以下の項目を設定する必要があります。
-
-- Resource
-- TracerProvider
-
-例えばC#の場合は、ASP.NETサーバーの初期化の際に以下のようにすると、SDKから直接Mackerelへ送信することができます。
-
-```cs
-using OpenTelemetry.Resources;
-using OpenTelemetry.Trace;
-
-var apiKey = Environment.GetEnvironmentVariable("MACKEREL_APIKEY");
-
-var builder = WebApplication.CreateBuilder(args);
-
-builder.Services
-  .AddOpenTelemetry()
-  .ConfigureResource(resource =>
-    resource
-      .AddService(serviceName: "acme_service", serviceVersion: "vX.Y.Z")
-      .AddAttributes([
-        new("deployment.environment.name", "production"),
-      ])
-  )
-  .WithTracing(tracing =>
-    tracing
-      .AddAspNetCoreInstrumentation()
-      .AddHttpClientInstrumentation()
-      .AddConsoleExporter()
-      .AddOtlpExporter(otlp =>
-      {
-        otlp.Endpoint = new Uri("https://otlp-vaxila.mackerelio.com/v1/traces");
-        otlp.Headers = $"Mackerel-Api-Key={apiKey},Accept=*/*";
-        otlp.Protocol = OpenTelemetry.Exporter.OtlpExportProtocol.HttpProtobuf;
-      })
-  );
-
-var app = builder.Build();
-
-app.MapGet("/", () => "Hello World!");
-
-app.Run();
+```
+./otel-dotnet-auto-install.sh
 ```
 
-この例では次の項目を設定しています。
+**Windowsの場合**
 
-- Resource (`ConfigureResource`)
-  - Resourceを設定することで、データがどこから来たかわかるようになります。
-- TracerProvider (`WithTracing`)
-  - Instrumentation
-    - 以下の例のように取得したいデータの計装を追加します。
-    - ASP.NET (`AddAspNetCoreInstrumentation`)
-    - HTTPクライアント (`AddHttpClientInstrumentation`)
-  - Exporter
-    - 以下の例のようにデータを出力したい先を追加します。
-    - Console (`AddConsoleExporter`)
-      - 任意の設定です、デバッグ時などに便利です。
-    - OTLP (`AddOtlpExporter`)
-      - Endpoint
-        - https://otlp-vaxila.mackerelio.com/v1/traces と設定することで、データを直接Mackerelに送信するようになります。
-        - Collectorを利用する場合は、Collectorのエンドポイント (http://localhost:4318/v1/traces など) を設定してください。
-      - Headers
-        - Mackerel-Api-Key と Accept のヘッダーを設定することでMackerelと通信することができます。
-        - Mackerel-Api-Key には、Mackerelで発行された書き込み権限のあるAPIキーを設定してください。
-        - Collectorを利用する場合、ヘッダーは必要ないでしょう。
-      - Protocol
-        - `OpenTelemetry.Exporter.OtlpExportProtocol.HttpProtobuf` を設定します。
-        - Collectorを利用する場合は、Collectorに合わせて設定してください。規定値は `OpenTelemetry.Exporter.OtlpExportProtocol.Grpc` です。
-
-### 3. 独自の計装の追加 (任意)
-
-独自の計装を追加することで、任意の範囲を計装できます。
-
-計装によって、変数の値や処理時間を記録することができるようになります。
-
-具体的には、下記のように `ActivitySource` を使うと計装を追加できます。
-
-ASP.NET の場合は依存性注入の仕組みを利用すると便利です。
-
-```cs
-using System.Diagnostics;
-
-var myActivitySource = new ActivitySource("my-service-tracer");
-
-builder.Services
-  .AddSingleton(myActivitySource)
-  .WithTracing(tracing =>
-    tracing
-      .AddSource(myActivitySource.Name)
-      // ... 既存の設定
-  );
-
-app.MapGet("/{id}", (ActivitySource activitySource, string id) =>
-{
-  using var activity = activitySource.StartActivity("awesome_action");
-  activity?.SetTag("id", id);
-
-  // ... 既存の処理
-});
+```
+Import-Module $download_path
+Install-OpenTelemetryCore
 ```
 
-計装の方法は他にも用意されています。詳細はOpenTelemetryのドキュメントを参照してください。
+### 3. 計装用ツールの実行
 
-[https://opentelemetry.io/docs/languages/net/instrumentation/:embed:cite]
+Mackerelへトレースを送信するために計装用ツールを実行します。以下のように環境変数の設定とともに計装用ツールを実行し、その後、計装用ツールを実行したセッションでアプリケーションを起動すると、`my-sample-app`というサービス名でMackerelにトレースが送信されます。
+
+**Linuxの場合**
+
+```
+export OTEL_TRACES_EXPORTER=otlp \
+  OTEL_METRICS_EXPORTER=none \
+  OTEL_LOGS_EXPORTER=none \
+  OTEL_EXPORTER_OTLP_PROTOCOL=http/protobuf \
+  OTEL_EXPORTER_OTLP_TRACES_ENDPOINT=https://otlp-vaxila.mackerelio.com/v1/traces \
+  OTEL_EXPORTER_OTLP_TRACES_HEADERS="Accept=*/*,Mackerel-Api-Key=${MACKEREL_APIKEY}" \
+  OTEL_SERVICE_NAME=my-sample-app \
+  $HOME/.otel-dotnet-auto/instrument.sh
+```
+
+**Windowsの場合**
+
+```
+$env:OTEL_TRACES_EXPORTER="otlp"
+$env:OTEL_METRICS_EXPORTER="none"
+$env:OTEL_LOGS_EXPORTER="none"
+$env:OTEL_EXPORTER_OTLP_PROTOCOL="http/protobuf"
+$env:OTEL_EXPORTER_OTLP_TRACES_ENDPOINT="https://otlp-vaxila.mackerelio.com/v1/traces"
+$env:OTEL_EXPORTER_OTLP_TRACES_HEADERS="Accept=*/*,Mackerel-Api-Key=$env:MACKEREL_APIKEY"
+Register-OpenTelemetryForCurrentSession -OTelServiceName "my-sample-app"
+```
+
+**環境変数の詳細**
+
+- `OTEL_TRACES_EXPORTER`を`console`にするとトレースが標準出力に出力されます。
+- トレースの送信に関係のないメトリックとログは無効にします。
+  - `$env:OTEL_METRICS_EXPORTER="none"`
+  - `$env:OTEL_LOGS_EXPORTER="none"`
+- `OTEL_EXPORTER_OTLP_TRACES_ENDPOINT`はトレースの送信先の指定です。
+  - Mackerelに直接送信する場合は`https://otlp-vaxila.mackerelio.com/v1/traces`を指定します。
+  - Collectorを利用して送信する場合は`http://<Collectorのアドレス:ポート>/v1/traces`を指定します。
+- `Mackerel-Api-Key`はMackerelのAPIキーの指定です。[APIキーの一覧](https://mackerel.io/my?tab=apikeys)から、Write権限のあるAPIキーを取得し、アプリケーションが動作するシステム内の環境変数に定義してください。
+  - Linuxの場合：`${MACKEREL_APIKEY}`
+  - Windowsの場合：`$env:MACKEREL_APIKEY`
+  - 環境変数ではなくAPIキーを直接記述しても動作します。
+- `my-sample-app`はトレースのサービス名（`service.name`属性の値）になります。任意の名前を指定してください。
+
+## トレースを確認する
+
+送信されたトレースは以下の手順で確認できます。
+
+1. メニューの「[APM](https://mackerel.io/my/apm)」を選択<br>
+2. サービス名を選択
+  [f:id:mackerelio:20251224180534j:plain]
+3. 「トレース」タブを選択
+  [f:id:mackerelio:20251224180530j:plain]
+4. トレース一覧からトレースを選択すると詳細が確認できます
+  [f:id:mackerelio:20251224180525p:plain]
+
+以上、.NETで作成されたアプリケーションにゼロコード計装をおこなって、Mackerelへトレースを投稿する方法のご紹介でした。

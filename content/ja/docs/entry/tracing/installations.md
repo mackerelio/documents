@@ -10,7 +10,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 - [PHPのアプリケーションからMackerelにトレースを送信する](https://mackerel.io/ja/docs/entry/tracing/installations/php)
 - [PythonのアプリケーションからMackerelにトレースを送信する](https://mackerel.io/ja/docs/entry/tracing/installations/python)
 - [RubyのアプリケーションからMackerelにトレースを送信する](https://mackerel.io/ja/docs/entry/tracing/installations/ruby)
-- [.NETにOpenTelemetryを導入する](https://mackerel.io/ja/docs/entry/tracing/installations/dotnet)
+- [.NETのアプリケーションからMackerelにトレースを送信する](https://mackerel.io/ja/docs/entry/tracing/installations/dotnet)
 - [JavaのアプリケーションからMackerelにトレースを送信する](https://mackerel.io/ja/docs/entry/tracing/installations/java)
 - [その他の言語にOpenTelemetryを導入する](https://mackerel.io/ja/docs/entry/tracing/installations/other-language)
 - [OpenTelemetry Collectorを導入する](https://mackerel.io/ja/docs/entry/tracing/installations/opentelemetry-collector)

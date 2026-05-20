@@ -15,12 +15,12 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackere
 
 ## Installation and implementation
 
-- [Introducing OpenTelemetry to Go](https://mackerel.io/docs/entry/tracing/installations/go)
-- [Introducing OpenTelemetry to Node.js](https://mackerel.io/docs/entry/tracing/installations/nodejs)
-- [Introducing OpenTelemetry to PHP](https://mackerel.io/docs/entry/tracing/installations/php)
-- [Introducing OpenTelemetry to Python](https://mackerel.io/docs/entry/tracing/installations/python)
-- [Introducing OpenTelemetry to Ruby](https://mackerel.io/docs/entry/tracing/installations/ruby)
-- [Introducing OpenTelemetry to .NET](https://mackerel.io/docs/entry/tracing/installations/dotnet)
+- [Sending traces from Go applications to Mackerel](https://mackerel.io/docs/entry/tracing/installations/go)
+- [Sending traces from Node.js applications to Mackerel](https://mackerel.io/docs/entry/tracing/installations/nodejs)
+- [Sending traces from PHP applications to Mackerel](https://mackerel.io/docs/entry/tracing/installations/php)
+- [Sending traces from Python applications to Mackerel](https://mackerel.io/docs/entry/tracing/installations/python)
+- [Sending traces from Ruby applications to Mackerel](https://mackerel.io/docs/entry/tracing/installations/ruby)
+- [Sending traces from .NET applications to Mackerel](https://mackerel.io/docs/entry/tracing/installations/dotnet)
 - [Introducing OpenTelemetry to other languages](https://mackerel.io/docs/entry/tracing/installations/other-language)
 - [Introducing OpenTelemetry Collector](https://mackerel.io/docs/entry/tracing/installations/opentelemetry-collector)
 - [Introducing OpenTelemetry to Browser](https://mackerel.io/docs/entry/tracing/installations/browser)

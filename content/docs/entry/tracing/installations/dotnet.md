@@ -1,170 +1,131 @@
 ---
-Title: Tracing - Introducing OpenTelemetry to .NET
+Title: Sending traces from .NET applications to Mackerel
 Date: 2025-07-11T16:38:42+09:00
 URL: https://mackerel.io/docs/entry/tracing/installations/dotnet
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/6802418398507897279
 ---
 
-Mackerel uses the OpenTelemetry mechanism (instrumentation) to acquire data.
-
-This page explains how to send data from .NET to Mackerel.
+This page explains how to send traces from .NET applications to Mackerel.
 
 [:contents]
 
-## OpenTelemetry for .NET
+## Overview
 
-OpenTelemetry provides an SDK for .NET.
+Mackerel collects traces using the OpenTelemetry mechanism (instrumentation). While there are various ways to collect OpenTelemetry-compatible traces, this page explains zero-code instrumentation, a method that allows you to send traces without modifying your application's implementation.
 
-In addition to this SDK, you can use SDKs for ASP.NET and Entity Framework to instrument various areas.
+<div class="note">
+  <p>📝 Note</p>
+  <p>.NET zero-code instrumentation is implemented by rewriting method IL (Intermediate Language) using CLR features just before the program is executed (during JIT compilation). For more details, see <a href="https://opentelemetry.io/docs/zero-code/dotnet/">.NET zero-code instrumentation</a>.</p>
+</div>
 
-[https://opentelemetry.io/docs/languages/dotnet/instrumentation/:embed:cite]
+## Requirements
 
-### Is it appropriate to use a Collector?
+.NET zero-code instrumentation must meet the following [requirements](https://opentelemetry.io/docs/zero-code/dotnet/#compatibility):
 
-When sending data to Mackerel, you can use a Collector instead of sending it directly from the SDK.
+- .NET 8 or higher
+- .NET Framework 4.6.2 or higher
+- Processor
+  - x86
+  - AMD64 (x86-64)
+  - ARM64 ([Experimental](https://opentelemetry.io/docs/specs/otel/versioning-and-stability/))
 
-Refer to the following page when deciding whether to use Collector.
+## Installation
 
-[Deciding whether to use Collector](https://mackerel.io/docs/entry/tracing/guide/what-is-opentelemetry#using-collector-or-not)
+To send traces from your application to Mackerel, follow the steps below. For Windows, execute the commands in PowerShell. Administrator privileges are required for execution.
 
-## How to get started
+1. Download the installation script
+2. Install the instrumentation tools
+3. Run the instrumentation tools
 
-There are several web frameworks for .NET, but this page explains how to get started with ASP.NET. If you are using another framework, you can instrument it in almost the same way.
+### 1. Download the installation script
 
-You can implement Mackerel's tracing feature by following the steps below.
+Download the installation script for the tools needed for OpenTelemetry instrumentation with the following command.
 
-1. Add the NuGet packages
-2. Initial setup
-3. Add custom instrumentation (optional)
+**For Linux**
 
-### 1. Add the NuGet packages
-
-Use the following package.
-
-```console
-dotnet add package OpenTelemetry.Instrumentation.AspNetCore
-dotnet add package OpenTelemetry.Exporter.OpenTelemetryProtocol
-dotnet add package OpenTelemetry.Extensions.Hosting
+```
+curl -L -O https://github.com/open-telemetry/opentelemetry-dotnet-instrumentation/releases/latest/download/otel-dotnet-auto-install.sh
 ```
 
-This command installs only the basic packages.
+**For Windows**
 
-As described later, if you want to configure an HTTP client or output to the console, add the following packages as well.
-
-```console
-dotnet add package OpenTelemetry.Instrumentation.Http
-dotnet add package OpenTelemetry.Exporter.Console
+```
+$module_url = "https://github.com/open-telemetry/opentelemetry-dotnet-instrumentation/releases/latest/download/OpenTelemetry.DotNet.Auto.psm1"
+$download_path = Join-Path $env:temp "OpenTelemetry.DotNet.Auto.psm1"
+Invoke-WebRequest -Uri $module_url -OutFile $download_path -UseBasicParsing
 ```
 
-OpenTelemetry also offers packages for various other uses, such as EntityFramework and Azure, which can be added to your application to enable more detailed monitoring.
+### 2. Install the instrumentation tools
 
-Each package can be found on the OpenTelemetry page.
+Install the tools needed for OpenTelemetry instrumentation with the following command.
 
-[https://opentelemetry.io/ecosystem/registry/?language=dotnet&component=instrumentation:embed:cite]
+**For Linux**
 
-### 2. Initial setup
-
-To send OpenTelemetry data to Mackerel, you need to configure the following items.
-
-- Resource
-- TracerProvider
-
-For example, in C#, you can configure the following during ASP.NET server initialization to send data directly from the SDK to Mackerel.
-
-```cs
-using OpenTelemetry.Resources;
-using OpenTelemetry.Trace;
-
-var apiKey = Environment.GetEnvironmentVariable("MACKEREL_APIKEY");
-
-var builder = WebApplication.CreateBuilder(args);
-
-builder.Services
-  .AddOpenTelemetry()
-  .ConfigureResource(resource =>
-    resource
-      .AddService(serviceName: "acme_service", serviceVersion: "vX.Y.Z")
-      .AddAttributes([
-        new("deployment.environment.name", "production"),
-      ])
-  )
-  .WithTracing(tracing =>
-    tracing
-      .AddAspNetCoreInstrumentation()
-      .AddHttpClientInstrumentation()
-      .AddConsoleExporter()
-      .AddOtlpExporter(otlp =>
-      {
-        otlp.Endpoint = new Uri("https://otlp-vaxila.mackerelio.com/v1/traces");
-        otlp.Headers = $"Mackerel-Api-Key={apiKey},Accept=*/*";
-        otlp.Protocol = OpenTelemetry.Exporter.OtlpExportProtocol.HttpProtobuf;
-      })
-  );
-
-var app = builder.Build();
-
-app.MapGet("/", () => "Hello World!");
-
-app.Run();
+```
+./otel-dotnet-auto-install.sh
 ```
 
-In this example, the following items are configured.
+**For Windows**
 
-- Resource (`ConfigureResource`)
-  - By configuring the Resource, you can identify the source of the data.
-- TracerProvider (`WithTracing`)
-  - Instrumentation
-    - Add the instrumentation for the data you want to collect, as shown in the following example.
-    - ASP.NET (`AddAspNetCoreInstrumentation`)
-    - HTTP client (`AddHttpClientInstrumentation`)
-- Exporter
-  - Add the destination where you want to output the data as shown in the following example.
-  - Console (`AddConsoleExporter`)
-    - Optional settings, useful for debugging, etc.
-  - OTLP (`AddOtlpExporter`)
-    - Endpoint
-      - Setting this to `https://otlp-vaxila.mackerelio.com/v1/traces` will send the data directly to Mackerel.
-      - If using a Collector, set the Collector endpoint (e.g., `http://localhost:4318/v1/traces`).
-    - Headers
-      - Setting the Mackerel-Api-Key and Accept headers enables communication with Mackerel.
-      - Set the Mackerel-Api-Key to the API key with write permissions issued by Mackerel.
-      - When using Collector, headers are not necessary.
-    - Protocol
-      - Set to `OpenTelemetry.Exporter.OtlpExportProtocol.HttpProtobuf`.
-      - When using Collector, configure according to the Collector settings. The default value is `OpenTelemetry.Exporter.OtlpExportProtocol.Grpc`.
-
-### 3. Adding custom instrumentation (optional)
-
-By adding custom instrumentation, you can instrument any range.
-
-Instrumentation makes it possible to record variable values and processing times.
-
-You can add instrumentation using `ActivitySource` as shown below.
-
-In ASP.NET, it is convenient to use dependency injection.
-
-```cs
-using System.Diagnostics;
-
-var myActivitySource = new ActivitySource("my-service-tracer");
-
-builder.Services
-  .AddSingleton(myActivitySource)
-  .WithTracing(tracing =>
-    tracing
-      .AddSource(myActivitySource.Name)
-      // ... existing settings
-  );
-
-app.MapGet("/{id}", (ActivitySource activitySource, string id) =>
-{
-  using var activity = activitySource.StartActivity("awesome_action");
-  activity?.SetTag("id", id);
-
-  // ... existing processing
-});
+```
+Import-Module $download_path
+Install-OpenTelemetryCore
 ```
 
-Other instrumentation approaches are available. For details, refer to the OpenTelemetry documentation.
+### 3. Run the instrumentation tools
 
-[https://opentelemetry.io/docs/languages/net/instrumentation/:embed:cite]
+Execute the instrumentation tools along with the environment variable settings as shown below, and then start your application within that same session. This will send traces to Mackerel under the service name my-sample-app.
+
+**For Linux**
+
+```
+export OTEL_TRACES_EXPORTER=otlp \
+  OTEL_METRICS_EXPORTER=none \
+  OTEL_LOGS_EXPORTER=none \
+  OTEL_EXPORTER_OTLP_PROTOCOL=http/protobuf \
+  OTEL_EXPORTER_OTLP_TRACES_ENDPOINT=https://otlp-vaxila.mackerelio.com/v1/traces \
+  OTEL_EXPORTER_OTLP_TRACES_HEADERS="Accept=*/*,Mackerel-Api-Key=${MACKEREL_APIKEY}" \
+  OTEL_SERVICE_NAME=my-sample-app \
+  $HOME/.otel-dotnet-auto/instrument.sh
+```
+
+**For Windows**
+
+```
+$env:OTEL_TRACES_EXPORTER="otlp"
+$env:OTEL_METRICS_EXPORTER="none"
+$env:OTEL_LOGS_EXPORTER="none"
+$env:OTEL_EXPORTER_OTLP_PROTOCOL="http/protobuf"
+$env:OTEL_EXPORTER_OTLP_TRACES_ENDPOINT="https://otlp-vaxila.mackerelio.com/v1/traces"
+$env:OTEL_EXPORTER_OTLP_TRACES_HEADERS="Accept=*/*,Mackerel-Api-Key=$env:MACKEREL_APIKEY"
+Register-OpenTelemetryForCurrentSession -OTelServiceName "my-sample-app"
+```
+
+**Environment Variable Details**
+
+- Setting `OTEL_TRACES_EXPORTER` to `console` will output traces to standard output.
+- Disable metrics and logs that are not related to trace transmission.
+  - `$env:OTEL_METRICS_EXPORTER="none"`
+  - `$env:OTEL_LOGS_EXPORTER="none"`
+- `OTEL_EXPORTER_OTLP_TRACES_ENDPOINT` specifies the destination for sending traces.
+  - To send directly to Mackerel, specify `https://otlp-vaxila.mackerelio.com/v1/traces`.
+  - To send via a Collector, specify `http://<Collector address:port>/v1/traces`.
+- `Mackerel-Api-Key` specifies the Mackerel API key. Define an API key with Write permission from the [API key list](https://mackerel.io/my?tab=apikeys) as an environment variable in the system where the application runs.
+  - For Linux: `${MACKEREL_APIKEY}`
+  - For Windows: `$env:MACKEREL_APIKEY`
+  - It will work if you write the API key directly instead of using an environment variable.
+- `my-sample-app` is the service name of the trace (the value of the `service.name` attribute). Specify any name you prefer.
+
+## Viewing sent traces
+
+Sent traces can be verified by following these steps:
+
+1. Select "[APM](https://mackerel.io/my/apm)" from the menu<br>
+2. Select the service name
+  [f:id:mackerelio:20260109153548j:plain]
+3. Select the "Traces" tab
+  [f:id:mackerelio:20260109153629j:plain]
+4. Select a trace from the trace list to view its details
+  [f:id:mackerelio:20260109153349p:plain]
+
+That's a wrap on setting up zero-code instrumentation and sending traces of your .NET applications to Mackerel.
