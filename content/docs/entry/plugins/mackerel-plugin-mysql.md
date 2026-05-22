@@ -10,6 +10,13 @@ The installation method for the plugin varies depending on the version of MySQL.
 
 [:contents]
 
+<h2 id="supported-version">Supported MySQL version</h2>
+
+The following versions are supported. MariaDB is not supported.
+
+- MySQL 5.7 or later
+- MySQL 8.0 or later
+
 <h2 id="install">Plugin installation instructions</h2>
 
 <h3 id="install-new">For MySQL 5.7 and later, MySQL 8.0 and later</h3>

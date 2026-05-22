@@ -10,6 +10,13 @@ MySQLのバージョンによりプラグインのインストール方法が異
 
 [:contents]
 
+<h2 id="supported-version">サポートするMySQLのバージョン</h2>
+
+以下のバージョンをサポートします。MariaDBには非対応です。
+
+- MySQL 5.7以降
+- MySQL 8.0以降
+
 <h2 id="install">プラグインのインストール方法</h2>
 
 <h3 id="install-new">MySQL 5.7以降、MySQL 8.0以降をご利用の場合</h3>
