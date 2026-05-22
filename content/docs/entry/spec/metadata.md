@@ -29,6 +29,10 @@ It represents the range of IP addresses Mackerel uses.
     "52.193.111.118/32",
     ...
   ],
+  "incoming_ipv6": [
+    "2406:da14:f83:2600::/56",
+    ...
+  ],
   "outgoing_ipv6": [
     "2406:da14:f83:2600::/56",
     ...
@@ -40,4 +44,5 @@ It represents the range of IP addresses Mackerel uses.
 |--|--|--|
 |`incoming`|*array[string]*|IPv4 address ranges that Mackerel receives<br><ul><li>[Mackerel's IP address ranges](https://support.mackerel.io/hc/en-us/articles/360039633271)</li></ul>|
 |`outgoing`|*array[string]*|IPv4 address ranges that Mackerel sends<br><ul><li>[Source IP address ranges for Webhook and other services’ alert notifications from Mackerel](https://support.mackerel.io/hc/en-us/articles/360039701332)</li></ul>|
+|`incoming_ipv6`|*array[string]*|IPv6 address ranges that Mackerel receives<br><ul><li>[Mackerel's IP address ranges](https://support.mackerel.io/hc/en-us/articles/360039633271)</li></ul>|
 |`outgoing_ipv6`|*array[string]*|IPv6 address ranges that Mackerel sends<br><ul><li>[Source IP address ranges for Webhook and other services’ alert notifications from Mackerel](https://support.mackerel.io/hc/en-us/articles/360039701332)</li></ul>|

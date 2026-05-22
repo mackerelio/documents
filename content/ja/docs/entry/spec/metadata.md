@@ -29,6 +29,10 @@ Mackerelが使用するIPアドレス範囲を表します。
     "52.193.111.118/32",
     ...
   ],
+  "incoming_ipv6": [
+    "2406:da14:f83:2600::/56",
+    ...
+  ],
   "outgoing_ipv6": [
     "2406:da14:f83:2600::/56",
     ...
@@ -40,4 +44,5 @@ Mackerelが使用するIPアドレス範囲を表します。
 |--|--|--|
 |`incoming`|*array[string]*|Mackerelが受信に使用するIPv4アドレス範囲です<br><ul><li>[サービスがホストされているIPアドレス範囲](https://support.mackerel.io/hc/ja/articles/360039633271)</li></ul>|
 |`outgoing`|*array[string]*|Mackerelが送信に使用するIPv4アドレス範囲です<br><ul><li>[Webhook通知や外形監視などの通知元IPアドレス範囲](https://support.mackerel.io/hc/ja/articles/360039701332)</li></ul>|
+|`incoming_ipv6`|*array[string]*|Mackerelが受信に使用するIPv6アドレス範囲です<br><ul><li>[サービスがホストされているIPアドレス範囲](https://support.mackerel.io/hc/ja/articles/360039633271)</li></ul>|
 |`outgoing_ipv6`|*array[string]*|Mackerelが送信に使用するIPv6アドレス範囲です<br><ul><li>[Webhook通知や外形監視などの通知元IPアドレス範囲](https://support.mackerel.io/hc/ja/articles/360039701332)</li></ul>|
