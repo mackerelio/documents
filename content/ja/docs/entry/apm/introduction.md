@@ -116,17 +116,19 @@ Mackerel APMの導入に際してつまずいた場合も、Mackerelのサポー
 APMの基本と価値について理解できたら、次は仕組みを学びましょう。
 
 * [APMの仕組みを理解する](https://mackerel.io/ja/docs/entry/apm/concepts) - トレース、スパン、データフローなどの基本概念
-
-<!--
-* [APM導入のための環境構成](/ja/docs/entry/apm/architecture) - 具体的な計装手法の選択と環境構成
--->
+* [APMの計装手法とデータ収集の仕組み](https://mackerel.io/ja/docs/entry/apm/architecture) - 計装手法の選択と環境構成、OpenTelemetry Collectorの配置パターン
 
 すぐに試したい方は、言語別のガイドを参照してください。
 
-* [GoにOpenTelemetryを導入する](https://mackerel.io/ja/docs/entry/tracing/installations/go)
-* [Node.jsにOpenTelemetryを導入する](https://mackerel.io/ja/docs/entry/tracing/installations/nodejs)
-* [PHPにOpenTelemetryを導入する](https://mackerel.io/ja/docs/entry/tracing/installations/php)
-* [PythonにOpenTelemetryを導入する](https://mackerel.io/ja/docs/entry/tracing/installations/python)
-* [RubyにOpenTelemetryを導入する](https://mackerel.io/ja/docs/entry/tracing/installations/ruby)
-* [.NETにOpenTelemetryを導入する](https://mackerel.io/ja/docs/entry/tracing/installations/dotnet)
+* [GoのアプリケーションからMackerelにトレースを送信する](https://mackerel.io/ja/docs/entry/tracing/installations/go)
+* [Node.jsのアプリケーションからMackerelにトレースを送信する](https://mackerel.io/ja/docs/entry/tracing/installations/nodejs)
+* [PHPのアプリケーションからMackerelにトレースを送信する](https://mackerel.io/ja/docs/entry/tracing/installations/php)
+* [PythonのアプリケーションからMackerelにトレースを送信する](https://mackerel.io/ja/docs/entry/tracing/installations/python)
+* [RubyのアプリケーションからMackerelにトレースを送信する](https://mackerel.io/ja/docs/entry/tracing/installations/ruby)
+* [.NETのアプリケーションからMackerelにトレースを送信する](https://mackerel.io/ja/docs/entry/tracing/installations/dotnet)
 * [その他の言語にOpenTelemetryを導入する](https://mackerel.io/ja/docs/entry/tracing/installations/other-language)
+
+ブラウザの計装やCollectorの導入については、以下のガイドを参照してください。
+
+* [ブラウザにOpenTelemetryを導入する](https://mackerel.io/ja/docs/entry/tracing/installations/browser)
+* [Mackerel OpenTelemetry コレクターを導入する](https://github.com/mackerelio/opentelemetry-collector-mackerel/blob/main/distributions/otelcol-mackerel/README.ja.md)
