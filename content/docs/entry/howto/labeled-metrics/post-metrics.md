@@ -9,7 +9,7 @@ Mackerel has the capability to receive a metric specified in [OpenTelemetry](htt
 
 Because OpenTelemetry provides a vendor-agnostic framework, you can switch the monitoring backend to Mackerel without changing the code if the OpenTelemetry library is already incorporated into your application or service.
 
-Of the three telemetry data (metric, log, and trace) listed by OpenTelemetry, Mackerel supports only metric currently.
+Of the primary telemetry data (metric, log, and trace) listed by OpenTelemetry, Mackerel supports metric and trace. For details on trace, see [Mackerel's tracing feature guide](https://mackerel.io/docs/entry/tracing/guide).
 
 ## Supported metric types in Mackerel
 

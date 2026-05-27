@@ -9,7 +9,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 
 OpenTelemetry は特定のベンダーに依存しない API を提供しているため、すでに OpenTelemetry ライブラリがアプリケーションやサービスに組み込まれている場合には、そのままの構成で監視バックエンドを Mackerel に切り替えることができます。
 
-Mackerel では OpenTelemetry が掲げる 3 つのテレメトリーデータ（メトリック・ログ・トレース）のうち、現時点ではメトリックのみをサポートしています。
+Mackerel では OpenTelemetry が掲げる主要なテレメトリーデータ（メトリック・ログ・トレース）のうち、メトリックとトレースをサポートしています。トレースについては [Mackerel トレーシング機能ガイド](https://mackerel.io/ja/docs/entry/tracing/guide) を参照してください。
 
 ## Mackerel でサポートされているメトリックの種類
 
