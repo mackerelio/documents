@@ -1,7 +1,7 @@
 ---
 Title: ネットワーク監視をおこなう
 Date: 2026-06-02T14:51:10+09:00
-URL: https://mackerel.io/ja/docs/entry/howto/check/network
+URL: https://mackerel.io/ja/docs/entry/howto/network-monitoring
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/14945776032036129321
 ---
 

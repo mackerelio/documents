@@ -1,7 +1,7 @@
 ---
 Title: Monitoring Network Devices
 Date: 2026-06-02T14:50:32+09:00
-URL: https://mackerel.io/docs/entry/howto/check/network
+URL: https://mackerel.io/docs/entry/howto/network-monitoring
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/14945776032036140075
 ---
 
