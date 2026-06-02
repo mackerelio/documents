@@ -71,7 +71,7 @@ If the `--state-dir` option is not specified, the agent creates a directory hier
     - `/tmp/check-log`
 - For Windows
   - When executed via mackerel-agent
-    - `C:\Windows\Temp\check-log`
+    - `C:\Windows\SystemTemp\check-log`
   - When executed manually
     - The check-log folder under the logged-in user's Temp folder (Check the location of the Temp folder via the Windows environment variable TEMP)
 
