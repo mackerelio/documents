@@ -37,15 +37,16 @@ mackerel-plugin-nginx is a plugin to visualize nginx status based on nginx's stu
 
 The options that can be specified for the plugin are as follows.
 
-| Option | Environment Variables | Description | Default |
-| --------- | - | ------------------------------------------------------------------------------------------------------------- | ------------- |
-| -uri      |   | URI of the connection destination                                                                             |               |
-| -scheme   |   | HTTP scheme for connection (http or https)                                                                    | http          |
-| -host     |   | hostname of the connection destination                                                                        | localhost     |
-| -port     |   | port of the connection destination                                                                            | 8080          |
-| -path     |   | path where stub_status is provided                                                                            | /nginx_status |
-| -tempfile |   | path to save temporary files                                                                                  |               |
-| -header   |   | Additional headers to be given when connecting (`-header` is required for each if more than one is specified) |               |
+| Option           | Environment Variables | Description | Default |
+| ---------------- | - | ------------------------------------------------------------------------------------------------------------- | ------------- |
+| -uri             |   | URI of the connection destination                                                                             |               |
+| -scheme          |   | HTTP scheme for connection (http or https)                                                                    | http          |
+| -host            |   | hostname of the connection destination                                                                        | localhost     |
+| -port            |   | port of the connection destination                                                                            | 8080          |
+| -path            |   | path where stub_status is provided                                                                            | /nginx_status |
+| -tempfile        |   | path to save temporary files                                                                                  |               |
+| -header          |   | Additional headers to be given when connecting (`-header` is required for each if more than one is specified) |               |
+| -tls-skip-verify |   | Skip TLS certificate verification                                                                             | false         |
 
 <h2 id="config">Example configuration for an agent</h2>
 
