@@ -78,7 +78,12 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 ```
 
 ### 応答
-入力にidが付与されて返却されます。
+入力にidとtypeが付与されて返却されます。
+
+| KEY    | TYPE     | DESCRIPTION                                                |
+| ------ | -------- | ---------------------------------------------------------- |
+| `id`   | *string* | 通知グループのID                                           |
+| `type` | *string* | 通知グループの種別 (`"group"` または `"group-default"`)    |
 
 #### 失敗時
 

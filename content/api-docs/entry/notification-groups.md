@@ -79,7 +79,12 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
 ```
 
 ### Response
-The input is returned along with an ID.
+The input is returned along with an ID and a type.
+
+| KEY    | TYPE     | DESCRIPTION                                                         |
+| ------ | -------- | ------------------------------------------------------------------- |
+| `id`   | *string* | the notification group ID                                           |
+| `type` | *string* | the type of notification group (`"group"` or `"group-default"`)     |
 
 #### Error
 
