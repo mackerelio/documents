@@ -64,9 +64,3 @@ Mackerelにユーザー登録し、オーガニゼーションを作成すると
 - Windows Server の場合
   - 64bit版：`C:\Program Files\Mackerel\mackerel-agent`
   - 32bit版：`C:\Program Files (x86)\Mackerel\mackerel-agent`
-
-## KCPS外のホストをKCPS版Mackerelで監視する場合
-
-設定ファイルの一番上の行に以下の設定を記述してください。
-
-`apibase = "https://kcps-mackerel.io/"`
