@@ -1,78 +1,71 @@
 ---
-Title: Windowsにmackerel-agentをインストールする
+Title: Windows Serverにmackerel-agentをインストールする
 Date: 2015-06-19T18:12:46+09:00
 URL: https://mackerel.io/ja/docs/entry/howto/install-agent/msi
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/8454420450098156188
 ---
 
-[KCPS版Mackerelをご利用の場合はこちら](#kcps)
+[KCPS版Mackerelをご利用の場合](#kcps)
 
-## インストーラーをダウンロードする
+## エージェントをインストールする
 
-<https://mackerel.io/file/agent/msi/mackerel-agent-x64-latest.msi>(64bit)または<https://mackerel.io/file/agent/msi/mackerel-agent-latest.msi>(32bit)よりインストーラーをダウンロードし、監視対象のホストにコピーします。
+GUIを用いてインストールする方法か、コマンドラインからインストールする方法を選べます。
 
-## Windowsホストにエージェントをインストールする
-GUIを用いてインストールする方法か、コマンドラインからインストールする方法かを選べます。
+あらかじめ [エージェントのインストール時に発生する通信](https://mackerel.io/ja/docs/entry/howto/install-agent#install) を許可してください。
 
-### GUIでインストールする
-ダウンロードしたmsiファイルのアイコンをダブルクリックし、ダイアログに従ってインストールしてください。
+### 1. インストーラーをダウンロードする
 
-途中で API KEY の入力を求められますが、これは[Mackerel管理画面のOrganizationのページにある、APIキータブ](https://mackerel.io/my?tab=apikeys)よりご確認いただけます。
+[新規ホストの登録画面](https://mackerel.io/my/instruction-agent)でMicrosoft Windowsを選択し、ダウンロードボタンをクリックします。ダウンロードしたインストーラーを監視対象のサーバーにコピーします。
 
-### 管理者権限のコマンドプロンプトよりインストールする
+### 2. エージェントをインストールする
 
-監視対象のホスト上で、管理者権限のユーザーのコマンドプロンプトから`msiexec`コマンドを用いてインストールします。
+#### GUIでインストールする場合
+ダウンロードしたmsiファイルをダブルクリックし、ダイアログに従ってインストールしてください。
 
-    msiexec /qn /i path/to/mackerel-agent-x64-latest.msi APIKEY="<YOUR API KEY>"
+途中でAPIキーの入力を求められるので、[新規ホストの登録画面](https://mackerel.io/my/instruction-agent)でMicrosoft Windowsを選択し、「A. GUIでインストール」に表示されているAPIキーを入力します。APIキーは[WebコンソールのAPIキータブ](https://mackerel.io/my?tab=apikeys)でも取得できます。
 
-入力していただく`<YOUR API KEY>`は[Mackerel管理画面のOrganizationのページにある、APIキータブ](https://mackerel.io/my?tab=apikeys)よりご確認いただけます。
-mackerel-agentのインストール完了後、特にメッセージなどは表示されませんが、正常にインストールが完了した場合は自動的にmackerel-agentが起動します。
-mackerel-agentが起動しているか否かの確認はWindowsサービス管理画面より確認ができます。
-名前はmackerel-agentです。状態が「開始」になっていれば起動しています。
+#### コマンドラインからインストールする場合
 
-## mackerel-agentのログを確認する
+[新規ホストの登録画面](https://mackerel.io/my/instruction-agent)でMicrosoft Windowsを選択し、「B. コマンドラインからインストール」に表示されているコマンドを、管理者権限のコマンドプロンプトで実行します。
 
-mackerel-agentのログは、Windowsイベントログのアプリケーションログに出力されています。動作を確認したい場合はそちらをご確認下さい。
+```
+msiexec /qn /i path/to/mackerel-agent-x64-latest.msi APIKEY="<YOUR_API_KEY>"
+```
 
-## mackerel-agentをアップデートする
+### 3. ホストの登録確認
 
-mackerel-agentのアップデートは、最新のインストーラーをダウンロードし、インストールしていただくことで最新版へアップデートできます。
+インストール完了後にエージェントは自動で起動します。エージェントが起動するとMackerelにホストとして登録されます。[ホスト一覧画面](https://mackerel.io/my/hosts)を確認してください。
 
-アップデートはmackerel-agent側で新しい機能をがリリースされてそれを利用する場合や安定性の改善が行われた等のタイミングで実施してください。
+ホストが登録されない場合は、[FAQ：ホストが登録されない](https://support.mackerel.io/hc/ja/articles/30952244573337)の内容を確認してください。
 
-mackerel-agentのアップデートをしなくても基本機能（メトリックの投稿・監視など）は動作いたします。
+## エージェントを再起動する
 
-## mackerel-agentのアンインストール
+サービス一覧からmackerel-agentを再起動します。
 
-mackerel-agentをアンインストールするには、コントロールパネルの「プログラムと機能」から削除できます。
-アンインストールの後、デフォルトではidファイル等が残っているため、PCを再起動していただき`C:\Program Files\Mackerel`または`C:\Program Files (x86)\Mackerel`をフォルダごと削除して下さい。
+## エージェントのログを確認する
 
+mackerel-agentのログはイベントビューアーの Windowsログ > Application で確認できます。イベントソースはmackerel-agentです。
 
-<h1 id="kcps">KCPS版mackerel-agentをWindowsにインストールする</h1>
+## エージェントをバージョンアップする
 
-<http://repo-kcps.mackerel.io/file/msi/mackerel-agent-x64-latest-kcps.msi>(64bit)または<http://repo-kcps.mackerel.io/file/msi/mackerel-agent-latest-kcps.msi>(32bit)よりインストーラーをダウンロードし、監視対象のホストにコピーします。
+エージェントをバージョンアップする場合は、新しいバージョンのインストーラーで上書きインストールします。
 
-KCPS上のホストから、下記のURLを用いて直接ダウンロードすることもできます。
+最新のインストーラーは、[新規ホストの登録画面](https://mackerel.io/my/instruction-agent)でMicrosoft Windowsを選択し、ダウンロードボタンをクリックすることで入手できます。
 
-    http://198.18.0.16/file/msi/mackerel-agent-x64-latest-kcps.msi
-    http://198.18.0.16/file/msi/mackerel-agent-latest-kcps.msi
+## エージェントをアンインストールする
 
-## Windowsホストにエージェントをインストールする
-GUIを用いてインストールする方法か、コマンドラインからインストールする方法かを選べます。
+コントロールパネルの「プログラムと機能」からmackerel-agentをアンインストールします。
 
-### GUIでインストールする
-ダウンロードしたmsiファイルのアイコンをダブルクリックし、ダイアログに従ってインストールしてください。
+一部のファイルはアンインストールによって削除されずに残ります。不要な場合は削除してください。
 
-## 管理者権限のコマンドプロンプトよりインストールする
+- [エージェントのアンインストール時に削除されないファイル](https://mackerel.io/ja/docs/entry/howto/install-agent#uninstall-files)
 
-監視対象のホスト上で、管理者権限のユーザーのコマンドプロンプトから`msiexec`コマンドを用いてインストールします。
+<h2 id="kcps">KCPS版Mackerelをご利用の場合</h2>
 
-    msiexec /qn /i path/to/mackerel-agent-x64-latest-kcps.msi APIKEY="<YOUR API KEY>"
+KCPS版Mackerelをご利用の場合は、KCPSのナレッジサイトをご参照ください。
 
-mackerel-agentのインストール完了後、特にメッセージなどは表示されませんが、正常にインストールが完了した場合は自動的にmackerel-agentが起動します。
-mackerel-agentが起動しているか否かの確認はWindowsサービス管理画面より確認ができます。
-名前はmackerel-agentです。状態が「開始」になっていれば起動しています。
-
-## mackerel-agentのログを確認する
-
-mackerel-agentのログは、Windowsイベントログのアプリケーションログに出力されています。動作を確認したい場合はそちらをご確認下さい。
+- [エージェントをインストールする](https://doc.cloud-platform.kddi.ne.jp/guidebook/hands-on/kansi/kihon/agent-install/)
+- [エージェントを再起動する](https://doc.cloud-platform.kddi.ne.jp/guidebook/hands-on/kansi/kihon/agent-restart/)
+- [エージェントのログを確認する](#エージェントのログを確認する)（本ページに記載の方法で確認できます）
+- [エージェントをバージョンアップする](https://doc.cloud-platform.kddi.ne.jp/guidebook/hands-on/kansi/kihon/mackerel-versionup/)
+- [エージェントをアンインストールする](https://doc.cloud-platform.kddi.ne.jp/faq/functions_operations/partner-service-functionoperation/mackerel-partner-service-functionoperation/17607/)

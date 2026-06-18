@@ -1,72 +1,73 @@
 ---
-Title: Installing mackerel-agent on Windows
+Title: Installing mackerel-agent on Windows Server
 Date: 2015-08-12T12:42:25+09:00
 URL: https://mackerel.io/docs/entry/howto/install-agent/msi
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/8454420450105331216
 ---
 
-[For users of Mackerel KCPS version](#kcps)
+[If you are using the KCPS version of Mackerel](#kcps)
 
-## Downloading the installer
+## Installing the mackerel-agent
 
-Download the installer from here <https://mackerel.io/file/agent/msi/mackerel-agent-latest.msi> and copy it into the host which is to be targeted for monitoring.
+You can install the mackerel-agent using the GUI or from the command line.
 
-## Installing the agent on a Windows host
-There are two ways to install the agent on a Windows host; install from the command line or using the GUI.
+Please allow the [communications that occur during mackerel-agent installation](https://mackerel.io/docs/entry/howto/install-agent#install) in advance.
 
-### Installing with the GUI
-Double click on the icon of the downloaded msi file and follow the dialog.
+### 1. Download the installer
 
-Part way through, you will be asked to input an API key, but this can be checked from the [API tab in the Organization page of the Mackerel Management screen](https://mackerel.io/my?tab=apikeys).
+On the [Register a new Host screen](https://mackerel.io/my/instruction-agent), select Microsoft Windows and click the download button. Copy the downloaded installer to the server to be monitored.
 
-## Installing the agent on a host from the administrator’s command prompt
+### 2. Install the mackerel-agent
 
-On the host that will be targeted for monitoring, using the command `msiexec` from the administrator’s command prompt will install the agent.
+#### Installing with the GUI
+Double-click on the downloaded msi file and follow the dialog to install.
 
-    msiexec /qn /i path/to/mackerel-agent-latest.msi APIKEY="<YOUR API KEY>"
+During installation, you will be prompted to enter an API key. On the [Register a new Host screen](https://mackerel.io/my/instruction-agent), select Microsoft Windows and enter the API key shown in "A. Install with GUI". The API key can also be obtained from the [API Keys tab in the Web console](https://mackerel.io/my?tab=apikeys).
 
-You can check `<YOUR API KEY>` by going to the API Keys tab in the Organization page in Mackerel. After installation has been completed, a completion message will not be displayed, but if the installation was successful the mackerel-agent will start up automatically. You can check the Windows Service management screen to see if the mackerel-agent is running or not. The service name will be "mackerel-agent", and it's status should be "running".
+#### Installing from the command line
 
-## Checking the mackerel-agent’s log
+On the [Register a new Host screen](https://mackerel.io/my/instruction-agent), select Microsoft Windows and run the command shown in "B. Install from command line" from an administrator command prompt.
 
-The mackerel-agent’s log will be outputted to the application log in Windows’ event log. Please refer here when you want to view the agent’s behavior.
+```
+msiexec /qn /i path/to/mackerel-agent-x64-latest.msi APIKEY="<YOUR_API_KEY>"
+```
 
-## Updating mackerel-agent
+### 3. Confirm host registration
 
-To update the mackerel-agent download the latest installer and complete the install to be able to update to the newest version of the agent.
+After installation is complete, the mackerel-agent will start automatically. Once the mackerel-agent starts, the host will be registered in Mackerel. Check the [Hosts screen](https://mackerel.io/my/hosts).
 
-We suggest performing an update when new features are released or when improvements are made to the agent's stability.
+<!--
+If the host is not registered, please refer to [FAQ: Host is not registered](https://support.mackerel.io/hc/en-us/articles/30952244573337).
+-->
 
-Even without updating the agent, the standard features (posting metrics, monitoring, etc.) will still be operational.
+## Restarting the mackerel-agent
 
-## Uninstalling mackerel-agent
+Restart the mackerel-agent from the Services list.
 
-mackerel-agent can be uninstalled by going to Programs and Features in the Control Panel and deleting it. After uninstalling, the ID files will remain by default, so please restart your machine and delete each folder in either `C:\Program Files\Mackerel` or `C:\Program Files (x86)\Mackerel`.
+<h2 id="checking-mackerel-agent-log">Checking the mackerel-agent's log</h2>
 
-<h1 id="kcps">Installing the mackerel agent KCPS version on Windows</h1>
+The mackerel-agent's log can be viewed in Event Viewer under Windows Logs > Application. The event source is mackerel-agent.
 
-Download the installer from here <http://repo-kcps.mackerel.io/file/msi/mackerel-agent-latest-kcps.msi> and copy it into the host which is to be targeted for monitoring.
+## Updating the mackerel-agent
 
-The following URL can also be used to download the installer directly from a host on KCPS.
+To update the mackerel-agent, perform an overwrite installation with the newer version's installer.
 
-    http://198.18.0.16/file/msi/mackerel-agent-x64-latest-kcps.msi
-    http://198.18.0.16/file/msi/mackerel-agent-latest-kcps.msi
+The latest installer can be obtained by selecting Microsoft Windows on the [Register a new Host screen](https://mackerel.io/my/instruction-agent) and clicking the download button.
 
-## Installing the agent on a Windows host
-There are two ways to install the agent on a Windows host; install from the command line or using the GUI.
+## Uninstalling the mackerel-agent
 
-### Installing with the GUI
-Double click on the icon of the downloaded msi file and follow the dialog.
+Uninstall the mackerel-agent from Programs and Features in the Control Panel.
 
+Some files will not be deleted during uninstallation. If they are no longer needed, please delete them.
 
-## Installing the agent on a host from the administrator’s command prompt
+- [Files not deleted when uninstalling the agent](https://mackerel.io/docs/entry/howto/install-agent#uninstall-files)
 
-Using the command `msiexec` from the administrator’s command prompt will install the agent on a host monitoring target.
+<h2 id="kcps">If you are using the KCPS version of Mackerel</h2>
 
-    msiexec /qn /i path/to/mackerel-agent-latest-kcps.msi APIKEY="<YOUR API KEY>"
+For users of the KCPS version of Mackerel, please refer to the KCPS knowledge site.
 
-After installation, if completed successfully, the mackerel-agent will start up automatically with no further notification. You can confirm whether or not the mackerel-agent is running from the Windows Service management screen. The service name will be "mackerel-agent", and it's status should be "running".
-
-## Checking the mackerel-agent log
-
-The mackerel-agent log will be outputted to the application log in Windows’ event log. Please refer here when you want to view the agent’s behavior.
+- [Installing the mackerel-agent](https://doc.cloud-platform.kddi.ne.jp/guidebook/hands-on/kansi/kihon/agent-install/)
+- [Restarting the mackerel-agent](https://doc.cloud-platform.kddi.ne.jp/guidebook/hands-on/kansi/kihon/agent-restart/)
+- [Checking the mackerel-agent's log](#checking-mackerel-agent-log) (can be checked using the method described on this page)
+- [Updating the mackerel-agent](https://doc.cloud-platform.kddi.ne.jp/guidebook/hands-on/kansi/kihon/mackerel-versionup/)
+- [Uninstalling the mackerel-agent](https://doc.cloud-platform.kddi.ne.jp/faq/functions_operations/partner-service-functionoperation/mackerel-partner-service-functionoperation/17607/)
