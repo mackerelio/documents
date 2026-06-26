@@ -52,6 +52,7 @@ include_pattern = 'cpu'
 exclude_pattern = 'waiting$'
 user = "SOME_USER_NAME"
 env = { SAMPLE_KEY = "VALUE" }
+use_plugin_timestamp = false
 ```
 
 <h3 id="items">Configuration items</h3>
@@ -66,6 +67,7 @@ env = { SAMPLE_KEY = "VALUE" }
 | exclude_pattern      |          | Only metrics whose name does not match the specified regular expression are posted.*2                                                                                                                                                                               |               |
 | user                 |          | The user to run command can be specified with `command`. If a user is not specified, the executing user of mackerel-agent will also be the executing user of command. Not yet supported for Windows environments.                                                   |               |
 | env                  |          | Environment variables can be specified to pass to command.                                                                                                                                                                                                          |               |
+| use_plugin_timestamp |      | Uses the timestamp output by the plugin. By default, the timestamp collected by mackerel-agent is used for metrics, but this setting allows you to use the timestamp output by the plugin instead. Only metrics with timestamps within 15 minutes before or after the collection time are collected. | false   |
 
 - *1 It is also possible to pass a string to `command`. As shown in the example above, you can specify command as: `command = "ruby /path/to/vmstat-metrics.rb"`. If a string is passed, it will run via a shell.
 - *2 Metrics with a name that matches both include_pattern and exclude_pattern will not be posted.

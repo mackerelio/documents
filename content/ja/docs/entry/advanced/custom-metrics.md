@@ -52,6 +52,7 @@ include_pattern = 'cpu'
 exclude_pattern = 'waiting$'
 user = "SOME_USER_NAME"
 env = { SAMPLE_KEY = "VALUE" }
+use_plugin_timestamp = false
 ```
 
 <h3 id="items">設定項目</h3>
@@ -66,6 +67,7 @@ env = { SAMPLE_KEY = "VALUE" }
 | exclude_pattern      |      | メトリック名が指定された正規表現にマッチしないメトリックのみを投稿します。*2                                                                                                                                                                                                                     |         |
 | user                 |      | `command` で指定したコマンドの実行ユーザーを指定できます。指定しない場合は mackerel-agent の実行ユーザーがコマンドの実行ユーザーとなります。Windows環境には未対応のため、利用できません。                                                                                                                                   |         |
 | env                  |      | commandに渡す環境変数を指定できます。                                                                                                        |         |
+| use_plugin_timestamp |      | プラグインが出力するタイムスタンプを利用します。標準では、mackerel-agentが収集した時刻を目メトリックのタイムスタンプに用いますが、この設定を利用することで、プラグインの出力する時刻を利用できます。取得前後15分以内のタイムスタンプを持つメトリックのみ収集されます。 | false   |
 
 - *1 `command` には文字列を渡すことも可能です。上記の例の場合、`command = "ruby /path/to/vmstat-metrics.rb"` のように指定できます。文字列を渡した場合、シェル経由での実行になります。
 - *2 `include_pattern` と `exclude_pattern` の両方にマッチするメトリック名の場合、そのメトリックは投稿されません。
