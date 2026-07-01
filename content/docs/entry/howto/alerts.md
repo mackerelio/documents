@@ -188,12 +188,23 @@ Please refer to the document below about the Alert group feature that lets you c
 
 Mackerel will notify you in the event that an alert has been raised, resolved/closed, or if the host status of an alert has changed.
 
-Notification settings can be edited in [Channels Settings][channels-settings]. Supported notification channels other than email and Webhook include Slack, Chatwork, PagerDuty and many more. We will continue to add more supported notification channels as need dictates.
+Notification settings can be edited in [Channels Settings][channels-settings]. The following notification channels are supported:
+
+- [Email](https://mackerel.io/docs/entry/howto/alerts/email)
+- [Slack](https://mackerel.io/docs/entry/howto/alerts/slack)
+- [Chatwork](https://mackerel.io/docs/entry/howto/alerts/chatwork)
+- [Twilio](https://mackerel.io/docs/entry/howto/alerts/twilio)
+- [PagerDuty](https://mackerel.io/docs/entry/howto/alerts/pagerduty)
+- [Opsgenie](https://mackerel.io/docs/entry/howto/alerts/OpsGenie)
+- [Jira Service Management](https://mackerel.io/docs/entry/howto/alerts/jira-service-management)
+- [Microsoft Teams](https://mackerel.io/docs/entry/howto/alerts/microsoft-teams)
+- [Webhook](https://mackerel.io/docs/entry/howto/alerts/webhook)
+- [Amazon EventBridge](https://mackerel.io/docs/entry/howto/alerts/eventbridge)
 
 [channels-settings]: https://mackerel.io/my/channels/-/create
 [alerts-settings]: https://mackerel.io/my/monitors
 
-With notification by email broadcast, all members belonging to your organization will be notified simultaneously (this can be changed in [Account Settings](#optout-broadcast-notification-email) so as not to be notified). For details on setting up other notification channels, please refer to the Alerts section of the Help Documents sidebar.
+With notification by email broadcast, all members belonging to your organization will be notified simultaneously (this can be changed in [Account Settings](#optout-broadcast-notification-email) so as not to be notified).
 
 <h3 id="optout-broadcast-notification-email">To stop receiving notification emails (Account Settings)</h3>
 

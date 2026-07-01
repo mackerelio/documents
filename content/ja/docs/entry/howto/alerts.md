@@ -186,12 +186,23 @@ Mackerelでは、登録しているホストを監視し、状況に応じてア
 
 Mackerelは、アラートが生成された際・アラートの状態に変化があった際・閉じられた際に通知をおこないます。
 
-[通知チャンネルの設定][channels-settings]より、アラートの通知チャンネルを編集できます。対応している通知チャンネルはEメールとWebhookの他に、Slack、Chatwork、PagerDuty など多くのWebサービスと連携可能になっています。対応チャンネルは随時追加していきます。
+[通知チャンネルの設定][channels-settings]より、アラートの通知チャンネルを編集できます。対応している通知チャンネルは以下のとおりです。
+
+- [メール](https://mackerel.io/ja/docs/entry/howto/alerts/email)
+- [Slack](https://mackerel.io/ja/docs/entry/howto/alerts/slack)
+- [Chatwork](https://mackerel.io/ja/docs/entry/howto/alerts/chatwork)
+- [Twilio](https://mackerel.io/ja/docs/entry/howto/alerts/twilio)
+- [PagerDuty](https://mackerel.io/ja/docs/entry/howto/alerts/pagerduty)
+- [Opsgenie](https://mackerel.io/ja/docs/entry/howto/alerts/OpsGenie)
+- [Jira Service Management](https://mackerel.io/ja/docs/entry/howto/alerts/jira-service-management)
+- [Microsoft Teams](https://mackerel.io/ja/docs/entry/howto/alerts/microsoft-teams)
+- [Webhook](https://mackerel.io/ja/docs/entry/howto/alerts/webhook)
+- [Amazon EventBridge](https://mackerel.io/ja/docs/entry/howto/alerts/eventbridge)
 
 [channels-settings]: https://mackerel.io/my/channels/-/create
 [alerts-settings]: https://mackerel.io/my/monitors
 
-メールブロードキャストはそのオーガニゼーションに所属しているすべてのメンバーにメールを一斉送信します（[アカウント設定](#optout-broadcast-notification-email)により受け取らないように変更できます）。その他の通知チャンネルの設定の詳細については、ヘルプのサイドバー「アラート/alerts」をご確認下さい。
+メールブロードキャストはそのオーガニゼーションに所属しているすべてのメンバーにメールを一斉送信します（[アカウント設定](#optout-broadcast-notification-email)により受け取らないように変更できます）。
 
 <h3 id="optout-broadcast-notification-email">通知メールを受け取らない（アカウント設定）</h3>
 
