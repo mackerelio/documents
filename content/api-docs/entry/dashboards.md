@@ -243,6 +243,7 @@ Objects representing widgets have the following formats for the differing types.
 | `range`  | *object* | [optional] [object representing the graph display range](#graph-range) |
 | `valueRange` | *object* | [optional] [object representing the value range of vertical axis](#graph-value-range) |
 | `referenceLines` | *array[object]* | [optional] array of [objects representing the reference line](#reference-line). If you want to remove the reference line setting, specify an empty array.<br /> If reference line is not set when get dashboards, an empty array is returned. Cannot specify more than one element in an array.|
+| `legendList` | *array[string]* | [optional] array of metric names to display in the graph. Only the specified metric names will be shown. If not set, all metrics are displayed and this field is not returned. Only valid for host graphs and service graphs. |
 | `layout` | *object* | [object representing the layout](#layout)                       |
 
 ### Value widget

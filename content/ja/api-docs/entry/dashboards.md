@@ -243,6 +243,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 | `range`  | *object* | [optional] [グラフの表示期間を表すオブジェクト](#graph-range) |
 | `valueRange` | *object* | [optional] [グラフの縦軸固定を表すオブジェクト](#graph-value-range) |
 | `referenceLines` | *array[object]* | [optional] [補助線を表すオブジェクト](#reference-line)の配列。補助線の設定を削除したい場合には、空の配列を指定してください。<br />ダッシュボードの取得時に補助線が未設定の場合、空の配列が返されます。配列に2つ以上の要素を指定できません。 |
+| `legendList` | *array[string]* | [optional] グラフに表示するメトリック名の配列。指定したメトリック名のみがグラフに表示されます。未設定の場合はすべてのメトリックが表示され、このフィールドは返されません。ホストグラフとサービスグラフでのみ有効です。 |
 | `layout` | *object* | [レイアウトを表すオブジェクト](#layout)                       |
 
 ### 数値ウィジェット
