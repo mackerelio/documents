@@ -30,7 +30,7 @@ Retrieve a list of traces based on specified conditions.
 | KEY                    | TYPE             | DESCRIPTION                                                                 |
 | ---------------------- | ---------------- | --------------------------------------------------------------------------- |
 | `serviceName`          | *string*         | Service name                                                                |
-| `serviceNamespace`     | *string*         | [optional] Service namespace                                                |
+| `serviceNamespace`     | *string*         | [optional] Service namespace. Default is an empty string (`""`)             |
 | `from`                 | *number*         | Trace search start time (epoch seconds)                               |
 | `to`                   | *number*         | Trace search end time (epoch seconds)                                 |
 | `environment`          | *string*         | [optional] Environment name                                                 |

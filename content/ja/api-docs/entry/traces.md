@@ -30,7 +30,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 | KEY                    | TYPE             | DESCRIPTION                                                                 |
 | ---------------------- | ---------------- | --------------------------------------------------------------------------- |
 | `serviceName`          | *string*         | サービス名                                                                  |
-| `serviceNamespace`     | *string*         | [optional] サービスの名前空間                                               |
+| `serviceNamespace`     | *string*         | [optional] サービスの名前空間。デフォルトは空文字列(`""`)                  |
 | `from`                 | *number*         | トレース検索開始時刻(epoch秒)                                         |
 | `to`                   | *number*         | トレース検索終了時刻(epoch秒)                                         |
 | `environment`          | *string*         | [optional] 環境名                                                           |
