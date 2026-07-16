@@ -16,6 +16,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
         <li><a href="#first-steps">Mackerelをはじめる</a></li>
         <li><a href="#accounts">ユーザーアカウント管理</a></li>
         <li><a href="#apm">アプリケーション監視（APM）</a></li>
+        <li><a href="#log">ログの検索</a></li>
         <li><a href="#infra-hosts">インフラ・ホスト監視</a></li>
         <li><a href="#monitoring-notifications">監視とアラート通知</a></li>
         <li><a href="#advanced">進んだ使い方</a></li>
@@ -55,6 +56,17 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
                 <li><a href="https://mackerel.io/ja/docs/entry/tracing/features"><strong>機能</strong><span>トレーシング機能ではエラーや速度低下など、ユーザー体験悪化の原因を発見し解決できます</span></a></li>
                 <li><a href="https://mackerel.io/ja/docs/entry/tracing/integrations/slack"><strong>Slackに通知する</strong><span>トレーシング機能ではアラートを Slack に送信できます</span></a></li>
                 <li><a href="https://mackerel.io/ja/docs/entry/advanced/estimated-usage-metrics"><strong>概算使用量メトリック</strong><span>トレーシング機能におけるスパンの投稿量を概算使用量メトリックとして観測・監視できます</span></a></li>
+            </ul>
+        </section>
+        <section id="section-log">
+            <div id="log" class="fragment"></div>
+            <h4>ログを検索する</h4>
+            <ul>
+                <li><a href="https://mackerel.io/ja/docs/entry/log/introduction"><strong>Mackerel のログ機能</strong><span>Mackerel のログ機能の特徴とその活用シーンを紹介します</span></a></li>
+                <li><a href="https://mackerel.io/ja/docs/entry/log/sending"><strong>Mackerel にログを送信する</strong><span>Mackerelにログを送信する手順を解説します</span></a></li>
+                <li><a href="https://mackerel.io/ja/docs/entry/log/search-and-analysis"><strong>ログの検索・分析</strong><span>ログの検索画面について解説します</span></a></li>
+                <li><a href="https://mackerel.io/ja/docs/entry/log/cost-estimation"><strong>ログのデータ量とコストを見積もる</strong><span>ログの課金の仕組みや送信データ量の見積もり方について解説します</span></a></li>
+                <li><a href="https://mackerel.io/ja/docs/entry/log/filtering-sampling"><strong>フィルタリングとサンプリングによるログデータ量の最適化</strong><span>ログの機微情報の加工や送信データ量の最適化について解説します</span></a></li>
             </ul>
         </section>
         <section id="section-infra-hosts">
