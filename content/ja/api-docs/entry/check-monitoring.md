@@ -5,6 +5,72 @@ URL: https://mackerel.io/ja/api-docs/entry/check-monitoring
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.mackerel.io/atom/entry/10328537792368065674
 ---
 
+<ul class="internal-nav">
+  <li><a href="#list">チェック監視の一覧</a></li>
+  <li><a href="#post">チェック監視結果の投稿</a></li>
+</ul>
+
+<h2 id="list">チェック監視の一覧</h2>
+
+チェック監視の一覧を取得します。
+
+<p class="type-get">
+  <code>GET</code>
+  <code>/api/v0/monitoring/checks</code>
+</p>
+
+### APIキーに必要な権限
+
+<ul class="api-key">
+  <li class="label-read">Read</li>
+</ul>
+
+### 入力（クエリパラメータ）
+
+| PARAM     | TYPE      | DESCRIPTION |
+| --------- | --------- | ----------- |
+| `nextId`  | *string*  | [optional] 指定されたIDを持つチェック監視以降を取得する |
+| `limit`   | *number*  | [optional] 取得するチェック監視の最大数（最大100、デフォルト100） |
+
+### 応答
+
+#### 成功時
+
+```json
+{
+  "checks": [<check>, <check>, …],
+  "nextId": "abc123"
+}
+```
+
+並び順は、チェック監視のIDの昇順です。`nextId` はチェック監視が `limit` 件より多くあるときに返されます。次のリクエストの `nextId` パラメータに使用します。
+
+<i>`<check>`</i> は以下のキーを持つオブジェクトです。
+
+| KEY    | TYPE     | DESCRIPTION        |
+| ------ | -------- | ------------------ |
+| `id`   | *string* | チェック監視のID   |
+| `name` | *string* | チェック監視の名前 |
+
+#### 失敗時
+
+<table class="default api-error-table">
+  <thead>
+    <tr>
+      <th class="status-code">STATUS CODE</th>
+      <th class="description">DESCRIPTION</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>400</td>
+      <td><code>limit</code> の値が最大値(100)より大きい場合</td>
+    </tr>
+  </tbody>
+</table>
+
+----------------------------------------------
+
 <h2 id="post">チェック監視結果の投稿</h2>
 
 チェック監視の結果を Mackerel に送信します。監視結果はホストに紐付きます。

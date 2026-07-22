@@ -5,6 +5,70 @@ URL: https://mackerel.io/api-docs/entry/check-monitoring
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel.io/atom/entry/10328537792368374608
 ---
 
+<ul class="internal-nav">
+  <li><a href="#list">List Check Monitors</a></li>
+  <li><a href="#post">Post Monitoring Check Reports</a></li>
+</ul>
+
+<h2 id="list">List Check Monitors</h2>
+
+Returns a list of check monitors.
+
+<p class="type-get">
+  <code>GET</code>
+  <code>/api/v0/monitoring/checks</code>
+</p>
+
+### Required permissions for the API key
+
+<ul class="api-key">
+  <li class="label-read">Read</li>
+</ul>
+
+### Input (Query parameters)
+
+| PARAM    | TYPE     | DESCRIPTION |
+| -------- | -------- | ----------- |
+| `nextId` | *string* | [optional] If specified, retrieves check monitors starting from the one with this ID |
+| `limit`  | *number* | [optional] Maximum number of check monitors to retrieve (max 100, default 100) |
+
+### Response
+
+```json
+{
+  "checks": [<check>, <check>, …],
+  "nextId": "abc123"
+}
+```
+
+Check monitors are returned in ascending order of ID. The `nextId` field is returned only when there are more check monitors existing. Use it as the `nextId` parameter in the next request.
+
+`<check>`: an object that holds the following keys.
+
+| KEY    | TYPE     | DESCRIPTION        |
+| ------ | -------- | ------------------ |
+| `id`   | *string* | check monitor ID   |
+| `name` | *string* | check monitor name |
+
+#### Error
+
+<table class="default api-error-table">
+  <thead>
+    <tr>
+      <th class="status-code">STATUS CODE</th>
+      <th class="description">DESCRIPTION</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>400</td>
+      <td>when the <code>limit</code> value exceeds the maximum (100)</td>
+    </tr>
+  </tbody>
+</table>
+
+----------------------------------------------
+
 <h2 id="post">Post Monitoring Check Reports</h2>
 
 This will transmit a monitoring check report to Mackerel. Monitoring reports are restricted to hosts.

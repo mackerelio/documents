@@ -307,6 +307,15 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
     <h3><a href="entry/check-monitoring">チェック監視</a></h3>
     <div class="apis">
       <div class="api">
+        <a href="entry/check-monitoring#list">
+          <p>チェック監視の一覧</p>
+          <p class="type-get">
+            <code>GET</code>
+            <code>/api/v0/monitoring/checks</code>
+          </p>
+        </a>
+      </div>
+      <div class="api">
         <a href="entry/check-monitoring#post">
           <p>チェック監視結果の投稿</p>
           <p class="type-post">
