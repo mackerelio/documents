@@ -36,6 +36,7 @@ If more than one hour has passed since the last execution, logs up to 1 minute b
 | --state-dir              | -s    | Specify the directory path where the State file is saved                                               | See [About State file](#state-file) |
 | --return                 | -r    | Log lines matching the pattern will be noted in the alert notification (Up to 1024 characters)               |                                     |
 | --max-retries            | -t    | Specify the maximum number of query attempts to CloudWatch Logs                                              | 3                                   |
+| --imds-timeout           |       | Specify the timeout duration (in seconds) when retrieving credentials (instance profile) from the IMDS       | 1                                   |
 | --help                   | -h    | Show help                                                                                                    |                                     |
 
 <h2 id="config">Example configurations</h2>

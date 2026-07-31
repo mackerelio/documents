@@ -35,6 +35,7 @@ check-aws-cloudwatch-logs は初回実行時、現在時刻から 1 分前まで
 | --state-dir | -s | State ファイルの保存先ディレクトリパスを指定 | [State ファイルについて](#state-file) を参照 |
 | --return | -r | パターンにマッチしたログ行をアラートに通知する（最大 1024 文字まで） |  |
 | --max-retries | -t | CloudWatch Logs への最大問い合わせ試行回数の指定 | 3 |
+| --imds-timeout|  | IMDSから認証情報（インスタンスプロファイル）を取得する際の、タイムアウトするまでの時間を指定（秒） | 1 |
 | --help | -h | ヘルプを表示 |  |
 
 <h2 id="config">エージェントへの設定例</h2>
