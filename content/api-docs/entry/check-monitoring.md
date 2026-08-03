@@ -7,6 +7,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
 
 <ul class="internal-nav">
   <li><a href="#list">List Check Monitors</a></li>
+  <li><a href="#retrieve">Retrieve Check Monitor</a></li>
   <li><a href="#post">Post Monitoring Check Reports</a></li>
 </ul>
 
@@ -68,7 +69,54 @@ Check monitors are returned in ascending order of ID. The `nextId` field is retu
 </table>
 
 ----------------------------------------------
+<h2 id="retrieve">Retrieve Check Monitor</h2>
 
+Returns a check monitor.
+
+<p class="type-get">
+  <code>GET</code>
+  <code>/api/v0/monitoring/checks/<em>&lt;monitorId&gt;</em></code>
+</p>
+
+### Required permissions for the API key
+
+<ul class="api-key">
+  <li class="label-read">Read</li>
+</ul>
+
+### Response
+
+```json
+{
+  "check": <check>
+}
+```
+
+`<check>`: an object that holds the following keys.
+
+| KEY    | TYPE     | DESCRIPTION        |
+| ------ | -------- | ------------------ |
+| `id`   | *string* | check monitor ID   |
+| `name` | *string* | check monitor name |
+
+#### Error
+
+<table class="default api-error-table">
+  <thead>
+    <tr>
+      <th class="status-code">STATUS CODE</th>
+      <th class="description">DESCRIPTION</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>404</td>
+      <td>when the specified monitor does not exist</td>
+    </tr>
+  </tbody>
+</table>
+
+----------------------------------------------
 <h2 id="post">Post Monitoring Check Reports</h2>
 
 This will transmit a monitoring check report to Mackerel. Monitoring reports are restricted to hosts.

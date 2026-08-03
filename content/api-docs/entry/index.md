@@ -316,6 +316,15 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
         </a>
       </div>
       <div class="api">
+        <a href="entry/check-monitoring#retrieve">
+          <p>Retrieve Check Monitor</p>
+          <p class="type-get">
+            <code>GET</code>
+            <code>/api/v0/monitoring/checks/<em>&lt;monitorId&gt;</em></code>
+          </p>
+        </a>
+      </div>
+      <div class="api">
         <a href="entry/check-monitoring#post">
           <p>Post Monitoring Check Reports</p>
           <p class="type-post">

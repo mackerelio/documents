@@ -7,6 +7,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 
 <ul class="internal-nav">
   <li><a href="#list">チェック監視の一覧</a></li>
+  <li><a href="#retrieve">チェック監視の取得</a></li>
   <li><a href="#post">チェック監視結果の投稿</a></li>
 </ul>
 
@@ -70,7 +71,56 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 </table>
 
 ----------------------------------------------
+<h2 id="retrieve">チェック監視の取得</h2>
 
+チェック監視を取得します。
+
+<p class="type-get">
+  <code>GET</code>
+  <code>/api/v0/monitoring/checks/<em>&lt;monitorId&gt;</em></code>
+</p>
+
+### APIキーに必要な権限
+
+<ul class="api-key">
+  <li class="label-read">Read</li>
+</ul>
+
+### 応答
+
+#### 成功時
+
+```json
+{
+  "check": <check>
+}
+```
+
+<i>`<check>`</i> は以下のキーを持つオブジェクトです。
+
+| KEY    | TYPE     | DESCRIPTION        |
+| ------ | -------- | ------------------ |
+| `id`   | *string* | チェック監視のID   |
+| `name` | *string* | チェック監視の名前 |
+
+#### 失敗時
+
+<table class="default api-error-table">
+  <thead>
+    <tr>
+      <th class="status-code">STATUS CODE</th>
+      <th class="description">DESCRIPTION</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>404</td>
+      <td>指定したmonitorIdのチェック監視が存在しない場合</td>
+    </tr>
+  </tbody>
+</table>
+
+----------------------------------------------
 <h2 id="post">チェック監視結果の投稿</h2>
 
 チェック監視の結果を Mackerel に送信します。監視結果はホストに紐付きます。
