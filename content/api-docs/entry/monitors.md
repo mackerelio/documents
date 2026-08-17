@@ -430,6 +430,7 @@ This function disables notifications in monitoring. Alerts occur in response to 
 | `headers`              | *array[object]* | [optional] The values that should be configured as the HTTP request header specified by `name` and `value`. If this field is omitted, the default header will be configured. If you do not want to configure headers, specify an empty array. |
 | `requestBody`          | *string*   | [optional] HTTP request body |
 | `followRedirect` | *boolean* | [optional] Evaluates the response of the redirector as a result. If this field is omitted, the redirection destination in the response will not be tracked. |
+| `dualstack` | *string* | [optional] The IP version used for external monitoring. If this field is omitted, monitoring is performed using IPv4. You can specify the IP version by setting this field to `ipv4` or `ipv6`. Specifying `auto` allows the monitoring system to automatically select the IP version to use. |
 
 In order to monitor response time, it's necessary to specify `responseTimeDuration` and at least one of `responseTimeWarning` and `responseTimeCritical`.
 In order to monitor the certification expiration date, it’s necessary to specify at least one of `certificationExpirationWarning` and `certificationExpirationCritical`.

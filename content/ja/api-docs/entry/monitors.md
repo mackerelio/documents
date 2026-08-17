@@ -429,6 +429,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 | `headers`                         | *array[object]* | [optional] HTTPリクエストヘッダとして設定されているべき値を`name`と`value`で指定。このフィールドを省略するとデフォルトのヘッダが設定されます。ヘッダを設定したくない場合は空の配列を指定してください。|
 | `requestBody`                     | *string*   | [optional] リクエスト時のメッセージボディ |
 | `followRedirect` | *boolean* | [optional] リダイレクト先のレスポンスを結果として評価する。このフィールドを省略するとレスポンスに含まれるリダイレクト先を追跡しません。 |
+| `dualstack` | *string* | [optional] 外見監視で利用するIPバージョン。このフィールドを省略するとIPv4を用いて監視を行います。`ipv4`、`ipv6` を指定することで利用するIPバーションを指定できます。`auto` を指定することで、監視システム側で自動的に利用するIPバージョンを選択します。 |
 
 応答時間の監視を行うには `responseTimeWarning` と `responseTimeCritical` の両方またはいずれか一方と `responseTimeDuration` を指定する必要があります。
 証明書有効期限の監視を行うには `certificationExpirationWarning` と `certificationExpirationCritical` の両方またはいずれか一方を指定する必要があります。
