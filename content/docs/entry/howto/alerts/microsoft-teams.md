@@ -14,17 +14,17 @@ Using the  Microsoft Teams notification channel, you can send alert notification
 **As of August 2024, notifications can't be sent to private channels due to Microsoft Teams restrictions.**
 **Microsoft says they're working on it and it is expected to be available in the future, so please wait until then.**
 
-In Microsoft Teams, click "Apps" > "Workflows" > "Notifications", and then select "Post to a channel when a webhook request is received".
-<p><span itemscope itemtype="http://schema.org/Photograph"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20240821/20240821123205.png" alt="f:id:mackerelio:20240821123205:plain" title="f:id:mackerelio:20240821123205:plain" class="hatena-fotolife" itemprop="image" width="600"></span></p>
+In Microsoft Teams, click "Apps" > "Workflows" > "Notifications", and then select "Send webhook alerts to a channel".
+<p><span itemscope itemtype="http://schema.org/Photograph"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20260820/20260820115955.png" alt="f:id:mackerelio:20260820115955p:plain" title="f:id:mackerelio:20260820115955p:plain" class="hatena-fotolife" itemprop="image" width="600"></span></p>
 
 Enter a Name of your choice for the workflow and verify that the Connections is valid.
-<p><span itemscope itemtype="http://schema.org/Photograph"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20240821/20240821123211.png" alt="f:id:mackerelio:20240821123211:plain" title="f:id:mackerelio:20240821123211:plain" class="hatena-fotolife" itemprop="image" width="600"></span></p>
+<p><span itemscope itemtype="http://schema.org/Photograph"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20260820/20260820124940.png" alt="f:id:mackerelio:20260820124940p:plain" title="f:id:mackerelio:20260820124940p:plain" class="hatena-fotolife" itemprop="image" width="600"></span></p>
 
 Select the Team and Channel you want to send notifications to.
-<p><span itemscope itemtype="http://schema.org/Photograph"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20240821/20240821123219.png" alt="f:id:mackerelio:20240821123219:plain" title="f:id:mackerelio:20240821123219:plain" class="hatena-fotolife" itemprop="image" width="600"></span></p>
+<p><span itemscope itemtype="http://schema.org/Photograph"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20260820/20260820124948.png" alt="f:id:mackerelio:20260820124948p:plain" title="f:id:mackerelio:20260820124948p:plain" class="hatena-fotolife" itemprop="image" width="600"></span></p>
 
 Click the copy button to copy the webhook URL.
-<p><span itemscope itemtype="http://schema.org/Photograph"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20240821/20240821123224.png" alt="f:id:mackerelio:20240821123224:plain" title="f:id:mackerelio:20240821123224:plain" class="hatena-fotolife" itemprop="image" width="600"></span></p>
+<p><span itemscope itemtype="http://schema.org/Photograph"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20260820/20260820124945.png" alt="f:id:mackerelio:20260820124945p:plain" title="f:id:mackerelio:20260820124945p:plain" class="hatena-fotolife" itemprop="image" width="600"></span></p>
 
 Select a Microsoft Teams channel from Mackerel's notification channel settings screen and specify the URL of the webhook you copied in the previous step in the URL.
 <p><span itemscope itemtype="http://schema.org/Photograph"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20240821/20240821123228.png" alt="f:id:mackerelio:20240821123228:plain" title="f:id:mackerelio:20240821123228:plain" class="hatena-fotolife" itemprop="image" width="600"></span></p>

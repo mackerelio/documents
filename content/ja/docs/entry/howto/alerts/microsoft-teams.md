@@ -14,17 +14,17 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 **2024年8月現在、 Microsoft Teams の制限によりプライベートチャンネルに通知を送ることができません。**
 **Microsoft によって対応中で、将来的に利用可能になる見込みとのことですので、それまでお待ちください。**
 
-Microsoft Teams の 「アプリ」、「ワークフロー」、「通知」を順にクリックし、「Webhook 要求を受信するとチャネルに投稿する」を選択します。
-<p><span itemscope itemtype="http://schema.org/Photograph"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20240821/20240821100853.png" alt="f:id:mackerelio:20240821100853:plain" title="f:id:mackerelio:20240821100853:plain" class="hatena-fotolife" itemprop="image" width="600"></span></p>
+Microsoft Teams の 「アプリ」、「ワークフロー」、「通知」を順にクリックし、「Webhook アラートをチャネルに送信する」を選択します。
+<p><span itemscope itemtype="http://schema.org/Photograph"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20260820/20260820115944.png" alt="f:id:mackerelio:20260820115944p:plain" title="f:id:mackerelio:20260820115944p:plain" class="hatena-fotolife" itemprop="image" width="600"></span></p>
 
 ワークフローに任意の名前を入力し、接続が有効であることを確認します。
-<p><span itemscope itemtype="http://schema.org/Photograph"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20240821/20240821100905.png" alt="f:id:mackerelio:20240821100905:plain" title="f:id:mackerelio:20240821100905:plain" class="hatena-fotolife" itemprop="image" width="600"></span></p>
+<p><span itemscope itemtype="http://schema.org/Photograph"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20260820/20260820124226.png" alt="f:id:mackerelio:20260820124226p:plain" title="f:id:mackerelio:20260820124226p:plain" class="hatena-fotolife" itemprop="image" width="600"></span></p>
 
 通知を送信したいチームとチャンネルを選択します。
-<p><span itemscope itemtype="http://schema.org/Photograph"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20240821/20240821100913.png" alt="f:id:mackerelio:20240821100913:plain" title="f:id:mackerelio:20240821100913:plain" class="hatena-fotolife" itemprop="image" width="600"></span></p>
+<p><span itemscope itemtype="http://schema.org/Photograph"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20260820/20260820123855.png" alt="f:id:mackerelio:20260820123855p:plain" title="f:id:mackerelio:20260820123855p:plain" class="hatena-fotolife" itemprop="image" width="600"></span></p>
 
 コピーボタンをクリックして Webhook の URL をコピーします。
-<p><span itemscope itemtype="http://schema.org/Photograph"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20240821/20240821100922.png" alt="f:id:mackerelio:20240821100922:plain" title="f:id:mackerelio:20240821100922:plain" class="hatena-fotolife" itemprop="image" width="600"></span></p>
+<p><span itemscope itemtype="http://schema.org/Photograph"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20260820/20260820123851.png" alt="f:id:mackerelio:20260820123851p:plain" title="f:id:mackerelio:20260820123851p:plain" class="hatena-fotolife" itemprop="image" width="600"></span></p>
 
 Mackerel の通知チャンネル設定画面から Microsoft Teams のチャンネルを選択し、 URL に前の手順でコピーした Webhook の URL を指定します。
 <p><span itemscope itemtype="http://schema.org/Photograph"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20240821/20240821100929.png" alt="f:id:mackerelio:20240821100929:plain" title="f:id:mackerelio:20240821100929:plain" class="hatena-fotolife" itemprop="image" width="600"></span></p>
