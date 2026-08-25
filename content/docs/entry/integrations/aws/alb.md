@@ -23,7 +23,9 @@ The maximum number of metrics obtainable is `21 + 13 × (number of target groups
 |Graph name|Metric|Metric name in Mackerel|Unit|Statistics|
 |:---|:---|:---|:---|:---|
 |Request Count|RequestCount|alb.request.count|integer|Sum|
+|Request Count (IPv6)|IPv6RequestCount|alb.request_ipv6.count|integer|Sum|
 |Processed Bytes|ProcessedBytes|alb.bytes.processed|bytes|Sum|
+|Processed Bytes (IPv6)|IPv6ProcessedBytes|alb.bytes_ipv6.processed|bytes|Sum|
 |HTTP Code Count|HTTPCode_Target_2XX_Count<br>HTTPCode_Target_3XX_Count<br>HTTPCode_Target_4XX_Count<br>HTTPCode_Target_5XX_Count<br>HTTPCode_ELB_4XX_Count<br>HTTPCode_ELB_5XX_Count|alb.httpcode_count.target_2xx<br>alb.httpcode_count.target_3xx<br>alb.httpcode_count.target_4xx<br>alb.httpcode_count.target_5xx<br>alb.httpcode_count.alb_4xx<br>alb.httpcode_count.alb_5xx|integer|Sum|
 |Concurrent Connection Count|ActiveConnectionCount|alb.concurrent_connection_count.active|integer|Sum|
 |Connection Count|NewConnectionCount<br>RejectedConnectionCount|alb.connection_count.new<br>alb.connection_count.rejected|Integer|Sum|

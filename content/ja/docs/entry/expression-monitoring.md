@@ -6,7 +6,10 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 ---
 
 本機能では、式によって計算されたメトリックに対しての監視を行います。
-**当機能は、有償オプションとなります。Freeプランでは利用できません。**また、現時点では[実験的機能](https://mackerel.io/ja/docs/entry/advanced/experimental-features)となっています。
+
+<div class="note">
+    <p>本機能は有料プランまたはTrial期間のみご利用いただけます。また、現時点では<a href="https://mackerel.io/ja/docs/entry/advanced/experimental-features">実験的機能</a>となっています。</p>
+</div>
 
 ![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20160728/20160728151137.png)
 
