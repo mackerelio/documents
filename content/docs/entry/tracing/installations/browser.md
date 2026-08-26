@@ -117,7 +117,7 @@ This example sets the following items.
 
 * Exporter
   * url
-    * Setting the url to `https://otlp.mackerelio.com/v1/traces` sends data to Mackerel.
+    * Setting the url to `https://otlp-vaxila.mackerelio.com/v1/traces` sends data to Mackerel.
   * headers
     * Set the client token in the `X-Mackerel-Client-Token` header.
     * For how to create a client token, refer to [Client Tokens](https://mackerel.io/docs/entry/tracing/guide/client-token).

@@ -117,7 +117,7 @@ registerInstrumentations({
 
 * Exporter
   * url
-    * `https://otlp.mackerelio.com/v1/traces` と設定することで、データをMackerelに送信するようになります。
+    * `https://otlp-vaxila.mackerelio.com/v1/traces` と設定することで、データをMackerelに送信するようになります。
   * headers
     * `X-Mackerel-Client-Token` ヘッダーにクライアントトークンを設定します。
     * クライアントトークンの作成方法は[クライアントトークン](https://mackerel.io/ja/docs/entry/tracing/guide/client-token)を参照してください。
