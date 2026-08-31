@@ -5,12 +5,16 @@ URL: https://mackerel.io/ja/docs/entry/tracing/integrations/slack
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/6802418398333961506
 ---
 
-Mackerelトレーシング機能ではアラートを Slack に送信することができます。
+Mackerelに送信したトレースによって課題が発生した際に、Slack へ通知することができます。通知には [Slack の Incoming Webhook](https://docs.slack.dev/messaging/sending-messages-using-incoming-webhooks/) を利用します。
 
-Setting 画面にある、下図の「Add Slack」ボタンから Slack を設定できます。
+通知先の設定は、[課題一覧画面](https://mackerel.io/my/issues)の右上にある「Slack通知連携」ボタンからおこないます。
 
-<figure class="figure-image figure-image-fotolife" title="Setting → Add Slack への動線">[f:id:mackerelio:20250305173633p:plain]<figcaption>Setting → Add Slack への動線</figcaption></figure>
+<figure class="figure-image figure-image-fotolife" title="課題一覧画面">[f:id:mackerelio:20260824154003p:plain]<figcaption>課題一覧画面</figcaption></figure>
 
-[Slack の Incoming Webhook](https://api.slack.com/messaging/webhooks) を利用してアラートを送信します。 Slack で発行した Incoming Webhook の URL を Slack Webhook 通知の URL に入力してください。
+「新規通知先を追加」ボタンをクリックします。なお、この画面には設定済みの通知先が一覧で表示されます。
 
-<figure class="figure-image figure-image-fotolife" title="Slack 通知のための Incoming Webhook URL を入力する画面">[f:id:mackerelio:20250305173656p:plain]<figcaption>Slack 通知のための Incoming Webhook URL を入力する画面</figcaption></figure>
+<figure class="figure-image figure-image-fotolife" title="Slack通知連携画面">[f:id:mackerelio:20260824153958p:plain]<figcaption>Slack通知連携画面</figcaption></figure>
+
+Slack で発行した Incoming Webhook の URL を Webhook URL 欄に入力します。
+
+<figure class="figure-image figure-image-fotolife" title="新規通知先の追加画面">[f:id:mackerelio:20260824153953p:plain]<figcaption>新規通知先の追加画面</figcaption></figure>

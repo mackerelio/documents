@@ -9,36 +9,34 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackere
 
 ## What is Mackerel's tracing feature?
 
-Mackerel's tracing feature allows you to discover and resolve issues that cause degraded user experience, such as errors and slow performance.
+Mackerel's tracing feature allows you to discover and resolve issues that cause a degraded user experience, such as errors and slow performance.
+
+Mackerel's tracing feature retains traces for 14 days.
 
 ## What can you do with Mackerel's tracing feature?
 
-Here is an overview of Mackerel's tracing feature.
+Here is an overview of the main features of Mackerel's tracing feature.
+
+### Trace management
+
+On the trace list screen, you can view the latency distribution over time and the number of traces.
+
+<figure class="figure-image figure-image-fotolife" title="Trace list screen">[f:id:mackerelio:20260828164425p:plain]<figcaption>Trace list screen</figcaption></figure>
+
+On the trace details screen, you can view the time of occurrence and span details.
+
+<figure class="figure-image figure-image-fotolife" title="Trace details screen">[f:id:mackerelio:20260828164402p:plain]<figcaption>Trace details screen</figcaption></figure>
 
 ### Issue management
 
-[f:id:mackerelio:20250305172220p:plain]<figcaption>Issue List screen</figcaption></figure></p></figcaption></figure>
+Mackerel's tracing feature automatically detects requests where errors occurred and registers them as issues.
 
-* Mackerel's tracing feature automatically detect errors and slow requests.
+<figure class="figure-image figure-image-fotolife" title="Issue list screen">[f:id:mackerelio:20260828164349p:plain]<figcaption>Issue list screen</figcaption></figure>
 
-<figure class="figure-image figure-image-fotolife" title="Issue screen">[f:id:mackerelio:20250305172249p:plain]<figcaption>Issue screen</figcaption></figure>
+On the issue details screen, you can view stack traces and span details.
 
-* On the details screen of an issue, you can view stack traces, suspected causes, and other information.
+<figure class="figure-image figure-image-fotolife" title="Issue details screen">[f:id:mackerelio:20260828164339p:plain]<figcaption>Issue details screen</figcaption></figure>
 
-### Trace Management
-
-<figure class="figure-image figure-image-fotolife" title="Trace List Screen">[f:id:mackerelio:20250305172303p:plain]<figcaption>Trace List Screen</figcaption></figure>
-
-* Mackerel stores traces for 14 days.
-
-<figure class="figure-image figure-image-fotolife" title="Trace List screen">[f:id:mackerelio:20250305172333p:plain]<figcaption>Trace List screen</figcaption></figure>
-
-* Traces are visualized by latency and time distribution.
-
-<figure class="figure-image figure-image-fotolife" title="Trace screen">[f:id:mackerelio:20250305172406p:plain]<figcaption>Trace screen</figcaption></figure>
-
-* Each trace contains the time it occurred and the contents of its Spans.
-
-For more detailed information about the specific functionalities, please see below:
+For more details on specific features, please refer to the following page:
 
 [https://mackerel.io/docs/entry/tracing/features:embed:cite]

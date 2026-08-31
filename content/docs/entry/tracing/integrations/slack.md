@@ -5,12 +5,18 @@ URL: https://mackerel.io/docs/entry/tracing/integrations/slack
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/6802418398507882412
 ---
 
-Mackerel's tracing feature can send alerts to Slack.
+You can receive Slack notifications when issues are detected in traces sent to Mackerel. Notifications use [Slack's Incoming Webhooks](https://docs.slack.dev/messaging/sending-messages-using-incoming-webhooks/).
 
-You can configure Slack settings from the “Add Slack” button shown below in the Settings screen.
+To configure notification targets, click the “Slack Notification Settings” button in the upper right corner of the [Issues screen](https://mackerel.io/my/issues).
 
-<figure class="figure-image figure-image-fotolife" title="Settings → Add Slack flow">[f:id:mackerelio:20250305173633p:plain]<figcaption>Settings → Add Slack flow</figcaption></figure>
+<figure class="figure-image figure-image-fotolife" title="Issues screen">[f:id:mackerelio:20260826154948p:plain]<figcaption>Issues screen</figcaption></figure>
 
-Use the [Slack's incoming webhooks](https://api.slack.com/messaging/webhooks) to send alerts. Enter the URL of the Incoming Webhook issued by Slack into the Slack Webhook URL field.
+Click the “Add new notification target” button. Note that this screen also displays a list of configured notification targets.
 
-<figure class="figure-image figure-image-fotolife" title="Screen for entering the Incoming Webhook URL for Slack notifications">[f:id:mackerelio:20250724142129p:plain]<figcaption>Screen for entering the Incoming Webhook URL for Slack notifications</figcaption></figure>
+<figure class="figure-image figure-image-fotolife" title="Slack Notification Settings screen">[f:id:mackerelio:20260826154944p:plain]
+<figcaption>Slack Notification Settings screen</figcaption></figure>
+
+Enter the Incoming Webhook URL issued by Slack into the Webhook URL field.
+
+<figure class="figure-image figure-image-fotolife" title="Add new notification target screen">[f:id:mackerelio:20260826154938p:plain]
+<figcaption>Add new notification target screen</figcaption></figure>
