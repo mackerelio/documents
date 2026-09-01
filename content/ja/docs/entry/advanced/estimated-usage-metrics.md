@@ -17,7 +17,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 
 ## 概算使用量メトリックの一覧
 
-現在、概算使用量メトリックは[トレーシング機能](https://mackerel.io/ja/docs/entry/tracing/guide/introduction)に対してのみ提供されています。
+現在、概算使用量メトリックは[トレーシング機能](https://mackerel.io/ja/docs/entry/tracing/guide/introduction)と[ログ機能](https://mackerel.io/ja/docs/entry/log/introduction)に対して提供されています。
 
 ### 概算使用量メトリックで共通となるリソース属性
 
@@ -32,9 +32,9 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 
 [トレーシング機能](https://mackerel.io/ja/docs/entry/tracing/guide/introduction)に投稿されたトレースのスパン数を計測します。値はカウンタとして累積値を記録しており、月初にリセットされます。
 
-| メトリック名                                 | 計装種別             | 単位     | 説明                                                                                           |
-| :------------------------------------------- | :------------------- | :------- | :--------------------------------------------------------------------------------------------- |
-| `__mackerelio.estimated_usage.monthly_spans` | Asynchronous Counter | `{span}` | The cumulative number of trace spans posted to Mackerel. Reset at the beginning of each month. |
+| メトリック名                                 | 計装種別             | 単位     | 説明                                                                     |
+| :------------------------------------------- | :------------------- | :------- | :----------------------------------------------------------------------- |
+| `__mackerelio.estimated_usage.monthly_spans` | Asynchronous Counter | `{span}` | Mackerelに投稿されたトレースのスパン数の累積値。月初にリセットされます。 |
 
 **属性：**
 
@@ -43,6 +43,22 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 | `source.service.name`                | string | トレースのリソース属性`service.name`の値                                              | `http-server` |
 | `source.service.namespace`           | string | トレースのリソース属性`service.namespace`の値                                         | `blog-site`   |
 | `source.deployment.environment.name` | string | トレースのリソース属性`deployment.environment.name`または`deployment.environment`の値 | `production`  |
+
+### `__mackerelio.estimated_usage.monthly_log_bytes`
+
+[ログ機能](https://mackerel.io/ja/docs/entry/log/introduction)に投稿されたログのデータ量（バイト数）を計測します。値はカウンタとして累積値を記録しており、月初にリセットされます。
+
+| メトリック名                                     | 計装種別             | 単位 | 説明                                                                       |
+| :----------------------------------------------- | :------------------- | :--- | :------------------------------------------------------------------------- |
+| `__mackerelio.estimated_usage.monthly_log_bytes` | Asynchronous Counter | `By` | Mackerelに投稿されたログのデータ量（バイト数）の累積値。月初にリセットされます。 |
+
+**属性：**
+
+| キー                                 | 値の型 | 説明                                                                                                             | 値の例        |
+| :----------------------------------- | :----- | :---------------------------------------------------------------------------------------------------------------- | :------------ |
+| `source.service.name`                | string | ログのリソース属性`service.name`の値                                            | `http-server` |
+| `source.service.namespace`           | string | ログのリソース属性`service.namespace`の値                                                                          | `blog-site`   |
+| `source.deployment.environment.name` | string | ログのリソース属性`deployment.environment.name`または`deployment.environment`の値                                  | `production`  |
 
 ## PromQLによる集計例
 
@@ -74,4 +90,30 @@ __mackerelio.estimated_usage.monthly_spans{service.name="__mackerelio.system", s
 
 ```
 irate(__mackerelio.estimated_usage.monthly_spans{service.name="__mackerelio.system"}[$__rate_interval]) * 60
+```
+
+### これまで投稿されたログのデータ量の月ごとの累積値を知りたい
+
+```
+sum(__mackerelio.estimated_usage.monthly_log_bytes{service.name="__mackerelio.system"})
+```
+
+### これまで投稿されたログのデータ量の月ごとの累積値を、OpenTelemetryのサービスごと区別して知りたい
+
+```
+sum by (source.service.name, source.service.namespace) (__mackerelio.estimated_usage.monthly_log_bytes{service.name="__mackerelio.system"})
+```
+
+### これまで投稿されたログのデータ量の月ごとの累積値を、あるOpenTelemetryのサービスに絞って知りたい
+
+`http-server`というサービスから送られたログのデータ量の累積値を見たい場合：
+
+```
+__mackerelio.estimated_usage.monthly_log_bytes{service.name="__mackerelio.system", source.service.name="http-server"}
+```
+
+### 投稿された1分あたりのログのデータ量を知りたい
+
+```
+irate(__mackerelio.estimated_usage.monthly_log_bytes{service.name="__mackerelio.system"}[$__rate_interval]) * 60
 ```

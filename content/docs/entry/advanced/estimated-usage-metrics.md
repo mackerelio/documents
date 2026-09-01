@@ -17,7 +17,7 @@ Disclaimer: The values in estimated usage metrics are not guaranteed to exactly 
 
 ## List of Estimated Usage Metrics
 
-Currently, estimated usage metrics are only provided for the [tracing feature](https://mackerel.io/docs/entry/tracing/guide/introduction).
+Currently, estimated usage metrics are provided for the [tracing feature](https://mackerel.io/docs/entry/tracing/guide/introduction) and the log management feature.
 
 ### Common Resource Attributes for Estimated Usage Metrics
 
@@ -43,6 +43,22 @@ Measures the number of trace spans posted to the [tracing feature](https://macke
 | `source.service.name`                | string     | Value of your trace resource attribute `service.name`                                            | `http-server` |
 | `source.service.namespace`           | string     | Value of your trace resource attribute `service.namespace`                                       | `blog-site`   |
 | `source.deployment.environment.name` | string     | Value of your trace resource attribute `deployment.environment.name` or `deployment.environment` | `production`  |
+
+### `__mackerelio.estimated_usage.monthly_log_bytes`
+
+Measures the volume of log data (in bytes) posted to the log management feature. The value is recorded as a cumulative counter and is reset at the beginning of each month.
+
+| Metric Name                                      | Instrument Type      | Unit | Description                                                                             |
+| :----------------------------------------------- | :------------------- | :--- | :--------------------------------------------------------------------------------------- |
+| `__mackerelio.estimated_usage.monthly_log_bytes` | Asynchronous Counter | `By` | The cumulative bytes of logs posted to Mackerel. Reset at the beginning of each month. |
+
+**Attributes:**
+
+| Key                                  | Value Type | Description                                                                                                         | Example Value |
+| :----------------------------------- | :--------- | :------------------------------------------------------------------------------------------------------------------ | :------------ |
+| `source.service.name`                | string     | Value of your log resource attribute `service.name`                          | `http-server` |
+| `source.service.namespace`           | string     | Value of your log resource attribute `service.namespace`                                                             | `blog-site`   |
+| `source.deployment.environment.name` | string     | Value of your log resource attribute `deployment.environment.name` or `deployment.environment`                       | `production`  |
 
 ## PromQL Examples
 
@@ -74,4 +90,30 @@ __mackerelio.estimated_usage.monthly_spans{service.name="__mackerelio.system", s
 
 ```
 irate(__mackerelio.estimated_usage.monthly_spans{service.name="__mackerelio.system"}[$__rate_interval]) * 60
+```
+
+### The cumulative monthly volume of log data posted so far
+
+```
+sum(__mackerelio.estimated_usage.monthly_log_bytes{service.name="__mackerelio.system"})
+```
+
+### The cumulative monthly volume of log data posted so far, distinguished by OpenTelemetry service
+
+```
+sum by (source.service.name, source.service.namespace) (__mackerelio.estimated_usage.monthly_log_bytes{service.name="__mackerelio.system"})
+```
+
+### The cumulative monthly volume of log data posted so far, filtered by a specific OpenTelemetry service
+
+To view the cumulative volume of log data sent from a service called `http-server`:
+
+```
+__mackerelio.estimated_usage.monthly_log_bytes{service.name="__mackerelio.system", source.service.name="http-server"}
+```
+
+### The volume of log data posted per minute
+
+```
+irate(__mackerelio.estimated_usage.monthly_log_bytes{service.name="__mackerelio.system"}[$__rate_interval]) * 60
 ```
