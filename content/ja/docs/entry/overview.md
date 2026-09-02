@@ -38,7 +38,7 @@ Mackerelおよびmackerel-agentは、以下の環境で動作確認を行って�
         - CentOS Stream 9
         - Ubuntu 22.04LTS/24.04LTS/26.04LTS、Debian 11/12/13
         - Amazon Linux 2023
-        - x64 アーキテクチャおよび AWS Graviton シリーズを含む Arm v8 アーキテクチャをサポートしています。
+        - x64 アーキテクチャおよび AWS Graviton シリーズを含む arm64 アーキテクチャをサポートしています。
         - その他、一般的なLinux環境(カーネルバージョン 3.2以降)や、上記以外のRed Hat Enterprise Linux派生ディストリビューションでも動作すると思われますが、現在のところサポート対象外です。
     - Windows
         - Windows Server 2016, 2019, 2022 (LTSC), 2025 (LTSC) の x64 ベースシステム

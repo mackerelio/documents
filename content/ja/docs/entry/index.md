@@ -49,6 +49,9 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
             <div id="apm" class="fragment"></div>
             <h4>アプリケーション監視（APM）</h4>
             <ul>
+                <li><a href="https://mackerel.io/ja/docs/entry/apm/introduction"><strong>APMの基本と得られる価値</strong><span>APMの基本や導入することで得られる価値について説明します</span></a></li>
+                <li><a href="https://mackerel.io/ja/docs/entry/apm/concepts"><strong>APMの基本概念</strong><span>トレースやスパンといった分散トレーシングの仕組みについて説明します</span></a></li>
+                <li><a href="https://mackerel.io/ja/docs/entry/apm/architecture"><strong>APMの計装手法とデータ収集の仕組み</strong><span>アプリケーションへの計装方法について説明します</span></a></li>
                 <li><a href="https://mackerel.io/ja/docs/entry/tracing/guide"><strong>Mackerel トレーシング機能ガイド</strong><span>トレーシング機能目次</span></a></li>
                 <li><a href="https://mackerel.io/ja/docs/entry/tracing/guide/introduction"><strong>はじめに</strong><span>トレーシングの主な機能を紹介します</span></a></li>
                 <li><a href="https://mackerel.io/ja/docs/entry/tracing/guide/overview"><strong>Mackerelトレーシング機能概要</strong><span>トレーシング機能を使い始めるために必要な情報を紹介します</span></a></li>
