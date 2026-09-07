@@ -11,7 +11,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 
 ## OpenTelemetryについて
 
-OpenTelemetryはメトリクスやログ、トレースの情報を収集・送信するツール郡の総称です。
+OpenTelemetryはメトリクスやログ、トレースの情報を収集・送信するツール群の総称です。
 
 その中にはSDKやプロトコルも含まれています。
 
