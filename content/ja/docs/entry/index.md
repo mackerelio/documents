@@ -49,6 +49,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
             <div id="apm" class="fragment"></div>
             <h4>アプリケーション監視（APM）</h4>
             <ul>
+                <li><a href="https://mackerel.io/ja/docs/entry/apm/getting-started/preface"><strong>Mackerel APM導入ガイド</strong><span>OpenTelemetryを活用した計装からトレース分析、コスト見積もり、本番導入まで、APM導入を前に進めるための流れを体系的に解説します</span></a></li>
                 <li><a href="https://mackerel.io/ja/docs/entry/apm/introduction"><strong>APMの基本と得られる価値</strong><span>APMの基本や導入することで得られる価値について説明します</span></a></li>
                 <li><a href="https://mackerel.io/ja/docs/entry/apm/concepts"><strong>APMの基本概念</strong><span>トレースやスパンといった分散トレーシングの仕組みについて説明します</span></a></li>
                 <li><a href="https://mackerel.io/ja/docs/entry/apm/architecture"><strong>APMの計装手法とデータ収集の仕組み</strong><span>アプリケーションへの計装方法について説明します</span></a></li>
