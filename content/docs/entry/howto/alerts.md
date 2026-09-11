@@ -218,7 +218,7 @@ You can choose not to receive notification emails by setting "Alert Notification
 <h3 id="mute-notification">Suppress monitor notifications</h3>
 You can suppress (mute) notifications for individual monitors by operating from the [monitor list screen][monitors].
 
-![](https://cdn-ak.f.st-hatena.com/images/fotolife/a/andyyk/20171213/20171213163701.png)
+![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20260909/20260909143054.png)
 
 This can also be configured from the [Web API](https://mackerel.io/api-docs/entry/monitors). Utilize this when wanting to temporarily suppress notifications.
 

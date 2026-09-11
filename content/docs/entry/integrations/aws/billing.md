@@ -3,7 +3,6 @@ Title: AWS Integration - Billing
 Date: 2020-11-02T10:00:00+09:00
 URL: https://mackerel.io/docs/entry/integrations/aws/billing
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/26006613653429133
-CustomPath: integrations/aws/billing
 ---
 
 Mackerel supports obtaining and monitoring <a href="https://aws.amazon.com/aws-cost-management/" target="_blank">AWS Billing</a> metrics with AWS Integration. When integrating with AWS Integration, billable targets are determined using the conversion 1 management account = 1 Micro Host. In addition to this, charges may be incurred if the maximum number of retrievable metrics per micro host is exceeded.

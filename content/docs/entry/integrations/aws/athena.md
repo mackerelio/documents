@@ -1,5 +1,6 @@
 ---
 Title: AWS Integration - Athena
+Date: 2024-10-01T14:25:35+09:00
 URL: https://mackerel.io/docs/entry/integrations/aws/athena
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/6802340630909633981
 ---

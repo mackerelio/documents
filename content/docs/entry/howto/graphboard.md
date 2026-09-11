@@ -16,9 +16,9 @@ There are currently two types of graphs that you can add to GraphBoards: role gr
 
 A GraphBoard can be created from tab displayed in the service screen. Click the `+` button on the right side of the tab list to open the GraphBoard creation modal window.
 
-![](https://cdn-ak.f.st-hatena.com/images/fotolife/a/andyyk/20170825/20170825172628.png)
+![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20260909/20260909143208.png)
 
-![](https://cdn-ak.f.st-hatena.com/images/fotolife/a/andyyk/20170825/20170825172634.png)
+![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20260909/20260909143210.png)
 
 When creating a new GraphBoard, you can specify the name and a leave note as well. After entering a name and pressing the "Create" button, a GraphBoard is created and a new tab is added to the right side of the tab list.
 
@@ -27,9 +27,9 @@ When creating a new GraphBoard, you can specify the name and a leave note as wel
 
 Any role graph or service metrics graph within the service can be added to the GraphBoard. To add a graph, select "Add graph" from the gear icon in the upper right to open the graph addition modal window.
 
-![](https://cdn-ak.f.st-hatena.com/images/fotolife/a/andyyk/20170825/20170825172638.png)
+![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20260909/20260909143213.png)
 
-![](https://cdn-ak.f.st-hatena.com/images/fotolife/a/andyyk/20170825/20170825172647.png)
+![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20260909/20260909143216.png)
 
 When adding a role graph, select "Role" for the graph type and then select the role and metrics. 
 When adding a service metrics graph, select "Service" as the graph type and then select the metrics.
@@ -41,14 +41,14 @@ After specifying the metrics and pressing the "Create" button, the graph is adde
 
 In the GraphBoard, graphs can be rearranged by dragging and dropping. By dragging the handle in the upper left corner of the graph and dropping the graph to the desired position, the graphs will be rearranged.
 
-![](https://cdn-ak.f.st-hatena.com/images/fotolife/a/andyyk/20170825/20170825172615.gif)
+![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20260909/20260909143155.gif)
 
 
 ## Delete graphs within the GraphBoard
 
 To delete a graph from the GraphBoard, select "Delete Graph" from the pull-down menu at the top right of the graph.
 
-![](https://cdn-ak.f.st-hatena.com/images/fotolife/a/andyyk/20170825/20170825174844.png)
+![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20260909/20260909143221.png)
 
 
 ## Change the name of the GraphBoard

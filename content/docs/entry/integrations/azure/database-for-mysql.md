@@ -3,7 +3,6 @@ Title: Azure Integration - Database for MySQL
 Date: 2020-04-30T14:00:00+09:00
 URL: https://mackerel.io/docs/entry/integrations/azure/database-for-mysql
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/26006613592628895
-CustomPath: integrations/azure/database-for-mysql
 ---
 
 Mackerel supports obtaining and monitoring <a href="https://azure.microsoft.com/en-us/products/mysql/" target="_blank" rel="noreferrer">Database for MySQL</a> metrics in Azure Integration. Billable targets are determined using the conversion 1 resource = 1 Micro Host.

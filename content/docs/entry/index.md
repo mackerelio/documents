@@ -86,6 +86,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackere
   <li><a href="https://mackerel.io/docs/entry/advanced/docker"><strong>Monitoring Docker</strong><span>monitor Docker hosts using the mackerel-agent Docker image</span></a></li>
   <li><a href="https://mackerel.io/docs/entry/howto/container-agent"><strong>Monitoring Containers</strong><span>using mackerel-container-agent to monitor containers</span></a></li>
   <li><a href="https://mackerel.io/docs/entry/howto/labeled-metrics/post-metrics"><strong>Posting Labeled Metrics</strong><span>post metrics compliant with OpenTelemetry</span></a></li>
+  <li><a href="https://mackerel.io/docs/entry/howto/network-monitoring"><strong>Monitoring Network Devices</strong><span>how to monitor your network</span></a></li>
 </ul>
 </section>
 

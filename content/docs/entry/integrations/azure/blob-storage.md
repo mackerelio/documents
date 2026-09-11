@@ -3,7 +3,6 @@ Title: Azure Integration - Blob Storage
 Date: 2020-12-01T09:00:00+09:00
 URL: https://mackerel.io/docs/entry/integrations/azure/blob-storage
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/26006613686651436
-CustomPath: integrations/azure/blob-storage
 ---
 
 Mackerel supports obtaining and monitoring <a href="https://azure.microsoft.com/en-us/services/storage/blobs/" target="_blank">Blob Storage</a> metrics in Azure Integration. Billable targets are determined using the conversion 1 Blob Storage = 1 Micro Host.

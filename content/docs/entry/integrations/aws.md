@@ -105,12 +105,12 @@ The following method is NOT recommended for security protection reasons.
 
 Create a new user with the <a href="https://console.aws.amazon.com/iam" target="_blank">IAM Management Console</a>. We recommend assigning an easy-to-understand name like `MackerelAWSIntegrationUser` for use in Mackerel’s AWS integration.
 
-![](https://cdn-ak.f.st-hatena.com/images/fotolife/a/andyyk/20160512/20160512162316.png)
+![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20260909/20260909143105.png)
 
 <h5>Registering the Access Key in Mackerel</h5>
 Register the Access Key ID and Secret Access Key (displayed on the screen when creating the account) [in Mackerel](https://mackerel.io/my?tab=awsIntegration). Be careful not to mistake the organization to be registered.
 
-![](https://cdn-ak.f.st-hatena.com/images/fotolife/a/andyyk/20160512/20160512162642.png)
+![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20260909/20260909143107.png)
 
 <h3 id="setting_policy">2. Grant policies</h3>
 

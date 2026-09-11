@@ -3,7 +3,6 @@ Title: Azure Integration - Cosmos DB
 Date: 2026-07-07T16:12:22+09:00
 URL: https://mackerel.io/docs/entry/integrations/azure/cosmos-db
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/14945776032050944714
-CustomPath: integrations/azure/cosmos-db
 ---
 
 Mackerel supports obtaining and monitoring <a href="https://azure.microsoft.com/en-us/products/cosmos-db" target="_blank">Azure Cosmos DB</a> metrics in Azure Integration. When integrating with Azure Integration, billable targets are determined using the conversion 1 database account = 1 Micro Host. In addition to this, depending on the number of metrics retrieved, you may be charged for exceeding the maximum number of metrics per micro host.

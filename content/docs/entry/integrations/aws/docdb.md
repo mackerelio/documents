@@ -3,7 +3,6 @@ Title: AWS Integration - DocumentDB
 Date: 2022-03-31T10:00:00+09:00
 URL: https://mackerel.io/docs/entry/integrations/aws/docdb
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/13574176438084381444
-CustomPath: integrations/aws/docdb
 ---
 
 Mackerel supports obtaining and monitoring <a href="https://aws.amazon.com/documentdb/" target="_blank">Amazon DocumentDB</a> metrics in AWS Integration. When integrating with AWS Integration, billable targets are determined using the conversion 1 Instance = 1 Micro Host. In addition to this, depending on the number of metrics retrieved, you may be charged for exceeding the maximum number of metrics per micro host.

@@ -11,7 +11,7 @@ This feature allows you to monitor metrics calculated by an expression.
     <p>This feature is only available with a paid plan or during a Trial period. Also, it is currently an <a href="https://mackerel.io/docs/entry/advanced/experimental-features">experimental feature</a>.</p>
 </div>
 
-![](https://cdn-ak.f.st-hatena.com/images/fotolife/a/andyyk/20160801/20160801115334.png)
+![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20260909/20260909143233.png)
 
 ## Expression monitoring specifications
 

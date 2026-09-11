@@ -3,7 +3,6 @@ Title: Azure Integration - Functions
 Date: 2020-03-12T14:00:00+09:00
 URL: https://mackerel.io/docs/entry/integrations/azure/functions
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/26006613534574809
-CustomPath: integrations/azure/functions
 ---
 
 Mackerel supports obtaining and monitoring metrics for <a href="https://azure.microsoft.com/en-us/services/functions/" target="_blank">Functions</a> in Azure Integration. When integrating with Azure Integration, billable targets are determined using the conversion 1 function = 1 Micro Host. In addition to this, depending on the number of metrics retrieved, you may be charged for exceeding the maximum number of metrics per micro host.

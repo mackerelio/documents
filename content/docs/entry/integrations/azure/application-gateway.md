@@ -3,7 +3,6 @@ Title: Azure Integration - Application Gateway
 Date: 2020-08-21T09:00:00+09:00
 URL: https://mackerel.io/docs/entry/integrations/azure/application-gateway
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/26006613649526420
-CustomPath: integrations/azure/application-gateway
 ---
 
 Mackerel supports obtaining and monitoring <a href="https://azure.microsoft.com/en-us/services/application-gateway/" target="_blank">Application Gateway</a> metrics in Azure Integration. When integrating with Azure Integration, billable targets are determined using the conversion 1 Resource = 2 Micro Hosts.

@@ -1,5 +1,5 @@
 ---
-Title: Twilio notifications 
+Title: Twilio notifications
 Date: 2016-11-11T17:02:37+09:00
 URL: https://mackerel.io/docs/entry/howto/alerts/twilio
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/10328749687193932961
@@ -25,7 +25,7 @@ When an alert occurs, a call is made using [TwiML](https://jp.twilio.com/docs/ap
 
 To configure notifications using Twilio, add a new channel from the [Twilio form on the channel’s page](https://mackerel.io/my/channels/-/create#twilio).
 
-![](https://cdn-ak.f.st-hatena.com/images/fotolife/a/andyyk/20161111/20161111165830.png)
+![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20260909/20260909143249.png)
 
 ## Common configuration items
 

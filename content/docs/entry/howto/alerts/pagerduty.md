@@ -16,7 +16,7 @@ By integrating with PagerDuty, you can manage alerts that occur in Mackerel as P
 
 Integration with PagerDuty can be configured by accessing the [PagerDuty form in the Channels page](https://mackerel.io/my/channels/-/create#pagerduty).
 
-<p><span itemscope=""http://schema.org/Photograph"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/a/andyyk/20171219/20171219173818.png" alt="f:id:andyyk:20171219173818p:plain" title="f:id:andyyk:20171219173818p:plain" class="hatena-fotolife" itemprop="image"></span></p>
+<p><span itemscope=""http://schema.org/Photograph"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20260909/20260909143143.png" alt="f:id:mackerelio:20260909143143p:plain" title="f:id:mackerelio:20260909143143p:plain" class="hatena-fotolife" itemprop="image"></span></p>
 
 ### Integration Key
 

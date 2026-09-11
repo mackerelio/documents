@@ -16,11 +16,11 @@ By enabling Mackerel 2-step authentication for your Mackerel account, an authent
 
 Upon completing the configuration, the next time you sign-in to Mackerel, you will be prompted to enter the authentication code.
 
-![](https://cdn-ak.f.st-hatena.com/images/fotolife/a/andyyk/20160810/20160810185623.png)
+![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20260909/20260909143235.png)
 
 For example, if using [Google Authenticator](https://support.google.com/accounts/answer/1066447) as an authentication application, the authentication code will be displayed like shown in the image below. Enter this code into the appropriate space. 
 
-![](https://cdn-ak.f.st-hatena.com/images/fotolife/a/andyyk/20160810/20160810190036.png)
+![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20260909/20260909143244.png)
 
 Please note that when you enable 2-step authentication, log-in sessions from other terminals won’t retire. Additionally, even if 2-step authentication is enabled, API access will not be affected. 
 
@@ -32,11 +32,11 @@ In the event that you are no longer able to use the device from which the authen
 
 After authenticating with your email address and password, click on “enter recovery code”. This will take you to the recovery code authentication page. Select a code that you haven’t used before from the list prepared and enter it into the appropriate space.  
 
-![](https://cdn-ak.f.st-hatena.com/images/fotolife/a/andyyk/20160810/20160810185734.png)
+![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20260909/20260909143238.png)
 
 We recommend printing out the list of recovery codes and checking-off the ones that you have already used as shown in the below image. It’s also possible to check the recovery code from [2-step authentication configuration page](https://mackerel.io/settings/user/mfa/configure). If the number of remaining codes is low, they can be re-issued. 
 
-![](https://cdn-ak.f.st-hatena.com/images/fotolife/a/andyyk/20160810/20160810185858.png)
+![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20260909/20260909143241.png)
 
 <h2 id="disable-mfa">Disable 2-step authentication</h2>
 

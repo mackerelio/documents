@@ -3,7 +3,6 @@ Title: AWS Integration - Route 53
 Date: 2021-01-25T10:00:00+09:00
 URL: https://mackerel.io/docs/entry/integrations/aws/route53
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/26006613686235326
-CustomPath: integrations/aws/route53
 ---
 
 Mackerel supports obtaining and monitoring <a href="https://aws.amazon.com/route53/" target="_blank">Amazon Route 53</a> metrics in AWS Integration. When integrating with AWS Integration, billable targets are determined using the conversion 1 account = 1 Micro Host. In addition to this, depending on the number of metrics retrieved, you may be charged for exceeding the maximum number of metrics per micro host.

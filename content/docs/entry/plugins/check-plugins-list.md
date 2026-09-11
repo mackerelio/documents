@@ -3,7 +3,6 @@ Title: Check plugins list
 Date: 2023-01-13T15:32:46+09:00
 URL: https://mackerel.io/docs/entry/plugins/check-plugins-list
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/4207112889953807916
-CustomPath: plugins/check-plugins-list
 ---
 
 List of check plugins supported by each environment of use. Plugins marked with checkmark will be available after installing the plugin according to the procedure described in [Using the official check plugin pack for check monitoring](https://mackerel.io/docs/entry/howto/mackerel-check-plugins) .

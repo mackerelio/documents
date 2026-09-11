@@ -52,7 +52,7 @@ Leave arbitrary information on graphs. You can do this by dragging over a sectio
 
 Graph annotations can be created for service metric graphs and role graphs. Leaving annotations can be really useful regarding the deployment/release of applications performed on a per-service and per-role basis.
 
-![](https://cdn-ak.f.st-hatena.com/images/fotolife/a/andyyk/20170125/20170125184543.png)
+![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20260909/20260909143137.png)
 
 <h2 id="full-screen">Make a graph full-screen</h2>
 

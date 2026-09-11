@@ -3,7 +3,6 @@ Title: Services and Roles
 Date: 2020-09-24T14:54:52+09:00
 URL: https://mackerel.io/docs/entry/spec/about-service-role
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/26006613631852067
-CustomPath: spec/about-service-role
 ---
 
 In Mackerel, instead of managing hosts one by one, they are aggregated into appropriate groups and managed/configured by their unit.

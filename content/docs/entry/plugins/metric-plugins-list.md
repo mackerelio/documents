@@ -3,7 +3,6 @@ Title: Metric plugins list
 Date: 2023-01-13T15:33:04+09:00
 URL: https://mackerel.io/docs/entry/plugins/metric-plugins-list
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/4207112889953808016
-CustomPath: plugins/metric-plugins-list
 ---
 
 List of Metric plugins supported by each environment of use. Plugins marked with checkmark will be available after installing the plugin according to the procedure described in [Using the official plugin pack to visualize middleware metrics](https://mackerel.io/docs/entry/howto/mackerel-agent-plugins) .

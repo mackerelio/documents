@@ -3,7 +3,6 @@ Title: Azure Integration - Database for PostgreSQL
 Date: 2020-05-25T14:00:00+09:00
 URL: https://mackerel.io/docs/entry/integrations/azure/database-for-postgresql
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/26006613592629022
-CustomPath: integrations/azure/database-for-postgresql
 ---
 
 Mackerel supports obtaining and monitoring <a href="https://azure.microsoft.com/en-us/products/postgresql/" target="_blank" rel="noreferrer">Database for PostgreSQL</a> metrics in Azure Integration. Billable targets are determined using the conversion 1 resource = 1 Micro Host. 

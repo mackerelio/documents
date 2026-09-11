@@ -3,7 +3,6 @@ Title: Authentication with SAML
 Date: 2024-08-02T14:00:00+09:00
 URL: https://mackerel.io/docs/entry/advanced/saml-authentication
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/6802340630902355593
-CustomPath: advanced/saml-authentication
 ---
 
 **This feature is only enabled for the users in organizations which have made a contract for a higher-tier Mackerel plan which includes SAML authentication, and have set up SAML authentication.**

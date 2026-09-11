@@ -3,7 +3,6 @@ Title: Managing attribute mappings
 Date: 2024-08-02T14:00:00+09:00
 URL: https://mackerel.io/docs/entry/advanced/saml-attribute-mappings
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/6802340630902353938
-CustomPath: advanced/saml-attribute-mappings
 ---
 
 **A contract for a higher-tier Mackerel plan which includes SAML authentication is required to use this feature.**

@@ -3,7 +3,6 @@ Title: AWS Integration
 Date: 2020-06-10T18:00:00+09:00
 URL: https://mackerel.io/api-docs/entry/aws-integration
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel.io/atom/entry/26006613583249210
-CustomPath: aws-integration
 ---
 
 <ul class="internal-nav">

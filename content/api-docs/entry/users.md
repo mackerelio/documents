@@ -5,7 +5,6 @@ URL: https://mackerel.io/api-docs/entry/users
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel.io/atom/entry/10328537792368377732
 ---
 
-
 <ul class="internal-nav">
   <li><a href="#list">List Users that are Organization Members</a></li>
   <li><a href="#delete">Delete Users that are Organization Members</a></li>

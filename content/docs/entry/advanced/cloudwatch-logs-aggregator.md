@@ -3,7 +3,6 @@ Title: Aggregating Amazon CloudWatch Logs and posting the metrics to Mackerel
 Date: 2022-02-25T11:07:37+09:00
 URL: https://mackerel.io/docs/entry/advanced/cloudwatch-logs-aggregator
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/13574176438066957908
-CustomPath: advanced/cloudwatch-logs-aggregator
 ---
 
 Using [cloudwatch-logs-aggregator](https://github.com/mackerelio-labs/mackerel-monitoring-modules/tree/main/cloudwatch-logs-aggregator), you can aggregate logs output to [Amazon CloudWatch Logs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html) and post the results to Mackerel as service metrics.
