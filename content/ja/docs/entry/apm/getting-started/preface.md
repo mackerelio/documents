@@ -57,6 +57,12 @@ APMやOpenTelemetryの事前知識は必要ありません。
 
 また、「こういうことをしたいけれど、どの章を見ればよいかわからない」というときは、巻末の[逆引きリファレンス](./reverse-index)をご活用ください。目的からセクションを引くことができます。
 
+本ガイドは<a href="https://ja.mackerel.io/resources/whitepaper-apm-guide?utm_source=docs&utm_medium=cta&utm_campaign=docs_apm_getting-started_preface">PDF版</a>も提供しています。
+
+<div class="cta" style="margin-left: 2em;">
+<a href="https://ja.mackerel.io/resources/whitepaper-apm-guide?utm_source=docs&utm_medium=cta&utm_campaign=docs_apm_getting-started_preface"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20260914/20260914105644.png" alt="Mackerel APM導⼊ガイド  OpenTelemetryではじめるアプリケーション可視化" style="max-width: 60%"></a>
+</div>
+
 <nav>
 <ul style="display:flex;justify-content:space-between;padding:0;margin:0">
 <li style="list-style:none;margin-left:auto">次の記事：<a href="https://mackerel.io/ja/docs/entry/apm/getting-started/mackerel-apm-basics" rel="next">Mackerel APM の基礎理解</a></li>
