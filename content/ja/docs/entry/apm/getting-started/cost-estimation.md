@@ -69,7 +69,7 @@ Mackerelのオーガニゼーション概要画面にある**利用状況タブ*
 2. `service.name` に `__mackerelio.system` を指定する
 3. 「検索」をクリックする
 
-1分単位でのスパン投稿量が積み上げグラフで表示されます。
+検索結果に複数のメトリックが表示されます。コスト見積もりには、スパン投稿量を示す `__mackerelio.estimated_usage.monthly_spans` のグラフを確認してください。1分単位での積み上げグラフで表示されます。
 
 <figure class="figure-image figure-image-fotolife" title="スパン投稿量のグラフ（積み上げ）">[f:id:mackerelio:20260909185752p:plain]<figcaption>スパン投稿量のグラフ（積み上げ）</figcaption></figure>
 
