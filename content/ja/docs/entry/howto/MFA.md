@@ -17,12 +17,12 @@ Mackerel 2段階認証を、お使いのMackerelアカウントで有効にす�
 
 設定が完了すると、次回以降Mackerelにサインインする際に、認証コードの入力を求められるようになります。
 
-![](https://cdn-ak.f.st-hatena.com/images/fotolife/h/haya14busa/20160802/20160802173713.png)
+![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20260930/20260930181232.png)
 
 例えば認証アプリとして [Google Authenticator](https://support.google.com/accounts/answer/1066447) を使っている場合は、
 以下の画像のように認証コードが表示されるので、この認証コードを入力してください。
 
-![](https://cdn-ak.f.st-hatena.com/images/fotolife/h/haya14busa/20160802/20160802170630.png)
+![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20260930/20260930181229.png)
 
 なお、2段階認証を有効化した際にその他の端末のログインセッションが無効になることはありません。
 また2段階認証を有効化しても API によるアクセスには影響はありません。
@@ -38,13 +38,13 @@ Mackerel 2段階認証を、お使いのMackerelアカウントで有効にす�
 メールアドレスとパスワードによる認証後、認証コードの入力を求められるページで "リカバリーコードを入力" するをクリックしてください。
 リカバリーコードによる認証ページへ移動するので、このページで控えているリカバリーコードのうち使用していないコードを1つを入力してください。
 
-![](https://cdn-ak.f.st-hatena.com/images/fotolife/h/haya14busa/20160802/20160802175127.png)
+![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20260930/20260930181237.png)
 
 リカバリーコードを印刷して控えている場合は以下の画像のように使用したコードにチェックしておくことをオススメします。
 [2段階認証の設定](https://mackerel.io/settings/user/mfa/configure) ページからも使用していないリカバリーコードを確認することが可能で、
 残りのコードが少なくなったら再発行することもできます。
 
-![](https://cdn-ak.f.st-hatena.com/images/fotolife/h/haya14busa/20160802/20160802174701.png)
+![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20260930/20260930181235.png)
 
 <h2 id="disable-mfa">2段階認証を無効化する</h2>
 

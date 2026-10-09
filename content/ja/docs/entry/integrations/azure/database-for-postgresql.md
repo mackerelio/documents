@@ -3,7 +3,6 @@ Title: Azureインテグレーション - Database for PostgreSQL
 Date: 2020-05-25T14:00:00+09:00
 URL: https://mackerel.io/ja/docs/entry/integrations/azure/database-for-postgresql
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/26006613591881119
-CustomPath: integrations/azure/database-for-postgresql
 ---
 
 MackerelはAzureインテグレーションにて<a href="https://azure.microsoft.com/ja-jp/products/postgresql/" target="_blank" rel="noreferrer">Database for PostgreSQL</a>のメトリック取得や監視に対応しています。課金対象として 1リソース = 1マイクロホスト と換算します。 

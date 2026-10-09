@@ -3,7 +3,6 @@ Title: AWSインテグレーション - Route 53
 Date: 2021-01-25T10:00:00+09:00
 URL: https://mackerel.io/ja/docs/entry/integrations/aws/route53
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/26006613686235471
-CustomPath: integrations/aws/route53
 ---
 
 MackerelはAWSインテグレーションにて<a href="https://aws.amazon.com/jp/route53/" target="_blank">Amazon Route 53</a>のメトリック取得や監視に対応しています。AWSインテグレーションで連携を行なった場合、課金対象として1アカウント = 1マイクロホストと換算します。またそれに加えて、取得されるメトリックの数に応じて、1マイクロホストあたりのメトリック数上限の超過による請求が行われる場合があります。

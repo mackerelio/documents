@@ -3,7 +3,6 @@ Title: メトリックプラグイン一覧
 Date: 2023-01-13T15:33:42+09:00
 URL: https://mackerel.io/ja/docs/entry/plugins/metric-plugins-list
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/4207112889953808225
-CustomPath: plugins/metric-plugins-list
 ---
 
 メトリックプラグインの利用環境ごとの対応一覧です。[ミドルウェアのメトリック可視化に公式プラグイン集を使う](https://mackerel.io/ja/docs/entry/howto/mackerel-agent-plugins) に記載の手順でプラグインのインストールを行うと、○ の付いているプラグインが利用可能になります。

@@ -3,7 +3,6 @@ Title: AWSインテグレーション - DocumentDB
 Date: 2022-03-31T10:00:00+09:00
 URL: https://mackerel.io/ja/docs/entry/integrations/aws/docdb
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/13574176438084381528
-CustomPath: integrations/aws/docdb
 ---
 
 MackerelはAWSインテグレーションにて<a href="https://aws.amazon.com/jp/documentdb/" target="_blank">Amazon DocumentDB</a>のメトリック取得や監視に対応しています。AWSインテグレーションで連携を行なった場合、課金対象として1インスタンス = 1マイクロホストと換算します。またそれに加えて、取得されるメトリックの数に応じて、1マイクロホストあたりのメトリック数上限の超過による請求が行われる場合があります。

@@ -3,7 +3,6 @@ Title: Amazon CloudWatch Logs のログを集計して Mackerel にメトリッ�
 Date: 2022-02-10T12:02:32+09:00
 URL: https://mackerel.io/ja/docs/entry/advanced/cloudwatch-logs-aggregator
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/13574176438061861957
-CustomPath: advanced/cloudwatch-logs-aggregator
 ---
 
 [cloudwatch-logs-aggregator](https://github.com/mackerelio-labs/mackerel-monitoring-modules/tree/main/cloudwatch-logs-aggregator) を使用すると、[Amazon CloudWatch Logs](https://docs.aws.amazon.com/ja_jp/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html) に出力されたログを集計し、その結果を Mackerel にサービスメトリックとして投稿できます。

@@ -52,7 +52,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 
 グラフアノテーションは、サービスメトリックのグラフとロールグラフに対して作成することが可能です。サービス単位やロール単位でおこなわれるような、アプリケーションのデプロイやリリースなどに関する情報を書き残しておくと便利です。
 
-![グラフのアノテーション](https://cdn-ak.f.st-hatena.com/images/fotolife/a/andyyk/20170125/20170125184543.png)
+![グラフのアノテーション](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20260930/20260930181251.png)
 
 <h2 id="full-screen">グラフを全画面表示にする</h2>
 

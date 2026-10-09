@@ -3,7 +3,6 @@ Title: 属性マッピングを管理する
 Date: 2024-08-02T14:00:00+09:00
 URL: https://mackerel.io/ja/docs/entry/advanced/saml-attribute-mappings
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/6802340630902356586
-CustomPath: advanced/saml-attribute-mappings
 ---
 
 **本機能の利用にはSAML認証を含むMackerel上位プランのご契約が必要です。**

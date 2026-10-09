@@ -3,7 +3,6 @@ Title: 「サービス」「ロール」とは
 Date: 2020-09-23T11:35:06+09:00
 URL: https://mackerel.io/ja/docs/entry/spec/about-service-role
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/26006613631299016
-CustomPath: spec/about-service-role
 ---
 
 Mackerel では、ひとつひとつのホストをそれぞれそのまま管理するのではなく、適切な単位でグルーピングをおこない、そのグループ単位で管理や設定をおこないます。

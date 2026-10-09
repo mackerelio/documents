@@ -3,7 +3,6 @@ Title: Azureインテグレーション - Database for MySQL
 Date: 2020-04-30T14:00:00+09:00
 URL: https://mackerel.io/ja/docs/entry/integrations/azure/database-for-mysql
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/26006613591880945
-CustomPath: integrations/azure/database-for-mysql
 ---
 
 MackerelはAzureインテグレーションにて<a href="https://azure.microsoft.com/ja-jp/products/mysql/" target="_blank" rel="noreferrer">Database for MySQL</a>のメトリック取得や監視に対応しています。課金対象として 1リソース = 1マイクロホスト と換算します。

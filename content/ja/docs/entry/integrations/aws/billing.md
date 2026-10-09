@@ -3,7 +3,6 @@ Title: AWSインテグレーション - Billing
 Date: 2020-11-02T10:00:00+09:00
 URL: https://mackerel.io/ja/docs/entry/integrations/aws/billing
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/26006613651788338
-CustomPath: integrations/aws/billing
 ---
 
 MackerelはAWSインテグレーションにて<a href="https://aws.amazon.com/jp/aws-cost-management/" target="_blank">AWS Billing</a>のメトリック取得や監視に対応しています。AWSインテグレーションで連携を行なった場合、課金対象として1マネジメントアカウント = 1マイクロホストと換算します。またそれに加えて、取得されるメトリックの数に応じて、1マイクロホストあたりのメトリック数上限の超過による請求が行われる場合があります。

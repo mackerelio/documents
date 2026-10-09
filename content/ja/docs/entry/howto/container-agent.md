@@ -43,7 +43,6 @@ mackerel-container-agentでサポートするコンテナオーケストレー�
   - 外部起動タイプ（Amazon ECS Anywhere） **ベータ版機能**
   - **Windowsコンテナは対象外となります**
 - Kubernetes
-  - 1.33
   - 1.34
   - 1.35
   - 1.36

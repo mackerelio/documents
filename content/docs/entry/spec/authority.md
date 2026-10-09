@@ -55,3 +55,5 @@ The operations that are possible / impossible for each permission are as follows
 | View graphboards                                             |       ○|        ○|             ○|       ○|
 | View graph sharing URLs                                      |       ○|        ○|             ○|       ○|
 | View AWS/Azure/Google Cloud Integration settings, member list, organization settings |       ○|        ○|             ○|       ○|
+| Search logs, search from history                             |       ○|        ○|             ○|       ○|
+| Save/update/delete log search conditions                     |       ○|        ○|             ○|       ×|

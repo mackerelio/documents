@@ -1001,6 +1001,29 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
     </div>
   </div>
   <div class="index-row">
+    <h3><a href="entry/logs">ログ</a></h3>
+    <div class="apis">
+      <div class="api">
+        <a href="entry/logs#list">
+          <p>ログの一覧</p>
+          <p class="type-post">
+            <code>POST</code>
+            <code>/api/v0/logs</code>
+          </p>
+        </a>
+      </div>
+      <div class="api">
+        <a href="entry/logs#list-saved-searches">
+          <p>保存された検索条件の一覧</p>
+          <p class="type-get">
+            <code>GET</code>
+            <code>/api/v0/saved-log-searches</code>
+          </p>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="index-row">
     <h3><a href="entry/traces">トレース</a></h3>
     <div class="apis">
       <div class="api">

@@ -143,20 +143,9 @@ roles = [ "My-Service:app", "Another-Service:db" ]
 
 
 <h4 id="config-file-proxy">proxy</h4>
-このオプションを指定することで、エージェントが通信に利用する HTTP/HTTPS Proxy を設定できます。このオプションを利用することにより、監視対象サーバーが直接のインターネット通信をおこなえないようなネットワーク環境でも、プロキシサーバーを経由してのサーバー監視をおこなうことが可能です。
+エージェントの通信に利用するプロキシサーバーを指定できます。このオプションを利用することにより、インターネットへの通信をおこなえないサーバー環境でも、プロキシサーバーを経由して監視をおこなうことが可能になります。また、HTTP通信が発生するプラグイン（[check-http](https://mackerel.io/ja/docs/entry/plugins/check-http)など）を実行する際も指定したプロキシサーバーが利用されます。
 
-**例: 経由させたいプロキシサーバーが localhost:8080 で提供されている場合**
-
-```toml
-# /etc/mackerel-agent/mackerel-agent.conf
-http_proxy = "http://localhost:8080"
-```
-
-環境変数 `HTTP_PROXY` にも対応しています。詳しくは[環境変数を適用する](#environment-variables)をご確認ください。
-
-また、設定ファイル内に `http_proxy` と同様の形式で、 `https_proxy` と記述することで、HTTPとHTTPSのプロキシサーバーの設定を分離することができます。なお、こちらも同様に環境変数 `HTTPS_PROXY` に対応しています。
-
-**例: 経由させたいプロキシサーバーが localhost:8080, localhost:8081 で提供されている場合**
+**例： HTTP通信とHTTPS通信で別のプロキシサーバーを経由させる場合**
 
 ```toml
 # /etc/mackerel-agent/mackerel-agent.conf
@@ -164,18 +153,43 @@ http_proxy = "http://localhost:8080"
 https_proxy = "http://localhost:8081"
 ```
 
-`http_proxy` / `https_proxy` の設定とエージェントが通信に利用するプロキシの対応は以下のようになります。
+**例： HTTP通信とHTTPS通信で同じプロキシサーバーを経由させる場合**
 
-| `http_proxy` | `https_proxy` | HTTP のプロキシ | HTTPS のプロキシ  |
-|:-------------|:--------------|:----------------|:------------------|
-| 設定しない   | 設定しない    | なし            | なし              |
-| 設定しない   | 設定する      | なし            | https_proxy の値  |
-| 設定する     | 設定しない    | http_proxy の値 | _http_proxy の値_ |
-| 設定する     | 設定する      | http_proxy の値 | https_proxy の値  |
-| 設定する     | `direct`      | http_proxy の値 | なし              |
+`https_proxy` を記述しなかった場合は、HTTPS通信にも `http_proxy` の値が利用されます。
 
-- `http_proxy` のみ設定ファイルに記述していた場合、 `https_proxy` としてもその値を利用します。
-- HTTPSプロキシを利用しない場合は `https_proxy` に `direct` を指定します。
+```toml
+# /etc/mackerel-agent/mackerel-agent.conf
+http_proxy = "http://localhost:8080"
+```
+
+プロキシサーバーの指定は、設定ファイルのほか環境変数にも対応しています。設定ファイルに `http_proxy` / `https_proxy` の指定がない場合は、環境変数 `HTTP_PROXY` / `HTTPS_PROXY` の値が参照されます。詳しくは[環境変数を適用する](#environment-variables)をご確認ください。
+
+##### 環境変数によるプロキシ設定を無効にする
+
+システム全体で環境変数によるプロキシ設定をおこなっているものの、エージェントはプロキシサーバーを経由せずに通信させたい場合は、設定ファイルで `direct` を指定します。
+
+**例： エージェントの通信にプロキシサーバーを利用しない設定**
+
+```toml
+# /etc/mackerel-agent/mackerel-agent.conf
+http_proxy = "direct"
+```
+
+##### プロキシの設定状態と利用されるプロキシの対応
+
+`http_proxy` / `https_proxy` の設定状態と、エージェントの通信に利用するプロキシの対応は以下のようになります。
+
+| 設定ファイルの `http_proxy` | 設定ファイルの `https_proxy` | HTTP のプロキシ          | HTTPS のプロキシ          |
+|:----------------------------|:-----------------------------|:-------------------------|:--------------------------|
+| 設定しない                  | 設定しない                   | なし（または環境変数 `HTTP_PROXY` の値） | なし（または環境変数 `HTTPS_PROXY` の値） |
+| 設定しない                  | 設定する                     | なし（または環境変数 `HTTP_PROXY` の値） | `https_proxy` の値          |
+| 設定しない                  | `direct`                    | なし（または環境変数 `HTTP_PROXY` の値） | なし              |
+| 設定する                    | 設定しない                   | `http_proxy` の値          | `http_proxy` の値         |
+| 設定する                    | 設定する                     | `http_proxy` の値          | `https_proxy` の値          |
+| 設定する                    | `direct`                     | `http_proxy` の値          | なし                      |
+| `direct`                    | 設定しない                   | なし                     | なし                      |
+| `direct`                    | 設定する                     | なし                     | `https_proxy` の値          |
+| `direct`                    | `direct`                    | なし                     | なし                        |
 
 <h4 id="config-file-disablehttpkeepalive">disable_http_keep_alive</h4>
 `disable_http_keep_alive = true` とすることで、エージェントとMackerelとの通信でHTTPキープアライブを無効にできます。
@@ -354,7 +368,7 @@ mackerel-agentに追加したいオプションを指定します。例えば `O
 
 #### HTTP_PROXY / HTTPS_PROXY
 
-mackerel-agentは指定されたプロキシサーバーを経由して通信を行います。詳細については[proxy](#config-file-proxy)をご確認ください。
+mackerel-agentは指定されたプロキシサーバーを経由して通信を行います。設定ファイルに `http_proxy` / `https_proxy` の指定がある場合は、設定ファイルの設定が優先されます。詳細については[proxy](#config-file-proxy)をご確認ください。
 
 #### AUTO_RETIREMENT （Linux環境）
 

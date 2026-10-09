@@ -61,6 +61,6 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
   - 監視ルールの設定以後、定期的（数日程度の周期）に学習を行います
     - 初回の学習が完了するまで監視は行われません
     - 監視ルール名の横のアイコンをマウスオーバーすると、現在の状態を確認できます。監視を行える状態になると、以下のような表示になります   
-    ![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/masarasi/20260128/20260128195008.png)
+    ![](https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20260930/20260930181312.png)
   - 過去数十日間より古い学習データは利用されなくなります
 - ロール内に異なる役割のホスト（アプリケーションやデータベースなど）が含まれる場合、正しく異常を検知できない場合があります。**ロール内異常検知を利用する場合は、ホストの役割ごとにロールを割り当てることを推奨します**

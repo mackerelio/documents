@@ -3,7 +3,6 @@ Title: SAMLで認証する
 Date: 2024-08-02T14:00:00+09:00
 URL: https://mackerel.io/ja/docs/entry/advanced/saml-authentication
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/6802340630902356589
-CustomPath: advanced/saml-authentication
 ---
 
 **本機能はSAML認証を含むMackerel上位プランをご契約、およびSAML認証を設定いただいたオーガニゼーションのユーザーにのみ有効です。**

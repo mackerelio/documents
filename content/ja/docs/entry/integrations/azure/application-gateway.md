@@ -3,7 +3,6 @@ Title: Azureインテグレーション - Application Gateway
 Date: 2020-08-21T09:00:00+09:00
 URL: https://mackerel.io/ja/docs/entry/integrations/azure/application-gateway
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/26006613649525332
-CustomPath: integrations/azure/application-gateway
 ---
 
 MackerelはAzureインテグレーションにて<a href="https://azure.microsoft.com/ja-jp/services/application-gateway/" target="_blank">Application Gateway</a>のメトリック取得や監視に対応しています。課金対象として 1リソース = 2マイクロホスト と換算します。

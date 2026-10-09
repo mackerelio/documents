@@ -3,7 +3,6 @@ Title: Azureインテグレーション - Cosmos DB
 Date: 2026-07-07T16:13:13+09:00
 URL: https://mackerel.io/ja/docs/entry/integrations/azure/cosmos-db
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/14945776032050944965
-CustomPath: integrations/azure/cosmos-db
 ---
 
 MackerelはAzureインテグレーションにて<a href="https://azure.microsoft.com/ja-jp/products/cosmos-db" target="_blank">Azure Cosmos DB</a>のメトリック取得や監視に対応しています。Azureインテグレーションで連携をおこなった場合、課金対象として 1データベースアカウント = 1マイクロホスト と換算します。また、取得されるメトリック数に応じて、1マイクロホストあたりのメトリック数上限を超過した分が請求対象になることがあります。

@@ -3,7 +3,6 @@ Title: Azureインテグレーション - Blob Storage
 Date: 2020-12-01T09:00:00+09:00
 URL: https://mackerel.io/ja/docs/entry/integrations/azure/blob-storage
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mackerel.io/atom/entry/26006613686649831
-CustomPath: integrations/azure/blob-storage
 ---
 
 MackerelはAzureインテグレーションにて<a href="https://azure.microsoft.com/ja-jp/services/storage/blobs/" target="_blank">Blob Storage</a>のメトリック取得や監視に対応しています。課金対象として 1Blob Storage = 1マイクロホスト と換算します。またそれに加えて、取得されるメトリックの数に応じて、1マイクロホストあたりのメトリック数上限の超過による請求が行われる場合があります。
