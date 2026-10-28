@@ -117,10 +117,9 @@ receivers:
         endpoint: "0.0.0.0:4318"
 
 exporters:
-  otlp_http/mackerel:
-    endpoint: "https://otlp-vaxila.mackerelio.com"
+  otlp_http/mackerel_logs:
+    endpoint: "https://otlp.mackerelio.com:4318"
     headers:
-      Accept: "*/*"
       "Mackerel-Api-Key": "${env:MACKEREL_APIKEY}"
     sending_queue:
       batch:
@@ -131,13 +130,13 @@ service:
   pipelines:
     logs:
       receivers: [otlp]
-      exporters: [otlp_http/mackerel]
+      exporters: [otlp_http/mackerel_logs]
 ```
 
 設定のポイントは以下のとおりです。
 
 * **receivers**：OTLP プロトコルで gRPC（`0.0.0.0:4317`）と HTTP（`0.0.0.0:4318`）の両方でログを受信します
-* **exporters**：`otlp_http` で Mackerel のエンドポイント（`https://otlp-vaxila.mackerelio.com`）にログを送信します。`Mackerel-Api-Key` ヘッダーに Write 権限のある APIキーを設定してください。`sending_queue.batch` でバッチ処理を行い、送信効率を高めます
+* **exporters**：`otlp_http` で Mackerel のエンドポイント（`https://otlp.mackerelio.com:4318`）にログを送信します。`Mackerel-Api-Key` ヘッダーに Write 権限のある APIキーを設定してください。`sending_queue.batch` でバッチ処理を行い、送信効率を高めます
 * **service.pipelines**：`logs` パイプラインで、受信したログを Mackerel に送信する流れを定義します
 
 ##### Mackerel OpenTelemetry（MDOT）コレクターの場合
@@ -382,10 +381,9 @@ processors:
         action: insert
 
 exporters:
-  otlp_http/mackerel:
-    endpoint: "https://otlp-vaxila.mackerelio.com"
+  otlp_http/mackerel_logs:
+    endpoint: "https://otlp.mackerelio.com:4318"
     headers:
-      Accept: "*/*"
       "Mackerel-Api-Key": "${env:MACKEREL_APIKEY}"
     sending_queue:
       batch:
@@ -397,7 +395,7 @@ service:
     logs:
       receivers: [syslog]
       processors: [resource]
-      exporters: [otlp_http/mackerel]
+      exporters: [otlp_http/mackerel_logs]
 ```
 
 設定のポイントは以下のとおりです。
@@ -451,10 +449,9 @@ processors:
           - set(severity_number, SEVERITY_NUMBER_ERROR) where attributes["level"] == "Error"
 
 exporters:
-  otlp_http/mackerel:
-    endpoint: "https://otlp-vaxila.mackerelio.com"
+  otlp_http/mackerel_logs:
+    endpoint: "https://otlp.mackerelio.com:4318"
     headers:
-      Accept: "*/*"
       "Mackerel-Api-Key": "${env:MACKEREL_APIKEY}"
     sending_queue:
       batch:
@@ -466,7 +463,7 @@ service:
     logs:
       receivers: [file_log]
       processors: [resource, transform]
-      exporters: [otlp_http/mackerel]
+      exporters: [otlp_http/mackerel_logs]
 ```
 
 設定のポイントは以下のとおりです。
@@ -525,10 +522,9 @@ processors:
         action: insert
 
 exporters:
-  otlp_http/mackerel:
-    endpoint: "https://otlp-vaxila.mackerelio.com"
+  otlp_http/mackerel_logs:
+    endpoint: "https://otlp.mackerelio.com:4318"
     headers:
-      Accept: "*/*"
       "Mackerel-Api-Key": "${env:MACKEREL_APIKEY}"
     sending_queue:
       batch:
@@ -540,7 +536,7 @@ service:
     logs:
       receivers: [file_log]
       processors: [resource]
-      exporters: [otlp_http/mackerel]
+      exporters: [otlp_http/mackerel_logs]
 ```
 
 `json_parser` オペレーターのポイントは `parse_to: body` の指定です。`parse_to` を省略した場合、デフォルトでは解析結果が `attributes` に展開されます。`parse_to: body` を指定することで、解析結果がログの `body` フィールドに格納されます。
@@ -570,10 +566,9 @@ processors:
           - set(body, ParseJSON(body)) where IsString(body)
 
 exporters:
-  otlp_http/mackerel:
-    endpoint: "https://otlp-vaxila.mackerelio.com"
+  otlp_http/mackerel_logs:
+    endpoint: "https://otlp.mackerelio.com:4318"
     headers:
-      Accept: "*/*"
       "Mackerel-Api-Key": "${env:MACKEREL_APIKEY}"
     sending_queue:
       batch:
@@ -585,7 +580,7 @@ service:
     logs/fluent_forward:
       receivers: [fluentf_orward]
       processors: [resource/fluent_forward, transform/fluent_forward]
-      exporters: [otlp_http/mackerel]
+      exporters: [otlp_http/mackerel_logs]
 ```
 
 設定のポイントは以下のとおりです。

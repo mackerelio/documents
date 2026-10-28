@@ -72,10 +72,9 @@ processors:
         - severity_number < 9
 
 exporters:
-  otlp_http/mackerel:
-    endpoint: "https://otlp-vaxila.mackerelio.com"
+  otlp_http/mackerel_logs:
+    endpoint: "https://otlp.mackerelio.com:4318"
     headers:
-      Accept: "*/*"
       "Mackerel-Api-Key": "${env:MACKEREL_APIKEY}"
     sending_queue:
       batch:
@@ -87,7 +86,7 @@ service:
     logs:
       receivers: [otlp]
       processors: [filter/drop-debug]
-      exporters: [otlp_http/mackerel]
+      exporters: [otlp_http/mackerel_logs]
 ```
 
 filter プロセッサーの `logs.log_record` に条件を記述します。条件に**合致した**ログが**除外**される点に注意してください。上記の例では `severity_number < 9` に合致するログ（TRACE / DEBUG）が除外されます。
@@ -127,7 +126,7 @@ service:
     logs:
       receivers: [otlp]
       processors: [filter/drop-debug, filter/drop-healthcheck]
-      exporters: [otlp_http/mackerel]
+      exporters: [otlp_http/mackerel_logs]
 ```
 
 `processors` の実行順序は `service.pipelines` の記述順に従います。上記の例では、まず DEBUG / TRACE レベルのログが除外され、次にヘルスチェック関連のログが除外されます。
@@ -160,7 +159,7 @@ service:
     logs:
       receivers: [otlp]
       processors: [resource/remove-unnecessary]
-      exporters: [otlp_http/mackerel]
+      exporters: [otlp_http/mackerel_logs]
 ```
 
 ##### 例4：transform プロセッサーで属性を削除する
@@ -183,7 +182,7 @@ service:
     logs:
       receivers: [otlp]
       processors: [transform/remove-resource-attrs]
-      exporters: [otlp_http/mackerel]
+      exporters: [otlp_http/mackerel_logs]
 ```
 
 ##### 削除してよい属性の判断基準
@@ -293,7 +292,7 @@ service:
     logs:
       receivers: [otlp]
       processors: [probabilistic_sampler]
-      exporters: [otlp_http/mackerel]
+      exporters: [otlp_http/mackerel_logs]
 ```
 
 確率的サンプリングはシンプルですが、ERROR ログも同じ割合で間引かれてしまう点に注意が必要です。重要なログを漏らさず残したい場合は、次に紹介する条件付きサンプリングを検討してください。
@@ -347,10 +346,9 @@ processors:
 
 
 exporters:
-  otlp_http/mackerel:
-    endpoint: "https://otlp-vaxila.mackerelio.com"
+  otlp_http/mackerel_logs:
+    endpoint: "https://otlp.mackerelio.com:4318"
     headers:
-      Accept: "*/*"
       "Mackerel-Api-Key": "${env:MACKEREL_APIKEY}"
     sending_queue:
       batch:
@@ -372,19 +370,19 @@ service:
     logs/error:
       receivers: [forward]
       processors: [filter/keep-error]
-      exporters: [otlp_http/mackerel]
+      exporters: [otlp_http/mackerel_logs]
 
     # WARN：50% サンプリング
     logs/warn:
       receivers: [forward]
       processors: [filter/keep-warn, probabilistic_sampler/warn]
-      exporters: [otlp_http/mackerel]
+      exporters: [otlp_http/mackerel_logs]
 
     # INFO：10% サンプリング
     logs/info:
       receivers: [forward]
       processors: [filter/keep-info, probabilistic_sampler/info]
-      exporters: [otlp_http/mackerel]
+      exporters: [otlp_http/mackerel_logs]
 ```
 
 この設定では、forward コネクターを使ってログを重要度ごとのパイプラインに分岐させ、それぞれ異なるサンプリング率を適用しています。環境に応じてサンプリング率を調整してください。
