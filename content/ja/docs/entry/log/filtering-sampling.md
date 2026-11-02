@@ -7,14 +7,6 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 
 ログの送信データ量を抑えるための、**OpenTelemetryコレクター（以下、コレクター）**でのフィルタリングとサンプリングの設定方法を解説します。
 
-<div class="note">
-    <p>Mackerelのログ機能は現在β版として提供しています。以下の点についてはあらかじめご了承ください。</p>
-</div>
-
-- 今後、仕様や画面デザインが変更される可能性があります。
-- 機能改善や不具合修正のために、臨時のメンテナンスを実施する場合があります。
-- お預かりしているログデータの保持を保証することはできません。
-
 **目次**
 
 [:contents]

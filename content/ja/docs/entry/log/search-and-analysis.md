@@ -9,14 +9,6 @@ Mackerelのログ機能は、サービス単位でログを横断的に検索し
 
 Mackerelへのログの送信方法や、データ量・コストの見積りについては、それぞれ「[Mackerel にログを送信する](https://mackerel.io/ja/docs/entry/log/sending)」、「[ログのデータ量とコストを見積もる](https://mackerel.io/ja/docs/entry/log/cost-estimation)」を参照してください。
 
-<div class="note">
-    <p>Mackerelのログ機能は現在β版として提供しています。以下の点についてはあらかじめご了承ください。</p>
-</div>
-
-- 今後、仕様や画面デザインが変更される可能性があります。
-- 機能改善や不具合修正のために、臨時のメンテナンスを実施する場合があります。
-- お預かりしているログデータの保持を保証することはできません。
-
 **目次**
 
 [:contents]

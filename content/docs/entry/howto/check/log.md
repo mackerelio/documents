@@ -15,6 +15,11 @@ This page guides you through installing check plugins and setting up simple moni
   
 [:contents]
 
+<div class="note">
+    <p>This page explains how to perform log monitoring as host check monitoring using mackerel-agent and other tools.<br>
+    For information on Mackerel's log features that utilize OpenTelemetry logs, please refer to <a href="https://mackerel.io/ja/docs/entry/log/introduction" target="_blank">Mackerel のログ機能 - Mackerel ヘルプ</a> (available in Japanese).</p>
+</div>
+
 ## Getting Started with Log Monitoring
 
 ### 1. Install the Official Check Plugin Pack

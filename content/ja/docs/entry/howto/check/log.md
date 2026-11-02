@@ -15,6 +15,11 @@ Mackerelでは公式チェックプラグインを利用することで、以下
 
 [:contents]
 
+<div class="note">
+    <p>本ページでは、mackerel-agentなどからホストのチェック監視としてログ監視をおこなう方法について紹介しています。<br>
+    OpenTelemetryのログを利用するMackerelのログ機能については、<a href="https://mackerel.io/ja/docs/entry/log/introduction" target="_blank">Mackerel のログ機能 - Mackerel ヘルプ</a>を参照ください。</p>
+</div>
+
 ## ログ監視の始め方
 
 ### 1. 公式チェックプラグイン集をインストールする

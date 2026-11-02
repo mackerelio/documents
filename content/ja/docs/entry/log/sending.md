@@ -7,14 +7,6 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 
 このヘルプでは、アプリケーションやミドルウェアのログを OpenTelemetry（OTel）経由で Mackerel に送信し、ログ画面に表示させるまでの手順を解説します。
 
-<div class="note">
-    <p>Mackerelのログ機能は現在β版として提供しています。以下の点についてはあらかじめご了承ください。</p>
-</div>
-
-- 今後、仕様や画面デザインが変更される可能性があります。
-- 機能改善や不具合修正のために、臨時のメンテナンスを実施する場合があります。
-- お預かりしているログデータの保持を保証することはできません。
-
 **目次**
 
 [:contents]
