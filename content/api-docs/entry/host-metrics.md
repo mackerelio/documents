@@ -252,6 +252,7 @@ This will transmit custom metric graph definitions to Mackerel.
 | `name`        | *string* | The part of the metric name before the last `.`. Must begin with `custom.`. Additionally, wildcard characters (`*` and `#`) can also be used. |
 | `displayName` | *string* | [optional] The graph's display name.                                 |
 | `unit`        | *string* | [optional] The type of the graph's values. Possible values are "float", "integer", "percentage", "seconds", "milliseconds", "bytes", "bytes/sec", "bits/sec", and "iops" |
+| `isAutoDeleteEnabled` | *boolean* | [optional] Whether automatic deletion of metrics is enabled. Default is `true`. For details, refer to the note below. |
 | `metrics`     | *array*  | `[ <metric>, <metric>, ...]` For metrics, refer to the chart below. |
 
 
@@ -347,7 +348,7 @@ are transmitted, the graph legend will be grouped as shown below.
 
 <p><span itemscope itemtype="http://schema.org/Photograph"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20150909/20150909172654.png" alt="f:id:mackerelio:20150909172654p:plain" title="f:id:mackerelio:20150909172654p:plain" class="hatena-fotolife" itemprop="image"></span></p>
 
-Additionally, if a transmission of custom metrics of a graph definition with wildcards isn't received within a specified time span (roughly 6 to 8 hours) the definition will automatically be deleted, so please use caution.
+Additionally, if a transmission of custom metrics of a graph definition with wildcards isn't received within a specified time span (roughly 6 to 8 hours) the definition will automatically be deleted. Specifying `false` for `isAutoDeleteEnabled` in the graph definition disables this automatic deletion. `isAutoDeleteEnabled` cannot be specified if the metric names do not contain a wildcard.
 
 ----------------------------------------------
 

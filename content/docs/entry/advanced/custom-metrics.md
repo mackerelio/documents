@@ -122,7 +122,7 @@ The following is a description of each item.
 
 | Key | Description |
 | ---- | ---- |
-| `graphs.{graph}` | The name for the graph corresponding to custom metrics {graph}.* . {graph} may contain dots (`.`). Additionally, wildcard characters (`*` and `#`) can also be used. For more details, refer to the [API specs (v0) / Posting Graph Definitions help page.](https://mackerel.io/api-docs/entry/host-metrics#post-graphdef)<br>**Note**: Graphs of custom metrics that include wildcards will be automatically deleted if no metrics are sent for a certain period of time (approximately 6-8 hours or more). |
+| `graphs.{graph}` | The name for the graph corresponding to custom metrics {graph}.* . {graph} may contain dots (`.`). Additionally, wildcard characters (`*` and `#`) can also be used. For more details, refer to the [API specs (v0) / Posting Graph Definitions help page.](https://mackerel.io/api-docs/entry/host-metrics#post-graphdef)<br>**Note**: Graphs of custom metrics that include wildcards are automatically deleted by default if no metrics are sent for a certain period of time (approximately 6-8 hours or more).  You can disable this automatic deletion by the graph definition settings in the Web Console.
 | `graphs.{graph}.label` | The label for the graph corresponding to custom metrics {graph}.* . |
 | `graphs.{graph}.unit` | The type of value displayed in the graph corresponding to custom metrics {graph}.* . Must be one of the following: "float", "integer", "percentage", "seconds", "milliseconds", "bytes", "bytes/sec", "bits/sec", or "iops". |
 | `graphs.{graph}.metrics` | An array of metric definitions of custom metrics {graph}.* . |

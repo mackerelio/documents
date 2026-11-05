@@ -253,6 +253,7 @@ APIに対して過去の値を送信した場合、Mackerel上の値は上書き
 | `name`        | *string* | メトリック名の最後の `.` より前の部分。 `custom.` ではじまる必要があります。また、ワイルドカード`#`, `*` を使用することもできます。 |
 | `displayName` | *string* | [optional] グラフの表示名。                                |
 | `unit`        | *string* | [optional] グラフの値の種類。可能な値は "float", "integer", "percentage", "seconds", "milliseconds", "bytes", "bytes/sec", "bits/sec", "iops" のいずれかです。 |
+| `isAutoDeleteEnabled` | *boolean* | [optional] メトリックの自動削除を有効にするかどうか。デフォルトは `true`。詳細は下記参照。 |
 | `metrics`     | *array*  | `[ <metric>, <metric>, ...]` metric は下記参照。 |
 
 <i>`<metric>`</i> : 以下のキーをもつオブジェクト。</p>
@@ -348,7 +349,7 @@ APIに対して過去の値を送信した場合、Mackerel上の値は上書き
 
 <p><span itemscope itemtype="http://schema.org/Photograph"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20150909/20150909172654.png" alt="f:id:mackerelio:20150909172654p:plain" title="f:id:mackerelio:20150909172654p:plain" class="hatena-fotolife" itemprop="image"></span></p>
 
-また、ワイルドカードを含むグラフ定義のカスタムメトリックは一定時間（およそ6〜8時間以上）送信がない場合自動的に削除されますのでご注意ください。
+また、ワイルドカードを含むグラフ定義のカスタムメトリックは一定時間（およそ6〜8時間以上）送信がない場合自動的に削除されます。グラフ定義の `isAutoDeleteEnabled` に `false` を指定すると自動削除は無効になります。メトリック名にワイルドカードを含まない場合は `isAutoDeleteEnabled` は指定できません。
 
 ----------------------------------------------
 
