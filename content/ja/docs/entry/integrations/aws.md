@@ -51,6 +51,7 @@ AWSインテグレーションでは、以下のAWSクラウド製品に対応�
 * [DocumentDB](https://mackerel.io/ja/docs/entry/integrations/aws/docdb)
 * [CodeBuild](https://mackerel.io/ja/docs/entry/integrations/aws/codebuild)
 * [Athena](https://mackerel.io/ja/docs/entry/integrations/aws/athena)
+* [MemoryDB](https://mackerel.io/ja/docs/entry/integrations/aws/memorydb)
 
 <h2 id="setting">連携方法</h2>
 
@@ -161,6 +162,7 @@ ElastiCache、Step Functionsで以下の設定を利用する場合は、表の�
 | DocumentDB | AmazonRDSReadOnlyAccess |  |
 | CodeBuild *1 | `codebuild:BatchGetProjects` <br> `codebuild:ListProjects` |  |
 | Athena *1 | `athena:ListWorkGroups` <br> `athena:ListTagsForResource` |  |
+| MemoryDB *1 | `memorydb:DescribeClusters` <br> `memorydb:DescribeParameters` <br> `memorydb:ListTags` |  |
 
 AWSの仕様で、ひとつのIAMロール／IAMユーザーに対してアタッチ可能なポリシーのクォータは10個に制限されています。必要に応じて、AWSに対してクォータの引き上げをリクエストしてください。
 
@@ -335,6 +337,9 @@ Mackerelの設定画面でタグを指定します。連携ホスト数を確認
                 "kinesis:List*",
                 "lambda:GetFunctionConfiguration",
                 "lambda:List*",
+                "memorydb:DescribeClusters",
+                "memorydb:DescribeParameters",
+                "memorydb:ListTags",
                 "rds:Describe*",
                 "rds:ListTagsForResource",
                 "redshift:Describe*",

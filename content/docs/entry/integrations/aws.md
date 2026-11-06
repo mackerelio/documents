@@ -51,6 +51,7 @@ Currently, the following AWS cloud products are supported. For information on ob
 * [DocumentDB](https://mackerel.io/docs/entry/integrations/aws/docdb)
 * [CodeBuild](https://mackerel.io/docs/entry/integrations/aws/codebuild)
 * [Athena](https://mackerel.io/docs/entry/integrations/aws/athena)
+* [MemoryDB](https://mackerel.io/docs/entry/integrations/aws/memorydb)
 
 <h2 id="setting">Integration method</h2>
 There are two ways to integrate AWS integration: by IAM role with authentication by AssumeRole, or by Access Key ID and Secret Access Key.
@@ -159,6 +160,7 @@ For Elasticache and Step Functions, the actions marked with *2 in the "Required 
 | DocumentDB | AmazonRDSReadOnlyAccess |  |
 | CodeBuild *1 | `codebuild:BatchGetProjects` <br> `codebuild:ListProjects` |  |
 | Athena *1 | `athena:ListWorkGroups` <br> `athena:ListTagsForResource` |  |
+| MemoryDB *1 | `memorydb:DescribeClusters` <br> `memorydb:DescribeParameters` <br> `memorydb:ListTags` |  |
 
 Due to AWS specifications, the quota for the number of policies that can be attached to a single IAM role/IAM user is limited to 10. If necessary, please request a quota increase from AWS.
 
@@ -333,6 +335,9 @@ Create and attach your own policies or specify them in Inline Policies.
                 "kinesis:List*",
                 "lambda:GetFunctionConfiguration",
                 "lambda:List*",
+                "memorydb:DescribeClusters",
+                "memorydb:DescribeParameters",
+                "memorydb:ListTags",
                 "rds:Describe*",
                 "rds:ListTagsForResource",
                 "redshift:Describe*",
