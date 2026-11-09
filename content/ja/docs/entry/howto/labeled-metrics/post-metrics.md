@@ -115,3 +115,7 @@ service:
 上記の例では従来のホストメトリックに相当するメトリックを収集し、Mackerel に送信しています。より詳細な説明は以下のブログをご覧ください。
 
 https://mackerel.io/ja/blog/entry/using-open-telemetry-labeled-metrics-with-mackerel
+
+## 制限事項
+
+- 1リクエストあたりの総ラベル数（メトリック数 * ラベル数）が30万を超える場合、そのリクエストは拒否され、gRPC のステータスコード `RESOURCE_EXHAUSTED` が返されます。拒否されたリクエストに含まれるメトリックは保存されず、再送しても受け付けられません。この制限に抵触する場合は、ラベル数を減らすか、OpenTelemetry Collector をお使いであれば Batch Processor の `send_batch_max_size` やエクスポーターの `sending_queue` の設定でリクエストを分割するなどして、制限内に収まるようにしてください。
