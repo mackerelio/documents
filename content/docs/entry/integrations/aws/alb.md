@@ -39,6 +39,8 @@ The maximum number of metrics obtainable is `21 + 13 × (number of target groups
 
 Since there can be multiple target groups per load balancer in Application Load Balancer, each metric is grouped as follows. The metric name’s `TARGET_GROUP_NAME` will contain the name of the target group.
 
+When a target group is no longer referenced by the load balancer, metrics stop being posted, but the existing metrics are not deleted. If you want unneeded metrics to be deleted automatically, enable "Automatic deletion of metrics" in the [graph definition settings](https://mackerel.io/my/graph-defs).
+
 |Graph name|Metric|Metric name in Mackerel|Unit|Statistics|
 |:---|:---|:---|:---|:---|
 |Request Count per Target Group|RequestCount|alb.request_per_group.TARGET_GROUP_NAME.count|integer|Sum|

@@ -37,6 +37,8 @@ AWSインテグレーションのALB対応で取得できるメトリックは�
 ### ターゲットグループごとのグラフ
 Application Load Balancerではロードバランサーごとに複数のターゲットグループを持つことができるので、それぞれのメトリックは以下のようにグルーピングされます。メトリック名の `TARGET_GROUP_NAME` にターゲットグループの名前が入ります。
 
+ターゲットグループがロードバランサーから参照されなくなると、メトリックの投稿は停止しますが、既存のメトリックは削除されません。不要になったメトリックを自動で削除したい場合は、[グラフ定義の設定](https://mackerel.io/my/graph-defs)で「メトリックの自動削除」を有効にしてください。
+
 |グラフ名|メトリック|Mackerel上のメトリック名|単位|Statistics|
 |:---|:---|:---|:---|:---|
 |Request Count per Target Group|RequestCount|alb.request_per_group.TARGET_GROUP_NAME.count|integer|Sum|
