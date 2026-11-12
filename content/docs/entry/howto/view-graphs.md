@@ -115,6 +115,8 @@ Click on the gear icon in the upper right corner of a custom metric graph to ope
 
 You can hide graphs with the "Delete this graph" button. The graph will reappear when a new custom metric for that graph is posted.
 
+For graph definitions containing wildcards, the series that have not received metrics for a certain period (approximately 6 to 8 hours or more) are automatically deleted. You can disable automatic deletion by turning off "Automatic deletion of metrics".
+
 <h2 id="delete-graph">Delete graph definitions</h2>
 
 You can delete unneeded graph definitions from the [Graph Definition List](https://mackerel.io/my/graph-defs) screen. The Graph Definition List screen can be accessed from "Settings" on the right side of the Custom Metrics heading on the Host Details screen.
