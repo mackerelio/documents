@@ -797,7 +797,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
           <p>Get Graph Annotations</p>
           <p class="type-get">
             <code>GET</code>
-            <code>/api/v0/graph-annotations</em></code>
+            <code>/api/v0/graph-annotations</code>
           </p>
         </a>
       </div>

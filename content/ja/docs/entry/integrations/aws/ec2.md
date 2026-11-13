@@ -30,9 +30,9 @@ AWSインテグレーションのEC2対応で取得できるメトリックは�
 |EBS Bytes Used|EBSReadBytes [*1](#ec2-nitro)<br>EBSWriteBytes [*1](#ec2-nitro)|ec2.ebs_bytes_used.read<br>ec2.ebs_bytes_used.write|bytes|Sum|
 |EBS Burst Bucket Balance|EBSIOBalance% [*1](#ec2-nitro)<br>EBSByteBalance% [*1](#ec2-nitro)|ec2.ebs_burst_bucket_balance.io<br>ec2.ebs_burst_bucket_balance.throughput|percentage|Average|
 
-<div id="ec2-nitro">*1 Nitroベースのインスタンスで発生します。対象は<a href="https://docs.aws.amazon.com/ja_jp/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">こちら</a>をご確認ください。
+<div id="ec2-nitro">*1 Nitroベースのインスタンスで発生します。対象は<a href="https://docs.aws.amazon.com/ja_jp/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">こちら</a>をご確認ください。</div>
 
-<h3 id="notes">注意事項</h2>
+<h3 id="notes">注意事項</h3>
 
 AWSインテグレーションにより取得可能な上記のグラフ・メトリックのうち、下記のグラフに含まれるメトリックについては、通常、5分間隔粒度でのメトリックが取得されます。
 

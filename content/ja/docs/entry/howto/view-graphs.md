@@ -83,13 +83,13 @@ Mackerel上から直接グラフURLを通知チャンネルに流すことがで
 
 <p><span itemscope itemtype="http://schema.org/Photograph"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20180726/20180726163218.png" alt="f:id:mackerelio:20180726163218p:plain" title="f:id:mackerelio:20180726163218p:plain" class="hatena-fotolife" itemprop="image" width="500"></span></p>
 
-<h3 id="download-image">グラフをダウンロードする</h2>
+<h3 id="download-image">グラフをダウンロードする</h3>
 `ダウンロード` ボタンを押すことで、グラフ画像をダウンロードできます。画像化されるグラフの表示期間は、コンソール上で表示されている期間と同じです。
 
-<h3 id="share-url">URLを共有する</h2>
+<h3 id="share-url">URLを共有する</h3>
 グラフを表示させるためのURLを取得できます。このURLを共有することでグラフを共有できます。共有されるグラフの表示期間は、「現在の表示期間」チェックボックスをオンにすることで、コンソール上で表示されている期間と同じものにすることが可能です。そのオーガニゼーションに所属しているアカウントだけが、このURLでグラフを閲覧できます。
 
-<h3 id="embed-graph">埋め込み形式を選択し共有する</h2>
+<h3 id="embed-graph">埋め込み形式を選択し共有する</h3>
 HTMLやmarkdown文書に埋め込める形式で、グラフを共有するための情報を取得できます。選択できる形式は以下の通りです。
 
 - iframe
@@ -99,7 +99,7 @@ HTMLやmarkdown文書に埋め込める形式で、グラフを共有するた�
 
 そのオーガニゼーションに所属しているアカウントだけが、埋め込まれたグラフを閲覧できます。共有されるグラフの表示期間は、「現在の表示期間」チェックボックスをオンにすることで、コンソール上で表示されている期間と同じものにできます。
 
-<h3 id="publish-graph">グラフを外部に公開する</h2>
+<h3 id="publish-graph">グラフを外部に公開する</h3>
 「URLを作成」ボタンを押すことで、そのグラフを外部に公開できます。**公開URLを知っている人は誰でもグラフを閲覧可能となりますので、注意してください。**
 
 公開中のグラフの確認や公開停止などは、[「公開中のグラフ」](https://mackerel.io/my?tab=sharedGraphs) メニューから実施してください。

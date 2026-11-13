@@ -84,13 +84,13 @@ Graphs can be shared with others in a variety of ways. Display the graph sharing
 
 <p><span itemscope itemtype="http://schema.org/Photograph"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/m/mackerelio/20220906/20220906185547.png" alt="f:id:mackerelio:20220906185547p:plain" title="f:id:mackerelio:20180726163218p:plain" class="hatena-fotolife" itemprop="image" width="500"></span></p>
 
-<h3 id="download-image">Downloading images</h2>
+<h3 id="download-image">Downloading images</h3>
 Graph images can be downloaded by clicking the `download` button. The display range of the graph image is the same as the range displayed on the console.
 
-<h3 id="share-url">Sharing URLs</h2>
+<h3 id="share-url">Sharing URLs</h3>
 You can generate a URL to display a graph. Graphs can be shared using these URLs. The display range of a shared graph can be made to match the range displayed on the console by checking the "Current Display Range" box. Only accounts that belong to that organization can view the graph with this URL.
 
-<h3 id="embed-graph">Select the embedded format and share</h2>
+<h3 id="embed-graph">Select the embedded format and share</h3>
 Get information for sharing graphs in embedded formats for HTML or markdown documents. The following formats can be selected.
 
 - iframe
@@ -100,7 +100,7 @@ Get information for sharing graphs in embedded formats for HTML or markdown docu
 
 Only accounts that belong to that organization can view embedded graphs. The display range of the shared graph can be made to match the range displayed on the console by checking the "Current Display Range" box.
 
-<h3 id="publish-graph">Publishing graphs</h2>
+<h3 id="publish-graph">Publishing graphs</h3>
 Graphs can be made public by clicking the "Create URL" button.**Anyone with access to a public URL will be able to see the graph, so please be careful.**
 
 You can check on your shared graphs or stop sharing from the [Shared Graphs](https://mackerel.io/my?tab=sharedGraphs) tab.

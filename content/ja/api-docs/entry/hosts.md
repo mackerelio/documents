@@ -12,7 +12,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
   <li><a href="#update-information">ホスト情報の更新</a></li>
   <li><a href="#update-status">ホストのステータスの更新</a></li>
   <li><a href="#bulk-update-statuses">ホストの一括ステータス更新</a></li>
-  <li><a href="#update-roles">ホストのロールの更新</a><li>
+  <li><a href="#update-roles">ホストのロールの更新</a></li>
   <li><a href="#retire">ホストの退役</a></li>
   <li><a href="#bulk-retire">ホストの一括退役</a></li>
   <li><a href="#list">ホストの一覧</a></li>

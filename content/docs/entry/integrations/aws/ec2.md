@@ -31,7 +31,7 @@ The maximum number of metrics obtainable is 21.
 
 ediv id="ec2-nitro">*1 Occurs with Nitro-based instances. Click <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">here</a> for a list of instances.
 
-<h3 id="notes">Precautions</h2>
+<h3 id="notes">Precautions</h3>
 
 Among the graphs/metrics obtainable with AWS Integration, metrics included in the following graph are usually obtained in 5 minute intervals.
 

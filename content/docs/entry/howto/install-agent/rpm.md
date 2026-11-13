@@ -5,7 +5,7 @@ URL: https://mackerel.io/docs/entry/howto/install-agent/rpm
 EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs.hatenablog.mackerel.io/atom/entry/8454420450073117128
 ---
 
-- <p><a href="./amazon-linux">Click here for Amazon Linux users</a><p>
+- <p><a href="./amazon-linux">Click here for Amazon Linux users</a></p>
 - <p><a href="#kcps">Click here for KCPS edition Mackerel users</a></p>
 
 Contents described on this page are also available from the [New host registration screen in Mackerel](https://mackerel.io/my/instruction-agent).

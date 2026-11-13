@@ -256,7 +256,7 @@ APIに対して過去の値を送信した場合、Mackerel上の値は上書き
 | `isAutoDeleteEnabled` | *boolean* | [optional] メトリックの自動削除を有効にするかどうか。デフォルトは `true`。詳細は下記参照。 |
 | `metrics`     | *array*  | `[ <metric>, <metric>, ...]` metric は下記参照。 |
 
-<i>`<metric>`</i> : 以下のキーをもつオブジェクト。</p>
+<i>`<metric>`</i> : 以下のキーをもつオブジェクト。
 
 | KEY           | TYPE      | DESCRIPTION              |
 | ------------- | --------- | ------------------------ |

@@ -9,7 +9,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
 
 あらかじめ [エージェントのインストール時に発生する通信](https://mackerel.io/ja/docs/entry/howto/install-agent#install) を許可してください。
 
-<h3 id="script">セットアップスクリプトを実行してインストールする</h2>
+<h3 id="script">セットアップスクリプトを実行してインストールする</h3>
 
 [新規ホストの登録](https://mackerel.io/my/instruction-agent) 画面で Ubuntu / Debian を選択し、表示されたコマンドを実行します。
 

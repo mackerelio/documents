@@ -11,8 +11,7 @@ AWSインテグレーションの設定方法や対応AWSサービス一覧に�
 <a href="https://mackerel.io/ja/docs/entry/integrations/aws">AWSインテグレーション</a>
 
 ## 取得メトリック
-AWSインテグレーションのStep Functions対応で取得できるメトリックは以下の通りです。`メトリック`の説明に関しては<a href="https://docs.aws.amazon.com/ja_jp/step-functions/latest/dg/procedure-cw-metrics.html
-" target="_blank">AWSのヘルプ</a>をご確認ください。
+AWSインテグレーションのStep Functions対応で取得できるメトリックは以下の通りです。`メトリック`の説明に関しては<a href="https://docs.aws.amazon.com/ja_jp/step-functions/latest/dg/procedure-cw-metrics.html" target="_blank">AWSのヘルプ</a>をご確認ください。
 
 最大で `7 + 9 × (アクティビティ数) + 8 × (Lambdaファンクション数) + 8 × (サービス統合数)` のメトリックが取得されます。
 

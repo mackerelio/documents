@@ -24,7 +24,7 @@ sudo yum update mackerel-agent
 
 Installation can also be done directly using the `rpm` command.
 
-<h3 id="rpm-v2">Using the rpm command</h2>
+<h3 id="rpm-v2">Using the rpm command</h3>
 
 To install mackerel-agent with `rpm` run the following command:
 

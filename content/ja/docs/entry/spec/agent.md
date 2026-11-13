@@ -333,7 +333,7 @@ use_adapter = true
 
 mackerel-agentのプロセスに環境変数を適用できます。OSごとの設定方法をご確認ください。
 
-<h3 id="environment-variables-linux">Linux環境</h2>
+<h3 id="environment-variables-linux">Linux環境</h3>
 
 規定のファイルに環境変数の設定を追記することで適用できます。
 
@@ -354,7 +354,7 @@ AUTO_RETIREMENT=1
 HTTP_PROXY="http://localhost:8080/"
 ```
 
-<h3 id="environment-variables-windows">Windows環境</h2>
+<h3 id="environment-variables-windows">Windows環境</h3>
 
 システムのプロパティ > 詳細設定 > 環境変数 > システム環境変数 より設定してください。
 

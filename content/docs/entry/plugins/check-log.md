@@ -150,7 +150,7 @@ The following example triggers an alert when logs containing the strings "FATAL"
 command = ["check-log", "--file", "/var/log/access.log", "--pattern", "FATAL|ERROR", "--return"]
 ```
 
-<h3 id="metacharacters">Treating Regular Expression Metacharacters as Literals</h2> 
+<h3 id="metacharacters">Treating Regular Expression Metacharacters as Literals</h3> 
 
 When using `--pattern` or `--exclude`, if you want to treat regular expression metacharacters (characters with special meanings like `[]`) as literal characters, you must escape them by placing the escape character `\` before the metacharacter.
 
