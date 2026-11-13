@@ -122,6 +122,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-docs-ja.hatenablog.mack
                 <li><a href="https://mackerel.io/ja/docs/entry/howto/alerts/microsoft-teams"><strong>Microsoft Teamsにアラートを通知する</strong><span>アラートをMicrosoft Teamsへ通知します</span></a></li>
                 <li><a href="https://mackerel.io/ja/docs/entry/howto/alerts/webhook"><strong>Webhookにアラートを通知する</strong><span>アラートをWebhookへ通知します</span></a></li>
                 <li><a href="https://mackerel.io/ja/docs/entry/howto/alerts/eventbridge"><strong>Amazon EventBridgeにアラートを通知する</strong><span>アラートをAmazon EventBridgeへ通知します</span></a></li>
+                <li><a href="https://mackerel.io/ja/docs/entry/howto/alerts/google-chat"><strong>Google Chatにアラートを通知する</strong><span>アラートをGoogle Chatへ通知します</span></a></li>
                 <li><a href="https://mackerel.io/ja/docs/entry/howto/downtimes"><strong>ダウンタイムを設定する</strong><span>定期的な監視の停止を設定します</span></a></li>
                 <li><a href="https://mackerel.io/ja/docs/entry/howto/alert-groups"><strong>アラートグループでアラートをまとめる</strong><span>アラートをまとめるアラートグループを設定します</span></a></li>
             </ul>
