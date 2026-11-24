@@ -41,10 +41,10 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
 | ------------    | -------- | -------------------------------- |
 | `id`            | *string* | the notification channel ID               |
 | `name`          | *string* | the name of the notification channel             |
-| `type`          | *string* | the type of notification channel (`"email"`, `"email-broadcast"`, `"slack"`, `"chatwork"`, `"twilio"`, `"pagerduty"`, `"opsgenie"`, `"jira-service-management"`, `"microsoft-teams"`, `"webhook"`, `"amazon-event-bridge"`) |
+| `type`          | *string* | the type of notification channel (`"email"`, `"email-broadcast"`, `"slack"`, `"chatwork"`, `"twilio"`, `"pagerduty"`, `"opsgenie"`, `"jira-service-management"`, `"microsoft-teams"`, `"webhook"`, `"amazon-event-bridge"`, `"google-chat"`) |
 | `suspendedAt`   | *number* / *null* | the notification channel suspended timestamp (in epoch seconds)<br />`null` when not suspended |
 
- In addition to that above, the following detailed information returns if the `type` is `"email"`, `"slack"`, or `"webhook"`,
+ In addition to that above, the following detailed information returns if the `type` is `"email"`, `"slack"`, `"webhook"`, or `"google-chat"`,
 
 ##### When the `type` is `email`
 
@@ -71,11 +71,19 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
 | `enabledGraphImage` | *boolean*       | whether or not the URL of the corresponding graph is included in the notification content |
 | `events`        | *array[string]*        | notification events (`"alert"`, `"alertGroup"`, `"hostStatus"`, `"hostRegister"`, `"hostRetire"`, or `"monitor"`) |
 
+##### When the `type` is `google-chat`
+
+| KEY                 | TYPE            | DESCRIPTION                        |
+| ------------        | -------------   | ---------------------------------- |
+| `url`               | *string*        | Incoming Webhook URL for Google Chat     |
+| `enabledGraphImage` | *boolean*       | whether or not the corresponding graph is posted to Google Chat |
+| `events`            | *array[string]*        | notification events (`"alert"`, `"alertGroup"`, `"hostStatus"`, `"hostRegister"`, `"hostRetire"`, or `"monitor"`) |
+
 ----------------------------------------------
 
 <h2 id="create">Register Notification Channel</h2>
 
-※Currently supported for email, Slack, and Webhook.
+※Currently supported for email, Slack, Webhook, and Google Chat.
 
 <p class="type-post">
   <code>POST</code>
@@ -93,6 +101,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api.hatenablog.mackerel
   <li><a href="#create-email-channel">email notifications</a></li>
   <li><a href="#create-slack-channel">Slack</a></li>
   <li><a href="#create-webhook-channel">Webhook</a></li>
+  <li><a href="#create-google-chat-channel">Google Chat</a></li>
 </ul>
 
 <h3 id="create-email-channel">email notifications</h3>
@@ -263,13 +272,68 @@ The object contains the following keys
   </tbody>
 </table>
 
+<h3 id="create-google-chat-channel">Google Chat</h3>
+
+#### Input(Google Chat)
+
+The object contains the following keys
+
+| KEY     | TYPE   | DESCRIPTION |
+| -------- | ------ | ----------- |
+| `type`   | *string* | fixed character string `"google-chat"` |
+| `name`   | *string* | the name of the channel |
+| `url`               | *string*        | Incoming Webhook URL for Google Chat      |
+| `enabledGraphImage` | *boolean*       | whether or not the corresponding graph is posted to Google Chat |
+| `events`            | *array[string]*        | notification events (`"alert"`, `"alertGroup"`, `"hostStatus"`, `"hostRegister"`, `"hostRetire"`, or `"monitor"`) |
+| `addToDefaultNotificationGroup` | *boolean* | add to the default notification group |
+
+#### Response(Google Chat)
+
+##### Success
+
+```json
+{
+  "id": <channelId>,
+  "type": "google-chat",
+  "name": "My Channel",
+  "url": "https://chat.googleapis.com/v1/spaces/SPACE_ID/messages?key=KEY&token=TOKEN",
+  "enabledGraphImage": true,
+  "events": ["alert"]
+}
+```
+
+##### Error
+
+<table class="default api-error-table">
+  <thead>
+    <tr>
+      <th class="status-code">STATUS CODE</th>
+      <th class="description">DESCRIPTION</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>400</td>
+      <td>when the <code>url</code> is invalid</td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td>when <code>events</code> contains an event other than those listed above</td>
+    </tr>
+    <tr>
+      <td>403</td>
+      <td>when the API key doesn't have the required permissions / when accessing from outside the <a href="https://support.mackerel.io/hc/en-us/articles/360039701952" target="_blank">permitted IP address range</a></td>
+    </tr>
+  </tbody>
+</table>
+
 ----------------------------------------------
 
 <h2 id="update">Update Notification Channel</h2>
 
 Update a notification channel.
 
-※Currently supported for email, Slack, and Webhook.
+※Currently supported for email, Slack, Webhook, and Google Chat.
 
 <p class="type-put">
   <code>PUT</code>

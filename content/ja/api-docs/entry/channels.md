@@ -41,10 +41,10 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 | ------------    | -------- | -------------------------------- |
 | `id`            | *string* | 通知チャンネルのID               |
 | `name`          | *string* | 通知チャンネルの名称             |
-| `type`          | *string* | 通知チャンネルの種類 (`"email"`, `"email-broadcast"`, `"slack"`, `"chatwork"`, `"twilio"`, `"pagerduty"`, `"opsgenie"`, `"jira-service-management"`, `"microsoft-teams"`, `"webhook"`, `"amazon-event-bridge"` のいずれかです) |
+| `type`          | *string* | 通知チャンネルの種類 (`"email"`, `"email-broadcast"`, `"slack"`, `"chatwork"`, `"twilio"`, `"pagerduty"`, `"opsgenie"`, `"jira-service-management"`, `"microsoft-teams"`, `"webhook"`, `"amazon-event-bridge"`, `"google-chat"` のいずれかです) |
 | `suspendedAt`   | *number* / *null* | 通知チャンネルがサスペンドされた日時 (epoch秒)<br />サスペンドされていない場合は`null` |
 
-`type` が `"email"`, `"slack"` または `"webhook"` の場合は上記に加えて、以下のように詳細な情報を返します
+`type` が `"email"`, `"slack"`, `"webhook"`, `"google-chat"` の場合は上記に加えて、以下のように詳細な情報を返します
 
 ##### `type` が `email` の場合
 
@@ -71,11 +71,19 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
 | `enabledGraphImage` | *boolean*       | 関連するグラフのURLを通知内容に含めるか否か |
 | `events`            | *array[string]*        | 通知するイベント(`"alert"`, `"alertGroup"`, `"hostStatus"`, `"hostRegister"`, `"hostRetire"`, `"monitor"` のいずれか) |
 
+##### `type` が `google-chat` の場合
+
+| KEY                 | TYPE            | DESCRIPTION                        |
+| ------------        | -------------   | ---------------------------------- |
+| `url`               | *string*        |  Google ChatのIncoming WebhookのURL      |
+| `enabledGraphImage` | *boolean*       | 関連するグラフをGoogle Chatに投稿するか否か |
+| `events`            | *array[string]*        | 通知するイベント(`"alert"`, `"alertGroup"`, `"hostStatus"`, `"hostRegister"`, `"hostRetire"`, `"monitor"` のいずれか) |
+
 ----------------------------------------------
 
 <h2 id="create">通知チャンネルの登録</h2>
 
-※現在はメール通知とSlack, Webhook の3つに対応しています
+※現在はメール通知とSlack, Webhook, Google Chat の4つに対応しています
 
 <p class="type-post">
   <code>POST</code>
@@ -93,6 +101,7 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
   <li><a href="#create-email-channel">メール通知</a></li>
   <li><a href="#create-slack-channel">Slack</a></li>
   <li><a href="#create-webhook-channel">Webhook</a></li>
+  <li><a href="#create-google-chat-channel">Google Chat</a></li>
 </ul>
 
 <h3 id="create-email-channel">メール通知</h3>
@@ -266,13 +275,68 @@ EditURL: https://blog.hatena.ne.jp/mackerelio/mackerelio-api-jp.hatenablog.macke
   </tbody>
 </table>
 
+<h3 id="create-google-chat-channel">Google Chat</h3>
+
+#### 入力(Google Chat)
+
+以下のキーをもつオブジェクト
+
+| KEY     | TYPE   | DESCRIPTION |
+| -------- | ------ | ----------- |
+| `type`   | *string* | 固定文字列`"google-chat"` |
+| `name`   | *string* | チャンネルの名前 |
+| `url`               | *string*        |  Google ChatのIncoming WebhookのURL      |
+| `enabledGraphImage` | *boolean*       | 関連するグラフをGoogle Chatに投稿するか否か |
+| `events`            | *array[string]*        | 通知するイベント(`"alert"`, `"alertGroup"`, `"hostStatus"`, `"hostRegister"`, `"hostRetire"`, `"monitor"` のいずれか) |
+| `addToDefaultNotificationGroup` | *boolean* | デフォルト通知グループに追加する |
+
+#### 応答(Google Chat)
+
+##### 成功時
+
+```json
+{
+  "id": <channelId>,
+  "type": "google-chat",
+  "name": "My Channel",
+  "url": "https://chat.googleapis.com/v1/spaces/SPACE_ID/messages?key=KEY&token=TOKEN",
+  "enabledGraphImage": true,
+  "events": ["alert"]
+}
+```
+
+##### 失敗時
+
+<table class="default api-error-table">
+  <thead>
+    <tr>
+      <th class="status-code">STATUS CODE</th>
+      <th class="description">DESCRIPTION</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>400</td>
+      <td><code>url</code>が不正な場合</td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td><code>events</code>に上記以外のイベントが含まれる場合</td>
+    </tr>
+    <tr>
+      <td>403</td>
+      <td>APIキーに書き込み権限がないとき / <a href="https://support.mackerel.io/hc/ja/articles/360039701952-%E3%82%AA%E3%83%BC%E3%82%AC%E3%83%8B%E3%82%BC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AB%E5%AF%BE%E3%81%99%E3%82%8B%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E3%82%92IP%E3%82%A2%E3%83%89%E3%83%AC%E3%82%B9%E3%82%92%E6%8C%87%E5%AE%9A%E3%81%97%E3%81%A6%E5%88%B6%E9%99%90%E3%81%97%E3%81%9F%E3%81%84" target="_blank">許可されたIPアドレス範囲</a>外からのアクセスの場合</td>
+    </tr>
+  </tbody>
+</table>
+
 ----------------------------------------------
 
 <h2 id="update">通知チャンネルの更新</h2>
 
 チャンネルを更新します
 
-※現在はメール通知とSlack, Webhook の3つに対応しています
+※現在はメール通知, Slack, Webhook, Google Chat の4つに対応しています
 
 <p class="type-put">
   <code>PUT</code>
